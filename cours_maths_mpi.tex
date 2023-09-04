@@ -407,9 +407,6 @@ per-mode=power-positive-first
 \theorempostwork{\bigskip}
 \newtheorem{dem}[rem]{Démonstration}
 
-% Trick to make chapter numbering start from 0
-\setcounter{chapter}{-1}
-
 % Commands to make proofs easier to write
 \newcommand{\impdir}{\fbox{\(\imp\)}~}
 \newcommand{\imprec}{\fbox{\(\impr\)}~}
@@ -695,4 +692,10 @@ Les éléments des tables des matières initiale et présentes au début de chaq
 \dominitoc\tableofcontents
 
 \part{Cours}
+
+\include{cours/chap1_evn/chap1_evn.tex}
+
+\part{Exercices}
+
+\include{exercices/chap1_evn/chap1_evn.tex}
 \end{document}
