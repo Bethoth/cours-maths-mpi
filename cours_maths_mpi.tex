@@ -297,6 +297,48 @@ per-mode=power-positive-first
 \theoremstyle{break}
 \theorembodyfont{\upshape}
 \theoremheaderfont{\normalfont\bfseries}
+\theoremprework{\bigskip\needspace{\baselineskip}\color{magenta}\hrule\color{black}}
+\theorempostwork{\bigskip}
+\newtheorem{exos}[rem]{\(\star\) Exercice}
+
+\theoremstyle{break}
+\theorembodyfont{\upshape}
+\theoremheaderfont{\normalfont\bfseries}
+\theoremprework{\bigskip\needspace{\baselineskip}\color{magenta}\hrule\color{black}}
+\theorempostwork{\bigskip}
+\newtheorem{exoss}[rem]{\(\star\star\) Exercice}
+
+\theoremstyle{break}
+\theorembodyfont{\upshape}
+\theoremheaderfont{\normalfont\bfseries}
+\theoremprework{\bigskip\needspace{\baselineskip}\color{magenta}\hrule\color{black}}
+\theorempostwork{\bigskip}
+\newtheorem{exosss}[rem]{\(\star\star\star\) Exercice}
+
+\theoremstyle{break}
+\theorembodyfont{\upshape}
+\theoremheaderfont{\normalfont\bfseries}
+\theoremprework{\bigskip\needspace{\baselineskip}\color{magenta}\hrule\color{black}}
+\theorempostwork{\bigskip}
+\newtheorem{exops}[rem]{\(+\star\) Exercice}
+
+\theoremstyle{break}
+\theorembodyfont{\upshape}
+\theoremheaderfont{\normalfont\bfseries}
+\theoremprework{\bigskip\needspace{\baselineskip}\color{magenta}\hrule\color{black}}
+\theorempostwork{\bigskip}
+\newtheorem{exopss}[rem]{\(+\star\star\) Exercice}
+
+\theoremstyle{break}
+\theorembodyfont{\upshape}
+\theoremheaderfont{\normalfont\bfseries}
+\theoremprework{\bigskip\needspace{\baselineskip}\color{magenta}\hrule\color{black}}
+\theorempostwork{\bigskip}
+\newtheorem{exopsss}[rem]{\(+\star\star\star\) Exercice}
+
+\theoremstyle{break}
+\theorembodyfont{\upshape}
+\theoremheaderfont{\normalfont\bfseries}
 \theoremprework{\bigskip\needspace{\baselineskip}\color{magenta}\semihrule\color{green}\semihrule\color{black}}
 \theorempostwork{\bigskip}
 \newtheorem{exoex}[rem]{Exercice/Exemple}
@@ -640,9 +682,9 @@ per-mode=power-positive-first
 \usepackage{titletoc}
 \dottedcontents{section}[5.5em]{}{3.2em}{1pc}
 
-\newcommand{\bouleo}[2]{\mathbb{B}\paren{#1,#2}}
-\newcommand{\boulef}[2]{\mathbb{B}\prim\paren{#1,#2}}
-\newcommand{\sphere}[2]{\mathbb{S}\paren{#1,#2}}
+\newcommand{\bouleo}[2]{B\paren{#1,#2}}
+\newcommand{\boulef}[2]{\conj{B}\paren{#1,#2}}
+\newcommand{\sphere}[2]{S\paren{#1,#2}}
 
 \newcommand{\vdv}[2]{\operatorname{D}_{#1}#2}
 
@@ -674,6 +716,37 @@ per-mode=power-positive-first
 \usepackage{microtype}
 
 \newcommand{\sig}[1]{\epsilon\paren{#1}}
+
+\newcommand{\legendeexercices}{\(\star\) Exercice proche du cours \\ \(\star\star\) Exercice de difficulté normale \\ \(\star\star\star\) Exercice difficile (voire très difficile) \\ \(+\) Exercice à faire en priorité \\}
+
+\usepackage{accents}
+
+\newcommand{\interieur}[1]{\accentset{\circ}{#1}}
+
+\usepackage{etoolbox}
+
+\DeclareFontFamily{U}{matha}{\hyphenchar\font45}
+\DeclareFontShape{U}{matha}{m}{n}{
+      <5> <6> <7> <8> <9> <10> gen * matha
+      <10.95> matha10 <12> <14.4> <17.28> <20.74> <24.88> matha12
+      }{}
+\DeclareSymbolFont{matha}{U}{matha}{m}{n}
+\DeclareFontSubstitution{U}{matha}{m}{n}
+
+\DeclareFontFamily{U}{mathx}{\hyphenchar\font45}
+\DeclareFontShape{U}{mathx}{m}{n}{
+      <5> <6> <7> <8> <9> <10>
+      <10.95> <12> <14.4> <17.28> <20.74> <24.88>
+      mathx10
+      }{}
+\DeclareSymbolFont{mathx}{U}{mathx}{m}{n}
+\DeclareFontSubstitution{U}{mathx}{m}{n}
+
+\DeclareMathDelimiter{\vvvert}{0}{matha}{"7E}{mathx}{"17}
+\DeclarePairedDelimiterX{\normesub}[1]
+  {\vvvert}
+  {\vvvert}
+  {\ifblank{#1}{\:\cdot\:}{#1}}
 
 \begin{document}
 \renewcommand{\labelitemi}{\(\bullet\)}

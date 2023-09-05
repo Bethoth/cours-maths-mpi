@@ -1,0 +1,485 @@
+\chapter{Espaces vectoriels normés}
+
+\legendeexercices
+
+\begin{exopss}[Exercice 1]
+Soit \(u\) une suite réelle bornée. Pour \(n\in\N\), on pose \(U_n=\accol{u_p\tq p\geq n}\), \(a_n=\inf U_n\) et \(b_n=\sup U_n\).
+
+\begin{enumerate}
+    \item Justifiez l'existence des suites \(a\) et \(b\) et étudiez leur monotonie, ainsi que leur convergence. \\
+    \item Montrez que \(u\) converge ssi \(a\) et \(b\) ont la même limite.
+\end{enumerate}
+
+Note culturelle : la limite de \(a\) s'appelle la limite inférieure de \(u\), notée \(\underline{\lim}\,u\) et celle de \(b\) est la limite supérieure, notée \(\overline{\lim}\,u\).
+\end{exopss}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exops}[Exercice 2]\label{exo:1.2}
+Montrez que les applications \(N\) introduites ci-dessous sont des normes :
+
+\begin{enumerate}
+    \item si \(A\in\GL{n}[\R]\), l'application \(N\) définie sur \(\R^n\) par \(N\paren{X}=\norme{AX}_2\) ; \\
+    \item sur \(E=\ensclasse{1}{\intervii{a}{b}}{\K}\), \(N\paren{f}=\abs{f\paren{a}}+\int_a^b\abs{f\prim\paren{t}}\odif{t}\) ; \\
+    \item pour des réels \(\alpha_0<\dots<\alpha_n\) fixés, l'application \(N\) définie sur \(\polydeg[\R]{n}\) par \(N\paren{P}=\max_{k\in\interventierii{0}{n}}\abs{P\paren{\alpha_k}}\).
+\end{enumerate}
+\end{exops}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exos}[Exercice 3]
+Sur \(E=\R^2\), on définit \[\norme{\paren{x,y}}=\max\paren{\abs{x},\abs{x+2y}}.\]
+
+Démontrez que \(\norme{\cdot}\) définit une norme sur \(\R^2\). Représentez graphiquement la boule-unité.
+\end{exos}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exopss}[Exercice 4]
+Les normes définies dans l'\hyperref[exo:1.2]{exercice 2} sont-elles équivalentes à la norme \(\norme{\cdot}_\infty\), la norme \(\norme{\cdot}_1\), la norme \(\norme{\cdot}_2\) ?
+\end{exopss}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exops}[Exercice 5]
+Soit \(\theta\not\equiv0\croch{\pi}\). Montrez que \(\paren{\sin\paren{n\theta}}\) et \(\paren{\cos\paren{n\theta}}\) divergent.
+\end{exops}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exops}[Exercice 6]
+Soit \(A\in\M{n}\). On suppose que la suite \(\paren{A^k}\) converge. Montrez que sa limite est la matrice d'un projecteur.
+\end{exops}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exoss}[Exercice 7]
+Cet exercice prolonge le premier.
+
+Soit \(u\) une suite vérifiant la propriété \[\quantifs{\forall\epsilon>0;\exists N\in\N;\forall\paren{n,p}\in\N^2}p\geq n\geq N\imp\abs{u_n-u_p}\leq\epsilon.\]
+
+Montrez que \(u\) est bornée, puis en vous servant des suites \(a\) et \(b\) définies comme ci-dessus, montrez que \(u\) converge.
+
+Note culturelle : on dit que \(u\) est une suite de Cauchy et on a donc montré que toute suite de Cauchy converge.
+\end{exoss}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exopss}[Exercice 8]
+On note \(l_1\) l'ensemble des suites réelles \(\paren{u_n}\) telles que la série \(\sum u_k\) soit absolument convergente, et on pose : \[\quantifs{\forall u=\paren{u_k}\in l_1}N\paren{u}=\sum_{k=0}^{\pinf}\abs{u_k}.\]
+
+\begin{enumerate}
+    \item Justifiez que \(l_1\) est un \(\R\)-espace vectoriel. \\
+    \item Montrez que \(N\) est une norme sur \(l_1\). On notera désormais \(\norme{u}_1\) pour \(N\paren{u}\). \\
+    \item Justifiez que, si \(\paren{u\deriv{n}}_{n\in\N}\) est une suite d'éléments de \(l_1\) convergeant vers la suite \(a\in l_1\) pour la norme 1, alors \[\quantifs{\forall k\in\N}u_k\deriv{n}\tendqd{n\to\pinf}a_k.\]
+    \item Montrez que la réciproque est fausse. \\ \textit{Indication :} on pourra étudier l'exemple où, \(\quantifs{\text{pour tout }\paren{n,k}\in\N^2}u_k\deriv{n}=\exp\paren{\dfrac{-k}{n+1}}\).
+\end{enumerate}
+\end{exopss}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exops}[Exercice 9]
+Soit \(E\) le \(\C\)-espace vectoriel des suites bornées muni de la norme infinie.
+
+Montrez que les applications \(u\mapsto\paren{u_{n+1}-u_n}\) et \(u\mapsto\dfrac{u_0+\dots+u_n}{n+1}\) sont des applications continues de \(E\) dans \(E\).
+\end{exops}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exopss}[Exercice 10]
+Soit \(E=\M{n}\). Pour \(A=\paren{a_{ij}}\) on pose \(\norme{A}=\max_{1\leq i\leq n}\sum_{j=1}^n\abs{a_{ij}}\).
+
+\begin{enumerate}
+    \item Montrez que \(\norme{\cdot}\) est une norme sur \(E\). \\
+    \item Montrez que l'application \(A\mapsto\trans{A}\) est un endomorphisme continu et déterminez sa norme subordonnée.
+\end{enumerate}
+\end{exopss}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exoss}[Exercice 11]
+Soit \(E=\ensclasse{0}{\intervii{0}{1}}{\R}\). On pose \(A=\accol{f\in E\tq f\geq0}\) et pour \(f\in E\), \(\norme{f}_1=\int_0^1\abs{f}\).
+
+\begin{enumerate}
+    \item Montrez que \(\norme{\cdot}_1\) est une norme sur \(E\). \\
+    \item Déterminez \(\interieur{A}\) dans \(\groupe{E}[\norme{\cdot}_\infty]\), puis dans \(\groupe{E}[\norme{\cdot}_1]\). \\
+    \item On pose \(D=\fami{D}^1\paren{\intervii{0}{1},\R}\) le sous-espace des fonctions dérivables et \(P\) le sous-espace des fonctions polynômes. \\ Déterminez les intérieurs de \(P\) et \(D\) dans \(\groupe{E}[\norme{\cdot}_\infty]\).
+\end{enumerate}
+\end{exoss}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exoss}[Exercice 12]
+Cet exercice prolonge le précédent, les notations sont reprises.
+
+Soit \(u:E\to E\) qui à toute fonction \(f\) de \(E\) associe sa primitive qui s'annule en \(0\). Vérifiez que \(u\) est un endomorphisme de \(E\).
+
+Est-il continu de \(\groupe{E}[\norme{\cdot}_?]\) dans \(\groupe{E}[\norme{\cdot}_?]\) (vous étudierez les quatre possibilités) ? Quand c'est le cas, déterminez la norme subordonnée de \(u\).
+\end{exoss}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exopss}[Exercice 13]
+Soit \(E=\accol{f\in\ensclasse{1}{\intervii{0}{1}}{\R}\tq f\paren{0}=f\paren{1}=0}\). Pour \(f\in E\), on pose \(\norme{f}=\sup_{\intervii{0}{1}}\abs{f\prim}\).
+
+\begin{enumerate}
+    \item Montrez que \(\norme{\cdot}\) est une norme sur \(E\). \\
+    \item Soit \(\phi:E\to\R\) définie par \(\phi\paren{f}=\int_0^1f\). Montrez que \(\phi\) est continue et déterminez \(\normesub{f}\).
+\end{enumerate}
+\end{exopss}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exopss}[Exercice 14]
+Soient \(E\) un espace vectoriel normé et \(F\) un sous-espace vectoriel de \(E\).
+
+\begin{enumerate}
+    \item Montrez que si \(F\not=E\), alors \(\interieur{F}=\ensvide\) et \(\conj{F}\) est un sous-espace vectoriel de \(E\). \\
+    \item Montrez que si \(F\) est un hyperplan, alors \(F\) est fermé ou dense dans \(E\).
+\end{enumerate}
+\end{exopss}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exops}[Exercice 15]
+Soient \(E\) un espace vectoriel normé et \(A\) une partie de \(E\).
+
+Montrez que \(\interieur{A}\) est le plus grand ouvert inclus dans \(A\) et \(\conj{A}\) est le plus petit fermé contenant \(A\). Montrez que la frontière de \(A\) est un fermé d'intérieur vide.
+\end{exops}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exos}[Exercice 16]
+Une intersection d'ouverts est-elle toujours un ouvert ? Une réunion de fermés est-elle toujours un fermé ?
+\end{exos}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exops}[Exercice 17]
+Montrez que si \(A\) est une partie convexe d'un espace vectoriel normé \(E\), alors il en est de même pour \(\conj{A}\) et \(\interieur{A}\).
+\end{exops}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exoss}[Exercice 18]
+Soient \(E\) un espace vectoriel normé, \(A\) une partie de \(E\) et \(x\in E\). On dit que \(x\) est un point d'accumulation de \(A\) quand il existe une suite injective de \(A^\N\) qui converge vers \(x\). On dit que \(x\) est un point isolé de \(A\) quand il existe \(r>0\) tel que \(\bouleo{x}{r}\inter A=\accol{x}\).
+
+\begin{enumerate}
+    \item Exemples. On pose \(A=\accol{\dfrac{1}{n}\tq n\in\Ns}\) dans \(\R\) : montrez que tous les points de \(A\) sont isolés, que le seul point d'accumulation de \(A\) est \(0\) et que \(A\) n'est pas fermé. On pose \(B=\accol{\dfrac{1}{n}+\dfrac{1}{p}\tq\paren{n,p}\in\paren{\Ns}^2}\) : quels sont les points d'accumulation de \(B\) ? \\
+    \item Montrez que \(x\) est un point d'accumulation ssi \(\quantifs{\text{pour tout }r>0}\bouleo{x}{r}\inter A\text{ est un ensemble infini}\). \\
+    \item On note \(A\prim\) l'ensemble des points d'accumulation de \(A\) et \(A^d\) l'ensemble des points isolés dans \(A\). Montrez que \(\conj{A}=A\prim\sqcup A^d\). \\
+    \item Montrez que \(A\prim\) est un fermé.
+\end{enumerate}
+\end{exoss}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exoss}[Exercice 19]
+Soient \(E,F\) deux espaces vectoriels normés et \(f:E\to F\). Montrez l'équivalence entre les propositions :
+
+\begin{enumerate}
+    \item \(f\) est continue \\
+    \item \(\quantifs{\forall A\in\P{E}}f\paren{\conj{A}}\subset\conj{f\paren{A}}\) \\
+    \item \(\quantifs{\forall B\in\P{F}}f\inv\paren{\interieur{B}}\subset\interieur{\overbrace{f\inv\paren{B}}}\)
+\end{enumerate}
+\end{exoss}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exopss}[Exercice 20]
+Soient \(A,B\) deux fermés disjoints d'un espace vectoriel normé \(E\).
+
+\begin{enumerate}
+    \item Montrez que \(\accol{x\in E\tq d\paren{x,A}>d\paren{x,B}}\) est un ouvert. \\
+    \item Montrez qu'il existe deux ouverts disjoints \(U\) et \(V\) tels que \(A\subset U\) et \(B\subset V\).
+\end{enumerate}
+\end{exopss}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exopss}[Exercice 21]
+Soit \(A\) une partie d'un espace vectoriel normé \(E\). Pour \(r>0\), on pose \(V\paren{A,r}=\accol{x\in E\tq d\paren{x,A}<r}\).
+
+Montrez que \(V\paren{A,r}\) est un ouvert de \(E\) et \(\biginter_{r>0}V\paren{A,r}=\conj{A}\).
+\end{exopss}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exopss}[Exercice 22]
+Soient \(E\) un espace vectoriel normé, \(K\) un compact de \(E\), \(k\in\intervie{0}{1}\) et \(f:K\to K\) telle que \[\quantifs{\forall\paren{x,y}\in K^2}\norme{f\paren{x}-f\paren{y}}\leq k\norme{x-y}.\]
+
+Soit \(u\) la suite définie par \(u_0\) quelconque dans \(K\) et \(u_{n+1}=f\paren{u_n}\).
+
+Montrez que \(u\) converge et que sa limite est l'unique point fixe de \(f\).
+\end{exopss}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exoss}[Exercice 23]
+Soient \(E\) un espace vectoriel normé et \(A\) une partie non-vide de \(E\). On appelle diamètre de \(A\), noté \(\delta\paren{A}\), la borne supérieure dans \(\Rp\union\accol{\pinf}\) des \(\norme{x-y}\) quand \(\paren{x,y}\in A^2\).
+
+\begin{enumerate}
+    \item Montrez que \(\delta\paren{A}<\pinf\) ssi \(A\) est bornée. \\
+    \item Quel est le diamètre d'une boule ? \\
+    \item Montrez que si \(A\) est compacte, alors il existe \(\paren{a,b}\in A^2\) tel que \(\delta\paren{A}=\norme{a-b}\). Est-ce encore vrai si on suppose seulement \(A\) bornée ? \(A\) fermée ?
+\end{enumerate}
+\end{exoss}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exopss}[Exercice 24]
+Soient \(E\) un espace vectoriel normé et \(A,B\) deux parties non-vides de \(E\). On pose \(d\paren{A,B}=\inf_{\paren{a,b}\in A\times B}\norme{a-b}\), appelé distance de \(A\) à \(B\).
+
+\begin{enumerate}
+    \item Montrez que si \(d\paren{A,B}>0\), alors \(A\) et \(B\) sont disjointes, mais que la réciproque est fausse. \\
+    \item Montrez que si \(A\) et \(B\) sont compactes, alors \(d\paren{A,B}\) est en fait un minimum plutôt qu'une borne inférieure. \\
+    \item Montrez que ce résultat reste vrai si \(E\) est de dimension finie, l'une des deux parties est compacte et l'autre fermée. \\
+    \item Est-ce encore vrai si on suppose seulement \(A\) et \(B\) fermées ?
+\end{enumerate}
+\end{exopss}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exopss}[Exercice 25]
+Soient \(E\) un espace vectoriel normé de dimension finie et \(\paren{B_n=\boulef{a_n}{r_n}}\) une suite de boules fermées, décroissantes pour l'inclusion, telle que \(r_n\to0\).
+
+\begin{enumerate}
+    \item Montrez que la suite \(\paren{a_n}\) admet une sous-suite convergeant vers un vecteur \(a\). \\
+    \item Montrez que \(a_n\to a\). \\
+    \item Montrez que \(\biginter_{n\in\N}B_n=\accol{a}\).
+\end{enumerate}
+\end{exopss}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exoss}[Exercice 26]
+Soit \(E\) un \(\K\)-espace vectoriel de dimension finie. Montrez que l'ensemble des projecteurs est fermé dans \(\Lendo{E}\). Est-il borné ? Compact ? Connexe par arcs ?
+\end{exoss}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exoss}[Exercice 27]
+Soient \(f:\R\to\R\) continue et \(\epsilon>0\). On pose \(E=\accol{\paren{x,y}\in\R^2\tq\abs{f\paren{x}-y}\leq\epsilon}\).
+
+\begin{enumerate}
+    \item Montrez que \(E\) est connexe par arcs. \\
+    \item Montrez que si \(f\) est une fonction affine, alors \(E\) est une partie convexe. \\
+    \item Montrez que la réciproque est vraie.
+\end{enumerate}
+\end{exoss}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exoss}[Exercice 28]
+Soient \(E\) un \(\R\)-espace vectoriel de dimension finie et \(H\) un hyperplan de \(E\).
+
+\begin{enumerate}
+    \item Montrez que \(E\excluant H\) possède deux composantes connexes par arcs qui sont ouvertes. \\
+    \item Soit \(B\) une partie de \(H\) telle que \(H\not=B\). Montrez que \(E\excluant B\) est connexe par arcs.
+\end{enumerate}
+\end{exoss}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exoss}[Exercice 29]
+Soient \(E\) un espace vectoriel normé et \(A,B\) deux parties de \(E\) telles que \(B\) est connexe par arcs et \(B\) rencontre à la fois \(A\) et \(E\excluant A\).
+
+Montrez que \(B\) rencontre la frontière de \(A\).
+\end{exoss}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exoss}[Exercice 30]
+Deux parties d'un espace vectoriel normé sont dites homéomorphes quand il existe une bijection continue de l'une dans l'autre telle que la réciproque soit aussi continue.
+
+\begin{enumerate}
+    \item Montrez que tout intervalle ouvert est homéomorphe à \(\R\). \\
+    \item Montrez qu'un intervalle qui contient l'une de ses bornes réelles ne peut pas être homéomorphe à \(\R\). \\
+    \item Montrez que toute boule ouverte d'un espace vectoriel normé \(E\) est homéomorphe à \(E\). \\
+    \item Montrez qu'aucune boule fermée de \(E\) n'est homéomorphe à \(E\).
+\end{enumerate}
+\end{exoss}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exosss}[Exercice 31]
+Soit \(G\) un sous-groupe de \(\groupe{\R}\), autre que \(\accol{0}\).
+
+\begin{enumerate}
+    \item Montrez que \(a=\inf G\inter\Rps\) existe. \\
+    \item Montrez que \(G=a\Z\) si \(a>0\) ou \(G\) est dense dans \(\R\) si \(a=0\). \\
+    \item On pose \(G=\Z+\sqrt{2}\Z\) (\(G\) est le sous-groupe de \(\groupe{\R}\) engendré par \(1\) et \(\sqrt{2}\)) et \(r=\sqrt{2}-1\). En considérant la suite \(\paren{r^n}\), montrez que \(G\) est dense dans \(\R\). \\ Soit \(f:\R\to\R\) continue et périodique de périodes \(1\) et \(\sqrt{2}\). Que peut-on dire de \(f\) ? \\
+    \item Soient \(a,b\) deux réels distincts et non-nuls, on pose \(G=a\Z+b\Z\). Montrez que \(G\) est un sous-groupe de \(\groupe{\R}\), puis que \(G\) est dense dans \(\R\) ssi \(\dfrac{a}{b}\) est un rationnel. \\ Application : montrez que les ensembles \(\accol{\cos n\tq n\in\N}\) et \(\accol{\sin n\tq n\in\N}\) sont denses dans \(\intervii{-1}{1}\).
+\end{enumerate}
+\end{exosss}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exosss}[Exercice 32]
+Soit \(E=\ensclasse{0}{\intervii{0}{1}}{\R}\) muni de la norme infinie \(\norme{f}=\sup_{\intervii{0}{1}}\abs{f}\). On note \(\boulef{0}{1}\) la boule-unité fermée.
+
+Soit \(\paren{t_n}\) une suite injective à valeurs dans \(\intervii{0}{1}\). Pour \(f\in E\), on pose \(L\paren{f}=\sum_{n=1}^{\pinf}\paren{-1}^n\dfrac{f\paren{t_n}}{2^n}\).
+
+\begin{enumerate}
+    \item Montrez que \(L\) est une forme linéaire continue sur \(E\). \\
+    \item Déterminez \(K=\sup_{f\in\boulef{0}{1}}\abs{L\paren{f}}\). \\
+    \item Montrez que si la suite \(\paren{t_n}\) converge ou si elle est dense dans \(\intervii{0}{1}\), \(K\) n'est pas atteinte. \\
+    \item Donnez un exemple de suite \(\paren{t_n}\) pour laquelle \(K\) est atteinte. Donnez une condition nécessaire et suffisante sur la suite \(t\) pour que \(K\) soit atteinte.
+\end{enumerate}
+\end{exosss}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exosss}[Exercice 33]
+Soient \(E\) un espace vectoriel normé et \(u\) une forme linéaire non-nulle et continue sur \(E\). On pose \(H=\ker u\) et \(K=\sup_{x\in E\excluant\accol{0}}\dfrac{\abs{u\paren{x}}}{\norme{x}}\).
+
+\begin{enumerate}
+    \item Justifiez l'existence de \(K\). \\
+    \item Montrez que \(\quantifs{\text{pour tout }a\in E}d\paren{a,H}=\dfrac{\abs{u\paren{a}}}{K}\).
+\end{enumerate}
+\end{exosss}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exo}[Oral CCMP, 1]
+Soient \(E\) un espace vectoriel normé réel et \(B\) sa boule-unité ouverte. Montrez que \(E\) et \(B\) sont homéomorphes (\ie il existe une bijection de \(E\) dans \(B\) qui est continue et dont la réciproque est aussi continue).
+\end{exo}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exo}[Oral CCMP, 2]
+Soient \(E\) un espace vectoriel normé réel et \(C,D\) deux parties de \(E\) telles que \(C\subset D\subset\conj{C}\) et \(C\) convexe. Montrez que \(D\) est connexe par arcs.
+\end{exo}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exo}[Oral CCMP, 3]
+Soient \(E\) un espace vectoriel normé réel, \(K\) un compact de \(E\) et \(f:K\to K\) telle que \[\quantifs{\forall\paren{x,y}\in K^2}x\not=y\imp\norme{f\paren{x}-f\paren{y}}<\norme{x-y}.\]
+
+\begin{enumerate}
+    \item Montrez que \(f\) possède un unique point fixe. \\
+    \item Soit \(u\) la suite définie par \(u_0\) quelconque dans \(K\) et \(u_{n+1}=f\paren{u_n}\). Montrez que \(u\) converge vers le point fixe de \(f\).
+\end{enumerate}
+\end{exo}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exo}[Oral CCMP, 4]
+Soit \(u\) une suite réelle bornée telle que \(u_{n+1}-u_n\tendqd{n\to\pinf}0\). Montrez que l'ensemble de ses valeurs d'adhérence est un intervalle.
+\end{exo}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exo}[Oral Centrale, 5]
+Soit \(G\) un sous-groupe de \(\groupe{\Cs}[\times]\) tel que pour tout \(g\in G\) il existe un voisinage \(V\) de \(g\) tel que \(G\inter V=\accol{g}\).
+
+\begin{enumerate}
+    \item Montrez que pour tout compact \(K\) de \(\Cs\), \(G\inter K\) est fini. \\
+    \item Montrez que \(G\inter\U\) est un groupe cyclique. \\
+    \item On suppose que \(G\) n'est pas contenu dans \(\U\). Soit \(A=\accol{\abs{x}\tq x\in G\text{ et }\abs{x}>1}\). Montrez que \(A\) possède un plus petit élément. Déduisez-en \(G\).
+\end{enumerate}
+\end{exo}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exo}[Oral Centrale, 6]
+Soient \(E,F\) deux espaces vectoriels normés de dimensions finies et \(f:E\to F\). On dit que \(f\) est propre quand pour tout compact \(K\) de \(F\), \(f\inv\paren{K}\) est un compact de \(E\).
+
+\begin{enumerate}
+    \item Montrez que si \(f\) est propre, alors l'image d'un fermé de \(E\) est un fermé de \(F\). \\
+    \item Montrez que \(f\) est propre ssi \(\norme{f\paren{x}}\tendqd{\norme{x}\to\pinf}\pinf\).
+\end{enumerate}
+\end{exo}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exo}[Oral X, 7]
+Soient \(n\in\Ns\), \(U_n\) l'ensemble des polynômes réels unitaires de degré \(n\) et \(A_n\) l'ensemble des polynômes de \(U_n\) qui sont simplement scindés (\ie ayant \(n\) racines réelles distinctes).
+
+\begin{enumerate}
+    \item Montrez que \(A_n\) est un ouvert de \(U_n\). \\
+    \item Déterminez l'adhérence de \(A_n\).
+\end{enumerate}
+\end{exo}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
