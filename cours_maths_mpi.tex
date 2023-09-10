@@ -97,7 +97,6 @@ per-mode=power-positive-first
 \newcommand{\croch}[1]{\left[#1\right]} % [x]
 \newcommand{\accol}[1]{\left\lbrace#1\right\rbrace} % {x}
 \newcommand{\abs}[1]{\left\lvert#1\right\rvert} % |x|
-\newcommand{\norme}[1]{\left\|#1\right\|} % ||x||
 \newcommand{\floor}[1]{\left\lfloor#1\right\rfloor} % ⌊x⌋
 \newcommand{\ceil}[1]{\left\lceil#1\right\rceil} % ⌈x⌉
 
@@ -150,6 +149,7 @@ per-mode=power-positive-first
 
 \newcommand{\A}{\mathbb{A}}
 \renewcommand{\L}[2]{\mathscr{L}\paren{#1,#2}}
+\newcommand{\Lc}[2]{\mathscr{L}_c\paren{#1,#2}}
 \newcommand{\Lendo}[1]{\mathscr{L}\paren{#1}}
 
 \newcommand{\prem}{\mathbb{P}}
@@ -582,6 +582,7 @@ per-mode=power-positive-first
 
 \usepackage{derivative}
 \derivset{\pdv}[delims-eval=.)]
+\derivset{\odv}[delims-eval=.)]
 
 \DeclareMathOperator{\Arctan}{Arctan}
 \DeclareMathOperator{\Arcsin}{Arcsin}
@@ -748,8 +749,12 @@ per-mode=power-positive-first
   {\vvvert}
   {\ifblank{#1}{\:\cdot\:}{#1}}
 
+\DeclarePairedDelimiterX{\norme}[1]{\|}{\|}{\ifblank{#1}{\:\cdot\:}{#1}}
+
+\newcommand{\tpt}{\text{pour tout }}
+
 \begin{document}
-\renewcommand{\labelitemi}{\(\bullet\)}
+\renewcommand{\labelitemi}{\(\triangleright\)}
 \renewcommand{\labelenumi}{(\arabic{enumi})}
 
 \everymath{\ds}

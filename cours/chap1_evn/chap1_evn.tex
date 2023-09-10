@@ -1,0 +1,1186 @@
+\chapter{Espaces vectoriels normés}
+
+\minitoc
+
+Dans ce chapitre, la lettre \(\K\) désigne \(\R\) ou \(\C\).
+
+\section{Bornes supérieures, bornes inférieures}
+
+\subsection{Borne supérieure d'une partie de \(\R\)}
+
+On rappelle le théorème fondamental, dit \guillemets{théorème (ou axiome) de la borne supérieure}.
+
+\begin{theo}
+Toute partie \(A\) de \(\R\), non-vide et majorée, possède une borne supérieure, notée \(\sup A\).
+
+Toute partie \(A\) de \(\R\), non-vide et minorée, possède une borne inférieure, notée \(\inf A\).
+\end{theo}
+
+On dispose de caractérisations équivalentes de la borne supérieure.
+
+\begin{prop}\thlabel{prop1}
+Soient \(A\) une partie de \(\R\), non-vide et majorée, et \(s\) un réel.
+
+Alors il y a équivalence entre les propositions suivantes :
+
+\begin{itemize}
+    \item \(s=\sup A\) \\
+    \item \(\begin{dcases}\quantifs{\forall a\in A}a\leq s \\ \quantifs{\forall\epsilon>0;\exists x\in A}s-\epsilon<x\leq s\end{dcases}\) \\
+    \item \(\begin{dcases}\quantifs{\forall a\in A}a\leq s \\ \quantifs{\exists\paren{x_n}\in A^\N}x_n\tendqd{n\to\pinf}s\end{dcases}\)
+\end{itemize}
+\end{prop}
+
+On a évidemment les caractérisations associées à la borne inférieure.
+
+\subsection{Borne supérieure d'une application à valeurs dans \(\R\)}
+
+\begin{defi}
+Soient \(X\) un ensemble non-vide et \(f:X\to\R\).
+
+Si \(f\) est majorée sur \(X\), alors on appelle borne supérieure de \(f\) sur \(X\) le réel \(\sup f\paren{X}=\sup_Xf=\sup_{x\in X}f\paren{x}\).
+
+Si \(f\) est minorée sur \(X\), alors on appelle borne inférieure de \(f\) sur \(X\) le réel \(\inf f\paren{X}=\inf_Xf=\inf_{x\in X}f\paren{x}\).
+\end{defi}
+
+On déduit de la \thref{prop1} les caractérisations suivantes.
+
+\begin{prop}
+Soient \(X\) un ensemble non-vide, \(f:X\to\R\) majorée sur \(X\) et \(s\) un réel.
+
+Alors il y a équivalence entre les propositions suivantes :
+
+\begin{itemize}
+    \item \(s=\sup_Xf\) \\
+    \item \(\begin{dcases}\quantifs{\forall x\in X}f\paren{x}\leq s \\ \quantifs{\forall\epsilon>0;\exists x\in X}s-\epsilon<f\paren{x}\leq s\end{dcases}\) \\
+    \item \(\begin{dcases}\quantifs{\forall x\in X}f\paren{x}\leq s \\ \quantifs{\exists\paren{x_n}\in X^\N}f\paren{x_n}\tendqd{n\to\pinf}s\end{dcases}\)
+\end{itemize}
+\end{prop}
+
+\subsection{Règles pratiques}
+
+D'abord, des évidences auxquelles on ne pense pas toujours.
+
+\begin{prop}
+Soit \(A\) une partie de \(\R\), non-vide et majorée. Alors \(\quantifs{\forall a\in A}a\leq\sup A\).
+
+Soient \(X\) un ensemble non-vide et \(f:X\to\R\) majorée sur \(X\). Alors \(\quantifs{\forall x\in X}f\paren{x}\leq\sup_Xf\).
+\end{prop}
+
+En pratique, on n'a pas souvent besoin de connaître la valeur exacte d'une borne supérieure, on a plus souvent besoin de la majorer.
+
+\begin{prop}
+\begin{itemize}
+    \item Soient \(A\) une partie de \(\R\), non-vide et majorée, et \(M\) un réel. \\ Pour montrer \(\sup A\leq M\), il suffit de montrer \(\quantifs{\forall a\in A}a\leq M\). \\
+    \item Soient \(X\) un ensemble non-vide, \(f:X\to\R\) majorée sur \(X\) et \(M\) un réel. \\ Pour montrer \(\sup_Xf\leq M\), il suffit de montrer \(\quantifs{\forall x\in X}f\paren{x}\leq M\).
+\end{itemize}
+\end{prop}
+
+Multiplication par un réel positif.
+
+\begin{prop}
+Soient \(X\) un ensemble non-vide et \(f:X\to\R\) majorée sur \(X\).
+
+Alors \(\quantifs{\tpt\lambda\geq0}\sup_X\paren{\lambda f}=\lambda\sup_Xf\).
+\end{prop}
+
+Attention ! C'est bien sûr faux si \(\lambda<0\).
+
+\section{Normes}
+
+\subsection{Définition}
+
+\begin{defi}
+Soit \(E\) un \(\K\)-espace vectoriel.
+
+On appelle norme sur \(E\) toute application \(N:E\to\Rp\) telle que :
+
+\begin{itemize}
+    \item \(\quantifs{\tpt x\in E}N\paren{x}=0\ssi x=0\qquad\text{(séparation)}\) \\
+    \item \(\quantifs{\tpt x\in E;\tpt\lambda\in\K}N\paren{\lambda x}=\abs{\lambda}N\paren{x}\qquad\text{(homogénéité)}\) \\
+    \item \(\quantifs{\tpt\paren{x,y}\in E^2}N\paren{x+y}\leq N\paren{x}+N\paren{y}\qquad\text{(inégalité triangulaire)}\).
+\end{itemize}
+
+Un espace vectoriel est dit espace vectoriel normé quand on lui associe une norme.
+\end{defi}
+
+On déduit de l'inégalité triangulaire une inégalité classique (souvent appelée aussi inégalité triangulaire) : \[\quantifs{\tpt\paren{x,y}\in E^2}\abs{N\paren{x}-N\paren{y}}\leq N\paren{x-y}.\]
+
+Si \(N\) est une norme sur \(E\), alors on peut définir une distance entre deux vecteurs de \(E\) : \(d\paren{u,v}=N\paren{u-v}\).
+
+On définit ainsi une application \(d:E^2\to\Rp\) telle que :
+
+\begin{itemize}
+    \item \(\quantifs{\tpt\paren{x,y}\in E^2}d\paren{y,x}=d\paren{x,y}\qquad\text{(symétrie)}\) \\
+    \item \(\quantifs{\tpt\paren{x,y}\in E^2}d\paren{x,y}=0\ssi x=y\qquad\text{(sépration)}\) \\
+    \item \(\quantifs{\tpt\paren{x,y,z}\in E^3}d\paren{x,z}\leq d\paren{x,y}+d\paren{y,z}\qquad\text{(inégalité triangulaire)}\).
+\end{itemize}
+
+\subsection{Exemples fondamentaux}
+
+\begin{itemize}
+    \item La valeur absolue dans \(\R\) et le module dans \(\C\) sont des normes. \\
+    \item La norme euclidienne habituelle en géométrie plane ou spatiale est une norme. \\
+    \item Plus généralement, si \(\ps{\cdot}{\cdot}\) est un produit scalaire sur \(E\), la norme euclidienne associée \(x\mapsto\sqrt{\ps{x}{x}}\) est une norme au sens précédent. \\
+    \item Soit \(E\) un \(\K\)-espace vectoriel de dimension finie. On choisit une base de \(E\) \(\fami{B}=\paren{e_1,\dots,e_n}\). Si \(v\) est un vecteur de \(E\), on note \(\paren{v_1,\dots,v_n}\) les coordonnées de \(v\) dans la base \(\fami{B}\). \\ On définit classiquement trois normes sur \(E\) : \[\norme{v}_\infty=\max_{i\in\interventierii{1}{n}}\abs{v_i}\qquad\norme{v}_1=\sum_{i=1}^n\abs{v_i}\qquad\norme{v}_2=\sqrt{\sum_{i=1}^n\abs{v_i}^2}\] appelées respesctivement norme infinie ou norme sup, norme 1 et norme 2. \\ Cas particulier : \(E=\R^n\) muni de la base canonique. \\ Cas particulier : \(E=\M{n,p}\) muni de la base canonique. Si \(A=\paren{a_{ij}}_{\substack{1\leq i\leq n \\ 1\leq j\leq p}}\) est une matrice de \(\M{n,p}\), alors \[\norme{A}_\infty=\max_{\substack{1\leq i\leq n \\ 1\leq j\leq p}}\abs{a_{ij}}\qquad\norme{A}_1=\sum_{\substack{1\leq i\leq n \\ 1\leq j\leq p}}\abs{a_{ij}}\qquad\norme{A}_2=\sqrt{\sum_{\substack{1\leq i\leq n \\ 1\leq j\leq p}}\abs{a_{ij}}^2}\]
+    \item Soient \(X\) un ensemble et \(E\) l'ensemble des applications bornées de \(X\) dans \(\K\). La norme sup sur \(E\) est définie par \(\norme{f}_\infty=\sup_{x\in X}\abs{f\paren{x}}\). \\ Cas particulier : si \(X=\N\), \(E\) est l'ensemble des suites bornées et \(\norme{u}_\infty=\sup_{n\in\N}\abs{u_n}\).
+\end{itemize}
+
+\begin{prop}
+Soient \(E,F\) deux espaces vectoriels normés.
+
+L'application de \(E\times F\) dans \(\Rp\) qui à \(\paren{x,y}\) associe \(\max\paren{\norme{x}_E,\norme{y}_F}\) est une norme.
+
+Autrement dit, le produit de deux espaces vectoriels normés est encore un espace vectoriel normé, résultat qui se généralise par récurrence à un nombre quelconque (fini) d'espaces vectoriels normés.
+\end{prop}
+
+\subsection{Normes équivalentes}
+
+\begin{defi}
+Soient \(E\) un \(\K\)-espace vectoriel et \(N_1,N_2\) deux normes sur \(E\).
+
+On dit que \(N_1\) et \(N_2\) sont équivalentes quand il existe deux constantes strictement positives \(a,b\) telles que \(\quantifs{\tpt v\in E}aN_1\paren{v}\leq N_2\paren{v}\leq bN_1\paren{v}\).
+\end{defi}
+
+\begin{exo}
+Montrez que si \(E\) est de dimension finie, les trois normes \(\norme{}_\infty\), \(\norme{}_1\) et \(\norme{}_2\) sont équivalentes.
+\end{exo}
+
+\begin{exo}
+Soient \(E=\poly[\R]\) et \(P=\sum_{i=0}^na_iX^i\in E\). On pose \(N_1\paren{P}=\sum_{i=0}^n\abs{a_i}\) et \(N_\infty\paren{P}=\max_{0\leq i\leq n}\abs{a_i}\).
+
+Montrez que \(N_1\) et \(N_\infty\) sont des normes sur \(E\).
+
+Montrez qu'elles ne sont pas équivalentes en considérant la suite des polynômes \(P_n=\sum_{i=0}^nX^i\).
+\end{exo}
+
+Le résultat suivant est fondamental.
+
+\begin{theo}
+Si \(E\) est un \(\K\)-espace vectoriel de dimension finie, alors toutes les normes sur \(E\) sont équivalentes.
+\end{theo}
+
+Quand on est en dimension finie, cela signifie que tous les résultats qu'on peut démontrer pour une norme sont à facteurs près valables pour n'importe quelle norme, autrement dit cela nous permettra de choisir la norme que l'on préfère si on ne nous l'impose pas.
+
+Dans toute la suite, \(E\) est un espace vectoriel normé par la norme \(\norme{}\).
+
+\subsection{Boules}
+
+\begin{defi}
+Soient \(a\in E\) et \(r\in\Rps\).
+
+On appelle boule ouverte de centre \(a\) et de rayon \(r\) l'ensemble noté \(\bouleo{a}{r}\) défini de la façon suivante : \[\bouleo{a}{r}=\accol{v\in E\tq\norme{v-a}<r}.\]
+
+On appelle boule fermée de centre \(a\) et de rayon \(r\) l'ensemble noté (généralement) \(\boulef{a}{r}\) : \[\boulef{a}{r}=\accol{v\in E\tq\norme{v-a}\leq r}.\]
+
+On appelle sphère de centre \(a\) et de rayon \(r\) l'ensemble (généralement) noté \(\sphere{a}{r}\) : \[\sphere{a}{r}=\accol{v\in E\tq\norme{v-a}=r}.\]
+\end{defi}
+
+On appelle boule-unité la boule de centre \(0\) et de rayon \(1\), sphère-unité la sphère de centre \(0\) et de rayon \(1\).
+
+\begin{exo}
+Que sont les boules dans \(\R\) ? Que sont les sphères dans \(\R\) ?
+\end{exo}
+
+\begin{exo}
+On prend \(E=\R^2\) et on définit les normes infinie, 1 et 2 relativement à la base canonique.
+
+Représentez graphiquement les boules-unités pour chacune de ces trois normes.
+\end{exo}
+
+\begin{exo}
+Montrez que toute boule ouverte est contenue dans une boule fermée et contient une boule fermée de mêmes centres.
+
+Montrez la même chose en inversant les mots \guillemets{ouverte} et \guillemets{fermée}.
+\end{exo}
+
+\begin{defi}
+Soit \(\paren{x,y}\in E^2\). On note \(\croch{xy}=\accol{tx+\paren{1-t}y\tq t\in\intervii{0}{1}}\), appelé segment (géométrique) d'extrémités \(x\) et \(y\).
+
+Une partie \(A\) de \(E\) est dite convexe quand \(\quantifs{\tpt\paren{x,y}\in A^2}\croch{xy}\subset A\).
+
+On a : \[A\text{ est convexe}\ssi\quantifs{\forall\paren{x,y}\in A^2;\forall t\in\intervii{0}{1}}tx+\paren{1-t}y\in A.\]
+\end{defi}
+
+\begin{prop}
+Les boules (ouvertes ou fermées) sont des parties convexes.
+
+Les sphères ne sont jamais convexes.
+
+Dans \(\R\), les convexes sont les intervalles.
+\end{prop}
+
+\subsection{Parties bornées}
+
+\begin{defi}
+On dit qu'une partie \(A\) de \(E\) est bornée quand il existe une boule qui la contient.
+\end{defi}
+
+\begin{exo}
+Montrez que \(A\) est bornée ssi \(A\) est contenue dans une boule de centre \(0\).
+
+Plus généralement, on choisit arbitrairement un point de \(E\), noté \(x\). Montrez l'équivalence \(A\) est bornée ssi \(A\) est contenue dans une boule de centre \(x\).
+\end{exo}
+
+\begin{exo}
+Montrez qu'en dimension finie, cette définition ne dépend pas de la norme.
+\end{exo}
+
+\begin{prop}
+Une partie \(A\) de \(E\) n'est pas bornée ssi il existe une suite \(\paren{v_n}\) à termes dans \(A\) telle que \(\norme{v_n}\tendqd{n\to\pinf}\pinf\).
+\end{prop}
+
+\begin{exo}
+Dans \(E=\R^2\), on pose \(A=\accol{\paren{x,y}\tq x^4+y^4=20}\) : \(A\) est-elle bornée ? Si oui, pour chacune des normes infinie, 1 et 2, donnez un rayon d'une boule centrée en \(0\) qui contient \(A\).
+\end{exo}
+
+\begin{exo}
+Même question avec \(E=\C^2\).
+\end{exo}
+
+\begin{exo}
+Dans \(E=\R^3\), on pose \(B=\accol{\paren{x,y,z}\tq x^2+3y^2+4z^2+2xy+2xz-2yz\leq42}\) : \(B\) est-elle bornée ? Si oui, pour chacune des normes infinie, 1 et 2, donnez un rayon d'une boule centrée en \(0\) qui contient \(B\).
+\end{exo}
+
+\begin{exo}
+Dans \(\M{2}[\R]\), on note \(\fami{P}\) l'ensemble des matrices de projecteurs : \(\fami{P}\) est-il borné ?
+\end{exo}
+
+\begin{defi}
+On dit qu'une suite \(v\) à termes dans \(E\) est bornée quand l'ensemble de ses valeurs est borné, autrement dit quand il existe \(M>0\) tel que \(\quantifs{\tpt n\in\N}\norme{v_n}\leq M\).
+
+On dit qu'une fonction \(f\) d'un ensemble \(X\) dans \(E\) est bornée quand l'ensemble de ses valeurs prises sur \(X\) est borné, autrement dit quand il existe \(M>0\) tel que \(\quantifs{\tpt x\in X}\norme{f\paren{x}}\leq M\).
+\end{defi}
+
+\begin{exo}
+Soit \(u\) une suite complexe arithmético-géométrique de raison \(a\). À quelle condition est-elle bornée ?
+\end{exo}
+
+\begin{exo}
+Soient \(B,B\prim\) deux boules de \(E\). Si \(\paren{x,x\prim}\in E^2\), on pose \(f\paren{x,x\prim}=d\paren{x,x\prim}\). Montrez que \(f\) est bornée sur \(B\times B\prim\).
+\end{exo}
+
+\section{Convergence des suites}
+
+Dans cette section, \(E\) désigne un espace vectoriel normé par la norme \(\norme{}\).
+
+\subsection{Définition}
+
+\begin{defi}
+Soient \(u=\paren{u_n}\) une suite à termes dans \(E\) et \(l\in E\).
+
+On dit que la suite \(u\) converge vers \(l\) quand toute boule ouverte de centre \(l\) contient tous les termes de la suite à partir d'un certain rang : \[\quantifs{\forall\epsilon>0;\exists n_0\in\N;\forall n\geq n_0}u_n\in\bouleo{l}{\epsilon}.\]
+\end{defi}
+
+\begin{prop}
+Dans la définition, on peut remplacer les boules ouvertes par des boules fermées.
+
+On peut réécrire la définition sous deux formes équivalentes : \[\quantifs{\forall\epsilon>0;\exists n_0\in\N;\forall n\geq n_0}\norme{u_n-l}<\epsilon\] ou \[\quantifs{\forall\epsilon>0;\exists n_0\in\N;\forall n\geq n_0}\norme{u_n-l}\leq\epsilon.\]
+
+On peut donc se ramener aux suites réelles positives : la suite vectorielle \(u\) converge vers \(l\) ssi la suite réelle \(\paren{\norme{u_n-l}}\) converge vers \(0\).
+\end{prop}
+
+Une suite qui ne converge vers aucun élément de \(E\) est dite divergente.
+
+\subsection{Propriétés usuelles}
+
+\begin{prop}[Unicité de la limite]
+Si une suite \(u\in E^\N\) converge vers \(l\in E\), elle ne peut converger vers un autre point de \(E\).
+
+On peut donc noter classiquement \(l=\lim u=\lim_{n\to\pinf}u_n\) ou \(u_n\tendqd{n\to\pinf}l\).
+\end{prop}
+
+\begin{prop}
+Si une suite \(u\in E^\N\) converge, alors elle est bornée.
+\end{prop}
+
+\begin{theo}[Opérations sur les suites convergentes]
+Soient \(u,v\in E^\N\) convergeant respectivement vers \(l\) et \(m\) deux éléments de \(E\).
+
+Alors pour tout \(\paren{a,b}\in\K^2\), la suite \(au+bv\) converge vers \(al+bm\).
+
+Soit \(\alpha\in\K^\N\) convergeant vers \(\lambda\in\K\).
+
+Alors la suite \(\alpha u\) converge vers \(\lambda l\).
+\end{theo}
+
+\begin{prop}
+Toute suite extraite d'une suite convergente converge vers la même limite.
+
+Quasi-réciproque : si \(u\) est une suite telle que les deux suites extraites \(\paren{u_{2n}}\) et \(\paren{u_{2n+1}}\) convergent vers la même limite \(l\), alors \(u\) converge vers \(l\).
+\end{prop}
+
+\begin{prop}
+Dans un produit de deux espaces vectoriels normés \(E\times F\), une suite \(\paren{u_n}=\paren{\paren{a_n,b_n}}\) converge ssi les suites \(\paren{a_n}\) et \(\paren{b_n}\) convergent dans \(E\), respectivement \(F\).
+
+Dans ce cas, \(\lim\paren{a_n,b_n}=\paren{\lim a_n,\lim b_n}\).
+
+Ce résultat se généralise sans difficulté par récurrence à un nombre quelconque (fini) d'espaces vectoriels normés.
+\end{prop}
+
+\subsection{Cas particulier en dimension finie}
+
+Dans cette partie, on suppose que \(E\) est de dimension finie.
+
+\begin{defi}
+Soit \(\fami{B}=\paren{e_1,\dots,e_n}\) une base de \(E\).
+
+Pour \(i\in\interventierii{1}{n}\), on appelle \(i\)-ème forme coordonnée (relative à la base \(\fami{B}\)), notée souvent \(d_i\), la forme linéaire qui à un vecteur associe sa \(i\)-ème coordonnée dans la base \(\fami{B}\) : \[\quantifs{\tpt v\in E}v=\sum_{i=1}^nd_i\paren{v}e_i.\]
+\end{defi}
+
+\begin{theo}
+Soit \(\fami{B}\) une base de \(E\).
+
+Une suite \(u\in E^\N\) converge vers \(l\in E\) ssi pour toute forme coordonnée \(d\) relative à \(\fami{B}\), la suite \(\paren{d\paren{u_n}}\) converge vers \(d\paren{l}\).
+
+Autrement dit, une suite converge ssi ses suites-coordonnées dans n'importe quelle base convergent.
+
+Dans ce cas, la limite de la suite \(u\) est le vecteur \(l\) tel que pour toute forme coordonnée \(d\), \(d\paren{l}=\lim_{n\to\pinf}d\paren{u_n}\).
+\end{theo}
+
+\begin{ex}~\\
+Si \(M_n=\begin{pmatrix}
+1 & \e{-n} \\
+\nicefrac{1}{n} & n\sin\paren{\nicefrac{1}{n}}
+\end{pmatrix}\), alors la suite de matrices \(\paren{M_n}\) converge vers la matrice \(I_2\).
+\end{ex}
+
+\begin{cor}
+Si \(E\) est de dimension finie, la convergence d'une suite ne dépend pas du choix de la norme. On peut donc choisir la norme qu'on veut.
+\end{cor}
+
+\subsection{Point adhérent à une partie}
+
+\begin{defi}
+Soient \(A\) une partie de \(E\) et \(x\in E\).
+
+On dit que \(x\) est un point adhérent à \(A\) quand il existe une suite \(u\in A^\N\) qui converge vers \(x\).
+
+L'adhérence de \(A\) est l'ensemble de ses points adhérents, noté \(\conj{A}\).
+\end{defi}
+
+Intuitivement, l'adhérence d'une partie est elle-même à laquelle on ajoute tous les points qui se trouvent sur son bord.
+
+\begin{exo}
+Quelle est l'adhérence d'une boule ouverte ?
+\end{exo}
+
+\begin{exo}
+Quelle est l'adhérence de \(\Z\) dans \(\R\) ?
+\end{exo}
+
+\begin{prop}
+Soient \(A\) une partie de \(E\) et \(x\in E\).
+
+Alors \(x\) est adhérent à \(A\) ssi toute boule centrée en \(x\) rencontre \(A\).
+
+De manière formalisée : \(x\in\conj{A}\ssi\quantifs{\forall r>0;\exists y\in A}y\in\bouleo{x}{r}\).
+\end{prop}
+
+On peut donner la définition de la densité d'une partie.
+
+\begin{defi}
+On dit qu'une partie \(A\) est dense dans \(E\) quand \(\conj{A}=E\), \cad qu'on peut trouver des éléments de \(A\) aussi proches de n'importe quel point.
+\end{defi}
+
+\begin{ex}
+\begin{itemize}
+    \item Dans \(\R\), \(\Q\) et \(\R\excluant\Q\) sont denses (\cf cours de première année). \\
+    \item \(\GL{n}\) est dense dans \(\M{n}\) (démonstration ultérieure).
+\end{itemize}
+\end{ex}
+
+\section{Limites de fonctions}
+
+Dans cette section, \(E\) et \(F\) sont deux espaces vectoriels normés par les normes \(\norme{}_E\) et \(\norme{}_F\).
+
+\subsection{Définition}
+
+\begin{defi}
+Soient \(f\) une fonction de \(E\) dans \(F\), \(D\) son ensemble de définition, \(a\in\conj{D}\) et \(l\in F\).
+
+On dit que \(f\) a pour limite \(l\) en \(a\) quand \[\quantifs{\forall\epsilon>0;\exists\eta>0;\forall x\in D}\norme{x-a}_E<\eta\imp\norme{f\paren{x}-l}_F<\epsilon.\]
+\end{defi}
+
+\begin{rem}
+On peut remplacer les inégalités strictes sur les normes par des inégalités larges.
+
+On peut réécrire la définition à l'aide de boules ouvertes (ou fermées) : \[\quantifs{\forall\epsilon>0;\exists\eta>0;\forall x\in D\inter\bouleo{a}{\eta}}f\paren{x}\in\bouleo{l}{\epsilon}.\]
+
+Si \(E\) et \(F\) sont de dimension finie, cette définition ne dépend pas du choix des normes.
+\end{rem}
+
+\subsection{Caractérisation séquentielle de la limite}
+
+\begin{theo}
+Soient \(f\) une fonction de \(E\) dans \(F\), \(D\) son ensemble de défintion, \(a\in\conj{D}\) et \(l\in F\).
+
+\(f\) a pour limite \(l\) en \(a\) ssi pour toute suite \(u\) à termes dans \(D\) convergeant vers \(a\), la suite \(f\rond u=\paren{f\paren{u_n}}\) converge vers \(l\).
+\end{theo}
+
+En pratique, on utilise beaucoup plus souvent le sens direct de l'équivalence précédente.
+
+\subsection{Propriétés usuelles}
+
+\begin{prop}[Unicité de la limite]
+Soient \(f\) une fonction de \(E\) dans \(F\), \(D\) son ensemble de définition, \(a\in\conj{D}\) et \(l\in F\).
+
+Si \(f\) a pour limite \(l\) en \(a\), alors elle ne peut avoir d'autre limite que \(l\) en \(a\).
+
+On peut donc noter classiquement \(l=\lim_af=\lim_{x\to a}f\paren{x}\) ou \(f\paren{x}\tendqd{x\to a}l\).
+\end{prop}
+
+\begin{prop}
+Si \(f\) a pour limite \(l\) en \(a\), alors elle est bornée au voisinage de \(a\).
+\end{prop}
+
+\begin{theo}[Opérations sur les limites]
+Soient \(f\) et \(g\) deux fonctions de \(E\) dans \(F\), définies sur la même partie \(D\) et ayant respectivement pour limites \(l\) et \(m\) deux éléments de \(F\) en \(a\in\conj{D}\).
+
+Alors pour tout \(\paren{\lambda,\mu}\in\K^2\), la fonction \(\lambda f+\mu g\) a pour limite \(\lambda l+\mu m\) en \(a\).
+
+Soient \(\alpha\) une fonction de \(E\) dans \(\K\) et \(f\) une fonction définie de \(E\) dans \(F\), définies sur la même partie \(D\) et ayant respectivement pour limites \(\beta\in\K\) et \(l\in F\) en \(a\in\conj{D}\).
+
+Alors \(\alpha f\) a pour limite \(\beta l\) en \(a\).
+\end{theo}
+
+\begin{prop}
+Une fonction \(f=\paren{g,h}\) à valeurs dans un produit d'espaces vectoriels normés a une limite ssi \(g\) et \(h\) ont chacune une limite.
+
+Dans ce cas, \(\lim_af=\paren{\lim_ag,\lim_ah}\).
+
+Ce résultat se généralise sans difficulté par récurrence à un nombre quelconque (fini) d'espaces vectoriels normés.
+\end{prop}
+
+\subsection{Cas particulier de la dimension finie}
+
+\begin{theo}
+On suppose que \(F\) est de dimension finie. Soit \(\fami{B}\) une base de \(F\).
+
+Soit \(f\) une fonction de \(E\) dans \(F\), \(D\) son ensemble de définition, \(a\in\conj{D}\) et \(l\in F\).
+
+La fonction \(f\) a pour limite \(l\) en \(a\) ssi pour toute forme coordonnée \(d\) relative à \(\fami{B}\), la fonction \(d\rond f\) a pour limite \(d\paren{l}\) en \(a\).
+
+Autrement dit, une fonction a une limite en \(a\) ssi ses fonctions-coordonnées dans n'importe quelle base ont chacune une limite en \(a\).
+
+Dans ce cas, la limite de la fonction \(f\) en \(a\) est le vecteur \(l\) tel que pour tout forme coordonnée \(d\), \(d\paren{l}=\lim_{x\to a}d\paren{f\paren{x}}\).
+\end{theo}
+
+\subsection{Composition des limites}
+
+\(G\) désigne un troisième espace vectoriel normé.
+
+\begin{theo}
+Soient \(f\) une fonction de \(E\) dans \(F\) et \(D_f\) son ensemble de définition. Soient \(g\) une fonction de \(F\) dans \(G\) et \(D_g\) son ensemble de définition. On suppose que \(f\paren{D_f}\subset D_g\) (condition qui permet de définir la composée \(g\rond f\) sur \(D_f\)).
+
+Soient \(a\in\conj{D_f}\), \(b\in\conj{D_g}\) et \(l\in G\).
+
+Si \(f\) a pour limite \(b\) en \(a\) et \(g\) a pour limite \(l\) en \(b\), alors \(g\rond f\) a pour limite \(l\) en \(a\).
+
+Autrement dit, si \(\begin{dcases}
+f\paren{x}\tendqd{x\to a}b \\
+g\paren{y}\tendqd{y\to b}l
+\end{dcases}\) alors \(g\rond f\paren{x}\tendqd{x\to a}l\).
+\end{theo}
+
+\subsection{Extensions des définitions}
+
+D'abord les limites infinies en un point dans le cas où l'espace d'arrivée est \(\R\).
+
+\begin{defi}
+Soient \(f\) une fonction de \(E\) dans \(\R\), \(D\) son ensemble de définition et \(a\in\conj{D}\).
+
+On dit que \(f\) a pour limite \(\pinf\) en \(a\) quand \[\quantifs{\forall M>0;\exists\eta>0;\forall x\in D}\norme{x-a}_E\leq\eta\imp f\paren{x}\geq M.\]
+
+On dit que \(f\) a pour limite \(\minf\) en \(a\) quand \[\quantifs{\forall M<0;\exists\eta>0;\forall x\in D}\norme{x-a}_E\leq\eta\imp f\paren{x}\leq M.\]
+\end{defi}
+
+Puis les limites en \guillemets{l'infini}.
+
+\begin{defi}
+Soient \(f\) une application de \(E\) dans \(F\) et \(l\in F\).
+
+On dit que \(f\) a pour limite \(l\) quand \(\norme{x}\) tend vers l'infini quand \[\quantifs{\forall\epsilon>0;\exists B>0;\forall x\in E}\norme{x}_E\geq B\imp\norme{f\paren{x}-l}_F\leq\epsilon.\]
+
+Dans le cas où \(F=\R\), on dit que \(f\paren{x}\) a pour limite \(\pinf\) quand \(\norme{x}\) tend vers l'infini quand \[\quantifs{\forall M>0;\exists B>0;\forall x\in E}\norme{x}_E\geq B\imp f\paren{x}\geq M.\]
+
+(Définition semblable pour la limite \(\minf\)).
+\end{defi}
+
+Enfin, dans le cas où l'espace de départ est \(\R\), on peut parler de limite en l'infini au sens habituel.
+
+\begin{defi}
+Soient \(f\) une fonction de \(\R\) dans \(F\), définie sur un ouvert \(\intervee{?}{\pinf}\) et \(l\in F\).
+
+On dit que \(f\paren{x}\) a pour limite \(l\) quand \(x\) tend vers \(\pinf\) quand \[\quantifs{\forall\epsilon>0;\exists B>0;\forall x\geq B}\norme{f\paren{x}-l}\leq\epsilon.\]
+
+(Définition semblable pour la limite \(x\) tend vers \(\minf\)).
+\end{defi}
+
+\section{Fonctions continues}
+
+Dans cette section, \(E\) et \(F\) sont des espaces vectoriels normés par les normes \(\norme{}_E\) et \(\norme{}_F\).
+
+\subsection{Continuité en un point}
+
+\begin{prop}
+Soient \(f\) une fonction de \(E\) dans \(F\), \(D\) son ensemble de définition, \(a\in\conj{D}\) et \(l\in F\).
+
+Si \(f\) a pour limite \(l\) en \(a\) et si \(a\in D\), alors \(l=f\paren{a}\).
+\end{prop}
+
+Dans ce cas, on dit que la fonction \(f\) est continue en \(a\).
+
+\begin{defi}
+Soient \(f\) une fonction de \(E\) dans \(F\), \(D\) son ensemble de définition et \(a\in D\).
+
+On dit que \(f\) est continue en \(a\) quand \(f\) a pour limite \(f\paren{a}\) en \(a\).
+\end{defi}
+
+On déduit de cette définition et des théorèmes précédents
+
+\begin{itemize}
+    \item la caractérisation séquentielle de la continuité en un point ; \\
+    \item le fait qu'une fonction continue en un point est bornée au voisinage de ce point ; \\
+    \item les théorèmes d'opérations et de compositions des fonctions continues en un point ; \\
+    \item l'équivalence entre la continuité d'une fonction et celle de ses fonctions-coordonnées dans une certaine base de \(F\) dans le cas où \(F\) est de dimension finie.
+\end{itemize}
+
+\subsection{Continuité sur une partie}
+
+\begin{defi}
+Soient \(f\) une fonction de \(E\) dans \(F\), \(D\) son ensemble de définition et \(A\subset D\).
+
+On dit que \(f\) est continue sur \(A\) quand \(f\) est continue en tout point de \(A\).
+\end{defi}
+
+On déduit de cette définition et des théorèmes précédents
+
+\begin{itemize}
+    \item les théorèmes d'opérations et de compositions des fonctions continues sur une partie ; \\
+    \item l'équivalence entre la continuité d'une fonction et celle de ses fonctions-coordonnées dans une certaine base de \(F\) dans le cas où \(F\) est de dimension finie.
+\end{itemize}
+
+\begin{prop}
+Soient \(f\) et \(g\) deux fonctions de \(E\) dans \(F\) définies sur \(D\) et \(A\subset D\).
+
+Si \(A\) est dense dans \(D\), \(f\) et \(g\) sont continues sur \(D\) et \(f=g\) sur \(A\), alors \(f=g\) sur \(D\).
+\end{prop}
+
+\subsection{Cas particulier de la dimension finie}
+
+On suppose que \(E\) et \(F\) sont de dimensions finies.
+
+Dans une base donnée, les formes coordonnées relatives à cette base sont en particulier des applications continues.
+
+Donc toute fonction \(f\) de \(E\) dans \(F\) dont les fonctions-coordonnées \(\paren{f_1,\dots,f_n}\) dans une base de \(F\) sont définies polynomialement à partir des formes coordonnées dans une base de \(E\) est continue.
+
+\begin{ex}
+\begin{itemize}
+    \item La fonction \(f:\R^2\to\R^2\) telle que \(f\paren{x,y}=\paren{x^2+y^2,xy-\paren{1+x}^3}\) est continue sur \(\R^2\). \\
+    \item Les applications trace et déterminant définies sur \(\M{n}\) sont continues.
+\end{itemize}
+\end{ex}
+
+\begin{exo}
+Montrez que l'application \(A\mapsto A^2\) est continue de \(\M{n}\) dans lui-même.
+\end{exo}
+
+\begin{exo}
+En admettant (momentanément) que \(\GL{n}\) est un ouvert, montrez que l'application \(A\mapsto A\inv\) est continue de \(\GL{n}\) dans lui-même.
+\end{exo}
+
+\subsection{Fonctions lipschitziennes}
+
+\begin{defi}
+Soient \(f\) une application de \(E\) dans \(F\), \(A\) une partie de \(E\) et \(K\in\Rp\).
+
+On dit que \(f\) est \(K\)-lipschitzienne sur \(A\) (ou lipschitzienne de rapport \(K\)) quand \[\quantifs{\forall\paren{x,y}\in A^2}\norme{f\paren{y}-f\paren{x}}_F\leq K\norme{y-x}_E.\]
+
+On dit que \(f\) est lipschitzienne sur \(A\) quand il existe \(K\in\Rp\) tel que \(f\) soit \(K\)-lipschitzienne sur \(A\).
+\end{defi}
+
+\begin{rem}
+Si \(f\) est \(K\)-lipschitzienne sur \(A\), alors le rapport \(K\) n'est pas unique, puisque pour tout \(L\geq K\), on a encore \(f\) \(L\)-lipschitzienne sur \(A\).
+\end{rem}
+
+\begin{prop}
+Toute fonction lipschitzienne est continue.
+\end{prop}
+
+Mais la réciproque est fausse (contre-exemple : la fonction \(\sqrt{\cdot}\) sur \(\intervie{0}{\pinf}\)).
+
+Un exemple fondamental : la fonction \(x\mapsto d\paren{x,A}\).
+
+\begin{defi}
+Soit \(A\) une partie de \(E\).
+
+Pour \(x\in E\), on appelle distance de \(x\) à \(A\) le réel \(\inf_{a\in A}d\paren{x,a}\).
+\end{defi}
+
+\begin{prop}
+Pour toute partie \(A\) de \(E\), la fonction \(x\mapsto d\paren{x,A}\) est \(1\)-lipschitzienne.
+
+L'adhérence de \(A\) est l'ensemble des points à distance nulle de \(A\), \ie tels que \(d\paren{x,A}=0\).
+\end{prop}
+
+\subsection{Continuité des applications linéaires et \(n\)-linéaires}
+
+\begin{prop}
+Soit \(f\in\L{E}{F}\).
+
+Il y a équivalence entre les propositions suivantes :
+
+\begin{itemize}
+    \item \(f\) est continue en \(0\) ; \\
+    \item \(f\) est continue en un point \(x\) ; \\
+    \item \(f\) est continue sur \(E\) ; \\
+    \item \(f\) est lipschitzienne sur \(E\) ; \\
+    \item il existe \(K\geq 0\) tel que \(\quantifs{\tpt x\in E}\norme{f\paren{x}}_F\leq K\norme{x}_E\) ; \\
+    \item \(f\) est bornée sur la boule-unité ; \\
+    \item \(f\) est bornée sur une boule.
+\end{itemize}
+\end{prop}
+
+\begin{exo}
+On pose \(E=\ensclasse{0}{\intervii{0}{1}}{\R}\) muni de la norme infinie.
+
+L'application \(f\mapsto\int_0^1f\paren{t}\odif{t}\) est-elle continue sur \(E\) ?
+\end{exo}
+
+\begin{exo}
+\(E\) désigne le même espace et on pose \(\norme{f}_1=\int_0^1\abs{f\paren{t}}\odif{t}\).
+
+Montrez que \(\norme{}_1\) est une norme sur \(E\).
+
+L'application \(f\mapsto f\paren{1}\) est-elle continue sur \(E\) ?
+\end{exo}
+
+\begin{defi}
+On note \(\Lc{E}{F}\) l'ensemble des applications linéaires continues de \(E\) dans \(F\).
+\end{defi}
+
+\begin{prop}
+\(\Lc{E}{F}\) est un sous-espace vectoriel de \(\L{E}{F}\), en général distinct de \(\L{E}{F}\).
+\end{prop}
+
+Cas particulier en dimension finie.
+
+\begin{theo}
+On suppose que \(E\) est de dimension finie.
+
+Toute application linéaire de \(E\) dans \(F\) est lipschitzienne sur \(E\), donc continue.
+
+Autrement dit, si \(E\) est de dimension finie, alors \(\Lc{E}{F}=\L{E}{F}\).
+\end{theo}
+
+\begin{rem}
+L'hypothèse de dimension finie de \(E\) est indispensable. Dans le cas contraire, c'est faux en général.
+\end{rem}
+
+Le résultat précédent s'étend aux applications multilinéaires.
+
+\begin{theo}
+Soient \(E_1,\dots,E_n\) des espaces vectoriels normés de dimensions finies et \(f:E_1\times\dots\times E_n\to F\) une application \(n\)-linéaire.
+
+Il existe alors une constante \(K\geq0\) telle que \[\quantifs{\tpt\paren{x_1,\dots,x_n}\in E_1\times\dots\times E_n}\norme{f\paren{x_1,\dots,x_n}}\leq K\norme{x_1}_{E_1}\dots\norme{x_n}_{E_n}.\]
+\end{theo}
+
+\begin{cor}
+Soient \(E_1,\dots,E_n\) des espaces vectoriels normés de dimensions finies.
+
+Toute application \(f:E_1\times\dots\times E_n\to F\) qui est \(n\)-linéaire est continue sur \(E_1\times\dots\times E_n\).
+\end{cor}
+
+\begin{ex}
+\begin{itemize}
+    \item Le produit matriciel de \(\M{np}\times\M{pq}\) dans \(\M{nq}\) est bilinéaire, donc continu. \\
+    \item Un produit scalaire dans un espace euclidien est bilinéaire, donc continu. \\
+    \item Le déterminant dans \(\M{n}\) est \(n\)-linéaire par rapport aux colonnes, donc il est continu.
+\end{itemize}
+\end{ex}
+
+\subsection{Norme subordonnée}
+
+On définit sur l'espace vectoriel \(\Lc{E}{F}\) des applications linéaires continues de \(E\) dans \(F\) la notion de norme subordonnée (relative aux deux normes sur \(E\) et \(F\)) ou norme triple.
+
+\begin{defi}
+Soit \(f\in\Lc{E}{F}\).
+
+On pose \(\normesub{f}=\sup_{x\in\bouleo{0}{1}}\norme{f\paren{x}}\), appelée la norme subordonnée de \(f\).
+\end{defi}
+
+\begin{prop}
+Soit \(f\in\Lc{E}{F}\).
+
+Alors \(\normesub{f}\) est
+
+\begin{itemize}
+    \item égal à \(\sup_{x\not=0}\dfrac{\norme{f\paren{x}}}{\norme{x}}\), mais aussi à \(\sup_{x\in\sphere{0}{1}}\norme{f\paren{x}}\) ; \\
+    \item le plus petit réel positif \(M\) tel que \(\quantifs{\tpt x\in E}\norme{f\paren{x}}\leq M\norme{x}\).
+\end{itemize}
+\end{prop}
+
+\begin{prop}
+Les normes subordonnées sont des normes sur les espaces \(\Lc{E}{F}\).
+
+Elles sont dites sous-multiplicatives : pour toutes applications linéaires continues et composables \(f\) et \(g\), \[\normesub{f\rond g}\leq\normesub{f}\times\normesub{g}.\]
+\end{prop}
+
+Comme en dimension finie, on peut représenter par choix de bases les applications linéaires par des matrices, on définit de manière semblable la notion de norme sous-multiplicative de matrices (relativement aux normes) ou norme triple.
+
+\begin{defi}
+Soit \(\paren{n,p}\in\paren{\Ns}^2\). On choisit deux normes sur \(\K^p\) et \(\K^n\) (espaces identifiés à ceux des matrices-colonnes).
+
+Pour toute matrice \(A\in\M{np}\), on pose \(\normesub{A}=\sup_{\norme{X}=1}\norme{AX}\).
+\end{defi}
+
+\begin{prop}
+Des normes étant choisies sur les espaces \(\K^p\) et \(\K^n\), les normes subordonnées sont des normes sur tous les espaces \(\M{np}\).
+
+Elles sont dites sous-multiplicatives : pour toutes matrices multipliables \(A\) et \(B\), \[\normesub{AB}\leq\normesub{A}\times\normesub{B}.\]
+\end{prop}
+
+\begin{rem}
+Dans le cas où un espace vectoriel normé \(E\) est aussi une \(\K\)-algèbre, on dit qu'il est une algèbre normée quand la norme vérifie en plus la propriété de sous-multiplicativité : \(\quantifs{\forall\paren{x,y}\in E^2}\norme{xy}\leq\norme{x}\cdot\norme{y}\).
+\end{rem}
+
+\section{Topologie d'un espace vectoriel normé}
+
+Dans cette section, \(E\) est un espace vectoriel normé.
+
+\subsection{Intérieur d'une partie, voisinage d'un point}
+
+\begin{defi}
+Soient \(A\) une partie de \(E\) et \(a\in A\).
+
+On dit que \(a\) est un point intérieur à \(A\) quand on peut trouver un rayon \(r>0\) tel que \(\bouleo{a}{r}\) soit incluse dans \(A\). On dit aussi dans ce cas que \(A\) est un voisinage de \(a\).
+
+L'intérieur de \(A\) est l'ensemble de ses points intérieurs, noté \(\interieur{A}\).
+
+On a : \[a\in\interieur{A}\ssi\quantifs{\exists r>0}\bouleo{a}{r}\subset A.\]
+\end{defi}
+
+\begin{exo}
+Dans \(\R\), quels sont les intérieurs des parties suivantes : \(\intervii{0}{1}\), \(\intervie{0}{\pinf}\), \(\Q\) ?
+\end{exo}
+
+\begin{exo}
+Quel est l'intérieur d'une boule de centre \(a\) et de rayon \(r>0\) ?
+\end{exo}
+
+\begin{rem}
+Cette notion dépend a prori de la norme utilisée. En dimension finie, ce n'est pas le cas : l'intérieur d'une partie d'un espace vectoriel normé de dimension finie ne dépend pas du choix de la norme (pourquoi ?).
+\end{rem}
+
+\begin{prop}
+Soient \(u\in E^\N\) et \(l\in E\).
+
+La suite \(u\) converge vers \(l\) ssi tout voisinage de \(l\) contient tous les termes de la suite à partir d'un certain rang.
+\end{prop}
+
+\subsection{Parties ouvertes}
+
+\begin{defi}
+On dit qu'une partie \(A\) de \(E\) est ouverte (ou est un ouvert) quand à tout point de \(a\in A\), on peut associer un rayon \(r>0\) tel que la boule de centre \(a\) et de rayon \(r\) soit incluse dans \(A\) : \[\quantifs{\forall a\in A;\exists r>0}\bouleo{a}{r}\subset A.\]
+
+Autrement dit, \(A\) est ouverte quand tout point de \(A\) est intérieur à \(A\) : \(A=\interieur{A}\), ou, autrement dit, quand \(A\) est un voisinage de chacun de ses points.
+\end{defi}
+
+\begin{prop}
+L'ensemble vide et \(E\) sont des parties ouvertes. Toute boule ouverte est une partie ouverte. Tout produit (fini) de parties ouvertes est ouvert.
+\end{prop}
+
+La topologie de \(E\) est l'ensemble de tous les ouverts de \(E\).
+
+\begin{rem}
+La topologie dépend a priori de la norme utilisée. En dimension finie, ce n'est pas le cas : dans un espace vectoriel normé de dimension finie, le fait d'être un ouvert ne dépend pas du choix de la norme.
+\end{rem}
+
+\subsection{Parties fermées}
+
+On rappelle la notion de point adhérent à une partie.
+
+\begin{defi}
+Soient \(A\) une partie de \(E\) et \(x\in E\).
+
+On dit que \(x\) est un point adhérent à \(A\) quand il existe une suite \(u\in A^\N\) qui converge vers \(x\), ou, ce qui revient au même, quand toute boule centrée en \(x\) rencontre \(A\), ou encore quand \(d\paren{x,A}=0\).
+
+L'adhérence de \(A\) est l'ensemble de ses points adhérents, noté \(\conj{A}\).
+\end{defi}
+
+On a montré
+
+\begin{defi}
+On dit qu'une partie \(A\) de \(E\) est fermée (ou est un fermé) quand tout point adhérent à \(A\) est dans \(A\), autrement dit quand la propriété suivante est vraie : \[\text{si une suite quelconque à termes dans }A\text{ converge vers un point }x\text{ de }E\text{, alors }x\in A.\]
+
+Ou encore : \(A\) est fermée quand \(A=\conj{A}\).
+\end{defi}
+
+\begin{prop}
+L'ensemble vide et \(E\) sont des parties fermées. Toute boule fermée est une partie fermée. Tout produit (fini) de parties fermées est fermé.
+\end{prop}
+
+On note le lien avec les parties ouvertes.
+
+\begin{prop}
+Soit \(A\) une partie de \(E\).
+
+Alors \(A\) est une partie ouverte ssi son complémentaire est une partie fermée.
+\end{prop}
+
+Encore une fois, le fait d'être un fermé en dimension finie ne dépend pas de la norme.
+
+\begin{prop}
+\begin{itemize}
+    \item Toute réunion de parties ouvertes est ouverte. Toute intersection finie de parties ouvertes est ouverte. \\
+    \item Toute intersection de parties fermées est fermée. Toute réunion finie de parties fermées est fermée.
+\end{itemize}
+\end{prop}
+
+\begin{exo}
+Montrez que pour tout \(a\in E\), \(E\excluant\accol{a}\) est un ouvert. Déduisez-en que si \(A\) est une partie finie de \(E\), alors \(E\excluant A\) est un ouvert.
+\end{exo}
+
+\begin{exo}
+Quels sont les sous-espaces vectoriels de \(E\) qui sont ouverts ?
+\end{exo}
+
+\begin{exo}
+Montrez que \(F=\accol{\paren{x,y}\in\R^2\tq x\geq0\text{ et }xy=1}\) est un fermé de \(\R^2\).
+\end{exo}
+
+\begin{exo}
+On note \(S\) l'ensemble des matrices de \(\M{n}[\R]\) telles que tous les coefficients soient positifs et sur chaque ligne la somme des coefficients vaut \(1\).
+
+Montrez que \(S\) est un fermé.
+
+NB : \(S\) est l'ensemble des matrices dites stochastiques.
+\end{exo}
+
+\begin{rem}
+A priori, une partie de \(E\) n'est ni ouverte ni fermée : par exemple, dans \(\R\), l'ensemble \(\intervei{0}{1}\) n'est ni ouvert ni fermé.
+
+Donc ne pas confondre \guillemets{complémentaire} et \guillemets{contraire} : on peut dire qu'une partie est un fermé quand son complémentaire est un ouvert, mais pas que le contraire d'être un ouvert c'est être un fermé.
+\end{rem}
+
+\begin{rem}
+Il est souvent assez facile de montrer qu'une partie est un fermé grâce à la caractérisation séquentielle. Donc pour montrer qu'une partie est un ouvert, on montre souvent de cette façon que son complémentaire est un fermé.
+
+Les fermés sont souvent définis par des égalités ou des inégalités larges. Par complémentaire, les ouverts sont souvent définis par des inégalités strictes ou des différences.
+\end{rem}
+
+\subsection{Ouverts ou fermés relatifs à une partie}
+
+Les définitions précédentes parlent d'ouverts et de fermés de \(E\). On peut définir ces notions relativement à une partie.
+
+\begin{defi}
+Soient \(A\) une partie de \(E\) et \(U\) un sous-ensemble de \(A\).
+
+On dit que \(U\) est un ouvert de \(A\) quand il existe un ouvert \(V\) de \(E\) tel que \(U=A\inter V\).
+
+On dit que \(U\) est un fermé de \(A\) quand il existe un fermé \(V\) de \(E\) tel que \(U=A\inter V\).
+\end{defi}
+
+On remarque que les fermés de \(A\) sont les complémentaires dans \(A\) des ouverts de \(A\). On peut caractériser de même une partie \(U\) fermée de \(A\) par l'égalité entre \(U\) et l'ensemble de ses points adhérents dans \(A\).
+
+\subsection{Image réciproque d'un ouvert ou d'un fermé par une fonction continue}
+
+\begin{rappel}
+Si \(f\) est une fonction de \(E\) dans \(F\) définie sur \(D_f\) et \(B\subset F\), l'image réciproque de \(B\) par \(f\) est \[f\inv\paren{B}=\accol{x\in D_f\tq f\paren{x}\in B}.\]
+\end{rappel}
+
+\begin{theo}
+Soit \(f\) une fonction de \(E\) dans \(F\) définie sur \(D\).
+
+Alors on a équivalence entre les propositions suivantes :
+
+\begin{itemize}
+    \item \(f\) est continue sur \(D\) ; \\
+    \item pour tout fermé \(B\) de \(F\), son image réciproque \(f\inv\paren{B}\) est un fermé de \(D\) ; \\
+    \item pour tout ouvert \(B\) de \(F\), son image réciproque \(f\inv\paren{B}\) est un ouvert de \(D\).
+\end{itemize}
+
+Ceci est valable en particulier quand \(f\) est une application continue de \(E\) dans \(F\), auquel cas on peut se passer des notions d'ouvert ou fermé relatif.
+\end{theo}
+
+\begin{ex}[Cas particuliers fondamentaux]
+Si \(f\) est continue sur \(E\) et à valeurs réelles, alors pour tout \(a\in\R\), les ensembles suivants sont des fermés de \(E\) : \[\accol{x\in E\tq f\paren{x}\geq a}\qquad\accol{x\in E\tq f\paren{x}\leq a}\qquad\accol{x\in E\tq f\paren{x}=a}.\]
+\end{ex}
+
+\begin{ex}
+\begin{itemize}
+    \item Les courbes de fonctions continues de \(\R\) dans \(\R\) sont des fermés de \(\R^2\). \\
+    \item L'ensemble des matrices de trace nulle est un fermé de \(\M{n}\).
+\end{itemize}
+\end{ex}
+
+Par passage au complémentaire, si \(f\) est continue sur \(E\) et à valeurs réelles, alors pour tout \(a\in\R\), les ensembles suivants sont des ouverts de \(E\) : \[\accol{x\in E\tq f\paren{x}<a}\qquad\accol{x\in E\tq f\paren{x}>a}\qquad\accol{x\in E\tq f\paren{x}\not=a}.\]
+
+\begin{ex}
+\begin{itemize}
+    \item L'ensemble des couples \(\paren{x,y}\in\R^2\) tels que \(x>0\) et \(y>x\) est un ouvert de \(\R^2\). \\
+    \item \(\GL{n}\) est un ouvert de \(\M{n}\) : si une matrice \(A\) est inversible, alors toutes les matrices proches de \(A\) le sont aussi.
+\end{itemize}
+\end{ex}
+
+\subsection{Frontière d'une partie}
+
+\begin{defi}
+Soit \(A\) une partie de \(E\). On appelle frontière de \(A\) l'ensemble \(\conj{A}\excluant\interieur{A}\).
+\end{defi}
+
+\begin{ex}
+\begin{itemize}
+    \item Si \(B\) est une boule, alors son intérieur est la boule ouverte de même centre et de même rayon, son adhérence est la boule fermée et sa frontière est la sphère. \\
+    \item L'ensemble des rationnels est d'intérieur vide, d'adhérence égale à \(\R\) et donc de frontière \(\R\).
+\end{itemize}
+\end{ex}
+
+\section{Compacité}
+
+Dans cette section, \(E\) est un espace vectoriel normé.
+
+\subsection{Valeurs d'adhérence d'une suite}
+
+\begin{defi}
+Soient \(u=\paren{u_n}\in E^\N\) et \(a\in E\).
+
+On dit que \(a\) est une valeur d'adhérence de la suite \(u\) quand il existe une extractrice \(\phi\) telle que la suite extraite \(\paren{u_{\phi\paren{n}}}\) converge vers \(a\).
+\end{defi}
+
+Une suite peut avoir une ou plusieurs valeurs d'adhérence ou ne pas avoir de valeur d'adhérence :
+
+\begin{itemize}
+    \item la suite \(\paren{n}_{n\in\N}\) n'a pas de valeur d'adhérence ; \\
+    \item toute suite convergente possède une seule valeur d'adhérence : sa limite ; \\
+    \item la suite \(u\) définie par \(u_{2n}=\dfrac{1}{n+1}\) et \(u_{2n+1}=1-\dfrac{1}{n+1}\) possède deux valeurs d'adhérence : \(0\) et \(1\) ; \\
+    \item il est possible de numéroter les rationnels, autrement dit de créer une suite \(u\) qui prend exactement toutes les valeurs rationnelles dans \(\R\) : cette suite a pour valeurs d'adhérence tous les réels.
+\end{itemize}
+
+On peut donner une caractérisation équivalente sans passer par la notion de suite extraite.
+
+\begin{prop}
+Soient \(u=\paren{u_n}\in E^\N\) et \(a\in E\).
+
+Alors \(a\) est une valeur d'adhérence de \(u\) ssi \(\quantifs{\tpt\epsilon>0}\accol{n\in\N\tq u_n\in\bouleo{a}{\epsilon}}\text{ est infini}\).
+\end{prop}
+
+Ceci peut encore être réécrit de la façon suivante.
+
+\begin{prop}
+Soient \(u=\paren{u_n}\in E^\N\) et \(a\in E\).
+
+Alors \(a\) est une valeur d'adhérence de \(u\) ssi \(\quantifs{\forall\epsilon>0;\forall N\in\N;\exists n\geq N}\norme{u_n-a}<\epsilon\).
+\end{prop}
+
+\begin{exo}
+Soit \(u=\paren{u_n}\in E^\N\). Montrez que l'ensemble \(V\) des valeurs d'adhérence de la suite \(u\) est un fermé de \(E\) en utilisant les ensembles \(U_p=\accol{u_n\tq n\geq p}\).
+\end{exo}
+
+\subsection{Théorème de Bolzano-Weierstrass}
+
+\begin{theo}
+Si \(E\) est de dimension finie, alors toute suite bornée de \(E\) possède une valeur d'adhérence.
+\end{theo}
+
+\begin{rem}
+Ce théorème est faux en dimension infinie donc il faut bien mettre en valeur la dimension finie.
+\end{rem}
+
+On peut ajouter une précision au théorème précédent.
+
+\begin{prop}
+Si \(E\) est de dimension finie, alors toute suite bornée de \(E\) qui ne possède qu'une seule valeur d'adhérence est convergente vers cette valeur d'adhérence.
+\end{prop}
+
+\subsection{Parties compactes}
+
+\begin{defi}
+Soit \(A\) une partie de \(E\).
+
+On dit que \(A\) est une partie compacte de \(E\) (ou un compact de \(E\)) quand toute suite à termes dans \(A\) possède une valeur d'adhérence dans \(A\) (propriété dite de Bolzano-Weierstrass).
+\end{defi}
+
+\begin{ex}
+\begin{itemize}
+    \item Tout segment \(\intervii{a}{b}\) de \(\R\) est un compact et ce sont les seuls intervalles compacts. \(\intervii{0}{1}\union\intervii{2}{3}\) est compact. \\
+    \item Dans \(\K^n\), tout pavé \(\prod_{i=1}^n\intervii{a_i}{b_i}\) est un compact. Plus généralement, un produit (fini) de compacts est compact.
+\end{itemize}
+\end{ex}
+
+Les parties compactes sont donc celles dont on peut extraire des sous-suites convergentes. Un résultat précédent se généralise alors.
+
+\begin{prop}
+Si \(A\) est une partie compacte, alors toute suite de \(A\) qui ne possède qu'une seule valeur d'adhérence est convergente vers cette valeur d'adhérence.
+\end{prop}
+
+Un compact étant connu, il est facile d'en construire d'autres.
+
+\begin{prop}
+Si \(A\) est une partie compacte de \(E\), alors toute partie \(B\) fermée dans \(A\) est aussi compacte.
+\end{prop}
+
+Reconnaître si une partie est compacte n'est pas toujours facile. On dispose d'une condition nécessaire, qui est suffisante en dimension finie.
+
+\begin{prop}
+Soit \(A\) une partie de \(E\).
+
+Si \(A\) est compacte, alors \(A\) est une partie fermée et bornée.
+\end{prop}
+
+La réciproque est hélas fausse en général. Néanmoins, en dimension finie, elle est vraie.
+
+\begin{prop}
+Si \(E\) est de dimension finie, alors une partie de \(E\) est compacte ssi elle est fermée et bornée.
+\end{prop}
+
+\begin{rem}
+En fait, il n'y a qu'en dimension finie que ce résultat est vrai. Un théorème de Riesz affirme que la boule-unité fermée d'un espace vectoriel normé est compacte ssi l'espace est de dimension finie, ce qui revient à dire que l'équivalence précédente n'est valable que dans un espace de dimension finie.
+
+En dimension infinie, il se passe des choses vraiment étranges : les compacts sont des parties très petites et plates, par exemple, un compact est forcément d'intérieur vide. Heureusement, il est plus courant de travailler à notre niveau en dimension finie.
+\end{rem}
+
+\begin{ex}
+\begin{itemize}
+    \item L'ensemble des matrices stochastiques de \(\M{n}[\R]\) est un compact. \\
+    \item La boule-unité fermée de \(E=\ensclasse{0}{\intervii{0}{1}}{\R}\) pour la norme infinie n'est pas compacte, car la suite des fonctions \(\paren{x\mapsto x^n}\) a pour seule valeur d'adhérence possible la fonction \(x\mapsto0\) si \(x\not=1\) et \(1\mapsto1\), qui n'est même pas dans l'espace \(E\).
+\end{itemize}
+\end{ex}
+
+Une application importante de la notion de compacité est le théorème suivant.
+
+\begin{theo}
+Tout sous-espace vectoriel de dimension finie de \(E\) est fermé.
+\end{theo}
+
+En dimension infinie, là encore il peut se passer des choses étranges : un sous-espace de \(E\) de dimension infinie peut être dense (et donc non-fermé s'il est différent de \(E\)).
+
+\subsection{Théorème des bornes atteintes}
+
+Le principal intérêt des compacts est de pouvoir généraliser un théorème de première année.
+
+\begin{theo}
+Soient \(E,F\) deux espaces vectoriels normés, \(A\) une partie de \(E\) et \(f:A\to F\).
+
+Si \(f\) est continue sur \(A\) et \(A\) est compacte, alors \(f\paren{A}\) est compacte.
+\end{theo}
+
+On résume en disant que l'image continue d'un compact est un compact.
+
+En particulier, toute fonction continue sur un compact est donc bornée. Dans le cas des fonctions numériques (\ie à valeurs dans \(\R\)), on peut même être plus précis.
+
+\begin{theo}
+Toute fonction continue sur un compact et à valeurs réelles est bornée et atteint ses bornes.
+
+Autrement dit, si \(f:A\to\R\) est continue sur \(A\) et \(A\) est une partie compacte de \(E\), alors il existe \(\paren{a,b}\in A^2\) tel que \(\quantifs{\tpt x\in A}f\paren{a}\leq f\paren{x}\leq f\paren{b}\), ce qui revient à dire que \(f\) possède un minimum et un maximum sur \(A\).
+\end{theo}
+
+\begin{rem}
+Ce théorème est à rapprocher du théorème vu en première année : toute fonction de \(\R\) dans \(\R\) continue sur un segment est bornée et atteint ses bornes.
+
+Néanmoins, le théorème de l'an dernier donnait un résultat un peu plus précis que celui de cette année car il donnait aussi l'image du segment, en précisant qu'il s'agissait aussi d'un segment, car il faisait aussi intervenir le théorème des valeurs intermédiaires.
+
+Ici, dans la version proposée cette année, on ne peut rien dire de plus.
+\end{rem}
+
+\begin{exo}
+Un exercice classique, à savoir refaire ! C'est la base de nombreux exercices.
+
+Soient \(E\) de dimension finie et \(f:E\to\R\) continue et telle que \(f\paren{x}\) tende vers \(\pinf\) quand \(\norme{x}\) tend vers \(\pinf\). Montrez que \(f\) possède un minimum.
+
+Exemple : dans le plan euclidien géométrique, on choisit trois points \(A,B,C\) ; montrez alors qu'il existe un point \(M\) du plan tel que la somme \(AM+BM+CM\) soit minimale.
+\end{exo}
+
+\begin{exo}
+Soit \(f:\paren{x,y}\mapsto xy\sqrt{1-x^2-2y^2}\).
+
+Justifiez que l'ensemble de définition \(D\) de \(f\) est un compact de \(\R^2\).
+
+Déterminez les points critiques de \(f\) dans l'ouvert \(\interieur{D}\), puis les maxima et minima de \(f\).
+\end{exo}
+
+On retrouve aussi le théorème de Heine en conséquence de la compacité.
+
+\begin{defi}
+Soient \(E,F\) deux espaces vectoriels normés, \(A\) une partie de \(E\) et \(f:A\to F\).
+
+On dit que \(f\) est uniformément continue sur \(A\) quand \[\quantifs{\forall\epsilon>0;\exists\eta>0;\forall\paren{x,y}\in A^2}\norme{x-y}\leq\eta\imp\norme{f\paren{x}-f\paren{y}}\leq\epsilon.\]
+\end{defi}
+
+\begin{theo}
+Soient \(E,F\) deux espaces vectoriels normés, \(A\) une partie de \(E\) et \(f:A\to F\).
+
+Si \(f\) est continue sur \(A\) et \(A\) est compacte, alors \(f\) est uniformément continue sur \(A\).
+\end{theo}
+
+\section{Connexité par arcs}
+
+Dans cette section, \(E\) est un espace vectoriel normé.
+
+\subsection{Chemin}
+
+\begin{defi}
+Soient \(A\) une partie de \(E\) et \(a,b\in A\).
+
+On appelle chemin (ou arc) dans \(A\) de \(a\) à \(b\) toute application continue \(\phi:\intervii{0}{1}\to A\) telle que \(\phi\paren{0}=a\) et \(\phi\paren{1}=b\). Le support du chemin est l'image de \(\phi\).
+\end{defi}
+
+On peut définir une relation d'équivalence sur une partie de \(E\) en mettant en relation les points joignables par un chemin.
+
+\begin{defi}
+Soient \(A\) une partie de \(E\) et \(a,b\in A\).
+
+On pose \(a\rel b\) quand il existe un chemin dans \(A\) de \(a\) à \(b\).
+\end{defi}
+
+\begin{prop}
+Avec les notations précédentes, la relation \(\rel\) est une relation d'équivalence sur \(A\).
+\end{prop}
+
+\subsection{Parties connexes par arcs}
+
+\begin{defi}
+Soit \(A\) une partie de \(E\).
+
+On dit que \(A\) est connexe par arcs quand tout couple de points \(\paren{a,b}\in A^2\) est joignable par un chemin.
+\end{defi}
+
+\begin{ex}
+\begin{itemize}
+    \item Les parties convexes de \(E\) sont connexes par arcs. \\
+    \item Les parties étoilées de \(E\) sont connexes par arcs. \\
+    \item \(\Cs\) et \(\C\excluant D\) où \(D\) est la demi-droite des réels négatifs sont connexes par arcs.
+\end{itemize}
+\end{ex}
+
+Les classes d'équivalences de la relation notée \(\rel\) précédemment s'appellent les composantes connexes par arcs de \(A\) : ce sont par définition des parties connexes par arcs.
+
+\begin{prop}
+Les seules parties connexes par arcs de \(\R\) sont les intervalles.
+\end{prop}
+
+\begin{rem}
+Il existe une notion plus générale, celle de partie connexe : une partie \(A\) de \(E\) est dite connexe quand les seules parties de \(A\) à la fois ouvertes et fermées sont \(\ensvide\) et \(A\). Elle est plus délicate à aborder et est hors-programme, c'est pourquoi on s'en tient à la notion de connexité par arcs (toute partie connexe par arcs est connexe).
+\end{rem}
+
+\subsection{Théorème des valeurs intermédiaires}
+
+Là encore, la notion de connexité par arcs permet de généraliser des résultats de première année.
+
+\begin{theo}
+Soient \(E,F\) deux espaces vectoriels normés, \(A\) une partie de \(E\) et \(f:A\to F\).
+
+Si \(f\) est continue par \(A\) et \(A\) est connexe par arcs, alors \(f\paren{A}\) est connexe par arcs.
+\end{theo}
+
+On résume en disant que l'image continue d'un connexe par arcs est un connexe par arcs.
+
+Dans le cas des fonctions numériques (\ie à valeurs dans \(\R\)), on peut même être plus précis.
+
+\begin{theo}
+Toute fonction continue sur un connexe par arcs et à valeurs réelles vérifie la propriété des valeurs intermédiaires.
+
+Autrement dit, si \(f:A\to F\) est continue sur \(A\) une partie connexe par arcs de \(E\), alors \(f\paren{A}\) est un intervalle.
+
+Ou encore : \[\quantifs{\forall\paren{y,z}\in f\paren{A}^2;\forall w\in\croch{yz};\exists t\in A}f\paren{t}=w.\]
+\end{theo}
