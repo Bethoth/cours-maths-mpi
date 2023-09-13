@@ -692,8 +692,7 @@ per-mode=power-positive-first
 \newcommand{\egqd}[1]{\underset{#1}{=}}
 \newcommand{\simqd}[1]{\underset{#1}{\sim}}
 
-\newcommand{\mediumrightarrow}{\,\begin{tikzpicture}\draw[->] (0, 0) -- (1, 0);\end{tikzpicture}\,}
-\newcommand{\tendqd}[1]{\underset{#1}{\mediumrightarrow}}
+\newcommand{\tendqd}[1]{\xrightarrow[#1]{}}
 
 \newcommand{\arr}[2]{A_{#2}^{#1}}
 \newcommand{\comb}[2]{C_{#2}^{#1}}
@@ -772,6 +771,8 @@ Les éléments des tables des matières initiale et présentes au début de chaq
 \part{Cours}
 
 \include{cours/chap1_evn/chap1_evn.tex}
+
+\include{cours/chap2_series_numeriques_vectorielles/chap2_series_numeriques_vectorielles.tex}
 
 \part{Exercices}
 
