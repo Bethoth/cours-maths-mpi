@@ -1,0 +1,283 @@
+\chapter{Séries numériques et vectorielles : révisions et compléments}
+
+\legendeexercices
+
+\begin{exos}[Exercice 1]
+\begin{enumerate}
+    \item Montrez que la série de terme général \(u_n=\Arctan\dfrac{1}{2n^2}\) est convergente. \\
+    \item Montrez que \(\quantifs{\tpt n\geq1}u_n=\Arctan\dfrac{n}{n+1}-\Arctan\dfrac{n-1}{n}\). \\
+    \item Déduisez-en la somme \(\sum_{n=1}^{\pinf}u_n\).
+\end{enumerate}
+\end{exos}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exos}[Exercice 2]~\\
+Justifiez que la série \(\sum_{n\geq2}\dfrac{2n-1}{n^3-n}\) converge et déterminez sa somme (indication : décomposition en éléments simples).
+\end{exos}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exoss}[Exercice 3]
+Donnez la nature des séries suivantes (\(\alpha\) désigne une constante strictement positive, \(x\) un réel dans \(\intervee{-1}{1}\)) :
+
+\begin{enumerate}
+    \item \(\sum_{n\geq2}\dfrac{\ln^nn}{n^{\ln n}}\) \\
+    \item \(\sum_{n\geq2}\dfrac{1}{\paren{\ln n}^{\ln n}}\) \\
+    \item \(\sum\dfrac{\paren{-1}^n}{n^\alpha}\) \\
+    \item \(\sum_{n\geq1}\dfrac{\paren{-1}^nn^\alpha}{n!}\) \\
+    \item \(\sum\dfrac{\paren{-1}^n\ln n}{n^\alpha}\) \\
+    \item \(\sum\ln\paren{1+x^n}\) \\
+    \item \(\sum\dfrac{\sin n}{2^n}\) \\
+    \item \(\sum2\ln\paren{n^3+1}-3\ln\paren{n^2+1}\) \\
+    \item \(\sum\dfrac{\sin n\sin\frac{1}{n}}{n}\) \\
+    \item \(\sum_{n\geq2}\dfrac{\paren{-1}^n}{\paren{-1}^n+n}\) \\
+    \item \(\sum_{n\geq0}\sin\paren{\pi\sqrt{n^2+1}}\) \\
+    \item \(\sum\sqrt[n+1]{n+1}-\sqrt[n]{n}\) \\
+    \item \(\sum_{n\geq1}\dfrac{\paren{-1}^n}{\ln n+\sin\frac{2\pi n}{3}}\) \\
+    \item \(\sum_{n\geq1}\paren{\paren{1+\dfrac{1}{n}}^n-\e{}}\) \\
+    \item \(\sum_{n\geq1}\dfrac{1}{\ln n\ln\paren{\ch n}}\) \\
+    \item \(\sum\int_0^{\nicefrac{\pi}{2}}\dfrac{\cos^2t}{n^2+\cos^2t}\odif{t}\)
+\end{enumerate}
+\end{exoss}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exoss}[Exercice 4]
+Soit \(\paren{a,b}\in\R^2\).
+
+\begin{enumerate}
+    \item Déterminez \(a\) et \(b\) pour que la série de terme général \(\ln n+a\ln\paren{n+1}+b\ln\paren{n+2}\) converge. Dans ce cas, donnez la valeur de sa somme. \\
+    \item Faites de même avec la série de terme général \(\sqrt{n}+a\sqrt{n+1}+b\sqrt{n+2}\).
+\end{enumerate}
+\end{exoss}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exoss}[Exercice 5]
+Pour quelles valeurs de \(\alpha>0\) la série de terme général \(u_n=\ch^\alpha n-\sh^\alpha n\) converge-t-elle ? Dans ce cas, donnez un équivalent de \(\sum_{k=n}^{\pinf}u_k\).
+\end{exoss}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exoss}[Exercice 6]~\\
+On pose \(u_n=\dfrac{1}{n^\alpha}\sum_{k=1}^nk^{\nicefrac{3}{2}}\). Pour quelles valeurs de \(\alpha>0\) la série \(\sum_{n\geq1}u_n\) converge-t-elle ? Dans ce cas, donnez un équivalent de \(\sum_{k=n+1}^{\pinf}u_k\).
+\end{exoss}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exoss}[Exercice 7, séries associées à des suites définies par récurrence]~\\
+\begin{enumerate}
+    \item Soit \(u\) la suite définie par récurrence par \(u_1\in\R\) et \(\quantifs{\tpt n\geq1}u_{n+1}=\dfrac{1}{n\e{u_n}}\). \\ Quelle est la nature de la série \(\sum_{n\geq1}u_n\) ? \\
+    \item Soit \(u\) la suite définie par récurrence par \(u_0\in\Rps\) et \(\quantifs{\tpt n\geq0}u_{n+1}=\ln\paren{1+u_n}\). \\ Quelle est la nature de la série \(\sum\paren{\dfrac{1}{u_{n+1}}-\dfrac{1}{u_n}}\) ? Puis celle de \(\sum u_n\) ? Donnez un équivalent de \(\sum_{k=0}^nu_k\). \\
+    \item Soit \(u\) la suite définie par récurrence par \(u_0\in\intervee{0}{\pi}\) et \(\quantifs{\tpt n\geq0}u_{n+1}=\sin u_n\). \\ Quelle est la nature de la série \(\sum\paren{\dfrac{1}{u_{n+1}^2}-\dfrac{1}{u_n^2}}\) ? Puis celle de \(\sum u_n\) ? Donnez un équivalent de \(\sum_{k=0}^n\).
+\end{enumerate}
+\end{exoss}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exoss}[Exercice 8]
+Soit \(P\in\poly[\R]\) tel que \(\quantifs{\tpt x\in\Rp}P\paren{x}\geq0\). Pour \(n\in\Ns\), on pose \(u_n=\sum_{k=n}^{\pinf}\dfrac{\paren{-1}^k}{\e{k}+P\paren{k}}\).
+
+\begin{enumerate}
+    \item Justifiez l'existence de \(u_n\). \\
+    \item Montrez que la série \(\sum_{n\geq1}u_n\) converge.
+\end{enumerate}
+\end{exoss}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exoss}[Exercice 9]~\\
+Pour \(n\geq1\), on pose \(u_n=\sum_{k=n}^{\pinf}\dfrac{\paren{-1}^k}{\sqrt{k}}\).
+
+\begin{enumerate}
+    \item Justifiez l'existence de \(u_n\). \\
+    \item Montrez que \(\dfrac{u_n+u_{n+1}}{2}\) est le reste d'une série alternée absolument convergente. \\
+    \item Déduisez-en la nature de la série \(\sum u_n\).
+\end{enumerate}
+\end{exoss}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exoss}[Exercice 10, utilisation de développements limités ou asymptotiques]~\\
+\begin{enumerate}
+    \item Montrez que la série \(\sum_{n\geq2}\dfrac{\paren{-1}^n}{n-\sqrt{n}}\) converge. \\
+    \item Montrez que la série \(\sum_{n\geq2}\ln\paren{1+\dfrac{\paren{-1}^n}{n}}\) converge. \\
+    \item Montrez que la série \(\sum_{n\geq2}\dfrac{1}{1+\paren{-1}^nn}\) converge. \\
+    \item Montrez que la série \(\sum_{n\geq0}\sin\paren{\pi\sqrt{n^2+1}}\) converge. \\
+    \item Déterminez la nature de la série \(\sum_{n\geq2}\paren{-1}^n\dfrac{\ln\paren{n+\paren{-1}^n\sqrt{n}}}{n}\). \\
+    \item Déterminez la nature de la série \(\sum_{n\geq2}\dfrac{1}{1+\paren{-1}^n\sqrt{n}}\).
+\end{enumerate}
+\end{exoss}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exoss}[Exercice 11]
+Pour quelles valeurs de \(\alpha>0\) la série \(\sum_{n\geq2}\dfrac{\paren{-1}^n}{\sqrt{\paren{-1}^n+n^\alpha}}\) converge-t-elle ?
+\end{exoss}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exoss}[Exercice 12, formule de Stirling]~\\
+Montrez que la suite de terme général \(\dfrac{n!}{\sqrt{n}}\paren{\dfrac{\e{}}{n}}^n\) converge vers un réel strictement positif \(L\) (indication : passer au logarithme et penser à une série).
+
+Soit \(u_n=\int_0^{\nicefrac{\pi}{2}}\cos^nt\odif{t}\). On montre que \(u_n\simqd{n\to\pinf}\sqrt{\dfrac{\pi}{2n}}\) et que \(u_{2n}=\dfrac{\pi\paren{2n}!}{2^{2n+1}\paren{n!}^2}\). En admettant ces résultats, montrez la formule de Stirling : \[n!\simqd{n\to\pinf}\sqrt{2\pi n}\paren{\dfrac{n}{\e{}}}^n.\]
+\end{exoss}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exoss}[Exercice 13]~\\
+Soient \(a\in\R\) et \(u_n=\dfrac{\paren{-1}^{\frac{n\paren{n+1}}{2}}}{n^a}\).
+
+\begin{enumerate}
+    \item Dans le cas où \(a\leq0\) ou \(a>1\), quelle est la nature de la série \(\sum_{n\geq1}u_n\) ? \\
+    \item On suppose désormais que \(0<a\leq1\) et on pose \(v_n=u_{2n-1}+u_{2n}\). Montrez que la série \(\sum v_n\) converge. Déduisez-en la nature de la série \(\sum u_n\).
+\end{enumerate}
+\end{exoss}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exoss}[Exercice 14]
+Soient \(u\) une suite strictement positive et \(\alpha>0\).
+
+Montrez que les séries de termes généraux \(u_n\), \(v_n=\dfrac{u_n}{1+u_n}\), \(w_n=\ln\paren{1+u_n}\) et \(x_n=\int_0^{u_n}\dfrac{1}{1+x^\alpha}\odif{x}\) sont de même nature.
+\end{exoss}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exoss}[Exercice 15]
+Soit \(u\) une suite réelle qui ne s'annule pas telle que \(\dfrac{u_{2n+1}}{u_{2n}}\tendqd{n\to\pinf}a\) et \(\dfrac{u_{2n}}{u_{2n-1}}\tendqd{n\to\pinf}b\).
+
+Montrez que si \(\abs{ab}<1\), alors la série \(\sum u_n\) converge.
+\end{exoss}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exoss}[Exercice 16]
+Soit \(u\) une suite réelle positive décroissante.
+
+Montrez que si \(\sum u_n\) converge, alors \(u_n=\o{\dfrac{1}{n}}\) quand \(n\) tend vers \(\pinf\).
+
+La réciproque est-elle vraie ?
+\end{exoss}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exoss}[Exercice 17]
+Soit \(\paren{u_n}_{n\geq1}\) une suite réelle strictement positive et bornée telle que la série \(\sum_{n\geq1}u_n\) diverge. Pour \(n\in\Ns\), on pose \(S_n\) la somme partielle d'indice \(n\) de la série \(\sum_{n\geq1}u_n\).
+
+\begin{enumerate}
+    \item Montrez que \(\dfrac{u_n}{S_n}\sim\ln\dfrac{S_n}{S_{n+1}}\). Déduisez-en la nature de la série \(\sum_{n\geq1}\dfrac{u_n}{S_n}\). \\
+    \item Étudiez la série \(\sum_{n\geq1}\dfrac{u_n}{S_n^\alpha}\) quand \(\alpha\in\intervee{0}{1}\). \\
+    \item Soit \(\alpha>1\). Montrez que \(\dfrac{u_n}{S_n^\alpha}\leq\int_{S_{n-1}}^{S_n}\dfrac{1}{x^\alpha}\odif{x}\). Déduisez-en la nature de la série \(\sum_{n\geq1}\dfrac{u_n}{S_n^\alpha}\).
+\end{enumerate}
+\end{exoss}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exoss}[Exercice 18]
+Soit \(u\) une suite strictement positive. Pour \(n\in\N\), on pose \(s_n=\sum_{k=0}^nu_k\).
+
+On suppose que \(u_ns_n\) tend vers \(1\) quand \(n\) tend vers \(\pinf\). Déterminez un équivalent simple de \(u_n\).
+\end{exoss}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exoss}[Exercice 19]
+Soit \(u\) la suite définie par récurrence par \(u_0>0\) et \(\quantifs{\tpt n\in\N}u_{n+1}=u_n+u_n^2\). On pose \(v_n=\dfrac{1}{2^n}\ln u_n\), puis \(w_n=v_{n+1}-v_n\).
+
+\begin{enumerate}
+    \item Montrez que la suite \(\paren{u_n}\) diverge vers \(\pinf\). \\
+    \item Montrez que la suite \(\paren{v_n}\) converge vers un réel \(l>0\). On pose alors \(A=\e{l}>1\). \\
+    \item Montrez que \(u_n\sim A^{2^n}\).
+\end{enumerate}
+\end{exoss}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exosss}[Exercice 20, transformation d'Abel]
+Soient \(u\) une suite réelle et \(v\) une suite complexe. Pour \(n\in\N\), on pose \(V_n=\sum_{k=0}^nv_k\).
+
+On suppose que la suite \(u\) est positive et décroissante de limite nulle et que la suite \(V\) est bornée.
+
+\begin{enumerate}[series=transformationAbel]
+    \item Montrez que \(\quantifs{\tpt n\in\N}\sum_{k=0}^nu_kv_k=u_nV_n-\sum_{k=0}^{n-1}\paren{u_{k+1}-u_k}V_k\). \\
+    \item Déduisez-en que la série \(\sum u_nv_n\) converge.
+\end{enumerate}
+
+Applications :
+
+\begin{enumerate}[resume=transformationAbel]
+    \item Soit \(w\) une suite complexe telle que \(\sum w_n\) converge. Montrez que \(\quantifs{\tpt a>0}\sum\dfrac{w_n}{n^a}\) converge aussi. \\
+    \item Soient \(a>0\) et \(\theta\in\R\). Donnez la nature des séries \(\sum\dfrac{\e{\i n\theta}}{n^a}\), \(\sum\dfrac{\cos\paren{n\theta}}{n^a}\) et \(\sum\dfrac{\sin\paren{n\theta}}{n^a}\). \\
+    \item Montrez que \(\quantifs{\tpt x\in\R}\abs{\sin x}\geq\dfrac{1-\cos\paren{2x}}{2}\). Déterminez la nature des séries \(\sum\dfrac{\abs{\cos\paren{n\theta}}}{n^a}\) et \(\sum\dfrac{\abs{\sin\paren{n\theta}}}{n^a}\).
+\end{enumerate}
+\end{exosss}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exosss}[Exercice 21]
+Soit \(u\) une suite positive de limite nulle. On appelle \(U_n\) la somme partielle d'indice \(n\) de la série \(\sum u_n\) et on suppose qu'il existe une constante \(M>0\) telle que \(\quantifs{\tpt n\in\N}\abs{U_n-nu_n}\leq M\).
+
+\begin{enumerate}
+    \item Montrez que \(\quantifs{\tpt n\geq2}\abs{\dfrac{U_n}{n}-\dfrac{U_{n-1}}{n-1}}\leq M\paren{\dfrac{1}{n-1}-\dfrac{1}{n}}\). \\
+    \item Montrez que la série \(\sum u_n\) converge.
+\end{enumerate}
+\end{exosss}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exosss}[Exercice 22]
+Soit \(\sum_{n\geq1}u_n\) une série convergente à termes positifs.
+
+\begin{enumerate}
+    \item Montrez que \(\dfrac{u_1+2u_2+\dots+nu_n}{n}\) tend vers \(0\) quand \(n\) tend vers \(\pinf\). \\
+    \item Montrez que la série \(\sum\dfrac{u_1+2u_2+\dots+nu_n}{n\paren{n+1}}\) converge et montrez que sa somme est la même que celle de la série \(\sum_{n\geq1}u_n\).
+\end{enumerate}
+\end{exosss}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
