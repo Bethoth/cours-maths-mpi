@@ -1,0 +1,113 @@
+\chapter{Familles sommables}
+
+\legendeexercices
+
+\begin{exoss}[Exercice 23]~\\
+La famille \(\paren{\dfrac{1}{pq\paren{p+q}}}_{p,q\geq1}\) est-elle sommable ?
+\end{exoss}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exoss}[Exercice 24]
+\begin{enumerate}
+    \item Soit \(\alpha>0\). Montrez que la série \(\sum_{n\geq0}\dfrac{n^\alpha}{2^n}\) est convergente. On note \(S\paren{\alpha}\) sa somme. \\
+    \item Dans cette question, on pose \(\alpha=1\) et on note \(s=S\paren{1}=\sum_{n=0}^{\pinf}\dfrac{n}{2^n}\). En effectuant le changement d'indice \(m=n-1\), montrez que \(s=2\paren{s-\sum_{m=0}^{\pinf}\dfrac{1}{2^m}}\) et donnez la valeur de \(S\paren{1}\). \\
+    \item En vous inspirant de ce qui précède, donnez une expression de \(S\paren{2}\) en fonction de \(S\paren{1}\) et \(S\paren{0}\), puis sa valeur. \\
+    \item Montrez que la famille \(\paren{\dfrac{\paren{-1}^{m+n}m}{2^{m+n}}}_{m,n\geq0}\) est sommable et calculez sa somme.
+\end{enumerate}
+\end{exoss}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exoss}[Exercice 25]
+Soit \(a\) un complexe tel que \(\abs{a}<1\).
+
+En utilisant un produit de Cauchy, montrez que \(\sum_{n=0}^{\pinf}\paren{n+1}a^n=\paren{\dfrac{1}{1-a}}^2\).
+\end{exoss}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exoss}[Exercice 26]
+\begin{enumerate}
+    \item Pour \(z\in\C\) tel que \(\abs{z}<1\) et \(N\in\N\), que vaut \(\sum_{n=N}^{\pinf}z^n\) ? \\
+    \item Soit \(x\in\C\) tel que \(\abs{x}<1\). Montrez que \(\sum_{n=1}^{\pinf}\dfrac{x^n}{1-x^{2n}}=\sum_{p=0}^{\pinf}\dfrac{x^{2p+1}}{1-x^{2p+1}}\).
+\end{enumerate}
+\end{exoss}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exoss}[Exercice 27]~\\
+Pour \(n\in\Ns\), on pose \(H_n=\sum_{k=1}^{n}\dfrac{1}{k}\). On rappelle que \(H_n=\ln n+\gamma+\o{1}\).
+
+\begin{enumerate}
+    \item Soit \(m\in\Ns\). Montrez que \(\sum_{n=1}^{\pinf}\dfrac{1}{n\paren{n+m}}\simqd{m\to\pinf}\dfrac{\ln m}{m}\). \\
+    \item Montrez que la famille \(\paren{\dfrac{\paren{-1}^m}{m\paren{m+n^2}}}_{m,n\geq1}\) est sommable. \\
+    \item Montrez que la famille \(\paren{\dfrac{\paren{-1}^m}{\paren{m+n}\paren{m+n-1}}}_{m,n\geq1}\) est sommable et donnez la valeur de sa somme.
+\end{enumerate}
+\end{exoss}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exoss}[Exercice 28]
+Pour \(n\geq2\), on note \(P\paren{n}\) le plus grand diviseur premier de \(n\). On note \(p_1=2\), \(p_2=3\), \(\dots\) la suite croissante des nombres premiers.
+
+\begin{enumerate}
+    \item Montrez que \(\quantifs{\tpt k\geq3}p_{k-1}\leq p_k-2\), puis \(\dfrac{p_k}{p_k-1}\leq\sqrt{\dfrac{p_k}{p_{k-1}}}\). \\
+    \item Montrez que la série \(\sum_{n\geq2}\dfrac{1}{nP\paren{n}}\) converge (indication : pensez à une sommation par paquets).
+\end{enumerate}
+\end{exoss}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exoss}[Exercice 29]
+Soit \(u\) une suite complexe.
+
+Pour \(x\in\R\), on pose \(H_x=\accol{z\in\C\tq\Re z>x}\), son adhérence est \(\conj{H_x}=\accol{z\in\C\tq\Re z\geq x}\).
+
+\begin{enumerate}
+    \item Montrez que s'il existe \(s_0\in\C\) tel que la famille \(\paren{\dfrac{u_n}{n^{s_0}}}_{n\geq1}\) est sommable, alors pour tout \(s\in\C\) tel que \(\Re s>\Re s_0\), la famille \(\paren{\dfrac{u_n}{n^s}}_{n\geq1}\) est sommable. \\
+    \item Quand la famille \(\paren{\dfrac{u_n}{n^s}}_{n\geq1}\) est sommable, on pose \(f_u\paren{s}=\sum_{n\in\Ns}\dfrac{u_n}{n^s}\). \\ Montrez que l'ensemble de définition de \(f_u\) est, s'il est non-vide, \(\C\), un ensemble \(H_x\) ou un ensemble \(\conj{H_x}\). \\
+    \item Pour \(n\in\Ns\), on pose \(D_n=\accol{\paren{d,d\prim}\in\paren{\Ns}^2\tq dd\prim=n}\). Montrez que \(\paren{\Ns}^2=\bigsqcup_{n\in\Ns}D_n\). \\
+    \item Soient \(\paren{a_n},\paren{b_n}\) deux suites complexes et \(s\in\C\) tels que les familles \(\paren{\dfrac{a_n}{n^s}}_{n\geq1}\) et \(\paren{\dfrac{b_n}{n^s}}_{n\geq1}\) soient sommables. \\ On pose, pour \(n\in\Ns\), \(c_n=\sum_{d\divise n}a_db_{\nicefrac{n}{d}}\). Montrez que la famille \(\paren{\dfrac{c_n}{n^s}}_{n\geq1}\) est sommable et que \(f_c\paren{s}=f_a\paren{s}\times f_b\paren{s}\).
+\end{enumerate}
+\end{exoss}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exoss}[Exercice 30]
+Cet exercice prolonge le précédent.
+
+On rappelle la définition de l'indicatrice d'Euler : pour \(n\in\Ns\), \(\phi_n\) est le cardinal de l'ensemble \(\accol{k\in\interventierii{1}{n}\tq k\et n=1}\).
+
+On définit par récurrence la suite de Möbius : \(\mu_1=1\) et \(\quantifs{\tpt n\geq2}\mu_n=-\sum_{\substack{d\divise n \\ d<n}}\mu_d\).
+
+Enfin, on note \(\delta_n\) le nombre de diviseurs de \(n\) et \(\sigma_n\) la somme des diviseurs de \(n\).
+
+On pose \(\zeta=f_1\), \(\xi=f_\phi\) et \(M\paren{s}=f_\mu\).
+
+\begin{enumerate}
+    \item Montrez que l'ensemble de définition (au sens précédent) de \(\zeta\) est \(H_1\). Montrez que \(\xi\) est définie sur \(H_2\). \\
+    \item On admet la relation suivante : \(\quantifs{\tpt n\in\Ns}n=\sum_{d\divise n}\phi_d\). Donnez une relation valable sur \(H_2\) liant les fonctions \(\xi\) et \(\zeta\). Justifiez alors que l'ensemble de définition de \(\xi\) est \(H_2\). \\
+    \item On admet que \(\quantifs{\tpt n\in\Ns}\abs{\mu_n}\leq1\). Donnez une relation entre \(M\) et \(\zeta\) et précisez l'ensemble de définition de \(M\). \\
+    \item Déduisez-en la relation : \(\quantifs{\tpt n\in\Ns}\dfrac{\phi_n}{n}=\sum_{d\divise n}\dfrac{\mu_d}{d}\) en admettant l'unicité des coefficients \(u_n\) d'une fonction \(f_u\). \\
+    \item Exprimez \(f_\delta\) et \(f_\sigma\) en fonction de \(\zeta\) et précisez leurs ensembles de définition.
+\end{enumerate}
+\end{exoss}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
