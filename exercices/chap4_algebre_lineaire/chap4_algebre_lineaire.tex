@@ -1,0 +1,524 @@
+\chapter{Rappels et compléments d'algèbre linéaire}
+
+\legendeexercices
+
+\begin{exopss}[Exercice 1]
+Soient \(E\) un \(\K\)-espace vectoriel et \(\paren{u_1,\dots,u_n}\) une famille libre de \(E\).
+
+\begin{enumerate}
+    \item Pour \(i\in\interventierii{1}{n}\), on pose \(c_i=\sum_{\substack{1\leq k\leq n \\ k\not=i}}u_k\). Montrez que la famille \(\paren{c_i}_{1\leq i\leq n}\) est libre. \\
+    \item Soit \(\paren{\lambda_1,\dots,\lambda_n}\in\K^n\). On pose \(s=\sum_{i=1}^n\lambda_iu_i\) et \(\quantifs{\tpt i\in\interventierii{1}{n}}v_i=s+u_i\). Montrez que la famille \(\paren{v_1,\dots,v_n}\) est liée ssi \(\sum_{i=1}^n\lambda_i=-1\). \\
+    \item Soit \(\lambda\in\K\). On pose \(s=\sum_{i=1}^nu_i\) et \(\quantifs{\tpt i\in\interventierii{1}{n}}v_i=s+\lambda u_i\). Montrez qu'il existe exactement deux valeurs de \(\lambda\) pour lesquelles la famille \(\paren{v_1,\dots,v_n}\) est liée.
+\end{enumerate}
+\end{exopss}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exopss}[Exercice 2]
+Soit \(n\in\N\). Pour \(k\in\interventierii{0}{n}\), on pose \(P_k=X^k\paren{1-X}^{n-k}\). Montrez que la famille \(\fami{F}_n=\paren{P_0,\dots,P_n}\) est une base de \(\polydeg[\C]{n}\).
+\end{exopss}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exopss}[Exercice 3]
+Soit \(f\) une application d'un ensemble \(\Omega\) dans \(\C\) qui prend une infinité de valeurs.
+
+Montrez que \(\quantifs{\tpt n\in\N}\text{la famille }\paren{1,f,f^2,\dots,f^n}\text{ est libre dans l'espace }\F{\Omega}{\C}\).
+\end{exopss}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exopss}[Exercice 4]
+Soit \(n\in\N\). Pour \(k\in\interventierii{0}{n}\), on pose \(P_k=\paren{X+k}^n\). Montrez que la famille \(\fami{F}_n=\paren{P_0,\dots,P_n}\) est libre.
+\end{exopss}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exos}[Exercice 5]
+Soit \(a\in\Cs\). \(\C\) est vu comme un \(\R\)-espace vectoriel. Soit \(f\) l'application de \(\C\) dans \(\C\) qui à \(z\) associe \(z+a\conj{z}\).
+
+\begin{enumerate}
+    \item Montrez que \(f\) est linéaire. \\
+    \item Montrez que si \(\abs{a}\not=1\), alors \(f\) est un automorphisme de \(\C\). \\
+    \item Déterminez le noyau et l'image de \(f\) dans le cas où \(a=\e{\i\alpha}\) (on pourra utiliser l'écriture trigonométrique des complexes).
+\end{enumerate}
+\end{exos}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exops}[Exercice 6]
+Soit \(f\) un endomorphisme de \(\poly\) qui conserve le degré : \(\quantifs{\tpt P\in\poly}\deg f\paren{P}=\deg P\).
+
+Montrez que \(f\) est un automorphisme de \(\poly\) (on pourra étudier les restrictions de \(f\) à \(\polydeg{n}\)).
+\end{exops}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exopss}[Exercice 7]
+Soit \(n\in\N\). Pour \(P\in\polydeg{n}\), on pose \(f\paren{P}=\paren{X^2-1}P\prim-nXP\).
+
+\begin{enumerate}
+    \item Montrez que \(f\) est un endomorphisme de \(\polydeg{n}\). \\
+    \item Montrez que si \(P\in\ker f\), alors \(X^2-1\) divise \(P\), puis justifiez qu'il existe \(\alpha\in\Ns\) et \(Q\in\poly\) tels que \(P=\paren{X^2-1}^\alpha Q\) et \(\paren{Q\paren{1}\not=0\text{ ou }Q\paren{-1}\not=0}\). \\
+    \item Montrez que si \(n\) est impair, alors \(f\) est un automorphisme. \\
+    \item Montrez que si \(n\) est pair, alors \(\ker f\) est une droite vectorielle. Déduisez-en la dimension de \(\Im f\).
+\end{enumerate}
+\end{exopss}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exoss}[Exercice 8]
+On pose \(E=\poly[\C]\). Pour \(P\in E\), on pose \(f\paren{P}=\paren{X^2-1}P\prim-2XP\paren{X}\).
+
+\begin{enumerate}
+    \item Montrez que \(f\in\Lendo{E}\). \\
+    \item Déterminez \(\ker f\). \\
+    \item Montrez que \(\Im f=\accol{Q\in\poly[C]\tq Q\prim\paren{1}=Q\paren{1}\text{ et }Q\prim\paren{-1}=-Q\paren{-1}}\). Indication : restreindre à \(\polydeg[\C]{n}\).
+\end{enumerate}
+\end{exoss}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exos}[Exercice 9]
+Soient \(E,F,G\) trois \(\K\)-espaces vectoriels, \(f\in\L{E}{F}\) et \(g\in\L{F}{G}\).
+
+Montrez que \(f\paren{\ker\paren{g\rond f}}=\ker g\inter\Im f\).
+\end{exos}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exopss}[Exercice 10]
+Soient \(E,F,G\) trois \(\K\)-espaces vectoriels et \(\paren{f,g}\in\L{E}{F}\times\L{F}{G}\).
+
+\begin{enumerate}
+    \item Montrez que \(\ker\paren{g\rond f}=\ker f\ssi\ker g\inter\Im f=\accol{0}\). \\
+    \item Montrez que \(\Im\paren{g\rond f}=\Im g\ssi\ker g+\Im f=F\).
+\end{enumerate}
+\end{exopss}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exosss}[Exercice 11]
+Soient \(E,F\) deux \(\K\)-espaces vectoriels et \(f\in\L{E}{F}\). On dit que \(g\in\L{F}{E}\) est un inverse à droite de \(f\) quand \(f\rond g=\id{F}\).
+
+\begin{enumerate}
+    \item Montrez que si \(f\) possède deux inverses à droite différents, alors \(f\) en possède une infinité. \\
+    \item Montrez que si \(f\) possède un unique inverse à droite, alors \(f\) est un isomorphisme (vous admettrez l'existence d'un supplémentaire de tout sous-espace vectoriel).
+\end{enumerate}
+\end{exosss}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exopss}[Exercice 12]
+Soient \(E\) un \(\K\)-espace vectoriel et \(p,q\) deux projecteurs de \(E\).
+
+\begin{enumerate}
+    \item Montrez que \(p+q\) est un projecteur ssi \(p\rond q=q\rond p=0\). \\
+    \item Dans ce cas, montrez alors que \(\Im\paren{p+q}=\Im p\oplus\Im q\) et \(\ker\paren{p+q}=\ker p\inter\ker q\).
+\end{enumerate}
+\end{exopss}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exoss}[Exercice 13]
+Soient \(E\) un \(\K\)-espace vectoriel et \(p,q\) deux projecteurs de \(E\) tels que \(p\rond q=0\). Soit \(r=p+q-q\rond p\).
+
+Montrez que \(r\) est un projecteur et précisez ses éléments caractéristiques.
+\end{exoss}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exoss}[Exercice 14]
+Soit \(E\) un \(\K\)-espace vectoriel. On suppose qu'il existe \(\paren{f,g}\in\Lendo{E}^2\) tel que \(f\rond g-g\rond f=\id{E}\).
+
+\begin{enumerate}
+    \item Démontrez que \(\quantifs{\tpt n\in\Ns}f\rond g^n-g^n\rond f=ng^{n-1}\). \\
+    \item Déduisez-en que \(\quantifs{\tpt n\in\Ns}\text{la famille }\paren{g^k}_{0\leq k\leq n}\text{ est libre dans }\Lendo{E}\). \\
+    \item Si \(E\) est de dimension finie \(p\geq1\), que pouvez-vous conclure ?
+\end{enumerate}
+\end{exoss}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exoss}[Exercice 15]
+Soient \(E\) un \(\R\)-espace vectoriel et \(f\) un endomorphisme de \(E\) tel que \(f^3=\id{E}\). Pour \(a\in\R\) et \(u\in E\), on veut résoudre l'équation \(x+af\paren{x}=u\) d'inconnue \(x\in E\).
+
+\begin{enumerate}
+    \item Montrez que pour toutes les valeurs de \(a\), sauf une seule \(a_0\), l'équation a une unique solution que vous calculerez. \\
+    \item Dans le cas où \(a=a_0\), donnez une condition nécessaire sur \(u\) pour qu'il existe une solution, puis si cette condition est satisfaite, déterminez une solution particulière de l'équation qui soit combinaison linéaire de \(u\) et \(f\paren{u}\). Concluez.
+\end{enumerate}
+\end{exoss}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exopss}[Exercice 16]
+Soient \(E\) un espace vectoriel de dimension finie \(n\) et \(f\in\Lendo{E}\).
+
+\begin{enumerate}
+    \item Montrez que \(\Im f=\ker f\) et, ssi \(n\) est pair, \(\rg f=\dfrac{n}{2}\) et \(f^2=0\). \\
+    \item Donnez un exemple d'une telle application linéaire \(f\). \\
+    \item Si les conditions de la question (1)  sont satisfaites, alors on pose \(r=\dfrac{n}{2}\) : montrez qu'il existe une base de \(E\) dans laquelle la matrice de \(f\) est \(\begin{pmatrix}0 & 0 \\ I_r & 0\end{pmatrix}\) (matrice par blocs).
+\end{enumerate}
+\end{exopss}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exopss}[Exercice 17]
+Soient \(E\) un \(\K\)-espace vectoriel de dimension finie et \(f\in\Lendo{E}\). Montrez l'équivalence \[E=\ker f\oplus\Im f\ssi\ker f^2=\ker f\ssi\Im f=\Im f^2.\]
+\end{exopss}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exos}[Exercice 18]
+Soient \(E,F\) deux \(\K\)-espaces vectoriels de dimensions finies et \(\paren{f,g}\in\L{E}{F}^2\). Montrez que \(\abs{\rg f-\rg g}\leq\rg\paren{f+g}\leq\rg f+\rg g\).
+\end{exos}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exoss}[Exercice 19]
+Soient \(E\) un \(\K\)-espace vectoriel de dimension finie et \(\paren{u,v}\in\Lendo{E}^2\). On suppose que \(u\rond v=0\) et \(u+v\in\GL{}[E]\). Démontrez que \(\rg u+\rg v=\dim E\).
+\end{exoss}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exoss}[Exercice 20]
+Soient \(E,F\) deux \(\K\)-espaces vectoriels de dimensions finies.
+
+\begin{enumerate}
+    \item Soit \(U\) un sous-espace vectoriel de \(E\). On pose \(\fami{A}=\accol{u\in\L{E}{F}\tq U\subset\ker u}\). Montrez que \(\fami{A}\) est un sous-espace vectoriel de \(\L{E}{F}\) tel que \(\quantifs{\tpt\paren{f,u}\in\Lendo{E}\times\fami{A}}fu\in\fami{A}\) et calculez sa dimension. \\
+    \item Montrez que la réciproque est vraie : si \(\fami{A}\) est un sous-espace vectoriel de \(\L{E}{F}\) tel que \(\quantifs{\tpt\paren{f,u}\in\Lendo{E}\times\fami{A}}fu\in\fami{A}\), alors il existe \(U\) un sous-espace vectoriel de \(E\) tel que \(\fami{A}=\accol{u\in\L{E}{F}\tq U\subset\ker u}\).
+\end{enumerate}
+\end{exoss}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exops}[Exercice 21]
+Soit \(A\in\M{n}\) une matrice de rang \(1\). Montrez que \(A\) peut s'écrire comme le produit d'une matrice colonne par une matrice ligne. Déduisez-en \(A^2=\tr\paren{A}A\).
+\end{exops}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exopss}[Exercice 22]
+Soit \(f\) une forme linéaire sur \(\M{n}[\R]\) telle que \(\quantifs{\tpt\paren{A,B}\in\M{n}[\R]^2}f\paren{AB}=f\paren{BA}\). Montrez que \(f\) est proportionnelle à la trace (indication : faire intervenir la base canonique de \(\M{n}[\R]\)).
+\end{exopss}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exosss}[Exercice 23]
+Soient \(E\) un \(\K\)-espace vectoriel de dimension finie et \(G\) un sous-groupe de cardinal \(n\) de \(\GL{}[E]\).
+
+On pose \(F=\accol{x\in E\tq\quantifs{\forall g\in G}g\paren{x}=x}\).
+
+Montrez que \(\dim F=\dfrac{1}{n}\sum_{g\in G}\tr g\). Indication : on pourra utiliser \(p=\dfrac{1}{n}\sum_{g\in G}g\).
+\end{exosss}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exos}[Exercice 24]
+Montrez qu'il n'existe pas de couple de matrices \(\paren{A,B}\in\M{n}^2\) tels que \(AB-BA=I_n\).
+\end{exos}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exops}[Exercice 25]
+Soient \(A\) et \(B\) deux matrices carrées d'ordre \(n\). On suppose que \(\quantifs{\tpt X\in\M{n}}\tr\paren{AX}=\tr\paren{BX}\). Montrez que \(A=B\).
+\end{exops}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exos}[Exercice 26]
+Soient \(u,v\) les deux suites réelles telles que \(u_0=1\), \(v_0=-1\) et \(\quantifs{\tpt n\in\N}u_{n+1}=-3u_n+10v_n\) et \(v_{n+1}=-3u_n+8v_n\).
+
+Donnez des expressions de \(u_n\) et \(v_n\) en fonction de \(n\).
+\end{exos}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exoss}[Exercice 27]
+Soient \(u,v,w\) les trois suites réelles telles que \(u_0=v_0=w_0=1\) et \[\quantifs{\tpt n\in\N}\begin{dcases}
+u_{n+1}=\dfrac{3}{2}u_n-\dfrac{1}{2}v_n+\dfrac{1}{2}w_n \\
+v_{n+1}=5u_n-\dfrac{5}{2}v_n+2w_n \\
+w_{n+1}=4u_n-\dfrac{5}{2}v_n+2w_n
+\end{dcases}\]
+
+Donnez des expressions de \(u_n\), \(v_n\) et \(w_n\) en fonction de \(n\) et leurs limites quand \(n\) tend vers \(\pinf\).
+\end{exoss}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exopss}[Exercice 28]
+Soient \(A\in\M{p}\), \(B\in\M{q}\) et \(C\in\M{pq}\). On suppose connaître \(P\) un polynôme annulateur de \(A\) et \(Q\) un polynôme annulateur de \(B\).
+
+On pose \(M=\begin{pmatrix}A & C \\ 0 & B\end{pmatrix}\in\M{p+q}\).
+
+\begin{enumerate}
+    \item Montrez que \(PQ\) est un polynôme annulateur de \(M\) dans le cas où \(C=0\). \\
+    \item Montrez que ce résultat reste vrai même si \(C\) n'est pas nulle. Indication : penser à un produit par blocs.
+\end{enumerate}
+\end{exopss}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exopss}[Exercice 29]
+Soient \(A\in\M{n}\) et \(P\) un polynôme annulateur de \(A\). On définit \(B\in\M{2n}\) par blocs : \(B=\begin{pmatrix}
+0 & I_n \\
+A & 0
+\end{pmatrix}\).
+
+\begin{enumerate}
+    \item Calculez pour \(k\in\N\) la matrice \(B^k\) en distinguant les cas \(k\) pair et \(k\) impair. \\
+    \item On pose \(Q\paren{X}=P\paren{X^2}\). Montrez que \(Q\) est un polynôme annulateur de \(B\).
+\end{enumerate}
+\end{exopss}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exopss}[Exercice 30]
+Soit \(A\in\M{n}\). On définit \(B\in\M{2n}\) par blocs : \(B=\begin{pmatrix}
+A & A \\
+A & A
+\end{pmatrix}\).
+
+\begin{enumerate}
+    \item Calculez pour \(k\in\N\) la matrice \(B^k\). \\
+    \item Déterminez un polynôme annulateur de \(B\).
+\end{enumerate}
+\end{exopss}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exopss}[Exercice 31]
+Soient \(n\in\Ns\) et \(E=\polydeg{n}\). On pose \(d:P\mapsto P\prim\), endomorphisme de \(E\), et \(f:P\mapsto P+P\prim\).
+
+\begin{enumerate}
+    \item Donnez un polynôme annulateur de \(d\). Déduisez-en un polynôme annulateur de \(f\). \\
+    \item Montrez que \(f\) est un automorphisme, puis exprimez son inverse à l'aide de \(f\). \\
+    \item Vérifiez que \(f\inv=\sum_{k=0}^{n-1}\paren{-1}^kd^k\).
+\end{enumerate}
+\end{exopss}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exopss}[Exercice 32]
+Soit \(A\in\M{n}\). Pour tout \(M\in\M{n}\), on pose \(f\paren{M}=M+\tr\paren{M}A\).
+
+\begin{enumerate}
+    \item Montrez que \(f\) est un endomorphisme de \(\M{n}\). \\
+    \item Déterminez un polynôme annulateur de \(f\) de degré \(2\). \\
+    \item Dans quels cas \(f\) est-il un automorphisme ? Calculez \(f\inv\) quand c'est possible. \\
+    \item Dans le cas contraire, vérifiez que \(f\) est un projecteur et déterminez ses éléments caractéristiques.
+\end{enumerate}
+\end{exopss}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exopss}[Exercice 33]
+Soient \(E\) un espace vectoriel réel de dimension finie et \(f\in\Lendo{E}\).
+
+On suppose que \(f\) possède un polynôme annulateur \(P\) vérifiant \(P\paren{0}=0\) et \(P\prim\paren{0}\not=0\).
+
+Montrez qu'on a alors \(\Im f\oplus\ker f=E\).
+\end{exopss}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exo}[Oral CCINP, 1]
+Soient \(E\) un espace vectoriel de dimension finie et \(p,q\) deux endomorphismes de \(E\).
+
+On suppose que \(p+q=\id{E}\) et \(\rg p+\rg q\leq\dim E\).
+
+Montrez que \(p\) et \(q\) sont deux projecteurs.
+\end{exo}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exo}[Oral IMT, 2]
+Soient \(E\) un espace vectoriel de dimension supérieure à \(2\) et \(f,g\) deux endomorphismes de \(E\) tels que \(f\rond g\rond f=f\).
+
+\begin{enumerate}
+    \item Montrez que \(f\rond g\) et \(g\rond f\) sont des projecteurs. \\
+    \item Que peut-on dire des rangs de \(f\), \(f\rond g\) et \(g\rond f\) ? \\
+    \item Montrez que \(f\rond g\) est un projecteur sur \(\Im f\), parallèlement à un sous-espace contenant \(\ker g\). \\
+    \item On suppose désormais qu'on a aussi \(g\rond f\rond g=g\). Que dire des rangs de \(f\) et \(g\) ? \\
+    \item Montrez que \(E=\Im f\oplus\ker g\).
+\end{enumerate}
+\end{exo}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exo}[Oral TPE, 3]
+Soient \(E\) un espace vectoriel de dimension \(n\) et \(f\in\Lendo{E}\).
+
+\begin{enumerate}
+    \item Montrez que \(\quantifs{\tpt k\in\N}\Im f^{k+1}\subset\Im f^k\). \\
+    \item Montrez que s'il existe un entier \(p\) tel que \(\Im f^{p+1}=\Im f^p\), alors \(\quantifs{\tpt k\in\N}\Im f^{p+k}\subset\Im f^p\). \\
+    \item Déduisez-en que \(\Im f^{n+1}=\Im f^n\).
+\end{enumerate}
+\end{exo}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exo}[Oral TPE, 4]
+Montrez que \(P\mapsto P-P\prim\) est un automorphisme de \(\poly[\R]\) et donnez son endomorphisme réciproque.
+\end{exo}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exo}[Oral Centrale, 5]
+Soient \(E\) un espace vectoriel de dimension finie non-nulle et \(u,v\) deux endomorphismes de \(E\).
+
+\begin{enumerate}
+    \item Montrez que \(\abs{\rg u-\rg v}\leq\rg\paren{u+v}\leq\rg u+\rg v\). \\
+    \item Soient \(F\) un sous-espace de \(E\) et \(G,H\) deux supplémentaires de \(F\) dans \(E\). On pose \(p\) le projecteur sur \(F\) parallèlement à \(G\) et \(q\) celui sur \(H\) parallèlement à \(F\). Montrez que \(\rg\paren{p+q}=\rg p+\rg q\).
+\end{enumerate}
+\end{exo}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exo}[Oral Centrale, 6]
+Soient \(E\) un \(\K\)-espace vectoriel de dimension finie, \(\paren{\phi_1,\dots,\phi_p}\) une famille libre de \(E\etoile\) (note : \(E\etoile\) est le \(\K\)-espace vectoriel des formes linéaires sur \(E\)) et \(\psi\in E\etoile\).
+
+\begin{enumerate}
+    \item Montrez que \(\psi\in\Vect{\phi_1,\dots,\phi_p}\ssi\biginter_{i=1}^p\ker\phi_i\subset\ker\psi\). \\
+    \item On suppose que \(\K=\R\) ou \(\K=\C\). Montrez que les conditions de la question précédente sont encore équivalentes à l'existence d'un réel \(M>0\) tel que \(\quantifs{\forall x\in E}\abs{\psi\paren{x}}\leq M\max_{1\leq i\leq p}\abs{\phi_i\paren{x}}\).
+\end{enumerate}
+\end{exo}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exo}[Oral CCMP, 7]
+Soient \(n,k\) deux entiers tels que \(2\leq k\leq n\). On pose \(A_k=\paren{a_{i\,j}\deriv{k}}_{1\leq i,j\leq n}\in\M{n}[\R]\) telle que \(a_{i\,j}\deriv{k}=1\) si \(i-j=k-1\), les autres coefficients étant nuls.
+
+\begin{enumerate}[series=oral4.7]
+    \item Calculez \(\trans{A_k}A_k\).
+\end{enumerate}
+
+Soit \(p\) un projecteur de \(\R^n\) tel que \(p\not=\id{}\).
+
+\begin{enumerate}[resume=oral4.7]
+    \item Justifiez que \(\rg p<n\). \\
+    \item Montrez que \(p\) est la composée de deux endomorphismes nilpotents.
+\end{enumerate}
+\end{exo}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exo}[Oral CCMP, 8]
+Soient \(E\) un \(\K\)-espace vectoriel de dimension finie et \(f,g\) deux endomorphismes de \(E\).
+
+On suppose \(f\) inversible et \(g\) de rang \(1\).
+
+Montrez que \(f+g\) est inversible ssi \(\tr\paren{g\rond f\inv}\not=-1\).
+\end{exo}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exo}[Oral CCMP, 9]
+Soient \(\paren{n,p}\in\paren{\Ns}^2\), \(A\in\M{np}[\R]\) et \(B\in\M{pn}[\R]\).
+
+Montrez que \(p+\rg\paren{I_n+AB}=n+\rg\paren{I_p+BA}\).
+\end{exo}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exo}[Oral CCMP, 10]
+Soient \(n\in\Ns\) et \(A,B\in\M{n}[\R]\). On pose \(E=\accol{M\in\M{n}[\R]\tq AMB=0}\).
+
+Montrez que \(E\) est un sous-espace vectoriel de \(\M{n}[\R]\) et donnez sa dimension.
+\end{exo}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exo}[Oral CCMP, 11]
+Soit \(n\in\Ns\). Résolvez dans \(\M{n}[\C]\) l'équation \(M=\Com{M}\).
+\end{exo}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
