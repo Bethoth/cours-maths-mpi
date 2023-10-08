@@ -2,4 +2,592 @@
 
 \minitoc
 
-\note{À venir}
+Dans tout ce chapitre, \(\K\) désigne un sous-corps de \(\C\), en général \(\R\) ou \(\C\).
+
+\section{Sommes de sous-espaces vectoriels}
+
+\subsection{Généralités}
+
+\begin{defi}
+Soient \(E\) un \(\K\)-espace vectoriel et \(F_1,\dots,F_n\) des sous-espaces vectoriels de \(E\).
+
+On appelle somme de \(F_1,\dots,F_n\) l'ensemble noté \(F_1+\dots+F_n\) : \[F_1+\dots+F_n=\accol{\sum_{i=1}^nx_i\tq\paren{x_1,\dots,x_n}\in F_1\times\dots\times F_n}.\]
+\end{defi}
+
+\begin{prop}
+Soit \(\paren{u_1,\dots,u_p,u_{p+1},\dots,u_n}\in E^n\).
+
+Alors \(\Vect{u_1,\dots,u_p,u_{p+1},\dots,u_n}=\Vect{u_1,\dots,u_p}+\Vect{u_{p+1},\dots,u_n}\).
+\end{prop}
+
+\begin{prop}
+Avec les mêmes notations : \(F_1+\dots+F_n\) est un sous-espace vectoriel de \(E\).
+
+De plus, c'est le plus petit sous-espace vectoriel qui contient \(F_1,\dots,F_n\).
+
+Si on connaît des familles génératrices de chacun des sous-espaces vectoriels \(F_1,\dots,F_n\), alors en concaténant ces familles, on obtient une famille génératrice de \(F_1+\dots+F_n\).
+\end{prop}
+
+Conséquence : en fractionnant une famille génératrice de \(E\) en sous-familles, on décompose l'espace \(E\) en une somme de sous-espaces vectoriels.
+
+\subsection{Sommes directes}
+
+\begin{defi}
+Soient \(E\) un \(\K\)-espace vectoriel et \(F_1,\dots,F_n\) des sous-espaces vectoriels de \(E\).
+
+On dit que la somme \(F_1+\dots+F_n\) est directe quand tout vecteur de \(F_1+\dots+F_n\) a une unique écriture \(\sum_{i=1}^nx_i\) où \(\paren{x_1,\dots,x_n}\in F_1\times\dots\times F_n\).
+\end{defi}
+
+On dit aussi que les sous-espaces sont en somme directe. Dans ce cas, quand on veut insister sur cette propriété, on note la somme sous la forme \(F_1\oplus\dots\oplus F_n=\bigoplus_{i=1}^nF_i\).
+
+\begin{prop}
+Avec les mêmes hypothèses.
+
+La somme \(F_1+\dots+F_n\) est directe ssi le vecteur nul a une unique décomposition \(\sum_{i=1}^nx_i\) où \(\paren{x_1,\dots,x_n}\in F_1\times\dots\times F_n\), qui est la décomposition triviale.
+
+Autrement dit, la somme \(F_1+\dots+F_n\) est directe ssi la seule solution de l'équation \(\sum_{i=1}^nx_i=0\) d'inconnue \(\paren{x_1,\dots,x_n}\in F_1\times\dots\times F_n\) est le \(n\)-uplet nul.
+\end{prop}
+
+Un exemple fondamental : si \(\paren{v_1,\dots,v_n}\) est une famille libre, alors les droites vectorielles \(\Vect{v_i}\) sont en somme directe.
+
+\begin{prop}
+Avec les mêmes hypothèses.
+
+Si la somme \(F_1+\dots+F_n\) est directe, alors en concaténant des familles libres de chacun des sous-espaces vectoriels, on obtient une famille libre.
+\end{prop}
+
+\subsection{Sous-espaces supplémentaires}
+
+\begin{defi}
+Soient \(E\) un \(\K\)-espace vectoriel et \(F_1,\dots,F_n\) des sous-espaces vectoriels de \(E\).
+
+On dit que les sous-espaces \(F_1,\dots,F_n\) sont supplémentaires (dans \(E\)) quand \(E=\bigoplus_{i=1}^nF_i\).
+\end{defi}
+
+On déduit des deux parties précédentes le résultat de la décomposition d'un vecteur.
+
+\begin{prop}
+Soient \(E\) un \(\K\)-espace vectoriel et \(F_1,\dots,F_n\) des sous-espaces vectoriels de \(E\).
+
+Il y a équivalence entre :
+
+\begin{itemize}
+    \item les sous-espaces \(F_1,\dots,F_n\) sont supplémentaires \\
+    \item tout vecteur de \(E\) peut s'écrire de façon unique comme somme de vecteurs des sous-espaces vectoriels \(F_1,\dots,F_n\) : \[\quantifs{\forall v\in E;\exists!\paren{v_1,\dots,v_n}\in F_1\times\dots\times F_n}v=\sum_{i=1}^nv_i.\]
+\end{itemize}
+\end{prop}
+
+Dans ce cas, soit \(v\) un vecteur de \(E\). Il existe un unique \(n\)-uplet \(\paren{v_1,\dots,v_n}\in F_1\times\dots\times F_n\) tel que \(v=\sum_{i=1}^nv_i\).
+
+Pour tout \(j\in\interventierii{1}{n}\), on définit \(p_j:E\to E\) en posant \(p_j\paren{v}=v_j\).
+
+Alors les applications \(p_j\) sont des projecteurs qui vérifient les propriétés :
+
+\begin{itemize}
+    \item \(\sum_{i=1}^np_i=\id{E}\) \\
+    \item \(\quantifs{\tpt\paren{i,j}\in\interventierii{1}{n}^2}p_i\rond p_j=\delta_{i\,j}p_i\) où \(\delta_{x\,y}\) est le symbole de Kronecker.
+\end{itemize}
+
+La réciproque est vraie : si \(\paren{p_1,\dots,p_n}\) sont \(n\) projecteurs vérifiant les deux propriétés précédentes, alors les sous-espaces \(\paren{\Im p_i}_{1\leq i\leq n}\) sont supplémentaires.
+
+\begin{exo}
+Soit \(E=\F{\C}{\C}\). Pour \(k\in\accol{0,1,2}\), on pose \(E_k=\accol{f\in E\tq\quantifs{\forall x\in\C}f\paren{jx}=j^kf\paren{x}}\).
+
+Montrez que \(E_0,E_1,E_2\) sont trois sous-espaces vectoriels de \(E\) supplémentaires.
+\end{exo}
+
+\begin{prop}
+Avec les mêmes hypothèses.
+
+Si les sous-espaces \(F_1,\dots,F_n\) sont supplémentaires, alors en concaténant des bases de chacun des sous-espaces vectoriels, on obtient une base de \(E\).
+\end{prop}
+
+\subsection{Cas particulier de deux sous-espaces}
+
+\begin{prop}
+Soient \(E\) un \(\K\)-espace vectoriel et \(F,G\) deux sous-espaces vectoriels de \(E\).
+
+La somme \(F+G\) est directe ssi \(F\inter G=\accol{0}\).
+\end{prop}
+
+Attention ! Il ne faut pas généraliser à trois ou plus sous-espaces. Même si \(F_1\inter F_2\inter F_3\) est le sous-espace nul, on ne peut pas conclure que la somme \(F_1+F_2+F_3\) est directe.
+
+\subsection{Applications linéaires et sommes directes}
+
+\begin{prop}
+Soient \(E,F\) deux \(\K\)-espaces vectoriels, \(E_1,\dots,E_n\) des sous-espaces vectoriels supplémentaires dans \(E\) et \(f_1,\dots,f_n\) des applications linéaires de \(E_1,\dots,E_n\) dans \(F\) respectivement.
+
+Alors il existe une unique application linéaire \(f\) de \(E\) dans \(F\) telle que \(\quantifs{\tpt i\in\interventierii{1}{n}}\restr{f}{E_i}=f_i\).
+\end{prop}
+
+Autrement dit, pour définir une application linéaire sur une somme directe de sous-espaces vectoriels, il suffit de la définir sur chacun des sous-espaces vectoriels.
+
+\begin{exo}
+Soient \(E_1,\dots,E_n\) des sous-espaces vectoriels supplémentaires. Quelles sont les applications qui induisent l'application identité sur un des \(E_i\) et l'application nulle sur les autres \(E_j\) ?
+\end{exo}
+
+\section{Somme de sous-espaces vectoriels en dimension finie}
+
+\subsection{Base adaptée à un sous-espace}
+
+\begin{defi}
+Soient \(E\) un \(\K\)-espace vectoriel de dimension \(n\) et \(F\) un sous-espace vectoriel de \(E\) de dimension \(p\).
+
+On appelle base de \(E\) adaptée à \(F\) toute base de \(E\) qui contient une base de \(F\). Quitte à changer l'ordre des vecteurs, on peut suppose dans une base adaptée à \(F\) que les \(p\) premiers vecteurs de la base forment une base de \(F\).
+\end{defi}
+
+\begin{defi}
+Soient \(E\) un \(\K\)-espace vectoriel de dimension \(n\) et \(\paren{F_1,\dots,F_p}\) une famille de sous-espaces vectoriels supplémentaires dans \(E\).
+
+On appelle base adaptée à la somme \(E=\bigoplus_{i=1}^pF_i\) la concaténation de bases de chacun des sous-espaces \(F_1,\dots,F_p\) (dans cet ordre).
+\end{defi}
+
+Si \(\fami{B}\) est une base de \(E\), alors en fractionnant la base en sous-familles, les sous-espaces vectoriels engendrés par chacune de ces sous-familles sont supplémentaires et la base est alors adaptée à la somme des sous-espaces.
+
+\subsection{Sommes directes et bases}
+
+On donne un moyen simple de vérifier qu'une somme est directe, voire plus.
+
+\begin{prop}
+Soient \(E\) un \(\K\)-espace vectoriel de dimension \(n\) et \(\paren{F_1,\dots,F_p}\) une famille de sous-espaces vectoriels de \(E\).
+
+Si en concaténant des bases de chacun des sous-espaces vectoriels \(F_1,\dots,F_p\) on obtient une famille libre, alors les sous-espaces vectoriels sont en somme directe.
+
+Si en concaténant des bases de chacun des sous-espaces vectoriels \(F_1,\dots,F_p\) on obtient une base de \(E\), alors les sous-espaces vectoriels sont supplémentaires.
+\end{prop}
+
+\subsection{Dimension d'une somme de sous-espaces vectoriels}
+
+\begin{prop}
+Soient \(E\) un \(\K\)-espace vectoriel de dimension finie et \(F_1,\dots,F_n\) des sous-espaces vectoriels de \(E\).
+
+Alors \(\dim\sum_{i=1}^nF_i\leq\sum_{i=1}^n\dim F_i\).
+\end{prop}
+
+Il y a égalité quand la somme est directe.
+
+\begin{theo}
+Soient \(E\) un \(\K\)-espace vectoriel de dimension finie et \(F_1,\dots,F_n\) des sous-espaces vectoriels de \(E\).
+
+Alors \(F_1,\dots,F_n\) sont en somme directe ssi \(\dim\sum_{i=1}^nF_i=\sum_{i=1}^n\dim F_i\).
+\end{theo}
+
+\subsection{Sous-espaces supplémentaires}
+
+En dimension finie, on a une façon plus simple de prouver que des sous-espaces vectoriels sont supplémentaires.
+
+\begin{prop}[Trois pour le prix de deux]
+Soient \(E\) un \(\K\)-espace vectoriel de dimension finie et \(F_1,\dots,F_n\) des sous-espaces vectoriels de \(E\).
+
+Quand deux propriétés parmi les trois suivantes sont vraies, alors la troisième l'est aussi :
+
+\begin{itemize}
+    \item \(E=\sum_{i=1}^nF_i\) \\
+    \item \(\dim\sum_{i=1}^nF_i=\sum_{i=1}^n\dim F_i\) \\
+    \item \(\dim E=\sum_{i=1}^n\dim F_i\)
+\end{itemize}
+
+Donc dans ce cas, les sous-espaces vectoriels \(F_1,\dots,F_n\) sont supplémentaires.
+\end{prop}
+
+En pratique, le cas le plus utile est le suivant : si \(\dim\sum_{i=1}^nF_i=\sum_{i=1}^n\dim F_i=\dim E\), alors les sous-espaces vectoriels \(F_1,\dots,F_n\) sont supplémentaires.
+
+\begin{exo}
+Dans \(\R^4\), soient \(H=\accol{\paren{x,y,z,t}\in\R^4\tq x+z+t=0\text{ et }x-y-z+t=0}\), \(F=\Vect{\paren{-1,0,1,1}}\) et \(G=\Vect{\paren{2,-1,1,0}}\).
+
+\(F\), \(G\) et \(H\) sont-ils supplémentaires ?
+\end{exo}
+
+\subsection{Dimension d'une somme de deux sous-espaces vectoriels}
+
+Rappel : la formule de Grassmann.
+
+\begin{prop}
+Soient \(E\) un \(\K\)-espace vectoriel de dimension finie et \(F,G\) deux sous-espaces vectoriels de \(E\).
+
+Alors \(\dim\paren{F+G}=\dim F+\dim G-\dim\paren{F\inter G}\).
+\end{prop}
+
+\section{Polynômes d'endomorphismes et de matrices}
+
+\subsection{\(\K\)-algèbres}
+
+\subsubsection{Définition}
+
+\begin{defi}
+Un ensemble \(A\) est appelé \(\K\)-algèbre quand \(A\) est à la fois un anneau et un \(\K\)-espace vectoriel, dont les multiplications sont compatibles.
+
+Il y a donc trois lois dans une \(\K\)-algèbre :
+
+\begin{itemize}
+    \item une addition classique \(+\) ; \\
+    \item une multiplication externe \(.\) ; \\
+    \item une multiplication interne, compatible avec la précédente : \[\quantifs{\forall\paren{\lambda,a,b}\in\K\times A^2}\lambda.\paren{ab}=\paren{\lambda.a}b=a\paren{\lambda.b}.\]
+\end{itemize}
+\end{defi}
+
+On qualifie les \(\K\)-algèbres par du vocabulaire des anneaux (algèbres intègres, algèbres principales, etc) ou des espaces vectoriels (algèbres de dimension finie, etc).
+
+\begin{ex}
+\begin{itemize}
+    \item \(\K\) est lui-même une \(\K\)-algèbre, où les deux multiplications sont confondues ; \(\C\) est aussi une \(\R\)-algèbre de dimension \(2\). \\
+    \item \(\poly\) est une \(\K\)-algèbre intègre, commutative et de dimension finie. \\
+    \item Si \(I\) est un intervalle, \(\F{I}{\K}\) est une \(\K\)-algèbre commutative, non-intègre et de dimension finie. \\
+    \item Si \(n\in\Ns\), \(\M{n}\) est une \(\K\)-algèbre de dimension \(n^2\) qui n'est ni intègre ni commutative. \\
+    \item Si \(E\) est un \(\K\)-espace vectoriel, alors \(\Lendo{E}\) est une \(\K\)-algèbre de dimension finie ssi \(E\) l'est aussi qui n'est ni intègre ni commutative.
+\end{itemize}
+\end{ex}
+
+\subsubsection{Polynômes d'éléments dans une \(\K\)-algèbre}
+
+\begin{prop}\thlabel{prop:polynomeElementAlgebre}
+Soient \(A\) une \(\K\)-algèbre et \(a\in A\).
+
+Pour \(P=\sum_{i=0}^nc_iX^i\in\poly\), on pose \(P\paren{a}=\sum_{i=0}^nc_ia^i\).
+
+L'application \(\fonctionlambda{\poly}{A}{P}{P\paren{a}}\) est alors un morphisme d'algèbres : \[\quantifs{\forall\paren{P,Q}\in\poly^2;\forall\lambda\in\K}\begin{dcases}
+\paren{P+Q}\paren{a}=P\paren{a}+Q\paren{a} \\
+\paren{PQ}\paren{a}=P\paren{a}Q\paren{a} \\
+\paren{\lambda P}\paren{a}=\lambda P\paren{a}
+\end{dcases}\]
+
+De plus, on note \(\poly[\K][a]\) l'ensemble \(\accol{P\paren{a}\tq P\in\poly}\) : cet ensemble est stable par les lois de \(A\), on dit que c'est une sous-algèbre de \(A\).
+\end{prop}
+
+\subsection{Cas particulier des algèbres \(\Lendo{E}\) ou \(\M{n}\)}
+
+\(E\) étant un \(\K\)-espace vectoriel, l'ensemble \(\Lendo{E}\) est une \(\K\)-algèbre. De même, \(n\) étant un entier non-nul, \(\M{n}\) est une \(\K\)-algèbre. Dans ces algèbres, on définit naturellement la notion de polynôme d'endomorphisme ou de matrice. Bien sûr, ces notions sont liées par choix d'une base de l'espace.
+
+\begin{prop}
+Soient \(E\) un \(\K\)-espace vectoriel de dimension \(n\), \(\fami{B}\) une base de \(E\) et \(f\in\Lendo{E}\) tel que \(\Mat{f}=A\).
+
+Alors pour tout polynôme \(P\in\poly\), \(P\paren{f}\) a pour matrice \(P\paren{A}\) dans la base \(\fami{B}\).
+\end{prop}
+
+\begin{rem}
+\begin{itemize}
+    \item La \guillemets{multiplication} dans \(\Lendo{E}\) est la composition \(\rond\). Donc la deuxième propriété de la \thref{prop:polynomeElementAlgebre} doit être comprise comme suit : si \(f\in\Lendo{E}\), alors \(\paren{PQ}\paren{f}=P\paren{f}\rond Q\paren{f}\). \\
+    \item Même si les multiplications dans \(\M{n}\) ou \(\Lendo{E}\) ne sont pas commutatives en général, on peut intervertir l'ordre des polynômes car la multiplication dans \(\poly\) est commutative : si \(A\in\M{n}\), \(\paren{PQ}\paren{A}=P\paren{A}Q\paren{A}=Q\paren{A}P\paren{A}\) ; si \(u\in\Lendo{E}\), \(\paren{PQ}\paren{u}=P\paren{u}\rond Q\paren{u}=Q\paren{u}\rond P\paren{u}\). \\
+    \item Attention aux notations ! Si \(f\in\Lendo{E}\), \(x\in E\) et \(P\in\poly\), alors l'application de \(P\paren{f}\) au vecteur \(x\) se note \(P\paren{f}\paren{x}\) et pas \(P\paren{f\paren{x}}\), notation qui n'a aucun sens.
+\end{itemize}
+\end{rem}
+
+\subsection{Polynôme annulateur d'une matrice ou d'un endomorphisme}
+
+\begin{defi}
+Soient \(n\in\Ns\) et \(A\in\M{n}\). On appelle polynôme annulateur de \(A\) tout polynôme non-nul \(P\in\poly\) tel que \(P\paren{A}=0\).
+
+Soient \(E\) un \(\K\)-espace vectoriel et \(u\in\Lendo{E}\). On appelle polynôme annulateur de \(u\) tout polynôme non-nul \(P\in\poly\) tel que \(P\paren{u}=0\).
+\end{defi}
+
+\begin{rem}
+Attention à ne pas confondre les notions : si \(P\) est un polynôme annulateur de la matrice \(A\) (on dit aussi que \(P\) annule \(A\) par abus de langage), on ne dit pas que \(A\) est une racine de \(P\) !
+
+Une racine d'un polynôme est un nombre...
+
+De même, si \(P\paren{u}=0\), on ne dit pas que \(u\) est une racine de \(P\), ça n'a aucun sens.
+\end{rem}
+
+\begin{defi}
+Si \(A\in\M{n}\), alors l'ensemble \(\Ann{A}=\accol{P\in\poly\tq P\paren{A}=0}\) est appelé idéal annulateur de \(A\).
+
+Si \(u\) est un endomorphisme d'un espace vectoriel \(E\), alors l'ensemble \(\Ann{u}=\accol{P\in\poly\tq P\paren{u}=0}\) est appelé idéal annulateur de \(u\).
+\end{defi}
+
+\begin{theo}
+Soit \(A\in\M{n}\). Alors \(\Ann{A}\) est un sous-espace vectoriel de \(\poly\) stable par \(\times\). De plus, il existe un unique polynôme unitaire \(\mu_A\) tel que \(\Ann{A}=\mu_A\poly\).
+
+Soient \(E\) un \(\K\)-espace vectoriel de dimension finie et \(u\in\Lendo{E}\). Alors \(\Ann{u}\) est un sous-espace vectoriel de \(\poly\) stable par \(\times\). De plus, il existe un unique polynôme unitaire \(\mu_u\) tel que \(\Ann{u}=\mu_u\poly\).
+\end{theo}
+
+\begin{rem}
+Ce dernier résultat est faux en dimension infinie. Contre-exemple : l'endomorphisme \(u:\poly\to\poly\) défini par \(u\paren{P}=XP\).
+\end{rem}
+
+\begin{defi}
+On appelle polynôme minimal d'une matrice carrée \(A\) le polynôme \(\mu_A\) précédent (noté aussi parfois \(\pi_A\)). C'est le polynôme unitaire de degré minimal qui annule \(A\).
+
+On appelle polynôme minimal d'un endomorphisme \(u\) en dimension finie le polynôme \(\mu_u\) précédent (noté aussi parfois \(\pi_u\)). C'est le polynôme unitaire de degré minimal qui annule \(u\).
+\end{defi}
+
+Autrement dit, on a l'équivalence : pour tout \(P\in\poly\), \[P\paren{u}=0\ssi\mu_u\divise P.\]
+
+De même, on a l'équivalence : pour tout \(P\in\poly\), \[P\paren{A}=0\ssi\mu_A\divise P.\]
+
+Les polynômes annulateurs sont donc les multiples des polynômes minimaux.
+
+On verra plus tard qu'on peut trouver des polynômes annulateurs de plus petits degrés que ceux donnés par le théorème précédent.
+
+En général, il est souvent pénible de calculer le polynôme minimal. En pratique, on se contente de trouver des polynômes annulateurs de degrés pas trop grands (et souvent, il s'agit du polynôme minimal).
+
+\begin{rem}
+Si \(A\in\M{n}\) et \(\K\prim\) est un sous-corps de \(\C\) qui contient \(\K\) (on dit que \(\K\prim\) est une extension de \(\K\)), alors le polynôme minimal de \(A\), vue comme matrice de \(\M{n}[\K\prim]\), est a priori différent de celui de \(A\) vue comme matrice de \(\M{n}\). On peut seulement affirmer pour l'instant que \(\mu_{A\,\K\prim}\) divise \(\mu_{A\,\K}\).
+
+En fait, on montre plus loin que le polynôme minimal ne dépend pas du corps \(\K\).
+\end{rem}
+
+\subsection{Utilisation pratique d'un polynôme annulateur}
+
+\subsubsection{Calcul de l'inverse}
+
+\begin{prop}
+Soient \(n\in\Ns\) et \(A\in\M{n}\).
+
+Alors \(A\) est inversible ssi \(A\) possède un polynôme annulateur \(P\) tel que \(0\) ne soit pas racine de \(P\). Dans ce cas, \(A\inv\) est un polynôme en \(A\).
+
+De même, soient \(E\) un \(\K\)-espace vectoriel et \(f\in\Lendo{E}\).
+
+Alors si \(f\) possède un polynôme annulateur \(P\) tel que \(0\) ne soit pas racine de \(P\), \(f\) est un automorphisme de \(E\). Dans ce cas, \(f\inv\) est un polynôme en \(f\). La réciproque est vraie si \(E\) est de dimension finie.
+\end{prop}
+
+\begin{exo}~\\
+On pose \(A=\begin{pmatrix}
+1 & 1 & 1 \\
+0 & 1 & 1 \\
+0 & 0 & 2
+\end{pmatrix}\). Déterminez un polynôme annulateur de \(A\), montrez que \(A\) est inversible et calculez \(A\inv\).
+\end{exo}
+
+\begin{exo}
+Soient \(E\) un \(\K\)-espace vectoriel et \(p\in\Lendo{E}\) un projecteur. Déterminez un polynôme annulateur de \(p\).
+
+Soit \(\lambda\in\K\). On pose \(f=p-\lambda\id{E}\). Déterminez un polynôme annulateur de \(f\) et vérifiez que \(f\) est un automorphisme pour presque toutes les valeurs de \(\lambda\) ; dans ce cas, calculez son inverse.
+\end{exo}
+
+\subsubsection{Calcul de puissances}
+
+\begin{prop}
+Soient \(n\in\Ns\) et \(A\in\M{n}\). On choisit un polynôme annulateur \(P\) de la matrice \(A\).
+
+Alors \(\quantifs{\tpt p\in\N}A^p=R_p\paren{A}\) où \(R_p\) est le reste de la division euclidienne de \(X^p\) par \(P\).
+
+De même, soient \(E\) un \(\K\)-espace vectoriel et \(f\in\Lendo{E}\) qui possède un polynôme annulateur \(P\).
+
+Alors \(\quantifs{\tpt p\in\N}f^p=R_p\paren{f}\) où \(R_p\) est le reste de la division euclidienne de \(X^p\) par \(P\).
+\end{prop}
+
+Conséquence :
+
+\begin{itemize}
+    \item si \(A\) possède un polynôme annulateur de degré \(a\), alors \(\poly[\K][A]=\accol{P\paren{A}\tq P\in\polydeg{a-1}}\) ; \\
+    \item si \(f\) possède un polynôme annulateur de degré \(a\), alors \(\poly[\K][f]=\accol{P\paren{f}\tq P\in\polydeg{a-1}}\).
+\end{itemize}
+
+\begin{prop}
+Si \(p\) est le degré du polynôme minimal d'une matrice \(A\), alors \(\dim\poly[\K][A]=p\) et \(\paren{I_n,A,\dots,A^{p-1}}\) est une base de \(\poly[\K][A]\).
+
+Si \(p\) est le degré du polynôme minimal d'un endomorphisme \(f\) d'un espace vectoriel \(E\), alors \(\dim\poly[\K][f]=p\) et \(\paren{\id{E},f,\dots,f^{p-1}}\) est une base de \(\poly[\K][f]\).
+\end{prop}
+
+\begin{exo}
+Soient \(E\) un espace vectoriel et \(\paren{p,q}\in\Lendo{E}^2\) deux projecteurs tels que \(p+q=\id{E}\). Vérifiez que \(p\rond q=q\rond p=0\). Déterminez un polynôme annulateur de \(f=2p+3q\). Donnez une expression générale de \(f^k\) en fonction de \(f\) et \(k\).
+\end{exo}
+
+\begin{exo}~\\
+On pose \(A=\begin{pmatrix}
+2 & -4 & -5 \\
+-1 & 2 & 2 \\
+1 & -2 & -2
+\end{pmatrix}\). Vérifiez que \(P=X^3-2X^2+X\) est un polynôme annulateur de \(A\). Donnez une expression générale de \(A^p\) en fonction de \(A\) et \(p\).
+\end{exo}
+
+\begin{cor}
+Si \(\K\prim\) est une extension de \(\K\), alors pour toute matrice \(A\in\M{n}\), ses polynômes minimaux relativement à \(\K\) et \(\K\prim\) sont égaux : \(\mu_{A\,\K}=\mu_{A\,\K\prim}\).
+
+Autrement dit, le polynôme minimal ne dépend pas du corps \(\K\).
+\end{cor}
+
+\section{Matrices semblables, trace}
+
+\subsection{Trace d'une matrice}
+
+\begin{defi}
+Soit \(A\in\M{n}\). On appelle trace de \(A\) la somme de ses coefficients diagonaux : \[\tr A=\sum_{i=1}^na_{i\,i}.\]
+\end{defi}
+
+L'application trace vérifie de remarquables propriétés.
+
+\begin{prop}
+\begin{itemize}
+    \item La trace est une forme linéaire sur \(\M{n}\). \\
+    \item \(\quantifs{\Tpt A\in\M{n}}\tr\paren{\trans{A}}=\tr A\). \\
+    \item \(\quantifs{\Tpt\paren{A,B}\in\M{n}^2}\tr\paren{AB}=\tr\paren{BA}\).
+\end{itemize}
+\end{prop}
+
+\subsection{Matrices semblables}
+
+\begin{defi}
+Soient \(A,B\in\M{n}\).
+
+On dit que \(A\) et \(B\) sont semblables quand il existe \(P\in\GL{n}\) telle que \(B=P\inv AP\).
+\end{defi}
+
+\begin{prop}
+La relation de similitude entre matrices de \(\M{n}\) est une relation d'équivalence.
+\end{prop}
+
+La relation de similitude est une relation très contraignante. Il n'existe pas de caractérisation simple de la similitude entre deux matrices carrées : savoir si deux matrices sont semblables est un problème difficile.
+
+D'après la formule de changement de base, on a immédiatement le résultat suivant.
+
+\begin{prop}
+Deux matrices de \(\M{n}\) sont semblables ssi elle représentent un même endomorphisme dans des bases différentes. La matrice \(P\) est la matrice de passage d'une base à l'autre.
+\end{prop}
+
+\begin{cor}
+Deux matrices semblables ont même rang, même trace et même déterminant.
+\end{cor}
+
+Mais c'est loin d'être suffisant pour être semblables.
+
+\begin{prop}
+Si \(A\) et \(B\) sont deux matrices semblables, alors pour tout polynôme \(P\in\poly\), \(P\paren{A}\) et \(P\paren{B}\) sont semblables avec la même matrice de passage.
+\end{prop}
+
+\subsection{Trace d'un endomorphisme}
+
+\begin{prop}
+Soient \(E\) un \(\K\)-espace vectoriel de dimension finie et \(f\in\Lendo{E}\).
+
+Toutes les matrices carrées représentant \(f\) ont la même trace. Cette trace ne dépend donc pas du choix de la base dans laquelle on écrit la matrice de \(f\), elle ne dépend que de \(f\) : on l'appelle trace de \(f\) et on la note \(\tr f\).
+\end{prop}
+
+On peut alors reformuler les résultats sur la trace d'une matrice.
+
+\begin{prop}
+\begin{itemize}
+    \item La trace est une forme linéaire sur \(\Lendo{E}\). \\
+    \item \(\quantifs{\Tpt\paren{u,v}\in\Lendo{E}^2}\tr\paren{u\rond v}=\tr\paren{v\rond u}\).
+\end{itemize}
+\end{prop}
+
+\section{Opérations par blocs}
+
+\subsection{Cas général}
+
+Soit \(\paren{n,p}\in\paren{\Ns}^2\). On fixe deux entiers \(k,l\) tels que \(1\leq k\leq n-1\) et \(1\leq l\leq p-1\).
+
+À toute matrice \(M\in\M{n\,p}\), on associe quatre matrices obtenues en découpant la matrice en blocs : \[M=\begin{pmatrix}
+A & B \\
+C & D
+\end{pmatrix}\] où \(A=\paren{m_{i\,j}}_{\substack{1\leq i\leq k \\ 1\leq j\leq l}}\), \(B=\paren{m_{i\,j}}_{\substack{1\leq i\leq k \\ l+1\leq j\leq p}}\), \(C=\paren{m_{i\,j}}_{\substack{k+1\leq i\leq n \\ 1\leq j\leq l}}\) et \(D=\paren{m_{i\,j}}_{\substack{k+1\leq i\leq n \\ l+1\leq j\leq p}}\).
+
+Cette décomposition par blocs permet de faire des calculs formellement comme s'il s'agissait de nombres.
+
+\begin{prop}~\\
+Soient \(M=\begin{pmatrix}
+A & B \\
+C & D
+\end{pmatrix}\) et \(M\prim=\begin{pmatrix}
+A\prim & B\prim \\
+C\prim & D\prim
+\end{pmatrix}\) deux matrices de même taille décomposées de la même façon en blocs et \(\lambda\in\K\).
+
+Alors \(M+M\prim=\begin{pmatrix}
+A+A\prim & B+B\prim \\
+C+C\prim & D+D\prim
+\end{pmatrix}\) et \(\lambda M=\begin{pmatrix}
+\lambda A & \lambda B \\
+\lambda C & \lambda D
+\end{pmatrix}\).
+\end{prop}
+
+\begin{prop}~\\
+Soient \(M=\begin{pmatrix}
+A & B \\
+C & D
+\end{pmatrix}\) et \(M\prim=\begin{pmatrix}
+A\prim & B\prim \\
+C\prim & D\prim
+\end{pmatrix}\) deux matrices telles que le produit \(MM\prim\) existe et décomposées en blocs.
+
+Alors, sous réserve que les blocs soient de tailles compatibles pour la multiplication, on a \[MM\prim=\begin{pmatrix}
+AA\prim+BC\prim & AB\prim+BD\prim \\
+CA\prim+DC\prim & CB\prim+DD\prim
+\end{pmatrix}.\]
+\end{prop}
+
+\begin{rem}
+\begin{itemize}
+    \item Comme les symboles mis en jeu ne sont pas des nombres mais des matrices, il est indispensable de respecter l'ordre dans les produits. \\
+    \item On peut généraliser à un nombre quelconque de blocs, pas forcément deux en ligne ou en colonne.
+\end{itemize}
+\end{rem}
+
+\subsection{Cas particuliers des matrices carrées}
+
+Si \(M\) est une matrice de \(\M{n}\), alors avec les mêmes notations, on choisit toujours \(A\) et \(D\) carrées elles aussi. Dans ce paragraphe, on suppose que c'est le cas.
+
+\begin{defi}
+On dit que \(M\) est triangulaire supérieure par blocs quand il existe des matrices carrées \(A_1,\dots,A_k\) telles que \(M\) soit de la forme \[M=\begin{pmatrix}
+A_1 & ? & ? & \dots & ? \\
+0 & A_2 & ? & \dots & ? \\
+\vdots &  & \ddots &  & \vdots \\
+0 & \dots & 0 & A_{k-1} & ? \\
+0 & \dots & 0 & 0 & A_k
+\end{pmatrix}.\]
+\end{defi}
+
+On définit de même la notion de matrice triangulaire inférieure par blocs.
+
+\begin{defi}
+On dit que \(M\) est diagonale par blocs quand il existe des matrices carrées \(A_1,\dots,A_k\) telles que \(M\) soit de la forme \[M=\begin{pmatrix}
+A_1 & 0 & 0 & \dots & 0 \\
+0 & A_2 & 0 & \dots & 0 \\
+\vdots &  & \ddots &  & \vdots \\
+0 & \dots & 0 & A_{k-1} & 0 \\
+0 & \dots & 0 & 0 & A_k
+\end{pmatrix}.\]
+\end{defi}
+
+Les résultats sur les matrices triangulaires ou diagonales restent valables par blocs : la somme et le produit de deux matrices triangulaires supérieures par blocs de mêmes tailles l'est encore, et de même pour les matrices triangulaires inférieures par blocs et les matrices diagonales par blocs.
+
+Une conséquence est qu'une matrice \(M\) triangulaire par blocs est inversible ssi tous les blocs diagonaux sont inversibles.
+
+Dans ce cas, l'inverse de \(M\) est triangulaire par blocs et ses blocs diagonaux sont les inverses des blocs diagonaux de \(M\).
+
+En particulier, l'inverse d'une matrice \(M\) diagonale par blocs est la matrice diagonale par blocs dont les blocs diagonaux sont les inverses de ceux de \(M\).
+
+De plus, le déterminant d'une matrice triangulaire par blocs est le produit des déterminants des blocs diagonaux.
+
+\subsection{Interprétation des blocs}
+
+\begin{defi}
+Soient \(E\) un \(\K\)-espace vectoriel, \(f\in\Lendo{E}\) et \(F\) un sous-espace vectoriel de \(E\).
+
+On dit que \(F\) est stable par \(f\) quand \(f\paren{F}\subset F\), \ie \(\quantifs{\tpt x\in F}f\paren{x}\in F\).
+\end{defi}
+
+Dans ce cas, on peut définir une application \(\phi\) de \(F\) dans \(F\) en posant \(\quantifs{\tpt x\in F}\phi\paren{x}=f\paren{x}\).
+
+Il est facile de vérifier que \(\phi\) est un endomorphisme de \(F\), appelé endomorphisme induit par \(f\) dans \(F\).
+
+\begin{ex}
+Si \(g\) est un endomorphisme de \(E\) qui commute avec \(f\) (\ie \(fg=gf\)), alors \(\ker g\) et \(\Im g\) sont stables par \(f\).
+\end{ex}
+
+\begin{prop}
+Soient \(E\) un \(\K\)-espace vectoriel de dimension \(n\), \(f\in\Lendo{E}\) et \(F\) un sous-espace vectoriel de \(E\) de dimension \(p\).
+
+Si \(F\) est stable par \(f\), alors il existe une base de \(E\) dans laquelle la matrice de \(f\) est triangulaire supérieure par bloc, le premier bloc étant de taille \(\paren{p,p}\) : \[\Mat{f}=\begin{pmatrix}
+A & B \\
+0 & D
+\end{pmatrix}\text{ et }A\in\M{p}.\]
+
+Réciproquement, si \(f\) possède une matrice de cette forme, alors le sous-espace vectoriel engendré par les \(p\) premiers vecteurs est stable par \(f\).
+\end{prop}
+
+\begin{prop}
+Soient \(E\) un \(\K\)-espace vectoriel de dimension \(n\) et \(f\in\Lendo{E}\).
+
+Si \(F_1,\dots,F_k\) sont des sous-espaces vectoriels supplémentaires stables par \(f\) de dimensions respectives \(p_1,\dots,p_k\), alors il existe une base de \(E\) dans laquelle la matrice de \(f\) est diagonale par blocs, la taille du \(i\)-ème bloc étant \(\paren{p_i,p_i}\) : \[\Mat{f}=\begin{pmatrix}
+A_1 & 0 & 0 & \dots & 0 \\
+0 & A_2 & 0 & \dots & 0 \\
+\vdots &  & \ddots &  & \vdots \\
+0 & \dots & 0 & A_{k-1} & 0 \\
+0 & \dots & 0 & 0 & A_k
+\end{pmatrix}.\]
+
+Réciproquement, si \(f\) possède une matrice dans une certaine base qui est diagonale par blocs et contenant \(k\) blocs carrés, alors il existe \(k\) sous-espaces vectoriels \(F_1,\dots,F_k\) stables par \(f\) et supplémentaires dans \(E\).
+\end{prop}
