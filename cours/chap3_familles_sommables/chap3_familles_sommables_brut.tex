@@ -2,4 +2,420 @@
 
 \minitoc
 
-\note{À venir}
+Dans ce chapitre, \(E\) désigne un espace vectoriel normé de dimension finie (qui peut être \(\R\) ou \(\C\)) et \(\norme{}\) la norme associée (qui est dans ce cas la valeur absolue ou le module).
+
+Si \(A,B\) sont deux ensembles, alors on note \(A\subset_fB\) pour indiquer que \(A\) est un sous-ensemble fini de \(B\).
+
+\section{Sommes finies}
+
+\subsection{Définition}
+
+D'abord un rappel : on définit par récurrence la somme de \(n\) éléments de \(E\) notés \(x_1,\dots,x_n\) par :
+
+\begin{itemize}
+    \item si \(n=0\), alors \(\sum_{k=1}^nx_k=0\) (une somme vide a pour valeur \(0\) par convention) ; \\
+    \item \(\quantifs{\tpt n\in\N}\sum_{k=1}^{n+1}x_k=x_{n+1}+\sum_{k=1}^nx_k\).
+\end{itemize}
+
+On définit de même par récurrence les sommes de la forme \(\sum_{k=p}^qx_k\) quand \(p-1\leq q\) (si \(q=p-1\), la somme est vide donc vaut \(0\)).
+
+\begin{prop}\thlabel{prop:prop1}
+Soient \(n\in\Ns\) et \(x_1,\dots,x_n\in E\).
+
+Alors :
+
+\begin{enumerate}
+    \item \(\quantifs{\tpt\paren{p,q}\in\interventierii{1}{n}^2\text{ tel que }p\leq q}\sum_{k=p}^nx_k=\sum_{k=p}^qx_k+\sum_{k=q+1}^nx_k\) ; \\
+    \item \(\quantifs{\tpt\phi\in\S{n}}\sum_{k=1}^nx_k=\sum_{k=1}^nx_{\phi\paren{k}}\).
+\end{enumerate}
+\end{prop}
+
+\begin{dem}[1]
+On pose \(\P{n}\) la proposition \guillemets{\(\quantifs{\forall\paren{p,q}\in\interventierii{1}{n}}p\leq q\imp\sum_{k=p}^nx_k=\sum_{k=p}^qx_k+\sum_{k=q+1}^nx_k\)}.
+
+Si \(n=1\), alors \(\quantifs{\tpt\paren{p,q}\in\interventierii{1}{n}^2}p=q=1\) donc \(\sum_{k=p}^nx_k=x_1+0=\sum_{k=p}^qx_k+\sum_{k=q+1}^nx_k\) donc \(\P{1}\) est vraie.
+
+Si \(\P{n}\) est vraie, alors soient \(\paren{x_1,\dots,x_{n+1}}\in E^{n+1}\) et \(\paren{p,q}\in\interventierii{1}{n+1}^2\) tel que \(p\leq q\) :
+
+\begin{itemize}
+    \item si \(q\leq n\), alors par définition, \(\sum_{k=p}^{n+1}=\sum_{k=p}^nx_k+x_{n+1}\), donc d'après l'hypothèse de récurrence, \(\sum_{k=p}^{n+1}x_k=\sum_{k=p}^qx_k+\sum_{k=q+1}^nx_k+x_{n+1}=\sum_{k=p}^qx_k+\sum_{k=q+1}^{n+1}x_k\) ; \\
+    \item si \(q=n+1\), alors \(\sum_{k=p}^{n+1}x_k=\sum_{k=p}^qx_k+0=\sum_{k=p}^qx_k+\sum_{k=q+1}^{n+1}x_k\).
+\end{itemize}
+
+Dans les deux cas, on a montré \(\sum_{k=p}^{n+1}x_k=\sum_{k=p}^qx_k+\sum_{k=q+1}^{n+1}x_k\). Autrement dit, \(\P{n+1}\) est vraie.
+
+D'après le principe de récurrence, \(\quantifs{\tpt n\in\Ns}\P{n}\text{est vraie}\).
+\end{dem}
+
+\begin{dem}[2]
+On pose \(\P{n}\) la proposition \guillemets{\(\quantifs{\forall\phi\in\S{n}}\sum_{k=1}^nx_k=\sum_{k=1}^nx_{\phi\paren{k}}\)}.
+
+\(\P{1}\) est vraie car le seul élément de \(\S{1}\) est l'application \(1\mapsto1\).
+
+Si \(\P{n}\) est vraie, alors soient \(\paren{x_1,\dots,x_{n+1}}\in E^{n+1}\) et \(\phi\in\S{n+1}\) :
+
+\begin{itemize}
+    \item si \(\phi\paren{n+1}=n+1\) alors \(\phi\) induit une bijection de \(\interventierii{1}{n}\) dans lui-même donc d'après l'hypothèse de récurrence, \(\sum_{k=1}^nx_k=\sum_{k=1}^nx_{\phi\paren{k}}\) donc \(\sum_{k=1}^{n+1}x_{\phi\paren{k}}=\sum_{k=1}^nx_{\phi\paren{k}}+x_{\phi\paren{n+1}}=\sum_{k=1}^nx_k+x_{n+1}=\sum_{k=1}^{n+1}x_k\) ; \\
+    \item si \(\phi\paren{n+1}=m\not=n+1\), alors on pose \(\psi=\cycle{m;n+1}\phi\) et \(a=\phi\inv\paren{n+1}\). On a alors \(\psi\paren{n+1}=n+1\), \(\psi\paren{a}=m\) et \(\quantifs{\tpt k\in\interventierii{1}{n+1}\excluant\accol{a,n+1}}\psi\paren{k}=\phi\paren{k}\). D'après le cas précédent, \(\sum_{k=1}^{n+1}x_k=\sum_{k=1}^{n+1}x_{\psi\paren{k}}\), donc en utilisant le résultat précédent : \[\begin{aligned}
+        \sum_{k=1}^{n+1}x_k&=\sum_{k=1}^{a-1}x_{\psi\paren{k}}+x_{\psi\paren{a}}+\sum_{k=a+1}^nx_{\psi\paren{k}}+x_{\psi\paren{n+1}} \\
+        &=\sum_{k=1}^{a-1}x_{\phi\paren{k}}+x_m+\sum_{k=a+1}^nx_{\phi\paren{k}}+x_{n+1} \\
+        &=\sum_{k=1}^{a-1}x_{\phi\paren{k}}+x_{\phi\paren{n+1}}+\sum_{k=a+1}^nx_{\phi\paren{k}}+x_{\phi\paren{a}} \\
+        &=\sum_{k=1}^{n+1}x_{\phi\paren{k}}.
+    \end{aligned}\]
+\end{itemize}
+
+Dans les deux cas, on a montré \(\sum_{k=1}^{n+1}x_{\phi\paren{k}}=\sum_{k=1}^{n+1}x_k\). Autrement dit, \(\P{n+1}\) est vraie.
+
+D'après le principe de récurrence, \(\quantifs{\tpt{n\in\Ns}}\P{n}\text{ est vraie}\).
+\end{dem}
+
+\begin{prop}
+Soient \(I\) un ensemble fini et non-vide d'indices, \(n\) son cardinal et \(f,g\) deux bijections de \(\interventierii{1}{n}\) dans \(I\) (des énumérations de \(I\)).
+
+Alors \(\quantifs{\tpt\paren{x_i}_{i\in I}\in E^I}\sum_{k=1}^nx_{f\paren{k}}=\sum_{k=1}^nx_{g\paren{k}}\).
+\end{prop}
+
+\begin{dem}
+On remarque que \(g\inv\rond f\) est une bijection de \(\interventierii{1}{n}\) dans lui-même donc d'après la \thref{prop:prop1} : \[\sum_{k=1}^nx_{g\paren{k}}=\sum_{k=1}^nx_{g\paren{g\inv\rond f\paren{k}}}=\sum_{k=1}^nx_{f\paren{k}}.\]
+\end{dem}
+
+Autrement dit, quel que soit l'ordre dans lequel on numérote les éléments de la famille \(\paren{x_i}_{i\in I}\), on obtient toujours la même somme en les additionnant.
+
+\begin{defi}
+Si \(I\) est un ensemble fini d'indices et \(\paren{x_i}_{i\in I}\) une famille d'éléments de \(E\), alors on pose \(\sum_{i\in I}x_i\) la valeur d'une somme \(\sum_{k=1}^nx_{f\paren{k}}\), où \(f\) est une bijection de \(\interventierii{1}{n}\) dans \(I\) quelconque.
+\end{defi}
+
+Cette définition est cohérente, puisque la valeur de la somme \(\sum_{k=1}^nx_{f\paren{k}}\) ne dépend pas du choix de \(f\) d'après la proposition précédente. Autrement dit, il est inutile de connaître l'énumération choisie pour additionner les éléments de la famille, on peut considérer cette somme comme une somme \guillemets{en vrac} de tous les éléments.
+
+\subsection{Propriétés}
+
+\begin{prop}
+Soient \(I\) un ensemble fini d'indices de cardinal \(n\) et \(\paren{x_i}_{i\in I}\) une famille d'éléments de \(E\).
+
+Alors :
+
+\begin{enumerate}
+    \item pour toute bijection \(f\) d'un ensemble \(J\) dans \(I\), \(\sum_{i\in I}x_i=\sum_{j\in J}x_{f\paren{j}}\) (changement d'indice dans une somme) ; \\
+    \item pour toute bijection \(f\) de \(I\) dans lui-même, \(\sum_{i\in I}x_i=\sum_{i\in I}x_{f\paren{i}}\) (propriété de commutativité) ; \\
+    \item pour tout couple \(\paren{J,J\prim}\) de parties de \(I\) disjointes et de réunion \(I\), \(\sum_{i\in I}x_i=\sum_{i\in J}x_i+\sum_{i\in J\prim}x_i\) (propriété d'associativité) ; \\
+    \item plus généralement, pour toute partition \(\paren{I_k}_{k\in K}\) de l'ensemble \(I\), \(\sum_{i\in I}x_i=\sum_{k\in K}\sum_{i\in I_k}x_i\).
+\end{enumerate}
+\end{prop}
+
+\begin{dem}[1]
+Soit \(f\) une bijection de \(J\) dans \(I\). On choisit une énumération \(\psi\) de \(J\). Alors \(f\rond\psi\) est une énumération de \(I\).
+
+Alors, par définition, \(\sum_{i\in I}x_i=\sum_{k=1}^nx_{f\rond\psi\paren{k}}\) et \(\sum_{j\in J}x_{f\paren{j}}=\sum_{k=1}^{n}x_{f\rond\psi\paren{k}}\) donc \(\sum_{i\in I}x_i=\sum_{j\in J}x_{f\paren{j}}\).
+\end{dem}
+
+\begin{dem}[2]
+Cas particulier \(I=J\) du point précédent.
+\end{dem}
+
+\begin{dem}[3]
+Soit \(\paren{J,J\prim}\) un couple de parties de \(I\) disjointes et de réunion \(I\). On note \(q\) le cardinal de \(J\), de sorte que \(n-q\) est le cardinal de \(J\prim\).
+
+On choisit une énumération \(\phi\) de \(J\) et une énumération \(\psi\) de \(J\prim\). Alors l'application \[\fonction{\theta}{\interventierii{1}{n}}{I}{k}{\begin{dcases}
+\phi\paren{k} &\text{si }k\leq q \\
+\psi\paren{k-q} &\text{sinon}
+\end{dcases}}\] est une énumération de \(I\).
+
+Donc \[\begin{aligned}
+\sum_{i\in I}x_i&=\sum_{k=1}^nx_{\theta\paren{k}} \\
+&=\sum_{k=1}^qx_{\theta\paren{k}}+\sum_{k=q+1}^nx_{\theta\paren{k}} \\
+&=\sum_{k=1}^qx_{\phi\paren{k}}+\sum_{k=q+1}^nx_{\psi\paren{k-q}} \\
+&=\sum_{k=1}^qx_{\phi\paren{k}}+\sum_{k=1}^{n-q}x_{\psi\paren{k}} \\
+&=\sum_{i\in J}x_i+\sum_{i\in J\prim}x_i.
+\end{aligned}\]
+\end{dem}
+
+\begin{dem}[4]
+Si \(\paren{I_k}_{k\in K}\) est une partition de l'ensemble \(I\), l'ensemble \(K\) est fini donc par récurrence sur le cardinal \(b\) de \(K\), on montre \(\sum_{i\in I}x_i=\sum_{k\in K}\sum_{i\in I_k}x_i\) en utilisant le cas \(b=2\) démontré précédemment (il suffit de choisir un élément \(a\) de \(K\), poser \(J=I_a\) et \(J\prim=\bigsqcup_{k\in K\excluant\accol{a}}I_k\) et remarquer que la famille \(\paren{I_k}_{k\in K\excluant\accol{a}}\) est une partition de l'ensemble \(J\prim\) et que le cardinal de \(K\excluant\accol{a}\) est \(b-1\)).
+\end{dem}
+
+\section{Conventions de calcul dans \(\Rp\union\accol{\pinf}\)}
+
+L'ensemble \(\Rp\union\accol{\pinf}\) est muni d'une addition : pour tout \(\paren{x,y}\in\paren{\Rp\union\accol{\pinf}}^2\),
+
+\begin{itemize}
+    \item si \(x\) et \(y\) sont réels, \(x+y\) est la somme habituelle de deux réels positifs ; \\
+    \item si \(x=\pinf\) ou \(y=\pinf\) alors on pose \(x+y=\pinf\)
+\end{itemize}
+
+et d'une multiplication :
+
+\begin{itemize}
+    \item si \(x\) et \(y\) sont réels, \(xy\) est le produit habituel de deux réels positifs ; \\
+    \item si \(x=0\) ou \(y=0\) alors on pose \(xy=0\) ; \\
+    \item si \(x=y=\pinf\) alors on pose \(xy=\pinf\).
+\end{itemize}
+
+Il est aussi muni d'une relation d'ordre :
+
+\begin{itemize}
+    \item si \(x\) et \(y\) sont deux réels, alors \(x\leq y\) ou \(x<y\) désignent les relations habituelles ; \\
+    \item si \(x\) est réel et \(y=\pinf\), alors on pose \(x\leq\pinf\) et \(x<\pinf\) ; \\
+    \item si \(x=y=\pinf\) alors \(\pinf\leq\pinf\).
+\end{itemize}
+
+\begin{prop}
+L'addition dans \(\Rp\union\accol{\pinf}\) est associative, commutative et admet pour neutre \(0\).
+
+La relation \(\leq\) est une relation d'ordre total dans \(\Rp\union\accol{\pinf}\).
+
+De plus, l'addition et la multiplication sont compatibles avec la relation d'ordre : on peut additionner ou multiplier deux inégalités membre à membre.
+\end{prop}
+
+\begin{defi}
+Soit \(A\) une partie non-vide de \(\Rp\union\accol{\pinf}\).
+
+Si \(A\) ne contient pas \(\pinf\), alors :
+
+\begin{itemize}
+    \item si \(A\) est majorée, elle possède une borne supérieure dans \(\R\) ; \\
+    \item sinon on pose \(\sup A=\pinf\).
+\end{itemize}
+
+Si \(A\) contient \(\pinf\), on pose \(\sup A=\pinf\).
+\end{defi}
+
+Cette définition prolonge la notion de borne supérieure à toutes les parties de \(\Rp\union\accol{\pinf}\), au sens où pour toute partie \(A\) de \(\Rp\union\accol{\pinf}\), \(\sup A\) est le plus petit majorant dans \(\Rp\union\accol{\pinf}\) de la partie \(A\).
+
+\section{Somme d'une famille de réels positifs}
+
+\begin{defi}
+Soit \(\paren{x_i}_{i\in I}\) une famille d'éléments de \(\Rp\union\accol{\pinf}\).
+
+On pose \(\sum_{i\in I}x_i=\sup\accol{\sum_{i\in J}x_i\tq J\subset_fI}\).
+\end{defi}
+
+\begin{rem}
+Cette définition est sensée, car l'ensemble \(\accol{\sum_{i\in J}x_i\tq J\subset_fI}\) est une partie de \(\Rp\union\accol{\pinf}\), donc possède toujours une borne supérieure dans \(\Rp\union\accol{\pinf}\).
+\end{rem}
+
+\begin{defi}
+Soit \(\paren{x_i}_{i\in I}\) une famille d'éléments de \(\Rp\union\accol{\pinf}\).
+
+On dit que la famille \(\paren{x_i}_{i\in I}\) est sommable quand \(\sum_{i\in I}x_i<\pinf\).
+\end{defi}
+
+Évidemment, une famille sommable positive ne peut pas prendre la valeur \(\pinf\), autrement dit, une famille sommable est nécessairement une famille de réels positifs.
+
+\subsection{Propriétés}
+
+\begin{prop}
+La somme d'une famille \(\paren{x_i}_{i\in I}\) d'éléments de \(\Rp\union\accol{\pinf}\) est invariante par permutation : si \(\sigma\) est une permutation de \(I\), alors \(\sum_{i\in I}x_i=\sum_{i\in I}x_{\sigma\paren{i}}\).
+
+En particulier, si \(\paren{x_i}_{i\in I}\) est une famille sommable, toute permutation de la famille est encore une famille sommable de même somme.
+\end{prop}
+
+En particulier, dans le cas où \(I=\N\), si une série à termes positifs \(\sum u_n\) est convergente, alors on dit qu'elle est commutativement convergente : changer l'ordre des termes change bien sûr les valeurs des sommes partielles mais ne change pas la valeur de la limite de ces sommes partielles.
+
+\begin{prop}
+Soient \(\paren{x_i}_{i\in I},\paren{y_i}_{i\in I}\) deux familles d'éléments de \(\Rp\union\accol{\pinf}\) et \(\lambda\) un réel positif.
+
+Alors \(\sum_{i\in I}\paren{x_i+y_i}=\sum_{i\in I}x_i+\sum_{i\in I}y_i\) et \(\sum_{i\in I}\lambda x_i=\lambda\sum_{i\in I}x_i\).
+\end{prop}
+
+\begin{cor}
+La somme de deux familles positives est sommable ssi les deux familles sont sommables.
+
+Le produit par un réel strictement positif d'une famille positive est sommable ssi la famille est sommable.
+\end{cor}
+
+\begin{prop}
+Soient \(\paren{x_i}_{i\in I},\paren{y_i}_{i\in I}\) deux familles d'éléments de \(\Rp\union\accol{\pinf}\).
+
+Si \(\quantifs{\tpt i\in I}0\leq x_i\leq y_i\) et si la famille \(\paren{y_i}_{i\in I}\) est sommable, alors la famille \(\paren{x_i}_{i\in I}\) l'est aussi et \(\sum_{i\in I}x_i\leq\sum_{i\in I}y_i\).
+\end{prop}
+
+\subsection{Théorème de sommation par paquets}
+
+\begin{theo}
+Soit \(\paren{x_i}_{i\in I}\) une famille de réels positifs.
+
+Si \(I\) est partitionné en une famille \(\paren{I_p}_{p\in P}\) de parties, alors \[\sum_{p\in P}\sum_{i\in I_p}x_i=\sum_{i\in I}x_i.\]
+\end{theo}
+
+\subsection{Théorème de Fubini}
+
+\begin{theo}
+Soit \(\paren{x_{i\,j}}_{\paren{i,j}\in I\times J}\) une famille de réels positifs. Alors \[\sum_{\paren{i,j}\in I\times J}x_{i\,j}=\sum_{j\in J}\sum_{i\in I}x_{i\,j}=\sum_{i\in I}\sum_{j\in J}x_{i\,j}.\]
+\end{theo}
+
+Ce résultat se généralise par récurrence dans le cas d'un produit cartésien \(I_1\times\dots\times I_k\).
+
+Un cas particulier courant.
+
+\begin{prop}
+Soient \(\paren{a_i}_{i\in I},\paren{b_j}_{j\in J}\) deux familles de réels positifs.
+
+Alors la famille \(\paren{a_ib_j}_{\paren{i,j}\in I\times J}\) est sommable ssi les familles \(\paren{a_i}_{i\in I}\) et \(\paren{b_j}_{j\in J}\) sont sommables et dans ce cas, on a \[\sum_{\paren{i,j}\in I\times J}a_ib_j=\sum_{i\in I}a_i\times\sum_{j\in J}b_j.\]
+\end{prop}
+
+\section{Familles sommables dans un espace vectoriel normé de dimension finie}
+
+\subsection{Définitions}
+
+\begin{defi}
+Soit \(\paren{x_i}_{i\in I}\) une famille de vecteurs de \(E\).
+
+On dit que la famille \(\paren{x_i}_{i\in I}\) est sommable quand la famille \(\paren{\norme{x_i}}_{i\in I}\) est sommable, \cad quand \(\sum_{i\in I}\norme{x_i}<\pinf\).
+\end{defi}
+
+Cette définition est indépendante du choix de la norme, car en dimension finie, toutes les normes sont équivalentes.
+
+\subsubsection{Cas réel}
+
+\begin{defi}
+Soit \(x\) un réel.
+
+On appelle partie positive de \(x\) le réel \(x^+=\max\paren{0,x}\) et partie négative de \(x\) le réel \(x^-=-\min\paren{x,0}\).
+\end{defi}
+
+On remarque les égalités suivantes : \(\abs{x}=x^++x^-\) et \(x=x^+-x^-\).
+
+\begin{prop}
+Soit \(\paren{x_i}_{i\in I}\) une famille sommable de nombre réels.
+
+Alors les familles positives \(\paren{x_i^+}_{i\in I}\) et \(\paren{x_i^-}_{i\in I}\) sont sommables et on a bien sûr \(\sum_{i\in I}\abs{x_i}=\sum_{i\in I}x_i^++\sum_{i\in I}x_i^-\).
+\end{prop}
+
+On pose alors \(\sum_{i\in I}x_i=\sum_{i\in I}x_i^+-\sum_{i\in I}x_i^-\), qui est un réel tel que \(\abs{\sum_{i\in I}x_i}\leq\sum_{i\in I}\abs{x_i}\).
+
+\subsubsection{Cas complexe}
+
+\begin{prop}
+Soit \(\paren{a_k}_{k\in I}\) une famille sommable de nombres complexes.
+
+Alors les deux familles réelles \(\paren{\Re a_k}_{k\in I}\) et \(\paren{\Im a_k}_{k\in I}\) sont sommables.
+\end{prop}
+
+On pose alors \(\sum_{k\in I}a_k=\sum_{k\in I}\Re a_k+\sum_{k\in I}\Im a_k\) qui est un complexe tel que \(\abs{\sum_{k\in I}a_k}\leq\sum_{k\in I}\abs{a_k}\).
+
+\begin{ex}
+\begin{itemize}
+    \item Toute famille finie est sommable et sa somme au sens des familles sommables est sa somme habituelle. \\
+    \item Une suite \(\paren{a_n}_{n\in\N}\) est sommable ssi la série \(\sum_na_n\) est absolument convergente.
+\end{itemize}
+\end{ex}
+
+\begin{exo}
+Soit \(\theta\in\intervee{0}{2\pi}\). Montrez que la famille \(\paren{\dfrac{\e{\i l\theta}}{\paren{k+l}^3}}_{\paren{k,l}\in\paren{\Ns}^2}\) est sommable.
+\end{exo}
+
+\subsubsection{Cas général}
+
+Comme \(E\) est de dimension finie, on en choisit une base \(\fami{B}=\paren{e_1,\dots,e_p}\).
+
+Pour toute famille sommable \(\paren{x_i}_{i\in I}\in E^I\), on note \(\paren{x_{i\,1},\dots,x_{i\,p}}\) les coordonnées de \(x_i\) dans la base \(\fami{B}\).
+
+Alors pour tout \(k\in\interventierii{1}{p}\), la famille de réels ou de complexes \(\paren{x_{i\,k}}_{i\in I}\) est sommable.
+
+On pose alors \(\sum_{i\in I}x_i\) le vecteur qui a pour coordonnées \(\paren{\sum_{i\in I}x_{i\,1},\dots,\sum_{i\in I}x_{i\,p}}\) dans la base \(\fami{B}\).
+
+On note \(l^1\paren{I,E}\) l'ensemble des familles sommables de \(E\) indicées par \(I\).
+
+\subsection{Propriétés}
+
+\begin{prop}
+Toute sous-famille d'une famille sommable de \(E\) est elle-même sommable.
+
+Toute permutation d'une famille sommable de \(E\) est encore sommable et de même somme.
+\end{prop}
+
+En particulier, les séries absolument convergentes sont commutativement convergentes.
+
+Les familles sommables sont celles qui sont approchables par des familles finies à \(\epsilon\) près au sens de la proposition suivante.
+
+Comme pour les séries, on dispose d'un théorème de comparaison entre familles sommables.
+
+\begin{prop}
+Soient \(\paren{a_i}_{i\in I},\paren{b_i}_{i\in I}\) deux familles d'éléments indicées par \(I\).
+
+Si \(\quantifs{\tpt i\in I}0\leq\norme{a_i}\leq b_i\) et si la famille \(\paren{b_i}_{i\in I}\) est une famille sommable de réels positifs, alors la famille \(\paren{a_i}_{i\in I}\) est sommable et on a \(\norme{\sum_{i\in I}a_i}\leq\sum_{i\in I}\norme{a_i}\leq\sum_{i\in I}b_i\).
+\end{prop}
+
+La linéarité est encore vérifiée, mais n'est pas évidente au regard des définitions.
+
+\begin{prop}
+L'ensemble \(l^1\paren{I,E}\) est un espace vectoriel et l'application \(\paren{a_i}_{i\in I}\mapsto\sum_{i\in I}a_i\) est une forme linéaire : si \(\paren{a_i},\paren{b_i}\in l^1\paren{I,E}\) et \(\lambda\) est un scalaire, alors \(\sum_{i\in I}\paren{a_i+b_i}=\sum_{i\in I}a_i+\sum_{i\in I}b_i\) et \(\sum_{i\in I}\lambda a_i=\lambda\sum_{i\in I}a_i\).
+\end{prop}
+
+\subsection{Théorème de sommation par paquets}
+
+\begin{theo}
+Soit \(\paren{a_i}_{i\in I}\) une famille sommable de \(E\).
+
+Si \(I\) est partitionné en une famille \(\paren{I_p}_{p\in P}\) de parties, alors \(\quantifs{\tpt p\in P}\paren{a_i}_{i\in I_p}\text{ est sommable}\) et \[\sum_{i\in I}a_i=\sum_{p\in P}\sum_{i\in I_p}a_i.\]
+\end{theo}
+
+\begin{exo}
+Montrez que pour tout complexe \(z\) tel que \(0<\abs{z}<1\), la famille \(\paren{z^{\abs{n}}}_{n\in\Z}\) est sommable et calculez sa somme.
+\end{exo}
+
+\begin{exo}
+Montrez que la famille \(\paren{\dfrac{\paren{-1}^n}{\max\paren{m,n}^3}}_{m,n\geq1}\) est sommable et calculez sa somme en fonction de \(\zeta\paren{2}\) et \(\zeta\paren{3}\).
+\end{exo}
+
+\subsection{Théorème de Fubini}
+
+\begin{theo}
+Soit \(\paren{a_{i\,j}}_{\paren{i,j}\in I\times J}\) une famille sommable de \(E\).
+
+Alors pour tout \(i\in I\), la famille \(\paren{a_{i\,j}}_{j\in J}\) est sommable ; pour tout \(j\in J\), la famille \(\paren{a_{i\,j}}_{i\in I}\) est sommable et \[\sum_{\paren{i,j}\in I\times J}a_{i\,j}=\sum_{j\in J}\sum_{i\in I}a_{i\,j}=\sum_{i\in I}\sum_{j\in J}a_{i\,j}.\]
+\end{theo}
+
+Ce résultat se généralise par récurrence dans le cas d'un produit cartésien \(I_1\times\dots\times I_k\).
+
+\begin{exo}
+Montrez que la famille \(\paren{\dfrac{\paren{-1}^p}{q^p}}_{p,q\geq2}\) est sommable et calculez sa somme.
+\end{exo}
+
+Un cas particulier courant.
+
+\begin{prop}
+Soient \(\paren{a_i}\in l^1\paren{I,E}\) et \(\paren{b_j}\in l^1\paren{J,E}\).
+
+Alors la famille \(\paren{a_ib_j}_{\paren{i,j}\in I\times J}\) est sommable et \[\sum_{\paren{i,j}\in I\times J}a_ib_j=\sum_{i\in I}a_i\times\sum_{j\in J}b_j.\]
+\end{prop}
+
+\subsection{Produit de Cauchy de deux séries}
+
+\begin{defi}
+Soient \(\sum_{n\geq0}a_n\) et \(\sum_{n\geq0}b_n\) deux séries à termes dans \(E\).
+
+On appelle produit de Cauchy des deux séries la série \(\sum_{n\geq0}c_n\) où \(\quantifs{\tpt n\in\N}c_n=\sum_{k=0}^na_kb_{n-k}\).
+\end{defi}
+
+\begin{rem}
+Quand les séries ne commencent pas à partir du rang \(0\), il faut se méfier ! Une idée simple est de se ramener au cas précédent en décalant les indices.
+
+Exemple très courant : les séries commençant au rang \(1\). Dans ce cas, le produit de Cauchy des séries \(\sum_{n\geq1}a_n\) et \(\sum_{n\geq1}b_n\) est la série \(\sum_{n\geq1}c_n\) où \(\quantifs{\tpt n\in\Ns}c_n=\sum_{k=1}^na_kb_{n-k+1}\).
+\end{rem}
+
+\begin{theo}
+Si les séries \(\sum_{n\geq0}a_n\) et \(\sum_{n\geq0}b_n\) sont absolument convergentes, alors leur produit de Cauchy est aussi absolument convergent et \[\sum_{n=0}^{\pinf}c_n=\sum_{n=0}^{\pinf}a_n\times\sum_{n=0}^{\pinf}b_n.\]
+\end{theo}
+
+Un exemple fondamental.
+
+\begin{prop}
+Soit \(z\in\C\). La série de terme général \(\dfrac{z^n}{n!}\) est absolument convergente et \[\sum_{n=0}^{\pinf}\dfrac{z^n}{n!}=\e{z}.\]
+\end{prop}
+
+\begin{rem}
+L'absolue convergence des séries est indispensable ! Si on ne suppose que la convergence des séries, alors le produit de Cauchy peut très bien être une série divergente (voir exercice suivant).
+\end{rem}
+
+\begin{exo}
+Soit \(x>0\). On pose \(b_n\) la somme partielle de la série \(\sum_{n\geq0}\dfrac{x^n}{n!}\) et \(c_n=\dfrac{b_n}{x^n}\).
+
+Donnez une CNS sur \(x\) pour que la série \(\sum_{n\geq0}c_n\) converge. Dans le cas où elle converge, donnez la valeur de sa somme en fonction de \(x\).
+\end{exo}
+
+\begin{exo}
+Pour tout \(n\in\Ns\), on pose \(a_n=\dfrac{\paren{-1}^n}{\sqrt{n}}\).
+
+Montrez que la série \(\sum_{n\geq1}a_n\) converge, mais que son produit de Cauchy avec elle-même diverge (indication : \(\quantifs{\tpt b>0;\tpt x\in\intervii{0}{b}}x\paren{b-x}\leq\dfrac{b^2}{4}\)).
+\end{exo}
