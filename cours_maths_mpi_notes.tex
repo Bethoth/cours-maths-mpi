@@ -748,7 +748,7 @@ per-mode=power-positive-first
   {\vvvert}
   {\ifblank{#1}{\:\cdot\:}{#1}}
 
-\DeclarePairedDelimiterX{\norme}[1]{\|}{\|}{\ifblank{#1}{\:\cdot\:}{#1}}
+\newcommand{\norme}[1]{\left\|\ifblank{#1}{\:\cdot\:}{#1}\right\|}
 
 \newcommand{\tpt}{\text{pour tout }}
 
