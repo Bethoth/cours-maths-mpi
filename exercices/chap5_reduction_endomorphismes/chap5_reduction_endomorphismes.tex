@@ -2,4 +2,1092 @@
 
 \minitoc
 
+\section*{Exercices}
+\addcontentsline{toc}{section}{Exercices}
+
+\legendeexercices
+
+\begin{exoss}[Exercice 1]
+\begin{enumerate}
+    \item Soit \(P\in\poly[\C]\) tel que \(P\) ne soit pas constant. On note \(a_1,\dots,a_m\) les racines distinctes de \(P\) et \(\alpha_1,\dots,\alpha_m\) leurs ordres de multiplicité. Rappelez la décomposition en éléments simples de \(\dfrac{P\prim}{P}\). \\
+    \item Application : déterminez les éléments propres de l'endomorphisme de \(\poly[\C]\) défini par \(f\paren{P}=\paren{2X+1}P-\paren{X^2-1}P\prim\). On rappelle que la décomposition en éléments simples est unique. \\
+    \item Même question avec \(f\paren{P}=\paren{X^3+X}P\prim-\paren{3X^2-1}P\).
+\end{enumerate}
+\end{exoss}
+
+\begin{corr}
 \note{À venir}
+\end{corr}
+
+\begin{exoss}[Exercice 2]
+Soit \(E=\ensclasse{0}{\intervii{0}{1}}{\R}\). Pour \(f\in E\), on définit l'application \(\phi\paren{f}:\intervii{0}{1}\to\R\) de la façon suivante : \(\phi\paren{f}\paren{0}=f\paren{0}\) et \(\quantifs{\tpt x\in\intervei{0}{1}}\phi\paren{f}\paren{x}=\dfrac{1}{x}\int_0^xf\paren{t}\odif{t}\).
+
+\begin{enumerate}
+    \item Montrez que \(\phi\) est un endomorphisme de \(E\). \\
+    \item Montrez que \(0\) n'est pas valeur propre de \(\phi\). \\
+    \item Montrez que \(1\) est valeur propre de \(\phi\) et donnez le sous-espace propre associé. \\
+    \item Déterminez les autres valeurs propres de \(\phi\).
+\end{enumerate}
+\end{exoss}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exoss}[Exercice 3]
+Soient \(n\in\Ns\), \(A\in\M{n}\excluant\accol{0}\) et \(\lambda\in\K\). Pour \(M\in\M{n}\), on pose \(f\paren{M}=\lambda M+\tr\paren{M}A\).
+
+\begin{enumerate}
+    \item Justifiez rapidement que \(f\) est un endomorphisme de \(\M{n}\). \\
+    \item Déterminez un polynôme annulateur de \(f\) de degré \(2\). \\
+    \item Déduisez-en les éléments propres de \(f\). \\
+    \item À quelle condition l'endomorphisme \(f\) est-il inversible ?
+\end{enumerate}
+\end{exoss}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exoss}[Exercice 4]
+Soit \(A\in\M{n}\). Pour \(M\in\M{n}\), on pose \(f\paren{M}=AM\).
+
+Montrez que \(\Sp{f}=\Sp{A}\). Pour tout \(\lambda\) valeur propre de \(f\), donnez une relation entre les dimensions des sous-espaces propres \(\sep{f}{\lambda}\) et \(\sep{A}{\lambda}\).
+\end{exoss}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exoss}[Exercice 5, matrices stochastiques]
+Soit \(A=\paren{a_{i\,j}}\in\M{n}[\R]\) une matrice stochastique, \cad vérifiant : \[\quantifs{\forall\paren{i,j}\in\interventierii{1}{n}^2}a_{i\,j}\geq0\text{ et }\quantifs{\forall i\in\interventierii{1}{n}}\sum_{j=1}^na_{i\,j}=1.\]
+
+\begin{enumerate}
+    \item Montrez que \(1\) est valeur propre de \(A\). \\
+    \item Montrez que toutes les valeurs propres complexes de \(A\) sont de module inférieur ou égal à \(1\). \\
+    \item On suppose que \(A\) est strictement stochastique, \cad que \(A\) est stochastique et que ses coefficients sont strictement positifs. Montrez que \(1\) est la seule valeur propre de \(A\) de module \(1\).
+\end{enumerate}
+\end{exoss}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exoss}[Exercice 6]
+Soient \(\paren{a,b}\in\R^2\) tel que \(a\not=b\) et \(A=\begin{pmatrix}
+0 & a & \dots & a \\
+b & \ddots & \ddots & \vdots \\
+\vdots & \ddots & \ddots & a \\
+b & \dots & b & 0
+\end{pmatrix}\).
+
+\begin{enumerate}
+    \item On pose \(J\) la matrice remplie de \(1\). Montrez que \(t\mapsto\det\paren{XI_n-A-tJ}\) est une fonction polynôme en \(t\) de degré au plus \(1\), puis calculez \(\det\paren{XI_n-A-tJ}\) en fonction de \(t\). \\
+    \item Montrez que le polynôme caractéristique de \(A\) est \(\dfrac{1}{b-a}\paren{b\paren{X+a}^n-a\paren{X+b}^n}\). \\
+    \item Montrez que si \(b=-a\), alors les images dans \(\C\) des valeurs propres de \(A\) sont sur une droite que vous préciserez, sinon elles sont sur un cercle.
+\end{enumerate}
+\end{exoss}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exoss}[Exercice 7]
+Soient \(n\geq2\), \(U\in\M{n\,1}[\R]\) et \(A=U\trans{U}\). On note \(\trans{U}U=\begin{pmatrix}
+s
+\end{pmatrix}\) qui est une matrice carrée à un seul élément.
+
+\begin{enumerate}
+    \item Montrez que le polynôme \(X^2-sX\) est annulateur de \(A\). Déduisez-en que \(A\) a au plus deux valeurs propres. \\
+    \item Quel est le rang de \(A\) ? Précisez les valeurs propres de \(A\). \\
+    \item Déterminez le polynôme caractéristique de \(A\). \\
+    \item Déterminez les sous-espaces propres de \(A\).
+\end{enumerate}
+\end{exoss}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exos}[Exercice 8]~\\
+Soit \(A=\begin{pmatrix}
+-1 & 2 & -1 \\
+-3 & 4 & -3 \\
+-4 & 4 & -4
+\end{pmatrix}\).
+
+\begin{enumerate}
+    \item Déterminez le polynôme caractéristique de \(A\). \\
+    \item Déduisez-en sans calcul supplémentaire que \(A\) est diagonalisable. \\
+    \item Déterminez les sous-espaces propres de \(A\). \\
+    \item Diagonalisez \(A\), \cad explicitez une matrice \(P\) inversible et une matrice \(D\) diagonale telles que \(A=PDP\inv\). \\
+    \item Calculez \(A^n\) pour tout \(n\in\N\).
+\end{enumerate}
+\end{exos}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exos}[Exercice 9, réduction en élégance]~\\
+Soit \(B=\begin{pmatrix}
+1 & 2 & -3 \\
+2 & 4 & -6 \\
+4 & 8 & -12
+\end{pmatrix}\).
+
+\begin{enumerate}
+    \item Calculez efficacement le rang de \(B\). Déduisez-en une valeur propre de \(B\) ainsi que la dimension du sous-espace propre associé. \\
+    \item Démontrez sans calculer le polynôme caractéristique que \(B\) admet une autre valeur propre et qu'elle est simple. \\
+    \item Déduisez-en le polynôme caractéristique de \(B\). Vérifiez le résultat en le calculant grâce à sa définition. \\
+    \item La matrice \(B\) est-elle diagonalisable ?
+\end{enumerate}
+\end{exos}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exos}[Exercice 10]
+Les matrices suivantes sont-elles diagonalisables ?
+
+\[A=\begin{pmatrix}
+0 & 1 & 0 \\
+0 & 0 & 1 \\
+1 & 0 & 0
+\end{pmatrix}\qquad B=\begin{pmatrix}
+1 & 0 & 1 \\
+-1 & 3 & 1 \\
+1 & -1 & 2
+\end{pmatrix}\qquad C=\begin{pmatrix}
+1 & 1 & 1 & 1 \\
+1 & 0 & 0 & 1 \\
+1 & 0 & 0 & 1 \\
+1 & 1 & 1 & 1
+\end{pmatrix}\qquad D=\begin{pmatrix}
+1 & 1 & 1 & 1 \\
+0 & 0 & 1 & 0 \\
+0 & 1 & 0 & 0 \\
+1 & 1 & 1 & 1
+\end{pmatrix}\qquad E=\begin{pmatrix}
+5 & 1 & 1 & 1 \\
+2 & 6 & 2 & 2 \\
+3 & 3 & 7 & 3 \\
+4 & 4 & 4 & 8
+\end{pmatrix}\]
+\end{exos}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exos}[Exercice 11]
+Les matrices suivantes sont-elles diagonalisables ?
+
+\[A=\begin{pmatrix}
+0 & 0 & 4 \\
+1 & 0 & -8 \\
+0 & 1 & 5
+\end{pmatrix}\qquad B=\begin{pmatrix}
+2 & 1 & 1 \\
+0 & 0 & -2 \\
+0 & 1 & 3
+\end{pmatrix}\]
+\end{exos}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exos}[Exercice 12]
+Déterminez une condition nécessaire et suffisante sur le triplet \(\paren{a,b,c}\in\R^3\) pour que la matrice \(M=\begin{pmatrix}
+1 & a & 1 \\
+0 & 1 & b \\
+0 & 0 & c
+\end{pmatrix}\) soit diagonalisable.
+\end{exos}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exos}[Exercice 13]~\\
+Soit \(A=\begin{pmatrix}
+a & b \\
+c & d
+\end{pmatrix}\) une matrice de \(\M{2}[\R]\) qui n'est pas de la forme \(\lambda I_2\).
+
+Montrez que \(A\) est diagonalisable dans \(\M{2}[\C]\) ssi \(\paren{a-d}^2+4bc\not=0\).
+
+À quelle condition \(A\) est-elle diagonalisable dans \(\M{2}[\R]\) ?
+\end{exos}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exoss}[Exercice 14]~\\
+Soit \(A=\begin{pmatrix}
+11 & -5 & -5 \\
+-5 & 3 & 3 \\
+-5 & 3 & 3
+\end{pmatrix}\). On recherche les éventuelles racines carrées de \(A\), \cad les matrices \(R\in\M{3}[\R]\) telles que \(R^2=A\).
+
+\begin{enumerate}
+    \item Montrez que \(A\) est diagonalisable et déterminez une matrice \(D\) diagonale semblable à \(A\) avec le moins de calculs possible. \\
+    \item Soit \(S\in\M{3}[\R]\) une racine carrée de \(D\). Montrez que \(S\) et \(D\) commutent puis montrez que \(S\) est diagonale. \\
+    \item Déterminez les racines carrées \(S\) de \(D\). \\
+    \item Déduisez-en toutes les racines carrées \(R\) de \(A\). Combien y en a-t-il ? Pourquoi ? \\
+    \item Énoncez des conjectures quant au nombre de racines carrées d'une matrice \(A\in\M{n}[\C]\) plus générale, en discutant selon la nature de ses éléments propres.
+\end{enumerate}
+\end{exoss}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exoss}[Exercice 15]
+Soit \(u\) l'endomorphisme canoniquement associé à la matrice \(A=\begin{pmatrix}
+0 & 1 & -1 \\
+2 & 1 & 1 \\
+-2 & -1 & -1
+\end{pmatrix}\).
+
+\begin{enumerate}
+    \item Diagonalisez la matrice \(A\). \\
+    \item On suppose que \(F\) est un sous-espace de \(\R^3\) stable par \(u\). Montrez que \(F\) est engendré par une famille de vecteurs propres de \(u\). \\
+    \item Déterminez tous les sous-espaces de \(\R^3\) stables par \(u\).
+\end{enumerate}
+\end{exoss}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exos}[Exercice 16]~\\
+Même exercice avec \(A=\begin{pmatrix}
+-1 & -6 & -2 \\
+2 & 7 & 2 \\
+-6 & -18 & -5
+\end{pmatrix}\).
+\end{exos}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exos}[Exercice 17]
+Montrez que les suites \(\paren{u_n}\in\R^\N\) vérifiant la relation de récurrence suivante sont combinaisons linéaires de trois suites géométriques réelles \(\paren{\alpha^n}\), \(\paren{\beta^n}\) et \(\paren{\gamma^n}\) : \(\quantifs{\forall n\in\N}u_{n+3}=-\dfrac{5}{12}u_{n+2}+\dfrac{1}{2}u_{n+1}-\dfrac{1}{12}u_n\).
+
+Déterminez à quelle condition sur \(\paren{u_0,u_1,u_2}\) ces suites sont convergentes.
+\end{exos}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exos}[Exercice 18]
+Même exercice avec \(\quantifs{\forall n\in\N}u_{n+3}=\dfrac{3}{2}u_{n+2}-\dfrac{3}{4}u_{n+1}+\dfrac{1}{4}u_n\) en prenant des suites géométriques complexes.
+
+Montrez que les suites \(\paren{u_n}\) sont combinaisons linéaires de trois suites réelles simples que l'on précisera. Déterminez à quelle condition sur \(\paren{u_0,u_1,u_2}\) ces suites sont convergentes.
+\end{exos}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exos}[Exercice 19]
+Les matrices suivantes sont-elles trigonalisables ? Donnez alors, quand c'est possible, une matrice triangulaire supérieure semblable.
+
+\[A=\begin{pmatrix}
+1 & 4 & -2 \\
+0 & 6 & -3 \\
+-1 & 4 & 0
+\end{pmatrix}\qquad B=\begin{pmatrix}
+2 & -1 & -1 \\
+2 & 1 & -2 \\
+3 & -1 & -2
+\end{pmatrix}\]
+\end{exos}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exos}[Exercice 20]~\\
+Soient \(C=\begin{pmatrix}
+2 & -3 & -1 \\
+1 & -2 & -1 \\
+-2 & 6 & 3
+\end{pmatrix}\) et \(T=\begin{pmatrix}
+1 & 0 & -2 \\
+0 & 1 & 1 \\
+0 & 0 & 1
+\end{pmatrix}\).
+
+\begin{enumerate}
+    \item Déterminez le polynôme caractéristique de \(C\). Est-elle diagonalisable ? Trigonalisable ? \\
+    \item Déterminez les éléments propres de \(C\). \\
+    \item Montrez que la matrice \(C\) est semblable à la matrice \(T\). On pourra considérer l'endomorphisme \(u\) canoniquement associé à \(C\) et construire, par analyse-synthèse, une base \(\fami{B}\) où la matrice de \(u\) est \(T\). \\
+    \item Montrez que \(T\) peut s'écrire \(D+N\) où \(D\) est diagonale, \(N\) est nilpotente et \(D\) et \(N\) commutent. Déduisez-en, pour tout \(n\in\N\), \(T^n\) puis \(C^n\). \\
+    \item On considère trois suites \(\paren{x_n},\paren{y_n},\paren{z_n}\in\R^\N\) telles que \[\quantifs{\forall n\in\N}\begin{dcases}
+        x_{n+1}=2x_n-3y_n-z_n \\
+        y_{n+1}=x_n-2y_n-z_n \\
+        z_{n+1}=-2x_n+6y_n+3z_n
+    \end{dcases}\] Explicitez \(x_n,y_n,z_n\) en fonction de \(n\) et de \(x_0,y_0,z_0\).
+\end{enumerate}
+\end{exos}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exoss}[Exercice 21]
+Soit \(u\in\Lendo{\R^n}\) tel que \(u^2+u+\id{\R^n}=0\).
+
+\begin{enumerate}
+    \item Soient \(F\) un sous-espace stable par \(u\) et \(x\not\in F\). Montrez que \(\Pi_x=\Vect{x,u\paren{x}}\) est un plan, qu'il est stable par \(u\) et qu'il est en somme directe avec \(F\). \\
+    \item Montrez qu'il existe une base de \(\R^n\) dans laquelle la matrice de \(u\) est diagonale par blocs, de blocs \(R=\begin{pmatrix}
+        0 & -1 \\
+        1 & -1
+    \end{pmatrix}\). Qu'en déduisez-vous concernant \(n\) ? \\
+    \item Soit \(A\in\M{n}[\R]\) la matrice de \(u\) dans la base canonique. Réduisez \(A\) dans \(\C\). \\
+    \item Retrouvez que \(A\) est \(\R\)-semblable à une matrice diagonale par blocs, de blocs \(R\).
+\end{enumerate}
+\end{exoss}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exoss}[Exercice 22]
+Soient \(p\in\Ns\), \(E\) un \(\C\)-espace vectoriel de dimension finie et \(f\in\GL{}[E]\).
+
+Montrez que \(f\) est diagonalisable ssi \(f^p\) est diagonalisable.
+
+Est-ce encore vrai si on remplace \(\C\) par \(\R\) ?
+\end{exoss}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exoss}[Exercice 23]
+Soient \(E\) un \(\C\)-espace vectoriel de dimension finie et \(f\in\Lendo{E}\).
+
+\begin{enumerate}
+    \item Montrez que si \(f\) est diagonalisable, alors \(f^2\) est diagonalisable et \(\rg f^2=\rg f\). \\
+    \item Montrez que si \(\lambda\) est une valeur propre de \(f^2\) non-nulle et \(\mu\) est une racine carrée de \(\lambda\), alors \(\sep{f^2}{\lambda}=\ker\paren{f-\mu\id{}}\oplus\ker\paren{f+\mu\id{}}\). \\
+    \item Montrez que la réciproque de la proposition de la question (1) est vraie.
+\end{enumerate}
+\end{exoss}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exoss}[Exercice 24, spectre du polynôme d'une matrice]
+Soient \(M\in\M{n}\) diagonalisable et \(Q\in\poly\).
+
+\begin{enumerate}
+    \item Montrez que la matrice \(Q\paren{M}\) est également diagonalisable. Exprimez le spectre de \(Q\paren{M}\) en fonction des valeurs propres de \(M\). \\
+    \item Précisez les sous-espaces propres de \(Q\paren{M}\). \\
+    \item Ces résultats restent-ils valables si \(M\) est seulement trigonalisable ? Sans hypothèse sur \(M\) ?
+\end{enumerate}
+\end{exoss}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exosss}[Exercice 25]
+Soit \(A\in\M{2}[\Z]\). On suppose qu'il existe \(p\in\Ns\) tel que \(A^p=I_2\). Montrez que \(A^{12}=I_2\).
+\end{exosss}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exoss}[Exercice 26]
+Soit \(A\in\M{n}[\C]\). Montrez que \(A\) est nilpotente ssi \(\quantifs{\tpt k\in\Ns}\tr A^k=0\).
+\end{exoss}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exoss}[Exercice 27]
+Soit \(f\) un endomorphisme diagonalisable d'un \(\K\)-espace vectoriel \(E\) de dimension finie. On note \(C\paren{f}\) le sous-espace vectoriel des endomorphismes de \(E\) qui commutent avec \(f\).
+
+\begin{enumerate}
+    \item Démontrez que \(g\in C\paren{f}\) ssi les sous-espaces propres de \(f\) sont stables par \(g\). \\
+    \item Déduisez-en que \(\dim C\paren{f}=\sum_{\lambda\in\Sp{f}}\omega_\lambda^2\) où \(\omega_\lambda\) désigne la multiplicité de la valeur propre \(\lambda\). \\
+    \item On suppose que les valeurs propres de \(f\) sont simples. Démontrez que \(\paren{\id{},f,\dots,f^{n-1}}\) est une base de \(C\paren{f}\).
+\end{enumerate}
+\end{exoss}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exoss}[Exercice 28]
+\begin{enumerate}
+    \item Montrez que \(\GL{n}\) est un ouvert dense de \(\M{n}\). \\
+    \item Montrez que \(\GL{n}[\C]\) est connexe par arcs et que \(\GL{n}[\R]\) ne l'est pas. Déterminez alors les composantes connexes par arcs de \(\GL{n}[\R]\). \\
+    \item Montrez que l'ensemble \(D_n\paren{\C}\) des matrices diagonalisables de \(\M{n}[\C]\) est dense dans \(\M{n}[\C]\). Montrez la même chose avec l'ensemble \(D_n^+\paren{\C}\) des matrices de \(\M{n}[\C]\) dont toutes les valeurs propres sont distinctes. Montrez que l'intérieur de \(D_n\paren{\C}\) est \(D_n^+\paren{\C}\). \\
+    \item Montrez que \(D_2\paren{\R}\) n'est pas dense dans \(\M{2}[\R]\). \\
+    \item Montrez que l'ensemble des matrices trigonalisables de \(\M{n}[\R]\) est un fermé et qu'il est l'adhérence de \(D_n\paren{\R}\). \\
+    \item Soit \(r\in\interventierii{1}{n}\). Montrez que l'ensemble des matrices de rang inférieur à \(r\) est un fermé et qu'il est l'adhérence de l'ensemble des matrices de rang \(r\).
+\end{enumerate}
+\end{exoss}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exosss}[Exercice 29]
+Soient \(A,B\in\M{n}\).
+
+\begin{enumerate}
+    \item Montrez que si l'une des deux matrices est inversible, alors \(AB\) et \(BA\) ont les mêmes valeurs propres avec les mêmes ordres de multiplicité. \\
+    \item Montrez que ce résultat reste vrai même sans suppose l'une des deux matrices inversible.
+\end{enumerate}
+\end{exosss}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exo}[Oral IMT, 1]
+Soient \(u,v,w\) trois suites vérifiant \[\quantifs{\forall n\in\N}\begin{dcases}
+u_{n+1}=4u_n-3v_n-3w_n \\
+v_{n+1}=3u_n-2v_n-3w_n \\
+w_{n+1}=3u_n-3v_n-2w_n
+\end{dcases}\]
+
+Exprimez \(u_n,v_n,w_n\) en fonction de \(n,u_0,v_0,w_0\).
+\end{exo}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exo}[Oral IMT, 2]
+Déterminez les matrices \(M\in\M{3}[\R]\) telles que \(M^2=\begin{pmatrix}
+0 & 1 & 1 \\
+1 & 0 & 1 \\
+1 & 1 & 0
+\end{pmatrix}\).
+\end{exo}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exo}[Oral St-Cyr, 3]~\\
+Montrez que la matrice \(A=\begin{pmatrix}
+a & 0 & b \\
+0 & a+b & 0 \\
+b & 0 & a
+\end{pmatrix}\) est diagonalisable et donnez ses éléments propres.
+\end{exo}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exo}[Oral TPE, 4]~\\
+Soient \(\paren{a,b,c}\in\R^3\) et \(A=\begin{pmatrix}
+0 & -a & -b \\
+a & 0 & -c \\
+b & c & 0
+\end{pmatrix}\).
+
+\begin{enumerate}
+    \item Déterminez un polynôme annulateur de degré \(3\) de \(A\). \\
+    \item La matrice \(A\) est-elle inversible ? \\
+    \item Est-elle diagonalisable ? \\
+    \item Montrez que les valeurs propres de \(A^2\) sont négatives ou nulles.
+\end{enumerate}
+\end{exo}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exo}[Oral TPE, 5]
+Montrez de deux façons différentes que \(\begin{pmatrix}
+0 & 1 & 2 \\
+1 & 0 & 1 \\
+1 & 0 & 0
+\end{pmatrix}\) et \(\begin{pmatrix}
+0 & 1 & 1 \\
+1 & 0 & 2 \\
+0 & 1 & 0
+\end{pmatrix}\) sont semblables.
+\end{exo}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exo}[Oral IMT, 6]
+Soit \(\alpha\in\R\). Déterminez la limite quand \(n\to\pinf\) de \(\begin{pmatrix}
+\cos\nicefrac{\alpha}{n} & \sin\nicefrac{\alpha}{n} \\
+\sin\nicefrac{\alpha}{n} & \cos\nicefrac{\alpha}{n}
+\end{pmatrix}^n\).
+\end{exo}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exo}[Oral IMT, 7]
+Soit \(A\in\M{n}[\C]\) telle que \(A^2-2A\) soit diagonalisable et \(1\) n'est pas valeur propre de \(A\).
+
+Montrez que \(A\) est diagonalisable.
+\end{exo}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exo}[Oral CCINP, 8]
+\begin{enumerate}
+    \item Soient \(M\in\M{n}[\C]\) et \(\lambda_1,\dots,\lambda_n\) ses valeurs propres. Montrez que \(\tr M^2=\sum_{i=1}^n\lambda_i^2\). \\
+    \item Pour \(n\geq3\), on pose \(A\) la matrice dont tous les coefficients sont nuls, sauf ceux situés sur les quatre bords, égaux à \(1\). Déterminez les valeurs propres et les vecteurs propres de \(A\).
+\end{enumerate}
+\end{exo}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exo}[Oral CCINP, 9]
+Soient \(\alpha\in\C\) et \(A=\paren{\alpha^{i+j-2}}_{1\leq i,j\leq n}\in\M{n}[\C]\).
+
+\begin{enumerate}
+    \item Calculez le rang de \(A\). Déduisez-en ses valeurs propres. \\
+    \item À quelle condition sur \(\alpha\) la matrice \(A\) est-elle diagonalisable ?
+\end{enumerate}
+\end{exo}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exo}[Oral CCINP, 10]
+Soient \(n\in\Ns\) et \(f\) l'endomorphisme de \(\M{n}[\R]\) tel que \(f\paren{M}=M+2\trans{M}\).
+
+\begin{enumerate}
+    \item Déterminez les valeurs et vecteurs propres de \(f\). \\
+    \item L'endomorphisme \(f\) est-il diagonalisable ? Calculez sa trace et son déterminant.
+\end{enumerate}
+\end{exo}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exo}[Oral Navale, 11]
+Soit \(M\in\M{n}[\C]\). Montrez que \(1\) est la seule valeur propre de \(M\) ssi \(\quantifs{\tpt k\in\Ns}\tr M^k=n\).
+\end{exo}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exo}[Oral Navale, 12]~\\
+\begin{enumerate}
+    \item Diagonalisez la matrice \(\begin{pmatrix}
+        1 & 4 \\
+        1 & 1
+    \end{pmatrix}\). \\
+    \item Soient \(A\in\M{n}[\C]\), \(B=\begin{pmatrix}
+        A & 4A \\
+        A & A
+    \end{pmatrix}\) et \(C=\begin{pmatrix}
+        -A & 0 \\
+        0 & 3A
+    \end{pmatrix}\). Montrez que \(B\) et \(C\) sont semblables.
+\end{enumerate}
+\end{exo}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exo}[Oral CCINP, 13]~\\
+Soient \(A\in\M{n}[\C]\) et \(B=\begin{pmatrix}
+0 & A \\
+I_n & 0
+\end{pmatrix}\).
+
+\begin{enumerate}
+    \item Exprimez le rang de \(B\) en fonction du rang de \(A\). \\
+    \item Trouvez une relation entre \(\chi_A\) et \(\chi_B\). Déduisez-en le spectre de \(B\) en fonction de celui de \(A\). \\
+    \item Déterminez les dimensions des sous-espaces propres de \(B\) en fonction de celles des sous-espaces propres de \(A\). \\
+    \item Montrez que \(B\) est diagonalisable ssi \(A\) est diagonalisable et inversible.
+\end{enumerate}
+\end{exo}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exo}[Oral IMT, 14]
+Soient \(E\) un espace muni d'une base \(\paren{e_1,\dots,e_n}\), \(v\) un vecteur de \(E\) et \(f\) l'endomorphisme de \(E\) tel que \(f\paren{e_1}=\dots=f\paren{e_n}=v\).
+
+\begin{enumerate}
+    \item Quel est le rang de \(f\) ? \\
+    \item Discutez de la diagonalisabilité de \(f\) en fonction du vecteur \(v\).
+\end{enumerate}
+\end{exo}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exo}[Oral CCINP, 15]
+\begin{enumerate}[series=oral5.15]
+    \item Montrez que si deux matrices \(U\) et \(V\) sont semblables, alors pour tout polynôme \(R\), \(R\paren{U}\) et \(R\paren{V}\) sont semblables.
+\end{enumerate}
+
+Soient \(A,B\) deux matrices de \(\M{n}[\C]\) telles que \(AB=BA\). On pose \(M=\begin{pmatrix}
+A & B \\
+0 & A
+\end{pmatrix}\).
+
+\begin{enumerate}[resume=oral5.15]
+    \item Pour \(P\in\poly[\C]\), exprimez \(P\paren{M}\) en fonction de \(P\paren{A}\), \(P\prim\paren{A}\) et \(B\). \\
+    \item Montrez que si \(A\) est diagonalisable et \(B\) est nulle, alors \(M\) est diagonalisable. \\
+    \item Montrez la réciproque.
+\end{enumerate}
+\end{exo}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exo}[Oral CCMP, 16]
+\begin{enumerate}
+    \item Soient \(A\) et \(B\) deux matrices de \(\M{n}[\R]\) telles que \(A^2=B^2=0\) et \(\rg A=\rg B\). Montrez que \(A\) et \(B\) sont semblables. \\
+    \item Le résultat subsiste-t-il avec les hypothèses \(A^3=B^3=0\) et \(\rg A=\rg B\) ?
+\end{enumerate}
+\end{exo}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exo}[Oral CCMP, 17]
+Soient \(n\in\Ns\) et \(A,B\in\M{n}[\R]\) tels que \(\paren{AB}^n=0\). Montrez que \(\paren{BA}^n=0\).
+\end{exo}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exo}[Oral CCMP, 18]
+Soient \(E\) un \(\K\)-espace vectoriel de dimension finie et \(u,v\in\Lendo{E}\).
+
+\begin{enumerate}
+    \item On suppose que \(\Vect{u,v}\) contient un élément inversible. Montrez que \(\ker u\inter\ker v=\accol{0}\). \\
+    \item Montrez que la réciproque est fausse. \\
+    \item Montrez que si \(u\) et \(v\) commutent, alors la réciproque est vraie.
+\end{enumerate}
+\end{exo}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exo}[Oral CCMP, 19]
+Soient \(u\in\Lendo{\R^3}\) non-nul tel que \(u^3=u^2\) et \(C\paren{u}=\accol{v\in\Lendo{\R^3}\tq u\rond v=v\rond u}\).
+
+Montrez que \(C\paren{u}\) est un sous-espace vectoriel de \(\Lendo{\R^3}\) et déterminez sa dimension.
+\end{exo}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exo}[Oral CCMP, 20]
+Soient \(A\in\M{n}[\C]\) et \(\phi\) l'endomorphisme de \(\M{n}[\C]\) défini par \(\phi:M\mapsto M+\tr\paren{AM}A\).
+
+\begin{enumerate}
+    \item Étudiez la diagonalisabilité de \(\phi\). \\
+    \item Calculez \(\tr\phi\) et \(\det\phi\).
+\end{enumerate}
+\end{exo}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exo}[Oral CCMP, 21]~\\
+Pour \(c\in\R\), on pose \(A\paren{c}=\begin{pmatrix}
+-c & -1 & c \\
+-1 & 1-c & 1 \\
+c & -1 & -c
+\end{pmatrix}\).
+
+\begin{enumerate}
+    \item Déterminez les réels \(c\) tels que \(A\paren{c}\) ne pas diagonalisable. \\
+    \item Soit \(d\) la plus petite de ces valeurs. Trouvez \(P\) inversible telle que \(P\inv A\paren{d}P\) soit triangulaire.
+\end{enumerate}
+\end{exo}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exo}[Oral CCMP, 22]~\\
+\begin{enumerate}
+    \item Soit \(x=\cos\dfrac{2\pi}{5}\). Déterminez une équation du second degré à coefficients rationnels dont \(x\) est racine, puis donnez les valeurs de \(x\) et \(\cos\dfrac{4\pi}{5}\). \\
+    \item Soit \(A\in\M{n}[\R]\) telle que \(A^4+A^3+A^2+A+I_n=0\). On suppose que la trace de \(A\) est un rationnel. Montrez que \(4\) divise \(n\).
+\end{enumerate}
+\end{exo}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exo}[Oral CCMP, 23]
+Soit \(A\in\M{n}[\R]\) telle que \(A^3=A+I_n\). Montrez que \(\det A>0\).
+\end{exo}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exo}[Oral CCMP, 24]~\\
+Soient \(A\in\M{n}\) et \(B=\begin{pmatrix}
+A & A \\
+0 & A
+\end{pmatrix}\). Déterminez une condition nécessaire et suffisante sur \(A\) pour que \(B\) soit diagonalisable.
+\end{exo}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exo}[Oral CCMP, 25]~\\
+Soient \(A\in\M{n}\) et \(B=\begin{pmatrix}
+I_n & 0 \\
+A & A
+\end{pmatrix}\). On suppose que \(B\) est diagonalisable. Montrez que \(A\) est diagonalisable et que \(I_n-A\) est inversible.
+\end{exo}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exo}[Oral CCMP, 26]
+Soit \(A\in\M{n}[\C]\). On suppose qu'il existe \(P\in\poly[\C]\) tel que \(P\paren{A}\) est diagonalisable et \(P\prim\paren{A}\) est inversible. Montrez que \(A\) est diagonalisable.
+\end{exo}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exo}[Oral CCMP, 27]
+Soit \(A=\paren{a_{i\,j}}\in\M{n}[\R]\) définie par \(a_{i\,i}=0\) et \(a_{i\,j}=i\) si \(i\not=j\).
+
+\begin{enumerate}
+    \item Montrez qu'un réel \(\lambda\) est valeur propre de \(A\) ssi \(\sum_{k=1}^n\dfrac{k}{k+\lambda}=1\). \\
+    \item Montrez que \(A\) est diagonalisable. Listez ses valeurs propres avec un encadrement le plus précis possible. \\
+    \item Déterminez la somme des valeurs propres de \(A\). On note \(\mu_n\) la plus grande d'entre elles. Trouvez \(C\in\R\) tel que \(\mu_n\sim Cn^2\) quand \(n\) tend vers l'infini.
+\end{enumerate}
+\end{exo}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exo}[Oral Centrale, 28]~\\
+À quelles conditions \(A=\begin{pmatrix}
+1 & 0 & 0 & 0 \\
+a & 1 & 0 & 0 \\
+b & c & 2 & 0 \\
+d & e & f & 2
+\end{pmatrix}\) est-elle diagonalisable ? Le cas échéant, diagonalisez \(A\).
+\end{exo}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exo}[Oral Centrale, 29]~\\
+Soient \(a,b,c\in\R\) et \(A=\begin{pmatrix}
+0 & a & b & c \\
+a & 0 & c & b \\
+b & c & 0 & a \\
+c & b & a & 0
+\end{pmatrix}\).
+
+\begin{enumerate}
+    \item Donnez un vecteur propre évident de \(A\). \\
+    \item Calculez le polynôme caractéristique de \(A\) et donnez son spectre. Justifiez que \(A\) est diagonalisable. \\
+    \item Exprimez, lorsqu'elle existe, la matrice inverse \(A\inv\) en fonction de \(I_4\), \(A\), \(A^2\) et \(A^3\).
+\end{enumerate}
+\end{exo}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exo}[Oral Centrale, 30]
+Soient \(A,B\in\M{n}[\C]\) telles que \(\quantifs{\tpt M\in\M{n}[\C]}\chi_{AM+B}=\chi_{AM}\).
+
+\begin{enumerate}
+    \item Montrez qu'il existe un entier \(p\in\Ns\) tel que \(B^p=0\). \\
+    \item Montrez que \(BA=0\). \\
+    \item Réciproquement, soient \(A,B\in\M{n}[\C]\) telles que \(B^n=BA=0\). Montrez que \(\quantifs{\tpt M\in\M{n}[\C]}\chi_{AM+B}=\chi_{AM}\).
+\end{enumerate}
+\end{exo}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exo}[Oral Centrale, 31]
+Soient \(\theta_1,\dots,\theta_p\) des réels distincts modulo \(2\pi\) et \(m_1,\dots,m_p\) des complexes non-nuls. Le but de l'exercice est de montrer que la suite \(\paren{m_1\e{\i\theta_1n}+\dots+m_p\e{\i\theta_pn}}\) ne converge pas vers \(0\).
+
+Par l'absurde, on suppose que \(m_1\e{\i\theta_1n}+\dots+m_p\e{\i\theta_pn}\tendqd{n\to\pinf}0\).
+
+\begin{enumerate}
+    \item On note \(M_n=\begin{pmatrix}
+        \e{\i\theta_1n} & \dots & \e{\i\theta_pn} \\
+        \vdots &  & \vdots \\
+        \e{\i\theta_1\paren{n+p-1}} & \dots & \e{\i\theta_p\paren{n+p-1}}
+    \end{pmatrix}\). Montrez que \(Y_n=M_n\tcoords{m_1}{\vdots}{m_p}\tendqd{n\to\pinf}0\). \\
+    \item Montrez que \(\abs{\det M_n}\) est une constante non-nulle. \\
+    \item À l'aide du théorème de Cayley-Hamilton, exprimez \(M\inv\) et trouvez une contradiction.
+\end{enumerate}
+\end{exo}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{exo}[Oral ENS, 32]
+On considère un automorphisme \(\alpha\) de \(\M{n}[\C]\) qui conserve le produit matriciel, \cad tel que \(\quantifs{\tpt A,B\in\M{n}[\C]}\alpha\paren{AB}=\alpha\paren{A}\alpha\paren{B}\).
+
+\begin{enumerate}
+    \item Montrez que \(\alpha\paren{I_n}=I_n\). \\
+    \item Soit \(A\in\M{n}[\C]\) diagonalisable. Montrez que \(\alpha\paren{A}\) l'est aussi. \\
+    \item On suppose que \(A\) est semblable à une matrice diagonale \(D\) à coefficients diagonaux tous distincts. Montrez que \(\alpha\paren{A}\) est, elle aussi, semblable à \(D\). \\
+    \item Justifiez l'existence de \(P\in\GL{n}[\C]\) telle que \(\alpha\paren{D}=PDP\inv\) puis montrez que \(\alpha\paren{E}=PEP\inv\) pour toute matrice diagonale \(E\). \\
+    \item Déterminer \(\alpha\).
+\end{enumerate}
+\end{exo}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\section*{Problème -- Matrices réelles sans valeur propre réelle}
+\addcontentsline{toc}{section}{Problème -- Matrices réelles sans valeur propre réelle}
+
+Dans ce problème, \(n\) désigne un entier naturel non-nul. Pour alléger les notations, on pose \(E_n=\M{n\,1}[\C]\). La lettre \(X\) est utilisée ici pour désigner une matrice-colonne, on évitera donc de l'utiliser pour désigner l'indéterminée des polynômes qui sera pour une fois notée \(x\).
+
+Si \(\paren{a,b}\in\R^2\), on pose \(S\paren{a,b}=\begin{pmatrix}
+a & -b \\
+b & a
+\end{pmatrix}\).
+
+Toute matrice \(Z\) à coefficients complexes de \(\M{p\,q}[\C]\) peut s'écrire de manière unique sous la forme \(X+\i Y\) où \(X,Y\) sont deux matrices réelles de \(\M{p\,q}[\R]\). On appelle conjuguée de \(Z\) la matrice \(\conj{Z}=X-\i Y\).
+
+D'après les propriétés de la conjugaison dans \(\C\), on en déduit que les règles de calcul sont les mêmes : \(\conj{Z_1+Z_2}=\conj{Z_1}+\conj{Z_2}\), \(\conj{\lambda Z}=\lambda\conj{Z}\) et \(\conj{Z_1.Z_2}=\conj{Z_1}.\conj{Z_2}\).
+
+Soit \(M\in\M{n}[\R]\). On veut montrer l'équivalence entre les propositions suivante :
+
+\begin{enumerate}
+    \item[\(\paren{\alpha}\)] il existe \(\paren{a_1,b_1,\dots,a_m,b_m}\in\R^{2m}\) tel que \(M\) soit semblable dans \(\M{n}[\R]\) à la matrice diagonale par blocs \[\diag{S\paren{a_1,b_1},\dots,S\paren{a_m,b_m}}=\begin{pmatrix}
+        S\paren{a_1,b_1} & 0 & \dots & 0 \\
+        0 & \ddots & \ddots & \vdots \\
+        \vdots & \ddots & \ddots & 0 \\
+        0 & \dots & 0 & S\paren{a_m,b_m}
+    \end{pmatrix}\]
+    \item[\(\paren{\beta}\)] il existe un polynôme de \(\poly[\R][x]\) annulateur de \(M\) à racines simples non-réelles.
+\end{enumerate}
+
+\subsection*{Un cas particulier simple}
+\addcontentsline{toc}{subsection}{Un cas particulier simple}
+
+Soit \(\omega\) un complexe non-réel. On pose \(f:\C\to\C\) définie par \(f\paren{z}=\omega z\).
+
+Vérifiez que \(f\) est un endomorphisme du \(\R\)-espace vectoriel \(\C\), que \(f\) a un polynôme annulateur réel à racines simples non-réelles et que sa matrice dans une base de \(\C\) bien choisie est une matrice \(S\paren{a,b}\).
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\subsection*{\(\paren{\beta}\imp\paren{\alpha}\)}
+\addcontentsline{toc}{subsection}{\(\paren{\beta}\imp\paren{\alpha}\)}
+
+\begin{q}
+Soit \(\paren{a,b}\in\R^2\) tel que \(b\not=0\). Montrez qu'il existe un polynôme de \(\poly[\R][x]\) annulateur de \(S\paren{a,b}\) à racines simples non-réelles.
+\end{q}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{q}
+Montrez l'implication \(\paren{\beta}\imp\paren{\alpha}\).
+\end{q}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\subsection*{\(\paren{\alpha}\imp\paren{\beta}\)}
+\addcontentsline{toc}{subsection}{\(\paren{\alpha}\imp\paren{\beta}\)}
+
+Dans cette partie, \(M\) est une matrice de \(\M{n}[\R]\) qui annule un polynôme réel à racines simples non-réelles. On appelle \(f\) l'endomorphisme de \(E_n\) de matrice \(M\) dans la base canonique de \(E_n\) (autrement dit, \(\quantifs{\tpt Z\in E_n}f\paren{Z}=MZ\)).
+
+\begin{q}
+Soient \(z\in\Cs\) et \(\lambda\in\C\) tel que \(\conj{z}=\lambda z\). Montrez qu'il existe \(\theta\in\R\) tel que \(\lambda=\e{2\i\theta}\) et \(\e{\i\theta}z\) est un réel.
+\end{q}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{q}
+Montrez que \(n\) est pair. On note \(n=2m\).
+\end{q}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{q}
+Montrez que si \(\lambda\) est une valeur propre de \(M\), alors \(\conj{\lambda}\) en est une aussi, puis que les sous-espaces propres \(\sep{M}{\lambda}\) et \(\sep{M}{\conj{\lambda}}\) ont la même dimension.
+\end{q}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{q}
+Soient \(\lambda\in\C\) une valeur propre de \(M\) et \(Z\) un vecteur propre de \(M\).
+
+\begin{enumerate}
+    \item[(a)] Montrez que \(\Vect{Z,\conj{Z}}\) est un plan stable par \(f\). \\
+    \item[(b)] On pose \(Z=X+\i Y\) où \(X,Y\) sont des matrices réelles. Montrez que \(\paren{X,Y}\) est une base de ce plan. \\
+    \item[(c)] Montrez qu'il existe \(\paren{a,b}\in\R^2\) tel que \(b\not=0\) et l'endomorphisme induit par \(f\) dans ce plan a pour matrice \(S\paren{a,b}\) dans la base \(\paren{X,Y}\).
+\end{enumerate}
+\end{q}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{q}
+Soit \(\lambda\in\C\) une valeur propre de \(M\). On choisit une base \(\paren{Z_1,\dots,Z_p}\) de \(\sep{M}{\lambda}\) et on écrit chaque vecteur sous la forme \(Z_k=X_k+\i Y_k\) où \(X_k,Y_k\) sont réelles.
+
+Montrez que les plans \(\paren{\Vect{X_k,Y_k}}_{1\leq k\leq p}\) sont en somme directe et que \(\sep{M}{\lambda}\oplus\sep{M}{\conj{\lambda}}=\bigoplus_{k=1}^p\Vect{X_k,Y_k}\).
+\end{q}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{q}
+Montrez qu'il existe une base de \(E_n\) constituée de vecteurs réels dans laquelle la matrice de \(f\) est égale à une matrice diagonale par blocs \(D=\diag{S\paren{a_1,b_1},\dots,S\paren{a_m,b_m}}\).
+
+Montrez enfin qu'il existe une matrice \(P\in\GL{n}[\R]\) telle que \(M=PDP\inv\).
+\end{q}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\subsection*{Un exemple}
+\addcontentsline{toc}{subsection}{Un exemple}
+
+On pose \(M=\begin{pmatrix}
+-1 & -2 & 4 & 0 \\
+1 & -3 & 0 & 4 \\
+-2 & 0 & 5 & -2 \\
+0 & -2 & 1 & 3
+\end{pmatrix}\).
+
+\begin{q}
+On écrit \(xI_4-M\) par blocs \(\paren{2,2}\) : \(xI_4-M=\begin{pmatrix}
+A & -4I_2 \\
+2I_2 & B
+\end{pmatrix}\).
+
+\begin{enumerate}
+    \item Calculez le produit par blocs \(\begin{pmatrix}-4I_2 & A \\ B & 2I_2\end{pmatrix}\begin{pmatrix}-2I_2 & 0 \\ B & I_2\end{pmatrix}\). Déduisez-en que \(\det\paren{xI_4-M}=\det\paren{AB+8I_2}\). \\
+    \item Explicitez le polynôme caractéristique de \(M\). Déterminez ses racines imaginaires pures, puis les autres racines.
+\end{enumerate}
+\end{q}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{q}
+Montrez que \(M\) annule un polynôme réel à racines simples non-réelles.
+
+Vérifiez que les vecteurs-colonnes \(\begin{pmatrix}2 \\ 1+\i \\ 2 \\ 1+\i\end{pmatrix}\) et \(\begin{pmatrix}4 \\ 2-2\i \\ 2 \\ 1-\i\end{pmatrix}\) sont des vecteurs propres de \(M\), puis donnez une matrice \(P\in\GL{4}[\R]\) et une matrice réelle diagonale par blocs \(D\) telle que \(M=PDP\inv\).
+\end{q}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\subsection*{Application}
+\addcontentsline{toc}{subsection}{Application}
+
+Dans cette partie, on suppose que \(M\in\M{n}[\R]\) annule un polynôme de \(\poly[\R][x]\) à racines simples dans \(\C\). On garde les notations introduites précédemment.
+
+On note \(\Sp[\R]{M}\) l'ensemble des valeurs propres réelles et \(\Sp[\C\excluant\R]{M}\) l'ensemble des valeurs propres complexes non-réelles de \(M\).
+
+\begin{q}
+On pose \(G=\bigoplus_{\lambda\in\Sp[\R]{M}}\sep{M}{\lambda}\) et \(H=\bigoplus_{\lambda\in\Sp[\C\excluant\R]{M}}\sep{M}{\lambda}\). Par convention, si \(M\) n'a pas de valeur propre réelle, alors \(G=\accol{0}\) et si \(M\) n'a que des valeurs propres réelles, alors \(H=\accol{0}\).
+
+Montrez que \(G\) et \(H\) sont supplémentaires dans \(E_n\) et qu'ils sont stables par \(f\).
+
+On note \(g\) et \(h\) les endomorphismes induits par \(f\) dans \(G\) et \(H\) respectivement.
+\end{q}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{q}
+Montrez qu'il existe une base \(\fami{B}\) de \(E_n\) telle que \(\Mat{f}=R=\begin{pmatrix}D & 0 \\ 0 & S\end{pmatrix}\) où \(D\) est une matrice diagonale réelle et \(S\) une matrice diagonale par blocs \(\diag{S\paren{a_1,b_1},\dots,S\paren{a_m,b_m}}\). On remarque que \(R\) est une matrice réelle.
+\end{q}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{q}
+Un exercice classique : soit \(\paren{U,V}\in\M{n}[\R]^2\).
+
+\begin{enumerate}
+    \item Justifiez que la fonction \(x\mapsto\det\paren{U+xV}\) est une fonction polynôme. \\
+    \item Montrez que s'il existe \(z\in\C\) tel que \(\det\paren{U+zV}\not=0\), alors il existe \(x\in\R\) tel que \(\det\paren{U+xV}\not=0\).
+\end{enumerate}
+
+Application : soit \(\paren{A,B}\in\M{n}[\R]^2\) tel que \(A\) et \(B\) soient semblables dans \(\M{n}[\C]\) ; montrez qu'elles sont alors semblables dans \(\M{n}[\R]\).
+\end{q}
+
+\begin{corr}
+\note{À venir}
+\end{corr}
+
+\begin{q}
+Montrez finalement que \(M\) et \(R\) sont semblables dans \(\M{n}[\R]\).
+\end{q}
+
+\begin{corr}
+\note{À venir}
+\end{corr}

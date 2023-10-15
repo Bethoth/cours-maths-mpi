@@ -436,6 +436,13 @@ per-mode=power-positive-first
 
 \theoremstyle{break}
 \theorembodyfont{\upshape}
+\theoremheaderfont{\normalfont\bfseries}
+\theoremprework{\bigskip\needspace{\baselineskip}\hrule}
+\theorempostwork{\bigskip}
+\newtheorem{q}{Question}
+
+\theoremstyle{break}
+\theorembodyfont{\upshape}
 \theoremheaderfont{\itshape}
 \theoremprework{\bigskip\needspace{\baselineskip}\color{BurntOrange}\hrule\color{black}}
 \theorempostwork{\bigskip}
@@ -754,6 +761,9 @@ per-mode=power-positive-first
 \newcommand{\Tpt}{\text{Pour tout }}
 
 \newcommand{\Ann}[1]{\operatorname{Ann}\paren{#1}}
+
+\DeclareDocumentCommand{\Sp}{O{} m}{\operatorname{Sp}_{#1}\paren{#2}}
+\DeclareDocumentCommand{\sep}{O{} m m}{\operatorname{sep}_{#1}\paren{#2,#3}}
 
 \begin{document}
 \renewcommand{\labelitemi}{\(\triangleright\)}
