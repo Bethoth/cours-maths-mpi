@@ -35,6 +35,7 @@
 \usepackage{newtxmath}
 \DeclareSymbolFont{CMletters}{OML}{cmm}{m}{it}
 \DeclareMathSymbol{\nu}{\mathord}{CMletters}{23}
+\DeclareMathSymbol{\lambda}{\mathord}{CMletters}{21}
 
 % Makes the table of contents clickable and gives useful commands for links in general.
 \usepackage[hypertexnames=false]{hyperref}
@@ -764,6 +765,11 @@ per-mode=power-positive-first
 
 \DeclareDocumentCommand{\Sp}{O{} m}{\operatorname{Sp}_{#1}\paren{#2}}
 \DeclareDocumentCommand{\sep}{O{} m m}{\operatorname{sep}_{#1}\paren{#2,#3}}
+\DeclareDocumentCommand{\rac}{O{\K} m}{\operatorname{Z}_{#1}\paren{#2}}
+
+\DeclareDocumentCommand{\diago}{m O{\K}}{\mathscr{D}_{#1}\paren{#2}}
+
+\renewcommand{\subsetneq}{\varsubsetneq}
 
 \begin{document}
 \renewcommand{\labelitemi}{\(\triangleright\)}
