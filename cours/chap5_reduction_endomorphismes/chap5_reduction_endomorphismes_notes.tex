@@ -2,4 +2,1544 @@
 
 \minitoc
 
-\note{À venir}
+Dans ce chapitre, \(\K\) désigne un sous-corps de \(\C\), en général \(\R\) ou \(\C\).
+
+\section{Éléments propres d'un endomorphisme}
+
+Dans cette section, \(E\) est un \(\K\)-espace vectoriel de dimension quelconque, finie ou non.
+
+\subsection{Valeurs propres et vecteurs propres}
+
+\begin{defi}
+Soient \(f\in\Lendo{E}\) et \(\lambda\in\K\).
+
+On dit que \(\lambda\) est une valeur propre de \(f\) quand il existe un vecteur \(v\) non-nul tel que \(f\paren{v}=\lambda v\).
+
+Si \(\lambda\) est une valeur propre de \(f\), alors tout vecteur non-nul \(v\) tel que \(f\paren{v}=\lambda v\) est appelé vecteur propre associé à la valeur propre \(\lambda\).
+\end{defi}
+
+\begin{rem}
+Si \(f\paren{v}=\lambda v\) et \(v\not=0\) alors \(\quantifs{\tpt\alpha\not=0}f\paren{\alpha v}=\alpha f\paren{v}=\alpha\paren{\lambda v}=\lambda\paren{\alpha v}\). Donc \(\alpha v\) est un vecteur propre de \(f\) pour la valeur propre \(\lambda\).
+\end{rem}
+
+\begin{ex}
+\begin{itemize}
+    \item Pour tout \(\alpha\in\K\), \(\alpha\id{E}\) a pour unique valeur propre \(\alpha\) et tout vecteur non-nul de \(E\) est un vecteur propre associé. \\
+    \item Si \(p\) est un projecteur non-trivial (\ie \(p\not=0\) et \(p\not=\id{E}\)), alors \(p\) a pour seules valeurs propres \(0\) et \(1\). \\
+    \item De même, si \(s\) est une symétrie non-triviale (\ie \(s\not=\id{E}\) et \(s\not=-\id{E}\)), alors les valeurs propres de \(s\) sont \(1\) et \(-1\). \\
+    \item L'endomorphisme de \(\poly\) \(P\mapsto XP\) n'a pas de valeur propre.
+\end{itemize}
+\end{ex}
+
+L'ensemble des valeurs propres d'un endomorphisme \(f\) est appelé le spectre de \(f\) et est noté \(\Sp[\K]{f}\) ou plus simplement \(\Sp{f}\) (en toute rigueur, cette définition est fausse en dimension infinie, mais à notre niveau, cette approximation est acceptable).
+
+\begin{defi}
+On appelle droite propre d'un endomorphisme toute droite dirigée par un vecteur propre.
+\end{defi}
+
+\begin{prop}
+Les droites propres d'un endomorphisme sont exactement les droites stables par cet endomorphisme.
+\end{prop}
+
+\begin{exo}
+Soit \(f\in\Lendo{\R^\N}\) défini par : si \(\paren{u_n}\in\R^\N\), on pose \(f\paren{u}=\paren{u_{n+1}}\). Quelles sont les valeurs propres de \(f\) et les vecteurs propres associés ?
+\end{exo}
+
+\begin{exo}
+Même question avec \(d\) l'opérateur de dérivation dans \(\ensclasse{\infty}{\R}{\R}\).
+\end{exo}
+
+\begin{exo}
+Même question avec \(D\) l'opérateur de dérivation dans \(\poly[\R]\).
+\end{exo}
+
+\subsection{Lien avec les polynômes annulateurs}
+
+En dimension quelconque, il est souvent difficile de trouver les valeurs propres d'un endomorphisme. La connaissance d'un polynôme annulateur peut aider.
+
+\begin{lem}
+Soient \(f\in\Lendo{E}\) et \(P\in\poly\). Si \(\lambda\) est une valeur propre de \(f\) et \(v\) un vecteur propre associé, alors \(P\paren{f}\paren{v}=P\paren{\lambda}v\).
+\end{lem}
+
+\begin{dem}
+On montre par récurrence la propriété \(\P{k}\) : \guillemets{\(f^k\paren{v}=\lambda^kv\)}.
+
+On a \(f^0\paren{v}=v=\lambda^0v\).
+
+Si \(\P{k}\) est vraie, alors \[\begin{aligned}f^{k+1}\paren{v}&=ff^k\paren{v} \\
+&=f\paren{\lambda^kv} \\
+&=\lambda^kf\paren{v} \\
+&=\lambda^k\lambda v \\
+&=\lambda^{k+1}v.
+\end{aligned}\]
+
+D'où \(\P{k+1}\).
+
+Par récurrence, \(\quantifs{\tpt k\in\N}\P{k}\text{ est vraie}\).
+
+On écrit \(P=\sum_{i=0}^na_iX^i\).
+
+Alors \(P\paren{f}=\sum_{i=0}^na_if^i\).
+
+Donc \[\begin{aligned}
+P\paren{f}\paren{v}&=\sum_{i=0}^na_if^i\paren{v} \\
+&=\sum_{i=0}^na_i\paren{\lambda^iv} \\
+&=v\sum_{i=0}^na_i\lambda^i \\
+&=P\paren{\lambda}v.
+\end{aligned}\]
+\end{dem}
+
+Si \(P\in\poly\), on note \(\rac{P}\) l'ensemble des racines de \(P\) dans \(\K\).
+
+\begin{prop}\thlabel{prop:vpInclusesDansLesRacinesDesPolynômesAnnulateurs}
+Soit \(f\in\Lendo{E}\).
+
+Si \(P\) est un polynôme annulateur de \(f\), alors \(\Sp{f}\subset\rac{P}\).
+\end{prop}
+
+\begin{dem}
+Il existe \(v\not=0\) tel que \(f\paren{v}=\lambda v\).
+
+D'après le lemme précédent, \(P\paren{f}\paren{v}=P\paren{\lambda}v\).
+
+Or \(P\paren{f}=0\) donc \(P\paren{\lambda}v=0\).
+
+Or \(v\not=0\) donc \(P\paren{\lambda}=0\).
+
+Donc \(\lambda\in\rac{P}\).
+\end{dem}
+
+\begin{rem}
+Attention ! La réciproque est fausse. Contre-exemple : le polynôme \(P=X^2-1\) est annulateur de \(\id{E}\) et pourtant \(-1\), qui est racine de \(P\), n'est pas valeur propre de \(\id{E}\).
+\end{rem}
+
+\begin{exo}
+Soit \(n\geq2\). Pour \(M\in\M{n}\), on pose \(f\paren{M}=M+\trans{M}+\tr\paren{M}I_n\) : \(f\) est clairement un endomorphisme de \(\M{n}\).
+
+Déterminez un polynôme annulateur de \(f\) de degré \(3\) et déduisez-en les valeurs propres de \(f\).
+\end{exo}
+
+\subsection{Sous-espaces propres}
+
+\begin{prop}\thlabel{prop:vpSsiKerNonNul}
+Soient \(f\in\Lendo{E}\) et \(\lambda\in\K\).
+
+Alors \(\lambda\) est valeur propre de \(f\) ssi \(\ker\paren{f-\lambda\id{E}}\not=\accol{0}\), autrement dit ssi \(f-\lambda\id{E}\) n'est pas injectif.
+\end{prop}
+
+\begin{dem}
+On a \[\begin{aligned}
+\lambda\in\Sp{f}&\ssi\quantifs{\exists v\in E}v\not=0\text{ et }f\paren{v}=\lambda v \\
+&\ssi\quantifs{\exists v\in E}v\not=0\text{ et }f\paren{v}-\lambda v=0 \\
+&\ssi\quantifs{\exists v\in E}v\not=0\text{ et }\paren{f-\lambda\id{E}}\paren{v}=0 \\
+&\ssi\quantifs{\exists v\in E}v\not=0\text{ et }v\in\ker\paren{f-\lambda\id{E}} \\
+&\ssi\ker\paren{f-\lambda\id{E}}\not=\accol{0} \\
+&\ssi f-\lambda\id{E}\text{ non-injective}.
+\end{aligned}\]
+\end{dem}
+
+\begin{defi}
+Soit \(f\in\Lendo{E}\).
+
+Si \(\lambda\in\Sp{f}\), le noyau \(\ker\paren{f-\lambda\id{E}}\) est appelé le sous-espace propre associé à la valeur propre \(\lambda\). Il est souvent noté \(\sep{f}{\lambda}\).
+\end{defi}
+
+Par conséquent, \(\sep{f}{\lambda}\) est l'ensemble des vecteurs propres associés à la valeur propre \(\lambda\) auquel on ajoute le vecteur nul.
+
+\begin{rem}
+Un cas particulier important : \(0\) est valeur propre ssi \(f\) n'est pas injective.
+\end{rem}
+
+\begin{exo}
+Soit \(u\) un endomorphisme ayant pour matrice \(M=\begin{pmatrix}
+-3 & 4 & -4 \\
+4 & -3 & 3 \\
+4 & -4 & 4
+\end{pmatrix}\) dans une certaine base \(\fami{B}\).
+
+Calculez \(M^3+2M^2-3M\). Déduisez-en les valeurs propres de \(u\) puis déterminez les sous-espaces propres associés.
+\end{exo}
+
+\begin{prop}
+Tout sous-espace propre d'un endomorphisme est stable par cet endomorphisme. L'endomorphisme induit sur un sous-espace propre est alors une homothétie.
+\end{prop}
+
+\begin{dem}
+Soit \(v\in\sep{f}{\lambda}\).
+
+On a \(f\paren{v}=\lambda v\).
+
+Donc \(f\paren{f\paren{v}}=\lambda f\paren{v}\).
+
+Donc \(f\paren{v}\in\sep{f}{\lambda}\).
+
+Donc le sous-espace propre \(\sep{f}{\lambda}\) est stable par \(f\).
+
+De plus, l'endomorphisme induit par \(f\) sur ce sous-espace est \[\fonctionlambda{\sep{f}{\lambda}}{\sep{f}{\lambda}}{v}{f\paren{v}=\lambda v}\] \ie l'homothétie de rapport \(\lambda\).
+\end{dem}
+
+\begin{theo}
+Soient \(f\in\Lendo{E}\) et \(\lambda_1,\dots,\lambda_p\) des valeurs propres distinctes de \(f\).
+
+Alors les sous-espaces propres \(\paren{\sep{f}{\lambda_i}}_{1\leq i\leq p}\) sont en somme directe.
+
+Autrement dit, toute famille de vecteurs propres associés à des valeurs propres distinctes est libre.
+\end{theo}
+
+\begin{dem}~\\
+Soit \(\paren{v_1,\dots,v_p}\in\prod_{i=1}^p\sep{f}{\lambda_i}\) tel que \(v_1+\dots+v_p=0\quad\text{(1)}\).
+
+On veut montrer que \(v_1=\dots=v_p=0\).
+
+On applique \(f\) à (1) : \(f\paren{v_1}+\dots+f\paren{v_p}=0\) \ie \(\lambda_1v_1+\dots+\lambda_pv_p=0\).
+
+On réitère \(p-2\) fois et on obtient le système suivant : \[\begin{dcases}
+v_1+\dots+v_p=0 \\
+\lambda_1v_1+\dots+\lambda_pv_p=0 \\
+\lambda_1^2v_1+\dots+\lambda_p^2v_p=0 \\
+\vdots \\
+\lambda_1^{p-1}v_1+\dots+\lambda_p^{p-1}v_p=0
+\end{dcases}\]
+
+La matrice de ce système linéaire est \[\begin{pmatrix}
+1 & \dots & 1 \\
+\lambda_1 & \dots & \lambda_p \\
+\lambda_1^2 & \dots & \lambda_p^2 \\
+\vdots &  & \vdots \\
+\lambda_1^{p-1} & \dots & \lambda_p^{p-1}
+\end{pmatrix}\] \ie une matrice de Vandermonde inversible car les \(\lambda_i\) sont distincts donc le système a une unique solution \(\paren{v_1,\dots,v_p}=\paren{0,\dots,0}\).
+\end{dem}
+
+\begin{rem}
+Quand on demande de déterminer les éléments propres d'un endomorphisme, on demande de déterminer les valeurs propres et les vecteurs propres associés, \ie les sous-espaces propres.
+\end{rem}
+
+\begin{center}
+\bfseries
+\fbox{À partir de maintenant, il est toujours supposé que \(E\) est de dimension finie \(n\)}
+\end{center}
+
+\section{Polynôme caractéristique d'un endomorphisme}
+
+\subsection{Caractérisation des valeurs propres en dimension finie}
+
+\begin{prop}
+Soient \(f\in\Lendo{E}\) et \(\lambda\in\K\). Alors \[\lambda\in\Sp{f}\ssi\rg\paren{f-\lambda\id{E}}<n.\]
+
+Dans ce cas, \(\dim\sep{f}{\lambda}=n-\rg\paren{f-\lambda\id{E}}\).
+\end{prop}
+
+\begin{dem}
+D'après le théorème du rang, on a \[n=\underbrace{\dim\ker\paren{f-\lambda\id{E}}}_{=\dim\sep{f}{\lambda}}+\rg\paren{f-\lambda\id{E}}.\]
+
+Donc \(\dim\sep{f}{\lambda}=n-\rg\paren{f-\lambda\id{E}}\).
+
+On obtient l'inégalité voulue grâce à la \thref{prop:vpSsiKerNonNul}.
+\end{dem}
+
+\subsection{Définition et lien avec les valeurs propres}
+
+\begin{defi}
+Soit \(f\in\Lendo{E}\).
+
+On appelle polynôme caractéristique de \(f\) le polynôme \(\chi_f=\det\paren{X\id{E}-f}\).
+\end{defi}
+
+La notation \(\chi_f\) est très courante : elle est à connaître.
+
+\begin{theo}\thlabel{theo:chiUnitaireEtRacinesEgalesVP}
+Soit \(f\in\Lendo{E}\).
+
+Alors \(\chi_f\) est un polynôme unitaire de degré \(n\) de \(\poly\) et les valeurs propres de \(f\) sont exactement les racines dans \(\K\) de \(\chi_f\) : \(\rac{\chi_f}=\Sp{f}\).
+
+Par conséquent, un endomorphisme d'un espace de dimension \(n\) a au plus \(n\) valeurs propres distinctes.
+\end{theo}
+
+\begin{dem}\thlabel{dem:vpEgalRacinesChi}
+On choisit une base \(\fami{B}\) de \(E\) et on pose \(A=\paren{a_{i\,j}}\in\M{n}\) la matrice de \(f\) dans \(\fami{B}\).
+
+On a \[\begin{aligned}
+\chi_f&=\det\paren{X\id{E}-f} \\
+&=\det\paren{XI_n-A} \\
+&=\begin{vmatrix}
+X-a_{1\,1} & -a_{1\,2} & \dots & -a_{1\,n} \\
+-a_{2\,1} & X - a_{2\,2} & \ddots & \vdots \\
+\vdots & \ddots & \ddots & -a_{n-1\,n} \\
+-a_{n\,1} & \dots & -a_{n\,n-1} & X-a_{n\,n}
+\end{vmatrix}
+\end{aligned}\]
+
+On pose \(c_{i\,j}=\begin{dcases}
+-a_{i\,j} &\text{si }i\not=j \\
+X-a_{i\,i} &\text{sinon}
+\end{dcases}\)
+
+Alors \[\begin{aligned}
+\chi_f&=\sum_{\sigma\in\S{n}}\sig{\sigma}\prod_{i=1}^nc_{i\,\sigma\paren{i}} \\
+&=\sig{\id{}}\prod_{i=1}^nc_{i\,i}+\sum_{\sigma\in\S{n}\excluant\accol{\id{}}}\sig{\sigma}\prod_{i=1}^nc_{i\,\sigma\paren{i}}
+\end{aligned}\]
+
+On remarque que si \(\sigma\in\S{n}\) alors \(\sigma\) a \(n\) points fixes si \(\sigma=\id{}\) et \(\sigma\) a moins de \(n-2\) points fixes sinon donc si \(\sigma\not=\id{}\), il existe au moins deux entiers \(i,j\in\interventierii{1}{n}\) tels que \(\sigma\paren{i}\not=i\) et \(\sigma\paren{j}\not=j\).
+
+Donc pour toute permutation \(\sigma\not=\id{}\), parmi les facteurs du produit \(\prod_{i=1}^na_{i\,\sigma\paren{i}}\), il en existe au moins deux qui sont de la forme \(a_{?\,?}\) donc \(\prod_{i=1}^nc_{i\,\sigma\paren{i}}\) est un polynôme de degré au plus \(n-2\).
+
+Donc \(\deg\chi_f=n\) et \(\chi_f\) est unitaire.
+
+De plus, on a \[\begin{WithArrows}
+\lambda\in\Sp{f}&\ssi f-\lambda\id{E}\text{ n'est pas injectif} \Arrow{dimension finie} \\
+&\ssi f-\lambda\id{E}\text{ n'est pas bijectif} \\
+&\ssi\det\paren{f-\lambda\id{E}}=0 \\
+&\ssi\det\paren{\lambda\id{E}-f}=0 \\
+&\ssi\chi_f\paren{\lambda}=0.
+\end{WithArrows}\]
+\end{dem}
+
+\begin{exo}
+Montrez que si \(\dim E=2\), alors \(\quantifs{\tpt f\in\Lendo{E}}\chi_f=X^2-\tr\paren{f}X+\det f\).
+\end{exo}
+
+\begin{exo}
+Calculez le polynôme caractéristique d'un endomorphisme de matrice \(\begin{pmatrix}
+1 & 4 & 7 \\
+2 & 5 & 8 \\
+3 & 6 & 9
+\end{pmatrix}\) et donnez ses valeurs propres.
+\end{exo}
+
+\begin{exo}
+Soient \(\fami{B}=\paren{e_1,\dots,e_n}\) une base de \(E\), \(s=\sum_{i=1}^ne_i\) et \(f\in\Lendo{E}\) tel que \(\quantifs{\tpt j\in\interventierii{1}{n}}f\paren{e_j}=e_j+s\).
+
+Calculez son polynôme caractéristique et ses éléments propres.
+\end{exo}
+
+On peut noter un lien avec la trace et le déterminant.
+
+\begin{prop}
+Soit \(f\in\Lendo{E}\).
+
+Alors \(\chi_f=X^n-\tr\paren{f}X^{n-1}+\dots+\paren{-1}^n\det f\).
+\end{prop}
+
+\begin{dem}
+\begin{itemize}
+    \item On a \(\chi_f=\det\paren{X\id{E}-f}\) donc \[\chi_f\paren{0}=\det\paren{-f}=\paren{-1}^n\det f\] est le coefficient constant de \(\chi_f\). \\
+    \item On avait \(\chi_f=\prod_{i=1}^n\paren{X-a_{i\,i}}+Q\) avec \(\deg Q\leq n-2\) (\cf \thref{dem:vpEgalRacinesChi}). \\ Donc le coefficient d'indice \(n-1\) est celui du produit \(\prod_{i=1}^n\paren{X-a_{i\,i}}\). \\ Or on a \[\begin{aligned}
+        \paren{X-a_{1\,1}}\dots\paren{X-a_{n\,n}}&=X^n+\paren{-a_{1\,1}-\dots-a_{n\,n}}X^{n-1}+\dots \\
+        &=X^n-\tr\paren{f}X^{n-1}+\dots.
+    \end{aligned}\]
+\end{itemize}
+\end{dem}
+
+\subsection{Ordre de multiplicité et dimension du sous-espace propre}
+
+\begin{defi}
+Soient \(f\in\Lendo{E}\) et \(\lambda\in\Sp{f}\).
+
+On appelle ordre de multiplicité de la valeur propre \(\lambda\) son ordre de multiplicité en tant que racine de \(\chi_f\).
+\end{defi}
+
+\begin{prop}\thlabel{prop:chiEndInduitDiviseChiEnd}
+Soient \(f\in\Lendo{E}\), \(F\) un sous-espace vectoriel de \(E\) stable par \(f\) et \(g\) l'endomorphisme induit par \(f\) dans \(F\).
+
+Alors \(\chi_g\) divise \(\chi_f\).
+\end{prop}
+
+\begin{dem}
+On choisit une base \(\fami{B}=\paren{e_1,\dots,e_p,e_{p+1},\dots,e_n}\) de \(E\) adaptée à \(F\) : \(\paren{e_1,\dots,e_p}\) est une base de \(F\).
+
+Alors \[\Mat{f}=\begin{pmatrix}
+A & ? \\
+0 & B
+\end{pmatrix}\] où \(A\in\M{p}\) et \(B\in\M{n-p}\).
+
+On remarque que \(A=\Mat[\paren{e_1,\dots,e_p}]{g}\).
+
+Alors \[\begin{aligned}
+\chi_f&=\begin{vmatrix}
+XI_p-A & -? \\
+0 & XI_{n-p}-B
+\end{vmatrix} \\
+&=\underbrace{\det\paren{XI_p-A}}_{=\chi_g}\det\paren{XI_{n-p}-B}.
+\end{aligned}\]
+
+Donc \(\chi_g\divise\chi_f\).
+\end{dem}
+
+Une conséquence très importante de ce résultat est le théorème suivant.
+
+\begin{theo}\thlabel{theo:dimSepInferieurALaMultiplicite}
+Soient \(f\in\Lendo{E}\) et \(\lambda\in\Sp{f}\).
+
+Si \(\lambda\) est une valeur propre d'ordre \(\alpha\), alors \(1\leq\dim\sep{f}{\lambda}\leq\alpha\).
+\end{theo}
+
+\begin{dem}
+Si \(\lambda\in\Sp{f}\) alors \(\sep{f}{\lambda}\) est stable par \(f\) et l'endomorphisme induit par \(f\) dans \(\sep{f}{\lambda}\) est l'homothétie de rapport \(\lambda\) : \(g=\lambda\id{}\).
+
+On note \(p=\dim\sep{f}{\lambda}\).
+
+On a \[\chi_g=\begin{vmatrix}
+X-\lambda & 0 & \dots & 0 \\
+0 & \ddots & \ddots & \vdots \\
+\vdots & \ddots & \ddots & 0 \\
+0 & \dots & 0 & X-\lambda
+\end{vmatrix}_{\croch{p}}=\paren{X-\lambda}^p.\]
+
+D'après la \thref{prop:chiEndInduitDiviseChiEnd}, \(\paren{X-\lambda}^p\divise\chi_f\) donc \(p\leq\alpha\).
+
+De plus, on a \(1\leq p\) car \(\sep{f}{\lambda}\not=\accol{0}\).
+\end{dem}
+
+\begin{exo}
+Soit \(f\) un endomorphisme de matrice \(\begin{pmatrix}
+3 & -4 & -5 \\
+-1 & 3 & 2 \\
+1 & -2 & -1
+\end{pmatrix}\). Déterminez les valeurs propres de \(f\), leur multiplicité et la dimension des sous-espaces propres associés.
+\end{exo}
+
+\subsection{Endomorphisme scindé}
+
+\begin{defi}
+On dit qu'un endomorphisme de \(E\) est scindé quand son polynôme caractéristique est scindé dans \(\poly\).
+\end{defi}
+
+Dans le cas d'un endomorphisme scindé, on connaît alors la somme et le produit des valeurs propres.
+
+\begin{prop}\thlabel{prop:sommeEtProduitVPSiEndomorphismeScinde}
+Si \(f\in\Lendo{E}\) est scindé et a pour valeurs propres \(\lambda_1,\dots,\lambda_p\) avec les ordres de multiplicité \(\alpha_1,\dots,\alpha_p\), alors \[\tr f=\sum_{k=1}^p\alpha_k\lambda_k\qquad\text{et}\qquad\det f=\prod_{k=1}^p\lambda_k^{\alpha_k}.\]
+\end{prop}
+
+\begin{dem}
+Relations coefficients/racines.
+\end{dem}
+
+Si \(\K=\C\) alors on est dans ce cas, car tous les polynômes de \(\poly[\C]\) sont scindés dans \(\poly[\C]\) d'après le théorème de d'Alembert-Gauss.
+
+Mais si \(\K=\R\), alors il faut se méfier des raisonnements hâtifs : comme un \(\R\)-endomorphisme peut ne pas avoir de valeurs propres réelles, la trace et le déterminant peuvent ne pas avoir de rapport avec les valeurs propres.
+
+\begin{exo}
+Soit \(f\) un endomorphisme d'un \(\C\)-espace vectoriel de dimension \(n\geq2\) dont la matrice dans une base est remplie par ligne de \(1\), ligne de \(2\), etc. Sans calculer le polynôme caractéristique, déterminez les valeurs propres complexes de \(f\), leur multiplicité et la dimension des sous-espaces propres associés.
+\end{exo}
+
+\begin{rem}
+Dans le langage courant, on dit souvent que la trace est la somme des valeurs propres. Cette phrase est correcte seulement si l'on sous-entend que l'on parle de la somme des valeurs propres comptées chacune avec son ordre de multiplicité.
+
+On rencontre en fait deux types de résultats à propos des valeurs propres :
+
+\begin{itemize}
+    \item ceux où l'on parle des valeurs propres distinctes (comme le \thref{theo:chiUnitaireEtRacinesEgalesVP}) ; \\
+    \item ceux où l'on parle des valeurs propres comptées selon leur multiplicité (comme la \thref{prop:sommeEtProduitVPSiEndomorphismeScinde}).
+\end{itemize}
+
+Il faut donc être très attentif à la façon dont on considère les valeurs propres.
+\end{rem}
+
+\section{Éléments propres d'une matrice carrée}
+
+Soit \(n\in\Ns\). Les matrices-colonnes d'ordre \(n\) sont les matrices de \(\M{n\,1}\), espace souvent identifié avec \(\K^n\).
+
+\subsection{Valeurs propres et vecteurs propres}
+
+\begin{defi}
+Soient \(A\in\M{n}\) et \(\lambda\in\K\).
+
+On dit que \(\lambda\) est valeur propre de \(A\) quand il existe une matrice-colonne \(X\) non-nulle telle que \(AX=\lambda X\).
+
+Si \(\lambda\) est une valeur propre de \(A\), alors toute matrice-colonne non-nulle \(X\) telle que \(AX=\lambda X\) est appelée vecteur propre associé à la valeur propre \(\lambda\).
+\end{defi}
+
+\begin{ex}
+\begin{itemize}
+    \item Pour tout \(\alpha\in\K\), \(\alpha I_n\) a pour unique valeur propre \(\alpha\) et toute matrice-colonne non-nulle est un vecteur propre associé. \\
+    \item Si \(A\) est une matrice diagonale, alors ses valeurs propres sont les coefficients diagonaux et des vecteurs propres associés sont les colonnes remplies de \(0\) sauf un seul coefficient égal à \(1\).
+\end{itemize}
+\end{ex}
+
+L'ensemble des valeurs propres d'une matrice \(A\) est appelé le spectre de \(A\) et est noté \(\Sp[\K]{A}\) ou plus simplement \(\Sp{A}\).
+
+Mais comme une matrice à coefficients réels est aussi une matrice à coefficients complexes, il vaut mieux savoir si on parle des valeurs propres réelles ou complexes. Il est donc préférable d'indiquer clairement le corps de base, comme le montre le résultat suivant.
+
+\begin{prop}
+Soient \(A\in\M{n}\) et \(\K\prim\) une extension de \(\K\) dans \(\C\).
+
+Alors \(\Sp[\K]{A}\subset\Sp[\K\prim]{A}\).
+\end{prop}
+
+\begin{prop}
+Soient \(A\in\M{n}\), \(f\in\Lendo{E}\) et \(\fami{B}\) une base de \(E\).
+
+Si \(A=\Mat{f}\), alors \(\Sp[\K]{A}=\Sp{f}\).
+\end{prop}
+
+Par conséquent, deux matrices semblables ont les mêmes valeurs propres (mais attention, pas forcément les mêmes vecteurs propres).
+
+\subsection{Lien avec les polynômes annulateurs}
+
+\begin{prop}
+Soit \(A\in\M{n}\).
+
+Si \(P\) est un polynôme annulateur de \(A\), alors \(\Sp[\K]{A}\subset\rac{P}\).
+\end{prop}
+
+Attention ! La réciproque est fausse. Contre-exemple : le polynôme \(P=X^2-1\) est annulateur de \(I_n\) et pourtant \(-1\), qui est racine de \(P\), n'est pas valeur propre de \(I_n\).
+
+\subsection{Sous-espaces propres}
+
+\begin{prop}
+Soient \(A\in\M{n}\) et \(\lambda\in\K\).
+
+Alors \(\lambda\) est valeur propre de \(A\) ssi \(A-\lambda I_n\) n'est pas inversible, autrement dit ssi \(\rg\paren{A-\lambda I_n}<n\) ou \(\det\paren{A-\lambda I_n}=0\).
+\end{prop}
+
+Si \(\lambda\in\Sp[\K]{A}\), le sous-espace propre associé à la valeur propre \(\lambda\) est l'ensemble des vecteurs propres associés à la valeur propre \(\lambda\) auquel on ajoute le vecteur nul. Il est souvent noté \(\sep[\K]{A}{\lambda}\) : \[\sep[\K]{A}{\lambda}=\accol{X\in\M{n\,1}\tq AX=\lambda X}.\]
+
+\begin{prop}
+Soient \(A\in\M{n}\) et \(\lambda\in\K\). Alors \[\lambda\in\Sp[\K]{A}\ssi\rg\paren{A-\lambda I_n}<n.\]
+
+Dans ce cas, \(\dim\sep[\K]{A}{\lambda}=n-\rg\paren{A-\lambda I_n}\).
+\end{prop}
+
+Attention ! Dans la relation \(\dim\sep[\K]{A}{\lambda}=n-\rg\paren{A-\lambda I_n}\), c'est \(n\), pas \(n^2\) ! Il s'agit de la dimension de \(\M{n\,1}\), pas celle de \(\M{n}\).
+
+\begin{rem}
+Un cas particulier important : \(0\) est valeur propre ssi \(A\) n'est pas inversible, \cad ssi \(\rg A<n\).
+\end{rem}
+
+\begin{theo}
+Soient \(A\in\M{n}\) et \(\lambda_1,\dots,\lambda_p\) des valeurs propres distinctes de \(A\).
+
+Alors les sous-espaces propres \(\paren{\sep[\K]{A}{\lambda_i}}_{1\leq i\leq p}\) sont en somme directe.
+
+Autrement dit, toute famille de vecteurs propres associés à des valeurs propres distinctes est libre.
+\end{theo}
+
+\begin{rem}
+Quand on demande de déterminer les éléments propres d'une matrice, on demande de déterminer les valeurs propres et les vecteurs propres associés, \ie les sous-espaces propres.
+\end{rem}
+
+\section{Polynôme caractéristique d'une matrice carrée}
+
+\subsection{Définition et lien avec les valeurs propres}
+
+\begin{defi}
+Soit \(A\in\M{n}\).
+
+On appelle polynôme caractéristique de \(A\) le polynôme \(\chi_A=\det\paren{XI_n-A}\).
+\end{defi}
+
+\begin{prop}
+Soient \(A\in\M{n}\), \(f\in\Lendo{E}\) et \(\fami{B}\) une base de \(E\).
+
+Si \(A=\Mat{f}\), alors \(\chi_A=\chi_f\).
+\end{prop}
+
+Par conséquent, deux matrices semblables ont le même polynôme caractéristique.
+
+\begin{theo}
+Soit \(A\in\M{n}\).
+
+Alors \(\chi_A\) est un polynôme unitaire de degré \(n\) de \(\poly\) et les valeurs propres de \(A\) sont exactement les racines de \(\chi_A\) dans \(\K\).
+
+Par conséquent, une matrice carrée de taille \(\paren{n,n}\) a au plus \(n\) valeurs propres distinctes.
+\end{theo}
+
+\begin{cor}
+L'ensemble \(\GL{n}\) est dense dans \(\M{n}\).
+\end{cor}
+
+\begin{dem}
+Soit \(A\in\M{n}\).
+
+On veut montrer qu'il existe une suite de matrices inversibles qui converge vers \(A\).
+
+Considérons la suite \(\paren{A+\dfrac{1}{k}I_n}_{k\in\Ns}\).
+
+On a \(\lim_{k\to\pinf}\paren{A+\dfrac{1}{k}I_n}=A\).
+
+Montrons qu'à partir d'un certain rang, cette suite est constituée de matrices inversibles.
+
+\(\quantifs{\Tpt k\in\Ns}A+\dfrac{1}{k}I_n\text{ n'est pas inversible}\ssi\dfrac{-1}{k}\text{ est valeur propre de }A\).
+
+\begin{itemize}
+    \item Si \(A\) n'a que des valeurs propres positives ou nulles, alors comme \(\quantifs{\tpt k\in\Ns}\dfrac{-1}{k}<0\), \(\dfrac{-1}{k}\) n'est pas valeur propre. \\
+    \item Si \(A\) possède au moins une valeur propre strictement négative, on pose \(r=\min\accol{\abs{\lambda}\tq\lambda\in\Sp{A}\inter\Rms}>0\). \\ Dès que \(\dfrac{1}{k}<r\), il est certain que \(\dfrac{-1}{k}\) n'est pas valeur propre.
+\end{itemize}
+\end{dem}
+
+On peut noter un lien avec la trace et le déterminant.
+
+\begin{prop}
+Soit \(A\in\M{n}\).
+
+Alors \(\chi_A=X^n-\tr\paren{A}X^{n-1}+\dots+\paren{-1}^n\det A\).
+\end{prop}
+
+\subsection{Ordre de multiplicité et dimension du sous-espace propre}
+
+\begin{defi}
+Soient \(A\in\M{n}\) et \(\lambda\in\Sp[\K]{A}\).
+
+On appelle ordre de multiplicité de la valeur propre \(\lambda\) son ordre de multiplicité en tant que racine de \(\chi_A\).
+\end{defi}
+
+\begin{theo}
+Soient \(A\in\M{n}\) et \(\lambda\in\Sp[\K]{A}\).
+
+Si \(\lambda\) est une valeur propre d'ordre \(\alpha\), alors \(1\leq\dim\sep[\K]{A}{\lambda}\leq\alpha\).
+\end{theo}
+
+\begin{prop}
+Soient \(A\in\M{n}\), \(f\in\Lendo{E}\) et \(\fami{B}\) une base de \(E\).
+
+Si \(A=\Mat{f}\), alors \(\dim\sep[\K]{A}{\lambda}=\dim\sep{f}{\lambda}\).
+\end{prop}
+
+Par conséquent, deux matrices semblables ont des sous-espaces propres de même dimension (mais pas les mêmes vecteurs propres).
+
+\subsection{Matrice scindée}
+
+\begin{defi}
+On dit qu'une matrice de \(\M{n}\) est scindée quand son polynôme caractéristique est scindé dans \(\poly\).
+\end{defi}
+
+Dans le cas d'une matrice scindée, on connaît alors la somme et le produit des valeurs propres.
+
+\begin{prop}
+Si \(A\in\M{n}\) est scindée et a pour valeurs propres \(\lambda_1,\dots,\lambda_p\) avec les ordres de multiplicité \(\alpha_1,\dots,\alpha_p\), alors \[\tr A=\sum_{k=1}^p\alpha_k\lambda_k\qquad\text{et}\qquad\det A=\prod_{k=1}^p\lambda_k^{\alpha_k}.\]
+\end{prop}
+
+Si \(\K=\C\), alors on est dans ce cas, car tous les polynômes de \(\poly[\C]\) sont scindés dans \(\poly[\C]\) d'après le théorème de d'Alembert-Gauss.
+
+Mais si \(\K=\R\), alors il faut se méfier des raisonnements hâtifs : comme un polynôme à coefficients réels peut ne pas avoir de racines réelles, la trace et le déterminant peuvent ne pas avoir de rapport avec les valeurs propres.
+
+\section{Endomorphismes diagonalisables, matrices diagonalisables}
+
+\subsection{Définition}
+
+\begin{defi}
+Soient \(f\in\Lendo{E}\) et \(A\in\M{n}\).
+
+On dit que \(f\) est diagonalisable quand il existe une base de \(E\) constituée de vecteurs propres de \(f\).
+
+On dit que \(A\) est diagonalisable dans \(\M{n}\) (ou \(\K\)-diagonalisable) quand il existe une base de \(\M{n\,1}\) constituée de vecteurs propres de \(A\).
+\end{defi}
+
+D'après le lien entre les endomorphismes et les matrices carrées, un endomorphisme est diagonalisable ssi sa matrice dans n'importe quelle base est diagonalisable.
+
+\begin{exo}~\\
+La matrice \(\begin{pmatrix}
+1 & \sqrt{3} \\
+-\sqrt{3} & 1
+\end{pmatrix}\) est-elle \(\R\)-diagonalisable ? \(\C\)-diagonalisable ?
+\end{exo}
+
+\begin{exo}
+Montrez que la matrice \(A=\begin{pmatrix}
+5 & -8 & -4 \\
+8 & -15 & -8 \\
+-10 & 20 & 11
+\end{pmatrix}\) est diagonalisable.
+\end{exo}
+
+\begin{exo}\thlabel{exo:montrezQueBEstDiagonalisable}
+Même exercice avec \(B=\begin{pmatrix}
+0 & 1 & -1 \\
+2 & 1 & 1 \\
+4 & -2 & 4
+\end{pmatrix}\).
+\end{exo}
+
+\begin{exo}
+La matrice \(C=\begin{pmatrix}
+11 & 7 & -3 \\
+11 & 7 & -3 \\
+66 & 42 & -18
+\end{pmatrix}\) est-elle diagonalisable ?
+\end{exo}
+
+\begin{prop}
+Si un endomorphisme (une matrice) est diagonalisable, alors il (elle) est scindé(e).
+\end{prop}
+
+Mais la réciproque est fausse.
+
+\subsection{Caractérisations équivalentes}
+
+On note \(\diago{n}\) l'ensemble des matrices diagonales de \(\M{n}\).
+
+\begin{prop}
+Soient \(f\in\Lendo{E}\) et \(A\in\M{n}\).
+
+\(f\) est diagonalisable ssi il existe une base \(\fami{B}\) de \(E\) telle que \(\Mat{f}\in\diago{n}\). Dans ce cas, les valeurs propres de \(f\) sont les éléments diagonaux de cette matrice.
+
+\(A\) est \(\K\)-diagonalisable ssi elle est \(\K\)-semblable à une matrice diagonale, \ie il existe \(P\in\GL{n}\) et \(D\in\diago{n}\) tel que \(A=PDP\inv\). Dans ce cas, les valeurs propres de \(A\) sont les éléments diagonaux de \(D\).
+\end{prop}
+
+\begin{dem}
+Si \(f\) est diagonalisable, il existe une base \(\fami{B}=\paren{e_1,\dots,e_n}\) de \(E\) constituée de vecteurs propres, \ie \[\quantifs{\tpt j\in\interventierii{1}{n}}f\paren{e_j}=\lambda_je_j\] où \(\lambda_j\) est la valeur propre associée à \(e_j\).
+
+Donc \[\Mat{f}=\begin{pmatrix}
+\lambda_1 & 0 & \dots & 0 \\
+0 & \ddots & \ddots & \vdots \\
+\vdots & \ddots & \ddots & 0 \\
+0 & \dots & 0 & \lambda_n
+\end{pmatrix}\in\diago{n}.\]
+
+Et réciproquement.
+\end{dem}
+
+\begin{ex}
+\begin{itemize}
+    \item Toute matrice diagonale est diagonalisable, car elle est semblable à elle-même. \\
+    \item Les projecteurs et les symétries sont diagonalisables.
+\end{itemize}
+\end{ex}
+
+\begin{rem}
+Quitte à changer l'ordre des vecteurs dans la base, on peut ranger les valeurs propres sur la diagonale dans l'ordre qu'on veut.
+\end{rem}
+
+\begin{ex}~\\
+Si \(D=\begin{pmatrix}
+1 & 0 & 0 \\
+0 & 3 & 0 \\
+0 & 0 & 3
+\end{pmatrix}\), \(P=\begin{pmatrix}
+1 & 1 & 1 \\
+0 & 1 & 1 \\
+2 & -1 & 3
+\end{pmatrix}\) et \(D=P\inv AP\), alors la colonne 1 de \(P\) est un vecteur propre de \(A\) pour la valeur propre \(1\) et les deux autres sont des vecteurs propres pour la valeur propre \(3\), donc en posant \(Q=\begin{pmatrix}
+1 & 1 & 1 \\
+1 & 1 & 0 \\
+3 & -1 & 2
+\end{pmatrix}\), on a \(Q\inv AQ=\begin{pmatrix}
+3 & 0 & 0 \\
+0 & 3 & 0 \\
+0 & 0 & 1
+\end{pmatrix}\).
+\end{ex}
+
+\begin{lem}
+Soit \(f\in\Lendo{E}\) diagonalisable : il existe une base de \(E\) dans laquelle la matrice \(D\) de \(f\) est diagonale.
+
+Les valeurs propres de \(f\) sont les éléments diagonaux de \(D\) et si \(\lambda\) est un tel nombre, alors la dimension de \(\sep{f}{\lambda}\) est le nombre d'occurrences de \(\lambda\) dans la diagonale de \(D\).
+\end{lem}
+
+On en déduit les théorèmes suivants.
+
+\begin{theo}\thlabel{theo:fDiagonalisableSsiSepSupplémentaires}
+Soit \(f\in\Lendo{E}\).
+
+Il y a équivalence entre les propositions suivantes :
+
+\begin{itemize}
+    \item \(f\) est diagonalisable \\
+    \item les sous-espaces propres de \(f\) sont supplémentaires dans \(E\) \\
+    \item \(\sum_{\lambda\in\Sp{f}}\dim\sep{f}{\lambda}=n\)
+\end{itemize}
+\end{theo}
+
+\begin{dem}
+Les sous-espaces propres d'un endomorphisme sont en somme directe donc ils sont supplémentaires ssi la somme de leurs dimensions est celle de l'espace \(E\).
+\end{dem}
+
+Et sa version matricielle.
+
+\begin{theo}
+Soit \(A\in\M{n}\).
+
+Il y a équivalence entre les propositions suivantes :
+
+\begin{itemize}
+    \item \(A\) est diagonalisable dans \(\M{n}\) \\
+    \item les sous-espaces propres de \(A\) dans \(\M{n\,1}\) sont supplémentaires dans \(\M{n\,1}\) \\
+    \item \(\sum_{\lambda\in\Sp[\K]{A}}\dim\sep[\K]{A}{\lambda}=n\)
+\end{itemize}
+\end{theo}
+
+\begin{exo}~\\
+On pose \(A=\begin{pmatrix}
+0 & 1 & -1 \\
+2 & 1 & 1 \\
+4 & -2 & 4
+\end{pmatrix}\). On a vu à l'\thref{exo:montrezQueBEstDiagonalisable} que \(A\) est diagonalisable. Diagonalisez \(A\).
+\end{exo}
+
+\subsection{Lien avec le polynôme caractéristique}
+
+\begin{theo}
+Soit \(f\in\Lendo{E}\).
+
+Il y a équivalence entre les propositions suivantes :
+
+\begin{itemize}
+    \item \(f\) est diagonalisable \\
+    \item \(f\) est scindé et pour tout \(\lambda\in\Sp{f}\), la dimension de \(\sep{f}{\lambda}\) est égale à l'ordre de multiplicité de \(\lambda\)
+\end{itemize}
+\end{theo}
+
+\begin{dem}
+Si \(\lambda\in\Sp{f}\), on note \(\omega\paren{\lambda}\) l'ordre de multiplicité de la valeur propre \(\lambda\).
+
+\impdir
+
+Si \(f\) est diagonalisable alors \(\sum_{\lambda\in\Sp{f}}\dim\sep{f}{\lambda}=n=\sum_{\lambda\in\Sp{f}}\omega\paren{\lambda}\).
+
+Donc \(\sum_{\lambda\in\Sp{f}}\underbrace{\paren{\omega\paren{\lambda}-\dim\sep{f}{\lambda}}}_{\geq0\text{ d'après le \thref{theo:dimSepInferieurALaMultiplicite}}}=0\).
+
+Or une somme de réels positifs est nulle ssi tous ces réels sont nuls donc \[\quantifs{\forall\lambda\in\Sp{f}}\omega\paren{\lambda}=\dim\sep{f}{\lambda}.\]
+
+\imprec
+
+Si \(f\) est scindé et \(\quantifs{\forall\lambda\in\Sp{f}}\omega\paren{\lambda}=\dim\sep{f}{\lambda}\), alors \(\chi_f\) est scindé.
+
+Donc \(\sum_{\lambda\in\Sp{f}}\omega\paren{\lambda}=\deg\chi_f=n\).
+
+Donc \(\sum_{\lambda\in\Sp{f}}\dim\sep{f}{\lambda}=n\).
+
+Donc \(f\) est diagonalisable d'après le \thref{theo:fDiagonalisableSsiSepSupplémentaires}.
+\end{dem}
+
+Et sa version matricielle.
+
+\begin{theo}
+Soit \(A\in\M{n}\).
+
+Il y a équivalence entre les propositions suivantes :
+
+\begin{itemize}
+    \item \(A\) est diagonalisable dans \(\M{n}\) \\
+    \item \(A\) est scindée et pour tout \(\lambda\in\Sp[\K]{A}\), la dimension de \(\sep[\K]{A}{\lambda}\) est égale à l'ordre de multiplicité de \(\lambda\)
+\end{itemize}
+\end{theo}
+
+Dans le cas où \(\K=\C\), la condition \guillemets{être scindé} est automatiquement satisfaite.
+
+Un cas particulier très courant.
+
+\begin{prop}
+Si un endomorphisme de \(E\) possède exactement \(n\) valeurs propres distinctes, alors il est diagonalisable.
+
+Si une matrice de \(\M{n}\) possède exactement \(n\) valeurs propres distinctes dans \(\K\), alors elle est diagonalisable dans \(\M{n}\).
+\end{prop}
+
+\begin{exo}
+Montrez que la matrice \(\begin{pmatrix}
+-4 & 8 & 22 \\
+-2 & 3 & 4 \\
+-1 & 2 & 7
+\end{pmatrix}\) est diagonalisable.
+\end{exo}
+
+\begin{theo}[Théorème spectral]
+Si \(A\) est une matrice réelle symétrique, alors \(A\) est diagonalisable.
+\end{theo}
+
+\begin{dem}
+\note{Admis, sera démontré plus tard}
+\end{dem}
+
+\section{Lien entre diagonalisabilité et polynômes annulateurs}
+
+\subsection{Racines du polynôme minimal}
+
+\begin{prop}
+Soit \(f\in\Lendo{E}\). Les racines de \(\mu_f\) sont exactement les valeurs propres de \(f\) : \(\rac{\mu_f}=\Sp{f}\).
+
+Soit \(A\in\M{n}\). Les racines dans \(\K\) de \(\mu_A\) sont exactement les valeurs propres dans \(\K\) de \(A\) : \(\rac{\mu_A}=\Sp[\K]{A}\).
+\end{prop}
+
+\begin{dem}
+\increc \Cf \thref{prop:vpInclusesDansLesRacinesDesPolynômesAnnulateurs} car \(\mu_f\) est un polynôme annulateur de \(f\).
+
+\incdir
+
+Soit \(\lambda\in\rac{\mu_f}\).
+
+Alors \(X-\lambda\divise\mu_f\), \ie il existe \(Q\in\poly\) tel que \(\mu_f=\paren{X-\lambda}Q\).
+
+Alors \(\mu_f\paren{f}=0=\paren{f-\lambda\id{E}}\rond Q\paren{f}\).
+
+Donc \(\quantifs{\tpt x\in E}\paren{f-\lambda\id{E}}\paren{Q\paren{f}\paren{x}}=0\).
+
+Donc \(\Im Q\paren{f}\subset\ker\paren{f-\lambda\id{E}}\).
+
+Or \(\deg Q<\deg\mu_f\) donc \(Q\) n'est pas annulateur de \(f\), \ie \(Q\paren{f}\not=0\), \ie \(\Im Q\paren{f}\not=\accol{0}\).
+
+Donc \(\ker\paren{f-\lambda\id{E}}\not=\accol{0}\), \ie \(\lambda\in\Sp{f}\).
+
+Donc \(\rac{\mu_f}\subset\Sp{f}\).
+\end{dem}
+
+\subsection{Lemme des noyaux}
+
+\begin{prop}\thlabel{prop:lemmeDesNoyauxDeuxPolynômes}
+Soient \(f\in\Lendo{E}\) et \(P,Q\in\poly\) tels que \(P\et Q=1\).
+
+Alors \(\ker\paren{PQ}\paren{f}=\ker P\paren{f}\oplus\ker Q\paren{f}\).
+\end{prop}
+
+\begin{dem}
+D'après le théorème de Bézout, il existe \(\paren{U,V}\in\poly^2\) tel que \(UP+VQ=1\).
+
+Donc \(\paren{UP}\paren{f}+\paren{VQ}\paren{f}=\id{E}\), \ie \[U\paren{f}\rond P\paren{f}+V\paren{f}\rond Q\paren{f}=\id{E}\qquad\text{(1)}\]
+
+Soit \(x\in\ker P\paren{f}\inter\ker Q\paren{f}\).
+
+On a \(P\paren{f}\paren{x}=0\) et \(Q\paren{f}\paren{x}=0\).
+
+Donc, en appliquant (1) sur le vecteur \(x\), on obtient \[\begin{aligned}
+x&=U\paren{f}\paren{P\paren{f}\paren{x}}+V\paren{f}\paren{Q\paren{f}\paren{x}} \\
+&=U\paren{f}\paren{0}+V\paren{f}\paren{0} \\
+&=0.
+\end{aligned}\]
+
+Donc \(\ker P\paren{f}\) et \(\ker Q\paren{f}\) sont en somme directe.
+
+\increc
+
+On a \(\paren{PQ}\paren{f}=P\paren{f}\rond Q\paren{f}=Q\paren{f}\rond P\paren{f}\).
+
+Donc \(\ker P\paren{f}\subset\ker\paren{PQ}\paren{f}\) et \(\ker Q\paren{f}\subset\ker\paren{PQ}\paren{f}\).
+
+Donc \(\ker P\paren{f}\oplus\ker Q\paren{f}\subset\ker\paren{PQ}\paren{f}\).
+
+\incdir
+
+Soit \(x\in\ker\paren{PQ}\paren{f}\).
+
+On veut montrer qu'il existe \(\paren{a,b}\in\ker P\paren{f}\times\ker Q\paren{f}\) tel que \(x=a+b\).
+
+On applique (1) sur \(x\) : \[x=U\paren{f}\rond P\paren{f}\paren{x}+V\paren{f}\rond Q\paren{f}\paren{x}.\]
+
+On pose \(a=V\paren{f}\rond Q\paren{f}\paren{x}\).
+
+On a \[P\paren{f}\paren{a}=P\paren{f}\paren{V\paren{f}\rond Q\paren{f}\paren{x}}=\paren{P\paren{f}\rond V\paren{f}\rond Q\paren{f}}\paren{x}.\]
+
+Or \(\poly[\K][f]\) est une algèbre commutative donc \[\begin{aligned}
+P\paren{f}\paren{a}&=\paren{V\paren{f}\rond P\paren{f}\rond Q\paren{f}}\paren{x} \\
+&=V\paren{f}\paren{P\paren{f}\rond Q\paren{f}\paren{x}} \\
+&=V\paren{f}\paren{\paren{PQ}\paren{f}\paren{x}} \\
+&=V\paren{f}\paren{0} \\
+&=0.
+\end{aligned}\]
+
+Donc \(a\in\ker P\paren{f}\).
+
+De même, \(b=U\paren{f}\rond P\paren{f}\paren{x}\in\ker Q\paren{f}\).
+
+Finalement, on a \[\ker\paren{PQ}\paren{f}=\ker P\paren{f}\oplus\ker Q\paren{f}.\]
+\end{dem}
+
+\begin{prop}
+Soient \(f\in\Lendo{E}\) et \(P_1,\dots,P_k\in\poly\) premiers entre eux deux à deux. On pose \(P=\prod_{i=1}^kP_i\).
+
+Alors \(\ker P\paren{f}=\bigoplus_{i=1}^k\ker P_i\paren{f}\).
+\end{prop}
+
+\begin{dem}
+On note \(\P{k}\) le prédicat énoncé.
+
+\begin{itemize}
+    \item On a clairement \(\P{1}\) et \(\P{2}\) est vraie (\cf \thref{prop:lemmeDesNoyauxDeuxPolynômes}). \\
+    \item Soit \(k\in\Ns\) tel que \(\P{k}\) soit vraie. \\\\ Soient \(P_1,\dots,P_{k+1}\in\poly\) premiers entre eux deux à deux. \\\\ On a \(P_1\dots P_k\et P_{k+1}=1\). \\\\ D'après \(\P{2}\), on a \[\ker\paren{P_1\dots P_{k+1}}\paren{f}=\ker\paren{P_1\dots P_k}\paren{f}\oplus\ker P_{k+1}\paren{f}.\] \\\\ Puis, par hypothèse de récurrence, on a \[\ker\paren{P_1\dots P_k}\paren{f}=\bigoplus_{i=1}^k\ker P_i\paren{f}.\] \\\\ Finalement, on a \[\ker\paren{P_1\dots P_{k+1}}\paren{f}=\bigoplus_{i=1}^{k+1}P_i\paren{f}\] d'où \(\P{k+1}\). \\
+    \item D'après le principe de récurrence, \(\quantifs{\tpt k\in\Ns}\P{k}\text{ est vraie}\).
+\end{itemize}
+\end{dem}
+
+\subsection{Application à la diagonalisabilité}
+
+\begin{defi}
+Un polynôme est dit simplement scindé quand il est scindé et à racines simples.
+\end{defi}
+
+\begin{theo}\thlabel{theo:endDiagonalisableSsiPolynômeMinimalSimplementScindéSsiExistePolyAnnulateurSimplementScindéSsiProdXMoinsVpAnnulateur}
+Soit \(f\in\Lendo{E}\).
+
+Il y a équivalence entre les propositions suivantes :
+
+\begin{enumerate}
+    \item[(\(\alpha\))] \(f\) est diagonalisable \\
+    \item[(\(\beta\))] \(\mu_f\) est simplement scindé \\
+    \item[(\(\gamma\))] il existe un polynôme annulateur de \(f\) simplement scindé \\
+    \item[(\(\delta\))] le polynôme \(\prod_{\lambda\in\Sp{f}}\paren{X-\lambda}\) est un polynôme annulateur de \(f\)
+\end{enumerate}
+\end{theo}
+
+\begin{dem}[(\(\beta\)) \(\imp\) (\(\gamma\))]
+Immédiat car \(\mu_f\) est annulateur de \(f\).
+\end{dem}
+
+\begin{dem}[(\(\gamma\)) \(\imp\) (\(\beta\))]
+Si \(P\) est simplement scindé et \(P\paren{f}=0\) alors \(\mu_f\divise P\) donc \(\mu_f\) est simplement scindé.
+\end{dem}
+
+\begin{dem}[(\(\beta\)) \(\imp\) (\(\delta\))]
+On sait que \(\rac{\mu_f}=\Sp{f}\) donc si \(\mu_f\) est simplement scindé, alors \(\mu_f=\prod_{\lambda\in\Sp{f}}\paren{X-\lambda}\). Or \(\mu_f\) est annulateur de \(f\).
+\end{dem}
+
+\begin{dem}[(\(\delta\)) \(\imp\) (\(\gamma\))]
+Immédiat.
+\end{dem}
+
+\begin{dem}[(\(\alpha\)) \(\imp\) (\(\delta\))]
+Supposons \(f\) diagonalisable, \ie il existe une base \(\fami{B}\) de \(E\) telle que \(\Mat{f}\) soit diagonale : \[\Mat{f}=\begin{pmatrix}
+\Lambda_1 & 0 & \dots & 0 \\
+0 & \ddots & \ddots & \vdots \\
+\vdots & \ddots & \ddots & 0 \\
+0 & \dots & 0 & \Lambda_k
+\end{pmatrix}=D\] où \(\lambda_1,\dots,\lambda_k\) sont les valeurs propres distinctes de \(f\) et \(\quantifs{\tpt i\in\interventierii{1}{k}}\Lambda_i=\begin{pmatrix}
+\lambda_i & 0 & \dots & 0 \\
+0 & \ddots & \ddots & \vdots \\
+\vdots & \ddots & \ddots & 0 \\
+0 & \dots & 0 & \lambda_i
+\end{pmatrix}\).
+
+On pose \(P=\prod_{i=1}^k\paren{X-\lambda_i}\).
+
+Or on a \(\quantifs{\tpt Q\in\poly}Q\paren{D}=\begin{pmatrix}
+Q\paren{\Lambda_1} & 0 & \dots & 0 \\
+0 & \ddots & \ddots & \vdots \\
+\vdots & \ddots & \ddots & 0 \\
+0 & \dots & 0 & Q\paren{\Lambda_k}
+\end{pmatrix}\)
+
+et \(\quantifs{\tpt Q\in\poly;\tpt i\in\interventierii{1}{k}}Q\paren{\Lambda_i}=\begin{pmatrix}
+Q\paren{\lambda_i} & 0 & \dots & 0 \\
+0 & \ddots & \ddots & \vdots \\
+\vdots & \ddots & \ddots & 0 \\
+0 & \dots & 0 & Q\paren{\lambda_i}
+\end{pmatrix}\).
+
+En particulier, \(P\paren{D}=0\) car \(\accol{\lambda_1,\dots,\lambda_k}=\rac{P}\).
+\end{dem}
+
+\begin{dem}[(\(\delta\)) \(\imp\) (\(\alpha\))]
+On pose \(\Sp{f}=\accol{\lambda_1,\dots,\lambda_k}\) et \(\quantifs{\tpt i\in\interventierii{1}{k}}P_i=X-\lambda_i\).
+
+Les polynômes \(P_1,\dots,P_k\) sont premiers entre eux deux à deux donc d'après le lemme des noyaux, on a \[\ker\underbrace{\paren{P_1\dots P_k}\paren{f}}_{=0}=\bigoplus_{i=1}^k\underbrace{\ker P_i\paren{f}}_{=\sep{f}{\lambda_i}}.\]
+
+D'où \(E=\bigoplus_{i=1}^k\sep{f}{\lambda_i}\).
+
+Donc d'après le \thref{theo:fDiagonalisableSsiSepSupplémentaires}, \(f\) est diagonalisable.
+\end{dem}
+
+Et sa version matricielle.
+
+\begin{theo}
+Soit \(A\in\M{n}\).
+
+Il y a équivalence entre les propositions suivantes :
+
+\begin{itemize}
+    \item \(A\) est diagonalisable dans \(\M{n}\) \\
+    \item \(\mu_A\) est simplement scindé \\
+    \item il existe un polynôme annulateur de \(A\) simplement scindé dans \(\poly\) \\
+    \item le polynôme \(\prod_{\lambda\in\Sp[\K]{A}}\paren{X-\lambda}\) est un polynôme annulateur de \(A\)
+\end{itemize}
+\end{theo}
+
+\begin{exo}~\\
+On pose \(A=\begin{pmatrix}
+2 & -1 & 2 \\
+5 & -3 & 3 \\
+-1 & 0 & -2
+\end{pmatrix}\). Calculez \(\paren{A+I_3}^3\). \(A\) est-elle diagonalisable ?
+\end{exo}
+
+\begin{exo}
+Soit \(A\in\M{n}\) telle que \(A^3=I_n\). Selon que \(\K\) soit égal à \(\C\) ou \(\R\), à quelle condition \(A\) est-elle \(\K\)-diagonalisable ?
+\end{exo}
+
+\subsection{Diagonalisabilité d'un endomorphisme induit}
+
+\begin{prop}
+Soient \(f\in\Lendo{E}\), \(F\) un sous-espace vectoriel de \(E\) stable par \(f\) et \(g\) l'endomorphisme induit par \(f\) dans \(F\).
+
+Alors \(\mu_g\) divise \(\mu_f\).
+\end{prop}
+
+\begin{dem}
+On a \(\fonction{g}{F}{F}{x}{f\paren{x}}\)
+
+\(\quantifs{\Tpt x\in F;\tpt P\in\poly}P\paren{g}\paren{x}=P\paren{f}\paren{x}\).
+
+Or \(\mu_f\paren{f}=0\) donc \(\quantifs{\tpt x\in F}\mu_f\paren{g}\paren{x}=0\), \ie \(\mu_f\) est annulateur de \(g\).
+
+Donc \(\mu_g\divise\mu_f\).
+\end{dem}
+
+\begin{cor}
+Soient \(f\in\Lendo{E}\) et \(F\) un sous-espace vectoriel de \(E\) stable par \(f\).
+
+Si \(f\) est diagonalisable, alors l'endomorphisme induit par \(f\) dans \(F\) est aussi diagonalisable.
+\end{cor}
+
+\begin{dem}
+Si \(f\) est diagonalisable, d'après le \thref{theo:endDiagonalisableSsiPolynômeMinimalSimplementScindéSsiExistePolyAnnulateurSimplementScindéSsiProdXMoinsVpAnnulateur}, \(\mu_f\) est simplement scindé.
+
+Or \(\mu_g\divise\mu_f\) donc \(\mu_g\) est simplement scindé.
+
+Donc \(g\) est diagonalisable d'après le \thref{theo:endDiagonalisableSsiPolynômeMinimalSimplementScindéSsiExistePolyAnnulateurSimplementScindéSsiProdXMoinsVpAnnulateur}.
+\end{dem}
+
+\begin{rem}
+On a également :
+
+\begin{itemize}
+    \item \(\Sp{g}=\rac{\mu_g}\subset\rac{\mu_f}=\Sp{f}\) \\
+    \item si \(x\) est un vecteur propre de \(g\) pour la valeur propre \(\lambda\), \ie \(\begin{dcases}
+        x\in F \\
+        x\not=0 \\
+        g\paren{x}=f\paren{x}=\lambda x
+    \end{dcases}\) alors \(x\) est un vecteur propre de \(f\) dans \(F\), et réciproquement. \\\\ On a donc \(\sep{g}{\lambda}=\sep{f}{\lambda}\inter F\).
+\end{itemize}
+\end{rem}
+
+\begin{exo}
+Soit \(f\) un endomorphisme de matrice \(\begin{pmatrix}
+1 & 1 & -1 \\
+1 & 1 & 1 \\
+1 & 1 & 1
+\end{pmatrix}\) dans une base \(\fami{B}=\paren{e_1,e_2,e_3}\). Déterminez les sous-espaces vectoriels de \(E\) stables par \(f\).
+\end{exo}
+
+\begin{exo}[Codiagonalisation ou diagonalisation simultanée]
+Soient \(A,B\in\M{n}\) diagonalisables et qui commutent.
+
+Montez qu'il existe \(P\in\GL{n}\) telle que \(P\inv AP\) et \(P\inv BP\) sont diagonales.
+\end{exo}
+
+\section{Quelques applications de la diagonalisation}
+
+\subsection{Puissances d'une matrice, suites récurrentes linéairement}
+
+Un petit lemme déjà rencontré.
+
+\begin{lem}
+Soient \(A,B\in\M{n}\) et \(P\in\GL{n}\) telles que \(A=PBP\inv\).
+
+Alors \(\quantifs{\tpt k\in\N}A^k=PB^kP\inv\).
+\end{lem}
+
+Le lemme précédent est particulièrement utile si \(A\) est diagonalisable et si on choisit \(B=D\), matrice diagonale semblable à \(A\), car calculer les puissances d'une matrice diagonale est très facile.
+
+Grâce à la diagonalisation de \(A\), on peut espérer exprimer la forme générale des suites récurrentes linéaires (voir le chapitre précédent, section sur les polynômes annulateurs).
+
+\begin{exo}
+Soient \(u,v,w\) les trois suites réelles telles que \(u_0=v_0=w_0=1\) et \[\quantifs{\tpt n\in\N}\begin{dcases}
+u_{n+1}=u_n-v_n \\
+v_{n+1}=-4u_n+4v_n-6w_n \\
+w_{n+1}=-3u_n+3v_n-4w_n
+\end{dcases}\]
+
+Déterminez des expressions de \(u_n,v_n,w_n\) en fonction de \(n\).
+\end{exo}
+
+Cette technique s'applique en particulier aux suites \(u\) vérifiant une relation de récurrence linéaire de la forme : \(\quantifs{\tpt n\in\N}u_{n+d}=a_{d-1}u_{n+d-1}+\dots+a_2u_{n+2}+a_1u_{n+1}+a_0u_n\).
+
+On pose alors \(X_n=\begin{pmatrix}
+u_n \\
+u_{n+1} \\
+\vdots \\
+u_{n+d-1}
+\end{pmatrix}\) et \(A=\begin{pmatrix}
+0 & 1 & 0 & \dots & 0 \\
+0 & 0 & 1 & \ddots & \vdots \\
+\vdots & \vdots &  & \ddots & 0 \\
+0 & 0 & 0 & \dots & 1 \\
+a_0 & a_1 & a_2 & \dots & a_{d-1}
+\end{pmatrix}\in\M{d}\).
+
+Alors \(\quantifs{\tpt n\in\N}X_{n+1}=AX_n\) et on est ramené au cas précédent.
+
+La matrice \(A\) s'appelle la matrice-compagnon du polynôme \(P=X^d-a_{d-1}X^{d-1}-\dots-a_1X-a_0\) : elle a la propriété remarquable que son polynôme caractéristique est \(P\), son polynôme minimal est aussi \(P\) et donc que ses valeurs propres sont les racines de \(P\). C'est pourquoi le polynôme \(P\) est appelé polynôme caractéristique associé à la suite \(u\) (cas déjà étudié en première année : \(d=2\)).
+
+On en déduit que \(A\) est diagonalisable ssi \(P\) est simplement scindé et dans ce cas, \(A\) possède \(d\) valeurs propres distinctes. Dans ce cas, en notant \(\lambda_1,\dots,\lambda_p\) les valeurs propres distinctes, la suite \(u\) est combinaison linéaire des suites géométriques \(\paren{\lambda_1^n},\dots,\paren{\lambda_d^n}\).
+
+\begin{exo}
+Explicitez l'unique suite \(\paren{u_n}\) vérifiant \[u_0=0,u_1=1,u_2=5\qquad\text{et}\qquad\quantifs{\forall n\in\N}u_{n+3}=6u_{n+2}-11u_{n+1}+6u_n.\]
+\end{exo}
+
+\subsection{Systèmes d'équations différentielles}
+
+Ce point sera traité dans le chapitre sur les équations différentielles linéaires.
+
+\section{Endomorphismes trigonalisables, matrices trigonalisables}
+
+\subsection{Définition et propriétés}
+
+\begin{defi}
+Un endomorphisme est dit trigonalisable quand il existe une base dans laquelle sa matrice est triangulaire supérieure.
+
+Une matrice carrée de \(\M{n}\) est dite trigonalisable dans \(\M{n}\) quand elle est semblable à une matrice triangulaire dans \(\M{n}\).
+\end{defi}
+
+\begin{rem}
+\begin{itemize}
+    \item Si un endomorphisme (une matrice) est diagonalisable, alors il (elle) est trigonalisable. \\
+    \item Si une matrice est trigonalisable, ses valeurs propres sont les nombres sur la diagonale de toute matrice triangulaire semblable.
+\end{itemize}
+\end{rem}
+
+\begin{exo}
+On considère la matrice \(M=\begin{pmatrix}
+-2 & -1 & 7 \\
+5 & 4 & -8 \\
+1 & 1 & 1
+\end{pmatrix}\) et \(f\) un endomorphisme de matrice \(M\). Déterminez les éléments propres de \(M\). Est-elle diagonalisable ? En complétant une famille libre de vecteurs propres, déterminez une base \(\fami{B}\) de l'espace où la matrice de \(f\) est triangulaire supérieure, puis trigonalisez \(M\).
+\end{exo}
+
+\begin{exo}
+Soit \(f\) un endomorphisme de matrice \(A=\begin{pmatrix}
+2 & -4 & -5 \\
+-1 & 2 & 2 \\
+1 & -2 & -2
+\end{pmatrix}\). Montrez que \(f\) n'est pas diagonalisable mais est trigonalisable et donnez une base de trigonalisation de \(f\). Donnez une forme générale pour \(A^n\).
+\end{exo}
+
+Quand un endomorphisme ou une matrice n'est pas diagonalisable, on peut espérer qu'il ou elle est trigonalisable : faute de grives, on se contente de merles !
+
+\begin{rem}
+On ne confondra pas la trigonalisation d'une matrice carrée et la transformation par lignes (ou colonnes) des matrices vue en première année ! Seule la trigonalisation fournit des matrices semblables ! La transformation par lignes ne conserve que le rang !
+\end{rem}
+
+\subsection{Caractérisation équivalente}
+
+La trigonalisabilité est beaucoup plus courante que la diagonalisabilité, comme on le voit grâce aux résultats suivants.
+
+\begin{prop}
+Un endomorphisme (une matrice) est trigonalisable ssi il (elle) est scindé(e).
+\end{prop}
+
+\begin{dem}
+On pose \(\P{n}\) : \guillemets{si \(f\) est un endomorphisme d'un espace de dimension \(n\) et si \(\chi_f\) est scindé, alors \(f\) est trigonalisable}.
+
+\begin{itemize}
+    \item \(\P{1}\) est vraie car tout endomorphisme en dimension \(1\) est trigonalisable. \\
+    \item Supposons \(\P{n-1}\). \\\\ Soient \(E\) un espace de dimension \(n\) et \(f\in\Lendo{E}\) tel que \(\chi_f\) soit scindé. \\\\ Comme \(\chi_f\) est scindé, il existe \(\lambda\in\K\) tel que \(\lambda\) soit racine de \(\chi_f\) et donc une valeur propre de \(f\) à laquelle on associe un vecteur propre \(u_1\). \\\\ Comme \(u_1\not=0\), d'après le théorème de la base incomplète, il existe \(\paren{u_2,\dots,u_n}\in E^{n-1}\) tel que \(\fami{B}_0=\paren{u_1,\dots,u_n}\) soit une base de \(E\). \\\\ On a \[\Mat[\fami{B}_0]{f}=\begin{pNiceArray}{c|cw{c}{1cm}c}[margin]
+        \lambda & \Block{1-3}<\large>{L} & & \\
+        \hline
+        0 & \Block{3-3}<\large>{B} & & \\
+        \Vdots & & & \\
+        0 & & &
+    \end{pNiceArray}.\] \\\\ Donc \[\chi_f=\begin{vNiceArray}{c|cw{c}{1.5cm}c}[margin]
+        X-\lambda & \Block{1-3}<\large>{-L} & & \\
+        \hline
+        0 & \Block{3-3}<\large>{XI_{n-1}-B} & & \\
+        \Vdots & & & \\
+        0 & & &
+    \end{vNiceArray}=\paren{X-\lambda}\chi_B.\] \\\\ On pose \(F=\Vect{u_2,\dots,u_n}\). \\\\ Soit \(g\in\Lendo{F}\) tel que \(\Mat[\paren{u_2,\dots,u_n}]{g}=B\). \\\\ On a \(\chi_g=\chi_B\) scindé donc par hypothèse de récurrence, \(g\) est trigonalisable : il existe une base \(\paren{u_2\prim,\dots,u_n\prim}\) de \(F\) telle que \(\Mat[\paren{u_2\prim,\dots,u_n\prim}]{g}=\begin{pmatrix}
+        t_{2\,2} & t_{2\,3} & \dots & t_{2\,n} \\
+        0 & \ddots & \ddots & \vdots \\
+        \vdots & \ddots & \ddots & t_{n-1\,n} \\
+        0 & \dots & 0 & t_{n\,n}
+    \end{pmatrix}=T\). \\\\ La famille \(\fami{B}=\paren{u_1,u_2\prim,\dots,u_n\prim}\) est une base de \(E\). \\\\ On veut montrer que \[\Mat{f}=\begin{pmatrix}
+        \lambda & \alpha_2 & \dots & & \alpha_n \\
+        0 & t_{2\,2} & t_{2\,3} & \dots & t_{2\,n} \\
+        \vdots & 0 & \ddots & \ddots & \vdots \\
+        & \vdots & \ddots & \ddots & t_{n-1\,n} \\
+        0 & 0 & \dots & 0 & t_{n\,n}
+    \end{pmatrix}.\] \\\\ On a \(g=p\rond\restr{f}{F}\) où \(p\) est le projecteur sur \(F\) parallèlement à \(\Vect{u_1}\). \\\\ Donc \(\quantifs{\tpt x\in F}f\paren{x}=\underbrace{g\paren{x}}_{\in F}+\alpha u_1\) où \(\alpha\in\K\). \\\\ De plus, \[\begin{aligned}
+        \quantifs{\tpt j\in\interventierii{2}{n}}f\paren{u_j\prim}&=g\paren{u_j\prim}+\alpha_ju_1 \\
+        &=\sum_{i=2}^jt_{i\,j}u_i\prim+\alpha_ju_1.
+    \end{aligned}\] \\\\ D'où \(\P{n}\). \\
+    \item Par récurrence, \(\quantifs{\tpt n\in\Ns}\P{n}\text{ est vraie}\).
+\end{itemize}
+\end{dem}
+
+En particulier, quand \(\K=\C\), tous les endomorphismes sont trigonalisables, toutes les matrices de \(\M{n}[\C]\) sont trigonalisables dans \(\M{n}[\C]\).
+
+En pratique, quand on cherche à trigonaliser un endomorphisme, on peut chercher une base dans laquelle la matrice est triangulaire supérieure avec des \(1\) ou des \(0\) sur la sur-diagonale et des \(0\) sur les diagonales partielles encore au-dessus (c'est démontrable, mais c'est difficile à démontrer, cela s'appelle le théorème de Jordan -- hors-programme --).
+
+\begin{theo}
+Soit \(f\in\Lendo{E}\).
+
+Il y a équivalence entre les propositions suivantes :
+
+\begin{itemize}
+    \item \(f\)  est trigonalisable \\
+    \item \(\chi_f\) est scindé \\
+    \item \(\mu_f\) est scindé \\
+    \item il existe un polynôme annulateur de \(f\) scindé
+\end{itemize}
+\end{theo}
+
+Et sa version matricielle.
+
+\begin{theo}
+Soit \(A\in\M{n}\).
+
+Il y a équivalence entre les propositions suivantes :
+
+\begin{itemize}
+    \item \(A\) est trigonalisable dans \(\M{n}\) \\
+    \item \(\chi_A\) est scindé \\
+    \item \(\mu_A\) est scindé \\
+    \item il existe un polynôme annulateur de \(A\) qui est scindé dans \(\poly\)
+\end{itemize}
+\end{theo}
+
+\begin{exo}~\\
+Soit \(A=\begin{pmatrix}
+0 & 1 & 1 \\
+0 & 0 & 0 \\
+0 & 1 & 0
+\end{pmatrix}\). Calculez \(A^2\), puis \(A^3\). La matrice \(A\) est-elle diagonalisable ? trigonalisable ? Dans l'affirmative, diagonalisez ou trigonalisez la.
+\end{exo}
+
+\subsection{Théorème de Cayley-Hamilton}
+
+\begin{theo}
+Le polynôme caractéristique d'un endomorphisme (d'une matrice carrée) est un polynôme annulateur.
+\end{theo}
+
+\begin{dem}
+On pose \(\P{n}\) : \guillemets{si \(A\in\M{n}[\C]\), alors \(\chi_A\paren{A}=0\)}.
+
+\begin{itemize}
+    \item Si \(n=1\) : on pose \(A=\paren{a}\). \\\\ On a \(\chi_A=X-a\) donc \(\chi_A\paren{A}=A-aI_1=\paren{a}-\paren{a}=0\). \\\\ D'où \(\P{1}\). \\
+    \item Supposons \(\P{n-1}\). \\\\ Soit \(A\in\M{n}[\C]\). \\\\ Le polynôme \(\chi_A\) est scindé donc \(A\) est trigonalisable dans \(\M{n}[\C]\), \ie il existe \(P\in\GL{n}[\C]\) et \(T\in\Tsup{n}[\C]\) telles que \(A=PTP\inv\), avec \(T=\begin{pmatrix}
+        \lambda_1 & ? & \dots & ? \\
+        0 & \ddots & \ddots & \vdots \\
+        \vdots & \ddots & \ddots & ? \\
+        0 & \dots & 0 & \lambda_n
+    \end{pmatrix}\). \\\\ On a \(\chi_A=\chi_T=\prod_{i=1}^n\paren{X-\lambda_i}\). \\\\ On peut écrire \[T=\begin{pmatrix}
+        \lambda_1 & ? & \dots & & ? \\
+        0 & \lambda_2 & ? & \dots & ? \\
+        \vdots & 0 & \ddots & \ddots & \vdots \\
+        & \vdots & \ddots & \ddots & ? \\
+        0 & 0 & \dots & 0 & \lambda_n
+    \end{pmatrix}=\begin{pmatrix}
+        \lambda_1 & ? & \dots & ? \\
+        0 & \Block{3-3}<\Large>{U} & & \\
+        \vdots & & & \\
+        0 & & &
+    \end{pmatrix}\] où \(U\in\M{n-1}[\C]\). \\\\ On a \(\chi_U=\prod_{i=2}^n\paren{X-\lambda_i}\) donc \(\chi_A=\chi_T=\paren{X-\lambda_1}\chi_U\). \\\\ Donc \[\begin{WithArrows}
+        \chi_A\paren{A}&=\paren{A-\lambda_1I_n}\chi_U\paren{A} \\
+        &=\paren{PTP\inv-\lambda_1I_n}\chi_U\paren{PTP\inv} \Arrow{\(\paren{PTP\inv}^k=PT^kP\inv\)} \\
+        &=P\paren{T-\lambda_1I_n}\chi_U\paren{T}P\inv.
+    \end{WithArrows}\] \\\\ Or on a \[\underbrace{\begin{pmatrix}
+        0 & ? & \dots & & ? \\
+        0 & \lambda_2-\lambda_1 & ? & \dots & ? \\
+        \vdots & 0 & \ddots & \ddots & \vdots \\
+        & \vdots & \ddots & \ddots & ? \\
+        0 & 0 & \dots & 0 & \lambda_n-\lambda_1
+    \end{pmatrix}}_{T-\lambda_1I_n}\underbrace{\begin{pmatrix}
+        \chi_U\paren{\lambda_1} & ? & \dots & ? \\
+        0 & \Block{3-3}<\Large>{\chi_U\paren{U}} & & \\
+        \vdots & & & \\
+        0 & & &
+    \end{pmatrix}}_{\chi_U\paren{T}}=\begin{pmatrix}
+        0 & 0 & \dots & 0 \\
+        0 & \Block{3-3}<\Large>{0} & & \\
+        \vdots & & & \\
+        0 & & &
+    \end{pmatrix}\] car \(\chi_U\paren{U}=0\). \\\\ Donc \(\chi_A\paren{A}=0\), d'où \(\P{n}\). \\
+    \item Par récurrence, \(\quantifs{\tpt n\in\Ns}\P{n}\text{ est vraie}\).
+\end{itemize}
+\end{dem}
+
+\begin{cor}
+Le polynôme minimal divise le polynôme caractéristique. Donc en dimension \(n\), le polynôme minimal est de degré au plus \(n\).
+\end{cor}
+
+Les polynômes minimal et caractéristique partagent les mêmes racines dans \(\C\) (en fait dans tout corps \(\K\)) mais pas avec les mêmes ordres de multiplicité : si \(f\) est scindé, alors en notant \(\lambda_1,\dots,\lambda_k\) les \(k\) valeurs propres distinctes de \(f\), on peut écrire \[\chi_f=\prod_{i=1}^k\paren{X-\lambda_i}^{\alpha_i}\qquad\text{et}\qquad\mu_f=\prod_{i=1}^k\paren{X-\lambda_i}^{\beta_i}\] où \(\quantifs{\tpt i\in\interventierii{1}{k}}1\leq\beta_i\leq\alpha_i\).
+
+\subsection{Sous-espaces caractéristiques}
+
+\begin{defi}
+Soit \(f\in\Lendo{E}\) un endomorphisme scindé. On écrit \(\chi_f=\prod_{i=1}^k\paren{X-\lambda_i}^{\alpha_i}\) où \(\lambda_1,\dots,\lambda_k\) sont les \(k\) valeurs propres distinctes de \(f\).
+
+Les sous-espaces caractéristiques de \(f\) sont les noyaux \(\ker\paren{f-\lambda_i\id{E}}^{\alpha_i}\).
+\end{defi}
+
+\begin{prop}
+Les sous-espaces caractéristiques d'un endomorphisme scindé sont supplémentaires et stables par \(f\).
+\end{prop}
+
+\begin{dem}
+\begin{itemize}
+    \item Soient \(\lambda\in\Sp{f}\) et \(\alpha\) l'ordre de multiplicité de \(\lambda\). \\\\ Soit \(x\in\ker\paren{f-\lambda\id{E}}^\alpha\). \\\\ On a \[\begin{WithArrows}
+        \paren{f-\lambda\id{E}}^\alpha\paren{f\paren{x}}&=\paren{\paren{f-\lambda\id{E}}^\alpha\rond f}\paren{x} \Arrow[tikz={text width=4cm}]{composée de deux polynômes en \(f\) donc commutative} \\
+        &=\paren{f\rond\paren{f-\lambda\id{E}}^\alpha}\paren{x} \\
+        &=f\paren{0} \\
+        &=0.
+    \end{WithArrows}\] \\\\ Donc \(f\paren{x}\in\ker\paren{f-\lambda\id{E}}^\alpha\). \\\\ Donc \(\ker\paren{f-\lambda\id{E}}^\alpha\) est stable par \(f\). \\
+    \item On a \(\chi_f=\prod_{i=1}^k\paren{X-\lambda_i}^{\alpha_i}\) : produit de polynômes premiers entre eux deux à deux. \\\\ D'après le lemme des noyaux, on a \[\ker\chi_f\paren{f}=\bigoplus_{i=1}^k\ker\paren{f-\lambda_i\id{E}}^{\alpha_i}.\] \\\\ Or \(\chi_f\paren{f}=0\) d'après le théorème de Cayley-Hamilton donc \[E=\bigoplus_{i=1}^k\ker\paren{f-\lambda_i\id{E}}^{\alpha_i}.\]
+\end{itemize}
+\end{dem}
+
+\begin{theo}
+Tout endomorphisme scindé possède une base dans laquelle sa matrice est diagonale par blocs telle que :
+
+\begin{itemize}
+    \item il y a autant de blocs que de valeurs propres : à chaque valeur propre, on associe un unique bloc ; \\
+    \item chaque bloc est de la forme \(\lambda I_r+U\) où \(\lambda\) est la valeur propre associée au bloc, \(r\) est l'ordre de multiplicité de \(\lambda\) et \(U\) est une matrice strictement triangulaire supérieure de \(\M{r}\)
+\end{itemize}
+
+Toute matrice scindée est semblable à une matrice diagonale par blocs vérifiant les conditions précédentes.
+\end{theo}
+
+\begin{dem}
+Soient \(\lambda\in\Sp{f}\) et \(\alpha\) son ordre de multiplicité.
+
+Sur \(F=\ker\paren{f-\lambda\id{E}}^\alpha\), \(f\) induit un endomorphisme \(\tilde{f}\) tel que \(\paren{\tilde{f}-\lambda\id{F}}^\alpha=0\).
+
+Donc \(\paren{X-\lambda}^\alpha\) est un polynôme annulateur de \(\tilde{f}\) qui est scindé donc \(\tilde{f}\) a pour unique valeur propre \(\lambda\) et est trigonalisable.
+
+Donc il existe une base \(\fami{B}_\lambda\) de \(F\) telle que \[\Mat[\fami{B}_\lambda]{\tilde{f}}=\begin{pmatrix}
+\lambda & ? & \dots & ? \\
+0 & \ddots & \ddots & \vdots \\
+\vdots & \ddots & \ddots & ? \\
+0 & \dots & 0 & \lambda
+\end{pmatrix}=\lambda I_\alpha+U.\]
+
+Comme \(E=\bigoplus_{i=1}^k\ker\paren{f-\lambda_i\id{E}}^{\alpha_i}\), en concaténant de telles bases, on obtient une base de \(E\) dans laquelle la matrice de \(f\) est \[\begin{pmatrix}
+\lambda_1I_{\alpha_1}+U_1 & 0 & \dots & 0 \\
+0 & \ddots & \ddots & \vdots \\
+\vdots & \ddots & \ddots & 0 \\
+0 & \dots & 0 & \lambda_kI_{\alpha_k}+U_k
+\end{pmatrix}.\]
+\end{dem}
+
+\begin{cor}
+La dimension d'un sous-espace caractéristique est l'ordre de multiplicité de la valeur propre associée.
+\end{cor}
+
+\section{Endomorphismes nilpotents, matrices nilpotentes}
+
+\subsection{Généralités}
+
+\begin{defi}
+Soit \(u\in\Lendo{E}\). On dit que \(u\) est nilpotent quand il existe \(p\in\N\) tel que \(u^p=0\).
+
+Soit \(A\in\M{n}\). On dit que \(A\) est nilpotente quand il existe \(p\in\N\) tel que \(A^p=0\).
+
+Le plus petit indice \(p\) satisfaisant à la condition précédente s'appelle l'indice de nilpotence de \(u\) (de \(A\)).
+\end{defi}
+
+\begin{prop}
+Toute matrice strictement triangulaire (supérieure ou inférieure) est nilpotente. Par conséquent, les matrices semblables à une matrice strictement triangulaire sont nilpotentes.
+\end{prop}
+
+\begin{dem}
+Soit \(A\in\M{n}\) une matrice strictement triangulaire : \[A=\begin{pmatrix}
+0 & ? & \dots & ? \\
+0 & \ddots & \ddots & \vdots \\
+\vdots & \ddots & \ddots & ? \\
+0 & \dots & 0 & 0
+\end{pmatrix}.\]
+
+On a \(\chi_A=X^n\) et \(\chi_A\paren{A}=0\) donc \(A^n=0\).
+\end{dem}
+
+Dans la décomposition en sous-espaces caractéristiques, on a vu apparaître des matrices \(\lambda I_r+U\) : les matrices \(U\) sont nilpotentes.
+
+L'ensemble des matrices nilpotentes n'a pas de structure particulière : en général, la somme et le produit de deux matrices nilpotentes ne sont pas nilpotents. Néanmoins, avec une condition de commutation supplémentaire, on a quelques résultats.
+
+\begin{prop}
+Soient \(A,B\in\M{n}\) deux matrices nilpotentes.
+
+Si \(A\) et \(B\) commutent, alors \(A+B\) et \(AB\) sont nilpotentes.
+\end{prop}
+
+\begin{dem}
+Soit \(\paren{k,l}\in\N^2\) tel que \(A^k=0\) et \(B^l=0\).
+
+Supposons \(AB=BA\).
+
+On a \[\begin{aligned}
+\paren{AB}^{\min\paren{k,l}}&=A^{\min\paren{k,l}}B^{\min\paren{k,l}} \\
+&=0
+\end{aligned}\] et \[\begin{aligned}
+\paren{A+B}^{k+l}&=\sum_{i=0}^{k+l}\binom{i}{k+l}A^iB^{k+l-i} \\
+&=\sum_{i=0}^k\binom{i}{k+l}A^i\underbrace{B^{k+l-i}}_{=0}+\sum_{i=k+1}^{k+l}\binom{i}{k+l}\underbrace{A^i}_{=0}B^{k+l-i} \\
+&=0.
+\end{aligned}\]
+\end{dem}
+
+On a bien sûr les mêmes résultats concernant les endomorphismes nilpotents.
+
+\subsection{Éléments propres d'un nilpotent}
+
+\begin{prop}
+Un endomorphisme en dimension \(n\) est nilpotent ssi son polynôme caractéristique est \(X^n\), \ie s'il est scindé et admet \(0\) comme unique valeur propre.
+
+Une matrice de \(\M{n}\) est nilpotente ssi son polynôme caractéristique est \(X^n\), \ie si elle est scindée et admet \(0\) comme unique valeur propre.
+
+L'indice de nilpotence dans ces deux cas est alors le degré du polynôme minimal ; il est donc inférieur ou égal à \(n\).
+\end{prop}
+
+\begin{dem}
+Si \(f\) est nilpotent alors il existe \(k\in\N\) tel que \(f^k=0\) donc \(X^k\) est annulateur de \(f\) donc \(\Sp{f}=\accol{0}\) donc \(\chi_f=X^n\).
+
+Réciproquement, si \(\chi_f=X^n\), d'après le théorème de Cayley-Hamilton, \(f^n=0\) donc \(f\) est nilpotent.
+
+Or \(\mu_f\divise\chi_f\) donc \(\mu_f\) est de la forme \(X^l\) avec \(l\leq n\) et par définition de \(\mu_f\), \(l\) est l'indice de nilpotence de \(f\).
+\end{dem}
+
+Mis à part la matrice nulle, aucune matrice nilpotente n'est diagonalisable : c'est une idée parfois utile pour prouver qu'une matrice est nulle (diagonalisable et nilpotente implique nulle).
+
+\begin{prop}
+Tout endomorphisme nilpotent est trigonalisable : il existe une base dans laquelle sa matrice est triangulaire supérieure stricte. Réciproquement, si un endomorphisme est trigonalisable et n'a que \(0\) pour valeur propre, alors il est nilpotent.
+
+Toute matrice nilpotente est trigonalisable : elle est semblable à une matrice triangulaire supérieure stricte. La réciproque est vraie.
+\end{prop}
+
+\subsection{Application aux sous-espaces caractéristiques d'un endomorphisme}
+
+\begin{prop}\thlabel{prop:ordreDeMultiplicitéDansChiEstLeMêmeQueLaPuissanceDansLeSousEspaceCaractéristique}
+Soit \(f\in\Lendo{E}\).
+
+Pour toute valeur propre \(\lambda\) de \(f\), si \(\alpha\) est l'ordre de multiplicité de \(\lambda\) dans le polynôme minimal de \(f\), le sous-espace caractéristique associé est aussi le noyau \(\ker\paren{f-\lambda\id{E}}^\alpha\).
+\end{prop}
+
+\begin{lem}\thlabel{lem:sommesDirectesEgalesEtUneInclusionDonneEgalite}
+Si \(F_1,\dots,F_k,G_1,\dots,G_k\) vérifient \(\bigoplus_{i=1}^kF_i=\bigoplus_{i=1}^kG_i\) et \(\quantifs{\tpt i\in\interventierii{1}{k}}F_i\subset G_i\), alors \(\quantifs{\tpt i\in\interventierii{1}{k}}F_i=G_i\).
+\end{lem}
+
+\begin{dem}
+Soient \(i\in\interventierii{1}{k}\) et \(x\in G_i\).
+
+On a \(x\in\bigoplus_{j=1}^kG_j=\bigoplus_{j=1}^kF_j\).
+
+Donc il existe \(\paren{y_1,\dots,y_k}\in F_1\times\dots\times F_k\) tel que \[\underbrace{x}_{\in G_i}=\underbrace{y_1}_{\in F_1\subset G_1}+\dots+\underbrace{y_k}_{\in F_k\subset G_k}.\]
+
+Or la somme \(\bigoplus_{j=1}^kG_j\) est directe donc par unicité \[\begin{dcases}
+y_1=0 \\
+\vdots \\
+y_{i-1}=0 \\
+y_i=x \\
+y_{i+1}=0 \\
+\vdots \\
+y_k=0
+\end{dcases}\]
+
+Donc \(x=y_i\in F_i\).
+
+Donc \(F_i\subset G_i\).
+
+Donc \(F_i=G_i\).
+\end{dem}
+
+\begin{dem}[de la \thref{prop:ordreDeMultiplicitéDansChiEstLeMêmeQueLaPuissanceDansLeSousEspaceCaractéristique}]~\\
+On note \(\chi_f=\prod_{i=1}^k\paren{X-\lambda_i}^{\alpha_i}\) et \(\mu_f=\prod_{i=1}^k\paren{X-\lambda_i}^{\beta_i}\) où \(\quantifs{\tpt i\in\interventierii{1}{k}}\alpha_i\geq\beta_i\geq1\).
+
+On veut montrer que \(\quantifs{\tpt i\in\interventierii{1}{k}}\ker\paren{f-\lambda_i\id{E}}^{\alpha_i}=\ker\paren{f-\lambda_i\id{E}}^{\beta_i}\).
+
+Comme \(\beta_i\leq\alpha_i\), on a immédiatement \(\quantifs{\tpt i\in\interventierii{1}{k}}\ker\paren{f-\lambda_i\id{E}}^{\beta_i}\subset\ker\paren{f-\lambda_i\id{E}}^{\alpha_i}\).
+
+Comme \(\mu_f\paren{f}=\chi_f\paren{f}=0\), d'après le lemme des noyaux : \[E=\bigoplus_{i=1}^k\ker\paren{f-\lambda_i\id{E}}^{\beta_i}=\bigoplus_{i=1}^k\ker\paren{f-\lambda_i\id{E}}^{\alpha_i}.\]
+
+D'après le \thref{lem:sommesDirectesEgalesEtUneInclusionDonneEgalite}, on en déduit \[\quantifs{\forall i\in\interventierii{1}{k}}\ker\paren{f-\lambda_i\id{E}}^{\alpha_i}=\ker\paren{f-\lambda_i\id{E}}^{\beta_i}.\]
+\end{dem}
+
+On peut même démontrer mieux.
+
+\begin{prop}
+Soient \(f\in\Lendo{E}\), \(\lambda\in\Sp{f}\) et \(\alpha\) l'ordre de multiplicité de \(\lambda\) dans le polynôme minimal de \(f\).
+
+Alors la suite des noyaux \(\paren{\ker\paren{f-\lambda\id{E}}^k}_{k\in\N}\) est strictement croissante jusqu'au rang \(\alpha\), puis constante à partir du rang \(\alpha\) : \[\accol{0}\subsetneq\ker\paren{f-\lambda\id{E}}\subsetneq\ker\paren{f-\lambda\id{E}}^2\subsetneq\dots\subsetneq\ker\paren{f-\lambda\id{E}}^\alpha=\ker\paren{f-\lambda\id{E}}^{\alpha+1}=\dots\]
+\end{prop}
