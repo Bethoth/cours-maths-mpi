@@ -36,7 +36,6 @@
 
 \DeclareSymbolFont{CMletters}{OML}{cmm}{m}{it}
 \DeclareMathSymbol{\nu}{\mathord}{CMletters}{23}
-<<<<<<< HEAD
 \DeclareMathSymbol{\delta}{\mathord}{CMletters}{14}
 \DeclareMathSymbol{\zeta}{\mathord}{CMletters}{16}
 \DeclareMathSymbol{\kappa}{\mathord}{CMletters}{20}
@@ -46,10 +45,8 @@
 \DeclareMathSymbol{\chi}{\mathord}{CMletters}{31}
 \DeclareMathSymbol{\omega}{\mathord}{CMletters}{33}
 \DeclareMathSymbol{\Phi}{\mathord}{CMletters}{8}
-\DeclareMathSymbol{\mOmega}{\mathord}{CMletters}{10}
-=======
+\DeclareMathSymbol{\Omega}{\mathord}{CMletters}{10}
 \DeclareMathSymbol{\lambda}{\mathord}{CMletters}{21}
->>>>>>> 8b14978f26ff89b9acb008d1640758b4f1b785a9
 
 % Makes the table of contents clickable and gives useful commands for links in general.
 \usepackage[hypertexnames=false]{hyperref}
@@ -585,7 +582,7 @@ per-mode=power-positive-first
 \DeclareDocumentCommand{\antisym}{m O{\K}}{\mathscr{A}_{#1}\paren{#2}}
 \DeclareDocumentCommand{\GL}{m O{\K}}{\operatorname{GL}_{#1}\paren{#2}}
 \DeclareDocumentCommand{\SL}{m O{\K}}{\operatorname{SL}_{#1}\paren{#2}}
-\DeclareDocumentCommand{\Mat}{O{\fami{B}} m}{\operatorname{Mat}_{#1}\paren{#2}}
+\DeclareDocumentCommand{\Mat}{O{\fami{B}} m}{\operatorname*{Mat}_{#1}\paren{#2}}
 \newcommand{\pass}[2]{\mathscr{P}_{#1\to#2}}
 
 \DeclareDocumentCommand{\contm}{O{\intervii{a}{b}} O{\K}}{\classe{0}_m\paren{#1,#2}}
@@ -689,6 +686,7 @@ per-mode=power-positive-first
 \usepackage{cancel}
 
 \usepackage{nicematrix}
+\NiceMatrixOptions{renew-dots,renew-matrix}
 
 \newcommand{\ps}[2]{\left\langle#1\tq#2\right\rangle}
 \newcommand{\ortho}{^{\perp}}
@@ -782,6 +780,7 @@ per-mode=power-positive-first
 \DeclareDocumentCommand{\rac}{O{\K} m}{\operatorname{Z}_{#1}\paren{#2}}
 
 \DeclareDocumentCommand{\diago}{m O{\K}}{\mathscr{D}_{#1}\paren{#2}}
+\DeclareDocumentCommand{\Tsup}{m O{\K}}{\mathscr{T}_{#1}^+\paren{#2}}
 
 \renewcommand{\subsetneq}{\varsubsetneq}
 
