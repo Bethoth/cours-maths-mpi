@@ -2,4 +2,237 @@
 
 \minitoc
 
-\note{À venir}
+\legendeexercices
+
+\begin{exoss}
+Pour \(x\in\R\) et \(n\in\Ns\), on pose \[D_n=\begin{vmatrix}
+x & 1 & 0 & 0 & \dots & 0 \\
+\frac{x^2}{2!} & x & 1 & 0 & \dots & 0 \\
+\frac{x^3}{3!} & \frac{x^2}{2!} & x & 1 & \ddots & \vdots \\
+\vdots & \vdots & \ddots & \ddots & \ddots & 0 \\
+\frac{x^{n-1}}{\paren{n-1}!} & \frac{x^{n-2}}{\paren{n-2}!} & \dots & \frac{x^2}{2!} & x & 1 \\
+\frac{x^n}{n!} & \frac{x^{n-1}}{\paren{n-1}!} & \frac{x^{n-2}}{\paren{n-2}!} & \dots & \frac{x^2}{2!} & x
+\end{vmatrix}.\]
+
+\begin{enumerate}
+    \item Justifiez que \(D_n\) est dérivable et calculez \(D_n\prim\). \\
+    \item Donnez une expression générale de \(D_n\paren{x}\).
+\end{enumerate}
+\end{exoss}
+
+\begin{exoss}
+Soient \(a>0\) et \(f:\intervii{0}{a}\to\R\) dérivable sur \(\intervii{0}{a}\) et telle que \(f\paren{0}=f\prim\paren{0}=f\paren{a}=0\).
+
+Montrez qu'il existe \(c\in\intervee{0}{a}\) tel que la tangente au point d'abscisse \(c\) passe par l'origine du repère.
+\end{exoss}
+
+\begin{exoss}
+Soient \(f,g:\intervii{a}{b}\to\R\) deux fonctions continues sur \(\intervii{a}{b}\) et dérivables sur \(\intervee{a}{b}\).
+
+Montrez qu'il existe \(c\in\intervee{a}{b}\) tel que \[\paren{f\paren{b}-f\paren{a}}g\prim\paren{c}=\paren{g\paren{b}-g\paren{a}}f\prim\paren{c}.\]
+\end{exoss}
+
+\begin{exoss}
+Soient \(f:\R\to\R\) de classe \(\classe{2}\) telle que \(f\paren{x}\tendqd{x\to\pinf}0\) et \(x_0\in\R\) tel que \(f\paren{x_0}f\prim\paren{x_0}\geq0\).
+
+\begin{enumerate}
+    \item Montrez qu'il existe \(x_1>x_0\) tel que \(f\prim\paren{x_1}=0\). \\
+    \item Montrez qu'il existe \(x_2>x_1\) tel que \(f\seconde\paren{x_2}=0\).
+\end{enumerate}
+\end{exoss}
+
+\begin{exoss}
+Soient \(f\) une fonction \(n\) fois dérivable sur un intervalle \(I\) et \(\paren{x_0,\dots,x_n}\in I^{n+1}\) tel que \(x_0<\dots<x_n\) et \(f\paren{x_0}=\dots=f\paren{x_n}=0\).
+
+Montrez qu'il existe \(c\in I\) tel que \(f\deriv{n}\paren{c}=0\).
+
+Application : soit \(P\) une fonction polynôme de degré \(n\) ; montrez que l'équation \(\e{x}=P\paren{x}\) a au plus \(n+1\) solutions.
+\end{exoss}
+
+\begin{exoss}
+Soit \(f\) une fonction de classe \(\classe{2}\) sur \(\R\) telle que \(f\) et \(f\seconde\) aient pour limite \(0\) en \(\pinf\).
+
+Montrez que \(f\prim\) a aussi pour limite \(0\) en \(\pinf\).
+\end{exoss}
+
+\begin{exoss}
+\begin{enumerate}
+    \item Soit \(n\in\Ns\). Calculez la dérivée \(n\)-ème de la fonction \(x\mapsto x^{n-1}\ln\paren{1+x}\) définie sur \(\intervee{-1}{\pinf}\). \\
+    \item Soient \(n\in\Ns\) et \(f\) une fonction \(n\) fois dérivable sur \(\R\). Calculez la dérivée \(n\)-ème de \[x\mapsto x^{n-1}f\paren{\dfrac{1}{x}}.\] \\
+    \item Déduisez-en les dérivées \(n\)-èmes de \[x\mapsto x^{n-1}\ln\paren{1+\dfrac{1}{x}}\qquad\text{et}\qquad x\mapsto x^{n-1}\e{\nicefrac{1}{x}}.\]
+\end{enumerate}
+\end{exoss}
+
+\begin{exoss}~\\
+Soit \(F:t\mapsto\int_t^{t^2}\dfrac{1}{\ln u}\odif{u}\).
+
+\begin{enumerate}
+    \item Déterminez l'ensemble de définition de \(F\). \\
+    \item Soit \(\phi:u\mapsto\dfrac{1}{\ln u}-\dfrac{1}{u-1}\). Montrez que \(\phi\) est prolongeable en une fonction continue sur \(\intervee{0}{\pinf}\). \\ Déduisez-en que \(\lim_{t\to1}\int_t^{t^2}\dfrac{1}{\ln u}\odif{u}=\ln2\). \\
+    \item Montrez que \(\quantifs{\tpt t\in\intervee{1}{\pinf}}\dfrac{t^2-t}{2\ln t}\leq\int_t^{t^2}\dfrac{1}{\ln u}\odif{u}\leq\dfrac{t^2-t}{\ln t}\). Déduisez-en \(\lim_{t\to\pinf}\int_t^{t^2}\dfrac{1}{\ln u}\odif{u}\). \\
+    \item Étudiez la fonction \(F\) (on la prolongera par continuité chaque fois que c'est possible) et donnez l'allure de sa courbe représentative. \\
+    \item Soit \(f:x\mapsto\dfrac{x-1}{\ln x}\), prolongée par continuité en \(0\) et en \(1\). Montrez que \(\quantifs{\tpt t\in\intervee{0}{1}}\int_0^tf=F\paren{t}\). Déduisez-en la valeur de \(\int_0^1f\).
+\end{enumerate}
+\end{exoss}
+
+\begin{exoss}
+Soit \(\paren{a,b}\in\R^2\) tel que \(a<b\).
+
+Montrez que pour toute application \(f\in\ensclasse{1}{\intervii{a}{b}}{\R}\), on a \[\max_{\intervii{a}{b}}\abs{f}\leq\int_a^b\abs{f\prim}+\dfrac{1}{b-a}\int_a^b\abs{f}.\]
+
+Montrez que cette inégalité est également valable pour toute application \(f\in\ensclasse{1}{\intervii{a}{b}}{\C}\).
+\end{exoss}
+
+\begin{exoss}
+Soient \(\paren{a,b}\in\R^2\) tel que \(a<b\) et \(f\in\ensclasse{2}{\intervii{a}{b}}{E}\) telle que \(f\paren{a}=f\paren{b}=0\). On pose \(M=\sup_{\intervii{a}{b}}\norme{f\seconde}\).
+
+\begin{enumerate}
+    \item Montrez que \(\quantifs{\tpt x\in\intervii{a}{b}}\norme{f\paren{x}}\leq\dfrac{M}{2}\paren{x-a}\paren{b-x}\). \\
+    \item Montrez que \(\norme{\int_a^bf}\leq\dfrac{M\paren{b-a}^3}{12}\). \\
+    \item Déduisez-en une majoration de l'erreur commise lors du calcul approché de \(\int_a^bf\) par la méthode des trapèzes.
+\end{enumerate}
+\end{exoss}
+
+\begin{exoss}
+Soit \(f\) continue sur \(\intervii{a}{b}\) avec \(a<b\).
+
+Montrez que \(\lim_{n\to\pinf}\paren{\int_a^b\norme{f\paren{t}}^n\odif{t}}^{\nicefrac{1}{n}}=\sup_{\intervii{a}{b}}\norme{f}\).
+\end{exoss}
+
+\begin{exoss}
+Soit \(a>1\).
+
+Montrez que la fonction \(f:x\mapsto\ln\paren{1-2a\cos x+a^2}\) est continue sur \(\intervii{0}{\pi}\).
+
+Sans chercher à utiliser une primitive, montrez \(\int_0^\pi f=2\pi\ln a\).
+\end{exoss}
+
+\begin{exoss}
+Soit \(z\in\C\excluant\U\).
+
+Décomposez en éléments simples la fraction \(\dfrac{nX^{n-1}}{X^n-1}\) puis calculez \(\int_0^{2\pi}\dfrac{1}{z-\e{\i t}}\odif{t}\).
+\end{exoss}
+
+\begin{exoss}
+On considère une application \(f:\R\to\C\) de classe \(\classe{1}\) et \(2\pi\)-périodique telle que \(\quantifs{\tpt t\in\R}f\paren{t}\not=0\).
+
+Montrez que \(\int_0^{2\pi}\dfrac{f\prim}{f}\in2\pi\Z\).
+\end{exoss}
+
+\begin{exoss}
+Soient \(E\) un espace vectoriel de dimension finie et \(f\in\ensclasse{\infty}{\intervii{a}{b}}{E}\).
+
+On suppose qu'il existe \(P\in\poly[\R]\) de degré impair tel que \(\quantifs{\forall n\in\N;\forall x\in\intervii{a}{b}}\norme{f\deriv{n}\paren{x}}\leq\abs{P\paren{x}}\).
+
+Montrez que \(f=0\).
+\end{exoss}
+
+\begin{exoss}[Égalité de la moyenne généralisée]
+Soient \(f,g\in\ensclasse{0}{\intervii{a}{b}}{\R}\) telles que \(g\) soit positive.
+
+Montrez qu'il existe \(c\in\intervii{a}{b}\) tel que \[\int_a^bf\paren{t}g\paren{t}\odif{t}=f\paren{c}\int_a^bg\paren{t}\odif{t}.\]
+\end{exoss}
+
+\begin{exoss}[Égalité de Taylor-Lagrange]
+Soit \(f\in\ensclasse{n+1}{\intervii{a}{b}}{E}\).
+
+Montrez qu'il existe \(c\in\intervee{a}{b}\) tel que \[f\paren{b}=\sum_{k=0}^n\dfrac{\paren{b-a}^k}{k!}f\deriv{k}\paren{a}+\dfrac{\paren{b-a}^{n+1}}{\paren{n+1}!}f\deriv{n+1}\paren{c}.\]
+\end{exoss}
+
+\begin{exosss}
+Soit \(f\in\ensclasse{2}{\intervii{a}{b}}{\R}\).
+
+Montrez qu'il existe \(c\in\intervee{a}{b}\) tel que \[\dfrac{f\paren{a}+f\paren{b}}{2}=f\paren{\dfrac{a+b}{2}}+\dfrac{\paren{b-a}^2}{8}f\seconde\paren{c}.\]
+\end{exosss}
+
+\begin{exosss}
+Soit \(f\in\ensclasse{2}{\intervii{a}{b}}{\R}\) telle que \(f\paren{a}=f\prim\paren{a}\) et \(f\paren{b}=f\prim\paren{b}\).
+
+Montrez qu'il existe \(c\in\intervee{a}{b}\) tel que \(f\seconde\paren{c}=f\paren{c}\).
+\end{exosss}
+
+\begin{exoss}
+On considère l'application \(u:t\mapsto\e{-\nicefrac{t^2}{2}}\) et on pose pour \(n\in\N\), \(H_n\paren{t}=\e{\nicefrac{t^2}{2}}u\deriv{n}\paren{t}\).
+
+\begin{enumerate}
+    \item Montrez que pour tout \(n\in\N\), \(H_n\) est un polynôme de degré \(n\). \\
+    \item Montrez que si \(f\in\ensclasse{0}{\intervie{a}{\pinf}}{\R}\) est dérivable sur \(\intervie{a}{\pinf}\) et si \(f\paren{t}\tendqd{t\to\pinf}f\paren{a}\), alors il existe \(c\in\intervee{a}{\pinf}\) tel que \(f\prim\paren{c}=0\). \\
+    \item Montrez que pour tout \(n\in\N\), \(H_n\) est scindé à racines simples sur \(\R\).
+\end{enumerate}
+\end{exoss}
+
+\begin{exoss}
+Soit \(f\in\ensclasse{2}{\R}{\R}\) telle que \(f\) et \(f\seconde\) soient bornées. On note \(M_0=\sup_\R\abs{f}\) et \(M_2=\sup_\R\abs{f\seconde}\).
+
+\begin{enumerate}
+    \item Montrez que \(\quantifs{\tpt\paren{x,h}\in\R^2}\abs{f\paren{x+h}-f\paren{x}-hf\prim\paren{x}}\leq\dfrac{h^2}{2}M_2\) et \\ \(\abs{f\paren{x-h}-f\paren{x}+hf\prim\paren{x}}\leq\dfrac{h^2}{2}M_2\). \\
+    \item Déduisez-en que \(\quantifs{\tpt x\in\R;\tpt h>0}\abs{f\prim\paren{x}}\leq\dfrac{M_0}{h}+\dfrac{h}{2}M_2\). \\
+    \item Montrez que \(f\prim\) est aussi bornée sur \(\R\) et que \(M_1=\sup_\R\abs{f\prim}\leq\sqrt{2M_0M_2}\).
+\end{enumerate}
+\end{exoss}
+
+\begin{exosss}
+Soit \(f\) une fonction de classe \(\classe{\infty}\) sur \(\R\) telle que
+
+\begin{itemize}
+    \item \(\quantifs{\tpt n\in\N}f\deriv{n}\paren{0}=0\) \\
+    \item il existe \(a>0\) tel que \(\quantifs{\tpt n\in\N;\tpt t\in\R}\abs{f\deriv{n}\paren{t}}\leq a^nn!\). \\
+\end{itemize}
+
+\begin{enumerate}
+    \item Montrez que \(f\) est la fonction nulle sur \(\intervii{\dfrac{-1}{a}}{\dfrac{1}{a}}\). \\
+    \item Montrez que \(f\) est la fonction nulle sur \(\R\).
+\end{enumerate}
+\end{exosss}
+
+\begin{exo}[Oral CCINP, 1]
+Soit \(f:\R\to\R\) dérivable telle que \(f\prim\paren{x}\tendqd{x\to\pinf}\pinf\).
+
+Montrez que \(f\paren{x}\tendqd{x\to\pinf}\pinf\).
+\end{exo}
+
+\begin{exo}[Oral TPE, 2]
+Cherchez les \(f:\R\to\R\) dérivables telles que \(f\paren{0}=1\), \(f\prim\paren{0}>1\) et \(\quantifs{\forall x\in\R}f\prim\paren{f\paren{x}}f\prim\paren{x}=1\).
+\end{exo}
+
+\begin{exo}[Oral CCINP, 3]
+Pour \(n\in\Ns\), on pose \(f_n:x\mapsto x^n\ln x\).
+
+Montrez que \(\lim_{n\to\pinf}f_n\deriv{n}\paren{\dfrac{1}{n}}=\gamma\) où \(\gamma\) est la constante d'Euler-Mascheroni.
+\end{exo}
+
+\begin{exo}[Oral CCMP, 4]
+Soit \(f:\Rps\to\R\) continue. On pose \(g:x\mapsto xf\paren{x}\) et \(h:x\mapsto f\paren{\dfrac{1}{x}}\).
+
+Montrez que \(g\) est convexe sur \(\Rps\) ssi \(h\) l'est aussi.
+\end{exo}
+
+\begin{exo}[Oral CCMP, 5]
+Soit \(f:\intervii{0}{1}\to\R\) dérivable telle que \(\quantifs{\tpt x\in\intervii{0}{1}}\paren{f\paren{x},f\prim\paren{x}}\not=\paren{0,0}\).
+
+Montrez que l'ensemble des zéros de \(f\) est fini.
+\end{exo}
+
+\begin{exo}[Oral CCMP, 6]
+Soient \(\paren{a,b}\in\R^2\) tel que \(a<b\) et \(E\) l'ensemble des fonctions continues sur \(\intervii{a}{b}\) et strictement positives.
+
+Pour \(f\in E\), on pose \(\phi\paren{f}=\int_a^bf\times\int_a^b\dfrac{1}{f}\).
+
+Déterminez \(\phi\paren{E}\).
+\end{exo}
+
+\begin{exo}[Oral CCMP, 7]
+Soit \(E=\accol{f\in\ensclasse{0}{\intervii{0}{1}}{\Rp}\tq\quantifs{\forall\paren{x,y}\in\intervii{0}{1}^2}\abs{f\paren{x}-f\paren{y}}\geq\abs{x-y}}\).
+
+Déterminez \(\inf_{f\in E}\int_0^1f\).
+\end{exo}
+
+\begin{exo}[Oral Centrale, 8]
+Soient \(f\in\ensclasse{2}{\Rp}{\R}\) majorée et \(\alpha>0\) tel que \(\quantifs{\tpt x\in\Rp}f\seconde\paren{x}\geq\alpha f\paren{x}\).
+
+\begin{enumerate}
+    \item Montrez que \(f\prim\) est croissante et \(\lim_{\pinf}f\prim=0\). \\
+    \item Montrez que \(\lim_{\pinf}f=0\). \\
+    \item Montrez que \(\quantifs{\tpt x\in\Rp}f\paren{x}\leq f\paren{0}\e{-x\sqrt{\alpha}}\).
+\end{enumerate}
+\end{exo}
