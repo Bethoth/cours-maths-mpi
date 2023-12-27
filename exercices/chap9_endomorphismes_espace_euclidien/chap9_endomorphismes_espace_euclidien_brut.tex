@@ -2,4 +2,684 @@
 
 \minitoc
 
-\note{À venir}
+\section*{Exercices}
+\addcontentsline{toc}{section}{Exercices}
+
+\legendeexercices
+
+\begin{exos}
+Soit \(E=\polydeg[\R]{n}\). On définit \(\ps{P}{Q}=\sum_{k=0}^nP\paren{k}Q\paren{k}\).
+
+\begin{enumerate}
+    \item Montrez que \(\ps{}{}\) est un produit scalaire. \\
+    \item Dans le cas où \(n=3\), donnez une base orthonormée de \(\polydeg[\R]{2}\). \\
+    \item Calculez la distance de \(X^3\) à \(\polydeg[\R]{2}\).
+\end{enumerate}
+\end{exos}
+
+\begin{exos}
+Soit \(E=\M{n}[\R]\) muni du produit scalaire classique \(\paren{A,B}\mapsto\tr\paren{\trans{A}B}\).
+
+\begin{enumerate}
+    \item Montrez que si \(A\) est symétrique et \(B\) est antisymétrique, alors \(A\) et \(B\) sont orthogonales pour ce produit scalaire. \\
+    \item Déterminez \(\sym{n}[\R]\ortho\). \\
+    \item Dans le cas où \(n=2\), calculez la distance de la matrice \(A=\begin{pmatrix}
+        1 & 0 \\
+        -1 & 2
+    \end{pmatrix}\) au sous-espace vectoriel des matrices triangulaires supérieures.
+\end{enumerate}
+\end{exos}
+
+\begin{exoss}
+Soit \(E=\poly[\R]\). On définit \(\ps{P}{Q}=\sum_{k=0}^{\pinf}\dfrac{P\paren{k}Q\paren{k}}{2^k}\).
+
+\begin{enumerate}
+    \item Montrez que \(\ps{}{}\) est un produit scalaire. \\
+    \item Donnez une base orthonormée du sous-espace \(\polydeg[\R]{2}\). \\
+    \item Calculez la distance de \(X^3\) à \(\Vect{1,X,X^2}\).
+\end{enumerate}
+\end{exoss}
+
+\begin{exoss}
+Même exercice avec \(\ps{P}{Q}=\int_0^{\pinf}P\paren{t}Q\paren{t}\e{-t}\odif{t}\).
+\end{exoss}
+
+\begin{exoss}
+\begin{enumerate}
+    \item Montrez que pour tout \(n\in\N\), il existe un unique polynôme \(T_n\) tel que \(\quantifs{\tpt t\in\R}T_n\paren{\cos t}=\cos\paren{nt}\). \\
+    \item Calculez \(T_0\) et \(T_1\) puis montrez que \(\quantifs{\tpt n\in\N}T_{n+2}=2XT_{n+1}-T_n\). En déduire le degré et le coefficient dominant de \(T_n\). \\
+    \item Montrez que l'application \(\paren{P,Q}\mapsto\int_{-1}^1\dfrac{P\paren{t}Q\paren{t}}{\sqrt{1-t^2}}\odif{t}\) est un produit scalaire sur \(\poly[\R]\). \\
+    \item Montrez que la famille \(\paren{T_n}\) est orthogonale pour ce produit scalaire.
+\end{enumerate}
+\end{exoss}
+
+\begin{exoss}
+Soit \(E\) l'ensemble des suites réelles \(x\) telles que la série \(\sum_nx_n^2\) converge.
+
+\begin{enumerate}
+    \item Vérifiez rapidement que \(\quantifs{\tpt\paren{a,b}\in\R^2}\abs{ab}\leq\dfrac{a^2+b^2}{2}\). \\
+    \item Soient \(x,y\in E\). Montrez que la série \(\sum_nx_ny_n\) est absolument convergente. \\
+    \item Montrez que \(E\) est un \(\R\)-espace vectoriel. \\
+    \item On pose \(\ps{x}{y}=\sum_{n=0}^{\pinf}x_ny_n\). Montrez qu'on définit ainsi un produit scalaire sur \(E\).
+\end{enumerate}
+\end{exoss}
+
+\begin{exos}
+Soit \(E\) un espace euclidien de dimension \(3\) muni d'une base orthonormée dans laquelle toutes les coordonnées sont exprimées. Soient \(u\) de coordonnées \(\paren{1,3,1}\), \(v\) de coordonnées \(\paren{5,2,-1}\) et \(w\) de coordonnées \(\paren{1,1,1}\).
+
+\begin{enumerate}
+    \item Donnez un système d'équation et une base d'un supplémentaire de chacun des sous-espaces vectoriels \(\Vect{u}\) et \(\Vect{u,v}\). \\
+    \item Déterminez la projection orthogonale de \(v\) sur la droite \(\Vect{u}\). \\
+    \item Déterminez la projection orthogonale de \(w\) sur le plan \(\Vect{u,v}\). \\
+    \item Déterminez la matrice du projecteur orthogonal sur le plan précédent.
+\end{enumerate}
+\end{exos}
+
+\begin{exos}
+Soient \(E\) un espace euclidien de dimension \(4\) muni d'une base orthonormée dans laquelle toutes les coordonnées sont exprimées et \(F=\accol{x\in E\tq x_1+x_2+x_3+x_4=0\text{ et }x_1-x_2+x_3-x_4=0}\).
+
+\begin{enumerate}
+    \item Justifiez que \(F\) est un sous-espace vectoriel de \(E\). Donnez une base orthonormée de \(F\). \\
+    \item Soit \(v\) de coordonnées \(\paren{2,3,1,-1}\). Déterminez sa projection orthogonale sur \(F\). \\
+    \item Déterminez la matrice de la symétrie orthogonale par rapport à \(F\).
+\end{enumerate}
+\end{exos}
+
+\begin{exoss}
+Soit \(E=\Vect{\id{\intervii{0}{\pi}},\sin,\cos}\) muni du produit scalaire \(\ps{f}{g}=\int_0^\pi f\paren{t}g\paren{t}\odif{t}\).
+
+Déterminez \(\inf_{\paren{a,b}\in\R^2}\int_0^\pi\paren{x-\paren{a\cos x+b\sin x}}^2\odif{x}\).
+\end{exoss}
+
+\begin{exoss}
+\begin{enumerate}
+    \item Déterminez \(\inf_{x\in\R}\paren{\paren{2x-b_1}^2+\paren{3x-b_2}^2+\paren{4x-b_3}^2}\) où \(b_1,b_2,b_3\) sont fixés dans \(\R\). \\
+    \item Déterminez \(\inf_{\paren{a,b}\in\R^2}\sum_{k=1}^n\paren{k^2-ak-b}^2\). On admet \(\sum_{k=1}^nk^3=\dfrac{n^2\paren{n+1}^2}{4}\) et \\ \(\sum_{k=1}^nk^4=\dfrac{n\paren{n+1}\paren{2n+1}\paren{3n^2+3n-1}}{30}\). \\
+    \item Déterminez \(\inf_{\paren{a,b}\in\R^2}\int_0^1\paren{x^2-ax-b}^2x^2\odif{x}\). \\
+    \item Déterminez \(\inf_{\paren{a,b,c}\in\R^3}\int_{-\pi}^\pi\paren{t-a\sin t-b\cos t-c}^2\odif{t}\).
+\end{enumerate}
+\end{exoss}
+
+\begin{exoss}
+Soient \(E\) un espace euclidien et \(\paren{e_1,\dots,e_n}\in E^n\) des vecteurs unitaires tels que \[\quantifs{\forall x\in E}\norme{x}^2=\sum_{k=1}^n\ps{x}{e_k}^2.\]
+
+Montrez que \(\paren{e_1,\dots,e_n}\) est une base orthonormale de \(E\).
+\end{exoss}
+
+\begin{exoss}
+Soient \(E\) un espace euclidien et \(F,G\) deux sous-espaces vectoriels de \(E\).
+
+Montrez que \(\paren{F\ortho}\ortho=F\), \(\paren{F+G}\ortho=F\ortho\inter G\ortho\) et \(\paren{F\inter G}\ortho=F\ortho+G\ortho\).
+\end{exoss}
+
+\begin{exosss}
+On munit \(E=\ensclasse{0}{\intervii{0}{1}}{\R}\) du produit scalaire \(\ps{f}{g}=\int_0^1f\paren{t}g\paren{t}\odif{t}\).
+
+Soit \(F=\accol{f\in E\tq f\paren{0}=0}\).
+
+A-t-on \(E=F\oplus F\ortho\) ? A-t-on \(\paren{F\ortho}\ortho=F\) ?
+
+\textit{Indication : si \(f\in F\ortho\), considérez la fonction \(t\mapsto tf\paren{t}\).}
+\end{exosss}
+
+\begin{exoss}
+Soient \(E\) un espace euclidien et \(p\in\Lendo{E}\) un projecteur.
+
+On sait d'après le cours que si \(p\) est un projecteur orthogonal, alors \(\quantifs{\tpt x\in E}\norme{p\paren{x}}\leq\norme{x}\).
+
+Montrez que la réciproque est vraie, en utilisant le vecteur \(y+\lambda x\), où \(x\in\Im p\), \(y\in\ker p\) et \(\lambda\in\R\).
+\end{exoss}
+
+\begin{exoss}
+Soient \(E\) un espace euclidien de dimension \(3\) rapporté à une base orthonormée \(\fami{B}\) et \(f\in\Lendo{E}\) tel que \(\Mat{f}=A=\dfrac{1}{15}\begin{pmatrix}
+8 & 6 & -10 \\
+-10 & 5 & 0 \\
+6 & -8 & 5
+\end{pmatrix}\).
+
+\begin{enumerate}
+    \item Donnez une base du noyau et de l'image de \(f\). Vérifiez que ces deux sous-espaces de \(E\) sont supplémentaires orthogonaux. \\
+    \item Donnez une base orthonormée directe \(\fami{B}\prim\) de \(E\) dont les vecteurs sont choisis dans le noyau ou l'image de \(f\) (dans cet ordre). \\
+    \item Montrez que la matrice de \(f\) dans cette nouvelle base est de la forme \(\begin{pmatrix}
+        0 & 0 & 0 \\
+        0 & \cos\alpha & -\sin\alpha \\
+        0 & \sin\alpha & \cos\alpha
+    \end{pmatrix}\). \\
+    \item Donnez une interprétation géométrique de l'application \(f\).
+\end{enumerate}
+\end{exoss}
+
+\begin{exos}
+Soit \(E\) un espace euclidien orienté de dimension \(3\) rapporté à une base orthonormée directe.
+
+Déterminez la nature et les éléments caractéristiques de chacune des applications linéaires dont les matrices sont : \[A=\dfrac{1}{3}\begin{pmatrix}
+-2 & -1 & 2 \\
+2 & -2 & 1 \\
+1 & 2 & 2
+\end{pmatrix}\qquad B=\dfrac{1}{9}\begin{pmatrix}
+7 & 4 & 4 \\
+-4 & 8 & -1 \\
+4 & 1 & -8
+\end{pmatrix}\qquad C=\dfrac{1}{9}\begin{pmatrix}
+-8 & 4 & 1 \\
+4 & 7 & 4 \\
+1 & 4 & -8
+\end{pmatrix}\]
+
+\[D=\dfrac{1}{4}\begin{pmatrix}
+3 & 1 & \sqrt{6} \\
+1 & 3 & -\sqrt{6} \\
+-\sqrt{6} & \sqrt{6} & 2
+\end{pmatrix}\qquad E=\dfrac{1}{4}\begin{pmatrix}
+3 & 1 & -\sqrt{6} \\
+1 & 3 & \sqrt{6} \\
+-\sqrt{6} & \sqrt{6} & -2
+\end{pmatrix}.\]
+\end{exos}
+
+\begin{exoss}
+Soit \(E\) un espace euclidien orienté de dimension \(3\) rapporté à une base orthonormée directe.
+
+Déterminez la matrice de la rotation d'axe orienté par \(u\) de coordonnées \(\paren{1,1,-1}\) et d'angle \(\dfrac{\pi}{2}\).
+\end{exoss}
+
+\begin{exoss}
+Soient \(E\) un espace euclidien orienté de dimension \(3\) rapporté à une base orthonormée directe, \(u\) un vecteur unitaire, \(\theta\) un réel et \(f\) la rotation d'axe orienté par \(u\) et d'angle \(\theta\).
+
+Montrez que \(\quantifs{\tpt x\in E}f\paren{x}=\paren{1-\cos\theta}\ps{x}{u}u+\cos\paren{\theta}x+\sin\paren{\theta}u\vecto x\).
+\end{exoss}
+
+\begin{exoss}
+Déterminez \(\Card\paren{\Orth{n}[\R]\inter\M{n}[\Z]}\).
+\end{exoss}
+
+\begin{exoss}
+Soit \(E\) un espace euclidien et \(u\) un automorphisme orthogonal de \(E\). On pose \(v=\id{E}-u\).
+
+\begin{enumerate}
+    \item Montrez que \(\ker v=\paren{\Im v}\ortho\). \\
+    \item Soit \(p\) la projection orthogonale sur \(\ker v\). Montrez que \[\quantifs{\forall x\in E}\dfrac{1}{n}\sum_{k=0}^{n-1}u^k\paren{x}\tendqd{n\to\pinf}p\paren{x}.\]
+\end{enumerate}
+\end{exoss}
+
+\begin{exos}
+Soit \(A\in\M{n}[\R]\) telle que \(\trans{A}=A\).
+
+\begin{enumerate}
+    \item Montrez que s'il existe \(k\in\N\) tel que \(A^k=I_n\), alors \(A^2=I_n\). Que peut-on dire de mieux si \(k\) est impair ? \\
+    \item Montrez que si \(A\) est nilpotente, alors \(A=0\).
+\end{enumerate}
+\end{exos}
+
+\begin{exos}
+Soient \(S=\paren{s_{i\,j}}\) une matrice symétrique de \(\M{n}[\R]\) et \(\lambda_1,\dots,\lambda_n\) ses valeurs propres.
+
+Montrez que \(\sum_{1\leq i,j\leq n}s_{i\,j}^2=\sum_{i=1}^n\lambda_i^2\).
+\end{exos}
+
+\begin{exoss}
+Soient \(n\geq3\) et \(A=\begin{pmatrix}
+1 & 1 & \dots & 1 & 1 \\
+1 & 0 & \dots & 0 & 1 \\
+\vdots & \vdots & 0 & \vdots & \vdots \\
+1 & 0 & \dots & 0 & 1 \\
+1 & 1 & \dots & 1 & 1
+\end{pmatrix}\in\M{n}[\R]\).
+
+\begin{enumerate}
+    \item Justifiez que \(A\) est diagonalisable, puis que \(A\) possède au plus trois valeurs propres distinctes dont l'une est \(0\). \\
+    \item En notant \(\lambda\) et \(\mu\) les deux autres valeurs propres (pouvant être égales), donnez deux équations reliant \(\lambda\) et \(\mu\), et déduisez-en le spectre de \(A\).
+\end{enumerate}
+\end{exoss}
+
+\begin{exoss}
+Soit \(A\in\M{n}[\R]\).
+
+Montrez que \(A\trans{A}\) et \(\trans{A}A\) sont orthosemblables.
+\end{exoss}
+
+\begin{exoss}
+Déterminez toutes les matrices \(A\in\M{n}[\R]\) telles que \[A\trans{A}A=I_n.\]
+\end{exoss}
+
+\begin{exoss}
+Soit \(n\in\Ns\). On munit \(E=\polydeg[\R]{n}\) du produit scalaire \[\ps{P}{Q}=\int_{-1}^1P\paren{t}Q\paren{t}\odif{t}.\]
+
+\begin{enumerate}
+    \item Montrez que l'application \(u:P\mapsto\paren{1-X^2}P\seconde-2XP\prim\) est un endomorphisme auto-adjoint de \(E\). \\
+    \item Montrez que les valeurs propres de \(u\) sont négatives.
+\end{enumerate}
+\end{exoss}
+
+\begin{exoss}
+Soient \(E\) un espace euclidien, \(u_1,\dots,u_p\in E\) et \(f\) l'application de \(E\) dans \(E\) telle que \[f:x\mapsto\sum_{k=1}^p\ps{u_k}{x}u_k.\]
+
+\begin{enumerate}
+    \item Quelle est l'application \(f\) lorsque \(\paren{u_1,\dots,u_p}\) est une famille orthonormée ? \\
+    \item Dans le cas général, montrez que \(f\) est un endomorphisme auto-adjoint positif de \(E\). \\
+    \item Déterminez \(\ker f\) et \(\Im f\).
+\end{enumerate}
+\end{exoss}
+
+\begin{exoss}
+Rappel : une matrice symétrique \(A\in\sym{n}[\R]\) est dite positive quand \(\quantifs{\forall X\in\M{n\,1}[\R]}\trans{X}AX\geq0\).
+
+Soit \(A\in\sym{n}[\R]\). Montrez l'équivalence des propriétés suivantes :
+
+\begin{enumerate}
+    \item[(\(\alpha\))] \(A\) est positive \\
+    \item[(\(\beta\))] toutes les valeurs propres de \(A\) sont positives \\
+    \item[(\(\gamma\))] il existe \(M\in\M{n}[\R]\) telle que \(A=\trans{M}M\) \\
+    \item[(\(\delta\))] il existe \(S\in\sym{n}[\R]\) telle que \(A=S^2\).
+\end{enumerate}
+
+Modifiez les propositions précédentes pour caractériser les matrices \(A\) définies-positives.
+\end{exoss}
+
+\begin{exosss}[Racine carrée]
+\begin{enumerate}
+    \item Montrez que \(\fonction{r}{\symdefpos{n}[\R]}{\symdefpos{n}[\R]}{M}{M^2}\) est une surjection. \\
+    \item Soit \(A\in\symdefpos{n}[\R]\) et \(M\) un antécédent de \(A\) par \(r\). Montrez qu'il existe un polynôme \(P\in\poly[\R]\) tel que \(M=P\paren{A}\). \\
+    \item Soient \(A\in\symdefpos{n}[\R]\) et \(M,N\) deux antécédents de \(A\) par \(r\). Montrez que \(\paren{M-N}\paren{M+N}=0\) et que \(M+N\) est inversible. Déduisez-en que l'application \(r\) est injective.
+\end{enumerate}
+\end{exosss}
+
+\begin{exosss}[Décomposition polaire]
+Montrez que pour tout \(A\in\GL{n}[\R]\), il existe un unique couple \(\paren{Q,S}\in\Orth{n}[\R]\times\symdefpos{n}[\R]\) tel que \(A=QS\).
+\end{exosss}
+
+\begin{exoss}
+Soient \(f\) et \(g\) deux endomorphismes auto-adjoints d'un espace euclidien.
+
+Montrez que \(f\rond g\) est auto-adjoint ssi \(f\) et \(g\) commutent.
+\end{exoss}
+
+\begin{exoss}
+\begin{enumerate}
+    \item Soit \(S\in\sym{n}[\R]\). Montrez qu'il existe des réels \(\lambda_1,\dots,\lambda_n\) et des matrices colonnes \(U_1,\dots,U_n\) de \(\M{n\,1}[\R]\) tels que \[\quantifs{\forall\paren{i,j}\in\interventierii{1}{n}^2}\trans{U_i}U_j=\delta_{i\,j}\qquad\text{et}\qquad S=\sum_{i=1}^n\lambda_iU_i\trans{U_i}.\] \\
+    \item Soit \(u\) un endomorphisme auto-adjoint d'un espace euclidien \(E\). Montrez que \(u\) est combinaison linéaire de projections orthogonales sur des droites et que ces projections commutent entre elles.
+\end{enumerate}
+\end{exoss}
+
+\begin{exoss}
+Une matrice \(M\in\M{n}[\R]\) vérifie \(M^2+4I_n=0\) et \(\trans{M}M=M\trans{M}=S\).
+
+\begin{enumerate}
+    \item Trouvez un polynôme annulateur de \(S\) de degré \(2\). \\
+    \item Déduisez-en que \(\dfrac{1}{2}M\) est orthogonale. \\
+    \item Dans le cas \(n=2\), déterminez toutes les matrices de \(\M{2}[\R]\) qui vérifient les conditions de l'exercice.
+\end{enumerate}
+\end{exoss}
+
+\begin{exoss}
+Soient \(E\) un espace euclidien orienté de dimension \(3\) et \(u\) un vecteur non-nul de \(E\).
+
+On pose \(f\) l'endomorphisme de \(E\) défini par \(f\paren{x}=u\vecto\paren{u\vecto x}\).
+
+Montrez que \(f\) est diagonalisable et diagonalisez-le.
+\end{exoss}
+
+\begin{exoss}
+Soient \(A\in\M{n}[\R]\), \(S=\dfrac{1}{2}\paren{A+\trans{A}}\) et \(a,b\) les plus petite et plus grande valeurs propres de \(S\).
+
+Montrez que toute valeur propre réelle de \(A\) est comprise entre \(a\) et \(b\).
+\end{exoss}
+
+\begin{exoss}
+Soit \(E\) un espace euclidien. On dit qu'un endomorphisme \(f\) de \(E\) est anti-adjoint quand \[\quantifs{\forall u,v\in E}\ps{f\paren{u}}{v}=-\ps{u}{f\paren{v}}.\]
+
+Soit \(f\) un endomorphisme anti-adjoint de \(E\).
+
+\begin{enumerate}
+    \item Montrez que \(\quantifs{\forall u\in E}f\paren{u}\perp u\). \\
+    \item Montrez que la seule valeur propre possible de \(f\) est \(0\). L'endomorphisme \(f\) peut-il être diagonalisable ? \\
+    \item Montrez que \(f\rond f\) est un endomorphisme auto-adjoint de \(E\) et que ses valeurs propres sont négatives ou nulles. \\
+    \item Soit \(x\) un vecteur propre de \(f\rond f\) pour la valeur propre \(-\lambda\not=0\). \\ \begin{enumerate}
+        \item Montrez que \(P_x=\Vect{x,f\paren{x}}\) est un plan vectoriel stable par \(f\). \\
+        \item Montrez qu'il existe une base orthonormée \(\paren{a,b}\) de \(P_x\) où la matrice de l'endomorphisme induit \(f_{P_x}\) est de la forme \[R_\mu=\begin{pmatrix}
+            0 & -\mu \\
+            \mu & 0
+        \end{pmatrix},\] où \(\mu\) est un réel strictement positif que l'on précisera. \\
+    \end{enumerate}
+    \item Montrez qu'il existe une base orthonormée de \(E\) où la matrice de \(f\) est diagonale par blocs, avec des blocs de la forme \(R_\mu\) d'abord puis des blocs \(\paren{0}\) de taille \(1\times1\).
+\end{enumerate}
+\end{exoss}
+
+\begin{exo}[Oral CCINP, 1]~\\
+\begin{enumerate}
+    \item Calculez, pour \(n\in\N\), \(I_n=\dfrac{1}{\sqrt{\pi}}\int_{\minf}^{\pinf}\e{-t^2}t^n\odif{t}\) (distinguer les cas \(n\) pair et \(n\) impair ; on donne de plus \(I_0=1\)). \\
+    \item Montrez que l'application \(\paren{P,Q}\mapsto\int_{\minf}^{\pinf}P\paren{t}Q\paren{t}\e{-t^2}\odif{t}\) est un produit scalaire sur \(\poly[\R]\). \\
+    \item Calculez la distance de \(X^3\) à \(\polydeg[\R]{2}\).
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Oral CCINP, 2]
+Soit \(E=\ensclasse{0}{\intervii{0}{1}}{\R}\). On pose pour \(\paren{f,g}\in E^2\) : \(\ps{f}{g}=\int_0^1f\paren{t}g\paren{t}t^2\odif{t}\).
+
+\begin{enumerate}
+    \item Montrez que \(\ps{}{}\) est un produit scalaire. \\
+    \item Calculez \(\int_0^1t^n\ln\paren{t}\odif{t}\) pour tout \(n\in\N\). \\
+    \item Soit \(F=\accol{x\mapsto ax+b\tq\paren{a,b}\in\R^2}\) et \(u\in E\) telle que \(u\paren{x}=x\ln x\) pour tout \(x\in\intervei{0}{1}\). Déterminez le projeté orthogonal de \(u\) sur \(F\). \\
+    \item Déterminez \(\inf_{\paren{a,b}\in\R^2}\int_0^1\paren{at+b-t\ln t}^2t^2\odif{t}\).
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Oral CCINP, 3]
+Soit \(E=\ensclasse{2}{\intervii{0}{1}}{\R}\). On pose pour \(\paren{f,g}\in E^2\) : \(\ps{f}{g}=\int_0^1\paren{fg+f\prim g\prim}\).
+
+On considère les sous-ensembles \[V=\accol{f\in E\tq f\seconde=f}\qquad G=\accol{f\in E\tq f\paren{0}=f\paren{1}=0}\qquad H=\accol{f\in E\tq f\paren{0}=\ch1\text{ et }f\paren{1}=1}.\]
+
+\begin{enumerate}
+    \item Montrez que la famille \(\paren{\ch,\sh}\) est une base de \(V\). \\
+    \item Soient \(f\in V\) et \(g\in E\). Montrez que \(\ps{f}{g}=f\prim\paren{1}g\paren{1}-f\prim\paren{0}g\paren{0}\). Calculez \(\ps{\ch}{\sh}\), \(\norme{\ch}^2\) et \(\norme{\sh}^2\). \\
+    \item Soient \(f\in V\) et \(g\in G\). Montrez que \(\ps{f}{g}=0\). \\
+    \item Soit \(f\in H\). Calculez \(\ps{f}{\ch}\) et \(\ps{f}{\sh}\). Déduisez-en le projeté orthogonal de \(f\) sur \(V\). \\
+    \item Calculez \(\inf_{f\in H}\int_0^1\paren{f^2+{f\prim}^2}\).
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Oral CCINP, 4]
+Soient \(E\) un espace euclidien, \(\paren{e_1,\dots,e_n}\) une base orthonormée de \(E\) et \(\paren{u_1,\dots,u_n}\) une famille de vecteurs de \(E\).
+
+\begin{enumerate}
+    \item Soit \(\paren{\lambda_1,\dots,\lambda_n}\in\R^n\). Montrez que \(\norme{\sum_{i=1}^n\lambda_iu_i}^2\leq\sum_{i=1}^n\lambda_i^2\times\sum_{i=1}^n\norme{u_i}^2\). \\
+    \item Déduisez-en que si \(\sum_{i=1}^n\norme{u_i}^2<1\), alors la famille \(\paren{e_i+u_i}_{1\leq i\leq n}\) est une base de \(E\).
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Oral CCINP, 5]
+Soient \(E\) un espace euclidien et \(\fami{B}=\paren{e_1,\dots,e_n}\) une base orthonormée de \(E\). On note \(D\) la droite engendrée par le vecteur \(u=\sum_{k=1}^nke_k\).
+
+\begin{enumerate}
+    \item Donnez la matrice dans la base \(\fami{B}\) du projecteur orthogonal sur \(D\), noté \(p\). \\
+    \item Donnez le polynôme caractéristique et le spectre de \(p\). \\
+    \item Calculez la distance de \(v=\sum_{k=1}^ne_k\) à \(D\).
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Oral CCINP, 6]
+Soient \(A\in\sym{n}[\R]\) une matrice définie-positive et \(B\in\M{n\,m}[\R]\) une matrice de rang \(m\).
+
+\begin{enumerate}
+    \item Montrez que \(n\geq m\). \\
+    \item Montrez que \(C=\begin{pmatrix}
+        A & B \\
+        \trans{B} & 0
+    \end{pmatrix}\) est inversible.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Oral IMT, 7]
+Soient \(E\) un espace euclidien et \(f\) un endomorphisme auto-adjoint défini-positif de \(E\).
+
+\begin{enumerate}
+    \item Montrez que \(\paren{x,y}\mapsto\ps{f\paren{x}}{y}\) est un produit scalaire sur \(E\). \\
+    \item Montrez qu'il existe un endomorphisme auto-adjoint défini-positif \(g\) tel que \(g^2=f\).
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Oral IMT, 8]
+Soient \(A\in\M{n}[\R]\) telle que \(A\trans{A}=\trans{A}A\) et \(p\geq2\) tel que \(A^p=0\).
+
+Montrez que \(A=0\).
+\end{exo}
+
+\begin{exo}[Oral CCINP, 9]
+Soient \(A,B\in\Orth{n}[\R]\) telles que \(M=\dfrac{1}{3}\paren{2A+B}\in\Orth{n}[\R]\).
+
+\begin{enumerate}
+    \item Calculez \(A\trans{B}+B\trans{A}\) en calculant \(M\trans{M}\). \\
+    \item Montrez que \(A=B\).
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Oral CCINP, 10]~\\
+Soient \(C\in\M{n\,1}[\R]\) et \(M=\begin{pmatrix}
+1 & -\trans{C} \\
+C & I_n
+\end{pmatrix}\in\M{n+1}[\R]\).
+
+\begin{enumerate}
+    \item Calculez \(\trans{M}M\), déduisez-en que \(M\) est inversible. \\
+    \item Montrez que \(M\inv\trans{M}\) est une matrice orthogonale.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Oral CCINP, 11]
+Soit \(M\in\M{n}[\R]\) telle que \(M\not=I_n\), \(M^3=I_n\) et \(M\trans{M}=\trans{M}M\).
+
+\begin{enumerate}
+    \item Montrez que \(M\in\Orth{n}[\R]\). \\
+    \item Dans le cas où \(n=3\), déterminez les matrices \(M\) vérifiant les conditions de l'énoncé.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Oral CCMP, 12]~\\
+\begin{enumerate}
+    \item Montrez que \(\dim\sym{n}[\R]=\dfrac{n\paren{n+1}}{2}\). \\
+    \item Est-ce que l'ensemble des matrices nilpotentes de \(\M{n}[\R]\) est un espace vectoriel ? \\
+    \item Soit \(\fami{N}\) un sous-espace de \(\M{n}[\R]\) constitué de matrices nilpotentes. Montrez que \(\dim\fami{N}\leq\dfrac{n\paren{n-1}}{2}\). \\
+    \item Peut-on avoir \(\dim\fami{N}=\dfrac{n\paren{n-1}}{2}\) ?
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Oral Centrale, 13]
+Soit \(A\in\M{n}[\R]\). On dit que \(A\) est une matrice normale quand \(A\trans{A}=\trans{A}A\).
+
+\begin{enumerate}
+    \item Déterminez les matrices normales de \(\M{2}[\R]\). \\
+    \item Montrez que toute matrice normale stabilise un espace de dimension \(1\) ou \(2\). \\
+    \item Montrez que si \(A\) est normale, alors il existe \(P\in\Orth{n}[\R]\) telle que \(\trans{P}AP\) soit diagonale par blocs, chaque bloc diagonal étant soit un bloc \(\paren{a}\), soit un bloc \(\begin{pmatrix}
+        a & c \\
+        -c & b
+    \end{pmatrix}\).
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Oral Centrale, 14]
+Soit \(A\in\M{n\,p}[\R]\). On munit \(\R^n\) et \(\R^p\) de leurs produits scalaires canoniques.
+
+\begin{enumerate}
+    \item Montrez que \(\ker A=\ker\trans{A}A\). Déduisez-en que \(\rg A=\rg\trans{A}A\) (noté \(r\) dans la suite). \\
+    \item Montrez qu'il existe une famille orthonormée \(\paren{y_1,\dots,y_r}\) de \(\R^r\) telle que la matrice \(Y\) de colonnes \(y_1,\dots,y_r\) vérifie \(\trans{Y}\trans{A}AY=D\), où \(D\) est diagonale à coefficients diagonaux strictement positifs. \\
+    \item Montrez qu'il existe \(U,V\) orthogonales et \(\Delta\) diagonale telles que \(A=U\Delta V\).
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Oral CCMP, 15]
+Soit \(A=\paren{a_{i\,j}}\in\symdefpos{n}[\R]\).
+
+\begin{enumerate}
+    \item Montrez que \(\quantifs{\tpt\paren{i,j}\in\interventierii{1}{n}^2}a_{i\,j}>0\text{ et }a_{i\,j}^2\leq a_{i\,i}a_{j\,j}\). \\
+    \item Montrez que \(\max_{\paren{i,j}\in\interventierii{1}{n}^2}\abs{a_{i\,j}}=\max_{k\in\interventierii{1}{n}}a_{k\,k}\).
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Oral CCMP, 16]
+\begin{enumerate}
+    \item Montrez que si \(A,B\in\sympos{n}[\R]\), alors \(\tr\paren{AB}\geq0\). \\
+    \item Déterminez les matrices \(M\in\M{n}[\R]\) telles que \(\quantifs{\forall S\in\sympos{n}[\R]}\tr\paren{MS}\geq0\).
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Oral CCMP, 17]
+Soient \(A\in\M{n}[\R]\) et \(k\geq2\) tels que \(A^k=\trans{A}\).
+
+\begin{enumerate}
+    \item Montrez que \(\ker A\) et \(\Im A\) sont supplémentaires orthogonaux dans \(\R^n\). \\
+    \item Montrez que \(B=A^{k+1}\) est une matrice de projecteur orthogonal. \\
+    \item Montrez que \(A\) induit une isométrie sur \(\Im A\). \\
+    \item Déduisez-en \(A\).
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Oral CCMP, 18]
+Soient \(S\in\symdefpos{n}[\R]\) et \(A\in\antisym{n}[\R]\).
+
+\begin{enumerate}
+    \item Montrez que le spectre complexe de \(A\) est inclus dans \(\iR\). \\
+    \item Montrez qu'il existe \(S\prim\in\symdefpos{n}[\R]\) telle que \({S\prim}^2=S\). \\
+    \item Montrez que \(\det S\leq\det\paren{S+A}\).
+\end{enumerate}
+\end{exo}
+
+\section*{Problème}
+\addcontentsline{toc}{section}{Problème}
+
+\subsection*{Notations}
+\addcontentsline{toc}{subsection}{Notations}
+
+Pour ce problème, on désigne par \(n\) un entier naturel non-nul.
+
+On note \(\sym{n}[\R]=\accol{A\in\M{n}[\R]\tq\trans{A}=A}\) le sous-espace vectoriel de \(\M{n}[\R]\) formé des matrices symétriques.
+
+Un vecteur de \(\R^n\) est noté \(x=\paren{x_j}_{1\leq j\leq n}=\tcoords{x_1}{\vdots}{x_n}\) en identifiant les matrices-colonnes de \(\M{n\,1}[\R]\) avec les éléments de \(\R^n\).
+
+Une matrice \(A\) de \(\M{n}[\R]\) est notée \(A=\paren{a_{i\,j}}_{1\leq i,j\leq n}\) où \(a_{i\,j}\) est le coefficient de \(A\) situé en ligne \(i\) et colonne \(j\).
+
+\(\Sp{A}\) est le spectre de \(A\), ensemble de ses valeurs propres.
+
+L'espace vectoriel \(\R^n\) est muni du produit scalaire canonique défini par \[\quantifs{\forall\paren{x,y}\in\R^n\times\R^n}\ps{x}{y}=\trans{x}y=\sum_{k=1}^nx_ky_k\] et \(x\mapsto\norme{x}=\sqrt{\ps{x}{x}}\) est la norme euclidienne associée.
+
+La sphère unité de \(R^n\) est notée \(\Omega_n=\accol{x\in\R^n\tq\norme{x}=1}\).
+
+À toute matrice \(A\in\M{n}[\R]\), on associe la fonction \(q_A:\R^n\to\R\) définie par \[\quantifs{\forall x\in\R^n}q_A\paren{x}=\ps{Ax}{x}.\]
+
+\subsection*{Une norme sur \(\sym{n}[\R]\)}
+\addcontentsline{toc}{subsection}{Une norme sur \(\sym{n}[\R]\)}
+
+\setcounter{q}{0}
+
+\begin{q}
+Soit \(A\in\M{n}[\R]\).
+
+\begin{enumerate}
+    \item Montrez que la fonction \(q_A\) est bornée et atteint ses bornes sur la sphère unité \(\Omega_n\). On note alors \[m_A=\min_{x\in\Omega_n}q_A\paren{x}\qquad\text{et}\qquad M_A=\max_{x\in\Omega_n}q_A\paren{x}.\] \\
+    \item Démontrez que toute valeur propre réelle de \(A\) se trouve dans l'intervalle \(\intervii{m_A}{M_A}\). \\
+    \item Explicitez \(\Sp{A}\), \(m_A\) et \(M_A\) pour la matrice \[A=\begin{pmatrix}
+        2 & -1 \\
+        0 & 2
+    \end{pmatrix}.\]
+\end{enumerate}
+\end{q}
+
+\begin{q}
+Soit \(A\in\M{n}[\R]\). On suppose que \(q_A\paren{x}=0\) pour tout \(x\in\Omega_n\).
+
+\begin{enumerate}
+    \item Montrez que \(q_A\paren{y}=0\) pour tout \(y\in\R^n\). \\
+    \item Si \(\paren{y,z}\in\R^n\times\R^n\), exprimez \(q_A\paren{y+z}\) (qui est nul d'après la question 2a) en fonction de \(\ps{Ay}{z}\) et \(\ps{Az}{y}\). \\
+    \item Montrez que la matrice \(A\) est anti-symétrique (c'est à dire que \(\trans{A}=-A\)).
+\end{enumerate}
+\end{q}
+
+\begin{q}
+Soit \(A\in\sym{n}[\R]\). Montrez que \[\croch{\quantifs{\forall x\in\Omega_n}q_A\paren{x}=0}\ssi A=0_n.\]
+\end{q}
+
+\begin{q}
+Montrez que l'application \(N:\sym{n}[\R]\to\R\) définie par \[\quantifs{\forall A\in\sym{n}[\R]}N\paren{A}=\sup_{x\in\Omega_n}\abs{q_A\paren{x}}\] est une norme.
+\end{q}
+
+\begin{q}
+On considère \(A\in\sym{n}[\R]\) et \(u\) l'endomorphisme de \(\R^n\) canoniquement associé à \(A\).
+
+\begin{enumerate}
+    \item Justifiez qu'il existe \(n\) nombres réels \[\lambda_1\leq\dots\leq\lambda_n\] et une base orthonormée \(\paren{e_k}_{1\leq k\leq n}\) de \(\R^n\) tels que \[\quantifs{\forall k\in\interventierii{1}{n}}u\paren{e_k}=Ae_k=\lambda_ke_k.\] \\
+    \item Précisez \(q_A\paren{e_k}\) pour tout \(k\in\interventierii{1}{n}\). \\
+    \item Soit \(x=\sum_{k=1}^nx_k\prim e_k\in\Omega_n\). Exprimez \(q_A\paren{x}\) en fonction des valeurs propres \(\lambda_k\) de \(A\) et des composantes \(x_k\prim\) de \(x\). \\
+    \item Redémontrez le résultat de la question 1 : la fonction \(q_A\) possède un minimum \(m_A\) et un maximum \(M_A\) sur la sphère unité \(\Omega_n\). Explicitez \(m_A\) et \(M_A\) en fonction des valeurs propres de \(A\). \\
+    \item Montrez que \[N\paren{A}=\sup_{x\in\Omega_n}\abs{q_A\paren{x}}=\max_{\lambda\in\Sp{A}}\abs{\lambda}.\] Établissez une inégalité entre \(\abs{\det A}\) et \(\paren{N\paren{A}}^n\). \\
+    \item Exemple : si \(A=\begin{pmatrix}
+        1 & \nicefrac{1}{2} \\
+        \nicefrac{1}{2} & \nicefrac{1}{3}
+    \end{pmatrix}\), calculez \(\det A\) et \(N\paren{A}\).
+\end{enumerate}
+\end{q}
+
+Dans toute la suite du problème, pour tout entier \(n\geq2\), on désigne par \(H_n\) la matrice de Hilbert d'ordre \(n\) définie par \[H_n=\paren{\dfrac{1}{i+j-1}}_{1\leq i,j\leq n}=\begin{pmatrix}
+1 & \nicefrac{1}{2} & \dots & \nicefrac{1}{n} \\
+\nicefrac{1}{2} & \nicefrac{1}{3} & \dots & \nicefrac{1}{n+1} \\
+\vdots & \vdots &  & \vdots \\
+\nicefrac{1}{n} & \nicefrac{1}{n+1} & \dots & \nicefrac{1}{2n-1}
+\end{pmatrix}\] ou encore \(H_n=\paren{a_{i\,j}}_{1\leq i,j\leq n}\) avec \(a_{i\,j}=\dfrac{1}{i+j-1}\).
+
+Pour simplifier, on notera \(q_n\) la fonction \(q_{H_n}:\R^n\to\R\) : \(\quantifs{\forall x\in\R^n}q_n\paren{x}=q_{H_n}\paren{x}=\ps{H_nx}{x}\).
+
+\subsection*{Sur les valeurs propres de \(H_n\)}
+\addcontentsline{toc}{subsection}{Sur les valeurs propres de \(H_n\)}
+
+\begin{q}
+Soit \(x=\paren{x_j}_{1\leq j\leq n}\in\R^n\).
+
+\begin{enumerate}
+    \item Montrez que \[q_n\paren{x}=\ps{H_nx}{x}=\sum_{i=1}^n\paren{\sum_{j=1}^n\dfrac{x_j}{i+j-1}}x_i=\sum_{1\leq i,j\leq n}\dfrac{x_ix_j}{i+j-1}.\] \\
+    \item Développez \(\paren{\sum_{i=1}^nx_it^{i-1}}\paren{\sum_{j=1}^nx_jt^{j-1}}\) où \(t\) est une variable réelle. \\
+    \item Montrez que \(q_n\paren{x}=\int_0^1\paren{\sum_{j=1}^nx_jt^{j-1}}^2\odif{t}\). \\
+    \item Montrez que \[\quantifs{\forall x\in\R^n}q_n\paren{x}\geq0\] et \[\quantifs{\forall x\in\R^n}q_n\paren{x}=0\ssi x=0.\] Que peut-on en déduire concernant les valeurs propres de \(H_n\) ?
+\end{enumerate}
+\end{q}
+
+\begin{q}
+\begin{enumerate}
+    \item Soit \(P\paren{t}=\sum_{k=0}^ma_kt^k\) un polynôme à coefficients complexes. \\ Montrez que \(\int_{-1}^1P\paren{t}\odif{t}=-\i\int_0^\pi P\paren{\e{\i\theta}}\e{\i\theta}\odif{\theta}\). \\ \textit{On pourra expliciter \(\int_{-1}^1t^k\odif{t}\) et \(-\i\int_0^\pi\e{\i k\theta}\e{\i\theta}\odif{\theta}\).} \\
+    \item En gardant les notations introduites dans la question 6 et en notant \(Q\paren{t}=\sum_{k=1}^nx_kt^{k-1}\), montrez que pour tout \(x\in\R^n\), on a \[0\leq q_n\paren{x}=\int_0^1Q^2\paren{t}\odif{t}\leq\int_0^\pi\abs{\sum_{k=1}^nx_k\e{\i\paren{k-1}\theta}}^2\odif{\theta}.\]
+\end{enumerate}
+\end{q}
+
+\begin{q}
+\begin{enumerate}
+    \item Soit \(f\) une fonction continue sur \(\intervii{0}{\pi}\) à valeurs complexes telle que \(\int_0^\pi\abs{f\paren{\theta}}\odif{\theta}=\abs{\int_0^\pi f\paren{\theta}\odif{\theta}}\). \\ Montrez que \(f\) est à valeurs dans \(\Rp\). \\
+    \item Soit \(P\paren{t}=\sum_{k=0}^ma_kt^k\) un polynôme à coefficients complexes. \\ Calculez, pour \(k\in\interventierii{0}{n}\), \(\int_0^{2\pi}P\paren{\e{\i\theta}}\e{-\i k\theta}\odif{\theta}\). \\ Déduisez-en que s'il existe \(\alpha\in\R\) tel que \(\quantifs{\tpt\theta}P\paren{\e{\i\theta}}\e{-\i\alpha}\in\Rp\), alors \(P\) est constant. \\
+    \item Montrez que les inégalités de la question 7b sont strictes pour \(x\not=0\).
+\end{enumerate}
+\end{q}
+
+\begin{q}
+Montrez que \[\quantifs{\forall x\in\R^n}0\leq q_n\paren{x}\leq\pi\norme{x}^2,\] les inégalités étant strictes pour \(x\not=0\).
+\end{q}
+
+\begin{q}
+Pour tout entier \(n\geq2\), on note \[\mu_n=\min\Sp{H_n}\qquad\text{et}\qquad\rho_n=\max\Sp{H_n}.\]
+
+\begin{enumerate}
+    \item Explicitez \(\mu_2\) et \(\rho_2\). Montrez que pour tout \(n\geq2\), on a \[0<\mu_n<\rho_n<\pi.\] \\
+    \item Montrez que \(q_n\paren{\Omega_n}=\intervii{\mu_n}{\rho_n}\). \\
+    \item Calculez \(\ps{H_n\epsilon_n}{\epsilon_n}\) où \(\epsilon_n\) désigne le dernier vecteur de la base canonique de \(\M{n\,1}[\R]\) : \(\epsilon_n=\begin{pmatrix}
+        0 \\
+        \vdots \\
+        0 \\
+        1
+    \end{pmatrix}\). \\ Déduisez-en la limite de \(\mu_n\) lorsque \(n\to\pinf\).
+\end{enumerate}
+\end{q}
+
+\subsection*{Sur le déterminant de \(H_n\)}
+\addcontentsline{toc}{subsection}{Sur le déterminant de \(H_n\)}
+
+\(H_n\) désigne toujours la matrice de Hilbert d'ordre \(n\), pour \(n\geq2\).
+
+\begin{q}[Une fraction rationnelle]
+On considère la fraction rationnelle \[R_n\paren{x}=\dfrac{\ds\prod_{k=1}^n\paren{x-k}}{\ds\prod_{k=0}^n\paren{x+k}}.\]
+
+On admettra qu'il existe des réels \(\lambda_{0\,n},\dots,\lambda_{n\,n}\) tels que \[\quantifs{\forall x\in\R\excluant\accol{0,\dots,-n}}R_n\paren{x}=\sum_{k=0}^n\dfrac{\lambda_{k\,n}}{x+k},\] cette décomposition (en éléments simples) de \(R_n\) étant unique.
+
+Exprimez le coefficient \(\lambda_{n\,n}\) de \(\dfrac{1}{x+n}\) à l'aide de \(\paren{2n}!\) et de \(n!\).
+\end{q}
+
+\begin{q}[Matrice \(A_n\)]
+Pour \(n\geq2\), on considère la matrice \(A_n\) définie par \(A_n=\paren{a_{i\,j}}_{1\leq i,j\leq n}\) avec \[a_{i\,j}=\begin{dcases}
+\dfrac{1}{i+j-1} &\text{pour }1\leq i\leq n-1\text{ et }1\leq j\leq n \\
+R_{n-1}\paren{j} &\text{pour }i=n\text{ et }1\leq j\leq n
+\end{dcases}\] où les \(R_p\) ont été définis plus haut.
+
+\begin{enumerate}
+    \item Montrez que pour \(1\leq i\leq n\), on a \[R_{n-1}\paren{i}=\sum_{j=1}^n\lambda_{j-1\,n-1}h_{i\,j}\] puis déduisez-en que \(\det A_n=\binom{n-1}{2\paren{n-1}}\det H_n\). \\
+    \item Montrez que \[\det A_n=\dfrac{\det H_{n-1}}{\paren{2n-1}\binom{n-1}{2\paren{n-1}}}.\] Déduisez-en l'expression de \(\det H_n\) en fonction de \(\det H_{n-1}\). \\
+    \item Montrez que pour tout \(n\geq2\), \[\det H_n\not=0,\] puis que \[\dfrac{1}{\det H_n}\in\Ns.\]
+\end{enumerate}
+\end{q}
+
+\begin{q}[Calcul de \(\det H_n\)]
+En notant, pour tout \(n\in\Ns\) : \(\Phi_n=\prod_{k=1}^nk!\), montrez que \[\quantifs{\forall n\geq2}\det H_n=\dfrac{\Phi_{n-1}^4}{\Phi_{2n-1}}.\]
+\end{q}
