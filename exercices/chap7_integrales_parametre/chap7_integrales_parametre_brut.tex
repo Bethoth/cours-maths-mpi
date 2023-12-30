@@ -2,4 +2,608 @@
 
 \minitoc
 
-\note{À venir}
+\section*{Exercices}
+\addcontentsline{toc}{section}{Exercices}
+
+\begin{exos}
+Déterminez les limites suivantes :
+
+\begin{enumerate}
+    \item \(\lim_{n\to\pinf}\int_0^{\pinf}\dfrac{1}{\paren{1+t^2}^n}\odif{t}\) \\
+    \item \(\lim_{n\to\pinf}\int_0^{\pinf}\dfrac{t^n}{1+t^{n+2}}\odif{t}\) \\
+    \item \(\lim_{n\to\pinf}\int_0^{\pinf}\dfrac{\odif{x}}{x^n+\e{x}}\)
+\end{enumerate}
+\end{exos}
+
+\begin{exoss}
+Déterminez les limites suivantes :
+
+\begin{enumerate}
+    \item \(\lim_{n\to\pinf}\int_0^{\pinf}\paren{1+\dfrac{t}{2n}}^n\e{-t}\odif{t}\) \\
+    \item \(\lim_{n\to\pinf}\int_{\minf}^{\pinf}\paren{1+\dfrac{t^2}{n}}^{-n}\odif{t}\) \\
+    \item \(\lim_{n\to\pinf}\int_0^1\dfrac{1+nx}{\paren{1+x}^n}\odif{x}\)
+\end{enumerate}
+\end{exoss}
+
+\begin{exoss}
+Pour tout \(n\in\N\), on pose \(I_n=\int_0^1\sin\paren{t^n}\odif{t}\).
+
+\begin{enumerate}
+    \item Établissez l'inégalité suivante : \(\quantifs{\forall u\in\R}\abs{\sin u}\leq\abs{u}\). \\
+    \item Déduisez-en la limite de la suite \(\paren{I_n}_{n\geq0}\) puis retrouvez ce résultat par une autre méthode. \\
+    \item À l'aide du changement de variable \(t=u^{\nicefrac{1}{n}}\), montrez que \[I_n\simqd{n\to\pinf}\dfrac{J}{n}\] où \(J\) est une intégrale qu'on ne cherchera pas à calculer.
+\end{enumerate}
+\end{exoss}
+
+\begin{exoss}
+\begin{enumerate}
+    \item Soit \(f:\intervii{0}{1}\to\R\) continue. Montrez que \(\int_0^1f\paren{t^n}\odif{t}\tendqd{n\to\pinf}f\paren{0}\). \\
+    \item Cherchez un équivalent de \(\int_0^1\dfrac{t^n}{1+t^n}\odif{t}\). \\
+    \item Cherchez un équivalent de \(-1+\int_0^1\sqrt{1+t^n}\odif{t}\).
+\end{enumerate}
+\end{exoss}
+
+\begin{exoss}
+Soit \(x\in\intervii{0}{n}\).
+
+Montrez que \(\paren{1-\dfrac{x}{n}}^n\leq\e{-x}\).
+
+Déduisez-en \(\lim_{n\to\pinf}\int_0^n\paren{1-\dfrac{x}{n}}^nx^p\odif{x}\) pour \(p\in\N\).
+\end{exoss}
+
+\begin{exoss}
+En utilisant notamment un changement de variable et le théorème de convergence dominée, démontrez que \[\int_1^{\pinf}\e{-x^n}\odif{x}\simqd{n\to\pinf}\dfrac{K}{n}\] où \(K=\int_1^{\pinf}\dfrac{\e{-t}}{t}\odif{t}\).
+\end{exoss}
+
+\begin{exos}
+En développant en série \(\dfrac{1}{1-t}\), démontrez que \[\int_0^1\dfrac{\ln t}{1-t}\odif{t}=-\sum_{n=1}^{\pinf}\dfrac{1}{n^2}.\]
+\end{exos}
+
+\begin{exoss}~\\
+Montrez que \(\int_0^{\pinf}\dfrac{\sin t}{\e{t}-1}\odif{t}=\sum_{n=1}^{\pinf}\dfrac{1}{n^2+1}\).
+\end{exoss}
+
+\begin{exoss}
+Montrez que la série \(\sum_n\paren{-1}^n\int_0^{\nicefrac{\pi}{2}}\cos\paren{t}^n\odif{t}\) converge et donnez la valeur de sa somme.
+\end{exoss}
+
+\begin{exoss}
+Soit \(\paren{a_n}\) une suite telle que la série \(\sum_na_n\) converge absolument.
+
+\begin{enumerate}
+    \item Montrez que pour tout \(x\in\R\), la série \(\sum_n\dfrac{a_n}{n!}x^n\) est convergente. \\
+    \item On pose \(f\paren{x}=\sum_{n=0}^{\pinf}\dfrac{a_n}{n!}x^n\e{-x}\). On admettra momentanément que \(f\) est continue sur \(\R\). \\ Montrez que \(f\) est intégrable sur \(\intervie{0}{\pinf}\) et que \(\int_0^{\pinf}f\paren{x}\odif{x}=\sum_{n=0}^{\pinf}a_n\).
+\end{enumerate}
+\end{exoss}
+
+\begin{exoss}
+Montrez que la fonction \(S:x\mapsto\sum_{n=1}^{\pinf}\dfrac{\paren{-1}^n}{1+n^2x^2}\) est définie sur \(\Rps\).
+
+On admettra momentanément que \(S\) est continue sur \(\R\).
+
+Prouvez l'existence de \(\int_0^{\pinf}S\paren{x}\odif{x}\) et calculez la.
+\end{exoss}
+
+\begin{exoss}~\\
+On admet que \(\int_0^{\pinf}\e{-t^2}\odif{t}=\dfrac{\sqrt{\pi}}{2}\) (voir un exercice ci-dessous).
+
+Montrez que \(\quantifs{\tpt x\in\intervee{-1}{1}}\dfrac{2x}{\sqrt{\pi}}\int_0^{\pinf}\dfrac{1}{\e{t^2}-x}\odif{t}=\sum_{n=1}^{\pinf}\dfrac{x^n}{\sqrt{n}}\).
+\end{exoss}
+
+\begin{exoss}
+Existence et calcul de \(\int_0^{\pinf}\dfrac{x}{\sh x}\odif{x}\) (on admet que \(\sum_{n=1}^{\pinf}\dfrac{1}{n^2}=\dfrac{\pi^2}{6}\)).
+\end{exoss}
+
+\begin{exoss}[Intégrale de Gauss]
+Le but de cet exercice est de déterminer la valeur de l'intégrale de Gauss \[I=\int_0^{\pinf}\e{-t^2}\odif{t}.\]
+
+Pour tout \(x\in\Rp\), on pose \[g\paren{x}=\int_0^1\dfrac{\e{-x^2\paren{1+t^2}}}{1+t^2}\odif{t}\qquad\text{et}\qquad h\paren{x}=\int_0^\pi\e{-t^2}\odif{t}.\]
+
+\begin{enumerate}
+    \item Montrez que \(g\) et \(h\) sont de classe \(\classe{1}\) sur \(\Rp\) et calculez leurs dérivées. \\
+    \item Montrez que \(g+h^2\) est une fonction constante sur \(\Rp\), constante que l'on déterminera. \\
+    \item Montrez que \(\lim_{x\to\pinf}g\paren{x}=0\). \\
+    \item En déduire que \(I=\dfrac{\sqrt{\pi}}{2}\).
+\end{enumerate}
+\end{exoss}
+
+\begin{exoss}[Fonction caractéristique de la loi normale centrée réduite]
+On cherche à calculer explicitement la fonction \(\phialt\) définie par \[\quantifs{\forall t\in\R}\phialt\paren{t}=\dfrac{1}{\sqrt{2\pi}}\int_{\minf}^{\pinf}\e{\i tx}\e{-\nicefrac{x^2}{2}}\odif{x}.\]
+
+NB : il s'agit de la fonction caractéristique pour la loi normale centrée réduite. Pour les variables aléatoires continues, la fonction caractéristique joue un rôle analogue à la fonction génératrice pour les variables discrètes.
+
+\begin{enumerate}
+    \item Montrez que \(\phialt\) est de classe \(\classe{1}\) sur \(\R\) et donnez une expression de sa dérivée. \\
+    \item Montrez que \(\phialt\) est solution d'une équation différentielle linéaire d'ordre 1 que l'on précisera. \\
+    \item À l'aide de l'intégrale de Gauss, calculez \(\phialt\paren{0}\). \\
+    \item Montrez enfin que \(\quantifs{\forall t\in\R}\phialt\paren{t}=\e{-\nicefrac{t^2}{2}}\).
+\end{enumerate}
+\end{exoss}
+
+\begin{exoss}
+On pose, pour tout réel \(a\) : \(F\paren{a}=\int_0^1\dfrac{t^2}{\sqrt{1+a^4t^2}}\odif{t}\).
+
+\begin{enumerate}
+    \item Montrez que la fonction \(F\) est bien définie et continue sur \(\R\). \\
+    \item Déduisez-en la valeur de \(\lim_{a\to0}\int_0^1\dfrac{t^2}{\sqrt{1+a^4t^2}}\odif{t}\).
+\end{enumerate}
+\end{exoss}
+
+\begin{exoss}
+On considère la fonction \(F:x\mapsto\int_0^{\pinf}\dfrac{\sin\paren{xt}}{t}\e{-t}\odif{t}\).
+
+\begin{enumerate}
+    \item Déterminez le domaine de définition de \(F\). \\
+    \item Montrez que \(F\) est de classe \(\classe{1}\) sur son domaine de définition. \\
+    \item Calculez \(F\prim\) et déduisez-en \(F\).
+\end{enumerate}
+\end{exoss}
+
+\begin{exoss}
+Démontrez que la fonction \(F\) définie par \[\quantifs{\forall p\geq0}F\paren{p}=\int_0^{\pinf}\dfrac{\e{-pt}}{1+t^2}\odif{t}\] est continue sur \(\intervie{0}{\pinf}\) et de classe \(\classe{\infty}\) sur \(\intervee{0}{\pinf}\).
+\end{exoss}
+
+\begin{exoss}
+Soient \(\paren{a,b}\in\R^2\) tel que \(a>0\). On pose \[g\paren{x}=\int_0^{\pinf}\dfrac{\e{-xt}-\e{-at}}{t}\cos\paren{bt}\odif{t}.\]
+
+\begin{enumerate}
+    \item Justifiez que \(g\) est bien définie sur \(\Rps\). \\
+    \item Justifiez que \(g\) est de classe \(\classe{1}\) sur \(\Rps\). \\
+    \item Calculez \(g\prim\) puis \(g\).
+\end{enumerate}
+\end{exoss}
+
+\begin{exoss}[Compléments sur la fonction Gamma d'Euler]
+On rappelle la définition de la fonction Gamma d'Euler : \[\quantifs{\forall x>0}\Gamma\paren{x}=\int_0^{\pinf}t^{x-1}\e{-t}\odif{t}.\]
+
+Démontrez la relation suivante : \[\quantifs{\forall x>1}\Gamma\paren{x}\zeta\paren{x}=\int_0^{\pinf}\dfrac{t^{x-1}}{\e{t}-1}\odif{t},\] où \(\zeta\) est la fonction zêta de Riemann vérifiant \(\zeta\paren{x}=\sum_{n=1}^{\pinf}n^{-x}\) pour tout réel \(x>1\).
+\end{exoss}
+
+\begin{exoss}[Transformée de Fourier]
+Soit \(f:\R\to\C\) une fonction continue par morceaux et intégrable sur \(\R\). On définit la transformée de Fourier de \(f\), notée \(\hat{f}\), par : \[\quantifs{\forall\omega\in\R}\hat{f}\paren{\omega}=\int_{\minf}^{\pinf}f\paren{x}\e{-\i\omega x}\odif{x}.\]
+
+\begin{enumerate}
+    \item Montrez que la fonction \(\hat{f}\) est bien définie et continue sur \(\R\). \\
+    \item On suppose de plus que \(f\) est de classe \(\classe{1}\) et que \(f\prim\) est intégrable sur \(\R\). \\ \begin{enumerate}
+        \item Montrez que \(\lim_{\pm\infty}f=0\). \\
+        \item Montrez que \(\quantifs{\forall\omega\in\R}\widehat{f\prim}\paren{\omega}=\i\omega\hat{f}\paren{\omega}\).
+    \end{enumerate}
+\end{enumerate}
+\end{exoss}
+
+\begin{exoss}~\\
+On pose \(g\paren{x}=\int_0^1\dfrac{t^x-1}{\ln t}\odif{t}\).
+
+\begin{enumerate}
+    \item \begin{enumerate}
+        \item Déterminez le domaine de définition \(\fami{D}\) de \(g\). \\
+        \item Montrez que \(g\) est de classe \(\classe{1}\) sur \(\fami{D}\) et calculez sa dérivée. \\
+        \item Déduisez-en l'expression de \(g\). \\
+    \end{enumerate}
+    \item On pose, pour tout \(\paren{\alpha,\beta}\in\R^2\) : \(I\paren{\alpha,\beta}=\int_0^1\dfrac{t^\alpha-t^\beta}{\ln t}\odif{t}\). \\ \begin{enumerate}
+        \item Pour quelles valeurs de \(\paren{\alpha,\beta}\) cette intégrale est-elle convergente ? \\
+        \item Lorsqu'elle converge, pratiquez le changement de variable \(u\mapsto u^\gamma\) dans cette intégrale. Déduisez-en la valeur de \(I\paren{\alpha,\beta}\).
+    \end{enumerate}
+\end{enumerate}
+\end{exoss}
+
+\begin{exoss}
+On s'intéresse au comportement de la fonction \(F\) de l'exercice 18 au voisinage de \(0\).
+
+\begin{enumerate}
+    \item Montrez que pour tout \(p>0\), \(F\prim\paren{p}\) se met sous la forme \[F\prim\paren{p}=\int_0^{\pinf}G\paren{p,u}\e{-u}\odif{u},\] où \(G\paren{p,u}\) est une fonction rationnelle des variables \(p\) et \(u\) que l'on précisera. \\
+    \item Conjecturez la limite quand \(p\to0^+\) de \(F\prim\paren{p}\) puis démontrez la. \\
+    \item La fonction \(F\) est-elle dérivable en \(0\) ? Donnez une interprétation graphique du résultat.
+\end{enumerate}
+\end{exoss}
+
+\begin{exoss}[Prolongement \(\classe{\infty}\)]
+Soit \(f\) une fonction de classe \(\classe{\infty}\) sur \(\R\) telle que \(f\paren{0}=0\).
+
+\begin{enumerate}
+    \item Montrez que \(\quantifs{\forall x\in\Rs}\dfrac{f\paren{x}}{x}=\int_0^1f\prim\paren{tx}\odif{t}\). \\
+    \item Déduisez-en que \(g:x\mapsto\dfrac{f\paren{x}}{x}\) se prolonge en une fonction de classe \(\classe{\infty}\) sur \(\R\).
+\end{enumerate}
+\end{exoss}
+
+\begin{exoss}
+On donne la valeur de l'intégrale de Dirichlet : \[\int_0^{\pinf}\dfrac{\sin u}{u}\odif{u}=\dfrac{\pi}{2}.\]
+
+Calculez, pour tout réel \(x\) positif : \[g\paren{x}=\int_0^{\pinf}\dfrac{\sin\paren{xt}}{t\paren{1+t^2}}\odif{t}.\]
+\end{exoss}
+
+\begin{exoss}
+Soit \(f\in\ensclasse{0}{\intervii{0}{1}}{\R}\).Démontrez que \[\lim_{h\to0^+}\int_0^1\dfrac{h}{h^2+x^2}f\paren{x}\odif{x}=\dfrac{\pi}{2}f\paren{0}.\]
+
+\textit{Indication : on pourra effectuer le changement de variable \(x=ht\).}
+\end{exoss}
+
+\begin{exo}[Oral CCINP, 1]
+\begin{enumerate}
+    \item Montrez que \(\quantifs{\tpt n\in\Ns}f_n:x\mapsto\paren{\ch x}^{-n}\) est intégrable sur \(\Rp\). \\
+    \item Calculez la limite de \(I_n=\int_0^{\pinf}f_n\) quand \(n\to\pinf\). \\
+    \item Donnez la nature des séries \(\sum_n\paren{-1}^nI_n\) et \(\sum_nI_n\) \textit{(indication : montrez que \(\quantifs{\tpt x\in\Rp}\ch x\geq\sh x\)).} \\
+    \item Donnez le rayon de convergence de la série entière \(\sum_nI_nx^n\).
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Oral Navale, 2]~\\
+On pose, pour \(n\geq2\) : \(I_n=\int_0^{\pinf}\dfrac{1+t^n}{\sqrt{t}+t^{2n}}\odif{t}\).
+
+Montrez que \(\paren{I_n}\) est bien définie et calculez sa limite.
+\end{exo}
+
+\begin{exo}[Oral CCINP, 3]~\\
+Pour \(n\in\N\), on pose \(I_n=\int_0^1\dfrac{1}{1+t^n}\odif{t}\) et \(J_n=\int_0^1\ln\paren{1+t^n}\odif{t}\).
+
+\begin{enumerate}
+    \item Donnez une relation entre \(I_n\) et \(J_n\) (on pourra calculer \(n\paren{1-I_n}\)). \\
+    \item Déduisez-en un développement asymptotique de \(I_n\) avec une précision de \(\dfrac{1}{n}\). \\
+    \item Montrez que l'application \(F:u\in\intervii{0}{1}\mapsto\int_0^u\dfrac{\ln\paren{1+t}}{t}\odif{t}\) est bien définie, puis montrez que \(\int_0^1F\paren{t^n}\odif{t}\tendqd{n\to\pinf}0\). \\
+    \item Déduisez-en un développement asymptotique de \(J_n\) avec une précision \(\dfrac{1}{n}\), puis un développement de \(I_n\) en \(\dfrac{1}{n^2}\).
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Oral ENSEA, 4]~\\
+Soit \(\Phi:t\mapsto\int_0^\pi\cos\paren{t\sin\theta}\odif{\theta}\).
+
+Montrez que \(\Phi\) admet une unique racine \(z\in\intervii{0}{\pi}\) et que \(z>\dfrac{\pi}{2}\).
+\end{exo}
+
+\begin{exo}[Oral IMT, 5]~\\
+Soit \(F:x\mapsto\int_0^{\pinf}\dfrac{\e{-xt^2}}{1+t}\odif{t}\).
+
+\begin{enumerate}
+    \item Montrez que pour tout \(x>0\), l'intégrale \(F\paren{x}\) est convergente. \\
+    \item Étudiez les variations de \(F\). \\
+    \item Montrez que \(F\) est de classe \(\classe{1}\) sur \(\intervee{0}{\pinf}\). \\
+    \item Montrez que \(\quantifs{\tpt x>0}F\paren{x}\geq\dfrac{1}{\e{}}\int_0^{\nicefrac{1}{\sqrt{x}}}\dfrac{\odif{t}}{1+t}\). Déduisez-en la limite de \(F\) en \(0\).
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Oral ENSEA, 6]
+\begin{enumerate}
+    \item Déterminez le domaine de définition de \(f:x\mapsto\int_0^{\pinf}\dfrac{\sh t}{t}\e{-xt}\odif{t}\). \\
+    \item Calculez \(f\prim\). \\
+    \item Déterminez la limite de \(f\) en \(\pinf\). Déduisez-en \(f\).
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Oral CCINP, 7]~\\
+Soit \(f:x\mapsto\int_0^{\pinf}\dfrac{t\e{-xt}}{\e{t}-1}\odif{t}\).
+
+\begin{enumerate}
+    \item Donnez le domaine de définition de \(f\). \\
+    \item Calculez la limite de \(f\) en \(\pinf\). \\
+    \item Pour \(x>0\), calculez \(f\paren{x-1}-f\paren{x}\). \\
+    \item Déterminez une expression de \(f\paren{x}\) sous forme de série. \\
+    \item Quelle autre méthode aurait-on pu utiliser pour trouver cette expression de \(f\paren{x}\) ?
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Oral CCINP, 8]~\\
+Soit \(f\paren{x}=\int_0^{\pinf}\dfrac{1-\cos t}{t^2}\e{-xt}\odif{t}\).
+
+\begin{enumerate}
+    \item Montrez que \(f\paren{x}\) existe pour \(x\geq0\). \\
+    \item Montrez que \(f\) est continue sur \(\Rp\). \\
+    \item Montrez que \(f\) est de classe \(\classe{2}\) sur \(\intervee{0}{\pinf}\). \\
+    \item Déterminez les limites de \(f\) et \(f\prim\) en \(\pinf\). \\
+    \item Calculez \(f\prim\paren{x}\) et \(f\paren{x}\). \\
+    \item Justifiez l'existence et calculez \(\int_0^{\pinf}\dfrac{\sin t}{t}\odif{t}\).
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Oral CCINP, 9]~\\
+On pose \(f:x\mapsto\int_0^{\pinf}t^x\e{-t}\odif{t}\).
+
+\begin{enumerate}
+    \item Montrez que \(f\) est définie et continue sur \(\Rp\). \\
+    \item Pour \(n\in\Ns\), on pose \(u_n=\int_{n-1}^n\ln\paren{f\paren{t}}\odif{t}\). \\ Déterminez la nature de la série \(\sum_n\paren{-1}^nu_n\).
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Oral CCMP, 10]
+Soit \(f\) une fonction de classe \(\classe{1}\) de \(\R\) dans \(\R\). On pose \(g\paren{x}=\int_0^1f\paren{xt}\ln\paren{t}\odif{t}\).
+
+\begin{enumerate}
+    \item Montrez que \(g\) est définie sur \(\R\) et calculez \(g\paren{0}\). \\
+    \item Montrez que \(g\) est de classe \(\classe{1}\) sur \(\R\) et calculez \(g\prim\paren{0}\).
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Oral CCMP, 11]~\\
+Soit \(f:x\mapsto\int_0^{\pinf}\dfrac{1}{\paren{1+t^2}\paren{1+t^x}}\odif{t}\).
+
+\begin{enumerate}
+    \item Montrez que \(f\) est définie sur \(\Rp\). Calculez \(f\paren{0}\) et \(\lim_{\pinf}f\). \\
+    \item Soit \(x\in\Rp\). Calculez \(f\paren{x}\).
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Oral CCMP, 12]~\\
+Soit \(f:x\mapsto\int_0^{\pinf}\e{-t^2}\cos\paren{xt}\odif{t}\).
+
+\begin{enumerate}
+    \item Montrez que \(f\) est définie sur \(\R\). \\
+    \item Montrez que \(f\) est solution d'une équation différentielle. \\
+    \item Déduisez-en \(f\).
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Oral CCMP, 13]~\\
+Soit \(f:x\mapsto\int_0^1\ln\paren{t}\ln\paren{1-t^x}\odif{t}\).
+
+\begin{enumerate}
+    \item Déterminez le domaine de définition de \(f\). \\
+    \item Écrivez \(f\) comme somme d'une série de fonctions. \\
+    \item Déterminez la limite de \(f\) en \(0\).
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Oral CCMP, 14]~\\
+Soit \(f:x\mapsto\dfrac{1}{x}\int_0^{\pinf}\dfrac{1-\e{-tx}}{1+t^2}\odif{t}\).
+
+\begin{enumerate}
+    \item Montrez que \(f\) est de classe \(\classe{2}\) sur \(\Rp\). \\
+    \item Trouvez un équivalent simple de \(f\) en \(\pinf\). \\
+    \item Trouvez un équivalent simple de \(f\) en \(0\).
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Oral CCMP, 15]
+Soit \(\Gamma\) la fonction de la variable réelle \(x\) définie par \(\Gamma\paren{x}=\int_0^{\pinf}t^{x-1}\e{-t}\odif{t}\).
+
+\begin{enumerate}
+    \item Déterminez le domaine de définition de \(\Gamma\). \\
+    \item Donnez un équivalent en \(\pinf\) de \(f\paren{x}=\int_x^{x+1}\ln\paren{\Gamma\paren{u}}\odif{u}\). \\
+    \item Déduisez-en un équivalent en \(\pinf\) de \(\ln\paren{\Gamma\paren{x}}\).
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Oral CCMP, 16]~\\
+Soit \(f:x\mapsto\int_0^1\e{t^x\ln t}\odif{t}\).
+
+\begin{enumerate}
+    \item Montrez que \(f\) est définie sur \(\R\). \\
+    \item Montrez que \(f\) est croissante et continue sur \(\R\). \\
+    \item Donnez une expression de \(f\paren{x}\) comme somme de série pour \(x>0\).
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Oral CCMP, 17]
+Soit \(\paren{a_n}\) une suite de réels strictement positifs, croissante et de limite \(\pinf\).
+
+Montrez l'égalité \[\int_0^{\pinf}\sum_{n=0}^{\pinf}\paren{-1}^n\e{-a_nt}\odif{t}=\sum_{n=0}^{\pinf}\paren{-1}^n\dfrac{1}{a_n}.\]
+\end{exo}
+
+\begin{exo}[Oral CCMP, 18]
+Soit \(f:\intervee{-1}{\pinf}\to\R\) définie par \(f\paren{x}=\int_0^1\dfrac{1-\paren{1-t^x}}{t}\odif{t}\).
+
+Justifiez la définition de \(f\) et donnez une expression de \(f\paren{x}\) comme somme d'une série.
+\end{exo}
+
+\begin{exo}[Oral CCMP, 19]~\\
+Soit \(T:x\mapsto\int_0^{\pinf}\dfrac{\e{\i tx}-1}{t}\e{-t}\odif{t}\).
+
+Montrez que \(T\) est définie sur \(\R\) et calculez \(T\paren{x}\) pour tout \(x\in\R\).
+\end{exo}
+
+\section*{Problème 1 -- CCINP 2013 -- PC}
+\addcontentsline{toc}{section}{Problème 1 -- CCINP 2013 -- PC}
+
+On s'intéresse ici à des suites et séries de fonctions en liaison avec des intégrales.
+
+Les deux premières parties sont indépendantes.
+
+On admet les résultats suivants : \[K=\int_0^{\pinf}\dfrac{\sin t}{t}\odif{t}=\int_0^{\pinf}\dfrac{1-\cos t}{t^2}\odif{t}=\dfrac{\pi}{2}\qquad\text{et}\qquad\int_0^1\dfrac{\ln u}{u-1}\odif{u}=\dfrac{\pi^2}{6}.\]
+
+\subsection*{Étude de quelques suites d'intégrales}
+\addcontentsline{toc}{subsection}{Étude de quelques suites d'intégrales}
+
+\setcounter{q}{0}
+\begin{q}
+\begin{enumerate}
+    \item On considère ici une application continue \(f:\intervie{0}{\pinf}\to\R\). \\ Pour tout \(n\in\N\), on pose \(I_n=\int_0^1f\paren{t^n}\odif{t}\). \\ Déterminez \(\lim_{n\to\pinf}I_n\). \\
+    \item On suppose ici de plus que \(u\mapsto\dfrac{f\paren{u}}{u}\) est intégrable sur \(\intervei{0}{1}\). \\ Déterminez \(\lim_{n\to\pinf}nI_n\). \\ \textit{On pourra transformer \(nI_n\) grâce à un changement de variable.} \\
+    \item Application : déterminez un équivalent quand \(n\to\pinf\) de \(\int_0^1\sin\paren{t^n}\odif{t}\) (grâce à une intégrale).
+\end{enumerate}
+\end{q}
+
+\begin{q}
+On considère maintenant que \(f:\intervie{0}{\pinf}\to\R\) est une application continue et intégrable sur \(\Rp\).
+
+\begin{enumerate}
+    \item Soit \(n\in\Ns\). Grâce à un changement de variable approprié, justifiez l'existence de \(A_n=\int_1^{\pinf}f\paren{t^n}\odif{t}\). \\
+    \item Déterminez \(\lim_{n\to\pinf}nA_n\) (grâce à une intégrale qu'on ne cherchera pas à calculer).
+\end{enumerate}
+\end{q}
+
+\begin{q}
+\begin{enumerate}
+    \item Pour tout \(n\in\N\) tel que \(n\geq2\) et tout \(A>1\), on pose \(C_n\paren{A}=\int_1^A\sin\paren{t^n}\odif{t}\). \\ Grâce à un changement de variable et une intégration par parties, exprimez \(C_n\paren{A}\) en fonction de \(\int_1^{A^n}\dfrac{1-\cos u}{u^2}u^{\nicefrac{1}{n}}\odif{u}\) et de \(A\). \\
+    \item Déduisez-en que \(C_n\paren{A}\) a une limite quand \(A\to\pinf\), prouvant l'existence de \(\int_1^{\pinf}\sin\paren{t^n}\odif{t}\) pour tout \(n\in\N\) tel que \(n\geq2\). \\
+    \item Application : déterminez \(\lim_{n\to\pinf}n\int_0^{\pinf}\sin\paren{t^n}\odif{t}\) grâce à \(K\), admise en préambule.
+\end{enumerate}
+\end{q}
+
+\subsection*{Étude de séries de fonctions}
+\addcontentsline{toc}{subsection}{Étude de séries de fonctions}
+
+\note{Ne pas traiter les questions 4 et 5}
+
+\begin{q}[Un premier exemple]
+\begin{enumerate}
+    \item Pour tout \(x\in\intervee{-1}{1}\), calculez \(F\paren{x}=\sum_{n=1}^{\pinf}x^n\) ainsi que \(F\prim\paren{x}\). \\
+    \item Déterminez \(\lim_{x\to1^-}F\paren{x}\), \(\lim_{x\to1^-}\paren{1-x}F\paren{x}\), \(\lim_{x\to1^-}\paren{1-x}F\prim\paren{x}\) et \(\lim_{x\to1^-}\paren{1-x}^2F\prim\paren{x}\).
+\end{enumerate}
+\end{q}
+
+\begin{q}[Un deuxième exemple]
+Dans cette question pour tout \(x\in\intervee{-1}{1}\), on pose cette fois \(F\paren{x}=\sum_{n=1}^{\pinf}\dfrac{x^n}{1-x^n}\).
+
+\begin{enumerate}
+    \item Soit \(a\in\intervee{0}{1}\). Prouvez la convergence normale de cette série de fonctions sur le segment \(\intervii{-a}{a}\). \\ Déduisez-en que \(F\) est définie et continue sur \(\intervee{-1}{1}\). \\
+    \item Montrez que, pour tout \(x\in\intervee{0}{1}\) et pour tout \(n\in\Ns\), on a \(\dfrac{1-x^n}{1-x}\leq n\). \\ Déduisez-en \(\lim_{x\to1^-}F\paren{x}\) et \(\lim_{x\to1^-}\paren{1-x}F\paren{x}\).
+\end{enumerate}
+\end{q}
+
+\begin{q}
+Dans cette question, \(f\) est une application réelle continue et croissante sur \(\intervie{0}{1}\) avec \(f\paren{0}=0\) et telle que \(u\mapsto\dfrac{f\paren{u}}{u}\) soit intégrable sur \(\intervee{0}{1}\).
+
+Soit \(x\in\intervee{0}{1}\).
+
+\begin{enumerate}
+    \item Justifiez l'existence de \(G\paren{x}=\int_0^{\pinf}f\paren{x^t}\odif{t}\) et l'égalité \(G\paren{x}=-\dfrac{1}{\ln x}\int_0^1\dfrac{f\paren{u}}{u}\odif{u}\). \\
+    \item Pour tout \(n\in\Ns\), justifiez l'encadrement \[\int_n^{n+1}f\paren{x^t}\odif{t}\leq f\paren{x^n}\leq\int_{n-1}^nf\paren{x^t}\odif{t}.\] \\
+    \item Déduisez-en l'existence de \(F\paren{x}=\sum_{n=1}^{\pinf}f\paren{x^n}\), ainsi qu'un encadrement de \(F\paren{x}\) par deux intégrales dépendant de \(x\). \\
+    \item Concluez avec soin que \(\lim_{x\to1^-}\paren{1-x}F\paren{x}=\int_0^1\dfrac{f\paren{u}}{u}\odif{u}\).
+\end{enumerate}
+\end{q}
+
+\begin{q}[Un dernier exemple]
+\note{Ne pas traiter la sous-question 1}
+
+Pour tout \(x\in\intervee{-1}{1}\), on pose cette fois \(F\paren{x}=-\sum_{n=1}^{\pinf}\ln\paren{1-x^n}\).
+
+\begin{enumerate}
+    \item Montrez que \(F\) est définie et de classe \(\classe{1}\) sur \(\intervee{-1}{1}\) et exprimez sa dérivée sous la forme d'une série de fonctions. \\
+    \item Grâce à la question 6.4, montrez que \(\lim_{x\to1^-}\paren{1-x}F\paren{x}=\int_0^1\dfrac{\ln u}{u-1}\odif{u}\) (intégrale donnée en préambule). \\
+    \item Par une méthode similaire à celle de la question 6, montrez que \[\lim_{x\to1^-}\paren{\paren{1-x}^2\sum_{n=1}^{\pinf}\dfrac{nx^n}{1-x^n}}=\int_0^1\dfrac{\ln u}{u-1}\odif{u}.\] \\ Déduisez-en \(\lim_{x\to1^-}\paren{1-x}^2F\prim\paren{x}\).
+\end{enumerate}
+\end{q}
+
+\section*{Problème 2 -- CCINP 2022 -- MP -- Math 1}
+\addcontentsline{toc}{section}{Problème 2 -- CCINP 2022 -- MP -- Math 1}
+
+Dans ce problème, on étudie certaines intégrales et séries numériques reliées aux intégrales dites de Fresnel. Augustin Fresnel (1788-1827) démontra le caractère ondulatoire de la lumière et, pour cette raison, il est considéré comme un des fondateurs de l'optique moderne.
+
+\subsection*{Intégrales fonctions de leur borne}
+\addcontentsline{toc}{subsection}{Intégrales fonctions de leur borne}
+
+\note{Ne pas traiter les questions 3, 7 et 8}
+
+Dans cette partie, on définit la fonction \(H\) par l'expression \(H\paren{x}=\int_0^x\e{\i t^2}\odif{t}\), où \(\e{\i t^2}\) signifie \(\exp\paren{\i t^2}\).
+
+\setcounter{q}{0}
+\begin{q}
+Démontrez que \(H\) est définie et de classe \(\classe{\infty}\) sur \(\R\). Donnez une expression de \(H\prim\paren{x}\).
+\end{q}
+
+\begin{q}
+Étudiez la parité de la fonction \(H\).
+\end{q}
+
+\begin{q}
+Démontrez que la fonction \(t\mapsto\e{\i t^2}\) est développable en série entière au voisinage de \(0\). Déduisez-en un développement en série entière de la fonction \(H\) au voisinage de \(0\), en précisant l'intervalle sur lequel ce développement est valable.
+\end{q}
+
+\begin{q}
+Si \(x>0\), démontrez que \[H\paren{x}=\dfrac{1}{2}\int_0^{x^2}\dfrac{\e{\i u}}{\sqrt{u}}\odif{u}.\]
+\end{q}
+
+\begin{q}
+Pour \(x>\sqrt{2\pi}\), déduisez-en que \[H\paren{x}-H\paren{\sqrt{2\pi}}=-\i\dfrac{\e{\i x^2}}{2x}+\dfrac{\i}{2\sqrt{2\pi}}-\dfrac{\i}{4}\int_{2\pi}^{x^2}\dfrac{\e{\i u}}{u^{\nicefrac{3}{2}}}\odif{u}.\]
+\end{q}
+
+\begin{q}
+Déduisez-en que l'intégrale généralisée \(\int_0^{\pinf}\e{\i t^2}\odif{t}\) converge.
+\end{q}
+
+\begin{q}[Informatique Pour Tous]
+Proposez, en langage Python, une fonction \verb|I(f, a, b, n)| qui prend en entrée une fonction \verb|f| à valeurs réelles ou complexes, deux réels \verb|a| et \verb|b| et un entier naturel \verb|n| et qui renvoie une valeur approchée avec la méthode des rectangles de \(\int_a^bf\paren{t}\odif{t}\) calculée avec \(n\) rectangles.
+\end{q}
+
+\begin{q}[Informatique Pour Tous]
+Proposez, en langage Python, une fonction \verb|H(x, n)| qui prend en entrée un réel \verb|x| et un entier naturel \verb|n| et qui renvoie une valeur approchée de \(H\paren{x}\) calculée avec la fonction de la question précédente. On rappelle que le code Python pour \(\e{\i t^2}\) est \verb|exp(1j * t ** 2)|.
+\end{q}
+
+\subsection*{Calcul des intégrales de Fresnel}
+\addcontentsline{toc}{subsection}{Calcul des intégrales de Fresnel}
+
+Dans cette partie, on étudie la fonction \(g\) d'expression \[g\paren{x}=\int_{\minf}^{\pinf}\dfrac{\e{-x^2\paren{t^2-\i}}}{t^2-\i}\odif{t}.\]
+
+Pour cela, on pose \(f\paren{x,t}=\dfrac{\e{-x^2\paren{t^2-\i}}}{t^2-\i}\).
+
+\begin{q}
+Si \(\paren{x,t}\in\R^2\), déterminez les modules des nombres complexes \(\e{-x^2\paren{t^2-\i}}\) et \(t^2-\i\).
+\end{q}
+
+\begin{q}
+Démontrez que \(g\) est définie et continue sur \(\R\) (on pourra utiliser un argument de parité).
+\end{q}
+
+\begin{q}
+Soit \(\paren{x_n}_n\) une suite divergente vers \(\pinf\).
+
+À l'aide du théorème de convergence dominée, démontrez que \(\lim_{n\to\pinf}g\paren{x_n}=0\).
+
+Déduisez-en la limite de \(g\) en \(\pinf\) et en \(\minf\).
+\end{q}
+
+\begin{q}
+Démontrez que \(g\) est de classe \(\classe{1}\) sur \(\Rs\).
+\end{q}
+
+\begin{q}
+On admet dans cette question que l'intégrale \(\int_{\minf}^{\pinf}\e{-t^2}\odif{t}\) converge et est égale à \(\sqrt{\pi}\).
+
+Vérifiez que \[\quantifs{\forall x>0}g\prim\paren{x}=-2\sqrt{\pi}\e{\i x^2}.\]
+\end{q}
+
+\begin{q}
+Décomposez dans \(\poly[\C]\) la fraction rationnelle \(\dfrac{1}{X^2-\i}\).
+
+On admet ensuite que \[\dfrac{1}{X^2-\i}=\dfrac{1-\i}{4}\paren{\dfrac{\sqrt{2}}{2}\times\dfrac{2X-\sqrt{2}}{X^2-X\sqrt{2}+1}+\dfrac{\i}{X^2-X\sqrt{2}+1}-\dfrac{\sqrt{2}}{2}\times\dfrac{2X+\sqrt{2}}{X^2+X\sqrt{2}+1}+\dfrac{\i}{X^2+X\sqrt{2}+1}}.\]
+
+Démontrez que \(\int_{\minf}^{\pinf}\dfrac{1}{t^2-\sqrt{2}t+1}\odif{t}=\pi\sqrt{2}\).
+
+Donnez la valeur de \(\int_{\minf}^{\pinf}\dfrac{1}{t^2+\sqrt{2}t+1}\odif{t}\) puis déterminez la valeur de \(g\paren{0}\).
+\end{q}
+
+\begin{q}
+Déduisez-en que \[\quantifs{\forall x>0}g\paren{x}=\dfrac{\paren{1+\i}\pi}{\sqrt{2}}-2\sqrt{\pi}H\paren{x}.\]
+
+Donnez ensuite les valeurs de \(\int_0^{\pinf}\e{\i t^2}\odif{t}\), de \(\int_0^{\pinf}\cos\paren{t^2}\odif{t}\) et de \(\int_0^{\pinf}\sin\paren{t^2}\odif{t}\).
+\end{q}
+
+\subsection*{Étude d'une série de fonctions}
+\addcontentsline{toc}{subsection}{Étude d'une série de fonctions}
+
+Dans cette partie, on étudie la fonction \(S\) d'expression \[S\paren{x}=\sum_{n=1}^{\pinf}\dfrac{\e{\i nx}}{\sqrt{n}}.\]
+
+Pour tout entier naturel \(n\) non-nul, on note \(f_n\) la fonction d'expression \(f_n\paren{x}=\dfrac{\e{\i nx}}{\sqrt{n}}\).
+
+\begin{q}
+On suppose que \(\paren{a_n}_{n\in\Ns}\) est une suite réelle positive décroissante de limite nulle et que \(\paren{b_n}_{n\in\N}\) est une suite bornée.
+
+En admettant l'identité suivante : \[\quantifs{\forall N\in\Ns}\sum_{n=1}^Na_n\paren{b_n-b_{n-1}}=\sum_{n=1}^N\paren{a_n-a_{n+1}}b_n+a_{N+1}b_N-a_1b_0,\] démontrez que la série \(\sum_na_n\paren{b_n-b_{n-1}}\) converge.
+\end{q}
+
+\begin{q}
+Soient \(x\in\intervee{0}{2\pi}\) et \(n\in\Ns\).
+
+Démontrez que \[\sum_{k=1}^n\e{\i kx}=\e{\frac{\i\paren{n+1}x}{2}}\times\dfrac{\sin\paren{\nicefrac{nx}{2}}}{\sin\paren{\nicefrac{x}{2}}}.\]
+\end{q}
+
+\begin{q}
+À l'aide des deux questions précédentes, démontrez que \(S\) est définie sur \(\intervee{0}{2\pi}\).
+\end{q}
+
+\begin{q}
+On admet dans cette question que si \(k\in\Ns\) et \(x\in\intervee{0}{2\pi}\), alors \[\abs{\dfrac{\e{\i\paren{k+1}x}-\e{\i kx}}{\i x\sqrt{k}}-\int_k^{k+1}\dfrac{\e{\i tx}}{\sqrt{t}}\odif{t}}\leq\dfrac{1}{4k^{\nicefrac{3}{2}}}.\]
+
+Démontrez qu'il existe une constante \(C>0\) telle que pour tout \(x\in\intervee{0}{2\pi}\) : \[\abs{\dfrac{\e{\i x}-1}{\i x}S\paren{x}-\int_1^{\pinf}\dfrac{\e{\i tx}}{\sqrt{t}}\odif{t}}\leq C.\]
+\end{q}
+
+\begin{q}
+Démontrez la convergence de l'intégrale \(J\paren{x}=\int_1^{\pinf}\dfrac{\e{\i tx}}{\sqrt{t}}\odif{t}\).
+
+Déterminez la limite, quand \(x\) tend vers \(0^+\), de \(I\paren{x}=\sqrt{x}J\paren{x}\).
+\end{q}
+
+\begin{q}
+Déterminez la limite en \(0^+\) de la fonction \(x\mapsto\dfrac{\e{\i x}-1}{\i x}\).
+
+Donnez un équivalent de \(S\paren{x}\) quand \(x\) tend vers \(0^+\).
+\end{q}
