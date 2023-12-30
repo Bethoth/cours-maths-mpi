@@ -495,8 +495,12 @@ per-mode=power-positive-first
 
 \newcommand{\id}[1]{\mathrm{id}_{#1}}
 
-\renewcommand{\phi}{\varphi}
-\renewcommand{\epsilon}{\varepsilon}
+\AtBeginDocument{%
+\NewCommandCopy{\phialt}{\phi}%
+\RenewCommandCopy{\phi}{\varphi}%
+\NewCommandCopy{\epsilonalt}{\epsilon}%
+\RenewCommandCopy{\epsilon}{\varepsilon}%
+}
 
 \newcommand{\ind}[1]{\mathds{1}_{#1}}
 
