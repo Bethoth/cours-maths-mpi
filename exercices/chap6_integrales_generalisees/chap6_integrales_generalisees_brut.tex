@@ -2,4 +2,415 @@
 
 \minitoc
 
-\note{À venir}
+\section*{Exercices}
+\addcontentsline{toc}{section}{Exercices}
+
+\legendeexercices
+
+\begin{exos}
+Montrez la convergence des intégrales suivantes et calculez leurs valeurs.
+
+\begin{enumerate}
+    \item \(\int_0^{\pinf}\dfrac{1}{\paren{x+1}\paren{x+2}\paren{x+3}}\odif{x}\) \\
+    \item \(\int_0^{\pinf}\dfrac{x}{x^3+x^2+x+1}\odif{x}\) \\
+    \item \(\int_0^{\pinf}\dfrac{1}{x^3+1}\odif{x}\) \\
+    \item \(\int_0^{\pinf}\dfrac{x^5}{x^{12}+1}\odif{x}\) \\
+    \item \(\int_0^{\pinf}\dfrac{1}{\paren{1+t^2}^2}\odif{t}\) \\
+    \item \(\int_0^{\pinf}\paren{\Arctan\paren{t+1}-\Arctan t}\odif{t}\)
+\end{enumerate}
+\end{exos}
+
+\begin{exos}
+Justifiez la convergence des intégrales \(\int_1^{\pinf}\dfrac{1}{\sh x}\odif{x}\) et \(\int_0^{\pinf}\dfrac{1}{\ch x}\odif{x}\) et donnez leurs valeurs en vous servant de l'égalité \(\ch^2x-\sh^2x=1\).
+\end{exos}
+
+\begin{exos}
+Soit \(n\in\N\).
+
+Montrez que l'intégrale \(\int_0^{\pinf}\dfrac{1}{\paren{1+x^2}\paren{1+x^n}}\odif{x}\) converge et donnez sa valeur en faisant le changement de variable \(y=\dfrac{1}{x}\).
+\end{exos}
+
+\begin{exoss}
+Montrez la convergence des intégrales suivantes et calculez leurs valeurs.
+
+\begin{enumerate}
+    \item \(\int_0^{\pinf}\ln\paren{1+\dfrac{1}{x^2}}\odif{x}\) \\
+    \item \(\int_0^{\pinf}\dfrac{\ln\paren{1+x}}{x\sqrt{x}}\odif{x}\) \\
+    \item \(\int_0^{\pinf}\dfrac{\ln x}{\paren{x+a}^2}\odif{x}\) (où \(a>0\)) \\
+    \item \(\int_0^{\pinf}\dfrac{x\ln x}{\paren{1+x^2}^3}\odif{x}\) \\
+    \item \(\int_0^1\dfrac{\ln\paren{1+3x^2}}{x^2}\odif{x}\) \\
+    \item \(\int_0^1\dfrac{\ln\paren{1-x^2}}{x^2}\odif{x}\)
+\end{enumerate}
+\end{exoss}
+
+\begin{exoss}
+On considère l'intégrale \(I=\int_0^{\pinf}\dfrac{\sin^3t}{t^2}\odif{t}\).
+
+\begin{enumerate}
+    \item Justifiez que \(I\) est convergente. \\
+    \item Démontrez que \(\quantifs{\forall t\in\intervii{0}{\dfrac{\pi}{2}}}t-\dfrac{t^3}{6}\leq\sin t\leq t\). \\ Déduisez-en \(\lim_{x\to0^+}\int_x^{3x}\dfrac{\sin t}{t^2}\odif{t}\). \\
+    \item Montrez que \(\lim_{y\to\pinf}\int_y^{3y}\dfrac{\sin t}{t^2}\odif{t}=0\). \\
+    \item Linéarisez \(\sin^3t\) et déduisez de tout ce qui précède la valeur de \(I\).
+\end{enumerate}
+\end{exoss}
+
+\begin{exos}
+Soit \(\paren{a,b}\in\R^2\) tels que \(a<b\).
+
+\begin{enumerate}
+    \item Déterminez une application affine \(\phi\) envoyant l'intervalle \(\intervee{-1}{1}\) sur \(\intervee{a}{b}\). \\
+    \item Déduisez-en la nature et la valeur éventuelle de l'intégrale \(\int_a^b\dfrac{\odif{t}}{\sqrt{\paren{t-a}\paren{b-t}}}\).
+\end{enumerate}
+\end{exos}
+
+\begin{exoss}~\\
+On pose \(C=\int_0^{\nicefrac{\pi}{2}}\ln\paren{\cos t}\odif{t}\), \(S=\int_0^{\nicefrac{\pi}{2}}\ln\paren{\sin t}\odif{t}\) et \(I=\int_0^\pi\ln\paren{\sin t}\odif{t}\).
+
+\begin{enumerate}
+    \item Justifiez l'existence de ces trois intégrales. \\
+    \item Montrez que \(C=S\). \\
+    \item Montrez que \(I=2S\) et donnez une autre relation liant \(C+S\) et \(I\). \\
+    \item Donnez la valeur de ces trois intégrales.
+\end{enumerate}
+\end{exoss}
+
+\begin{exoss}
+Justifiez l'existence des intégrales suivantes, puis par le changement de variable \(x=\sin t\), montrez que \[\int_{-1}^1\dfrac{1}{\paren{2-x^2}\sqrt{1-x^2}}\odif{x}=\int_{-\nicefrac{\pi}{2}}^{\nicefrac{\pi}{2}}\dfrac{1}{1+\cos^2t}\odif{t}.\]
+
+Effectuez le changement de variable \(u=\tan t\) dans la dernière intégrale afin d'obtenir sa valeur.
+\end{exoss}
+
+\begin{exoss}
+\begin{enumerate}
+    \item Soit \(a>0\). Montrez que \(\int_0^{\pinf}\dfrac{\sin t}{t^a}\odif{t}\) converge ssi \(a<2\). \\
+    \item Montrez que les intégrales suivantes convergent : \(\int_0^1\sin\paren{\dfrac{1}{t}}\odif{t}\), \(\int_0^{\pinf}\sin\paren{t^2}\odif{t}\) et \(\int_0^{\pinf}\sin\paren{\e{x}}\odif{x}\).
+\end{enumerate}
+\end{exoss}
+
+\begin{exoss}
+Soient \(f:\Rp\to\R\) continue telle que \(\int_1^{\pinf}\dfrac{f\paren{x}}{x}\odif{x}\) converge et \(\paren{a,b}\in\R^2\) tel que \(0<a<b\).
+
+\begin{enumerate}
+    \item Montrez que \(\quantifs{\tpt\epsilon>0}\int_\epsilon^{\pinf}\dfrac{f\paren{ax}-f\paren{bx}}{x}\odif{x}=\int_{a\epsilon}^{b\epsilon}\dfrac{f\paren{x}}{x}\odif{x}\). \\
+    \item Déduisez-en que \(\int_0^{\pinf}\dfrac{f\paren{ax}-f\paren{bx}}{x}\odif{x}\) converge et vaut \(f\paren{0}\ln\dfrac{b}{a}\).
+\end{enumerate}
+\end{exoss}
+
+\begin{exoss}
+Soient \(f:\Rp\to\R\) continue et ayant une limite réelle \(l\) en \(\pinf\) et \(a>0\).
+
+Montrez que \(\int_0^{\pinf}\dfrac{f\paren{x}-f\paren{ax}}{x}\odif{x}\) converge et donnez sa valeur en fonction de \(l\), \(f\paren{0}\) et \(a\).
+\end{exoss}
+
+\begin{exoss}[Fonction \(\Gamma\) d'Euler]~\\
+Pour \(x>0\), on pose \(\Gamma\paren{x}=\int_0^{\pinf}t^{x-1}\e{-t}\odif{t}\).
+
+\begin{enumerate}
+    \item Montrez que \(\Gamma\) est bien définie sur \(\intervee{0}{\pinf}\). \\
+    \item Donnez une relation de récurrence entre \(\Gamma\paren{x}\) et \(\Gamma\paren{x+1}\). \\ Déduisez-en la valeur de \(\Gamma\paren{n}\) pour tout \(n\in\Ns\).
+\end{enumerate}
+\end{exoss}
+
+\begin{exoss}
+Une idée fausse : beaucoup pensent que si \(f\) est positive et intégrable sur \(\intervie{0}{\pinf}\), alors \(f\) a pour limite \(0\) en \(\pinf\).
+
+Soit \(f\) la fonction définie sur \(\intervie{0}{\pinf}\) de la façon suivante : pour \(n\in\Ns\), on pose \(a_n=\dfrac{1}{2n^2}\) puis, pour \(x\geq0\), \begin{itemize}
+    \item s'il existe \(n\in\Ns\) tel que \(n-a_n\leq x\leq n\), alors \(f\paren{x}=2n^2\paren{x-n}+1\)
+    \item s'il existe \(n\in\Ns\) tel que \(n\leq x\leq n+a_n\), alors \(f\paren{x}=-2n^2\paren{x-n}+1\)
+    \item sinon, \(f\paren{x}=0\).
+\end{itemize}
+
+Représentez la courbe de \(f\) sur \(\intervii{0}{\num{4.5}}\) et montrez que \(f\) est intégrable sur \(\intervie{0}{\pinf}\) mais que \(f\) n'a pas de limite en \(\pinf\).
+\end{exoss}
+
+\begin{exoss}
+Déterminez la nature des intégrales suivantes (où \(\alpha>0\)).
+
+\begin{enumerate}
+    \item \(\int_0^{\pinf}\dfrac{1}{1+\abs{\sin x}}\odif{x}\) \\
+    \item \(\int_1^{\pinf}\dfrac{1}{x^\alpha\paren{1+\sin^2x}}\odif{x}\) \\
+    \item \(\int_0^{\pinf}\e{-\sqrt{x}}\odif{x}\) \\
+    \item \(\int_0^1\e{-\nicefrac{1}{t}}\odif{t}\) \\
+    \item \(\int_0^{\pinf}\dfrac{\ln x}{x+\e{-x}}\odif{x}\) \\
+    \item \(\int_0^{\pinf}\e{-\ln^2x}\odif{x}\) \\
+    \item \(\int_0^1\sin\paren{\ln t}\odif{t}\) \\
+    \item \(\int_0^1\dfrac{\ln t}{\paren{1-t}^{\nicefrac{3}{2}}}\odif{t}\) \\
+    \item \(\int_0^{\pinf}\dfrac{\Arctan\sqrt{t}}{t\paren{1+t^2}}\odif{t}\) \\
+    \item \(\int_0^{\pinf}\dfrac{\sin x}{\e{x}-1}\odif{x}\) \\
+    \item \(\int_0^{\pinf}\sin\paren{t^2}\odif{t}\) \\
+    \item \(\int_0^{\pinf}\sin\paren{\dfrac{1}{t}}\odif{t}\) \\
+    \item \(\int_0^{\pinf}\dfrac{\e{-t}}{\sqrt{t}}\odif{t}\)
+\end{enumerate}
+\end{exoss}
+
+\begin{exoss}
+Montrez les comparaisons suivantes en justifiant l'existence des intégrales.
+
+\begin{enumerate}
+    \item \(\int_0^X\dfrac{\ln x}{x+\e{-x}}\odif{x}\simqd{X\to\pinf}\dfrac{1}{2}\ln^2X\) \\
+    \item \(\int_x^{\pinf}\dfrac{\Arctan\sqrt{t}}{t\paren{1+t^2}}\odif{t}\simqd{x\to\pinf}\dfrac{\pi}{4x^2}\) \\
+    \item \(\int_x^1\dfrac{\e{t}}{\sin t}\odif{t}\simqd{x\to0}-\ln x\) \\
+    \item \(\int_0^x\dfrac{\e{-t}}{\sqrt{t}}\odif{t}\simqd{x\to0}2\sqrt{x}\) \\
+    \item \(\int_x^{\pinf}\dfrac{\e{-t}}{t}\odif{t}\egqd{x\to\pinf}\o{\e{-x}}\) \\
+    \item \(\int_x^{\pinf}\dfrac{\e{-t}}{t}\odif{t}\simqd{x\to0}-\ln x\) \\
+    \item \(\int_1^x\dfrac{\e{t}}{t}\odif{t}\egqd{x\to\pinf}\o{\e{\nicefrac{x}{2}}}\) \\
+    \item \(\int_0^x\dfrac{\ln\paren{1+t^2}}{1+\sqrt{t}}\odif{t}\simqd{x\to\pinf}2\sqrt{x}\ln x\)
+\end{enumerate}
+\end{exoss}
+
+\begin{exoss}
+Donnez des équivalents simples aux points indiqués des intégrales suivantes en justifiant leurs existences.
+
+\begin{enumerate}
+    \item \(\int_0^x\dfrac{\sin t}{t}\odif{t}\simqd{x\to0}?\) \\
+    \item \(\int_0^x\dfrac{\sin t}{t^{\nicefrac{3}{2}}}\odif{t}\simqd{x\to0}?\) \\
+    \item \(\int_x^{\pinf}\dfrac{t^2\e{-t}}{t^2+1}\odif{t}\simqd{x\to\pinf}?\) \\
+    \item \(\int_0^x\ln\paren{t^2+\sin t}\odif{t}\simqd{x\to\pinf}?\)
+\end{enumerate}
+\end{exoss}
+
+\begin{exoss}
+Soient \(a,\alpha\) deux réels strictement positifs.
+
+\begin{enumerate}
+    \item En effectuant le changement de variable \(t=\tan x\), montrez que \[\int_0^{\nicefrac{\pi}{2}}\dfrac{1}{1+a\sin^2x}\odif{x}=\int_0^{\pinf}\dfrac{1}{1+\paren{1+a}t^2}\odif{t}\] puis calculez ces intégrales et donnez la valeur de \(\int_0^\pi\dfrac{1}{1+a\sin^2x}\odif{x}\). \\
+    \item Donnez la nature de la série de terme général \(\int_0^\pi\dfrac{1}{1+\paren{t+n\pi}^\alpha\sin^2t}\odif{t}\) selon la valeur de \(\alpha\). \\
+    \item Étudiez la convergence de l'intégrale \(\int_0^{\pinf}\dfrac{1}{1+x^\alpha\sin^2x}\odif{x}\).
+\end{enumerate}
+\end{exoss}
+
+\begin{exoss}
+Discutez, selon \(\alpha\) et \(\beta\) réels, de la nature de l'intégrale \(\int_0^{\pinf}\dfrac{\paren{t+1}^\alpha-t^\alpha}{t^\beta}\odif{t}\).
+\end{exoss}
+
+\begin{exoss}
+Soit \(f\) une fonction de classe \(\classe{1}\) sur \(\intervie{0}{\pinf}\), à valeurs réelles et telle que les fonctions \(t\mapsto t^2f^2\paren{t}\) et \(t\mapsto{f\prim}^2\paren{t}\) soient intégrables sur \(\intervie{0}{\pinf}\).
+
+\begin{enumerate}
+    \item Montrez que la fonction \(t\mapsto tf\paren{t}f\prim\paren{t}\) est intégrable sur \(\intervie{0}{\pinf}\). \\
+    \item Montrez que \(\quantifs{\tpt x>0}xf^2\paren{x}=\int_0^xf^2\paren{t}\odif{t}+2\int_0^xtf\paren{t}f\prim\paren{t}\odif{t}\). \\ Déduisez-en que \(xf^2\paren{x}\tendqd{x\to\pinf}0\). \\
+    \item Montrez que \(t\mapsto f^2\paren{t}\) est intégrable sur \(\intervie{0}{\pinf}\). \\
+    \item Démontrez que \[\paren{\int_0^{\pinf}f^2\paren{t}\odif{t}}^2\leq4\paren{\int_0^{\pinf}t^2f^2\paren{t}\odif{t}}\paren{\int_0^{\pinf}{f\prim}^2\paren{t}\odif{t}}.\]
+\end{enumerate}
+\end{exoss}
+
+\begin{exo}[Oral IMT, 1]~\\
+Justifiez l'existence de \(\int_0^1\dfrac{\ln\paren{t}\ln\paren{1-t}}{t}\odif{t}\).
+\end{exo}
+
+\begin{exo}[Oral IMT, 2]~\\
+Soit \(a\in\R\). L'intégrale \(\int_0^{\pinf}x^a\ln\paren{1+\e{ax}}\odif{x}\) est-elle convergente ?
+\end{exo}
+
+\begin{exo}[Oral IMT, 3]~\\
+Justifiez l'existence de \(\int_0^{\pinf}\paren{1-t\Arctan\dfrac{1}{t}}\odif{t}\) et donnez sa valeur.
+\end{exo}
+
+\begin{exo}[Oral CCINP, 4]~\\
+Justifiez l'existence de \(\int_0^{\pinf}\dfrac{x^2}{\e{x}-1}\odif{x}\).
+\end{exo}
+
+\begin{exo}[Oral CCINP, 5]
+Pour quelles valeurs de \(n\in\N\) l'intégrale \(\int_1^{\pinf}\dfrac{1}{\paren{x+\sqrt{x^2-1}}^n}\odif{x}\) converge-t-elle ? Donnez alors sa valeur.
+\end{exo}
+
+\begin{exo}[Oral IMT, 6]
+Soit \(a>0\). Donnez la nature de \(\int_0^{\pinf}\dfrac{\sin^2x}{x^a}\odif{x}\).
+\end{exo}
+
+\begin{exo}[Oral CCINP, 7]~\\
+Pour \(k\in\Ns\), on pose \(I_k=\int_k^{k+1}\dfrac{x-\nicefrac{1}{2}-\floor{x}}{x}\odif{x}\).
+
+\begin{enumerate}
+    \item Calculez \(I_k\). \\
+    \item On pose \(J_n=\int_1^n\dfrac{x-\nicefrac{1}{2}-\floor{x}}{x}\odif{x}\). Montrez que \(J_n=n+\paren{n+\dfrac{1}{2}}\ln\paren{n+1}-\ln n!\). \\
+    \item Montrez que \(\ln n!=n\ln n-n+\ln n+\dfrac{1}{2}\ln\paren{2\pi}+\o{1}\). \\
+    \item Montrez que la suite \(\paren{J_n}_{n\geq1}\) converge et donnez sa valeur. \\
+    \item Montrez que \(\int_1^{\pinf}\dfrac{x-\nicefrac{1}{2}-\floor{x}}{x}\odif{x}\) converge et donnez sa valeur.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Oral CCINP, 8]~\\
+Pour \(n\in\Ns\), on pose \(u_n=\paren{1+\dfrac{1}{\sqrt{n}}}^{-n}\), \(v_n=\e{-\sqrt{n}}\) et \(I_n=\int_n^{\pinf}\e{\sqrt{t}}\odif{t}\).
+
+\begin{enumerate}
+    \item Montrez que la série \(\sum_nv_n\) converge. \\
+    \item Montrez que \(I_n\) existe et que \(I_n=2\paren{1+\sqrt{n}}v_n\). \\
+    \item On pose \(R_n=\sum_{k=n+1}^{\pinf}v_k\). Montrez que \(I_{n+1}\leq R_n\leq I_n\) et donnez un équivalent de \(R_n\). \\
+    \item On pose \(T_n=\sum_{k=n+1}^{\pinf}u_k\). Montrez que \(T_n\simqd{n\to\pinf}\dfrac{R_n}{\sqrt{\e{}}}\).
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Oral Centrale, 9]~\\
+Soit \(I_n=\int_0^{\pinf}\dfrac{1}{\paren{1+t^3}^n}\odif{t}\) pour \(n\geq1\).
+
+\begin{enumerate}
+    \item On définit les suites \(\paren{u_n}_{n\geq1}\) et \(\paren{v_n}_{n\geq1}\) par \(u_n=\sum_{k=1}^n\dfrac{1}{k}-\ln n\) et \(v_n=\sum_{k=1}^n\dfrac{1}{k}-\ln\paren{n+1}\). \\ Montrez qu'elles convergent vers la même limite. \\
+    \item Montrez que \(\quantifs{\tpt n\geq1}I_{n+1}=\paren{1-\dfrac{1}{3n}}I_n\). \\
+    \item Montrez qu'il existe des réels \(a\) et \(b\) tels que \(\ln I_n=a\ln n+b+\o{1}\). \\
+    \item Montrez que la série de terme général \(I_n\) converge.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Oral CCMP, 10]
+Soit \(y\in\R\).
+
+Calculez \(\int_{\minf}^{\pinf}\dfrac{1}{\paren{1+x^2}\paren{1+x^2y^2}}\odif{x}\).
+\end{exo}
+
+\begin{exo}[Oral CCMP, 11]
+Soit \(y\in\R\).
+
+Justifiez l'existence et calculez \(\int_{\minf}^{\pinf}\dfrac{1}{\paren{1+x^2}\paren{1+\i xy}}\odif{x}\).
+\end{exo}
+
+\begin{exo}[Oral CCMP, 12]
+Soit \(\alpha>0\).
+
+Étudiez la convergence de \(\int_0^{\pinf}\paren{\exp\paren{\dfrac{\sin^2t}{t^\alpha}}-1}\odif{t}\).
+\end{exo}
+
+\begin{exo}[Oral CCMP, 13]
+Soient \(a\in\intervie{0}{1}\) et \(f:\Rp\to\Rps\) continue par morceaux telle que \(\dfrac{f\paren{x+1}}{f\paren{x}}\tendqd{x\to\pinf}a\).
+
+Montrez que \(f\) est intégrable sur \(\Rp\).
+\end{exo}
+
+\section*{Problème 1 -- Calculs d'intégrales}
+\addcontentsline{toc}{section}{Problème 1 -- Calculs d'intégrales}
+
+\subsection*{Intégrale de Gauss}
+\addcontentsline{toc}{subsection}{Intégrale de Gauss}
+
+L'intégrale de Gauss est l'intégrale généralisée \(\int_{\minf}^{\pinf}\e{-t^2}\odif{t}\).
+
+On rappelle un résultat à propos des intégrales de Wallis : en notant \(W_n=\int_0^{\nicefrac{\pi}{2}}\paren{\cos\theta}^n\odif{\theta}\), on a \(W_n\simqd{n\to\pinf}\sqrt{\dfrac{\pi}{2n}}\).
+
+\setcounter{q}{0}
+\begin{q}
+Justifiez que l'intégrale \(\int_{\minf}^{\pinf}\e{-t^2}\odif{t}\) est convergente.
+\end{q}
+
+\begin{q}
+Montrez que \(\quantifs{\forall n\in\Ns;\forall t\in\intervii{0}{\sqrt{n}}}\paren{1-\dfrac{t^2}{n}}^n\leq\e{-t^2}\leq\paren{1+\dfrac{t^2}{n}}^{-n}\).
+\end{q}
+
+\begin{q}
+Soit \(n\in\Ns\).
+
+À l'aide du changement de variable \(t=\sqrt{n}\sin\theta\), exprimez l'intégrale \(\int_0^{\sqrt{n}}\paren{1-\dfrac{t^2}{n}}^{n}\odif{t}\) en fonction d'une intégrale de Wallis.
+\end{q}
+
+\begin{q}
+Avec le changement de variable \(t=\sqrt{n}\tan\theta\), établissez que \[\quantifs{\forall n\in\Ns}\int_0^{\sqrt{n}}\paren{1+\dfrac{t^2}{n}}^{-n}\odif{t}\leq\sqrt{n}W_{2n-2}.\]
+
+Déduisez-en que \(\quantifs{\forall n\in\Ns}\sqrt{n}W_{2n+1}\leq\int_0^{\sqrt{n}}\e{-t^2}\odif{t}\leq\sqrt{n}W_{2n-2}\).
+\end{q}
+
+\begin{q}
+Déterminez enfin la valeur de l'intégrale de Gauss.
+\end{q}
+
+\subsection*{Des intégrales avec des logarithmes}
+\addcontentsline{toc}{subsection}{Des intégrales avec des logarithmes}
+
+Pour \(n\in\N\), on pose \(u_n=\int_0^1t^n\ln\paren{t}\odif{t}\) et \(v_n=\int_0^1t^n\dfrac{\ln t}{1+t}\odif{t}\).
+
+\begin{q}
+\begin{enumerate}
+    \item Justifiez l'existence de \(u_n\) et \(v_n\), puis montrez que \(u_n=\dfrac{-1}{\paren{n+1}^2}\). \\
+    \item Montrez que \(\abs{v_n}\leq-u_n\) et déduisez-en la limite de \(v_n\) quand \(n\) tend vers \(\pinf\).
+\end{enumerate}
+\end{q}
+
+\begin{q}
+\begin{enumerate}
+    \item Montrez que la série \(\sum_{n\geq0}\paren{-1}^nu_n\) converge, puis que \(\sum_{k=0}^n\paren{-1}^ku_k=v_0+\paren{-1}^nv_{n+1}\). \\
+    \item On rappelle que \(\sum_{k=1}^{\pinf}\dfrac{1}{k^2}=\dfrac{\pi^2}{6}\). Montrez que \(v_0=-\dfrac{\pi^2}{12}\).
+\end{enumerate}
+\end{q}
+
+\begin{q}
+Montrez que l'intégrale \(\int_0^1\dfrac{\ln\paren{1+t}}{t}\odif{t}\) converge et donnez sa valeur grâce à ce qui précède.
+\end{q}
+
+\section*{Problème 2 -- Des inégalités entre intégrales}
+\addcontentsline{toc}{section}{Problème 2 -- Des inégalités entre intégrales}
+
+\subsection*{Partie 1}
+\addcontentsline{toc}{subsection}{Partie 1}
+
+Soit \(f:\intervii{0}{1}\to\R\) de classe \(\classe{1}\) telle que \(f\paren{0}=f\paren{1}=0\).
+
+\setcounter{q}{0}
+\begin{q}
+Montrez l'existence des intégrales suivantes et justifiez l'égalité \[\int_0^1f\paren{x}f\prim\paren{x}\cotan\paren{\pi x}\odif{x}=\dfrac{\pi}{2}\int_0^1\dfrac{f^2\paren{x}}{\sin^2\paren{\pi x}}\odif{x}.\]
+\end{q}
+
+\begin{q}
+Déduisez-en \(\int_0^1{f\prim}^2-\pi^2\int_0^1f^2=\int_0^1\paren{f\prim\paren{x}-\pi f\paren{x}\cotan\paren{\pi x}}^2\odif{x}\).
+\end{q}
+
+\begin{q}
+Concluez : \(\int_0^1{f\prim}^2\geq\pi^2\int_0^1f^2\). Dans quel cas y a-t-il égalité ?
+\end{q}
+
+\subsection*{Partie 2}
+\addcontentsline{toc}{subsection}{Partie 2}
+
+Soit \(f:\Rp\to\R\) de classe \(\classe{2}\) telle que \(f\paren{0}=0\) et l'intégrale \(\int_0^{\pinf}{f\prim}^2\) converge.
+
+On pose \(g:x\mapsto\dfrac{f\paren{x}}{\sqrt{x}}\).
+
+\begin{q}
+\begin{enumerate}
+    \item Montrez que \(g\) est prolongeable par continuité en \(0\). \\
+    \item Justifiez que \(g\) est de classe \(\classe{2}\) sur \(\intervee{0}{\pinf}\) et montrez que \[\quantifs{\forall x>0}{f\prim}^2\paren{x}=x{g\prim}^2\paren{x}+g\paren{x}g\prim\paren{x}+\dfrac{1}{4x}g^2\paren{x}.\]
+\end{enumerate}
+\end{q}
+
+\begin{q}
+Montrez que les intégrales \(\int_0^{\pinf}x{g\prim}^2\paren{x}\odif{x}\) et \(\int_0^{\pinf}\dfrac{f^2\paren{x}}{x^2}\odif{x}\) sont convergentes et que la fonction \(g^2\) a une limite réelle en \(\pinf\).
+\end{q}
+
+\begin{q}
+Montrez que cette limite est nulle et déduisez-en l'inégalité \[\int_0^{\pinf}\paren{\dfrac{f\paren{x}}{x}}^2\odif{x}\leq4\int_0^{\pinf}{f\prim}^2\paren{x}\odif{x}.\]
+\end{q}
+
+\begin{q}
+Étudiez le cas d'égalité.
+\end{q}
+
+\subsection*{Partie 3}
+\addcontentsline{toc}{subsection}{Partie 3}
+
+Soit \(f:\R\to\R\) de classe \(\classe{2}\) telle que les intégrales \(\int_{\minf}^{\pinf}f^2\) et \(\int_{\minf}^{\pinf}{f\seconde}^2\) convergent.
+
+On rappelle l'inégalité de Cauchy-Schwarz : si \(u,v\) sont deux fonctions continues sur \(\intervii{a}{b}\), alors \[\paren{\int_a^buv}^2\leq\int_a^bu^2\times\int_a^bv^2.\]
+
+\begin{q}
+\begin{enumerate}
+    \item Montrez que l'intégrale \(\int_{\minf}^{\pinf}ff\seconde\) est absolument convergente. \\
+    \item Pour \(\paren{a,b}\in\R^2\), donnez une relation entre \(\int_a^b{f\prim}^2\) et \(\int_a^bff\seconde\).
+\end{enumerate}
+\end{q}
+
+\begin{q}
+On suppose que l'intégrale \(\int_0^{\pinf}{f\prim}^2\) diverge.
+
+\begin{enumerate}
+    \item Montrez que \(f\paren{x}f\prim\paren{x}\tendqd{x\to\pinf}\pinf\). Déduisez-en que \(f^2\paren{x}\tendqd{x\to\pinf}\pinf\). \\
+    \item Est-ce possible ? Que pensez-vous de la nature de l'intégrale \(\int_{\minf}^0{f\prim}^2\) .
+\end{enumerate}
+\end{q}
+
+\begin{q}
+\begin{enumerate}
+    \item Montrez que la fonction \(ff\prim\) a des limites réelles a des limites réelles en \(\pinf\) et en \(\minf\), puis que ces limites sont nulles. \\
+    \item Justifiez finalement l'inégalité \[\paren{\int_{\minf}^{\pinf}{f\prim}^2}^2\leq\int_{\minf}^{\pinf}f^2\times\int_{\minf}^{\pinf}{f\seconde}^2.\]
+\end{enumerate}
+\end{q}
+
+\begin{q}
+Étudiez le cas d'égalité dans l'inégalité précédente.
+\end{q}
