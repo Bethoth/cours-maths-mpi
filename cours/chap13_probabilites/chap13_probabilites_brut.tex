@@ -2,4 +2,478 @@
 
 \minitoc
 
-\note{À venir}
+\section{Dénombrabilité}
+
+\subsection{Vocabulaire}
+
+\begin{defi}
+On dit qu'un ensemble \(E\) est dénombrable quand il existe une bijection de \(\N\) dans \(E\).
+\end{defi}
+
+Dans ce cas, cela signifie qu'on peut numéroter les éléments de \(E\) par les entiers naturels et donc qu'on peut écrire \(E\) en extension sous une forme \(E=\accol{x_n\tq n\in\N}\) sans jamais répéter deux fois le même élément : on dit qu'on a énuméré les éléments de \(E\).
+
+Un ensemble fini est de la forme \(\accol{x_0,\dots,x_n}\) : on peut aussi l'écrire sous la forme \(\accol{x_n\tq n\in\N}\) en répétant une infinité de fois au moins un élément. C'est pourquoi on voit souvent dans les raisonnements apparaître la locution \guillemets{ensemble fini ou dénombrable} ou \guillemets{ensemble au plus dénombrable}.
+
+Évidemment, tout ensemble en bijection avec un ensemble dénombrable est aussi dénombrable, car une composée de bijections est une bijection.
+
+\subsection{Exemples}
+
+\begin{prop}
+\begin{itemize}
+    \item \(\N\), \(\Ns\), plus généralement \(\intervie{n_0}{\pinf}\inter\N\) (pour tout \(n_0\in\N\)), et encore plus généralement toute partie infinie de \(\N\) sont dénombrables. \\
+    \item \(\Z\) est dénombrable. \\
+    \item \(\quantifs{\Tpt p\in\Ns}\N^p\text{ est dénombrable}\). \\
+    \item \(\Q\) est dénombrable. \\
+    \item Si \(\paren{u_i}_{i\in I}\) est une famille sommable de complexes, alors le support de la famille \(\accol{i\in I\tq u_i\not=0}\) est dénombrable.
+\end{itemize}
+\end{prop}
+
+En revanche, il existe des ensembles infinis non-dénombrables, comme \(\R\) ou tout intervalle de longueur non-nulle. Un ensemble non-dénombrable est trop gros pour qu'on puisse ordonner ses éléments et les numéroter.
+
+\subsection{Quelques propriétés}
+
+\begin{prop}
+Toute partie infinie d'un ensemble dénombrable est dénombrable.
+
+Si \(E\) est dénombrable, alors pour toute injection de \(F\) dans \(E\), \(F\) est au plus dénombrable.
+\end{prop}
+
+Pourvu qu'on ne considère pas trop d'ensembles, les réunions d'ensembles dénombrables le sont aussi.
+
+\begin{prop}
+Si \(E_1,\dots,E_n\) sont (au plus) dénombrables, alors \(E_1\union\dots\union E_n\) l'est aussi.
+
+Si \(\paren{E_i}_{i\in I}\) est une famille (au plus) dénombrable d'ensembles (au plus) dénombrables, alors \(\bigunion_{i\in I}E_i\) l'est aussi.
+\end{prop}
+
+En revanche, pour les produits cartésiens, il faut se contenter d'un nombre fini d'ensembles.
+
+\begin{prop}
+Si \(E_1,\dots,E_n\) sont dénombrables, alors \(E_1\times\dots\times E_n\) est dénombrable.
+\end{prop}
+
+En revanche, un produit cartésien quelconque d'ensembles dénombrables ne l'est pas en général : par exemple, \(\accol{0,1}^\N\) n'est pas dénombrable.
+
+\section{Espace probabilisé}
+
+\subsection{Univers d'une expérience aléatoire}
+
+Une expérience aléatoire est une expérience dont on connaît les résultats possibles (les issues possibles) mais dont on ne peut pas connaître à l'avance le résultat. On modélise l'expérience par la donnée de l'ensemble \(\Omega\) des issues possibles.
+
+\begin{defi}
+L'ensemble des issues possibles est appelé univers des possibles (ou univers). Il est souvent noté \(\Omega\).
+\end{defi}
+
+\begin{ex}
+\begin{itemize}
+    \item On jette un dé non-truqué : les issues possibles sont les six entiers \(1,\dots,6\) ; l'univers est donc \(\Omega=\accol{1,\dots,6}\). \\
+    \item On jette \(n\) fois un dé : les issues possibles sont les suites de \(n\) entiers de l'ensemble \(\accol{1,\dots,6}\) ; donc \(\Omega=\interventierii{1}{6}^n\). \\
+    \item On lance une pièce une infinité de fois : les issues possibles sont les suites infinies de \(0\) ou \(1\) ; donc \(\Omega=\accol{0,1}^\N\).
+\end{itemize}
+\end{ex}
+
+\subsection{Tribu d'événements}
+
+De manière informelle, un événement est une partie de l'univers \(\Omega\). Mais cette définition est trop vague. Si on autorise toutes les parties de l'univers à être des événements, alors quand l'ensemble \(\Omega\) est infini non-dénombrable, les seules probabilités sur \(\Omega\) sont des probabilités discrètes (théorème d'Ulam), ce qui exclut tout un tas de probabilités intéressantes. Donc on doit en général restreindre la notion d'événement à certaines parties de \(\Omega\) : certaines parties n'ont donc pas le droit d'être nommées \guillemets{événement}.
+
+\begin{defi}
+Soit \(\Omega\) un univers.
+
+On appelle tribu sur \(\Omega\) une partie \(\fami{T}\) de \(\P{\Omega}\) telle que :
+
+\begin{itemize}
+    \item \(\Omega\in\fami{T}\) \\
+    \item \(\quantifs{\tpt A\in\fami{T}}\conj{A}\in\fami{T}\) \\
+    \item pour toute suite \(\quantifs{\paren{A_n}\in\fami{T}^\N}\bigunion_{n\in\N}A_n\in\fami{T}\).
+\end{itemize}
+\end{defi}
+
+Modéliser une expérience aléatoire, c'est choisir l'univers et une tribu : les éléments de la tribu sont appelés les événements. On dit qu'un événement est réalisé quand l'issue de l'expérience aléatoire appartient à cet événement. Le couple \(\groupe{\Omega}[\fami{T}]\) est appelé espace probabilisable.
+
+\begin{ex}
+\begin{itemize}
+    \item L'ensemble \(\accol{\ensvide,\Omega}\) est une tribu, c'est la plus petite tribu envisageable. Elle est inutilisable en pratique car elle ne comporte pas assez d'événements pour décrire des situations issues de la vie réelle. \\
+    \item L'ensemble \(\P{\Omega}\) est une tribu : quand l'univers \(\Omega\) est fini ou dénombrable, c'est la tribu utilisée systématiquement, mais quand \(\Omega\) est infini non-dénombrable, c'est une tribu trop grosse pour pouvoir y définir une probabilité vraiment utile. \\
+    \item En école d'ingénieur, vous entendrez parler de la tribu des boréliens : c'est celle qui est couramment utilisée quand \(\Omega=\R\).
+\end{itemize}
+\end{ex}
+
+\begin{prop}
+Soient \(\Omega\) un ensemble et \(\fami{T}\) une tribu sur \(\Omega\).
+
+Alors on a :
+
+\begin{itemize}
+    \item \(\ensvide\in\fami{T}\) \\
+    \item pour toute suite \(\quantifs{\paren{A_n}\in\fami{T}^\N}\biginter_{n\in\N}A_n\in\fami{T}\) \\
+    \item pour toute famille finie \(\paren{A_1,\dots,A_n}\) d'événements, \(\bigunion_{k=0}^nA_k\) et \(\biginter_{k=0}^nA_k\) sont des événements.
+\end{itemize}
+\end{prop}
+
+\begin{defi}
+\(\Omega\) est appelé l'événement certain, \(\ensvide\) est appelé l'événement impossible.
+
+Deux événements \(A\) et \(B\) sont dits incompatibles quand ils sont disjoints, \ie \(A\inter B=\ensvide\).
+\end{defi}
+
+\subsection{Probabilité}
+
+\begin{defi}
+Soient \(\Omega\) un univers et \(\fami{T}\) une tribu sur \(\Omega\).
+
+On appelle probabilité sur \(\groupe{\Omega}[\fami{T}]\) toute application \(\prem:\fami{T}\to\intervii{0}{1}\) telle que :
+
+\begin{itemize}
+    \item \(\proba{\Omega}=1\) \\
+    \item pour toute suite \(\paren{A_n}\in\fami{T}^\N\) d'événements deux à deux incompatibles, la série de terme général \(\proba{A_n}\) est convergente et \(\proba{\bigsqcup_{n\in\N}A_n}=\sum_{n=0}^{\pinf}\proba{A_n}\).
+\end{itemize}
+
+Le triplet \(\anneau{\Omega}[\fami{T}][\prem]\) est appelé espace probabilisé.
+\end{defi}
+
+En pratique, sauf dans certains cas où \(\Omega\) est fini ou dénombrable, nous postulerons toujours l'existence d'un espace probabilisé qui modélise la situation, car c'est hors de notre portée de construire concrètement un tel espace. Dès que les expériences aléatoires peuvent avoir une infinité non-dénombrable de résultats possibles, il est souvent difficile de reprendre les idées développées en première année et définir, par exemple, des probabilités à partir d'événements élémentaires \(\accol{\omega}\) (définir \(\Omega\) est en général à notre portée, mais construire la tribu et la probabilité est inaccessible à nos moyens). Nous admettrons donc toujours l'existence d'un espace probabilisé représentant notre expérience.
+
+Dans moult cas, nous définirons les événements à partir d'événements \guillemets{primitifs} : par exemple, dans le cas d'une suite de lancer de pièce, l'univers est simple : \(\accol{0,1}^\N\), mais il n'est pas dénombrable ; les événements primitifs sont les événements \(P_i\), où \(i\in\N\) et \[P_i=\accol{\omega=\paren{\omega_n}\in\accol{0,1}^\N\tq\omega_i=1}\] modélise l'événement au sens concret \guillemets{obtenir pile au \(i\)-ème lancer}.
+
+\begin{exo}
+On lancer une pièce une infinité de fois.
+
+Exprimez par une phrase ce que représentent les événements suivants : \[A_n=\biginter_{i=0}^nP_i\qquad B_n=\bigunion_{i=0}^n\paren{P_i\inter\biginter_{\substack{0\leq j\leq n \\ j\not=i}}\overline{P_j}}\qquad C=\bigunion_{i\in\N}\biginter_{j\geq i}P_j.\]
+
+Réciproquement, définissez à l'aide des \(P_i\) les événements suivants :
+
+\begin{itemize}
+    \item on obtient pile un nombre fini de fois \\
+    \item on obtient pile une infinité de fois.
+\end{itemize}
+\end{exo}
+
+\subsection{Propriétés}
+
+On retrouve les propriétés vues en première année.
+
+\begin{prop}
+Soit \(\anneau{\Omega}[\fami{T}][\prem]\) un espace probabilisé.
+
+Alors \(\prem\) vérifie les propriétés suivantes :
+
+\begin{itemize}
+    \item \(\quantifs{\tpt A\in\fami{T}}\proba{\overline{A}}=1-\proba{A}\) ; en particulier \(\proba{\ensvide}=0\) \\
+    \item \(\quantifs{\tpt\paren{A,B}\in\fami{T}^2}A\subset B\imp\proba{A}\leq\proba{B}\) \\
+    \item \(\quantifs{\tpt\paren{A,B}\in\fami{T}^2}\proba{A\union B}=\proba{A}+\proba{B}-\proba{A\inter B}\).
+\end{itemize}
+\end{prop}
+
+Mais on en a d'autres, liées à la notion de suite dénombrable.
+
+\subsubsection{Continuité}
+
+\begin{prop}[Continuité croissante]
+Si \(\paren{A_n}\) est une suite croissante d'événements, \cad \(\quantifs{\tpt n\in\N}A_n\subset A_{n+1}\), alors \[\proba{\bigunion_{n\in\N}A_n}=\lim_{n\to\pinf}\proba{A_n}.\]
+\end{prop}
+
+\begin{prop}[Continuité décroissante]
+Si \(\paren{A_n}\) est une suite décroissante d'événements, \cad \(\quantifs{\tpt n\in\N}A_{n+1}\subset A_n\), alors \[\proba{\biginter_{n\in\N}A_n}=\lim_{n\to\pinf}\proba{A_n}.\]
+\end{prop}
+
+\begin{prop}
+Soit \(\paren{A_n}\) une suite quelconque d'événements. On a \[\proba{\bigunion_{n=0}^{\pinf}A_n}=\lim_{N\to\pinf}\proba{\bigunion_{n=0}^NA_n}\qquad\text{et}\qquad\proba{\biginter_{n=0}^{\pinf}A_n}=\lim_{N\to\pinf}\proba{\biginter_{n=0}^NA_n}.\]
+\end{prop}
+
+\begin{exo}
+On considère l'univers des suites infinies de lancers indépendants d'une pièce équilibrée : \(\Omega=\accol{0,1}^\N\).
+
+Montrez que les événements élémentaires \(\accol{\omega}\) sont de probabilité nulle.
+
+Déduisez-en que l'univers n'est pas dénombrable.
+
+Quelle est la probabilité d'obtenir un nombre fini de face ?
+\end{exo}
+
+\subsubsection{Sous-additivité}
+
+\begin{prop}[Sous-additivité]
+Si \(\paren{A_n}\) est une suite d'événements, alors \[\proba{\bigunion_{n\in\N}A_n}\leq\sum_{n=0}^{\pinf}\proba{A_n}.\]
+\end{prop}
+
+Dans ce résultat, le symbole \(\sum_{n=0}^{\pinf}\proba{A_n}\) signifie \(\lim_{N\to\pinf}\sum_{n=0}^N\proba{A_n}\) : c'est un réel si la série \(\sum\proba{A_n}\) est convergente, et \(\pinf\) sinon (puisque la série est à termes positifs).
+
+\subsubsection{Événements négligeables ou presque sûrs}
+
+\begin{defi}
+Un événement est dit négligeable quand sa probabilité est nulle.
+
+Un événement est dit presque sûr quand sa probabilité est \(1\).
+\end{defi}
+
+\begin{prop}
+Toute réunion ou intersection au plus dénombrable d'événements négligeables est négligeable.
+
+Toute réunion ou intersection au plus dénombrable d'événements presque sûrs est presque sûre.
+\end{prop}
+
+\subsection{Probabilité discrète}
+
+\begin{defi}
+Soit \(\Omega\) un univers.
+
+On appelle distribution de probabilité discrète sur \(\Omega\) toute famille de réels positifs indexée par \(\Omega\), sommable et de somme totale \(1\).
+
+Si \(\Omega\) est un ensemble fini, on retrouve la définition de l'an dernier.
+\end{defi}
+
+\begin{prop}
+Si \(\paren{p_\omega}_{\omega\in\Omega}\) est une distribution de probabilité discrète sur \(\Omega\), alors son support \(\accol{\omega\in\Omega\tq p_\omega>0}\) est au plus dénombrable.
+\end{prop}
+
+À toute distribution de probabilité discrète sur \(\Omega\), on peut associer une probabilité sur l'espace probabilisable \(\groupe{\Omega}[\P{\Omega}]\).
+
+\begin{prop}
+Si \(\paren{p_\omega}_{\omega\in\Omega}\) est une distribution de probabilité discrète sur \(\Omega\), alors il existe une unique probabilité \(\prem\) sur la tribu \(\P{\Omega}\) telle que \(\quantifs{\tpt\omega\in\Omega}\proba{\accol{\omega}}=p_\omega\).
+\end{prop}
+
+Quand l'univers est infini non-dénombrable, le résultat précédent donne toutes les probabilités discrètes sur \(\groupe{\Omega}[\P{\Omega}]\). Mais si on choisit des tribus plus petites (ce qui est très relatif : en général, ce sont des ensembles énormes, dont la puissance dépasse celle du continu !), alors on peut créer d'autres types de probabilités (comme les probabilités dites continues).
+
+Quand l'univers \(\Omega\) est fini ou dénombrable, alors toutes les probabilités sont discrètes : on choisit toujours la tribu \(\P{\Omega}\), ce qui est toujours sous-entendu.
+
+\begin{prop}
+Soit \(\Omega=\accol{\omega_1,\dots,\omega_n}\) un ensemble fini.
+
+Alors pour tout \(n\)-uplet \(\paren{p_1,\dots,p_n}\in\intervii{0}{1}^n\) tel que \(\sum_{i=1}^np_i=1\), il existe une unique probabilité \(\prem\) sur \(\Omega\) telle que \(\quantifs{\tpt i\in\interventierii{1}{n}}\proba{\accol{\omega_i}}=p_i\).
+\end{prop}
+
+\begin{prop}
+Soit \(\Omega=\accol{\omega_1,\dots,\omega_n,\dots}\) un ensemble dénombrable.
+
+Alors pour toute suite \(\paren{p_n}\in\intervii{0}{1}^\N\) telle que la série \(\sum_{n\geq1}p_n\) converge et \(\sum_{n=1}^{\pinf}p_n=1\), il existe une unique probabilité \(\prem\) sur \(\Omega\) telle que \(\quantifs{\tpt i\in\Ns}\proba{\accol{\omega_i}}=p_i\).
+\end{prop}
+
+\begin{exo}
+Déterminez l'unique constante \(\lambda\) telle qu'on puisse définir une probabilité sur \(\N\) en posant \[\quantifs{\tpt n\in\N}\proba{\accol{n}}=\dfrac{\lambda}{n!}.\]
+\end{exo}
+
+Dans toute la suite, on suppose donné un espace probabilisé \(\anneau{\Omega}[\fami{T}][\prem]\).
+
+\section{Probabilités conditionnelles}
+
+\subsection{Généralités}
+
+\begin{defi}
+Soit \(A\in\fami{T}\) un événement non-négligeable.
+
+Pour \(B\in\fami{T}\), on pose \(\probacond{B}{A}=\dfrac{\proba{A\inter B}}{\proba{A}}\), appelé probabilité sachant \(A\) de \(B\).
+\end{defi}
+
+On voit aussi la notation \(\proba{B\tq A}\), mais attention, cette notation est trompeuse, elle peut laisser penser qu'il existe un événement qui s'appellerait \guillemets{\(B\) sachant \(A\)}, ce qui n'a aucun sens.
+
+L'idée derrière la notion de probabilité conditionnelle est que lorsqu'on dispose d'une information partielle sur le résultat de l'expérience, notre perception des probabilités s'en trouve modifiée.
+
+\begin{theo}
+Sous les mêmes hypothèses, \(\prem_A\) est une probabilité sur \(\groupe{\Omega}[\fami{T}]\), appelée probabilité conditionnelle relative à \(A\).
+\end{theo}
+
+En général, on connaît plutôt \(\proba{A}\) et \(\probacond{B}{A}\), ce qui permet de calculer \(\proba{A\inter B}\) : \[\proba{A\inter B}=\proba{A}\probacond{B}{A}.\]
+
+On peut généraliser.
+
+\begin{theo}[Formule des probabilités composées]
+Soit \(\paren{A_1,\dots,A_n}\) une famille d'événements tels que \(\proba{A_1\inter\dots\inter A_{n-1}}\not=0\).
+
+Alors \(\proba{A_1\inter\dots\inter A_{n-1}\inter A_n}=\proba{A_1}\probacond{A_2}{A_1}\probacond{A_3}{A_1\inter A_2}\dots\probacond{A_n}{A_1\inter\dots\inter A_{n-1}}\).
+\end{theo}
+
+En général, on utilise ce résultat lorsque des événements (au sens naturel) se succèdent et que la connaissance de chaque événement permet de déterminer l'état du système.
+
+\begin{exo}
+On dispose d'une urne contenant une boule blanche et \(n\) boules noires (avec \(n\geq1\)).
+
+On effectue une suite de tirages jusqu'à obtenir la boule blanche en respectant le protocole suivant : si on tire une boule noire, on la remplace par deux boules noires.
+
+Calculez la probabilité d'obtenir la boule blanche à l'issue du \(k\)-ème tirage et la probabilité de ne jamais tirer la boule blanche.
+\end{exo}
+
+\subsection{Systèmes complets d'événements}
+
+\begin{defi}
+Soit \(\paren{A_i}_{i\in I}\) une famille d'événements.
+
+On dit que la famille \(\paren{A_i}_{i\in I}\) est un système complet d'événements si, et seulement si :
+
+\begin{itemize}
+    \item \(I\) est fini ou dénombrable (en pratique, on a souvent \(I=\interventierii{1}{n}\) ou \(I=\N\)) \\
+    \item les événements sont deux à deux incompatibles : \[\quantifs{\tpt\paren{i,j}\in I^2}i\not=j\imp A_i\inter A_j=\ensvide\] \\
+    \item \(\bigunion_{i\in I}A_i=\Omega\).
+\end{itemize}
+\end{defi}
+
+\begin{ex}
+\begin{itemize}
+    \item Si \(A\) est un événement, le couple \(\paren{A,\conj{A}}\) est un système complet d'événements. \\
+    \item Si \(\Omega\) est fini ou dénombrable, la famille de tous les événements élémentaires est un système complet d'événements.
+\end{itemize}
+\end{ex}
+
+Les systèmes complets d'événements interviennent lorsqu'on est tenté de faire une disjonction de cas : on est dans un cas, ou alors dans un autre, etc, mais sans que jamais deux cas soient simultanément possibles.
+
+Si \(\paren{A_i}_{i\in I}\) est un système complet d'événements, alors \(\sum_{i\in I}\proba{A_i}=1\).
+
+\begin{rem}
+D'une manière générale, dans toute la suite du cours, si on voit apparaître une somme \(\sum_{i\in I}\dots\), alors elle signifiera :
+
+\begin{itemize}
+    \item une vraie somme quand \(I\) est fini \\
+    \item une somme d'une famille sommable quand \(I\) est infini \\
+    \item cas particulier : dans le cas de réels positifs, on peut oublier la condition de sommabilité et prendre les sommes dans \(\intervii{0}{\pinf}\) (c'est presque toujours le cas tant qu'on ne manipule que des probabilités, qui sont des réels positifs).
+\end{itemize}
+\end{rem}
+
+\begin{defi}
+Pour définir un système quasi-complet d'événements, on remplace la condition \(\bigunion_{i\in I}A_i=\Omega\) par la condition \(\sum_{i\in I}\proba{A_i}=1\).
+\end{defi}
+
+Un système complet d'événements est donc un système quasi-complet d'événements.
+
+Réciproquement, si \(\paren{A_i}_{i\in I}\) est un système quasi-complet d'événements, on pose \(B=\conj{\bigunion_{i\in I}A_i}\) : \(B\) est alors un événement négligeable et le système d'événements constitué des événements \(A_i\) auxquels on ajoute l'événement \(B\) est alors un système complet.
+
+Conclusion : à un événement négligeable près, les deux notions sont identiques. La suite du cours montre que la différence entre les deux notions n'est pas fondamentale en pratique.
+
+\subsection{Formule des probabilités totales}
+
+\begin{theo}
+Soit \(\paren{A_i}_{i\in I}\) un système complet d'événements.
+
+Alors pour tout événement \(\quantifs{B}\proba{B}=\sum_{i\in I}\proba{B\inter A_i}\).
+
+Si, de plus, tous les événements \(A_i\) sont de probabilité non-nulle, alors \(\proba{B}=\sum_{i\in I}\probacond{B}{A_i}\proba{A_i}\).
+\end{theo}
+
+Si \(A\) est un événement négligeable, alors \(A\inter B\) en est un aussi : formellement, la probabilité conditionnelle \(\probacond{B}{A}\) n'est pas définie ; on lui donne alors une valeur arbitraire (souvent \(0\), en fait peu importe) et on accepte quand même l'égalité \(\proba{A\inter B}=\probacond{B}{A}\proba{A}=0\), car, dans ce cas, cette égalité est vraie puisque \(\proba{A\inter B}=\proba{A}=0\).
+
+Avec cette convention, on peut étendre la formule des probabilités totales à tout système quasi-complet d'événements.
+
+\begin{theo}
+Soit \(\paren{A_i}_{i\in I}\) un système complet d'événements.
+
+Alors pour tout événement \(\quantifs{B}\proba{B}=\sum_{i\in I}\probacond{B}{A_i}\proba{A_i}\).
+\end{theo}
+
+\begin{exo}
+Soit \(p\in\intervee{0}{1}\).
+
+Dans \(\N\), on définit la probabilité \(\prem\) par \(\proba{\accol{n}}=\paren{1-p}p^n\).
+
+Justifiez que cette égalité définit effectivement une probabilité sur \(\N\).
+
+On tire un entier \(N\) au hasard selon cette probabilité, puis on remplit une urne avec une boule noire et \(N\) boules blanches. On prélève enfin une boule dans l'urne.
+
+Quelle est la probabilité d'obtenir une boule noire dans cette expérience ?
+\end{exo}
+
+\subsection{Formule de Bayes}
+
+\begin{prop}
+Soient \(A\) et \(B\) deux événements de probabilité non-nulle.
+
+Alors \(\probacond{A}{B}=\dfrac{\proba{A}\probacond{B}{A}}{\proba{B}}\).
+\end{prop}
+
+Cette formule est appelée la formule de probabilité des causes.
+
+On déduit de cela et de la formule des probabilités totales la formule de Bayes.
+
+\begin{theo}
+Soit \(\paren{A_i}_{i\in I}\) un système quasi-complet d'événements.
+
+Alors pour tout événement \(B\) tel que \(\proba{B}\not=0\), on a \(\probacond{A_i}{B}=\dfrac{\proba{A_i}\probacond{B}{A_i}}{\ds\sum_{j\in I}\proba{A_j}\probacond{B}{A_j}}\).
+\end{theo}
+
+\begin{rem}
+L'énoncé est donné ici dans sa pleine version mais, en pratique, on retrouve la formule à chaque fois en refaisant la démonstration dans le cas qui nous préoccupe.
+\end{rem}
+
+\begin{exo}
+Une proportion \(p\) d'une population est atteinte d'une maladie donnée (\textit{prévalence} de la maladie) pour laquelle un test de dépistage existe.
+
+Appliqué à un individu atteint, le test donne un résultat positif avec une probabilité \(s\) (\textit{sensibilité} du test).
+
+Appliqué à un individu indemne, il donne un résultat négatif avec une probabilité \(s\prim\) (\textit{spécificité} du test).
+
+Calculez la probabilité qu'un patient soit effectivement atteint lorsque son test est positif (\textit{valeur prédictive positive}) ; qu'il soit effectivement indemne lorsque son test est négatif (\textit{valeur prédictive négative}).
+\end{exo}
+
+\begin{exo}
+Jean-Eudes lance une pièce équilibrée jusqu'à obtenir pile, il compte le nombre de lancers nécessaires, noté \(k\), puis il remplit une urne avec \(k\) boules numérotées de \(1\) à \(k\). Enfin, il tire une boule dans l'urne.
+
+Il nous annonce qu'il a obtenu \(1\), mais ne nous donne pas la valeur de \(k\).
+
+Déterminez la probabilité qu'il n'ait fait qu'un seul lancer de pièce.
+\end{exo}
+
+\section{Indépendance}
+
+\subsection{Indépendance de deux événements}
+
+\begin{defi}
+Soient \(A\) et \(B\) deux événements.
+
+On dit que \(A\) et \(B\) sont indépendants (pour la probabilité \(\prem\)) ssi \(\proba{A\inter B}=\proba{A}\proba{B}\).
+\end{defi}
+
+\begin{prop}
+Si \(A\) et \(B\) sont deux événements indépendants, alors les événements \(A\) et \(\conj{B}\) sont indépendants, les événements \(\conj{A}\) et \(B\) sont indépendants et les événements \(\conj{A}\) et \(\conj{B}\) sont indépendants.
+\end{prop}
+
+\begin{rem}
+\begin{itemize}
+    \item Attention ! Ne pas confondre \guillemets{événements indépendants} et \guillemets{événements incompatibles} ! \\
+    \item Le fait que deux événements soient indépendants ou pas n'est pas seulement lié aux événements eux-mêmes, mais dépend aussi de la probabilité. Quand plusieurs probabilités sont utilisées (par exemple des probabilités conditionnelles), il est essentiel de préciser pour quelle probabilité les événements sont indépendants.
+\end{itemize}
+\end{rem}
+
+\begin{prop}
+Soient \(A\) et \(B\) deux événements tels que \(A\) n'est pas négligeable.
+
+Alors \(A\) et \(B\) sont indépendants ssi \(\proba{B}=\probacond{B}{A}\).
+\end{prop}
+
+Intuitivement, deux événements sont indépendants si le fait de savoir que l'un des deux est réalisé n'apporte aucune information sur le fait de savoir que l'autre le soit ou non : dans le cas où \(A\) et \(B\) sont deux événements tels que \(\proba{A}\not=0\) et \(\proba{B}\not=0\), alors \(\probacond{A}{B}=\proba{A}\) et \(\probacond{B}{A}=\proba{B}\). Et non pas, comme c'est souvent indiqué dans la littérature, le fait qu'un événement n'influe pas sur un autre ! Mais tout ça n'est que baratin. \textbf{Il faut se méfier de l'intuition quand on fait des calculs de probabilités.}
+
+\begin{exo}
+Une famille a \(n\) enfants (avec \(n\geq2\)).
+
+Quelle est la probabilité qu'il n'y ait que des enfants du même sexe ?
+
+Quelle est la probabilité qu'il y ait au moins deux filles ?
+
+Montrez que ces deux événements sont indépendants ssi \(n=3\).
+\end{exo}
+
+\subsection{Indépendance mutuelle}
+
+\begin{defi}
+Soit \(\paren{A_i}_{i\in I}\) une famille finie ou dénombrable d'événements.
+
+On dit que les événements \(\paren{A_i}_{i\in I}\) sont (mutuellement) indépendants ssi pour tout sous-ensemble fini \(\quantifs{J\subset I}\proba{\biginter_{j\in J}A_j}=\prod_{j\in J}\proba{A_j}\).
+\end{defi}
+
+Le résultat précédent peut être généralisé.
+
+\begin{prop}
+Si \(\paren{A_i}_{i\in I}\) est une famille d'événements (mutuellement) indépendants, alors toute famille d'événements \(\paren{C_i}_{i\in I}\) où pour tout \(i\in I\), on choisit \(C_i=A_i\) ou \(C_i=\conj{A_i}\), est aussi une famille d'événements mutuellement indépendants.
+\end{prop}
+
+\begin{rem}
+On s'intéresse rarement (pour ne pas dire jamais !) à des familles d'événements deux à deux indépendants seulement : cette notion n'implique pas l'indépendance mutuelle, qui est la seule notion vraiment utile.
+\end{rem}
+
+\begin{rem}
+L'indépendance mutuelle d'un grand nombre d'événements est presque toujours une propriété postulée lors de la modélisation et rarement une propriété démontrée car c'est une preuve difficile en général.
+\end{rem}
+
+On finit par le lemme des coalitions sur les événements.
+
+\begin{theo}
+Soit \(\paren{A_i}_{i\in I}\) une famille d'événements mutuellement indépendants.
+
+Si l'événement \(B\) est le résultat d'opérations ensemblistes sur une sous-famille \(\paren{A_j}_{j\in J}\) (où \(J\subset I\)) et \(C\) est le résultat d'opérations ensemblistes sur la sous-famille complémentaire \(\paren{A_i}_{i\in I\excluant J}\), alors \(B\) et \(C\) sont indépendants.
+\end{theo}
