@@ -2,4 +2,535 @@
 
 \minitoc
 
-\note{À venir}
+Dans ce chapitre, \(\K\) désigne l'ensemble \(\R\) ou \(\C\). Les fonctions considérées dans ce chapitre sont à valeurs dans \(\K\).
+
+On suppose connue la notion d'intégrale sur un segment d'une fonction continue par morceaux à valeurs réelles ou complexes (\cf cours de première année).
+
+Si \(f\) est une fonction continue sur un segment \(\intervii{a}{b}\) (ou \(\intervii{b}{a}\)), on note \(\int_a^bf=\int_a^bf\paren{t}\odif{t}\) (ou toute autre lettre à la place de \(t\)) l'intégrale de \(f\) entre \(a\) et \(b\) : quand on a pas besoin de nommer la variable d'intégration, on ne la note pas, mais si on la note alors on n'oublie pas l'élément différentiel \(\odif{}\).
+
+En préambule, on généralise la notion de fonction continue par morceaux sur un intervalle quelconque.
+
+\section*{Fonctions continues par morceaux sur un intervalle}
+\addcontentsline{toc}{section}{Fonctions continues par morceaux sur un intervalle}
+
+\begin{defi}
+Soit \(I\) un intervalle quelconque.
+
+On dit qu'une fonction est continue par morceaux sur \(I\) quand elle est continue par morceaux sur tout segment inclus dans \(I\).
+\end{defi}
+
+\begin{ex}
+\begin{itemize}
+    \item La fonction \(t\mapsto\begin{dcases}
+        -\ln t &\text{si }t\in\intervei{0}{1} \\
+        \e{-t} &\text{si }t\in\intervie{1}{\pinf}
+    \end{dcases}\) est continue par morceaux sur \(\intervei{0}{\pinf}\). \\
+    \item La fonction \(t\mapsto\floor{\dfrac{1}{t}}\) est continue par morceaux sur \(\intervei{0}{\pinf}\).
+\end{itemize}
+\end{ex}
+
+Dans toute la suite, on note \(\contm[I]\) l'ensemble des fonctions continues par morceaux sur \(I\) et à valeurs dans \(\K\).
+
+\begin{prop}
+L'ensemble \(\contm[I]\) est une \(\K\)-algèbre.
+\end{prop}
+
+\section{Intégrales généralisées sur \(\intervie{a}{\pinf}\)}
+
+Dans cette section, \(a\) est un réel.
+
+\subsection{Définition et exemples fondamentaux}
+
+\begin{defi}
+Soit \(f\in\contm[\intervie{a}{\pinf}]\).
+
+On dit que l'intégrale \(\int_a^{\pinf}f\) converge (ou qu'elle est convergente, ou simplement qu'elle existe) quand \(\int_a^xf\) a une limite finie quand \(x\) tend vers \(\pinf\).
+
+Dans ce cas, on pose \(\int_a^{\pinf}=\lim_{x\to\pinf}\int_a^xf\).
+
+Dans le cas contraire, on dit que l'intégrale \(\int_a^{\pinf}\) diverge (ou qu'elle est divergente).
+\end{defi}
+
+\begin{rem}
+Une intégrale généralisée \(\int_a^{\pinf}\) est une limite et une limite n'existe pas toujours. Avant d'utiliser une telle intégrale dans un raisonnement ou un calcul, on doit donc toujours justifier son existence !
+\end{rem}
+
+Les résultats ci-dessous sont à connaître.
+
+\begin{ex}
+\begin{itemize}
+    \item Soit \(\alpha\) un réel. L'intégrale \(\int_0^{\pinf}\e{-\alpha t}\odif{t}\) converge ssi \(\alpha>0\). \\
+    \item Soit \(\alpha\) un réel. L'intégrale \(\int_1^{\pinf}\dfrac{1}{t^\alpha}\odif{t}\) converge ssi \(\alpha>1\) (intégrale dite de Riemann).
+\end{itemize}
+\end{ex}
+
+\begin{exo}
+Quelle est la nature de l'intégrale \(\int_0^{\pinf}\dfrac{1}{1+t^2}\odif{t}\) ?
+\end{exo}
+
+\begin{exo}
+Quelle est la nature de l'intégrale \(\int_1^{\pinf}\dfrac{\ln t}{t}\odif{t}\).
+\end{exo}
+
+\subsection{Propriétés}
+
+La convergence de l'intégrale ne dépend pas de la borne \(a\), ce qui généralise la relation de Chasles.
+
+\begin{prop}
+Soient \(f\in\contm[\intervie{a}{\pinf}]\) et \(b\in\intervie{a}{\pinf}\).
+
+Alors l'intégrale \(\int_a^{\pinf}f\) converge ssi \(\int_b^{\pinf}f\) converge.
+
+Dans ce cas, on a \(\int_a^{\pinf}f=\int_a^bf+\int_b^{\pinf}f\).
+\end{prop}
+
+Dans le cas convergent, on retrouve la linéarité.
+
+\begin{prop}
+Soient \(\paren{f,g}\in\contm[\intervie{a}{\pinf}]^2\) et \(\paren{\lambda,\mu}\in\K^2\).
+
+Si les intégrales \(\int_a^{\pinf}f\) et \(\int_a^{\pinf}g\) convergent, alors \(\int_a^{\pinf}\paren{\lambda f+\mu g}\) converge.
+
+Dans ce cas, on a \(\int_a^{\pinf}\paren{\lambda f+\mu g}=\lambda\int_a^{\pinf}f+\mu\int_a^{\pinf}g\).
+\end{prop}
+
+\begin{rem}
+\begin{itemize}
+    \item \guillemets{La somme d'une intégrale convergente et d'une divergente est divergente}. \\
+    \item Il n'y a rien à dire \textit{a priori} sur la \guillemets{somme de deux intégrales divergentes}.
+\end{itemize}
+\end{rem}
+
+\subsection{Cas des fonctions réelles positives}
+
+Quand une fonction \(f\) est positive et continue par morceaux, dans le cas où l'intégrale \(\int_a^{\pinf}f\) diverge, on pose par convention \(\int_a^{\pinf}f=\pinf\), ce qui permet de donner un sens à toutes les intégrales de fonctions positives.
+
+\begin{prop}
+Soit \(f\in\contm[\intervie{a}{\pinf}][\R]\).
+
+Si \(f\geq0\), alors \(\int_a^{\pinf}f\geq0\).
+
+Si, de plus, \(f\) est continue et prend au moins une valeur strictement positive, alors \(\int_a^{\pinf}f>0\).
+
+Ceci est vrai en particulier quand \(f\) est continue et strictement positive sur \(\intervie{a}{\pinf}\).
+\end{prop}
+
+On en déduit la propriété de croissance des intégrales.
+
+\begin{prop}
+Soit \(\paren{f,g}\in\contm[\intervie{a}{\pinf}][\R]^2\) tel que \(f\) et \(g\) soient positives.
+
+Si \(f\leq g\), alors \(\int_a^{\pinf}f\leq\int_a^{\pinf}g\).
+\end{prop}
+
+\subsection{Théorème de comparaison entre fonctions positives}
+
+D'abord une condition nécessaire et suffisante de convergence dans le cas d'une fonction positive.
+
+\begin{prop}
+Soit \(f\in\contm[\intervie{a}{\pinf}][\R]\).
+
+Si \(f\geq0\), alors l'intégrale \(\int_a^{\pinf}f\) converge ssi la fonction \(x\mapsto\int_a^xf\) est majorée.
+\end{prop}
+
+On en déduit un théorème de comparaison du même type que celui sur les séries.
+
+\begin{theo}
+Soit \(\paren{f,g}\in\contm[\intervie{a}{\pinf}][\R]^2\) tel que \(f\) et \(g\) soient positives.
+
+\begin{itemize}
+    \item Si \(f\leq g\) et \(\int_a^{\pinf}g\) converge, alors \(\int_a^{\pinf}f\) converge. \\
+    \item Si \(f\leq g\) et \(\int_a^{\pinf}f\) diverge, alors \(\int_a^{\pinf}g\) diverge. \\
+    \item Si \(f\simqd{\pinf}g\) alors les intégrales \(\int_a^{\pinf}f\) et \(\int_a^{\pinf}g\) sont de même nature : l'une converge ssi l'autre converge.
+\end{itemize}
+\end{theo}
+
+\begin{rem}
+\begin{itemize}
+    \item Dans ce théorème, il suffit que les inégalités soient vraies au voisinage de \(\pinf\) seulement. \\
+    \item Si les fonctions sont à valeurs négatives, on se ramène à ce théorème en travaillant avec les fonctions opposées. Ce qui compte est donc qu'elles soient de signe constant. \\
+    \item Avec des fonctions dont le signe n'est pas constant, ce théorème est faux. Il faut donc bien s'assurer et mettre en valeur que les fonctions sont positives (ou négatives). \\
+    \item On compare les fonctions, pas les intégrales ! N'écrivez pas des symboles \(\int_a^{\pinf}\cdots\) partout.
+\end{itemize}
+\end{rem}
+
+\begin{exo}~\\
+Montrez que \(\int_1^{\pinf}\dfrac{\e{-t}}{t}\odif{t}\) converge.
+\end{exo}
+
+\begin{exo}~\\
+Montrez que \(\int_2^{\pinf}\dfrac{1}{\ln t}\odif{t}\) diverge.
+\end{exo}
+
+\begin{exo}
+Montrez que \(\quantifs{\tpt\alpha>1}\int_1^{\pinf}\dfrac{\ln t}{t^\alpha}\odif{t}\) converge.
+\end{exo}
+
+\subsection{Lien avec les séries}
+
+Le théorème de comparaison série-intégrale peut se réécrire comme suit.
+
+\begin{prop}
+Soit \(f\in\contm[\Rp][\R]\) positive et décroissante.
+
+La série \(\sum f\paren{n}\) et l'intégrale \(\int_0^{\pinf}f\) sont de même nature.
+\end{prop}
+
+Dans le même genre, on peut étudier la convergence d'une intégrale d'une fonction positive par l'intermédiaire d'une série.
+
+\begin{prop}
+Soient \(f\in\contm[\Rp][\R]\) positive et \(u\) une suite positive et strictement croissante qui diverge vers \(\pinf\).
+
+L'intégrale \(\int_0^{\pinf}f\) converge ssi la série \(\sum_{n\geq0}\int_{u_n}^{u_{n+1}}f\) converge.
+\end{prop}
+
+\begin{exo}
+Montrez que l'intégrale \(\int_1^{\pinf}\dfrac{\abs{\sin t}}{t}\odif{t}\) diverge.
+\end{exo}
+
+\begin{exo}
+En utilisant l'inégalité \(\sin t\geq\dfrac{2}{\pi}t\), valable pour tout \(t\in\intervii{0}{\dfrac{\pi}{2}}\), montrez que l'intégrale \(\int_0^{\pinf}\dfrac{1}{1+\e{x}\abs{\sin x}}\odif{x}\) converge.
+\end{exo}
+
+\section{Intégrales généralisées sur d'autres types d'intervalles}
+
+\subsection{Intégrales généralisées sur \(\intervie{a}{b}\)}
+
+Dans cette partie, \(a\) est un réel et \(b\) est un réel ou \(\pinf\), de sorte que \(a<b\).
+
+\begin{defi}
+Soit \(f\in\contm[\intervie{a}{b}]\).
+
+On dit que l'intégrale \(\int_a^bf\) converge quand \(\int_a^xf\) a une limite finie quand \(x\) tend vers \(b^-\).
+
+Dans ce cas, on pose \(\int_a^bf=\lim_{x\to b^-}\int_a^xf\).
+
+Dans le cas contraire, on dit que l'intégrale \(\int_a^bf\) diverge (ou qu'elle est divergente).
+\end{defi}
+
+\subsection{Intégrales généralisées sur \(\intervei{a}{b}\)}
+
+Dans cette partie, \(a\) est un réel ou \(\minf\) et \(b\) un réel, de sorte que \(a<b\).
+
+\begin{defi}
+Soit \(f\in\contm[\intervei{a}{b}]\).
+
+On dit que l'intégrale \(\int_a^bf\) converge quand \(\int_x^bf\) a une limite finie quand \(x\) tend vers \(a^+\).
+
+Dans ce cas, on pose \(\int_a^bf=\lim_{x\to a^+}\int_x^bf\).
+
+Dans le cas contraire, on dit que l'intégrale \(\int_a^bf\) diverge (ou qu'elle est divergente).
+\end{defi}
+
+Les résultats suivants sont à connaître.
+
+\begin{ex}~\\
+\begin{itemize}
+    \item \(\int_0^1\ln\paren{t}\odif{t}\) converge. \\
+    \item Soit \(\alpha\) un réel. L'intégrale \(\int_0^1\dfrac{1}{t^\alpha}\odif{t}\) converge ssi \(\alpha<1\) (intégrale dite de Riemann).
+\end{itemize}
+\end{ex}
+
+\begin{exo}
+Montrez que l'intégrale \(\int_1^2\dfrac{1}{\ln t}\odif{t}\) diverge.
+
+À quelle condition sur \(\alpha\) l'intégrale \(\int_1^2\dfrac{\paren{t-1}^\alpha}{\ln t}\odif{t}\) converge-t-elle ?
+\end{exo}
+
+On peut remarquer que par changement de variable \(x\mapsto-x\), l'intégrale \(\int_a^bf\paren{t}\odif{t}\) est de même nature (et, dans le cas convergent, a la même valeur) que \(\int_{-b}^{-a}f\paren{-u}\odif{u}\). Les résultats valables en un point réel ne dépendent donc pas du côté du point où on se place.
+
+\begin{ex}
+\begin{itemize}
+    \item Si \(a\) est un réel, alors \(\int_a^{a+1}\dfrac{1}{\paren{t-a}^\alpha}\odif{t}\) converge ssi \(\alpha<1\). \\
+    \item Si \(a\) est un réel, alors \(\int_{a-1}^a\dfrac{1}{\paren{a-t}^\alpha}\odif{t}\) converge ssi \(\alpha<1\). \\
+    \item \(\int_0^1\ln\paren{1-t}\odif{t}\) converge.
+\end{itemize}
+\end{ex}
+
+\subsection{Intégrales généralisées sur \(\intervee{a}{b}\)}
+
+Dans cette partie, \(a\) et \(b\) sont des réels ou des infinis tels que \(a<b\).
+
+\begin{defi}
+Soit \(f\in\contm[\intervee{a}{b}]\).
+
+On dit que l'intégrale \(\int_a^bf\) converge quand il existe \(c\in\intervee{a}{b}\) tel que \(\int_a^cf\) et \(\int_c^bf\) convergent.
+
+Dans ce cas, on pose \(\int_a^bf=\int_a^cf+\int_c^bf=\lim_{x\to a^+}\int_x^cf+\lim_{y\to b^-}\int_c^yf\).
+
+Dans le cas contraire, on dit que l'intégrale \(\int_a^bf\) diverge (ou qu'elle est divergente).
+\end{defi}
+
+\begin{rem}
+Grâce à la relation de Chasles, on constate que la valeur de \(c\) n'est finalement pas importante : si ça marche pour un certain réel \(c\in\intervee{a}{b}\), alors ça marche pour toute autre valeur prise dans \(\intervee{a}{b}\).
+\end{rem}
+
+\begin{exo}
+Montrez que l'intégrale de Gauss \(\int_{\minf}^{\pinf}\e{-t^2}\odif{t}\) converge.
+\end{exo}
+
+\begin{exo}
+Même chose avec l'intégrale \(\int_0^1\dfrac{1}{\sqrt{t\paren{1-t}}}\odif{t}\).
+\end{exo}
+
+\begin{exo}
+Même chose avec l'intégrale \(\int_0^{\pinf}\dfrac{\e{-t}}{\sqrt{t}}\odif{t}\).
+\end{exo}
+
+\begin{exo}
+Montrez que \(\quantifs{\tpt\alpha>0}\int_0^{\pinf}\dfrac{1}{t^\alpha}\odif{t}\) diverge.
+\end{exo}
+
+\subsection{Propriétés communes à toutes ces intégrales}
+
+Toutes les propriétés vues dans la première section sont préservées : linéarité, positivité, croissance, relation de Chasles.
+
+En voici trois autres.
+
+\subsubsection{Changement de variable}
+
+\begin{prop}
+Soient \(a,b,\alpha,\beta\) des réels ou des infinis tels que \(a<b\) et \(\alpha<\beta\) et \(f\in\contm[\intervee{a}{b}]\).
+
+Si \(\phi\) est une bijection de classe \(\classe{1}\) et strictement croissante de \(\intervee{\alpha}{\beta}\) dans \(\intervee{a}{b}\), alors les intégrales \(\int_a^bf\paren{t}\odif{t}\) et \(\int_\alpha^\beta f\rond\phi\paren{u}\odif{u}\) sont de même nature et, si elles sont convergentes, sont égales.
+\end{prop}
+
+\begin{rem}
+On a évidemment un résultat analogue avec un changement de variable strictement décroissant et des bornes inversées.
+
+Comme une bijection de classe \(\classe{1}\) entre deux intervalles est forcément strictement monotone, l'hypothèse de stricte monotonie est redondante ; mais comme elle est explicitement dans le programme de MPI, il vaut mieux la préciser (de toute façon, elle sera évidente dans les cas pratiques et ne nécessitera pas de longues preuves).
+\end{rem}
+
+\begin{exo}~\\
+Montrez que \(\int_0^{\nicefrac{\pi}{2}}\sqrt{\tan t}\odif{t}\) converge et qu'on a l'égalité \(\int_0^{\nicefrac{\pi}{2}}\sqrt{\tan t}\odif{t}=\int_0^{\pinf}\dfrac{\sqrt{u}}{1+u^2}\odif{u}\).
+\end{exo}
+
+\begin{exo}~\\
+Montrez que \(\int_0^{\pinf}\dfrac{\ln t}{1+t^2}\odif{t}\) converge et vaut \(0\).
+
+Déduisez-en la valeur de \(\int_0^{\pinf}\dfrac{\ln t}{a^2+t^2}\odif{t}\) où \(a>0\).
+\end{exo}
+
+\subsubsection{Intégration par parties}
+
+Si \(f\) est une fonction définie sur \(\intervee{a}{b}\) et a des limites finies en \(a^+\) et en \(b^-\), on note \(\croch{f}_a^b=\lim_{b^-}f-\lim_{a^+}f\).
+
+\begin{prop}
+Soient \(a,b\) des réels ou des infinis tels que \(a<b\) et \(\paren{f,g}\in\ensclasse{1}{\intervee{a}{b}}{\K}\).
+
+Si parmi les trois quantités suivantes \[\int_a^bf\prim g\qquad\int_a^bfg\prim\qquad\croch{fg}_a^b\] deux existent, alors la troisième existe aussi et, dans ce cas, on a l'égalité habituelle \[\int_a^bf\prim g=\croch{fg}_a^b-\int_a^bfg\prim\].
+\end{prop}
+
+En pratique, pour éviter d'écrire des choses qui n'ont pas de sens, il vaut mieux revenir à une vraie intégration par parties sur un segment \(\intervii{x}{y}\subset\intervee{a}{b}\), s'assurer qu'on peut faire tendre \(x\) vers \(a\) et \(y\) vers \(b\), puis le faire effectivement pour obtenir la relation entre les intégrales.
+
+\begin{exo}
+Pour \(n\in\N\), on pose \(u_n=\int_0^{\pinf}t^n\e{-t}\odif{t}\).
+
+Montrez que les intégrales \(u_n\) convergent, donnez une relation de récurrence simple entre \(u_n\) et \(u_{n+1}\), puis donnez la valeur de \(u_n\) en fonction de \(n\).
+\end{exo}
+
+\begin{exo}
+Montrez que l'intégrale \(\int_0^{\pinf}\dfrac{1-\cos t}{t^2}\odif{t}\) converge, puis déduisez-en que l'intégrale \(\int_0^{\pinf}\dfrac{\sin t}{t}\odif{t}\) converge.
+\end{exo}
+
+\subsubsection{Primitives}
+
+\begin{prop}
+Soient \(f\in\contm[\intervee{a}{b}]\) et \(c\in\intervee{a}{b}\) tel que l'intégrale \(\int_a^cf\) converge.
+
+Alors la fonction \(x\mapsto\int_a^xf\) est l'unique primitive de \(f\) sur \(\intervee{a}{b}\) qui a pour limite \(0\) en \(a^+\).
+\end{prop}
+
+\begin{prop}
+Soient \(f\in\contm[\intervee{a}{b}]\) et \(c\in\intervee{a}{b}\) tel que \(\int_c^bf\) converge.
+
+Alors la fonction \(x\mapsto\int_x^bf\) est l'opposée de l'unique primitive de \(f\) sur \(\intervee{a}{b}\) qui a pour limite \(0\) en \(b^-\).
+\end{prop}
+
+\begin{ex}
+\begin{itemize}
+    \item La fonction \(x\mapsto\int_0^x\ln\paren{t}\odif{t}\) est la primitive de \(\ln\) qui a pour limite \(0\) en \(0\). \\
+    \item La fonction \(x\mapsto\int_x^{\pinf}\dfrac{\e{\i t}}{t^2}\odif{t}\) est définie sur \(\intervee{0}{\pinf}\), de classe \(\classe{1}\) sur cet intervalle, et sa dérivée est la fonction \(x\mapsto-\dfrac{\e{\i x}}{x^2}\).
+\end{itemize}
+\end{ex}
+
+\section{Résumé pour étudier la convergence d'une intégrale}
+
+On veut savoir si une intégrale \(\int_a^bf\) existe, où \(a\) et \(b\) sont des réels ou des infinis tels que \(a<b\).
+
+D'abord, on détermine le plus grand sous-ensemble de \(\intervii{a}{b}\) sur lequel \(f\) est continue par morceaux :
+
+\begin{itemize}
+    \item si c'est \(\intervii{a}{b}\), alors il n'y a aucun problème d'existence de l'intégrale : c'est une bête intégrale classique ; \\
+    \item si c'est \(\intervie{a}{b}\) (avec \(a\) réel) ou \(\intervei{a}{b}\) (avec \(b\) réel), alors il faut étudier le comportement de \(f\) au voisinage du point ouvert ; \\
+    \item si c'est \(\intervee{a}{b}\), alors on choisit arbitrairement un point \(c\in\intervee{a}{b}\) et on se ramène deux fois au cas précédent.
+\end{itemize}
+
+Un petit résultat qui supprime parfois le problème en un point ouvert réel : pensez à étudier la limite de la fonction : si elle est réelle, c'est réglé. On dit qu'on a une fausse singularité en ce point réel.
+
+\begin{prop}
+Soient \(a\) et \(b\) deux réels tels que \(a<b\) et \(f\in\contm[\intervei{a}{b}]\).
+
+Si \(f\) a une limite réelle en \(a\) par valeurs supérieures, alors on peut prolonger \(f\) par continuité en \(a\), le prolongement \(\conj{f}\) est une fonction continue par morceaux sur \(\intervii{a}{b}\) et l'intégrale \(\int_a^bf\) converge et vaut \(\int_a^b\conj{f}\).
+\end{prop}
+
+\begin{exo}
+Justifiez que l'intégrale \(\int_0^{\pinf}\dfrac{\sin^2t}{t^2}\odif{t}\) converge.
+\end{exo}
+
+\begin{exo}
+Montrez que l'intégrale \(\int_0^{\pinf}\dfrac{t\ln t}{1+t^3}\odif{t}\) converge.
+\end{exo}
+
+\section{Fonctions intégrables sur un intervalle}
+
+Dans cette section, \(a\) et \(b\) sont des réels ou des infinis tels que \(a<b\). On note \(I=\intervee{a}{b}\).
+
+\subsection{Intégrales absolument convergentes}
+
+\begin{defi}
+Soit \(f\in\contm[I]\).
+
+On dit que l'intégrale \(\int_a^bf\) converge absolument (ou est absolument convergente) quand l'intégrale \(\int_a^b\abs{f}\) converge.
+\end{defi}
+
+Le théorème suivant est primordial pour la suite du cours.
+
+\begin{theo}
+Soit \(f\in\contm[I]\).
+
+Si l'intégrale \(\int_a^bf\) converge absolument, alors l'intégrale \(\int_a^bf\) converge.
+
+Dans ce cas, on a \(\abs{\int_a^bf}\leq\int_a^b\abs{f}\).
+\end{theo}
+
+\begin{exo}
+Montrez que l'intégrale \(\int_0^{\pinf}\dfrac{\sin^3t}{t^3}\odif{t}\) est absolument convergente et donc convergente.
+\end{exo}
+
+\begin{exo}
+Montrez que si \(m\) est un complexe de partie réelle strictement positive, alors l'intégrale \(\int_0^{\pinf}\e{-mt}\odif{t}\) converge et donnez sa valeur.
+
+Déduisez-en l'existence et la valeur des intégrales \(\int_0^{\pinf}\sin\paren{t}\e{-t}\odif{t}\) et \(\int_0^{\pinf}\cos\paren{t}\e{-t}\odif{t}\).
+\end{exo}
+
+\begin{rem}
+La réciproque est fausse ! On a montré que \(\int_0^{\pinf}\dfrac{\sin t}{t}\odif{t}\) converge et qu'elle ne converge pas absolument.
+\end{rem}
+
+\subsection{Fonctions intégrables}
+
+\begin{defi}
+Soit \(f\in\contm[I]\).
+
+On dit que \(f\) est intégrable sur \(I\) quand l'intégrale \(\int_a^bf\) converge absolument.
+
+On note alors aussi \(\int_If=\int_If\paren{t}\odif{t}=\int_a^bf\).
+\end{defi}
+
+L'ensemble des fonctions intégrables sur \(I\) est souvent noté \(\integ{1}{I}{\K}\), L comme Lebesgue, mathématicien français de la fin du 19ème et début du 20ème siècle. Par abus de notation, on écrit parfois \guillemets{\(f\) est \(\integ{1}{}{}\)} pour \guillemets{\(f\) est intégrable sur \(I\)}.
+
+\begin{ex}
+Soient \(a\in\R\) et \(\epsilon\in\Rps\).
+
+\begin{itemize}
+    \item La fonction \(t\mapsto\e{-t}\) est intégrable sur \(\intervie{\epsilon}{\pinf}\). \\ Plus généralement, la fonction \(t\mapsto t^a\e{-t}\) est intégrable sur \(\intervie{\epsilon}{\pinf}\) (voire \(\intervie{0}{\pinf}\) si \(a>-1\)). \\
+    \item La fonction \(t\mapsto\dfrac{1}{t^\alpha}\) est intégrable sur \(\intervie{\epsilon}{\pinf}\) ssi \(\alpha>1\) et sur \(\intervei{0}{\epsilon}\) ssi \(\alpha<1\). \\
+    \item La fonction \(\ln\) est intégrable sur \(\intervei{0}{\epsilon}\).
+\end{itemize}
+\end{ex}
+
+\begin{prop}
+\(\integ{1}{I}{\K}\) est un \(\K\)-espace vectoriel.
+\end{prop}
+
+\begin{prop}[Stricte positivité de l'intégrale]~\\
+Si \(f\) est continue, intégrable sur \(I\) et \(\int_I\abs{f}=0\), alors \(f=0\).
+
+Par contraposée, si \(f\) est continue, intégrable sur \(I\) et \(f\not=0\), alors \(\int_I\abs{f}>0\).
+\end{prop}
+
+\subsection{Théorème de comparaison des fonctions intégrables}
+
+\begin{rappel}
+Soient \(f\) et \(g\) deux fonctions définies au voisinage d'un point \(p\in\R\union\accol{\minf,\pinf}\).
+
+\begin{itemize}
+    \item \(f=\O{g}\) au voisinage de \(p\) signifie qu'il existe \(K>0\) et \(V\) un voisinage de \(p\) tels que \[\quantifs{\forall x\in V}\abs{f\paren{x}}\leq K\abs{g\paren{x}}.\]
+    \item \(f=\o{g}\) au voisinage de \(p\) signifie qu'il existe une fonction \(\epsilon>0\) et \(V\) un voisinage de \(p\) tels que \[\quantifs{\forall x\in V}\abs{f\paren{x}}\leq\epsilon\paren{x}\abs{g\paren{x}}\qquad\text{et}\qquad\lim_{x\to p}\epsilon\paren{x}=0.\]
+\end{itemize}
+
+Dans le cas où \(g\) ne s'annule pas (ce qui, en pratique, est toujours le cas) :
+
+\begin{itemize}
+    \item \(f=\O{g}\) au voisinage de \(p\) signifie que \(\dfrac{f}{g}\) est bornée au voisinage de \(p\). \\
+    \item \(f=\o{g}\) au voisinage de \(p\) signifie que \(\dfrac{f}{g}\) a pour limite \(0\) en \(p\).
+\end{itemize}
+\end{rappel}
+
+\begin{theo}
+Soit \(\paren{f,g}\in\contm[I]^2\).
+
+\begin{itemize}
+    \item Si \(\abs{f}\leq\abs{g}\) sur \(I\) et si \(g\) est intégrable, alors \(f\) est intégrable. \\
+    \item Si \(f=\O{g}\) au voisinage des bornes ouvertes de \(I\) et \(g\) est intégrable, alors \(f\) est intégrable. C'est vrai en particulier si \(f=\o{g}\). \\
+    \item Si \(f\sim g\) au voisinage des bornes ouvertes de \(I\), alors il y a équivalence entre l'intégrabilité de \(f\) et l'intégrabilité de \(g\).
+\end{itemize}
+\end{theo}
+
+\begin{exo}
+Montrez que la fonction \(t\mapsto\dfrac{\cos t}{\sqrt{t}}\e{-t}\) est intégrable sur \(\intervee{0}{\pinf}\).
+\end{exo}
+
+\begin{exo}
+La fonction \(t\mapsto\dfrac{\ln t}{\cos t+t^2}\) est-elle intégrable sur \(\intervee{0}{\pinf}\) ?
+\end{exo}
+
+\section{Intégration des relations de comparaison}
+
+Les résultats présentés portent sur des fonctions intégrables sur \(\intervie{a}{\pinf}\). On obtient évidemment des résultats analogues sur les autres types d'intervalles.
+
+\subsection{Théorème de comparaison par domination}
+
+Dans le cas convergent d'abord, les \guillemets{restes partiels} suivent la même relation de comparaison.
+
+\begin{theo}
+Soient \(f,g\) deux fonctions définies sur \(\intervie{a}{\pinf}\) avec \(g\) à valeurs dans \(\Rp\).
+
+Si \(f=\O{g}\) et \(g\) est intégrable sur \(\intervie{a}{\pinf}\), alors \(f\) est intégrable sur \(\intervie{a}{\pinf}\).
+
+De plus, \(\int_x^{\pinf}f=\O{\int_x^{\pinf}g}\) quand \(x\to\pinf\).
+
+Si \(f=\o{g}\) et \(g\) est intégrable sur \(\intervie{a}{\pinf}\), alors \(f\) est intégrable sur \(\intervie{a}{\pinf}\).
+
+De plus, \(\int_x^{\pinf}f=\o{\int_x^{\pinf}g}\) quand \(x\to\pinf\).
+\end{theo}
+
+Dans le cas divergent ensuite, les \guillemets{intégrales partielles} suivent aussi la même relation de comparaison.
+
+\begin{theo}
+Soient \(f,g\) deux fonctions définies sur \(\intervie{a}{\pinf}\) avec \(g\) à valeurs dans \(\Rp\).
+
+Si \(f=\O{g}\) et \(f\) n'est pas intégrable sur \(\intervie{a}{\pinf}\), alors \(g\) n'est pas intégrable sur \(\intervie{a}{\pinf}\).
+
+De plus, \(\int_a^xf=\O{\int_a^xg}\) quand \(x\to\pinf\).
+
+Si \(f=\o{g}\) et \(f\) n'est pas intégrable sur \(\intervie{a}{\pinf}\), alors \(g\) n'est pas intégrable sur \(\intervie{a}{\pinf}\).
+
+De plus, \(\int_a^xf=\o{\int_a^xg}\) quand \(x\to\pinf\).
+\end{theo}
+
+\subsection{Théorème de comparaison par équivalence}
+
+\begin{theo}
+Soient \(f,g\) deux fonctions définies sur \(\intervie{a}{\pinf}\) avec \(g\) à valeurs dans \(\Rp\).
+
+Si \(f\sim g\), alors l'intégrabilité de \(f\) est équivalente à l'intégrabilité de \(g\).
+
+De plus :
+
+\begin{itemize}
+    \item si les fonctions sont intégrables, alors les restes partiels sont équivalents : \[\int_x^{\pinf}f\simqd{x\to\pinf}\int_x^{\pinf}g\]
+    \item si les fonctions ne sont pas intégrables, alors les intégrales partielles divergent et sont équivalentes : \[\int_a^xf\simqd{x\to\pinf}\int_a^xg.\]
+\end{itemize}
+\end{theo}
