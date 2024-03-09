@@ -2,4 +2,401 @@
 
 \minitoc
 
-\note{À venir}
+Dans tout le cours, \(I\) désigne un intervalle de \(\R\) contenant au moins deux points, \(n\) désigne un entier naturel non-nul, \(\K=\R\) ou \(\C\), et \(E\) est un espace vectoriel normé de dimension finie \(n\).
+
+Si \(f\) est un endomorphisme de \(E\) et \(v\) un vecteur de \(E\), on note \(f.v\) l'image de \(v\) par \(f\), au lieu de la traditionnelle notation \(f\paren{v}\). Sans cette notation, on rencontrerait des notations lourdes comme \(f\paren{t}\paren{v}\) ou \(f\paren{t}\paren{v\paren{t}}\), qui seront donc avantageusement remplacées par \(f\paren{t}.v\) ou \(f\paren{t}.v\paren{t}\).
+
+\section{Équations et systèmes différentiels linéaires du premier ordre}
+
+\subsection{Généralités}
+
+\begin{defi}
+On appelle équation différentielle linéaire (du premier ordre) toute équation différentielle de la forme \[x\prim=a\paren{t}.x+b\paren{t}\] où
+
+\begin{itemize}
+    \item \(a\) est une fonction continue de \(I\) dans \(\Lendo{E}\) \\
+    \item \(b\) est une fonction continue de \(I\) dans \(E\) (appelée second membre) \\
+    \item \(x\) est la fonction inconnue dérivable de \(I\) dans \(E\) et \(x\prim\) sa dérivée.
+\end{itemize}
+\end{defi}
+
+\begin{defi}
+Avec les notations précédentes, on appelle solution (sur \(I\)) de l'équation différentielle toute application \(x\) dérivable sur \(I\) qui vérifie \(\quantifs{\forall t\in I}x\prim\paren{t}=a\paren{t}.x\paren{t}+b\paren{t}\).
+\end{defi}
+
+\begin{rem}
+Si le second membre \(b\) peut s'écrire sous la forme \(b=b_1+b_2\), alors en additionnant les solutions de l'équation \(x\prim=a\paren{t}.x+b_1\paren{t}\) avec celles de l'équation \(x\prim=a\paren{t}.x+b_2\paren{t}\), on obtient des solutions de \(x\prim=a\paren{t}.x+b\paren{t}\).
+
+On appelle cette idée le principe de superposition.
+\end{rem}
+
+Comme \(E\) est de dimension finie \(n\), si on choisit une base \(\fami{B}\), alors en exprimant les coordonnées des vecteurs et les matrices des endomorphismes dans la base \(\fami{B}\), on obtient une traduction matricielle de l'équation différentielle précédente.
+
+\begin{defi}
+On appelle système différentiel linéaire (du premier ordre) toute équation différentielle de la forme \[X\prim=A\paren{t}X+B\paren{t}\] où
+
+\begin{itemize}
+    \item \(A\) est une fonction continue de \(I\) dans \(\M{n}\) \\
+    \item \(B\) est une fonction continue de \(I\) dans \(\M{n\,1}=\K^n\) \\
+    \item \(X\) est la fonction inconnue dérivable de \(I\) dans \(\M{n\,1}\) et \(X\prim\) sa dérivée.
+\end{itemize}
+\end{defi}
+
+\begin{ex}
+\begin{itemize}
+    \item Le système \(\begin{dcases}
+        x\prim=2x+3y \\
+        y\prim=-x+4y
+    \end{dcases}\) est un système différentiel linéaire où \(A\) est la fonction constante égale à \(\begin{pmatrix}
+        2 & 3 \\
+        -1 & 4
+    \end{pmatrix}\) et \(B=0\). \\
+    \item Le système \(\begin{dcases}
+        x\prim=t^2x+\e{t}y+\sin t \\
+        y\prim=-tx+\cos\paren{t}y-1
+    \end{dcases}\) est un système différentiel linéaire où \(A\) est la fonction \(t\mapsto\begin{pmatrix}
+        t^2 & \e{t} \\
+        -t & \cos t
+    \end{pmatrix}\) et \(B\) est la fonction \(t\mapsto\dcoords{\sin t}{-1}\).
+\end{itemize}
+\end{ex}
+
+\begin{defi}
+Avec les notations précédentes, on appelle solution (sur \(I\)) du système différentiel toute application \(X\) dérivable sur \(I\) qui vérifie \(\quantifs{\forall t\in I}X\prim\paren{t}=A\paren{t}X\paren{t}+B\paren{t}\).
+\end{defi}
+
+\begin{prop}
+Les solutions d'une telle équation différentielle ou d'un tel système différentiel linéaire sont au moins de classe \(\classe{1}\) sur \(I\).
+\end{prop}
+
+À partir de maintenant, le cours portera sur les équations différentielles, mais tout ce qui est énoncé à leur propos est valable pour les systèmes différentiels.
+
+\subsection{Problème de Cauchy}
+
+\begin{defi}
+Soit \(\paren{*}:x\prim=a\paren{t}.x+b\paren{t}\) une équation différentielle linéaire qui respecte les conditions ci-dessus. On choisit un réel \(t_0\in I\) et un vecteur \(v_0\in E\).
+
+Le problème d'existence et d'unicité d'une solution de \(\paren{*}\) qui satisfait la condition initiale \(x\paren{t_0}=v_0\) est appelé un problème de Cauchy.
+\end{defi}
+
+Le problème de Cauchy \[\paren{1}:\begin{dcases}
+    x\prim=a\paren{t}.x+b\paren{t} \\
+    x\paren{t_0}=v_0
+\end{dcases}\] est équivalent au problème intégral \[\paren{2}:x\paren{t}=\int_{t_0}^t\paren{a\paren{\tau}.x\paren{\tau}+b\paren{\tau}}\odif{\tau}+v_0\] \ie \(x\) est solution de \(\paren{1}\) ssi \(x\) est solution de \(\paren{2}\).
+
+\subsection{Équation différentielle linéaire homogène}
+
+\begin{defi}
+On appelle équation différentielle linéaire homogène (du premier ordre) toute équation différentielle de la forme \[x\prim=a\paren{t}.x\] où \(a\) est une fonction continue de \(I\) dans \(\Lendo{E}\).
+\end{defi}
+
+Il y a un seul résultat à connaître sur de telles équations : le théorème de Cauchy-Lipschitz (ou théorème de Cauchy linéaire).
+
+\begin{theo}
+L'ensemble des solutions d'une équation différentielle linéaire homogène \(x\prim=a\paren{t}.x\) est un sous-espace vectoriel de dimension \(n\) de \(\F{I}{\K}\).
+
+Plus précisément, en notant \(S\) l'ensemble des solutions, pour tout \(t_0\in I\), l'application \[\fonctionlambda{S}{E}{x}{x\paren{t_0}}\] est un isomorphisme.
+
+Autrement dit, pour tout \(t_0\in I\) et \(v_0\in E\) (appelé vecteur des conditions initiales), il existe une unique solution telle que \(x\paren{t_0}=v_0\).
+\end{theo}
+
+La conjonction d'une équation différentielle linéaire homogène et d'une condition initiale s'appelle un problème de Cauchy linéaire.
+
+Ce qui précède signifie que n'importe quel problème de Cauchy linéaire possède une unique solution.
+
+Une base de l'ensemble des solutions est appelé un système fondamental de solutions.
+
+\begin{exo}
+Montrez que les fonctions \(t\mapsto\dcoords{t\cos t}{t\sin t}\) et \(t\mapsto\dcoords{-t\sin t}{t\cos t}\) forment un système fondamental de solutions du système différentiel sur \(\Rps\) \(\begin{dcases}
+    x\prim=\dfrac{1}{t}x-y \\
+    y\prim=x+\dfrac{1}{t}y
+\end{dcases}\)
+\end{exo}
+
+\begin{exo}
+Déterminez un système fondamental de solutions polynomiales du système différentiel \(\begin{dcases}
+    x\prim=\dfrac{t}{1+t^2}x+\dfrac{1}{1+t^2}y \\
+    y\prim=\dfrac{-1}{1+t^2}x+\dfrac{t}{1+t^2}y
+\end{dcases}\)
+\end{exo}
+
+\subsection{Cas général}
+
+\begin{prop}
+Soit \(x\prim=a\paren{t}.x+b\paren{t}\) une équation différentielle linéaire sur \(I\).
+
+Si on connaît une solution \(p\) dite particulière de l'équation, alors on connaît la forme générale des solutions : elles sont toutes de la forme \[t\mapsto g\paren{t}+p\paren{t}\] où \(g\) est la solution générale de l'équation différentielle linéaire homogène associée.
+
+Autrement dit, l'ensemble des solutions est un sous-espace affine de \(\F{I}{\K}\) : \(p+S\) où \(S\) est l'ensemble des solutions de l'équation homogène associée.
+\end{prop}
+
+Le théorème de Cauchy-Lipschitz est encore valable sous une forme amenuisée.
+
+\begin{theo}
+Pour tout \(t_0\in I\) et \(v_0\in E\), il existe une unique solution telle que \(x\paren{t_0}=v_0\).
+\end{theo}
+
+\begin{rem}
+Il n'existe pas de méthode simple pour résoudre concrètement de telles équations différentielles linéaires, à part dans le cas où \(a\) est une constante.
+\end{rem}
+
+\section{Exponentielle d'un endomorphisme, d'une matrice}
+
+\subsection{Définition}
+
+\begin{prop}
+Soit \(u\in\Lendo{E}\). La série \(\sum_{k\geq0}\dfrac{u^k}{k!}\) converge absolument dans \(\Lendo{E}\).
+
+Soit \(A\in\M{n}\). La série \(\sum_{k\geq0}\dfrac{A^k}{k!}\) converge absolument dans \(\M{n}\).
+\end{prop}
+
+\begin{defi}
+Avec les mêmes hypothèses, on pose \[\exp\paren{u}=\e{u}=\sum_{k=0}^{\pinf}\dfrac{u^k}{k!}\qquad\text{et}\qquad\exp\paren{A}=\e{A}=\sum_{k=0}^{\pinf}\dfrac{A^k}{k!}.\]
+\end{defi}
+
+Il est bien sûr évident que si \(u\) a pour matrice \(A\) dans une base \(\fami{B}\), alors \(\e{u}\) a pour matrice \(\e{A}\) dans cette même base.
+
+\subsection{Propriétés algébriques}
+
+L'exponentielle d'endomorphismes ou de matrices a de nombreuses propriétés communes avec l'exponentielle de nombres, mais pas toutes, car les algèbres \(\Lendo{E}\) et \(\M{n}\) ne sont pas commutatives.
+
+\begin{prop}
+\(\quantifs{\Tpt u\in\Lendo{E}}u\text{ et }\e{u}\) commutent. De même avec les matrices.
+\end{prop}
+
+\begin{prop}
+Soient \(u,v\) deux endomorphismes de \(E\) qui commutent. On a \(\e{u+v}=\e{u}\e{v}=\e{v}\e{u}\).
+
+De même avec des matrices de \(\M{n}\) qui commutent.
+\end{prop}
+
+Attention ! Sans hypothèse de commutation, ce résultat est faux en général.
+
+Une conséquence immédiate est que \(\quantifs{\tpt u\in\Lendo{E}}\e{u}\) est inversible (donc non nul) et son inverse est \(\e{-u}\). De même pour les matrices.
+
+Si \(A\) et \(B\) sont semblables, alors \(\e{A}\) et \(\e{B}\) le sont aussi avec la même matrice de passage : si \(B=PAP\inv\) alors \(\e{B}=P\e{A}P\inv\).
+
+En général, il est difficile de calculer une exponentielle d'endomorphisme ou de matrice. Deux cas simples :
+
+Dans le cas diagonalisable, c'est faisable, car l'exponentielle d'une matrice diagonale est très simple.
+
+\begin{prop}
+Soit \(A=\diag{\lambda_1,\dots,\lambda_n}\in\M{n}\).
+
+On a \(\e{A}=\diag{\e{\lambda_1},\dots,\e{\lambda_n}}\).
+\end{prop}
+
+Si une matrice \(A\) est nilpotente, alors son exponentielle est en fait un polynôme en \(A\).
+
+Dans le cas général, le calcul est souvent pénible. Néanmoins, on a quelques résultats généraux simples.
+
+\begin{prop}
+Soit \(A\in\M{n}\) scindée.
+
+On a \(\Sp{\e{A}}=\e{\Sp{A}}\).
+
+En particulier, on a \(\det\e{A}=\e{\tr A}\).
+\end{prop}
+
+\subsection{Propriétés fonctionnelles}
+
+La convergence absolue de la série définissant l'exponentielle entraîne quelques résultats simples à propos de la continuité et de la dérivabilité.
+
+\begin{prop}
+Les fonctions \(u\mapsto\e{u}\) et \(A\mapsto\e{A}\) sont continues sur \(\Lendo{E}\) et \(\M{n}\) respectivement.
+\end{prop}
+
+\begin{prop}
+Soit \(u\in\Lendo{E}\).
+
+La fonction de variable réelle \(t\mapsto\e{tu}\) est dérivable et sa dérivée est \(t\mapsto u\e{tu}=u\e{tu}\).
+\end{prop}
+
+\section{Équations linéaires homogènes à coefficients constants}
+
+\subsection{Forme générale de la solution}
+
+\begin{prop}
+Soient \(a\in\Lendo{E}\), \(t_0\in I\) et \(v_0\in E\).
+
+L'unique solution au problème de Cauchy \(\begin{dcases}
+x\prim=a.x \\
+x\paren{t_0}=v_0
+\end{dcases}\) est la fonction \(t\mapsto\e{\paren{t-t_0}a}.v_0\).
+\end{prop}
+
+On a bien sûr l'équivalent matriciel.
+
+\begin{prop}
+Soient \(A\in\M{n}\), \(t_0\in I\) et \(V_0\in\K^n\).
+
+L'unique solution au problème de Cauchy \(\begin{dcases}
+X\prim=AX \\
+X\paren{t_0}=V_0
+\end{dcases}\) est la fonction \(t\mapsto\e{\paren{t-t_0}A}V_0\).
+\end{prop}
+
+\subsection{Cas praticable}
+
+\begin{prop}
+Soit \(A\in\M{n}\).
+
+On suppose que \(A\) est diagonalisable : on note \(a_1,\dots,a_n\) les valeurs propres non-distinctes de \(A\) et \(\paren{V_1,\dots,V_n}\) une base de l'espace \(\M{n\,1}\) constituée de vecteurs propres associés.
+
+Les solutions du système différentiel linéaire homogène \(X\prim=AX\) sont les fonctions \[t\mapsto\sum_{i=1}^n\lambda_i\e{a_it}V_i\] où \(\lambda_1,\dots,\lambda_n\) sont des constantes dites d'intégration.
+\end{prop}
+
+En pratique, on diagonalise la matrice \(A\) en donnant une matrice de passage \(P\) et une matrice diagonale \(D\) telles que \(A=PDP\inv\), on pose \(X=PY\) et on résout le système différentiel \(Y\prim=DY\), ce qui donne la forme générale de \(Y\) puis celle de \(X=PY\). Ce qui est remarquable, c'est qu'il est inutile de calculer \(P\inv\).
+
+Quand la matrice \(A\) n'est pas diagonalisable mais seulement trigonalisable, alors en notant \(T\) une matrice triangulaire semblable à \(A\), la même stratégie peut être appliquée, moyennant une résolution un peu plus difficile du système différentiel \(Y\prim=TY\).
+
+\begin{exo}
+Résoudre le système différentiel \(\begin{dcases}
+x\prim=2x+y-z \\
+y\prim=x+2y-z \\
+z\prim=-x-y+2z
+\end{dcases}\)
+\end{exo}
+
+\begin{exo}
+Résoudre le système différentiel \(\begin{dcases}
+x\prim=-2x-y+7z \\
+y\prim=5x+4y-8z \\
+z\prim=x+y+z
+\end{dcases}\)
+\end{exo}
+
+Dans la suite, on s'intéresse à d'autres types d'équations différentielles linéaires, où les inconnues sont à valeurs réelles ou complexes.
+
+\section{Équations différentielles linéaires scalaires d'ordre \(n\)}
+
+\subsection{Généralités}
+
+\begin{defi}
+On appelle équation différentielle linéaire scalaire d'ordre \(n\) toute équation différentielle de la forme \[y\deriv{n}=a_{n-1}\paren{t}y\deriv{n-1}+\dots+a_1\paren{t}y\prim+a_0\paren{t}y+b\paren{t}\] où \(a_0,\dots,a_{n-1},b\) sont \(n+1\) fonctions continues de \(I\) dans \(\K\) et \(y\) est la fonction inconnue de \(I\) dans \(\K\).
+\end{defi}
+
+\begin{defi}
+Avec les notations précédentes, on appelle solution (sur \(I\)) de l'équation différentielle toute application \(f\) \(n\) fois dérivable sur \(I\) et telle que \[\quantifs{\forall t\in I}f\deriv{n}\paren{t}=a_{n-1}\paren{t}f\deriv{n-1}\paren{t}+\dots+a_1\paren{t}f\prim\paren{t}+a_0\paren{t}f\paren{t}+b\paren{t}.\]
+\end{defi}
+
+\begin{ex}
+\begin{itemize}
+    \item \(y\seconde-\paren{t-1}y\prim+ty=0\) a pour solution sur \(\R\) la fonction \(\exp\). \\
+    \item \(y\seconde+\dfrac{1}{t}y\prim+4t^2y=1+t^4\) a pour solution sur \(\Rs\) la fonction \(t\mapsto\cos\paren{t^2}+\dfrac{t^2}{4}\).
+\end{itemize}
+\end{ex}
+
+\begin{prop}
+Les solutions d'une telle équation différentielle linéaire sont au moins de classe \(\classe{n}\) sur \(I\).
+\end{prop}
+
+\subsection{Représentation matricielle}
+
+On considère une équation différentielle linéaire scalaire d'ordre \(n\) \[\paren{1}:y\deriv{n}=a_{n-1}\paren{t}y\deriv{n-1}+\dots+a_1\paren{t}y\prim+a_0\paren{t}y+b\paren{t}\]
+
+On pose \(X=\begin{pmatrix}
+y \\
+y\prim \\
+\vdots \\
+y\deriv{n-1}
+\end{pmatrix}\), \(A=\begin{pmatrix}
+0 & 1 & 0 & \dots & 0 \\
+0 & 0 & 1 & \dots & 0 \\
+\vdots & \vdots & \ddots & \ddots & \vdots \\
+0 & 0 & \dots & 0 & 1 \\
+a_0 & a_1 & \dots & a_{n-2} & a_{n-1}
+\end{pmatrix}\) et \(B=\begin{pmatrix}
+0 \\
+\vdots \\
+0 \\
+b
+\end{pmatrix}\).
+
+On définit ainsi trois fonctions vectorielles (matricielles) \(X\in\ensclasse{1}{I}{\K^n}\), \(A\in\ensclasse{0}{I}{\M{n}}\) et \(B\in\ensclasse{0}{I}{\K^n}\).
+
+L'équation \(\paren{1}\) est alors équivalente au système différentiel \(X\prim=AX+B\).
+
+Par conséquent, tous les résultats précédents sont applicables dans ce cas particulier.
+
+\subsection{Équation différentielle linéaire homogène}
+
+\begin{defi}
+On appelle équation différentielle linéaire scalaire homogène d'ordre \(n\) toute équation différentielle de la forme \[y\deriv{n}=a_{n-1}\paren{t}y\deriv{n-1}+\dots+a_1\paren{t}y\prim+a_0\paren{t}y\] où \(a_0,\dots,a_{n-1}\) sont \(n\) fonctions continues sur \(I\) à valeurs dans \(\K\) et \(y\) est la fonction inconnue de \(I\) dans \(\K\).
+\end{defi}
+
+Là encore, il y a un seul résultat à connaître sur de telles équations : le théorème de Cauchy-Lipschitz.
+
+\begin{theo}
+L'ensemble des solutions d'une équation différentielle linéaire scalaire homogène d'ordre \(n\) est un \(\K\)-espace vectoriel de dimension \(n\).
+
+Plus précisément, en notant \(S\) l'ensemble des solutions, pour tout \(t_0\in I\), l'application \[\fonctionlambda{S}{\K^n}{f}{\paren{f\paren{t_0},f\prim\paren{t_0},\dots,f\deriv{n-1}\paren{t_0}}}\] est un isomorphisme.
+
+Autrement dit, pour tout \(t_0\in I\) et \(\paren{v_0,v_1,\dots,v_{n-1}}\in\K^n\) (appelé vecteur des conditions initiales), il existe une unique solution telle que \(\quantifs{\tpt k\in\interventierii{0}{n-1}}f\deriv{k}\paren{t_0}=v_k\).
+\end{theo}
+
+Là encore, toute base de l'ensemble des solutions est appelée système fondamental de solutions. Il n'y a hélas pas de méthode générale pour en calculer concrètement.
+
+\subsection{Cas général}
+
+\begin{prop}
+Soit \[\paren{1}:y\deriv{n}=a_{n-1}\paren{t}y\deriv{n-1}+\dots+a_1\paren{t}y\prim+a_0\paren{t}y+b\paren{t}\] une équation différentielle linéaire scalaire d'ordre \(n\) sur l'intervalle \(I\).
+
+Si on connaît une solution \(p\) dite particulière de l'équation, alors on connaît la forme générale des solutions : elles sont de la forme \[t\mapsto g\paren{t}+p\paren{t}\] où \(g\) est la solution générale de l'équation différentielle linéaire homogène associée.
+\end{prop}
+
+Le théorème de Cauchy-Lipschitz est encore valable sous une forme amenuisée.
+
+\begin{theo}
+Pour tout choix des conditions initiales \(\paren{v_0,\dots,v_{n-1}}\in\K^n\), le problème de Cauchy \[\begin{dcases}
+y\deriv{n}=a_{n-1}\paren{t}y\deriv{n-1}+\dots+a_1\paren{t}y\prim+a_0\paren{t}y+b\paren{t} \\
+y\paren{t_0}=v_0 \\
+y\prim\paren{t_0}=v_1 \\
+\vdots \\
+y\deriv{n-1}\paren{t_0}=v_{n-1}
+\end{dcases}\] possède toujours une unique solution.
+\end{theo}
+
+\begin{rem}
+La recherche d'une solution particulière est un problème difficile. Sauf cas évidents, des indications seront données.
+\end{rem}
+
+\subsection{Diverses idées pour résoudre une équation différentielle linéaire d'ordre \(n\)}
+
+En pratique, on a souvent \(n=2\).
+
+\begin{itemize}
+    \item Chercher des solutions sous une forme \textit{a priori} raisonnable (polynomiale, exponentielle, etc.). \\
+    \item Chercher des solutions développables en série entière. \\
+    \item Faire un changement de variable ou un changement de fonction inconnue en suivant les indications de l'énoncé. \\
+    \item Quand on connaît une solution non-nulle \(z\), en chercher une autre sous la forme \(uz\) où \(u\) est une fonction inconnue à déterminer (c'est la méthode de variation de la constante !), qui transforme le problème différentiel d'ordre \(n\) en un problème d'ordre \(n-1\) plus une intégration.
+\end{itemize}
+
+\begin{exo}
+Résolvez l'équation différentielle suivante sur \(\intervee{-\dfrac{1}{2}}{\pinf}\) : \(\paren{2t+1}y\seconde\paren{t}+\paren{4t-2}y\prim\paren{t}-8y\paren{t}=0\) en cherchant une solution polynomiale et une solution exponentielle.
+\end{exo}
+
+\begin{exo}
+Même exercice sur \(\Rps\) avec : \(y\seconde\paren{t}+2t\paren{1+t}y\prim\paren{t}-2\paren{1+t}y\paren{t}=0\) en cherchant une première solution de la forme \(t\mapsto t^\alpha\) où \(\alpha\in\R\).
+\end{exo}
+
+\begin{exo}
+Même exercice sur \(\R\) avec : \(\paren{1+t^2}y\seconde\paren{t}+4ty\prim\paren{t}+2y\paren{t}=1\) en cherchant des solutions développables en série entière.
+\end{exo}
+
+\begin{exo}
+Même exercice sur \(\Rps\) avec : \(t^2y\seconde\paren{t}+4ty\prim\paren{t}-\paren{t^2-2}y\paren{t}=\e{t}\) en effectuant le changement de fonction inconnue \(z\paren{t}=t^2y\paren{t}\).
+\end{exo}
+
+Dans le cas \(n=2\), pour trouver une solution particulière de l'équation \(y\seconde=a\paren{t}y\prim+b\paren{t}y+c\paren{t}\), si on connaît un système fondamental de solutions de l'équation homogène associée \(y\seconde=a\paren{t}y\prim+b\paren{t}y\), alors on peut parfois réussir à trouver une solution particulière par variations des constantes : en notant \(\paren{s_1,s_2}\) un système fondamental de solutions de l'équation homogène associée, on pose \(p=u_1s_1+u_2s_2\) où \(u_1\) et \(u_2\) sont deux fonctions inconnues deux fois dérivables. Comme on a deux inconnues pour une seule équation, on impose une condition supplémentaire : \(u_1\prim s_1+u_2\prim s_2=0\), afin que la recherche de solutions particulières aboutisse au système suivant : \[\begin{dcases}
+u_1\prim s_1+u_2\prim s_2=0 \\
+u_1\prim s_1\prim+u_2\prim s_2\prim=c
+\end{dcases}\] Comme dans le cas de la méthode de variation de la constante vue en première année, la détermination explicite de \(u_1\) et \(u_2\) est parfois empêchée par les calculs de primitives non-explicitables.
+
+\begin{exo}
+Résolvez l'équation \(y\seconde+3y\prim+2y=\dfrac{t-1}{t^2}\e{-t}\) sur \(\intervee{0}{\pinf}\).
+\end{exo}
+
+\begin{exo}
+Résolvez l'équation \(y\seconde+4y=\tan t\) sur \(\intervee{-\dfrac{\pi}{2}}{\dfrac{\pi}{2}}\).
+\end{exo}
