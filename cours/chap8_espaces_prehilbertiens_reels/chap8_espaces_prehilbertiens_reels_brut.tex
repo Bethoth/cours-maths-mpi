@@ -2,4 +2,269 @@
 
 \minitoc
 
-\note{À venir}
+Dans tout ce chapitre, \(E\) désigne un \(\R\)-espace vectoriel.
+
+\section{Généralités}
+
+\subsection{Produit scalaire}
+
+\begin{defi}
+On appelle produit scalaire sur \(E\) toute application \(\phi\) de \(E^2\) dans \(\R\) qui est
+
+\begin{itemize}
+    \item bilinéaire (linéaire par rapport à chacune de ses deux variables) \\
+    \item symétrique : \(\quantifs{\tpt\paren{x,y}\in E^2}\phi\paren{x,y}=\phi\paren{y,x}\) \\
+    \item définie-positive : \(\quantifs{\tpt x\in E}\phi\paren{x,x}\geq0\) et \(\phi\paren{x,x}=0\ssi x=0\).
+\end{itemize}
+\end{defi}
+
+\begin{rem}
+Pour montrer que \(\phi\) est un produit scalaire, on montre en général d'abord que \(\phi\) est symétrique, puis qu'elle est linéaire à gauche, la linéarité à droite découlant alors de la symétrie.
+\end{rem}
+
+\begin{defi}
+Quand \(E\) est muni d'un produit scalaire, on dit que \(E\) est un espace préhilbertien. Quand, de plus, \(E\) est de dimension finie, on dit que \(E\) est un espace euclidien.
+
+En général, on note \(\ps{}{}\) les produits scalaires.
+\end{defi}
+
+\subsection{Exemples fondamentaux}
+
+\begin{itemize}
+    \item Le produit scalaire de la géométrie vérifie toutes ces propriétés. \\
+    \item Si \(E=\R^n\), soit \(x=\paren{x_1,\dots,x_n}\) et \(y=\paren{y_1,\dots,y_n}\), on pose \(\phi\paren{x,y}=\sum_{i=1}^nx_iy_i\) : \(\phi\) est appelé le produit scalaire canonique sur \(\R^n\). \\
+    \item Plus généralement, si \(E\) est un \(\R\)-espace vectoriel de dimension \(n\), alors à toute base \(\fami{B}\) de \(E\), on peut associer un produit scalaire : si \(x\) et \(y\) sont deux vecteurs de coordonnées \(X=\tcoords{x_1}{\vdots}{x_n}_{\fami{B}}\) et \(Y=\tcoords{y_1}{\vdots}{y_n}_{\fami{B}}\), on pose \(\phi\paren{x,y}=\sum_{i=1}^nx_iy_i\). L'expression matricielle du produit scalaire est alors \(\phi\paren{x,y}=\trans{X}Y\). \\
+    \item Si \(a,b\) sont deux réels tels que \(a<b\), \(I=\intervii{a}{b}\) et \(E=\ensclasse{0}{I}{\R}\), alors pour \(f,g\) deux éléments de \(E\), on pose \(\phi\paren{f,g}=\int_a^bfg\) : \(\phi\) est un produit scalaire sur \(E\). \\
+    \item Si \(I\) est un intervalle et \(E=\ensclasse{0}{I}{\R}\inter\integ{2}{I}{\R}\), ensemble des fonctions \(f\) à valeurs réelles, continues sur \(I\) et telles que \(f^2\) soit intégrables sur \(I\), alors pour \(f,g\) deux éléments de \(E\), on pose \(\phi\paren{f,g}=\int_Ifg\) : \(\phi\) est un produit scalaire sur \(E\). \\
+    \item Dans \(\M{n}[\R]\), l'application \(\paren{A,B}\mapsto\tr\paren{\trans{A}B}\) est un produit scalaire, c'est même le produit scalaire canonique.
+\end{itemize}
+
+\subsection{Norme euclidienne}
+
+\begin{defi}
+Soit \(E\) un espace préhilbertien. On note \(\ps{}{}\) le produit scalaire sur \(E\).
+
+On appelle norme euclidienne assoicée au produit scalaire l'application de \(E\) dans \(\Rp\) définie par \[\quantifs{\forall x\in E}\norme{x}=\sqrt{\ps{x}{x}}.\]
+\end{defi}
+
+\begin{rem}
+Cette définition a bien un sens, car d'après les propriétés d'un produit scalaire, \(\quantifs{\tpt x\in E}\ps{x}{x}\geq0\) donc \(\sqrt{\ps{x}{x}}\) existe.
+\end{rem}
+
+On vérifie alors les résultats suivants, inspirés par la géométrie habituelle dans un triangle ou un parallélogramme.
+
+\begin{prop}
+Avec les mêmes notations, pour tout \(\paren{x,y}\in E^2\),
+
+\begin{itemize}
+    \item \(\norme{x+y}^2=\norme{x}^2+\norme{y}^2+2\ps{x}{y}\) (égalité d'Al-Kashi) \\
+    \item \(\norme{x-y}^2=\norme{x}^2+\norme{y}^2-2\ps{x}{y}\) (égalité d'Al-Kashi) \\
+    \item \(\norme{x+y}^2+\norme{x-y}^2=2\norme{x}^2+2\norme{y}^2\) (identité du parallélogramme) \\
+    \item \(\norme{x+y}^2-\norme{x-y}^2=4\ps{x}{y}\) (identité de polarisation).
+\end{itemize}
+\end{prop}
+
+Et encore
+
+\begin{prop}
+Avec les mêmes notations,
+
+\begin{itemize}
+    \item \(\abs{\ps{x}{y}}\leq\norme{x}\norme{y}\) (inégalité de Cauchy-Schwarz) \\
+    \item \(\norme{x+y}\leq\norme{x}+\norme{y}\) (inégalité triangulaire) \\
+    \item \(\quantifs{\tpt\lambda\in\R}\norme{\lambda x}=\abs{\lambda}\norme{x}\) \\
+    \item \(\norme{x}=0\ssi x=0\).
+\end{itemize}
+\end{prop}
+
+\begin{rem}
+Il y a égalité dans l'inégalité de Cauchy-Schwarz ssi \(x\) et \(y\) sont colinéaires.
+
+Il y a égalité dans l'inégalité triangulaire ssi \(x\) et \(y\) sont colinéaires de même sens.
+\end{rem}
+
+On dit qu'un vecteur de \(E\) est unitaire (ou normalisé) si sa norme vaut \(1\). À tout vecteur \(x\in E\excluant\accol{0}\), on associe deux vecteurs unitaires : \(\dfrac{x}{\norme{x}}\) et \(-\dfrac{x}{\norme{x}}\).
+
+\begin{exo}
+Soit \(\paren{a_1,\dots,a_n,b_1,\dots,b_n}\in\R^{2n}\).
+
+Donnez une inégalité liant \(\sum_{k=1}^na_kb_k\), \(\sum_{k=1}^na_k^2\) et \(\sum_{k=1}^nb_k^2\).
+\end{exo}
+
+\begin{exo}
+Soit \(f\in\ensclasse{0}{\intervii{a}{b}}{\Rps}\). Montrez que \[\paren{b-a}^2\leq\paren{\int_a^bf}\paren{\int_a^b\dfrac{1}{f}}.\]
+\end{exo}
+
+\subsection{Vecteurs orthogonaux}
+
+\begin{defi}
+Soit \(E\) un espace préhilbertien. On note \(\ps{}{}\) le produit scalaire sur \(E\).
+
+On dit que deux vecteurs \(x,y\) sont orthogonaux (pour ce produit scalaire) quand \(\ps{x}{y}=0\).
+
+On peut alors noter \(x\perp y\) pour signifier que \(x\) et \(y\) sont orthogonaux.
+
+Plus généralement, si \(x_1,\dots,x_n\) sont \(n\) vecteurs de \(E\), on dit que la famille \(\paren{x_1,\dots,x_n}\) est une famille orthogonale quand \[\quantifs{\tpt\paren{i,j}\in\interventierii{1}{n}^2\text{ tel que }i\not=j}\ps{x_i}{x_j}=0.\]
+\end{defi}
+
+On retrouve alors le célèbre théorème de Pythagore.
+
+\begin{prop}
+Avec les mêmes notations, \[x\perp y\ssi\norme{x+y}^2=\norme{x}^2+\norme{y}^2.\]
+\end{prop}
+
+\begin{exo}
+Soient \(E\) un \(\R\)-espace vectoriel de dimension au moins \(2\) et \(u,v\) deux vecteurs non-colinéaires de \(E\).
+
+Montrez qu'il existe un produit scalaire sur \(E\) pour lequel \(u\) et \(v\) sont orthogonaux.
+\end{exo}
+
+\section{Bases orthonormées}
+
+\subsection{Familles orthonormées}
+
+\begin{defi}
+Soit \(E\) un espace préhilbertien.
+
+Une famille de vecteurs de \(E\) est dite orthonormée (ou orthonormale) quand elle est orthogonale et ses vecteurs sont unitaires.
+\end{defi}
+
+\begin{prop}
+Une famille orthogonale sans vecteur nul est libre. En particulier, une famille orthonormée est libre.
+
+Une famille orthonormée génératrice de \(E\) est donc une base orthonormée de \(E\).
+\end{prop}
+
+\begin{exo}
+Généralisez l'exercice précédent.
+\end{exo}
+
+\subsection{Existence de bases orthonormées}
+
+\begin{theo}
+Soit \(E\) un espace euclidien.
+
+Il existe dans \(E\) des bases orthonormées.
+
+De plus, pour toute base \(\paren{v_1,\dots,v_n}\) de \(E\), il existe une base orthonormée \(\paren{e_1,\dots,e_n}\) de \(E\) telle que \[\quantifs{\tpt k\in\interventierii{1}{n}}\Vect{v_1,\dots,v_k}=\Vect{e_1,\dots,e_k}.\]
+\end{theo}
+
+La démonstration repose sur l'algorithme d'orthogonalisation/orthonormalisation de Schmidt.
+
+On en déduit le théorème de la base orthonormée incomplète.
+
+\begin{theo}
+Soit \(E\) un espace euclidien.
+
+Toute famille orthonormée de \(E\) peut être complétée en une base orthonormée de \(E\).
+\end{theo}
+
+\begin{exo}
+Dans \(\R^n\) muni du produit scalaire canonique, on pose \(u=\paren{1,\dots,n}\).
+
+Complétez la famille \(u\) en une base orthonormée de \(\R^n\).
+\end{exo}
+
+\subsection{Calculs en base orthonormée}
+
+Soient \(E\) un espace euclidien et \(\fami{B}=\paren{e_1,\dots,e_n}\) une base orthonormée de \(E\).
+
+Soient \(x,y\in E\), de coordonnées \(X=\tcoords{x_1}{\vdots}{x_n}_{\fami{B}}\) et \(Y=\tcoords{y_1}{\vdots}{y_n}_{\fami{B}}\).
+
+Alors \[\ps{x}{y}=\sum_{i=1}^nx_iy_i=\trans{X}Y\qquad\norme{x}=\sqrt{\sum_{i=1}^nx_i^2}=\sqrt{\trans{X}X}\qquad\quantifs{\forall i\in\interventierii{1}{n}}x_i=\ps{x}{e_i}.\]
+
+\section{Sous-espaces orthogonaux}
+
+\subsection{Orthogonalité de deux sous-espaces vectoriels}
+
+\begin{defi}
+Soient \(E\) un espace préhilbertien, \(F,G\) deux sous-espaces vectoriels de \(E\) et \(u\in E\).
+
+On dit que \(u\) est orthogonal (ou normal) à \(F\) quand \(u\) est orthogonal à tous les vecteurs de \(F\).
+
+On dit que \(F\) et \(G\) sont orthogonaux quand tout vecteur de \(F\) et tout vecteur de \(G\) sont orthogonaux, autrement dit quand \[\quantifs{\tpt\paren{x,y}\in F\times G}\ps{x}{y}=0.\]
+\end{defi}
+
+\begin{prop}
+Si \(F\) est de dimension finie et a pour famille génératrice \(\paren{v_1,\dots,v_k}\), alors \(u\) est orthogonal à \(F\) ssi \(\quantifs{\tpt i\in\interventierii{1}{k}}\ps{u}{v_i}=0\).
+\end{prop}
+
+\begin{prop}
+Si \(F\) et \(G\) sont orthogonaux, alors ils sont en somme directe : \(F\inter G=\accol{0}\).
+\end{prop}
+
+\subsection{Orthogonal d'un sous-espace vectoriel}
+
+\begin{defi}
+Soient \(E\) un espace préhilbertien et \(F\) un sous-espace vectoriel de \(E\).
+
+On note \(F\ortho\) l'ensemble des vecteurs normaux à \(F\) : \[F\ortho=\accol{v\in E\tq\quantifs{\forall x\in F}\ps{v}{x}=0}.\]
+\end{defi}
+
+Avec cette notation, on a clairement l'équivalence : \[F\text{ et }G\text{ sont orthogonaux}\ssi F\subset G\ortho\text{ ou, ce qui revient au même, }G\subset F\ortho.\]
+
+\begin{theo}
+Soient \(E\) un espace préhilbertien et \(F\) un sous-espace vectoriel de \(E\).
+
+Alors \(F\ortho\) est un sous-espace vectoriel de \(E\), orthogonal à \(F\) et donc en somme directe avec \(F\).
+\end{theo}
+
+\begin{prop}
+Soient \(E\) un espace préhilbertien et \(F\) un sous-espace vectoriel de \(E\).
+
+Alors \(F\subset\paren{F\ortho}\ortho\).
+\end{prop}
+
+\begin{rem}
+En général, \(F\ortho\) n'est pas supplémentaire à \(F\) et \(F\) n'est pas égal à \(\paren{F\ortho}\ortho\).
+\end{rem}
+
+\begin{rem}
+Dans le cas où \(F\) est une droite vectorielle dirigée par un vecteur \(u\), on note plutôt \(G=u\ortho\) l'orthogonal de \(F\). Dans ce cas, \(u\ortho\) est un hyperplan et on dit alors que \(u\) est un vecteur normal à \(G\).
+\end{rem}
+
+\section{Projection orthogonale sur un sous-espace vectoriel de dimension finie}
+
+\subsection{Projection orthogonale}
+
+\begin{defi}
+Soient \(E\) un espace préhilbertien et \(F\) un sous-espace vectoriel de \(E\) de dimension finie.
+
+Alors \(F\ortho\) est un supplémentaire de \(F\), appelé le supplémentaire orthogonal de \(F\).
+
+Le projecteur sur \(F\) parallèlement à \(F\ortho\) est appelé le projecteur orthogonal sur \(F\).
+
+La symétrie orthogonale par rapport à \(F\) est la symétrie par rapport à \(F\) parallèlement à \(F\ortho\).
+\end{defi}
+
+Si on connaît une base orthonormée \(\paren{e_1,\dots,e_p}\) de \(F\), alors il est facile de calculer la projection orthogonale de \(x\) sur \(F\) : \[p_F\paren{x}=\sum_{i=1}^p\ps{x}{e_i}e_i.\]
+
+On en déduit l'inégalité de Bessel.
+
+\begin{prop}
+Soient \(E\) un espace préhilbertien et \(F\) un sous-espace vectoriel de \(E\) de dimension finie.
+
+Si \(p\) est le projecteur orthogonal sur \(F\), alors \(\quantifs{\tpt x\in E}\norme{p\paren{x}}\leq\norme{x}\).
+\end{prop}
+
+\subsection{Distance à un sous-espace vectoriel}
+
+\begin{prop}
+Soient \(E\) un espace préhilbertien, \(F\) un sous-espace vectoriel de \(E\) de dimension finie et \(x\in E\).
+
+Soit \(y\) la projection orthogonale de \(x\) sur \(F\).
+
+\(\quantifs{\Tpt z\in F}\norme{x-y}\leq\norme{x-z}\), avec égalité ssi \(z=y\).
+\end{prop}
+
+Autrement dit, le projeté orthogonal de \(x\) sur \(F\) est l'unique vecteur de \(F\) qui minimise la distance entre \(x\) et un point de \(F\).
+
+\(\norme{x-y}\) est appelé la distance de \(x\) à \(F\), c'est la plus petite des distances entre \(x\) et un élément de \(F\), notée \(d\paren{x,F}\).
+
+\begin{rem}
+Tout ce qui précède est évidemment valable si \(E\) est de dimension finie.
+
+Dans ce cas, pour tout sous-espace vectoriel \(F\) de \(E\), \(F\ortho\) est un supplémentaire de \(F\) dans \(E\).
+
+Par conséquent, \(\dim F\ortho=\dim E-\dim F\).
+\end{rem}

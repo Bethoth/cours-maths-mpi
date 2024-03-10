@@ -681,7 +681,7 @@ per-mode=power-positive-first
 
 \newcommand{\echange}{\leftrightarrow}
 
-\newcommand{\trans}[1]{\prescript{t}{}{#1}}
+\newcommand{\trans}[1]{#1^{\top}}
 
 \usepackage{mathdots}
 
@@ -692,7 +692,6 @@ per-mode=power-positive-first
 \usepackage{nicematrix}
 \NiceMatrixOptions{renew-dots,renew-matrix}
 
-\newcommand{\ps}[2]{\left\langle#1\tq#2\right\rangle}
 \newcommand{\ortho}{^{\perp}}
 
 \newcommand{\operp}{\mathrel{%
@@ -776,6 +775,7 @@ per-mode=power-positive-first
   {\ifblank{#1}{\:\cdot\:}{#1}}
 
 \newcommand{\norme}[1]{\left\|\ifblank{#1}{\:\cdot\:}{#1}\right\|}
+\newcommand{\ps}[2]{\left\langle\ifblank{#1}{\:\cdot\:}{#1}\tq\ifblank{#1}{\:\cdot\:}{#2}\right\rangle}
 
 \newcommand{\tpt}{\text{pour tout }}
 \newcommand{\Tpt}{\text{Pour tout }}
