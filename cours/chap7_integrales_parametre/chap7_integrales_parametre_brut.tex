@@ -2,4 +2,285 @@
 
 \minitoc
 
-\note{À venir}
+Dans ce chapitre, \(\K\) désigne l'ensemble \(\R\) ou \(\C\). Les fonctions dans ce chapitre sont à valeurs dans \(\K\).
+
+On considère dans ce chapitre des intégrales de la forme \(\int_a^bf\paren{p,t}\odif{t}\) où \(f\paren{p,t}\) est une expression qui dépend de deux variables \(p\) et \(t\), \(p\) pouvant être de n'importe quel type mais \(t\) bien sûr réelle. Par habitude, on distingue dans le vocabulaire ces deux variables : \(t\) est appelée la variable d'intégration (notez le \(\odif{t}\) qui le signale) et \(p\) est appelée le paramètre.
+
+L'intégrale \(\int_a^bf\paren{p,t}\odif{t}\) est donc une intégrale qui dépend du paramètre \(p\) (mais qui ne dépend bien entendu pas de \(t\)) et l'objet de ce chapitre est d'étudier des résultats concernant cette dépendance vis-à-vis de \(p\) ; en somme, d'étudier des propriétés de l'application \(p\mapsto\int_a^bf\paren{p,t}\odif{t}\).
+
+Les sections 2 et 3 étudient surtout le cas où \(p\) est un paramètre entier naturel, les suivantes le cas où \(p\) est un paramètre réel.
+
+\section{Introduction}
+
+Pour commencer, un exercice d'intervertion de symboles, qui marque le début de l'étude de ce problème général et qui va nous occuper durant quelques chapitres.
+
+\begin{exo}
+Pour \(n\in\Ns\), on pose \(f_n\paren{x}=n^2\e{-nx}\paren{1-\e{-x}}\).
+
+Pour \(x\geq0\), que vaut \(\lim_{n\to\pinf}f_n\paren{x}\) ?
+
+Montrez la convergence de l'intégrale \(\int_0^{\pinf}f_n\paren{x}\odif{x}\) et donnez sa valeur en fonction de \(n\).
+
+Comparez \(\lim_{n\to\pinf}\int_0^{\pinf}f_n\paren{x}\odif{x}\) et \(\int_0^{\pinf}\paren{\lim_{n\to\pinf}f_n\paren{x}}\odif{x}\).
+
+Quelle conclusion peut-on en tirer ?
+\end{exo}
+
+\section{Convergence simple}
+
+\subsection{Convergence simple d'une suite de fonctions}
+
+\begin{defi}
+Soient \(A\) une partie de \(\R\) et \(\paren{f_n}\) une suite de fonctions définies sur \(A\).
+
+On dit que la suite \(\paren{f_n}\) converge simplement sur \(A\) quand pour tout \(x\in A\), la suite numérique \(\paren{f_n\paren{x}}\) converge.
+
+Dans ce cas, on peut définir une fonction \(f\) sur \(A\) en posant, \(\quantifs{\tpt x\in A}f\paren{x}=\lim_{n\to\pinf}f_n\paren{x}\).
+
+La fonction \(f\) est alors appelée limite simple sur \(A\) de la suite \(\paren{f_n}\) et on dit que la suite \(\paren{f_n}\) converge simplement vers \(f\) sur \(A\).
+\end{defi}
+
+\begin{exo}
+Étudiez, pour \(n\in\Ns\), la convergence simple de la suite de fonctions \(f_n:x\mapsto\dfrac{n\e{-x}+x^2}{n+x}\) sur \(\intervie{0}{\pinf}\)
+\end{exo}
+
+\begin{exo}
+Même question avec la suite de fonctions \(f_n:x\mapsto\dfrac{x^n}{1+x^n}\) sur \(\intervie{0}{\pinf}\).
+\end{exo}
+
+\begin{exo}
+Même question avec la suite de fonctions \(f_n:x\mapsto n^\alpha x^n\paren{1-x}\) où \(\alpha\) est un réel strictement positif.
+\end{exo}
+
+\subsection{Convergence simple d'une série de fonctions}
+
+\begin{defi}
+Soient \(A\) une partie de \(\R\) et \(\paren{f_n}\) une suite de fonctions définies sur \(A\).
+
+On dit que la série \(\sum_{n\geq0}f_n\) converge simplement sur \(A\) quand pour tout \(x\in A\), la série numérique \(\sum_{n\geq0}f_n\paren{x}\) converge.
+
+Autrement dit, la série de fonctions \(\sum_{n\geq0}f_n\) converge simplement sur \(A\) quand la suite des sommes partielles \(\paren{\sum_{k=0}^nf_k}\) converge simplement sur \(A\).
+
+Dans ce cas, on peut définir une fonction \(f\) sur \(A\) en posant, \(\quantifs{\tpt x\in A}f\paren{x}=\sum_{n=0}^{\pinf}f_n\paren{x}\).
+
+La fonction \(f\) est alors appelée (fonction) somme sur \(A\) de la série \(\sum_{n\geq0}f_n\).
+\end{defi}
+
+\begin{exo}
+Étudiez, pour \(n\in\Ns\), la convergence simple de la série de fonctions \(f_n:x\mapsto\dfrac{nx^2}{n^3+x^2}\) sur \(\intervie{0}{\pinf}\).
+\end{exo}
+
+\begin{exo}
+Même question avec la série de fonctions \(f_n:x\mapsto\dfrac{x^n}{1+x^n}\) sur \(\intervie{0}{\pinf}\).
+\end{exo}
+
+\begin{exo}
+Même question avec la série de fonctions \(f_n:x\mapsto\dfrac{\sin\paren{nx}}{n^3+x^3}\) sur \(\intervie{0}{\pinf}\).
+\end{exo}
+
+\section{Suites et séries de fonctions intégrables}
+
+Dans cette section, tous les théorèmes sont admis (démonstrations très difficiles !).
+
+\subsection{Théorème de convergence dominée}
+
+\begin{theo}
+Soient \(I\) un intervalle et \(\paren{f_n}\) une suite de fonctions continues par morceaux sur \(I\).
+
+Si
+
+\begin{itemize}
+    \item la suite \(\paren{f_n}\) converge simplement sur \(I\) vers une fonction \(f\) qui est continue par morceaux sur \(I\) \\
+    \item il existe une fonction \(\phi\), intégrable sur \(I\) et à valeurs positives, telle que \[\quantifs{\tpt n\in\N}\abs{f_n}\leq\phi\text{ sur \(I\) (hypothèse de domination)}\]
+\end{itemize}
+
+alors les fonctions \(f\) et \(f_n\) sont toutes intégrables sur \(I\) et \(\int_If_n\tendqd{n\to\pinf}\int_If\).
+\end{theo}
+
+L'hypothèse de domination est essentielle ! Il s'agit donc de trouver une fonction \(\phi\) (dont on dit qu'elle domine la suite \(\paren{f_n}\)) intégrable et, surtout, qui ne dépend pas de \(n\) !
+
+\begin{exo}
+Montrez que la suite d'intégrales \(\paren{\int_0^{\pinf}\cos\paren{t}\e{-nt^2}\odif{t}}_{n\geq1}\) est bien définie et qu'elle converge vers \(0\).
+\end{exo}
+
+\begin{exo}
+Montrez que la suite d'intégrales \(\paren{\int_0^{\nicefrac{\pi}{2}}\sin^nt\odif{t}}\) converge vers \(0\).
+\end{exo}
+
+\begin{exo}
+Montrez que \(\quantifs{\tpt n\geq2}t\mapsto\dfrac{1}{1+t^n}\) est intégrable sur \(\intervie{0}{\pinf}\), puis donnez la limite des intégrales quand \(n\to\pinf\).
+\end{exo}
+
+Quitte à utiliser la caractérisation séquentielle de la limite, on peut étendre le théorème précédent à des fonctions paramétrées par un réel.
+
+\begin{theo}
+Soient \(I,A\) deux intervalles, \(\alpha\in\conj{A}\) et \(\paren{f_a}_{a\in A}\) une famille de fonctions continues par morceaux sur \(I\).
+
+Si
+
+\begin{itemize}
+    \item \(\quantifs{\tpt x\in I}f_a\paren{x}\tendqd{a\to\alpha}f\paren{x}\) où \(f\) est une fonction continue par morceaux sur \(I\) \\
+    \item il existe une fonction \(\phi\) intégrable sur \(I\) et à valeurs positives, telle que \[\quantifs{\tpt a\in A}\abs{f_a}\leq\phi\text{ sur \(I\) (hypothèse de domination)}\]
+\end{itemize}
+
+alors les fonctions \(f\) et \(f_a\) sont toutes intégrables sur \(I\) et \(\int_If_a\tendqd{a\to\alpha}\int_If\).
+\end{theo}
+
+\subsection{Théorème d'intégration terme à terme}
+
+\begin{theo}
+Soient \(I\) un intervalle et \(\paren{f_n}\) une suite de fonctions continues par morceaux sur \(I\).
+
+Si
+
+\begin{itemize}
+    \item la série \(\sum_{n\geq0}f_n\) converge simplement sur \(I\) vers une fonction continue par morceaux sur \(I\) \\
+    \item \(\quantifs{\tpt n\in\N}f_n\) est intégrable sur \(I\) \\
+    \item la série numérique \(\sum_{n\geq0}\int_I\abs{f_n}\) converge
+\end{itemize}
+
+alors la fonction somme \(\sum_{n=0}^{\pinf}f_n\) est intégrable sur \(I\) et \(\int_I\sum_{n=0}^{\pinf}f_n=\sum_{n=0}^{\pinf}\int_If_n\).
+\end{theo}
+
+L'hypothèse de convergence de la série des intégrales est essentielle, mais hélas très contraignante. Il arrive souvent qu'il soit plus facile d'utiliser le théorème de convergence dominée sur les sommes partielles de la série de fonctions.
+
+\begin{exo}
+Justifiez l'existence et calculez \(\int_0^{\pinf}\dfrac{t}{\e{t}-1}\odif{t}\).
+\end{exo}
+
+\section{Fonctions définies par une intégrale à paramètre}
+
+On s'intéresse aux propriétés des fonctions définies par des intégrales du type \(x\mapsto\int_If\paren{x,t}\odif{t}\). On dit que \(x\) est un paramètre de l'intégrale \(\int_If\paren{x,t}\odif{t}\).
+
+\subsection{Continuité}
+
+\begin{theo}
+Soient \(A,I\) deux intervalles de \(\R\) et \(f:\paren{x,t}\mapsto f\paren{x,t}\) une fonction définie sur \(A\times I\).
+
+Si
+
+\begin{itemize}
+    \item \(\quantifs{\tpt x\in A}t\mapsto f\paren{x,t}\) est continue par morceaux sur \(I\) \\
+    \item \(\quantifs{\tpt t\in I}x\mapsto f\paren{x,t}\) est continue sur \(A\) \\
+    \item il existe une fonction \(\phi\) intégrable sur \(I\) et à valeurs positives, telle que \[\quantifs{\tpt\paren{x,t}\in A\times I}\abs{f\paren{x,t}}\leq\phi\paren{t}\text{ (hypothèse de domination)}\]
+\end{itemize}
+
+alors \(\quantifs{\tpt x\in A}t\mapsto f\paren{x,t}\) est intégrable sur \(I\) et la fonction \(x\mapsto\int_If\paren{x,t}\odif{t}\) est continue sur \(A\).
+\end{theo}
+
+\begin{exo}
+Montrez que la fonction \(g:x\mapsto\int_0^{\pinf}\dfrac{\cos\paren{xt^2}}{1+t^2}\odif{t}\) est définie et continue sur \(\R\).
+\end{exo}
+
+\begin{exo}
+Montrez que la fonction \(h:u\mapsto\int_0^1\Arctan\paren{u+x\ln x}\odif{x}\) est définie et continue sur \(\R\).
+\end{exo}
+
+\subsection{Dérivabilité}
+
+\begin{theo}
+Soient \(A,I\) deux intervalles de \(\R\) et \(f:\paren{x,t}\mapsto f\paren{x,t}\) une fonction définie sur \(A\times I\).
+
+Si
+
+\begin{itemize}
+    \item \(\quantifs{\tpt x\in A}t\mapsto f\paren{x,t}\) est continue par morceaux et intégrable sur \(I\) \\
+    \item \(\quantifs{\tpt t\in I}x\mapsto f\paren{x,t}\) est de classe \(\classe{1}\) sur \(A\) \\
+    \item \(\quantifs{\tpt x\in A}t\mapsto\pdv{f}{x}\paren{x,t}\) est continue par morceaux sur \(I\) \\
+    \item il existe une fonction \(\phi\) intégrable et à valeurs positives, telle que \[\quantifs{\tpt\paren{x,t}\in A\times I}\abs{\pdv{f}{x}\paren{x,t}}\leq\phi\paren{t}\text{ (hypothèse de domination)}\]
+\end{itemize}
+
+alors la fonction \(g:x\mapsto\int_If\paren{x,t}\odif{t}\) est de classe \(\classe{1}\) sur \(A\) et \(\quantifs{\tpt x\in A}g\prim\paren{x}=\int_I\pdv{f}{x}\paren{x,t}\odif{t}\).
+\end{theo}
+
+\begin{exo}
+Montrez que la fonction \(g:x\mapsto\int_0^\pi\cos\paren{x\sin t}\odif{t}\) est définie et de classe \(\classe{1}\) sur \(\R\).
+\end{exo}
+
+\begin{exo}
+Montrez que la fonction \(g:x\mapsto\int_0^{\pinf}\cos\paren{xt^2}\e{-t}\odif{t}\) est définie et de classe \(\classe{1}\) sur \(\R\).
+\end{exo}
+
+Ce théorème est généralisable pour des dérivations d'ordre plus élevé.
+
+\begin{theo}
+Soient \(A,I\) deux intervalles de \(\R\) et \(f:\paren{x,t}\mapsto f\paren{x,t}\) une fonction définie sur \(A\times I\).
+
+Si
+
+\begin{itemize}
+    \item \(\quantifs{\tpt x\in A}t\mapsto f\paren{x,t}\) est continue par morceaux et intégrable sur \(I\) \\
+    \item \(\quantifs{\tpt t\in I}x\mapsto f\paren{x,t}\) est de classe \(\classe{k}\) sur \(A\) \\
+    \item \(\quantifs{\tpt x\in A;\tpt j\in\interventierii{1}{k-1}}t\mapsto\pdv[order=j]{f}{x}\paren{x,t}\) est continue par morceaux et intégrable sur \(I\) \\
+    \item il existe une fonction \(\phi\) intégrable sur \(I\) et à valeurs positives, telle que \[\quantifs{\tpt\paren{x,t}\in A\times I}\abs{\pdv[order=k]{f}{x}\paren{x,t}}\leq\phi\paren{t}\text{ (hypothèse de domination)}\]
+\end{itemize}
+
+alors la fonction \(g:x\mapsto\int_If\paren{x,t}\odif{t}\) est de classe \(\classe{k}\) sur \(A\) et \(\quantifs{\tpt x\in A;\tpt j\in\interventierii{1}{k}}g\deriv{j}\paren{x}=\int_I\pdv[order=j]{f}{x}\paren{x,t}\odif{t}\).
+\end{theo}
+
+\begin{exo}
+Montrez que la fonction \(g:x\mapsto\int_0^{\pinf}\cos\paren{xt^2}\e{-t}\odif{t}\) est définie et de classe \(\classe{\infty}\) sur \(\R\).
+\end{exo}
+
+\section{Domination sur des sous-intervalles}
+
+La continuité étant une propriété locale, il est souvent inutile d'avoir une domination globale sur \(A\) pour conclure. En général, on peut se contenter de domination sur des parties plus petites que \(A\), en général les segments inclus dans \(A\), ou toute famille recouvrante de parties de \(A\).
+
+\begin{defi}
+Soit \(A\) un intervalle.
+
+Une famille \(\fami{F}\) de parties de \(A\) est dite recouvrante quand sa réunion est \(A\) : \(A=\bigunion_{X\in\fami{F}}X\).
+\end{defi}
+
+\begin{prop}
+Soit \(A\) un intervalle.
+
+La famille des segments inclus dans \(A\) est recouvrante : \(A=\bigunion_{\paren{a,b}\in A^2}\intervii{a}{b}\).
+\end{prop}
+
+On en déduit alors le théorème suivant, dont il vaut mieux à mon avis, sur chaque exercice, présenter le détail des idées.
+
+\begin{theo}
+Soient \(A,I\) deux intervalles de \(\R\) et \(f:\paren{x,t}\mapsto f\paren{x,t}\) une fonction définie sur \(A\times I\).
+
+Soit \(\fami{F}\) une famille recouvrante de parties de \(A\).
+
+Si
+
+\begin{itemize}
+    \item \(\quantifs{\tpt x\in A}t\mapsto f\paren{x,t}\) est continue par morceaux sur \(I\) \\
+    \item \(\quantifs{\tpt t\in I}x\mapsto f\paren{x,t}\) est continue sur \(A\) \\
+    \item pour toute partie \(F\) de \(\fami{F}\), il existe une fonction \(\phi_F\) intégrable sur \(I\) et à valeurs positives, telle que \[\quantifs{\tpt\paren{x,t}\in F\times I}\abs{f\paren{x,t}}\leq\phi_F\paren{t}\text{ (hypothèse de domination)}\]
+\end{itemize}
+
+alors \(\quantifs{\tpt x\in A}t\mapsto f\paren{x,t}\) est intégrable sur \(I\) et la fonction \(x\mapsto\int_If\paren{x,t}\odif{t}\) est continue sur \(A\).
+\end{theo}
+
+On a de même une version locale des théorèmes de dérivation sous le signe intégrale.
+
+Autrement dit, au lieu de chercher à appliquer les théorèmes précédents directement sur \(A\), on trouve une famille recouvrante de sous-intervalles sur chacun desquels on peut appliquer les théorèmes précédents, conclure à la continuité ou dérivabilité sur chaque sous-intervalle, puis signaler que par réunion, la propriété reste valable sur \(A\).
+
+\begin{exo}
+Montrez que la fonction \(f:x\mapsto\int_0^{\pinf}\dfrac{\e{-xt}}{\sqrt{t}}\odif{t}\) est définie et continue sur \(\intervee{0}{\pinf}\).
+\end{exo}
+
+\begin{exo}
+Montrez que la fonction \(f:x\mapsto\int_1^{\pinf}\dfrac{\ln\paren{1+xt}}{t^2}\odif{t}\) est définie et continue sur \(\intervie{0}{\pinf}\) et qu'elle est de classe \(\classe{1}\) sur \(\intervee{0}{\pinf}\). Donnez une expression simple de \(f\prim\paren{x}\) pour tout \(x>0\).
+\end{exo}
+
+\section{Complément : la fonction \(\Gamma\) d'Euler}
+
+Pour \(x\in\R\), on pose, quand cela a un sens \[\Gamma\paren{x}=\int_0^{\pinf}t^{x-1}\e{-t}\odif{t}.\]
+
+Cette fonction très courante a les propriétés suivantes :
+
+\begin{itemize}
+    \item \(\Gamma\) est définie sur \(\intervee{0}{\pinf}\) \\
+    \item \(\Gamma\) est de classe \(\classe{\infty}\) sur \(\intervee{0}{\pinf}\) \\
+    \item \(\quantifs{\tpt x>0}\Gamma\paren{x+1}=x\Gamma\paren{x}\) \\
+    \item \(\quantifs{\tpt n\in\Ns}\Gamma\paren{n}=\paren{n-1}!\) \\
+    \item \(\Gamma\paren{\dfrac{1}{2}}=\sqrt{\pi}\) \\
+    \item il existe un unique \(\alpha\in\intervee{1}{2}\) tel que \(\Gamma\prim\paren{\alpha}=0\) et \(\Gamma\) est strictement décroissante sur \(\intervei{0}{\alpha}\) et strictement croissante sur \(\intervee{\alpha}{\pinf}\) \\
+    \item \(\Gamma\) est convexe sur \(\intervee{0}{\pinf}\) \\
+    \item \(\Gamma\) a des limites infinies en \(0\) et en \(\pinf\).
+\end{itemize}
