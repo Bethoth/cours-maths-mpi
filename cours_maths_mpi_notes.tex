@@ -586,6 +586,7 @@ per-mode=power-positive-first
 \DeclareDocumentCommand{\antisym}{m O{\K}}{\mathscr{A}_{#1}\paren{#2}}
 \DeclareDocumentCommand{\GL}{m O{\K}}{\operatorname{GL}_{#1}\paren{#2}}
 \DeclareDocumentCommand{\SL}{m O{\K}}{\operatorname{SL}_{#1}\paren{#2}}
+\DeclareDocumentCommand{\SO}{m O{\K}}{\mathscr{SO}_{#1}\paren{#2}}
 \DeclareDocumentCommand{\Mat}{O{\fami{B}} m}{\operatorname*{Mat}_{#1}\paren{#2}}
 \newcommand{\pass}[2]{\mathscr{P}_{#1\to#2}}
 
@@ -685,7 +686,7 @@ per-mode=power-positive-first
 
 \usepackage{mathdots}
 
-\DeclareDocumentCommand{\detb}{O{\fami{B}}}{{\det}_{#1}}
+\DeclareDocumentCommand{\detb}{O{\fami{B}}}{\operatorname*{det}_{#1}}
 
 \usepackage{cancel}
 
@@ -794,6 +795,10 @@ per-mode=power-positive-first
 \newcommand{\integ}[3]{\fami{L}^{#1}\ifblank{#2}{}{\paren{#2,#3}}}
 
 \DeclareMathOperator{\indep}{\perp\!\!\!\perp}
+
+\newcommand{\adj}{^*}
+
+\DeclareMathOperator{\Det}{Det}
 
 \begin{document}
 \renewcommand{\labelitemi}{\(\triangleright\)}

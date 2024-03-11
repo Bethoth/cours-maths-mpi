@@ -2,4 +2,548 @@
 
 \minitoc
 
-\note{À venir}
+Dans tout ce chapitre, \(E\) désigne un espace euclidien de dimension \(n\), muni du produit scalaire \(\ps{}{}\).
+
+\section{Adjoint d'un endomorphisme}
+
+\subsection{Représentation des formes linéaires}
+
+Le théorème suivant est parfois appelé théorème de représentation de Riesz.
+
+\begin{prop}
+Soit \(\phi\) une forme linéaire sur \(E\).
+
+Il existe un unique vecteur \(v\in E\) tel que \(\quantifs{\tpt x\in E}\phi\paren{x}=\ps{v}{x}\).
+\end{prop}
+
+\subsection{Adjoint}
+
+\begin{prop}
+Soit \(f\in\Lendo{E}\).
+
+Il existe un unique endomorphisme \(g\in\Lendo{E}\) tel que \(\quantifs{\tpt\paren{x,y}\in E^2}\ps{f\paren{x}}{y}=\ps{x}{g\paren{y}}\).
+\end{prop}
+
+\begin{defi}
+L'endomorphisme \(g\) est appelé l'adjoint de \(f\) est est noté \(f\adj\).
+\end{defi}
+
+Par bilinéarité et symétrie du produit scalaire, on en déduit les propriétés élémentaires de l'adjonction.
+
+\begin{prop}
+\begin{itemize}
+    \item L'application \(f\mapsto f\adj\) est linéaire. \\
+    \item \(\quantifs{\Tpt f\in\Lendo{E}}\paren{f\adj}\adj=f\). \\
+    \item \(\quantifs{\Tpt\paren{f,g}\in\Lendo{E}^2}\paren{f\rond g}\adj=g\adj\rond f\adj\).
+\end{itemize}
+\end{prop}
+
+\begin{exo}
+Montrez que si \(f\) est un projecteur orthogonal, alors \(f\adj=f\).
+\end{exo}
+
+\begin{exo}
+Soit \(f\in\Lendo{E}\).
+
+Montrez que \(\Im f\adj=\paren{\ker f}\ortho\) et \(\ker f\adj=\paren{\Im f}\ortho\).
+
+Comparez \(\rg f\) et \(\rg f\adj\).
+\end{exo}
+
+\begin{exo}
+Soit \(f\in\Lendo{E}\).
+
+Montrez que \(\rg f=\rg\paren{f\adj\rond f}\).
+\end{exo}
+
+\subsection{Matrice de l'adjoint}
+
+\begin{prop}
+Soient \(\fami{B}\) une base orthonormée de \(E\) et \(\paren{f,g}\in\Lendo{E}^2\).
+
+On a \(g=f\adj\ssi\Mat{g}=\trans{\paren{\Mat{f}}}\).
+\end{prop}
+
+\begin{rem}
+Attention, ceci n'est valable qu'en base orthonormée. En base quelconque, c'est plus compliqué.
+\end{rem}
+
+\begin{exo}
+Soit \(f\in\Lendo{E}\) diagonalisable.
+
+Montrez l'équivalence \[f\adj=f^2\ssi f\text{ est un projecteur orthogonal}.\]
+\end{exo}
+
+\subsection{Stabilité de sous-espaces vectoriels}
+
+Une propriété remarquable et utile pour la suite du cours.
+
+\begin{prop}
+Soient \(f\in\Lendo{E}\) et \(F\) un sous-espace vectoriel de \(E\).
+
+Si \(F\) est stable par \(f\), alors \(F\ortho\) est stable par \(f\adj\).
+\end{prop}
+
+\section{Orientation d'un \(\R\)-espace vectoriel de dimension finie}
+
+Soit \(E\) un \(\R\)-espace vectoriel de dimension finie \(n\geq1\).
+
+\begin{defi}
+On dit que deux bases \(\fami{B},\fami{B}\prim\) de \(E\) ont la même orientation quand \(\detb\fami{B}\prim>0\), sinon on dit qu'elles sont d'orientations contraires.
+\end{defi}
+
+Orienter \(E\), c'est choisir une base de référence et déclarer directes toutes les bases qui ont la même orientation que cette base de référence. Les bases de l'autre classe d'équivalence sont dites indirectes (ou rétrogrades).
+
+En géométrie classique, dans le plan ou l'espace, on convient systématiquement d'une orientation.
+
+Dans toute la suite, \(E\) désigne un espace euclidien de dimension \(n\). On suppose aussi que \(E\) est orienté.
+
+\section{Isométries vectorielles}
+
+\begin{defi}
+On appelle isométrie vectorielle (ou automorphisme orthogonal) tout endomorphisme de \(E\) qui conserve la norme : \(\quantifs{\tpt x\in E}\norme{f\paren{x}}=\norme{x}\).
+\end{defi}
+
+\begin{rem}
+L'appellation \guillemets{automorphisme} n'est pas usurpée.
+\end{rem}
+
+L'ensemble des isométries vectorielles de \(E\) est noté \(\Orth{}[E]\).
+
+\begin{prop}
+\(\Orth{}[E]\) est un sous-groupe de \(\groupe{\GL{}[E]}[\rond]\).
+\end{prop}
+
+Les symétries orthogonales sont des isométries vectorielles. Parmi celles-ci, on distingue les symétries orthogonales par rapport à un hyperplan : on les appelle les réflexions.
+
+On peut caractériser les isométries vectorielles de diverses façons.
+
+\begin{prop}
+Soit \(f\in\Lendo{E}\). Les propositions suivantes sont équivalentes :
+
+\begin{itemize}
+    \item \(f\) est une isométrie vectorielle \\
+    \item \(f\) conserve le produit scalaire : \(\quantifs{\tpt\paren{x,y}\in E^2}\ps{f\paren{x}}{f\paren{y}}=\ps{x}{y}\) \\
+    \item \(f\) transforme toute base orthonormée en base orthonormée \\
+    \item \(f\) est un automorphisme et \(f\adj=f\inv\), ou, ce qui revient au même : \(f\adj\rond f=\id{E}\).
+\end{itemize}
+\end{prop}
+
+\begin{exo}
+Soient \(E\) un espace euclidien, \(a\in E\excluant\accol{0}\) et \(k\in\R\). On pose \(f:x\mapsto x+k\ps{x}{a}a\).
+
+Montrez que \(f\) est linéaire, puis déterminez les conditions sur \(a\) et \(k\) pour que \(f\) soit une isométrie vectorielle.
+
+Dans ce cas, reconnaissez-la.
+\end{exo}
+
+\section{Matrices orthogonales}
+
+\begin{prop}
+Soient \(\fami{B}\) une base orthonormée de \(E\) et \(f\in\Lendo{E}\). On pose \(A=\Mat{f}\).
+
+On a \(f\in\Orth{}[E]\ssi\trans{A}A=I_n\).
+\end{prop}
+
+Attention ! Ceci n'est valable que si la base \(\fami{B}\) est orthonormée.
+
+\begin{defi}
+Une matrice carrée \(A\) est dite orthogonale quand \(\trans{A}A=I_n\), ce qui est équivalent à \(A\trans{A}=I_n\) ou \(A\) est inversible et \(A\inv=\trans{A}\).
+\end{defi}
+
+\begin{prop}
+Une matrice de \(\M{n}[\R]\) est orthogonale quand ses colonnes sont de norme \(1\) et deux à deux orthogonales pour le produit scalaire canonique de \(\M{n\,1}[\R]\).
+\end{prop}
+
+Cela est également valable pour les lignes de la matrice.
+
+\begin{exo}
+Vérifiez que la matrice \(M=\dfrac{1}{7}\begin{pmatrix}
+-2 & 6 & -3 \\
+6 & 3 & 2 \\
+-3 & 2 & 6
+\end{pmatrix}\) est une matrice orthogonale, puis montrez qu'elle est la matrice d'une symétrie orthogonale donc vous préciserez les éléments caractéristiques.
+\end{exo}
+
+\begin{exo}
+Déterminez les réels \(a\) et \(b\) tels que la matrice \(A=\begin{pmatrix}
+a & b & b \\
+b & a & b \\
+b & b & a
+\end{pmatrix}\) soit orthogonale. Reconnaissez la nature de l'isométrie vectorielle de matrice \(A\) dans une base orthonormée \(\fami{B}\).
+\end{exo}
+
+L'ensemble des matrices orthogonales est noté \(\Orth{n}[\R]\).
+
+\begin{prop}
+\(\Orth{n}[\R]\) est un sous-groupe compact de \(\groupe{\GL{n}[\R]}[\times]\).
+\end{prop}
+
+\subsection{Déterminant d'une isométrie vectorielle}
+
+\begin{prop}
+Si \(f\in\Orth{}[E]\), alors \(\det f\in\accol{-1,1}\).
+\end{prop}
+
+La réciproque est bien sûr fausse.
+
+Les isométries vectorielles de déterminant \(1\) sont celles qui conservent l'orientation : les transforment les bases orthonormées directes en bases orthonormées directes. On les appelle les isométries vectorielles directes ou positives.
+
+On note \(\SO{n}[\R]\) l'ensemble des matrices orthogonales de déterminant \(1\) et \(\SO{}[E]\) l'ensemble des isométries vectorielles positives.
+
+\begin{prop}
+\(\SO{}[E]\) est un sous-groupe de \(\Orth{}[E]\), appelé groupe spécial orthogonal de \(E\).
+
+\(\SO{n}[\R]\) est un sous-groupe de \(\Orth{n}[\R]\), appelé groupe spécial orthogonal d'ordre \(n\).
+\end{prop}
+
+Les réflexions sont des isométries négatives.
+
+\subsection{Changements de bases orthonormées}
+
+\begin{prop}
+Soient \(\fami{B}\) et \(\fami{B}\prim\) deux bases orthonormées de \(E\).
+
+La matrice de passage de \(\fami{B}\) à \(\fami{B}\prim\) est une matrice orthogonale.
+\end{prop}
+
+L'intérêt de ce genre de changement de bases est que la difficulté liée au calcul de l'inverse de la matrice de passage disparaît :
+
+\(X=PX\prim\) est équivalent à \(X\prim=\trans{P}X\) donc \(A\prim=P\inv AP\) devient \(A\prim=\trans{P}AP\).
+
+\subsection{Produit mixte}
+
+\begin{prop}
+Soit \(\paren{v_1,\dots,v_n}\) une famille de \(n\) vecteurs de \(E\).
+
+Le déterminant de \(\paren{v_1,\dots,v_n}\) dans une base orthonormée directe ne dépend pas du choix de cette base.
+\end{prop}
+
+Dans ce cas, on appelle produit mixte de \(\paren{v_1,\dots,v_n}\) le déterminant de cette famille dans n'importe quelle base orthonormée directe : il est noté habituellement \(\Det\paren{v_1,\dots,v_n}\) ou \(\croch{v_1,\dots,v_n}\).
+
+Une conséquence directe de la définition du produit mixte est la caractérisation des bases directes.
+
+\begin{prop}
+Soit \(\paren{v_1,\dots,v_n}\) une famille de \(n\) vecteurs de \(E\).
+
+La famille \(\paren{v_1,\dots,v_n}\) est une base directe de \(E\) ssi \(\croch{v_1,\dots,v_n}>0\).
+\end{prop}
+
+\subsection{Produit vectoriel en dimension 3}
+
+Dans ce paragraphe, \(n=3\).
+
+\begin{prop}
+Soit \(\paren{u,v}\in E^2\).
+
+Il existe un unique vecteur \(w\in E\) tel que \(\quantifs{\tpt x\in E}\croch{u,v,x}=\ps{w}{x}\).
+
+Ce vecteur est appelé le produit vectoriel de \(u\) et \(v\) et est noté \(u\vecto v\) ou \(u\times v\).
+\end{prop}
+
+En base orthonormée directe, les coordonnées du produit vectoriel se calculent facilement. En base quelconque, c'est beaucoup plus pénible.
+
+Notons quelques propriétés algébriques et géométriques du produit vectoriel.
+
+\begin{prop}
+\begin{itemize}
+    \item L'application \(\vecto\) est bilinéaire et antisymétrique. \\
+    \item \(u\vecto v=0\) ssi \(u\) et \(v\) sont colinéaires. \\
+    \item Si \(u\) et \(v\) ne sont pas colinéaires, alors \(u\vecto v\) est un vecteur normal au plan \(\Vect{u,v}\) et la famille \(\paren{u,v,u\vecto v}\) est une base directe de \(E\). \\
+    \item Si \(u\) et \(v\) sont unitaires et orthogonaux, alors la famille \(\paren{u,v,u\vecto v}\) est une base orthonormée directe de \(E\).
+\end{itemize}
+\end{prop}
+
+\section{Étude en dimension 2}
+
+\begin{prop}
+\(\Orth{2}[\R]\) contient exclusivement les matrices suivantes :
+
+\begin{itemize}
+    \item les matrices de rotation \(R\paren{\theta}=\begin{pmatrix}
+        \cos\theta & -\sin\theta \\
+        \sin\theta & \cos\theta
+    \end{pmatrix}\) \\
+    \item les matrices de réflexions \(\begin{pmatrix}
+        \cos\theta & \sin\theta \\
+        \sin\theta & -\cos\theta
+    \end{pmatrix}\)
+\end{itemize}
+
+où \(\theta\) est un réel quelconque.
+\end{prop}
+
+L'ensemble des matrices de rotation forme le sous-groupe \(\SO{2}[\R]\) : c'est l'ensemble des matrices orthogonales de déterminant \(1\).
+
+Il est remarquable que ce groupe est commutatif, car en dimension \(n\geq3\), ce n'est plus le cas. En effet, il est facile de constater que l'application \(\theta\mapsto R\paren{\theta}\) est un morphisme surjectif de groupes de \(\groupe{\R}\) dans \(\groupe{\SO{2}[\R]}[\times]\) (dont le noyau est le sous-groupe \(2\pi\Z\) de \(\groupe{\R}\)).
+
+Autrement dit, l'application \(\fonctionlambda{\U}{\SO{2}[\R]}{\e{\i\theta}}{R\paren{\theta}}\) est un isomorphisme de groupes.
+
+\begin{prop}
+En dimension \(2\), les isométries vectorielles sont :
+
+\begin{itemize}
+    \item les rotations vectorielles \\
+    \item les réflexions vectorielles.
+\end{itemize}
+\end{prop}
+
+\section{Réduction des isométries vectorielles ou des matrices orthogonales}
+
+\subsection{Réduction des isométries vectorielles}
+
+D'abord, deux résultats généraux sur les isométries vectorielles.
+
+\begin{prop}
+Soit \(f\in\Orth{}[E]\). On a :
+
+\begin{itemize}
+    \item \(\Sp{f}\subset\accol{-1,1}\) \\
+    \item Si \(F\) est un sous-espace vectoriel de \(E\) stable par \(f\), alors \(F\ortho\) est aussi un sous-espace vectoriel de \(E\) stable par \(f\).
+\end{itemize}
+\end{prop}
+
+De ces propriétés découlent le théorème suivant.
+
+\begin{theo}
+Soit \(f\in\Orth{}[E]\).
+
+Il existe une base orthonormée de \(E\) dans laquelle la matrice de \(f\) est diagonale par blocs, les blocs étant des scalaires \(1\) ou \(-1\) ou des matrices \(\paren{2,2}\) de rotation.
+\end{theo}
+
+Les matrices diagonales par blocs sont donc du type suivant : \[D=\begin{pmatrix}
+1 &  &  &  &  &  &  &  &  &  &  \\
+& \ddots &  &  &  &  &  &  &  &  &  \\
+&  & 1 &  &  &  &  &  &  &  &  \\
+&  &  & -1 &  &  &  &  &  &  &  \\
+&  &  &  & \ddots &  &  &  &  &  &  \\
+&  &  &  &  & -1 &  &  &  &  &  \\
+&  &  &  &  &  & \cos\theta_1 & -\sin\theta_1 &  &  &  \\
+&  &  &  &  &  & \sin\theta_1 & \cos\theta_1 &  &  &  \\
+&  &  &  &  &  &  &  & \ddots &  &  \\
+&  &  &  &  &  &  &  &  & \cos\theta_k & -\sin\theta_k \\
+&  &  &  &  &  &  &  &  & \sin\theta_k & \cos\theta_k \\
+\end{pmatrix}.\]
+
+\subsection{Réduction des matrices orthogonales}
+
+\begin{defi}
+Soient \(A,B\) deux matrices de \(\M{n}[\R]\).
+
+On dit que \(A\) et \(B\) sont orthogonalement semblables (ou orthosemblables) quand il existe \(P\in\Orth{n}[\R]\) telle que \(B=P\inv AP=\trans{P}AP\).
+\end{defi}
+
+Deux matrices sont orthosemblables quand elles représentent le même endomorphisme dans des bases orthonormées différentes.
+
+Le théorème de réduction précédent a une traduction matricielle.
+
+\begin{theo}
+Toute matrice orthogonale est orthosemblable à une matrice diagonale par blocs du type ci-dessus.
+
+Pour tout \(A\in\Orth{n}[\R]\), il existe \(P\in\Orth{n}[\R]\) et \(D\) diagonale par blocs comme ci-dessus telles que \(A=\trans{P}DP\).
+\end{theo}
+
+\subsection{Étude en dimension 3}
+
+À l'aide de ce résultat, on peut classifier les isométries vectorielles de \(E\) en dimension \(3\). Seule la réduction des rotations est au programme.
+
+Dans la suite de cette section, \(E\) est un espace euclidien de dimension \(3\) et orienté.
+
+\begin{prop}
+Soit \(f\in\Orth{}[E]\). On pose \(F=\ker\paren{f-\id{E}}\). Alors
+
+\begin{itemize}
+    \item si \(\dim F=3\), alors \(f=\id{E}\) \\
+    \item si \(\dim F=2\), alors \(f\) est la réflexion par rapport à \(F\) \\
+    \item si \(\dim F=1\), alors \(f\) est une rotation d'axe \(F\) \\
+    \item si \(\dim F=0\), alors \(f\) est une antirotation, \cad la composée d'une rotation et d'une réflexion dont l'axe et le plan de base respectifs sont orthogonaux.
+\end{itemize}
+\end{prop}
+
+En étudiant les différents cas, on constate un lien entre le type de \(f\) et son déterminant.
+
+\begin{prop}
+Soit \(f\in\Orth{}[E]\) telle que \(f\not=\id{E}\).
+
+\(f\) est une rotation ssi \(\det f=1\).
+\end{prop}
+
+Dans le cas où \(\det f=-1\), cette information ne suffit pas à connaître le type de \(f\). Cependant, si on connaît la matrice \(A\) de \(f\) dans une base orthonormée, alors on peut distinguer les cas 1 et 3.
+
+\begin{prop}
+Soient \(f\in\Lendo{E}\) et \(A\) la matrice de \(f\) dans une base orthonormée.
+
+Si \(A\) est une matrice orthogonale et symétrique, alors \(f\) est une symétrie orthogonale.
+
+\begin{itemize}
+    \item Si \(\det f=1\), alors \(A\) est un demi-tour (une rotation d'angle \(\pi\)). \\
+    \item Si \(\det f=-1\), alors \(A\) est une réflexion.
+\end{itemize}
+\end{prop}
+
+Donc, si \(A\) est orthogonale de déterminant \(-1\) et non-symétrique, alors \(f\) est une antirotation.
+
+\begin{exo}
+Reconnaissez la nature de l'endomorphisme dont la matrice dans une base orthonormée \(\fami{B}\) est \(\dfrac{1}{15}\begin{pmatrix}
+-11 & 10 & 2 \\
+-2 & -5 & 14 \\
+10 & 10 & 5
+\end{pmatrix}\) et précisez ses éléments caractéristiques.
+\end{exo}
+
+\begin{exo}
+Même exercice avec la matrice \(\dfrac{1}{7}\begin{pmatrix}
+6 & -2 & -3 \\
+3 & 6 & 2 \\
+2 & -3 & 6
+\end{pmatrix}\).
+\end{exo}
+
+\begin{exo}
+Même exercice avec la matrice \(\dfrac{1}{7}\begin{pmatrix}
+6 & -3 & -2 \\
+3 & 2 & 6 \\
+2 & 6 & -3
+\end{pmatrix}\).
+\end{exo}
+
+\begin{exo}
+Soit \(\fami{B}=\paren{i,j,k}\) une base orthonormée directe de \(E\) de dimension \(3\).
+
+Déterminez la matrice dans la base \(\fami{B}\) de la rotation d'axe orienté par \(i+j+k\) et d'angle \(\dfrac{\pi}{3}\).
+\end{exo}
+
+\section{Endomorphismes auto-adjoints}
+
+\subsection{Définition et propriétés}
+
+\begin{defi}
+On dit qu'un endomorphisme \(f\) de \(E\) est auto-adjoint quand \(f\adj=f\), autrement dit quand \[\quantifs{\forall\paren{x,y}\in E^2}\ps{f\paren{x}}{y}=\ps{x}{f\paren{y}}.\]
+\end{defi}
+
+On rencontre encore très souvent le mot \guillemets{symétrique} pour \guillemets{auto-adjoint}.
+
+\begin{ex}
+\begin{itemize}
+    \item Les projecteurs orthogonaux sont des endomorphismes auto-adjoints (mais pas des endomorphismes orthogonaux !). \\
+    \item Les symétries orthogonales sont aussi des endomorphismes auto-adjoints.
+\end{itemize}
+\end{ex}
+
+\begin{prop}
+Soient \(\fami{B}\) une base orthonormée de \(E\) et \(f\in\Lendo{E}\).
+
+\(f\) est un endomorphisme auto-adjoint ssi sa matrice dans la base \(\fami{B}\) est symétrique.
+\end{prop}
+
+\begin{cor}
+L'ensemble des endomorphismes auto-adjoints est un sous-espace vectoriel de \(\Lendo{E}\), de dimension \(\dfrac{n\paren{n+1}}{2}\).
+\end{cor}
+
+Il est noté \(\sym{}[E]\).
+
+\subsection{Théorème spectral}
+
+Il y a essentiellement un seul résultat à connaître sur les endomorphismes auto-adjoints ! On commence par deux lemmes.
+
+\begin{lem}
+Le polynôme caractéristique d'un endomorphisme auto-adjoint est scindé sur \(\R\).
+\end{lem}
+
+\begin{lem}
+Si un sous-espace vectoriel \(F\) est stable par un endomorphisme auto-adjoint, alors \(F\ortho\) l'est aussi.
+\end{lem}
+
+\begin{theo}
+Les sous-espaces propres d'un endomorphisme auto-adjoint sont deux à deux orthogonaux et leur somme directe est \(E\).
+
+Autrement dit, tout endomorphisme auto-adjoint est diagonalisable en base orthonormée, \cad qu'il existe une base orthonormée de vecteurs propres.
+\end{theo}
+
+On dit que les endomorphismes auto-adjoints sont orthodiagonalisables.
+
+\begin{rem}
+La réciproque est vraie et presque évidente : si un endomorphisme est orthodiagonalisable, alors il est auto-adjoint.
+\end{rem}
+
+\begin{exo}[Un grand classique à savoir refaire]
+Soit \(u\) un endomorphisme auto-adjoint de \(E\), \(B\) la boule-unité fermée de \(E\) et \(S\) la sphère-unité de \(E\).
+
+On pose \(\alpha\) la plus petite des valeurs propres de \(u\) et \(\beta\) la plus grande.
+
+Montrez que \(\inf_{x\in S}\ps{x}{u\paren{x}}=\alpha\) et \(\sup_{x\in B}\ps{x}{u\paren{x}}=\sup_{x\in S}\ps{x}{u\paren{x}}=\beta\).
+\end{exo}
+
+\begin{exo}[Un prolongement de l'exercice précédent]
+Montrez que l'application \(N:\sym{}[E]\to\Rp\) définie par \(N\paren{u}=\sup_{x\in B}\abs{\ps{x}{u\paren{x}}}\) est une norme sur \(\sym{}[E]\).
+\end{exo}
+
+Le théorème précédent a une version matricielle.
+
+\begin{theo}
+Une matrice réelle est orthosemblable à une matrice diagonale ssi elle est symétrique.
+\end{theo}
+
+On dit que les matrices symétriques réelles sont orthodiagonalisables.
+
+\begin{exo}
+Orthodiagonalisez la matrice suivante : \[A=\begin{pmatrix}
+0 & 1 & -1 \\
+1 & 0 & -1 \\
+-1 & -1 & 0
+\end{pmatrix}.\]
+\end{exo}
+
+\begin{rem}
+La condition \guillemets{réelle} est indispensable dans le théorème spectral !
+\end{rem}
+
+\section{Endomorphismes auto-adjoints positifs, définis-positifs}
+
+\subsection{Endomorphismes auto-adjoints positifs}
+
+\begin{defi}
+Soit \(f\in\sym{}[E]\).
+
+On dit que \(f\) est un endomorphisme auto-adjoint positif quand \(\quantifs{\tpt x\in E}\ps{f\paren{x}}{x}\geq0\).
+
+On dit que \(f\) est un endomorphisme auto-adjoint défini-positif quand \(\quantifs{\tpt x\in E\excluant\accol{0}}\ps{f\paren{x}}{x}>0\).
+\end{defi}
+
+On note \(\sympos{}[E]\) l'ensemble des endomorphismes auto-adjoints positifs et \(\symdefpos{}[E]\) celui des endomorphismes auto-adjoints définis positifs. Attention, ces deux ensembles ne sont pas des espaces vectoriels et ne sont pas stables par composition.
+
+Ces endomorphismes sont couramment présents dans les théories physiques et sont l'objet de propriétés spécifiques.
+
+On donne par exemple une caractérisation simple à l'aide de valeurs propres.
+
+\begin{prop}
+Soit \(f\in\sym{}[E]\).
+
+On a \(f\in\sympos{}[E]\) ssi les valeurs propres de \(f\) sont positives.
+
+De même, \(f\in\symdefpos{}[E]\) ssi les valeurs propres de \(f\) sont strictement positives.
+\end{prop}
+
+En particulier, \(\symdefpos{}[E]=\sympos{}[E]\inter\GL{}[E]\).
+
+\subsection{Matrices symétriques positives}
+
+\begin{defi}
+Soit \(A\in\sym{n}[\R]\).
+
+On dit que \(A\) est une matrice symétrique positive quand \(\quantifs{\tpt X\in\R^n}\trans{X}AX\geq0\).
+
+On dit que \(A\) est une matrice symétrique définie-positive quand \(\quantifs{\tpt X\in\R^n\excluant\accol{0}}\trans{X}AX>0\).
+\end{defi}
+
+Les matrices symétriques positives (respectivement définies-positives) sont donc les matrices dans des bases orthonormées des endomorphismes auto-adjoints positifs (respectivement définis-positifs).
+
+On note \(\sympos{n}[\R]\) l'ensemble des matrices symétriques positives et \(\symdefpos{n}[\R]\) celui des matrices symétriques définies-positives. Attention, ces deux ensembles ne sont pas des espaces vectoriels et ne sont pas stables par produit.
+
+\begin{prop}
+Soit \(A\in\sym{n}[\R]\).
+
+On a \(A\in\sympos{n}[\R]\) ssi les valeurs propres de \(A\) sont positives.
+
+De même, \(A\in\symdefpos{n}[\R]\) ssi les valeurs propres de \(A\) sont strictement positives.
+\end{prop}
