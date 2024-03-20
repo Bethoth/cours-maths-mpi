@@ -2,4 +2,409 @@
 
 \minitoc
 
-\note{À venir}
+Dans tout le chapitre, \(I\) et \(J\) désignent des intervalles de \(\R\) contenant au moins deux points et \(n\) désigne un entier naturel non-nul.
+
+\(E\) et \(F\) désignent des espaces vectoriels normés de dimension finie. Par choix d'une base et sachant que les normes sont équivalentes, on peut se ramener à une étude sur \(\R^n\).
+
+\section{Dérivée en un point}
+
+\subsection{Dérivabilité en un point}
+
+\begin{defi}
+Soient \(f:I\to E\) et \(a\in I\).
+
+On appelle (fonction) taux d'accroissement de \(f\) en \(a\) l'application \[\fonction{\tau_a}{I\excluant\accol{a}}{\R}{x}{\dfrac{f\paren{x}-f\paren{a}}{x-a}}.\]
+
+On dit que \(f\) est dérivable en \(a\) quand \(\dfrac{f\paren{x}-f\paren{a}}{x-a}\) tend vers une limite \(l\in E\) quand \(x\to a\).
+
+Si \(f\) est dérivable en \(a\), on appelle dérivée de \(f\) en \(a\) le vecteur \[f\prim\paren{a}=l=\lim_{x\to a}\dfrac{f\paren{x}-f\paren{a}}{x-a}.\]
+\end{defi}
+
+\begin{rem}
+Lorsqu'on étudie \guillemets{à la main} la limite du taux d'accroissement, on effectue très souvent le changement d'origine \(h=x-a\) et on étudie \(\dfrac{f\paren{a+h}-f\paren{a}}{h}\) quand \(h\to0\) (ce qui permet d'utiliser les équivalents ou les développements limités usuels).
+\end{rem}
+
+\subsection{Interprétation géométrique, développement limité d'ordre 1, continuité}
+
+\begin{prop}[Développement limité d'ordre 1 d'une fonction dérivable]
+Soient \(f:I\to E\) et \(a\in I\).
+
+\(f\) est dérivable en \(a\) ssi il existe \(m\in E\) tel que \(f\paren{x}\egqd{x\to a}f\paren{a}+\paren{x-a}m+\o{x-a}\).
+
+Lorsque ces énoncés sont vrais, on a \(f\prim\paren{a}=m\).
+\end{prop}
+
+On peut utiliser un développement limité à un ordre au moins \(1\) en \(a\) pour montrer que la fonction est dérivable en \(a\).
+
+\begin{prop}
+Si une fonction est dérivable en \(a\), alors elle est continue en \(a\).
+\end{prop}
+
+\begin{rem}
+Évidemment, la réciproque est fausse !
+\end{rem}
+
+Dans le cas où \(f\prim\paren{a}\not=0\) : un vecteur directeur de la droite passant par \(f\paren{a}\) et \(f\paren{x}\) est par exemple \(f\paren{x}-f\paren{a}\), mais aussi \(\dfrac{f\paren{x}-f\paren{a}}{x-a}\) quand \(x\not=a\).
+
+Autrement dit, \(f\) est dérivable en \(a\) quand ce vecteur directeur de la droite passant par \(f\paren{a}\) et \(f\paren{x}\) a une limite dans \(E\), autrement dit, quand la courbe décrite par \(f\) a une tangente en \(a\) : c'est la droite passant par \(f\paren{a}\) et dirigée par \(f\prim\paren{a}\).
+
+Si \(x\) représente une variable de temps, le vecteur dérivée \(f\prim\paren{a}\) est le vecteur vitesse instantanée au point \(a\). Son sens donne le sens de parcours de la courbe.
+
+\subsection{Dérivées à gauche, dérivées à droite}
+
+\begin{defi}
+Soient \(f:I\to E\) et \(a\in I\).
+
+On dit que \(f\) est dérivable à droite (respectivement à gauche) en \(a\) quand \(\dfrac{f\paren{x}-f\paren{a}}{x-a}\) admet une limite à droite (respectivement à gauche) dans \(\R^n\) quand \(x\) tend vers \(a\).
+
+Lorsque \(f\) est dérivable à droite (respectivement à gauche) en \(a\), on appelle cette limite la dérivée à droite (respectivement à gauche) de \(f\) en \(a\) et on la note \(f_d\prim\paren{a}\) (respectivement \(f_g\prim\paren{a}\)).
+\end{defi}
+
+\begin{prop}
+Si \(f\) est dérivable à droite (respectivement à gauche) en \(a\), alors \(f\) est continue à droite (respectivement à gauche) en \(a\).
+
+En outre, \(f\) est dérivable en \(a\) ssi \(f\) est dérivable à droite et à gauche en \(a\) et \(f_d\prim\paren{a}=f_g\prim\paren{a}\).
+
+Lorsque c'est le cas, \(f\prim\paren{a}\) est égale à la valeur commune de \(f_d\prim\paren{a}\) et \(f_g\prim\paren{a}\).
+\end{prop}
+
+On peut parler, dans le cas de vecteurs non-nuls, de demi-tangentes à gaucne ou à droite.
+
+\subsection{Lien avec les coordonnées}
+
+\(E\) étant de dimension finie, on choisit une base \(\fami{B}=\paren{e_1,\dots,e_n}\) de \(E\). Soit \(f:I\to E\).
+
+On a \(\quantifs{\tpt t\in I}f\paren{t}=\sum_{i=1}^nf_i\paren{t}e_i\).
+
+On associe ainsi à \(f\) ses \(n\) fonctions-coordonnées dans la base \(\fami{B}\) (qui sont des fonctions à valeurs dans \(\R\)).
+
+\begin{prop}
+Avec les mêmes notations, il y a équivalence entre \guillemets{\(f\) est dérivable en \(a\)} et \guillemets{les fonctions \(f_i\) sont dérivables en \(a\)}.
+
+Dans ce cas, on a \(f\prim\paren{a}=\sum_{i=1}^nf_i\prim\paren{a}e_i\).
+\end{prop}
+
+Autrement dit, travailler avec une fonction à valeurs dans \(E\) revient à travailler avec \(n\) fonctions numériques simultanément.
+
+\subsection{Théorèmes opératoires}
+
+\begin{prop}
+Soient \(f:I\to E\), \(g:I\to E\), \(a\in I\) et \(\lambda\in\K\).
+
+Si \(f\) et \(g\) sont dérivables en \(a\), alors \(f+g\) et \(\lambda f\) sont dérivables en \(a\) et \[\paren{f+g}\prim\paren{a}=f\prim\paren{a}+g\prim\paren{a}\qquad\paren{\lambda f}\prim\paren{a}=\lambda f\prim\paren{a}.\]
+\end{prop}
+
+\begin{prop}
+Soient \(\phi:I\to\R\) et \(f:J\to E\) telles que \(\phi\paren{I}\subset J\) et \(a\in I\).
+
+Si \(\phi\) est dérivable en \(a\) et \(f\) est dérivable en \(\phi\paren{a}\), alors \(f\rond\phi\) est dérivable en \(a\) et \[\paren{f\rond\phi}\prim\paren{a}=\phi\prim\paren{a}f\prim\paren{\phi\paren{a}}.\]
+\end{prop}
+
+\begin{prop}
+Soient \(f:I\to E\), \(L\in\L{E}{F}\) et \(a\in I\).
+
+Si \(f\) est dérivable en \(a\), alors \(L\rond f\) l'est aussi et \[\paren{L\rond f}\prim\paren{a}=L\rond f\prim\paren{a}.\]
+\end{prop}
+
+\begin{ex}
+Si \(A\in\M{n}[\R]\) et \(X\) est une fonction de \(I\) dans \(\M{n\,1}[\R]\) dérivable en \(a\), alors \(Y:t\mapsto AX\paren{t}\) est dérivable en \(a\) et \(Y\prim\paren{a}=AX\prim\paren{a}\).
+\end{ex}
+
+\begin{prop}
+Soient \(f,g:I\to E\) et \(B:E^2\to F\) bilinéaire.
+
+Si \(f\) et \(g\) sont dérivables en \(a\), alors \(\paren{f,g}\) l'est aussi et \(\paren{B\paren{f,g}}\prim\paren{a}=B\paren{f\prim,g}\paren{a}+B\paren{f,g\prim}\paren{a}\).
+\end{prop}
+
+\begin{ex}
+\begin{itemize}
+    \item Si \(A\) et \(B\) sont deux fonctions de \(I\) dans \(\M{n}[\R]\) dérivables en \(a\), alors \(M:t\mapsto A\paren{t}B\paren{t}\) est aussi dérivable en \(a\) et \(M\prim\paren{a}=A\prim\paren{a}B\paren{a}+A\paren{a}B\prim\paren{a}\). \\
+    \item Si \(u\) et \(v\) sont deux fonctions à valeurs dans \(E\), espace euclidien, et dérivables en \(a\), alors \(p:t\mapsto\ps{u\paren{t}}{v\paren{t}}\) est dérivable en \(a\) et \(p\prim\paren{a}=\ps{u\prim\paren{a}}{v\paren{a}}+\ps{u\paren{a}}{v\prim\paren{a}}\).
+\end{itemize}
+\end{ex}
+
+\begin{prop}
+Soient \(f_1,\dots,f_p:I\to E\), \(a\in I\) et \(M\) une application \(p\)-linéaire de \(E^p\) dans \(F\).
+
+Si \(f_1,\dots,f_p\) sont dérivables en \(a\), alors \(M\paren{f_1,\dots,f_p}\) l'est aussi et \[\paren{M\paren{f_1,\dots,f_p}}\prim\paren{a}=\sum_{i=1}^pM\paren{f_1,\dots,f_i\prim,\dots,f_p}\paren{a}.\]
+\end{prop}
+
+\begin{ex}
+Si \(M\) est une fonction de \(I\) dans \(\M{n}[\R]\) dérivable en \(a\in I\), alors \(d:t\mapsto\det M\paren{t}\) est aussi dérivable en \(a\) et \(d\prim\paren{a}=\sum_{k=1}^n\det M_k^c\paren{a}\) où \(M_k^c\paren{a}\) est la matrice obtenue à partir de \(M\paren{a}\) en remplaçant sa \(k\)-ème colonne par sa dérivée en \(a\).
+
+On a aussi \(d\prim\paren{a}=\sum_{k=1}^n\det M_k^l\paren{a}\) où \(M_k^l\paren{a}\) est la matrice obtenue à partir de \(M\paren{a}\) en remplaçant sa \(k\)-ème ligne par sa dérivée en \(a\).
+\end{ex}
+
+\section{Fonction dérivée}
+
+\begin{defi}
+Soit \(f:I\to E\).
+
+\begin{itemize}
+    \item On dit que \(f\) est dérivable sur \(I\) si \(f\) est dérivable en tout point \(a\in I\), ce qui revient à dire, après choix d'une base, que les fonctions coordonnées de \(f\) sont dérivables sur \(I\). \\
+    \item Si \(f\) est dérivable sur \(I\), on définit sa fonction dérivée par \[\fonction{f\prim}{I}{\R}{x}{f\prim\paren{x}}\]
+\end{itemize}
+\end{defi}
+
+\begin{prop}[Théorèmes d'opérations sur les fonctions dérivables]
+Soient \(f,g\) deux fonctions définies sur \(I\) et \(\lambda\in\K\).
+
+Si \(f\) et \(g\) sont dérivables sur \(I\), alors \(f+g\) et \(\lambda f\) sont dérivables sur \(I\) et \[\paren{f+g}\prim=f\prim+g\prim\qquad\paren{\lambda f}\prim=\lambda f\prim.\]
+\end{prop}
+
+\begin{prop}
+Soient \(\phi:I\to\R\) et \(f:J\to E\) telles que \(\phi\paren{I}\subset J\).
+
+Si \(\phi\) est dérivable sur \(I\) et \(f\) est dérivable sur \(J\), alors \(f\rond\phi\) est dérivable sur \(I\) et \[\paren{f\rond\phi}\prim=\phi\prim\times f\prim\rond\phi.\]
+\end{prop}
+
+\begin{prop}
+Soient \(f:I\to E\) et \(L\in\L{E}{F}\).
+
+Si \(f\) est dérivable sur \(I\), alors \(L\rond f\) l'est aussi et \(\paren{L\rond f}\prim=L\rond f\prim\).
+\end{prop}
+
+\begin{prop}
+Soient \(f,g:I\to E\) et \(B:E^2\to F\) bilinéaire.
+
+Si \(f\) et \(g\) sont dérivables sur \(I\), alors \(B\paren{f,g}\) l'est aussi et \(\paren{B\paren{f,g}}\prim=B\paren{f\prim,g}+B\paren{f,g\prim}\).
+\end{prop}
+
+\begin{prop}
+Soient \(f_1,\dots,f_p:I\to E\) et \(M:E^p\to F\) \(p\)-linéaire.
+
+Si \(f_1,\dots,f_p\) sont dérivables sur \(I\), alors \(M\paren{f_1,\dots,f_p}\) l'est aussi et \[\paren{M\paren{f_1,\dots,f_p}}\prim=\sum_{k=1}^pM\paren{f_1,\dots,f_k\prim,\dots,f_p}.\]
+\end{prop}
+
+\begin{exo}
+Montrez que si un point \(M\) se déplace sur une sphère de centre \(A\), sa vitesse est toujours orthogonale au vecteur \(\overrightarrow{AM}\).
+
+Montrez que la réciproque est vraie : si \(A\) est un point fixe et si la vitesse de \(M\) est toujours orthogonale au vecteur \(\overrightarrow{AM}\), alors \(M\) se déplace sur une sphère.
+\end{exo}
+
+\begin{exo}
+Soit \(S:I\to\M{n}[\R]\) dérivable sur \(I\) telle que \(\quantifs{\tpt t\in I}S\paren{t}\) est une matrice de symétrie.
+
+Montrez que \(\quantifs{\tpt t\in I}\tr\paren{S\paren{t}S\prim\paren{t}}=0\).
+\end{exo}
+
+\begin{exo}
+Soit \(A:I\to\GL{n}[\R]\) dérivable sur \(I\).
+
+Montrez que \(B:t\mapsto A\inv\paren{t}\) est dérivable sur \(I\) et calculez sa dérivée en fonction de celle de \(A\).
+\end{exo}
+
+\begin{exo}
+Soit \(M:I\to\M{n}[\R]\) dérivable sur \(I\), intervalle contenant \(0\). On pose \(f:t\mapsto\det\paren{I_n+tM\paren{t}}\).
+
+Justifiez que \(f\) est dérivable sur \(I\) et calculez \(f\prim\paren{0}\).
+\end{exo}
+
+\section{Dérivées successives}
+
+\subsection{Définitions et exemples}
+
+Si \(f\) est dérivable sur \(I\), \(f\prim\) est une fonction définie sur \(I\). On peut donc essayer de la dériver : quand c'est possible, on obtient la dérivée seconde \(f\seconde\), et ainsi de suite...
+
+\begin{defi}
+Soit \(f:I\to E\). On définit, par récurrence, les notions suivantes :
+
+\begin{itemize}
+    \item Par convention, on dit que \(f\) est toujours dérivable \(0\) fois sur \(I\) et on définit la dérivée d'ordre \(0\) de \(f\) par \(f\deriv{0}=f\). \\
+    \item Soit \(k\in\Ns\). \\\\ On dit que \(f\) est dérivable \(k\) fois sur \(I\) si elle est dérivable \(\paren{k-1}\) fois sur \(I\) et que sa dérivée d'ordre \(\paren{k-1}\), la fonction \(f\deriv{k-1}\), est dérivable sur \(I\). \\\\ On définit alors la dérivée d'ordre \(k\) par \[f\deriv{k}=\paren{f\deriv{k-1}}\prim.\]
+\end{itemize}
+\end{defi}
+
+\begin{rem}
+\(f\deriv{0}\) désigne \(f\), \(f\deriv{1}\) désigne \(f\prim\) et \(f\deriv{2}\) est aussi notée \(f\seconde\). À partir de trois dérivations, on n'utilise plus de primes.
+\end{rem}
+
+La dérivée d'ordre \(k\) de \(f\) est également notée \(\odv[order=k]{f}{t}\).
+
+Enfin, il est facile de montrer que \(f\) est \(\paren{p+q}\) fois dérivable sur \(I\) ssi \(f\) est \(p\) fois dérivable et \(f\deriv{p}\) est \(q\) fois dérivable sur \(I\). Dans ce cas, on a l'égalité \[\paren{f\deriv{p}}\deriv{q}=f\deriv{p+q}.\]
+
+\begin{defi}
+Soit \(k\in\N\).
+
+On dit que \(f\) est de classe \(\classe{k}\) sur \(I\) si \(f\) est dérivable \(k\) fois sur \(I\) et que \(f\deriv{k}\) est une fonction continue sur \(I\).
+
+On dit que \(f\) est de classe \(\classe{\infty}\) sur \(I\) si \(f\) est dérivable \(k\) fois sur \(I\) quel que soit \(k\in\N\).
+
+Pour tout \(k\in\N\union\accol{\infty}\), on notera \(\ensclasse{k}{I}{E}\) l'ensemble des fonctions de classe \(\classe{k}\) sur \(I\).
+\end{defi}
+
+\begin{rem}
+\guillemets{\(f\) est de classe \(\classe{0}\) sur \(I\)} signifie \guillemets{\(f\) est continue sur \(I\)}.
+
+\guillemets{\(f\) est de classe \(\classe{1}\) sur \(I\)} signifie \guillemets{\(f\) est dérivable sur \(I\) et \(f\prim\) est continue sur \(I\)}.
+\end{rem}
+
+\begin{prop}
+Soient \(f\) une fonction définie sur \(I\) et \(k\in\Ns\).
+
+\begin{itemize}
+    \item Si \(f\) est de classe \(\classe{k}\) sur \(I\), alors \(\quantifs{\tpt p\in\interventierii{0}{k}}f\) est de classe \(\classe{p}\) sur \(I\). \\
+    \item \(f\) est de classe \(\classe{k}\) sur \(I\) ssi \(f\) est dérivable sur \(I\) et \(f\prim\) est de classe \(\classe{k-1}\) sur \(I\), ou, ce qui revient au même, \(f\) est de classe \(\classe{k-1}\) sur \(I\) et \(f\deriv{k-1}\) est de classe \(\classe{1}\) sur \(I\).
+\end{itemize}
+\end{prop}
+
+Les ensembles \(\ensclasse{k}{I}{E}\) forment donc une chaîne d'inclusions : \[\ensclasse{\infty}{I}{E}\subset\dots\subset\ensclasse{k+1}{I}{E}\subset\ensclasse{k}{I}{E}\subset\dots\subset\ensclasse{1}{I}{E}\subset\ensclasse{0}{I}{E}.\]
+
+\subsection{Théorèmes opératoires pour les dérivées successives}
+
+\begin{prop}
+Soient \(k\in\N\union\accol{\infty}\), \(f,g:I\to E\) deux fonctions de classe \(\classe{k}\) sur \(I\) et \(\lambda\in\K\).
+
+On a :
+
+\begin{itemize}
+    \item \(f+g\) est de classe \(\classe{k}\) sur \(I\) et \(\paren{f+g}\deriv{k}=f\deriv{k}+g\deriv{k}\) \\
+    \item \(\lambda f\) est de classe \(\classe{k}\) sur \(I\) et \(\paren{\lambda f}\deriv{k}=\lambda f\deriv{k}\).
+\end{itemize}
+\end{prop}
+
+\begin{prop}
+Soient \(k\in\N\union\accol{\infty}\), \(\phi:I\to\R\) et \(f:J\to E\).
+
+Si \(\phi\paren{I}\subset J\) et \(\phi\) et \(f\) sont de classe \(\classe{k}\) sur \(I\) et \(J\) respectivement, alors \(f\rond\phi\) est de classe \(\classe{k}\) sur \(I\).
+\end{prop}
+
+\begin{prop}
+Soient \(k\in\N\union\accol{\infty}\), \(f:I\to E\) et \(L\in\L{E}{F}\).
+
+Si \(f\) est une fonction de classe \(\classe{k}\) sur \(I\), alors \(L\rond f\) l'est aussi et \(\paren{L\rond f}\deriv{k}=L\rond f\deriv{k}\).
+\end{prop}
+
+\begin{prop}
+Soient \(k\in\N\union\accol{\infty}\), \(f,g:I\to E\) et \(B:E^2\to F\) bilinéaire.
+
+Si \(f\) et \(g\) sont de classe \(\classe{k}\) sur \(I\), alors \(B\paren{f,g}\) l'est aussi et, d'après la formule de Leibniz : \[\paren{B\paren{f,g}}\deriv{k}=\sum_{i=0}^k\binom{i}{k}B\paren{f\deriv{i},g\deriv{k-i}}.\]
+\end{prop}
+
+\section{Intégrales}
+
+\subsection{Définition}
+
+\begin{defi}
+Soit \(f:\intervii{a}{b}\to E\) une fonction définie sur le segment \(\intervii{a}{b}\).
+
+On dit que \(f\) est continue par morceaux sur \(\intervii{a}{b}\) quand il existe une subdivision \(\paren{c_0,\dots,c_n}\) de \(\intervii{a}{b}\) telle que :
+
+\begin{itemize}
+    \item \(\quantifs{\tpt i\in\interventierii{0}{n-1}}f\) est continue sur l'intervalle ouvert \(\intervee{c_i}{c_{i+1}}\) \\
+    \item \(f\) a une limite réelle en \(a\) à droite, en \(b\) à gauche et des limites réelles à gauche et à droite en chaque point \(c_i\) tel que \(1\leq i\leq n-1\).
+\end{itemize}
+
+Toute subdivision qui convient dans cette définition est dite adaptée à \(f\).
+\end{defi}
+
+On choisit une base \(\fami{B}=\paren{e_1,\dots,e_n}\) de \(E\). Il est alors évident qu'une fonction à valeurs dans \(E\) est continue par morceaux ssi ses fonctions coordonnées dans la base \(\fami{B}\) le sont aussi.
+
+\begin{defi}
+Soit \(f:\intervii{a}{b}\to E\) continue par morceaux sur \(\intervii{a}{b}\).
+
+On note \(f_1,\dots,f_n\) ses fonctions coordonnées dans la base \(\fami{B}\), \ie \(f=\sum_{i=1}^nf_ie_i\).
+
+On pose alors \[\int_{\intervii{a}{b}}f=\sum_{i=1}^n\paren{\int_{\intervii{a}{b}}f_i}e_i.\]
+\end{defi}
+
+Bien sûr, les notations classiques pour les intégrales sont conservées : \(\int_a^bf\), \(\int_a^bf\paren{t}\odif{t}\), etc.
+
+On pose encore \(\int_b^af=-\int_a^bf\).
+
+Cette définition est \textit{a priori} ambiguë car elle dépend de la base \(\fami{B}\) choisie. On montre aisément qu'en fait ce n'est pas le cas : on obtient toujours le même vecteur intégrale, indépendamment de la base choisie.
+
+\subsection{Propriétés}
+
+En se ramenant aux coordonnées dans une base, on retrouve les propriétés essentielles de l'intégrale.
+
+\begin{prop}
+L'application \(\fonctionlambda{\classe{0}_m\paren{\intervii{a}{b}}}{E}{f}{\int_a^bf}\) est linéaire.
+\end{prop}
+
+\begin{prop}
+La relation de Chasles reste valable : pour tout \(\paren{a,b,c}\in I^3\), si \(f\) est continue par morceaux sur \(I\), alors \(\int_a^bf=\int_a^cf+\int_c^bf\).
+\end{prop}
+
+On retrouve une inégalité triangulaire avec la norme (n'importe laquelle !).
+
+\begin{prop}
+Soit \(f:\intervii{a}{b}\to E\) continue par morceaux sur \(\intervii{a}{b}\).
+
+La fonction \(t\mapsto\norme{f\paren{t}}\) est continue par morceaux sur \(\intervii{a}{b}\) et à valeurs réelles.
+
+De plus, on a \[\norme{\int_a^bf}\leq\int_a^b\norme{f}.\]
+\end{prop}
+
+On retrouve la notion de sommes de Riemann.
+
+\begin{prop}
+Soit \(f:\intervii{a}{b}\to E\) continue par morceaux.
+
+Pour tout \(n\in\Ns\), on introduit les sommes de Riemann associées à la fonction \(f\) sur \(\intervii{a}{b}\) : pour \(k\in\interventierii{0}{n}\), on pose \(c_k=a+k\dfrac{b-a}{n}\) et \[S_n=\dfrac{b-a}{n}\sum_{k=0}^{n-1}f\paren{c_k}\qquad S_n\prim=\dfrac{b-a}{n}\sum_{k=1}^nf\paren{c_k}\qquad S_n\seconde=\dfrac{b-a}{n}\sum_{k=0}^nf\paren{c_k}.\]
+
+Les suites \(\paren{S_n}\), \(\paren{S_n\prim}\) et \(\paren{S_n\seconde}\) tendent toutes les trois vers \(\int_{\intervii{a}{b}}f\paren{x}\odif{x}\).
+\end{prop}
+
+Enfin, une petite nouveauté.
+
+\begin{prop}
+Soient \(f:\intervii{a}{b}\to E\) continue par morceaux et \(L\in\L{E}{F}\).
+
+La fonction \(L\rond f=L\paren{f}\) est continue par morceaux et \(\int_a^bL\paren{f}=L\paren{\int_a^bf}\).
+\end{prop}
+
+\subsection{Primitives d'une fonction continue}
+
+\begin{prop}
+Soient \(f:I\to E\) continue et \(a\in I\). On pose \(\Phi:x\mapsto\int_a^xf\paren{t}\odif{t}\).
+
+\(\Phi\) est l'unique primitive de \(f\) sur \(I\) qui s'annule en \(a\).
+\end{prop}
+
+\begin{rem}
+On a donc montré que si \(f\) est continue sur \(I\), alors la fonction \(\Phi:x\mapsto\int_a^xf\) est de classe \(\classe{1}\) sur \(I\), car \(\quantifs{\tpt x\in I}\Phi\prim\paren{x}=f\paren{x}\), et non pas \(\Phi\prim\paren{x}=f\paren{x}-f\paren{a}\) !
+\end{rem}
+
+\begin{cor}
+Toute fonction continue sur un intervalle y admet des primitives.
+\end{cor}
+
+On en déduit l'inégalité des accroissements finis pour une fonction de classe \(\classe{1}\) (dérivable ne suffit pas).
+
+\begin{prop}
+Soit \(f:I\to E\) une fonction de classe \(\classe{1}\) sur \(I\).
+
+\(\quantifs{\Tpt\paren{a,b}\in I^2}\norme{f\paren{b}-f\paren{a}}\leq\abs{b-a}\sup_{\intervii{a}{b}}\norme{f\prim}\).
+\end{prop}
+
+\subsection{Formules de Taylor}
+
+On retrouve encore par utilisation des fonctions coordonnées les formules de Taylor usuelles.
+
+La formule de Taylor avec reste intégral.
+
+\begin{prop}
+Soient \(f\) une fonction de classe \(\classe{n+1}\) sur un intervalle \(I\) et \(a,b\in I\).
+
+On a \[f\paren{b}=f\paren{a}+f\prim\paren{a}\paren{b-a}+\dfrac{f\seconde\paren{a}}{2}\paren{b-a}^2+\dots+\dfrac{f\deriv{n}\paren{a}}{n!}\paren{b-a}^n+\int_a^b\dfrac{\paren{b-t}^n}{n!}f\deriv{n+1}\paren{t}\odif{t}.\]
+\end{prop}
+
+L'inégalité de Taylor-Lagrange qui s'en déduit.
+
+\begin{prop}
+Soient \(f\) une fonction de classe \(\classe{n+1}\) sur un intervalle \(I\) et \(a,b\in I\).
+
+On a \[\norme{f\paren{b}-f\paren{a}-f\prim\paren{a}\paren{b-a}-\dfrac{f\seconde\paren{a}}{2}\paren{b-a}^2-\dots-\dfrac{f\deriv{n}\paren{a}}{n!}\paren{b-a}^n}\leq\dfrac{\abs{b-a}^{n+1}}{\paren{n+1}!}\sup_{\intervii{a}{b}}\norme{f\deriv{n+1}}.\]
+\end{prop}
+
+Et la formule de Taylor-Young.
+
+\begin{prop}
+Soit \(f:I\to E\) de classe \(\classe{n}\) sur \(I\).
+
+Pour tout \(t_0\in I\), \(f\) possède un développement limité en \(t_0\) à l'ordre \(n\) : il existe une fonction \(\epsilon\) définie sur \(I\) et à valeurs dans \(E\) telle que \[\begin{dcases}
+\quantifs{\tpt t\in I}f\paren{t}=f\paren{t_0}+f\prim\paren{t_0}\paren{t-t_0}+\dfrac{f\seconde\paren{t_0}}{2}\paren{t-t_0}^2+\dots+\dfrac{f\deriv{n}\paren{t_0}}{n!}\paren{t-t_0}^n+\paren{t-t_0}^n\epsilon\paren{t} \\
+\epsilon\paren{t}\tendqd{t\to t_0}0
+\end{dcases}\]
+\end{prop}
