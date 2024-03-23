@@ -2,4 +2,687 @@
 
 \minitoc
 
-\note{À venir}
+Dans ce chapitre, \(\K\) désigne \(\R\) ou \(\C\). Toutes les fonctions considérées vont de \(\R\) dans \(\K\) dans un premier temps. Dans un second temps, on généralisera les définitions et résultats à des fonctions de \(E\) dans \(F\), deux espaces vectoriels normés de dimension finies.
+
+\section{Convergence d'une suite de fonctions}
+
+Comme son nom l'indique, une suite de fonctions est une suite \(\paren{f_n}\) où \(f_n\) est une fonction de \(\R\) dans \(\K\).
+
+\subsection{Convergence simple}
+
+\begin{defi}
+Soient \(A\) une partie de \(\R\) et \(\paren{f_n}\) une suite de fonctions définies sur \(A\).
+
+On dit que la suite \(\paren{f_n}\) converge simplement sur \(A\) quand pour tout \(x\in A\), la suite numérique \(\paren{f_n\paren{x}}\) converge.
+
+Dans ce cas, on peut définir une fonction \(f\) sur \(A\) en posant \(\quantifs{\tpt x\in A}f\paren{x}=\lim_{n\to\pinf}f_n\paren{x}\).
+
+La fonction \(f\) est alors appelée limite simple sur \(A\) de la suite \(\paren{f_n}\) et on dit que la suite \(\paren{f_n}\) converge simplement vers \(f\) sur \(A\).
+\end{defi}
+
+On observe la définition formelle de la convergence simple sur \(A\) : \[\quantifs{\forall x\in A;\forall\epsilon>0;\exists n_0\in\N;\forall n\geq n_0}\abs{f_n\paren{x}-f\paren{x}}\leq\epsilon.\]
+
+Le rang \(n_0\) dépend à la fois de \(x\) et de \(\epsilon\).
+
+\begin{exo}
+Étudiez la convergence simple de la suite de fonctions \(f_n:x\mapsto\dfrac{n\e{-x}+x^2}{n+x}\), où \(n>0\), sur \(\intervie{0}{\pinf}\).
+\end{exo}
+
+\begin{exo}
+Même question avec la suite de fonctions \(f_n:x\mapsto\dfrac{x^n}{1+x^n}\), où \(n>0\), sur \(\intervie{0}{\pinf}\).
+\end{exo}
+
+\begin{exo}
+Même question avec la suite de fonctions \(f_n:x\mapsto n^\alpha x^n\paren{1-x}\), où \(n>0\) et \(\alpha\in\Rps\), sur \(\intervii{0}{1}\). 
+\end{exo}
+
+\subsection{Convergence uniforme}
+
+\begin{rappel}
+Si \(g\) est une fonction bornée sur une partie \(A\) de \(\R\), on pose \(\norme{g}_\infty^A=\sup_{x\in A}\abs{g\paren{x}}\).
+
+\(\norme{}_\infty^A\) est une norme sur le \(\K\)-espace vectoriel des fonctions bornées sur \(A\), appelée norme infinie ou norme uniforme sur \(A\).
+\end{rappel}
+
+Un résultat essentiel : la majoration de la norme uniforme.
+
+\begin{prop}
+Soient \(f\) une fonction bornée sur une partie \(A\) de \(\R\) et \(K\) un réel positif.
+
+On a \[\norme{f}_\infty^A\leq K\ssi\quantifs{\forall x\in A}\abs{f\paren{x}}\leq K.\]
+\end{prop}
+
+\begin{defi}
+Soient \(A\) une partie de \(\R\), \(\paren{f_n}\) une suite de fonctions définies sur \(A\) et \(f\) une fonction définie sur \(A\).
+
+On dit que la suite \(\paren{f_n}\) converge uniformément vers \(f\) sur \(A\) quand pour tout \(n\in\N\), la fonction \(f-f_n\) est bornée sur \(A\) et la suite réelle \(\paren{\norme{f-f_n}_\infty^A}\) converge vers \(0\).
+
+La fonction \(f\) est alors appelée limite uniforme sur \(A\) de la suite \(\paren{f_n}\).
+\end{defi}
+
+On observe la définition formelle de la convergence uniforme sur \(A\) : \[\quantifs{\forall\epsilon>0;\exists n_0\in\N;\forall n\geq n_0;\forall x\in A}\abs{f_n\paren{x}-f\paren{x}}\leq\epsilon.\]
+
+Le rang \(n_0\) dépend seulement de \(\epsilon\) mais plus de \(x\) : c'est le même \(n_0\) pour toutes les valeurs de \(x\), en ce sens, il est uniforme.
+
+Souvent, on ne sait pas calculer les normes uniformes des fonctions \(f_n-f\). Une simple majoration suffit, qu'on appelle majoration uniforme.
+
+\begin{defi}
+Soient \(A\) une partie de \(\R\) et \(\paren{f_n}\) une suite de fonctions définies sur \(A\).
+
+On appelle majoration uniforme sur \(A\) toute proposition du type \[\quantifs{\forall n\in\N;\forall x\in A}\abs{f_n\paren{x}}\leq K_n\] où \(K_n\) est une constante indépendante de \(x\).
+\end{defi}
+
+\begin{ex}
+\begin{itemize}
+    \item La proposition \[\quantifs{\forall n\in\Ns;\forall x\in\R}\abs{\dfrac{\sin\paren{nx}}{n}}\leq\dfrac{1}{n}\] est une majoration uniforme des fonctions \(x\mapsto\dfrac{\sin\paren{nx}}{n}\) sur \(\R\). \\
+    \item La proposition \[\quantifs{\forall n\in\Ns;\forall x\in\R}\abs{\dfrac{\sin\paren{nx}}{n+x^2}}\leq\dfrac{1}{n+x^2}\] n'est pas une majoration uniforme des fonctions \(x\mapsto\dfrac{\sin\paren{nx}}{n+x^2}\) sur \(\R\) car le majorant dépend de \(x\).
+\end{itemize}
+\end{ex}
+
+\begin{exo}
+Donnez une majoration uniforme des fonctions \(x\mapsto\dfrac{\ln\paren{1+nx}}{x}\) sur \(\intervee{0}{\pinf}\).
+\end{exo}
+
+\begin{exo}
+Même exercice avec les fonctions \(x\mapsto\dfrac{\sin\paren{nx}}{\sin x}\) sur \(\intervee{-\pi}{\pi}\excluant\accol{0}\).
+\end{exo}
+
+\begin{prop}
+Avec les mêmes hypothèses, il y a équivalence entre
+
+\begin{itemize}
+    \item la suite \(\paren{f_n}\) converge uniformément vers \(f\) sur \(A\) \\
+    \item il existe une suite positive \(\paren{\alpha_n}\) telle que \(\quantifs{\tpt n\in\N}\norme{f_n-f}_\infty^A\leq\alpha_n\) et \(\alpha_n\tendqd{n\to\pinf}0\) \\
+    \item il existe une majoration uniforme des fonctions \(f_n-f\) sur \(A\) par les termes d'une suite numérique positive qui converge vers \(0\), \ie on a une proposition du type \[\quantifs{\forall n\in\N;\forall x\in A}\abs{f_n\paren{x}-f\paren{x}}\leq\alpha_n\qquad\text{et}\qquad\alpha_n\tendqd{n\to\pinf}0\] où \(\alpha_n\) ne dépend pas de \(x\).
+\end{itemize}
+\end{prop}
+
+Il y a un lien entre convergence simple et uniforme, dans un seul sens !
+
+\begin{theo}
+Si une suite \(\paren{f_n}\) converge uniformément vers \(f\) sur \(A\), alors \(\paren{f_n}\) converge simplement vers \(f\) sur \(A\).
+\end{theo}
+
+La réciproque est fausse ! Contre-exemple : la suite de fonctions \(\paren{x\mapsto x^n}\) sur \(\intervii{0}{1}\).
+
+Conséquence : pour étudier la convergence uniforme d'une suite de fonctions, on commence par étudier sa convergence simple, car d'abord on détermine sa limite simple \(f\), puis on cherche à savoir si elle est limite uniforme.
+
+\begin{exo}
+Étudiez la convergence uniforme de la suite de fonctions \(f_n:x\mapsto\dfrac{n\e{-x}+x^2}{n+x}\), où \(n>0\), sur \(\intervii{0}{1}\).
+\end{exo}
+
+\begin{exo}
+Même question avec la suite de fonctions \(f_n:x\mapsto\dfrac{x^n}{1+x^n}\), où \(n>0\), sur \(\intervie{0}{\pinf}\).
+\end{exo}
+
+\begin{exo}
+Même question avec la suite de fonctions \(f_n:x\mapsto n^\alpha x^n\paren{1-x}\), où \(n>0\) et \(\alpha\in\Rps\), sur \(\intervii{0}{1}\).
+\end{exo}
+
+Pour montrer la non-convergence uniforme, on dispose d'un critère simple suffisant dans bien des cas.
+
+\begin{prop}
+Soit \(\paren{f_n}\) une suite de fonctions qui converge simplement vers \(f\) sur une partie \(A\) de \(\R\).
+
+S'il existe une suite \(\paren{x_n}\) à termes dans \(A\) telle que la suite \(\paren{f\paren{x_n}-f_n\paren{x_n}}\) ne converge pas vers \(0\), alors la suite \(\paren{f_n}\) ne converge pas uniformément sur \(A\).
+\end{prop}
+
+\begin{exo}
+Montrez que la suite de fonctions \(f_n:x\mapsto x^2\cos\dfrac{x}{n}\) converge simplement sur \(\R\) vers une fonction \(f\) à préciser.
+
+Montrez que la convergence n'est pas uniforme sur \(\R\), mais qu'elle l'est sur tout segment \(\intervii{0}{a}\).
+\end{exo}
+
+\section{Convergence d'une série de fonctions}
+
+\subsection{Convergence simple}
+
+\begin{defi}
+Soient \(A\) une partie de \(\R\) et \(\paren{f_n}\) une suite de fonctions définies sur \(A\).
+
+On dit que la série \(\sum_{n\geq0}f_n\) converge simplement sur \(A\) quand pour tout \(x\in A\), la série numérique \(\sum_{n\geq0}f_n\paren{x}\) converge.
+
+Autrement dit, la série de fonctions \(\sum_{n\geq0}f_n\) converge simplement sur \(A\) quand la suite des sommes partielles \(\paren{\sum_{k=0}^nf_k}\) converge simplement sur \(A\).
+
+Dans ce cas, on peut définir une fonction \(f\) sur \(A\) en posant \(\quantifs{\tpt x\in A}f\paren{x}=\sum_{n=0}^{\pinf}f_n\paren{x}\).
+
+La fonction \(f\) est alors appelée (fonction) somme sur \(A\) de la série \(\sum_{n\geq0}f_n\).
+\end{defi}
+
+\begin{exo}
+Étudiez la convergence simple de la série de fonctions \(f_n:x\mapsto\dfrac{nx^2}{n^3+x^2}\), où \(n\geq0\), sur \(\intervie{0}{\pinf}\).
+\end{exo}
+
+\begin{exo}
+Même question avec la série de fonctions \(f_n:x\mapsto\dfrac{x^n}{1+x^n}\), où \(n>0\), sur \(\intervie{0}{\pinf}\).
+\end{exo}
+
+\begin{exo}
+Même question avec la série de fonctions \(f_n:x\mapsto\dfrac{\sin\paren{nx}}{n^3+x^3}\), où \(n>0\), sur \(\intervie{0}{\pinf}\).
+\end{exo}
+
+\subsection{Convergence uniforme}
+
+On a la même définition en remplaçant \guillemets{simple} par \guillemets{uniforme}.
+
+\begin{defi}
+Soient \(A\) une partie de \(\R\) et \(\paren{f_n}\) une suite de fonctions définies sur \(A\).
+
+On dit que la série \(\sum_{n\geq0}f_n\) converge uniformément sur \(A\) quand la suite des sommes partielles \(\paren{\sum_{k=0}^nf_k}\) converge uniformément sur \(A\).
+
+La fonction somme \(f\) est alors appelée limite uniforme sur \(A\) de la série \(\sum_{n\geq0}f_n\).
+\end{defi}
+
+Encore une fois, il y a un lien entre la convergence simple et uniforme, dans un seul sens !
+
+\begin{theo}
+Si une série de fonctions \(\sum_{n\geq0}f_n\) converge uniformément sur \(A\), alors \(\sum_{n\geq0}f_n\) converge simplement sur \(A\).
+\end{theo}
+
+La réciproque est fausse ! Contre-exemple : la série de fonctions \(\sum_{n\geq0}\paren{x\mapsto x^n}\).
+
+On peut réécrire la définition à l'aide des restes partiels.
+
+\begin{prop}
+Soit \(A\) une partie de \(\R\).
+
+La série \(\sum_{n\geq0}f_n\) converge uniformément sur \(A\) quand la série \(\sum_{n\geq0}f_n\) converge simplement sur \(A\) et la suite des restes partiels \(\paren{\sum_{k=n+1}^{\pinf}f_k}\) converge uniformément vers \(0\) sur \(A\), \ie \(\norme{\sum_{k=n+1}^{\pinf}f_k}_\infty^A\tendqd{n\to\pinf}0\).
+\end{prop}
+
+Il suffit donc qu'il existe une suite positive \(\paren{\alpha_n}\) telle que \(\norme{\sum_{k=n+1}^{\pinf}f_k}_\infty^A\leq\alpha_n\) et \(\alpha_n\tendqd{n\to\pinf}0\) pour que la série \(\sum_{n\geq0}f_n\) converge uniformément vers \(f\) sur \(A\).
+
+Autrement dit, il suffit de trouver une majoration uniforme des restes partiels par les termes d'une suite positive qui converge vers \(0\).
+
+\begin{exo}
+Étudiez la convergence uniforme de la série de fonctions \(f_n:x\mapsto\dfrac{\paren{-1}^n}{x+n}\), où \(n>0\), sur \(\intervie{0}{\pinf}\).
+\end{exo}
+
+\begin{exo}
+Même question avec la série de fonctions \(f_n:x\mapsto\dfrac{\paren{-1}^n\e{-nx}}{n}\), où \(n>0\), sur \(\intervie{0}{\pinf}\).
+\end{exo}
+
+De manière analogue aux séries numériques, on note le lien entre la convergence uniforme d'une série de fonctions \(\sum_{n\geq0}u_n\) et la convergence uniforme de la suite \(\paren{u_n}\).
+
+\begin{prop}
+Soient \(A\) une partie de \(\R\) et \(\paren{u_n}\) une suite de fonctions définies sur \(A\).
+
+Si la série \(\sum_{n\geq0}u_n\) converge uniformément sur \(A\), alors la suite \(\paren{u_n}\) converge uniformément vers \(0\).
+\end{prop}
+
+Évidemment, la réciproque est fausse.
+
+\subsection{Convergence normale}
+
+Ce dernier type de convergence est spécifique aux séries de fonctions.
+
+\begin{defi}
+Soient \(A\) une partie de \(\R\) et \(\paren{f_n}\) une suite de fonctions définies sur \(A\).
+
+On dit que la série \(\sum_{n\geq0}f_n\) converge normalement sur \(A\) quand la série numérique \(\sum_{n\geq0}\norme{f}_\infty^A\) converge.
+\end{defi}
+
+Souvent, on ne sait pas calculer les normes uniformes des fonctions \(f_n\). Une simple majoration suffit.
+
+\begin{prop}
+Avec les mêmes hypothèses, il y a équivalence entre
+
+\begin{itemize}
+    \item la série \(\sum_{n\geq0}f_n\) converge normalement sur \(A\) \\
+    \item il existe une suite positive \(\paren{\alpha_n}\) telle que \(\quantifs{\tpt n\in\N}\norme{f_n}_\infty^A\leq\alpha_n\) et la série \(\sum_{n\geq0}\alpha_n\) converge \\
+    \item il existe une majoration uniforme des fonctions \(f_n\) sur \(A\) par les termes d'une série positive convergente.
+\end{itemize}
+\end{prop}
+
+Il y a un lien entre convergence uniforme et normale, dans un seul sens !
+
+\begin{theo}
+Si une série de fonctions converge normalement sur \(A\), alors elle converge uniformément sur \(A\). Elle converge aussi absolument sur \(A\).
+\end{theo}
+
+La réciproque est fausse ! Contre-exemple : la série de fonctions \(\sum_{n\geq2}\paren{x\mapsto\dfrac{x^n}{\ln n}-\dfrac{x^{n+1}}{\ln\paren{n+1}}}\) converge uniformément sur \(\intervii{0}{1}\) mais pas normalement.
+
+En pratique, il est souvent plus simple de montrer la convergence normale que la convergence uniforme d'une série. On commence donc par étudier la convergence simple, puis la convergence normale et, en cas d'échec, la convergence uniforme.
+
+\begin{exo}
+Étudiez la convergence uniforme de la série de fonctions \(f_n:x\mapsto\dfrac{nx^2}{n^3+x^2}\), où \(n>0\), sur \(\intervie{0}{\pinf}\).
+\end{exo}
+
+\begin{exo}
+Même question avec la série de fonctions \(f_n:x\mapsto\dfrac{x^n}{1+x^n}\), où \(n>0\), sur \(\intervie{0}{\pinf}\).
+\end{exo}
+
+\begin{exo}
+Même question avec la série de fonctions \(f_n:x\mapsto\dfrac{x^2}{1+n^3x^3}\), où \(n>0\), sur \(\intervie{0}{\pinf}\).
+\end{exo}
+
+\section{Propriétés de la fonction limite}
+
+\subsection{Monotonie}
+
+\begin{prop}
+Soient \(I\) un intervalle de \(\R\) et \(\paren{f_n}\) une suite de fonctions définies sur \(I\).
+
+Si la suite de fonctions \(\paren{f_n}\) converge simplement vers une fonction \(f\) sur \(I\) et si \(\quantifs{\tpt n\in\N}f_n\) est croissante sur \(I\), alors \(f\) est croissante sur \(I\).
+\end{prop}
+
+On a évidemment le même résultat avec l'hypothèse et la conclusion de décroissance.
+
+\subsection{Continuité}
+
+Soit \(\paren{f_n}\) une suite de fonctions qui converge simplement vers \(f\) sur \(A\).
+
+En général, même si les fonctions \(f_n\) sont des fonctions continues, on ne peut rien affirmer à propos de la continuité de \(f\). Contre-exemple : la suite de fonctions \(\paren{x\mapsto x^n}\) sur \(\intervii{0}{1}\).
+
+Le théorème suivant donne une condition suffisante pour que \(f\) soit continue sur \(A\).
+
+\begin{theo}
+Soient \(I\) un intervalle de \(\R\) et \(\paren{f_n}\) une suite de fonctions définies sur \(I\).
+
+Si
+
+\begin{itemize}
+    \item la suite de fonctions \(\paren{f_n}\) converge uniformément vers une fonction \(f\) sur \(I\) \\
+    \item \(\quantifs{\tpt n\in\N}f_n\) est continue sur \(I\)
+\end{itemize}
+
+alors \(f\) est continue sur \(I\).
+\end{theo}
+
+On en déduit la version correspondante de ce théorème sur les séries de fonctions.
+
+\begin{cor}
+Soient \(I\) un intervalle de \(\R\) et \(\paren{f_n}\) une suite de fonctions définies sur \(I\).
+
+Si
+
+\begin{itemize}
+    \item la série de fonctions \(\sum_{n\geq0}f_n\) converge uniformément sur \(I\) \\
+    \item \(\quantifs{\tpt n\in\N}f_n\) est continue sur \(I\)
+\end{itemize}
+
+alors \(\sum_{n=0}^{\pinf}f_n\) est continue sur \(I\).
+\end{cor}
+
+\begin{exo}
+Montrez que la fonction \(f:x\mapsto\sum_{n=1}^{\pinf}\dfrac{\Arctan\paren{nx}}{n^2}\) est définie sur \(\R\) et qu'elle y est continue.
+\end{exo}
+
+\begin{exo}
+Même exercice avec \(f:x\mapsto\sum_{n=1}^{\pinf}\paren{-1}^n\dfrac{\e{-nx}}{n}\) sur \(\Rp\).
+\end{exo}
+
+\begin{exo}
+Montrez que la fonction \(f:x\mapsto\e{-x}\sum_{n=1}^{\pinf}\Arctan\paren{\dfrac{\e{x}}{n^2}}\) est bien définie et continue sur \(\intervie{0}{\pinf}\), que \(f\) est intégrable sur \(\intervie{0}{\pinf}\), et que \(\int_0^{\pinf}f=\sum_{n=1}^{\pinf}\paren{\Arctan\dfrac{1}{n^2}+\dfrac{1}{2n^2}\ln\paren{1+n^4}}\).
+\end{exo}
+
+La continuité étant une propriété locale, il est souvent inutile d'avoir une convergence uniforme globale pour conclure. En général, on peut se contenter de convergence uniforme sur des parties plus petites que \(I\), en général les segments inclus dans \(I\) ou toute famille recouvrante de parties de \(I\).
+
+\begin{defi}
+Soit \(I\) un intervalle.
+
+Une famille \(\fami{F}\) de parties de \(I\) est dite recouvrante quand \(I=\bigunion_{X\in\fami{F}}X\).
+\end{defi}
+
+\begin{prop}
+Soit \(I\) un intervalle.
+
+La famille des segments inclus dans \(I\) est recouvrante : \(I=\bigunion_{\paren{a,b}\in I^2}\intervii{a}{b}\).
+\end{prop}
+
+On en déduit alors le théorème suivant, dont il vaut mieux, à mon avis, présenter le détail des idées sur chaque exercice.
+
+\begin{theo}
+Soient \(I\) un intervalle de \(\R\), \(\paren{f_n}\) une suite de fonctions définies sur \(I\) et \(\fami{F}\) une famille d'intervalles recouvrant \(I\).
+
+Si
+
+\begin{itemize}
+    \item pour toute partie \(X\in\fami{F}\), la suite de fonctions \(\paren{f_n}\) converge uniformément vers une fonction \(f\) sur \(X\) \\
+    \item \(\quantifs{\tpt n\in\N}f_n\) est continue sur \(I\)
+\end{itemize}
+
+alors \(f\) est continue sur \(I\).
+\end{theo}
+
+En pratique, on choisit pour \(\fami{F}\) une famille d'intervalles adaptés au problème (voir les nombreux exemples en exercice).
+
+\begin{exo}
+Pour \(x>0\), on pose \(u_0\paren{x}=x\) et \(\quantifs{\tpt n\in\N}u_{n+1}\paren{x}=\Arctan\paren{x+u_n\paren{x}}\).
+
+Montrez que la suite \(\paren{u_n\paren{x}}\) converge vers un réel \(\phi\paren{x}\).
+
+Montrez que \(\quantifs{\tpt n\in\N}\abs{u_n\paren{x}-\phi\paren{x}}\leq\dfrac{x+\nicefrac{\pi}{2}}{\paren{1+x^2}^n}\).
+
+Déduisez-en que \(\phi\) est continue sur \(\intervee{0}{\pinf}\).
+\end{exo}
+
+\begin{exo}
+Montrez que la fonction \(f:x\mapsto\sum_{n=1}^{\pinf}\dfrac{\ln\paren{1+nx}}{n^2}\) est définie et continue sur \(\intervie{0}{\pinf}\).
+\end{exo}
+
+\subsection{Intervertion de limite et d'intégrale}
+
+Soit \(\paren{f_n}\) une suite de fonctions qui converge simplement vers \(f\) sur un segment \(\intervii{a}{b}\).
+
+En général, même si les fonctions \(f_n\) sont des fonctions continues par morceaux, on ne peut rien affirmer à propos de la continuité par morceaux de \(f\). Et même si on le peut (\cf théorème précédent), il n'y a \textit{a priori} aucun rapport entre \(\lim_{n\to\pinf}\int_a^bf_n\) et \(\int_a^bf=\int_a^b\paren{\lim_{n\to\pinf}f_n}\) : on ne peut en général pas intervertir une limite et une intégrale.
+
+\begin{exo}
+Pour \(n\in\N\) et \(x\in\intervii{0}{1}\), on pose \(f_n\paren{x}=n^2x^n\paren{1-x}\).
+
+Montrez que la suite de fonctions \(\paren{f_n}\) converge simplement vers une fonction \(f\) et vérifiez que \(\int_0^1f=\int_0^1\paren{\lim_{n\to\pinf}f_n}\not=\lim_{n\to\pinf}\int_0^1f_n\).
+\end{exo}
+
+Le théorème suivant donne une condition suffisante pour que cela soit faisable.
+
+\begin{theo}
+Soient \(I\) un intervalle de \(\R\), \(\paren{f_n}\) une suite de fonctions définies qui converge simplement vers une fonction \(f\) sur \(I\) et \(a\in I\).
+
+Si
+
+\begin{itemize}
+    \item la suite de fonctions \(\paren{f_n}\) converge uniformément vers \(f\) sur tout segment inclus dans \(I\) \\
+    \item \(\quantifs{\tpt n\in\N}f_n\) est continue sur \(I\)
+\end{itemize}
+
+alors \(f\) est continue sur \(I\) et la suite des primitives qui s'annulent en \(a\), \ie \(\paren{x\mapsto\int_a^xf_n}\), converge uniformément sur tout segment inclus dans \(I\) vers la primitive de \(f\) qui s'annule en \(a\), \ie \(x\mapsto\int_a^xf\).
+\end{theo}
+
+On en déduit les corollaires sur l'intervertion de limite et d'intégrale.
+
+\begin{cor}
+Soient \(a,b\) deux réels et \(\paren{f_n}\) une suite de fonctions définies sur \(\intervii{a}{b}\).
+
+Si
+
+\begin{itemize}
+    \item la suite de fonctions \(\paren{f_n}\) converge uniformément vers une fonction \(f\) sur \(\intervii{a}{b}\) \\
+    \item \(\quantifs{\tpt n\in\N}f_n\) est continue sur \(\intervii{a}{b}\)
+\end{itemize}
+
+alors \(f\) est continue sur \(\intervii{a}{b}\) et \[\int_a^bf=\int_a^b\paren{\lim_{n\to\pinf}f_n}=\lim_{n\to\pinf}\int_a^bf_n.\]
+\end{cor}
+
+On rappelle qu'un symbole \(\sum^{\pinf}\) est une limite : \(\sum^{\pinf}=\lim_{N\to\pinf}\sum^N\). On ne peut donc pas intervertir sans précaution un symbole \(\sum^{\pinf}\) et une intégrale.
+
+\begin{cor}
+Soient \(a,b\) deux réels et \(\paren{f_n}\) une suite de fonctions définies sur \(\intervii{a}{b}\).
+
+Si
+
+\begin{itemize}
+    \item la série de fonctions \(\sum_{n\geq0}f_n\) converge uniformément sur \(\intervii{a}{b}\) \\
+    \item \(\quantifs{\tpt n\in\N}f_n\) est continue sur \(\intervii{a}{b}\)
+\end{itemize}
+
+alors \(\sum_{n=0}^{\pinf}f_n\) est continue sur \(\intervii{a}{b}\), la série des intégrales \(\sum_{n\geq0}\int_a^bf_n\) est convergente et \[\int_a^bf=\int_a^b\sum_{n=0}^{\pinf}f_n=\sum_{n=0}^{\pinf}\int_a^bf_n.\]
+\end{cor}
+
+On appelle aussi ce résultat le théorème d'intégration terme à terme sur un segment.
+
+\begin{rem}
+Ces deux théorèmes ne sont valables que sur des segments, donc pour de vraies intégrales. Ils sont faux si on se place sur des intervalles autres et donc si on parle d'intégrales généralisées.
+\end{rem}
+
+\begin{exo}
+Quelle est la limite de \(\int_0^1\dfrac{n\cos\nicefrac{x}{n}}{n+x^n}\odif{x}\) quand \(n\to\pinf\) ?
+\end{exo}
+
+\begin{exo}
+Montrez que la fonction \(f:x\mapsto\sum_{n=1}^{\pinf}\dfrac{\paren{-1}^nx^{n+1}}{n}\) est définie et continue sur \(\intervii{0}{1}\), puis justifiez \(\int_0^1f=\dfrac{-1}{4}\).
+\end{exo}
+
+\begin{exo}~\\
+Montrez que \(\sum_{n=1}^{\pinf}\dfrac{1}{n2^n}=\int_0^1\dfrac{1}{2-x}\odif{x}\) et donnez-en une valeur concrète.
+\end{exo}
+
+\begin{exo}
+On pose \(f_n:x\mapsto\dfrac{x^n\e{-x}}{n!}\).
+
+Montrez que la suite de fonctions \(\paren{f_n}\) converge uniformément sur \(\intervie{0}{\pinf}\).
+
+Justifiez la convergence des intégrales \(\int_0^{\pinf}f_n\) et déterminez leur limite quand \(n\to\pinf\).
+\end{exo}
+
+\subsection{Intervertion de limites}
+
+De même, il est faux en général que \(\lim_{x\to a}\paren{\lim_{n\to\pinf}f_n\paren{x}}=\lim_{n\to\pinf}\paren{\lim_{x\to a}f_n\paren{x}}\) : on ne peut en général pas intervertir deux limites.
+
+\begin{ex}
+On pose, \(\quantifs{\tpt\paren{x,n}\in\intervie{0}{1}\times\N}u_n\paren{x}=\dfrac{x+x^n}{1+nx^n}\).
+
+D'une part, \(\quantifs{\tpt x\in\intervie{0}{1}}\lim_{n\to\pinf}u_n\paren{x}=x\) donc \(\lim_{x\to1}\paren{\lim_{n\to\pinf}u_n\paren{x}}=1\).
+
+D'autre part, \(\quantifs{\tpt n\in\N}\lim_{x\to1}u_n\paren{x}=\dfrac{2}{n+1}\) donc \(\lim_{n\to\pinf}\paren{\lim_{x\to1}u_n\paren{x}}=0\).
+\end{ex}
+
+Encore une fois, grâce à la convergence uniforme, c'est possible. Cependant, les résultats sont admis car plus difficiles à montrer : ce sont les théorèmes de double limite.
+
+\begin{theo}
+Soient \(I\) un intervalle de \(\R\), \(a\) une extrémité de \(I\) et \(\paren{f_n}\) une suite de fonctions définies sur \(I\).
+
+Si
+
+\begin{itemize}
+    \item la suite de fonctions \(\paren{f_n}\) converge uniformément vers une fonction \(f\) sur \(I\) \\
+    \item \(\quantifs{\tpt n\in\N}f_n\) a pour limite finie \(l_n\) en \(a\)
+\end{itemize}
+
+alors la suite \(\paren{l_n}\) a une limite finie \(l\) et \(f\) a pour limite \(l\) en \(a\) : \[\lim_{x\to a}\paren{\lim_{n\to\pinf}f_n\paren{x}}=\lim_{n\to\pinf}\paren{\lim_{x\to a}f_n\paren{x}}=l.\]
+\end{theo}
+
+On en déduit la version correspondante sur les séries de fonctions.
+
+\begin{cor}
+Soient \(I\) un intervalle de \(\R\), \(a\) une extrémité de \(I\) et \(\paren{f_n}\) une suite de fonctions définies sur \(I\).
+
+Si
+
+\begin{itemize}
+    \item la série de fonctions \(\sum_{n\geq0}f_n\) converge uniformément sur \(I\) \\
+    \item \(\quantifs{\tpt n\in\N}f_n\) a pour limite finie \(l_n\) en \(a\)
+\end{itemize}
+
+alors la série \(\sum_{n\geq0}l_n\) converge et, en notant \(l\) la somme de cette série, la fonction \(\sum_{n=0}^{\pinf}f_n\) a pour limite \(l\) en \(a\) : \[\lim_{x\to a}\sum_{n=0}^{\pinf}f_n\paren{x}=\sum_{n=0}^{\pinf}\paren{\lim_{x\to a}f_n\paren{x}}=\sum_{n=0}^{\pinf}l_n.\]
+\end{cor}
+
+\begin{exo}
+Montrez que la fonction \(f:x\mapsto\sum_{n=1}^{\pinf}\dfrac{\paren{-1}^n\Arctan\paren{nx}}{n^4}\) est définie et continue sur \(\R\), puis déterminez la valeur de sa limite en \(\pinf\) (on admettra que \(\sum_{n=1}^{\pinf}\dfrac{1}{n^4}=\dfrac{\pi^4}{90}\)).
+\end{exo}
+
+\subsection{Dérivabilité}
+
+La situation est encore plus délicate : une dérivée étant une limite, intervertir une dérivation et une limite est en général impossible.
+
+D'abord, la limite simple d'une suite de fonctions dérivables n'est pas forcément dérivable. Il est raisonnable de se dire que si on remplace la limite simple par une limite uniforme, comme dans les théorèmes précédents, on obtient le résultat.
+
+Et bien non !
+
+On peut montrer qu'il existe des suites de fonctions dérivables qui converge uniformément vers des fonctions non-dérivables (difficilement, car il faut construire des fonctions qui sont continues mais dérivables nulle part).
+
+De même, il existe une suite de fonctions dérivables \(\paren{f_n}\) qui converge uniformément vers une fonction dérivable \(f\), mais la suite des dérivées \(\paren{f_n\prim}\) ne converge pas vers la dérivée \(f\prim\) : par exemple la suite des fonctions \(x\mapsto\dfrac{\sin\paren{nx}}{n}\) sur \(\intervii{\dfrac{\pi}{4}}{\dfrac{3\pi}{4}}\).
+
+Pour obtenir un résultat vraiment utile, il faut supposer plus que dérivable, \ie de classe \(\classe{1}\), et imposer la convergence uniforme sur les dérivées.
+
+\begin{theo}
+Soient \(I\) un intervalle de \(\R\) et \(\paren{f_n}\) une suite de fonctions définies sur \(I\).
+
+Si
+
+\begin{itemize}
+    \item les fonctions \(f_n\) sont de classe \(\classe{1}\) sur \(I\) \\
+    \item la suite de fonctions \(\paren{f_n}\) converge simplement sur \(I\) \\
+    \item la suite des dérivées \(\paren{f_n\prim}\) converge uniformément sur \(I\)
+\end{itemize}
+
+alors \(f=\lim_{n\to\pinf}f_n\) est de classe \(\classe{1}\) sur \(I\) et \[f\prim=\lim_{n\to\pinf}f_n\prim.\]
+\end{theo}
+
+On en déduit la version correspondante sur les séries de fonctions.
+
+\begin{cor}
+Soient \(I\) un intervalle de \(\R\) et \(\paren{f_n}\) une suite de fonctions définies sur \(I\).
+
+Si
+
+\begin{itemize}
+    \item les fonctions \(f_n\) sont de classe \(\classe{1}\) sur \(I\) \\
+    \item la série de fonctions \(\sum_{n\geq0}f_n\) converge simplement sur \(I\) \\
+    \item la série des dérivées \(\sum_{n\geq0}f_n\prim\) converge uniformément sur \(I\)
+\end{itemize}
+
+alors \(\sum_{n=0}^{\pinf}f_n\) est de classe \(\classe{1}\) sur \(I\) et \[\paren{\sum_{n=0}^{\pinf}f_n}\prim=\sum_{n=0}^{\pinf}f_n\prim.\]
+\end{cor}
+
+On appelle aussi ce résultat le théorème de dérivation terme à terme.
+
+\begin{exo}
+Montrez que la fonction \(f:x\mapsto\sum_{n=1}^{\pinf}\dfrac{\ln\paren{1+nx}}{n^2}\) est définie et de classe \(\classe{1}\) sur \(\intervie{1}{\pinf}\). Que vaut \(f\prim\paren{1}\) ?
+\end{exo}
+
+\begin{rem}
+Là encore, le caractère \(\classe{1}\) d'une fonction est une propriété locale. Donc tout ce qui a été signalé à propos de la continuité sur des parties d'une famille recouvrante reste valable. En pratique, on choisit des intervalles adaptés au problème.
+\end{rem}
+
+\begin{exo}
+Montrez que la fonction de l'exercice précédent est de classe \(\classe{1}\) sur \(\intervee{0}{\pinf}\).
+\end{exo}
+
+\subsection{Dérivation à un ordre plus élevé}
+
+\begin{theo}
+Soient \(I\) un intervalle de \(\R\), \(k\in\Ns\) et \(\paren{f_n}\) une suite de fonctions définies sur \(I\).
+
+Si
+
+\begin{itemize}
+    \item les fonctions \(f_n\) sont de classe \(\classe{k}\) sur \(I\) \\
+    \item pour tout \(j\in\interventierii{0}{k-1}\), la suite de fonctions \(\paren{f_n\deriv{j}}\) converge simplement sur \(I\) \\
+    \item la suite des dérivées \(k\)-èmes \(\paren{f_n\deriv{k}}\) converge uniformément sur \(I\)
+\end{itemize}
+
+alors \(f=\lim_{n\to\pinf}f_n\) est de classe \(\classe{k}\) sur \(I\) et pour tout \(j\in\interventierii{1}{k}\), \[f\deriv{j}=\lim_{n\to\pinf}f_n\deriv{j}.\]
+\end{theo}
+
+On en déduit la version correspondante sur les séries de fonctions.
+
+\begin{cor}
+Soient \(I\) un intervalle de \(\R\), \(k\in\Ns\) et \(\paren{f_n}\) une suite de fonctions définies sur \(I\).
+
+Si
+
+\begin{itemize}
+    \item les fonctions \(f_n\) sont de classe \(\classe{k}\) sur \(I\) \\
+    \item pour tout \(j\in\interventierii{0}{k-1}\), la série de fonctions \(\sum_{n\geq0}f_n\deriv{j}\) converge simplement sur \(I\) \\
+    \item la série des dérivées \(k\)-èmes \(\sum_{n\geq0}f_n\deriv{k}\) converge uniformément sur \(I\)
+\end{itemize}
+
+alors \(\sum_{n=0}^{\pinf}f_n\) est de classe \(\classe{k}\) sur \(I\) et pour tout \(j\in\interventierii{1}{k}\), \[\paren{\sum_{n=0}^{\pinf}f_n}\deriv{j}=\sum_{n=0}^{\pinf}f_n\deriv{j}.\]
+\end{cor}
+
+\section{Généralisation}
+
+Dans cette section, \(E\) et \(F\) sont deux espaces vectoriels normés de dimension finie et les fonctions considérées vont de \(E\) dans \(F\).
+
+On étend sans peine les définitions de convergence simple et uniforme. Il suffit de remplacer les valeurs absolues ou modules par les normes.
+
+\subsection{Convergence simple}
+
+\begin{defi}
+Soient \(A\) une partie de \(E\) et \(\paren{f_n}\) une suite de fonctions définies sur \(A\).
+
+On dit que la suite \(\paren{f_n}\) converge simplement sur \(A\) quand pour tout \(x\in A\), la suite vectorielle \(\paren{f_n\paren{x}}\) converge dans \(F\).
+
+Dans ce cas, on peut définir une fonction \(f\) sur \(A\) en posant \(\quantifs{\tpt x\in A}f\paren{x}=\lim_{n\to\pinf}f_n\paren{x}\).
+
+La fonction \(f\) est alors appelée limite simple sur \(A\) de la suite \(\paren{f_n}\) et on dit que la suite \(\paren{f_n}\) converge simplement vers \(f\) sur \(A\).
+\end{defi}
+
+On adapte de même la définition de convergence simple d'une série de fonctions à valeurs dans \(F\).
+
+\subsection{Convergence uniforme}
+
+\begin{rappel}
+Si \(g\) est une fonction bornée sur une partie \(A\) de \(E\), on pose \(\norme{g}_\infty^A=\sup_{x\in A}\norme{g\paren{x}}\).
+
+\(\norme{}_\infty^A\) est une norme sur le \(\K\)-espace vectoriel des fonctions bornées sur \(A\), appelée norme infinie ou norme uniforme sur \(A\).
+\end{rappel}
+
+\begin{defi}
+Soient \(A\) une partie de \(E\), \(\paren{f_n}\) une suite de fonctions définies sur \(A\) et \(f\) une fonction définie sur \(A\).
+
+On dit que la suite \(\paren{f_n}\) converge uniformément vers \(f\) sur \(A\) quand \(\quantifs{\tpt n\in\N}f-f_n\) est bornée sur \(A\) et la suite réelle \(\paren{\norme{f-f_n}_\infty^A}\) converge vers \(0\).
+
+La fonction \(f\) est alors appelée limite uniforme sur \(A\) de la suite \(\paren{f_n}\).
+\end{defi}
+
+On adapte de même la définition de convergence uniforme d'une série de fonctions à valeurs dans \(F\).
+
+\subsection{Convergence normale des séries}
+
+\begin{defi}
+Soient \(A\) une partie de \(E\) et \(\paren{f_n}\) une suite de fonctions définies sur \(A\).
+
+On dit que la série \(\sum_{n\geq0}f_n\) converge normalement sur \(A\) quand la série numérique \(\sum_{n\geq0}\norme{f_n}_\infty^A\) converge.
+\end{defi}
+
+\begin{theo}
+Si une série de fonctions converge normalement sur \(A\), alors elle converge uniformément (et donc simplement) sur \(A\).
+\end{theo}
+
+\subsection{Résultats préservés}
+
+Tous les résultats sur la continuité et la double limite restent valables pour des fonctions de \(E\) quand \(F\).
+
+Tous les résultats sur la primitivation, l'intégration sur des segments, la dérivation \(\classe{1}\) ou, plus généralement \(\classe{k}\), restent valables pour des fonctions de \(\R\) dans \(F\).
+
+\section{Approximation uniforme}
+
+\subsection{Densité des fonctions en escaliers dans les fonctions continues par morceaux}
+
+On a déjà rencontré des exemples d'approximation uniforme en première année pour des fonctions à valeurs réelles. En travaillant sur les coordonnées, on peut généraliser ce résultat.
+
+\begin{theo}
+Toute fonction continue par morceaux sur un segment est approchable uniformément par des fonctions en escaliers.
+
+Soit \(f\) une fonction continue par morceaux sur un segment \(\intervii{a}{b}\) et à valeurs dans \(F\). Il existe une suite de fonctions en escaliers sur \(\intervii{a}{b}\) qui converge uniformément vers \(f\) sur \(\intervii{a}{b}\).
+\end{theo}
+
+Avec le vocabulaire des espaces vectoriels normés, on peut retraduire ce résultat.
+
+\begin{prop}
+Dans l'espace des fonctions bornées \(\fonctionsbornees[\intervii{a}{b}][F]\), muni de la norme infinie, le sous-espace des fonctions en escaliers \(\Esc[\intervii{a}{b}][F]\) est dense dans le sous-espace des fonctions continues par morceaux \(\contm[\intervii{a}{b}][F]\).
+
+Autrement dit \[\quantifs{\forall f\in\contm[\intervii{a}{b}][F];\forall\epsilon>0;\exists\phi\in\Esc[\intervii{a}{b}][F]}\norme{f-\phi}_\infty^{\intervii{a}{b}}\leq\epsilon.\]
+\end{prop}
+
+En application, un exercice classique : le lemme de Lebesgue (Centrale - Mines).
+
+\begin{exo}
+Soit \(f:\intervii{a}{b}\to\K\) continue par morceaux. Montrez que \(\lim_{n\to\pinf}\int_a^bf\paren{t}\sin\paren{nt}\odif{t}=0\).
+\end{exo}
+
+\subsection{Densité des polynômes sur un segment dans les fonctions continues}
+
+Il s'agit du théorème de Stone-Weierstrass.
+
+\begin{theo}
+Toute fonction continue sur un segment est approchable uniformément par des fonctions polynômes.
+
+Soit \(f\) une fonction continue sur un segment \(\intervii{a}{b}\) et à valeurs dans \(\K\). Il existe une suite de fonctions polynômes sur \(\intervii{a}{b}\) qui converge uniformément vers \(f\) sur \(\intervii{a}{b}\).
+\end{theo}
+
+Avec le vocabulaire des espaces vectoriels normés, on peut retraduire ce résultat (en identifiant les polynômes et les fonctions polynômes sur un segment, ce qui est loisible car un segment est un ensemble infini).
+
+\begin{prop}
+Dans l'espace des fonctions bornées \(\fonctionsbornees[\intervii{a}{b}][\K]\), muni de la norme infinie, le sous-espace des fonctions polynômes \(\fonctionspolynomes[\intervii{a}{b}][\K]=\poly\) est dense dans le sous-espace des fonctions continues \(\ensclasse{0}{\intervii{a}{b}}{\K}\).
+
+Autrement dit \[\quantifs{\forall f\in\ensclasse{0}{\intervii{a}{b}}{\K};\forall\epsilon>0;\exists P\in\poly}\norme{f-P}_\infty^{\intervii{a}{b}}\leq\epsilon.\]
+\end{prop}
+
+En application, un exercice classique (CCP).
+
+\begin{exo}
+Soit \(f:\intervii{a}{b}\to\K\) continue telle que \(\quantifs{\tpt n\in\N}\int_a^bt^nf\paren{t}\odif{t}=0\).
+
+Montrez que \(f=0\).
+\end{exo}
