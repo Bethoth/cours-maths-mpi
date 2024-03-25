@@ -661,13 +661,11 @@ On appelle hessienne de \(f\) en \(a\) la matrice \(\hessienne{f}\paren{a}=\pare
 
 D'après le théorème de Schwarz, la hessienne de \(f\) est alors une matrice symétrique.
 
-\note{Cette définition de la forme hessienne est peut-être erronée (vérification en cours)}
-
-On lui associe l'application \(\formehessienne{f}\paren{a}\) de \(\R^p\) dans \(\R\) définie de la façon suivante : \[\quantifs{\forall v=\tcoords{v_1}{\vdots}{v_p}\in\R^p}\formehessienne{f}\paren{a}.\paren{v,v}=\trans{v}\hessienne{f}\paren{a}v.\]
+On lui associe l'application \(\formehessienne{f}\paren{a}\) de \(\R^p\) dans \(\R\) définie de la façon suivante : \[\quantifs{\forall v=\tcoords{v_1}{\vdots}{v_p}\in\R^p}\formehessienne{f}\paren{a}.v=\trans{v}\hessienne{f}\paren{a}v.\]
 
 C'est un produit scalaire (canonique) entre le vecteur-colonne \(v\) et \(\hessienne{f}\paren{a}v\). Cette application est appelée la forme hessienne de \(f\) en \(a\) (à titre culturel, on appelle ce genre d'application des formes quadratiques).
 
-En clair, on a \[\formehessienne{f}\paren{a}.\paren{v,v}=\sum_{1\leq i,j\leq p}\pdv{f}{x_i,x_j}\paren{a}v_iv_j.\]
+En clair, on a \[\formehessienne{f}\paren{a}.v=\sum_{1\leq i,j\leq p}\pdv{f}{x_i,x_j}\paren{a}v_iv_j.\]
 
 \subsection{Développement limité à l'ordre 2}
 
@@ -676,7 +674,7 @@ On admet le résultat suivant, appelé formule de Taylor-Young à l'ordre 2.
 \begin{prop}
 Soient \(U\) un ouvert de \(\R^p\), \(f:U\to\R\) de classe \(\classe{2}\) et \(a\in U\).
 
-Pour tout vecteur \(v\) au voisinage de \(0\), on a \[f\paren{a+v}=f\paren{a}+\odif{f}\paren{a}.v+\dfrac{1}{2}\formehessienne{f}\paren{a}.\paren{v,v}+\o{\norme{v}^2}.\]
+Pour tout vecteur \(v\) au voisinage de \(0\), on a \[f\paren{a+v}=f\paren{a}+\odif{f}\paren{a}.v+\dfrac{1}{2}\formehessienne{f}\paren{a}.v+\o{\norme{v}^2}.\]
 \end{prop}
 
 Ce développement limité est souvent écrit à l'aide du gradient et de la hesienne : \[f\paren{a+v}=f\paren{a}+\nabla f\paren{a}\scal v+\dfrac{1}{2}\paren{\hessienne{f}\paren{a}v}\scal v+\o{\norme{v}^2}.\]
