@@ -2,4 +2,752 @@
 
 \minitoc
 
-\note{À venir}
+Dans tout le cours, \(E\), \(F\) (et éventuellement \(G\)) sont des \(\R\)-esapces vectoriels normés de dimensions finies \(p\), \(n\) respectivement (éventuellement \(q\)). Comme dans le chapitre précédent, si \(\phi\in\L{E}{F}\) et \(v\in E\), on note \(\phi.v\) plutôt que \(\phi\paren{v}\) l'image de \(v\) par l'application linéaire \(\phi\).
+
+\section{Dérivées partielles}
+
+\subsection{Dérivée selon un vecteur}
+
+\begin{defi}
+Soient \(U\) un ouvert de \(E\), \(f:U\to F\), \(a\in U\), \(v\in E\excluant\accol{0}\) et \(t\in\R\).
+
+On dit que \(f\) possède une dérivée en \(a\) selon le vecteur \(v\) quand la fonction \(t\mapsto f\paren{a+tv}\) est dérivable en \(0\), \ie quand \(\dfrac{f\paren{a+tv}-f\paren{a}}{t}\) a une limite finie dans \(F\) quand \(t\) tend vers \(0\).
+
+Dans ce cas, on pose \(\vdv{v}{f}\paren{a}=\lim_{t\to0}\dfrac{f\paren{a+tv}-f\paren{a}}{t}\).
+\end{defi}
+
+\subsection{Dérivées partielles dans une base}
+
+\begin{defi}
+Soient \(\fami{B}=\paren{e_1,\dots,e_p}\) une base de \(E\), \(U\) un ouvert de \(E\), \(f:U\to F\) et \(a\in U\).
+
+On dit que \(f\) possède des dérivées partielles en \(a\) dans la base \(\fami{B}\) quand \(\quantifs{\tpt j\in\interventierii{1}{p}}f\) possède une dérivée en \(a\) selon le vecteur \(e_j\).
+
+Dans ce cas, on note \(\pdif{j}f\paren{a}=\vdv{e_j}{f}\paren{a}=\lim_{t\to0}\dfrac{f\paren{a+te_j}-f\paren{a}}{t}\).
+\end{defi}
+
+Avec les mêmes notations, en notant \(x=\sum_{j=1}^px_je_j\) un vecteur générique de \(E\), on identifie en général les notations \(f\paren{x}\) et \(f\paren{x_1,\dots,x_p}\) : moyennant le choix d'une base de \(E\), toute fonction de \(E\) dans \(F\) peut être vue comme une fonction de \(\R^p\) dans \(F\), donc comme une fonction de \(p\) variables réelles et à valeurs dans \(F\). On note alors aussi \(\pdv{f}{x_j}\paren{a}=\pdif{j}f\paren{a}\).
+
+Autrement dit, \(f\) possède une \(j\)-ème dérivée partielle en \(a=\paren{a_1,\dots,a_p}\) quand la fonction \(\phi_j:x_j\mapsto f\paren{a_1,\dots,a_{j-1},x_j,a_{j+1},\dots,a_p}\) est dérivable en \(a_j\). Dans ce cas, \(\pdif{j}f\paren{a}=\phi_j\prim\paren{a_j}\).
+
+\subsection{Absence de lien entre la continuité et l'existence de dérivées selon tout vecteur}
+
+Pour une fonction d'une seule variable, l'existence d'une dérivée en un point implique la continuité en ce point. Dès que \(p\geq2\), ce lien est faux : une fonction peut très bien avoir des dérivées selon tout vecteur mais n'être pas continue.
+
+\begin{exo}
+Soit \(f:\R^2\to\R\) définie par : si \(\paren{x,y}\not=0\), \(f\paren{x,y}=\dfrac{\sin\paren{x}\sin^2\paren{y}}{x^2+y^2}\) et \(f\paren{0,0}=0\).
+
+Vérifiez que \(f\) a des dérivées selon tout vecteur en \(\paren{0,0}\) et qu'elle est continue en ce point.
+\end{exo}
+
+\begin{exo}
+Soit \(f:\R^2\to\R\) définie par : si \(y\not=0\), \(f\paren{x,y}=\dfrac{x^2}{y}\) et si \(y=0\), \(f\paren{x,0}=0\).
+
+La fonction \(f\) est-elle continue en \(\paren{0,0}\) ? A-t-elle une dérivée selon un vecteur \(v\) en \(\paren{0,0}\) ?
+\end{exo}
+
+\begin{exo}
+Soit \(f:\paren{x,y}\mapsto\dfrac{x^3+y^3}{x^2+y^2}\) prolongée en \(\paren{0,0}\) par \(0\).
+
+Montrez que \(f\) possède des dérivées partielles en tout point de \(\R^2\). Ces dérivées partielles sont-elles continues ?
+\end{exo}
+
+\begin{exo}
+Soit \(f:\M{n}[\R]\to\R\) définie par : \(f\paren{A}=\tr A^2\).
+
+Montrez que \(f\) possède en tout point des dérivées selon tout vecteur.
+
+En choisissant comme base de \(\M{n}[\R]\) la base canonique et en notant \(x_{i\,j}\) les coordonnées dans cette base, calculez \(\pdv{f}{x_{i\,j}}\paren{A}\).
+\end{exo}
+
+\section{Différentielle}
+
+\subsection{Application différentiable}
+
+\begin{defi}
+Soient \(U\) un ouvert de \(E\), \(f:U\to F\) et \(a\in U\).
+
+On dit que \(f\) est différentiable en \(a\) quand il existe une application linéaire \(L:E\to F\) continue, un réel \(r>0\) et une application \(\epsilon:\bouleo{0}{r}\to F\) telles que \[\begin{dcases}
+\quantifs{\forall v\in\bouleo{0}{r}}f\paren{a+v}=f\paren{a}+L.v+\norme{v}\epsilon\paren{v} \\
+\lim_{v\to0}\epsilon\paren{v}=0
+\end{dcases}\]
+\end{defi}
+
+On note classiquement \(\o{\norme{v}}\) toute expression du type \(\norme{v}\epsilon\paren{v}\) où \(\lim_{v\to0}\epsilon\paren{v}=0\).
+
+La définition précédente affirme donc l'existence d'un développement limité à l'ordre 1 : \(f\paren{a+v}=f\paren{a}+L.v+\o{\norme{v}}\).
+
+\begin{rem}
+Dans la définition précédente, l'hypothèse de continuité de \(L\) est superflue car \(E\) est de dimension finie donc toutes les applications linéaires de \(E\) dans \(F\) sont continues. Mais, au cas où un sujet hors-programme vous placerait dans un espace \(E\) de dimension infinie, vous avez la définition complète.
+\end{rem}
+
+\begin{exo}
+Soit \(f:\paren{x,y}\mapsto y\ln x+\e{xy}\).
+
+Montrez que \(f\) est différentiable en \(\paren{1,1}\).
+\end{exo}
+
+\begin{exo}
+Soit \(C:v\mapsto\norme{v}^2\) (où la norme est ici la norme euclidienne).
+
+Montrez que \(C\) est différentiable en tout point.
+
+En est-il de même pour l'application norme elle-même ?
+\end{exo}
+
+\begin{exo}
+Soit \(f:\M{n}[\R]\to\M{n}[\R]\) définie par : \(f\paren{A}=A^2\).
+
+Montrez que \(f\) est différentiable en tout point de \(\M{n}[\R]\).
+\end{exo}
+
+\begin{exo}
+Soit \(g:\GL{n}[\R]\to\GL{n}[\R]\) définie par : \(g\paren{A}=A\inv\).
+
+Rappelez pourquoi \(\GL{n}[\R]\) est un ouvert de \(\M{n}[\R]\).
+
+Montrez qu'il existe \(r>0\) tel que \(\quantifs{\tpt V\in\bouleo{0}{r}}\sum_{k\geq0}\paren{-V}^k\) converge.
+
+Dans ce cas, que vaut sa somme ?
+
+Montrez que \(g\) est différentiable en \(I_n\), puis en tout point de \(\GL{n}[\R]\).
+\end{exo}
+
+\begin{prop}
+Avec les mêmes notations, si \(f\) est différentiable en \(a\), alors
+
+\begin{itemize}
+    \item \(f\) est continue en \(a\) \\
+    \item \(f\) admet des dérivées selon tout vecteur en \(a\).
+\end{itemize}
+\end{prop}
+
+Bien évidemment, la réciproque est fausse.
+
+\subsection{Différentielle}
+
+\begin{prop}
+Avec les mêmes notations, l'application \(L\) est unique.
+\end{prop}
+
+Dans le cas où \(f\) est différentiable en \(a\), l'application \(L\) s'appelle la différentielle de \(f\) en \(a\) ou l'application linéaire tangente en \(a\). Elle est notée \(\odif{f}\paren{a}\).
+
+Le développement limité en \(a\) à l'ordre 1 est donc \[f\paren{a+v}=f\paren{a}+\odif{f}\paren{a}.v+\o{\norme{v}}\] et la dérivée selon le vecteur \(v\) en \(a\) est \[\vdv{v}{f}\paren{a}=\odif{f}\paren{a}.v\]
+
+\subsection{Différentiabilité sur un ouvert}
+
+\begin{defi}
+Soient \(U\) un ouvert de \(E\) et \(f:U\to F\).
+
+On dit que \(f\) est différentiable sur \(U\) quand \(f\) est différentiable en tout point de \(U\). On lui associe donc une unique application \(\odif{f}:U\to\L{E}{F}\), appelée la différentielle de \(f\) sur \(U\).
+\end{defi}
+
+\begin{rem}
+En fait, on devrait noter \(\odif{f}:U\to\Lc{E}{F}\).
+\end{rem}
+
+Deux cas particuliers :
+
+\begin{itemize}
+    \item si \(f\) est constante sur \(U\), alors \(\odif{f}=0\) \\
+    \item si \(f\) est linéaire, alors \(\odif{f}=f\).
+\end{itemize}
+
+\subsection{Lien avec les dérivées partielles}
+
+\begin{prop}
+Soient \(U\) un ouvert de \(E\), \(f:U\to F\), \(a\in U\) et \(\fami{B}\) une base de \(E\).
+
+Si \(f\) est différentiable en \(a\), alors \(f\) possède des dérivées partielles en \(a\) dans la base \(\fami{B}\) et \(\quantifs{\tpt v\in E\text{ de coordonnées }\paren{h_1,\dots,h_p}}\odif{f}\paren{a}.v=\sum_{j=1}^p\pdif{j}f\paren{a}h_j=\sum_{j=1}^p\pdv{f}{x_j}\paren{a}h_j\).
+\end{prop}
+
+\begin{rem}
+Dans la notation précédente, on a exceptionnellement fait une entorse à la convention habituelle qui consiste à écrire les produits externes scalaire-vecteur dans le sens \(\lambda v\).
+
+Ici, les dérivées partielles \(\pdif{j}f\paren{a}\) sont des vecteurs de \(F\) et les \(h_j\) sont des scalaires, on devrait donc noter les produits externes \(h_j\pdif{j}f\paren{a}\). Mais l'usage veut que dans le cas des différentielles, on respecte l'ordre des objets plutôt que la convention du produit externe.
+\end{rem}
+
+Un cas particulier : si \(p=1\), alors \(f\) est différentiable en \(a\) ssi \(f\) est dérivable en \(a\) et dans ce cas, \(\quantifs{\tpt h\in\R}\odif{f}\paren{a}.h=f\prim\paren{a}h\).
+
+\begin{exo}
+Soit \(f:\paren{x,y}\mapsto y\ln x+\e{xy}\).
+
+En admettant momentanément que \(f\) est différentiable sur \(\Rps\times\R\), calculez sa différentielle en tout point.
+\end{exo}
+
+\begin{exo}
+Soit \(g:\M{2}[\R]\to\M{2}[\R]\) définie par : \(g\paren{A}=\trans{A}A\).
+
+En notant \(A=\begin{pmatrix}
+a_1 & a_3 \\
+a_2 & a_4
+\end{pmatrix}\), calculez la différentielle de \(g\) en la matrice \(J=\paren{i+j}_{1\leq i,j\leq2}\).
+\end{exo}
+
+\subsection{Caractérisation des fonctions à dérivée partielle nulle}
+
+\begin{prop}
+Soient \(D=I\times J\) où \(I,J\) sont deux intervalles ouverts de \(\R\) et \(f\) une fonction différentiable sur \(D\).
+
+\begin{itemize}
+    \item Si \(\quantifs{\tpt a\in D}\pdv{f}{x}\paren{a}=0\), alors il existe une fonction \(v\) dérivable sur \(J\) telle que \[\quantifs{\tpt\paren{x,y}\in D}f\paren{x,y}=v\paren{y}.\]
+    \item Si \(\quantifs{\tpt a\in D}\pdv{f}{y}\paren{a}=0\), alors il existe une fonction \(u\) dérivable sur \(I\) telle que \[\quantifs{\tpt\paren{x,y}\in D}f\paren{x,y}=u\paren{x}.\]
+\end{itemize}
+\end{prop}
+
+Exprimé de façon plus grossière, si la dérivée partielle par rapport à une variable est constamment nulle, alors la fonction ne dépend pas de cette variable. Bien sûr, ce résultat s'étend à des fonctions à plus de deux variables.
+
+\begin{cor}
+Avec les mêmes hypothèses, si \(\quantifs{\tpt a\in D}\pdv{f}{x}\paren{a}=\pdv{f}{y}\paren{a}=0\), alors \(f\) est constante sur \(D\).
+\end{cor}
+
+\begin{rem}
+Ce résultat reste valable sur des ouverts de forme plus générale (voir plus loin) ou en adaptant légèrement l'énoncé, avec plus de trois variables.
+\end{rem}
+
+\begin{exo}
+Déterminez les fonctions \(f\) différentiables sur \(\R^2\) telle que \(\quantifs{\tpt\paren{x,y}\in\R^2}\pdv{f}{x}\paren{x,y}=\lambda\), où \(\lambda\) est une constante.
+\end{exo}
+
+\begin{exo}
+Faites de même avec la condition \(\pdv{f}{x}\paren{x,y}=\cos x\).
+\end{exo}
+
+\begin{exo}
+Faites de même avec la condition \(\pdv{f}{x}\paren{x,y}=f\paren{x,y}\).
+\end{exo}
+
+Ce genre de problème s'appelle des équations aux dérivées partielles.
+
+\subsection{Matrice jacobienne}
+
+\begin{defi}
+Soient \(U\) un ouvert de \(\R^p\), \(f:U\to\R^n\) et \(a\in U\).
+
+Si \(f\) est différentiable en \(a\), alors on appelle (matrice) jacobienne de \(f\) en \(a\) la matrice dans les bases canoniques de \(\odif{f}\paren{a}\), souvent notée \(\jacobienne{f}\paren{a}\). C'est une matrice de \(\M{n\,p}[\R]\).
+\end{defi}
+
+On note \(f=\tcoords{f_1}{\vdots}{f_n}\) où \(f_1,\dots,f_n\) sont \(n\) fonctions de \(U\) dans \(\R\).
+
+\begin{prop}
+Avec les mêmes notations, \(f\) est différentiable en \(a\) ssi \(\quantifs{\tpt i\in\interventierii{1}{p}}f_i\) est différentiable en \(a\).
+\end{prop}
+
+Dans ce cas, on a \[\jacobienne{f}\paren{a}=\begin{pmatrix}
+\pdif{1}f_1\paren{a} & \pdif{2}f_1\paren{a} & \dots & \pdif{p}f_1\paren{a} \\
+\pdif{1}f_2\paren{a} & \pdif{2}f_2\paren{a} & \dots & \pdif{p}f_2\paren{a} \\
+\vdots & \vdots &  & \vdots \\
+\pdif{1}f_n\paren{a} & \pdif{2}f_n\paren{a} & \dots & \pdif{p}f_n\paren{a}
+\end{pmatrix}=\paren{\pdif{j}f_i\paren{a}}_{\substack{1\leq i\leq n \\ 1\leq j\leq p}}\]
+
+\begin{exo}
+Calculez la jacobienne du changement de variables en polaires \(\paren{r,\theta}\mapsto\paren{r\cos\theta,r\sin\theta}\).
+\end{exo}
+
+\subsection{Cas particulier où \(F=\R\)}
+
+Si \(n=1\), alors \(f:U\to\R\), donc si \(f\) est différentiable en \(a\), alors \(\odif{f}\paren{a}\) est une forme linéaire de \(E\).
+
+Si on a muni \(E\) d'un produit scalaire \(\scal\), on appelle alors gradient de \(f\) en \(a\), noté \(\nabla f\paren{a}\), l'unique vecteur de \(E\) tel que \[\quantifs{\forall v\in E}\odif{f}\paren{a}.v=\nabla f\paren{a}\scal v.\]
+
+Le développement limité à l'ordre 1 devient donc dans ce cas \[f\paren{a+v}=f\paren{a}+\nabla f\paren{a}\scal v+\o{\norme{v}}\] et la dérivée selon le vecteur \(v\) en \(a\) est donc \[\vdv{v}{f}\paren{a}=\nabla f\paren{a}\scal v.\]
+
+Dans une base orthonormée \(\fami{B}=\paren{e_1,\dots,e_p}\), le vecteur \(\nabla f\paren{a}\) a pour coordonnées \(\tcoords{\pdif{1}f\paren{a}}{\vdots}{\pdif{p}f\paren{a}}\), tandis que la matrice jacobienne est donc une matrice-ligne : \[\jacobienne{f}\paren{a}=\cycle{\pdif{1}f\paren{a};\pdif{2}f\paren{a};\dots;\pdif{p}f\paren{a}}.\]
+
+\begin{rem}
+Si \(\nabla f\paren{a}\not=0\), alors \(\nabla f\paren{a}\) est positivement colinéaire au vecteur unitaire selon lequel la dérivée de \(f\) en \(a\) est maximale : l'application \(v\mapsto\nabla f\paren{a}\scal v=\vdv{v}{f}\paren{a}\), définie sur la sphère-unité, est maximale en le vecteur \(v=\dfrac{1}{\norme{\nabla f\paren{a}}}\nabla f\paren{a}\).
+\end{rem}
+
+\section{Opérations sur les fonctions différentiables}
+
+\subsection{Combinaison linéaire}
+
+\begin{prop}
+Soient \(U\) un ouvert de \(E\), \(f,g:U\to F\) et \(a\in U\).
+
+Si \(f\) et \(g\) sont différentiables en \(a\), alors \(f+g\) l'est aussi et \(\odif{\paren{f+g}}\paren{a}=\odif{f}\paren{a}+\odif{g}\paren{a}\).
+
+Si \(f\) est différentiable en \(a\), alors \(\quantifs{\tpt\lambda\in\R}\lambda f\) l'est aussi et \(\odif{\paren{\lambda f}}\paren{a}=\lambda\odif{f}\paren{a}\).
+\end{prop}
+
+Autrement dit, l'application \(f\mapsto\odif{f}\paren{a}\) est linéaire.
+
+\subsection{Composition par une application linéaire}
+
+\begin{prop}
+Soient \(U\) un ouvert de \(E\), \(f:U\to F\), \(a\in U\) et \(L\in\L{F}{G}\).
+
+Si \(f\) est différentiable en \(a\), alors \(L\rond f\) l'est aussi et \(\odif{\paren{L\rond f}}\paren{a}=L\rond\odif{f}\paren{a}\).
+\end{prop}
+
+Autrement dit, pour tout vecteur \(v\in E\), \[\odif{\paren{L\rond f}}\paren{a}.v=L\paren{\odif{f}\paren{a}.v}.\]
+
+\subsection{Composition par une application \(k\)-linéaire}
+
+\begin{prop}
+Soient \(U\) un ouvert de \(E\), \(f_1,\dots,f_k:U\to F\), \(a\in U\) et \(M:F^k\to G\) \(k\)-linéaire.
+
+Si \(f_1,\dots,f_k\) sont différentiable en \(a\), alors \(M\paren{f_1,\dots,f_k}\) l'est aussi et \[\odif{\paren{M\paren{f_1,\dots,f_k}}}\paren{a}=\sum_{i=1}^kM\paren{f_1\paren{a},\dots,f_{i-1}\paren{a},\odif{f_i}\paren{a},f_{i+1}\paren{a},\dots,f_k\paren{a}}.\]
+\end{prop}
+
+Autrement dit, pour tout vecteur \(v\in E\), \[\odif{\paren{M\paren{f_1,\dots,f_k}}}\paren{a}.v=\sum_{i=1}^kM\paren{f_1\paren{a},\dots,f_{i-1}\paren{a},\odif{f_i}\paren{a}.v,f_{i+1}\paren{a},\dots,f_k\paren{a}}.\]
+
+Un cas particulier important : le produit externe.
+
+\begin{prop}
+Soient \(U\) un ouvert de \(E\), \(\lambda:U\to\R\), \(g:U\to F\) et \(a\in U\).
+
+Si \(\lambda\) et \(g\) sont différentiables en \(a\), alors \[\odif{\paren{\lambda g}}\paren{a}=\odif{\lambda}\paren{a}g\paren{a}+\lambda\paren{a}\odif{g}\paren{a}.\]
+\end{prop}
+
+D'une manière générale, tout produit vérifie le même genre de relation (produit de deux réels, de deux matrices, de deux polynômes, composée de deux endomorphismes, etc).
+
+\subsection{Composition d'applications différentiables}
+
+Ce résultat est souvent appelé règle de la chaîne.
+
+\begin{prop}
+Soient \(U\) un ouvert de \(E\), \(V\) un ouvert de \(F\), \(f:U\to V\), \(g:V\to G\) et \(a\in U\).
+
+Si \(f\) est différentiable en \(a\) et \(g\) est différentiable en \(f\paren{a}\), alors \(g\rond f\) est différentiable en \(a\) et \[\odif{\paren{g\rond f}}\paren{a}=\odif{g}\paren{f\paren{a}}\rond\odif{f}\paren{a}.\]
+\end{prop}
+
+Autrement dit, pour tout vecteur \(v\in E\), \[\odif{\paren{g\rond f}}\paren{a}.v=\odif{g}\paren{f\paren{a}}.\paren{\odif{f}\paren{a}.v}\] ce qui est conventionnellement noté \(\odif{g}\paren{f\paren{a}}.\odif{f}\paren{a}.v\).
+
+\begin{prop}
+Si \(E\) est identifié à \(\R^p\), \(F\) à \(\R^n\) et \(G\) à \(\R^q\) par choix de bases, alors cela se traduit sur les matrices jacobiennes : \[\jacobienne{\paren{g\rond f}}\paren{a}=\jacobienne{g}\paren{f\paren{a}}\times\jacobienne{f}\paren{a}.\]
+\end{prop}
+
+On retrouve la règle de composition des dérivées partielles de première année. En particulier, les changements de variables entrent dans cette catégorie des composées de fonctions différentiables.
+
+\begin{exo}
+Soient \(U,V\) deux ouverts et \(f:U\to V\) une bijection différentiable sur \(U\) telle que \(f\inv\) le soit aussi.
+
+Que dire de la matrice jacobienne de \(f\) en tout point de \(U\) ?
+\end{exo}
+
+\begin{ex}
+Soient \(f\) une fonction différentiable de \(\R^2\) dans \(\R\) définie sur un ouvert \(D\) et \(x,y\) deux fonctions différentiables sur un ouvert \(U\) de \(\R^2\) telles que \(\quantifs{\tpt\paren{u,v}\in U}\Phi\paren{u,v}=\paren{x\paren{u,v},y\paren{u,v}}\in D\).
+
+Alors la fonction composée \(g:\paren{u,v}\mapsto f\paren{\Phi\paren{u,v}}\) est différentiable sur \(U\) et on a l'égalité matricielle \[\cycle{\pdif{1}g\paren{u,v};\pdif{2}g\paren{u,v}}=\cycle{\pdif{1}f\paren{\Phi\paren{u,v}};\pdif{2}f\paren{\Phi\paren{u,v}}}\times\begin{pmatrix}
+\pdif{1}x\paren{u,v} & \pdif{2}x\paren{u,v} \\
+\pdif{1}y\paren{u,v} & \pdif{2}y\paren{u,v}
+\end{pmatrix},\] ce qui se traduit, en clair, par \[\quantifs{\forall\paren{u,v}\in U}\begin{dcases}
+\pdif{1}g\paren{u,v}=\pdif{1}f\paren{\Phi\paren{u,v}}\pdif{1}x\paren{u,v}+\pdif{2}f\paren{\Phi\paren{u,v}}\pdif{1}y\paren{u,v} \\
+\pdif{2}g\paren{u,v}=\pdif{1}f\paren{\Phi\paren{u,v}}\pdif{2}x\paren{u,v}+\pdif{2}f\paren{\Phi\paren{u,v}}\pdif{2}y\paren{u,v}
+\end{dcases}\]
+
+Avec les notations des physiciens, c'est plus clair, à condition de fixer les noms des variables selon leur rang : \[\quantifs{\forall\paren{u,v}\in U}\begin{dcases}
+\pdv{g}{u}\paren{u,v}=\pdv{f}{x}\paren{\Phi\paren{u,v}}\pdv{x}{u}\paren{u,v}+\pdv{f}{y}\paren{\Phi\paren{u,v}}\pdv{y}{u}\paren{u,v} \\
+\pdv{g}{v}\paren{u,v}=\pdv{f}{x}\paren{\Phi\paren{u,v}}\pdv{x}{v}\paren{u,v}+\pdv{f}{y}\paren{\Phi\paren{u,v}}\pdv{y}{v}\paren{u,v}
+\end{dcases}\] voire même, de façon encore plus abrégée : \[\begin{dcases}
+\pdv{g}{u}=\pdv{f}{x}\pdv{x}{u}+\pdv{f}{y}\pdv{y}{u} \\
+\pdv{g}{v}=\pdv{f}{x}\pdv{x}{v}+\pdv{f}{y}\pdv{y}{v}
+\end{dcases}\]
+\end{ex}
+
+\begin{rem}
+Attention ! Plus on utilise des notations abrégées, plus il y a de sous-entendus ! Donc pour comprendre correctement ces égalités, il faut les replacer dans le contexte, donc ne pas oublier ces sous-entendus.
+\end{rem}
+
+\begin{ex}[Cas particulier important : le passage en coordonnées polaires]
+Si \(f\) est différentiable sur \(\R^2\), alors \(g:\paren{r,\theta}\mapsto f\paren{r\cos\theta,r\sin\theta}\) est différentiable sur \(\R^2\) et \[\quantifs{\forall\paren{r,\theta}\in\R^2}\begin{dcases}
+\pdv{g}{r}\paren{r,\theta}=\pdv{f}{x}\paren{\Phi\paren{r,\theta}}\cos\theta+\pdv{f}{y}\paren{\Phi\paren{r,\theta}}\sin\theta \\
+\pdv{g}{\theta}\paren{r,\theta}=-\pdv{f}{x}\paren{\Phi\paren{r,\theta}}r\sin\theta+\pdv{f}{y}\paren{\Phi\paren{r,\theta}}r\cos\theta
+\end{dcases}\]
+
+Avec ces changements de variables, on peut résoudre quelques équations aux dérivées partielles simples, la difficulté étant de trouver un bon changement de variables. En pratique, il est presque toujours donné par l'énoncé.
+\end{ex}
+
+\begin{exo}
+Déterminez les fonctions différentiables sur \(\Rps\times\R\) telles que \(x\pdv{f}{x}+y\pdv{f}{y}=0\).
+\end{exo}
+
+\begin{exo}
+Déterminez les fonctions différentiables sur \(\R^2\) telles que \(2\pdv{f}{x}-\pdv{f}{y}=0\), en posant \(x=2u-v\) et \(y=v-u\).
+\end{exo}
+
+\begin{exo}
+Déterminez les fonctions différentiables sur \(\Rps\times\R\) telles que \(2xy\pdv{f}{x}+\paren{1+y^2}\pdv{f}{y}=0\), en posant \(x=\dfrac{u^2+v^2}{2}\) et \(y=\dfrac{u}{v}\).
+\end{exo}
+
+\subsection{Dérivation le long d'un chemin}
+
+On appelle ici chemin une fonction \(\gamma:I\to E\) continue sur \(I\), comme pour la définition de connexité par arcs (\cf \thref{defi:chemin}).
+
+\begin{prop}
+Soient \(U\) un ouvert de \(E\), \(f:U\to F\) et \(\gamma:I\to U\) un chemin.
+
+Si \(\gamma\) est dérivable en \(t\in I\) et \(f\) est différentiable en \(\gamma\paren{t}\), alors \(f\rond\gamma\) est dérivable en \(t\) et \[\paren{f\rond\gamma}\prim\paren{t}=\odif{f}\paren{\gamma\paren{t}}.\gamma\prim\paren{t}.\]
+\end{prop}
+
+Un cas particulier : si \(f\) est à valeurs réelles.
+
+\begin{prop}
+Soient \(U\) un ouvert de \(E\), \(f:U\to\R\) et \(\gamma:I\to U\) un chemin.
+
+Si \(\gamma\) est dérivable en \(t\in I\) et \(f\) est différentiable en \(\gamma\paren{t}\), alors \(f\rond\gamma\) est dérivable en \(t\) et \[\paren{f\rond\gamma}\prim\paren{t}=\nabla f\paren{\gamma\paren{t}}\scal\gamma\prim\paren{t}.\]
+\end{prop}
+
+Dans le cas où \(E\) est identifié à \(\R^p\) par choix d'une base, en notant \(\gamma\paren{t}=\tcoords{u_1\paren{t}}{\vdots}{u_p\paren{t}}\), on a \[\paren{f\rond\gamma}\prim\paren{t}=\sum_{i=1}^p\pdv{f}{x_i}\paren{\gamma\paren{t}}u_i\prim\paren{t}.\]
+
+Si la situation précédente est valable pour tout \(t\in I\), alors le support \(\Gamma\) de \(\gamma\) (\ie son image) est une courbe.
+
+\begin{itemize}
+    \item Si pour tout \(t\in I\), les vecteurs \(\nabla f\paren{\gamma\paren{t}}\) et \(\gamma\prim\paren{t}\) sont orthogonaux, alors la fonction \(f\) est constante sur la courbe \(\Gamma\) : on dit que \(\Gamma\) est une ligne de niveau. \\
+    \item Si pour tout \(t\in I\), les vecteurs \(\nabla f\paren{\gamma\paren{t}}\) et \(\gamma\prim\paren{t}\) sont colinéaires de même sens, alors la courbe \(\Gamma\) est une courbe sur laquelle quand on se déplace, les variations relatives de \(f\) sont maximales : on dit que \(\Gamma\) est une ligne de champ de \(f\). \\
+    \item Par conséquent, si une ligne de niveau et une ligne de champ se croisent en un point, les vecteurs tangents en ce point sont orthogonaux : on dit que les lignes de champ sont orthogonales aux lignes de niveau.
+\end{itemize}
+
+\begin{ex}
+\begin{itemize}
+    \item Les lignes de niveau dans \(\R^2\) de la fonction \(f:\paren{x,y}\mapsto x^2+y^2\) sont les courbes inscrites dans des cercles ; les lignes de champ sont les courbes inscrites dans les droites passant par l'origine. \\
+    \item Les lignes de niveau dans \(\R^2\) de la fonction \(f:\paren{x,y}\mapsto xy\) sont les courbes inscrites dans les hyperboles d'asymptotes \(\paren{Ox}\) et \(\paren{Oy}\) ; les lignes de champ sont les courbes inscrites dans les hyperboles d'asymptotes les deux bissectrices des axes.
+\end{itemize}
+\end{ex}
+
+\section{Fonctions de classe \(\classe{1}\)}
+
+\subsection{Définition}
+
+Si une fonction \(f:U\to F\) est différentiable en tout point d'un ouvert \(U\), alors pour tout \(a\in U\), \(\odif{f}\paren{a}\) est une application linéaire (continue) de \(E\) dans \(F\), donc un élément de \(\Lc{E}{F}\) (qui est égal à \(\L{E}{F}\) dans ce cours, puisque les dimensions de \(E\) et \(F\) sont finies). On peut alors définir l'application \(\odif{f}:U\to\L{E}{F}\) (remarque : \(\L{E}{F}\) est aussi de dimension finie selon les hypothèses de ce cours).
+
+\begin{defi}
+On dit que \(f\) est de classe \(\classe{1}\) sur \(U\) quand \(\odif{f}\) est une application continue de \(U\) dans \(\L{E}{F}\).
+\end{defi}
+
+Un exemple fondamental : les applications linéaires ou \(k\)-linéaires.
+
+\subsection{Caractérisation}
+
+\begin{theo}
+Soient \(U\) un ouvert de \(E\) et \(f:U\to F\).
+
+En identifiant \(E\) et \(\R^p\) par choix d'une base quelconque, \(f\) est de classe \(\classe{1}\) sur \(U\) ssi \(f\) possède des dérivées partielles en tout point de \(U\) et si toutes ses dérivées partielles sont continues sur \(U\).
+\end{theo}
+
+\subsection{Opérations sur les fonctions de classe \(\classe{1}\)}
+
+Grâce aux théorèmes d'opérations et de composition des fonctions continues, il devient évident que
+
+\begin{itemize}
+    \item toute combinaison linéaire d'applications \(\classe{1}\) est \(\classe{1}\) \\
+    \item tout produit ou quotient (sous réserve de définition) de fonctions \(\classe{1}\) est \(\classe{1}\) \\
+    \item toute composée de fonctions \(\classe{1}\) est \(\classe{1}\).
+\end{itemize}
+
+\begin{ex}
+\begin{itemize}
+    \item Les applications coordonnées \(\paren{x_1,\dots,x_p}\mapsto x_i\) sont de classe \(\classe{1}\) donc toute application de \(U\) dans \(\R\) qui est polynomiale en ses \(p\) variables est elle-même de classe \(\classe{1}\) : le produit scalaire, le déterminant sont des applications de classe \(\classe{1}\). \\
+    \item On retrouve ainsi que l'application \(A\mapsto A\inv\) est de classe \(\classe{1}\) sur \(\GL{n}[\R]\).
+\end{itemize}
+\end{ex}
+
+\begin{exo}
+La fonction \(f:\paren{x,y}\mapsto\dfrac{y^4}{x^2+y^2}\) prolongée en \(\paren{0,0}\) par \(0\) est-elle de classe \(\classe{1}\) sur \(\R^2\) ?
+\end{exo}
+
+\begin{exo}
+Soit \(f:\R\to\R\) de classe \(\classe{1}\).
+
+On pose \(\phi\paren{x,y}=\dfrac{1}{y-x}\int_x^yf\) si \(x\not=y\) et \(\phi\paren{x,x}=f\paren{x}\).
+
+Montrez que \(\phi\) est de classe \(\classe{1}\) sur \(\R^2\).
+\end{exo}
+
+\subsection{Caractérisation des fonctions constantes parmi les \(\classe{1}\)}
+
+\begin{prop}
+Soient \(U\) un ouvert de \(E\), \(f:U\to F\) de classe \(\classe{1}\) et \(a,b\in U\).
+
+Pour tout chemin \(\gamma:\intervii{0}{1}\to U\) de classe \(\classe{1}\) tel que \(\gamma\paren{0}=a\) et \(\gamma\paren{1}=b\), on a \[f\paren{b}-f\paren{a}=\int_0^1\odif{f}\paren{\gamma\paren{t}}.\gamma\prim\paren{t}\odif{t}.\]
+\end{prop}
+
+\begin{theo}
+Si \(U\) est un ouvert connexe par arcs de \(E\) et \(f\) est de classe \(\classe{1}\) sur \(U\), alors \(f\) est constante sur \(U\) ssi \(\odif{f}=0\) sur \(U\).
+\end{theo}
+
+\begin{rem}
+Attention ! Ce résultat n'est valable que sur un ouvert connexe par arcs ! Dans le cas contraire, on est dans une situation analogue à celle rencontrée sur \(\R\) : la fonction \(x\mapsto\Arctan x+\Arctan\dfrac{1}{x}\) est de dérivée nulle sur \(\Rs\) mais n'est pas constante sur \(\Rs\).
+\end{rem}
+
+\section{Vecteurs tangents à une partie}
+
+\begin{defi}
+Soient \(A\) une partie de \(E\), \(a\in A\) et \(v\in E\).
+
+On dit que \(v\) est un vecteur tangent à \(A\) en \(a\) quand il existe un chemin \(\gamma\) défini au voisinage de \(0\), dérivable en \(0\) et à valeurs dans \(A\) tel que \(\gamma\paren{0}=a\) et \(\gamma\prim\paren{0}=v\).
+\end{defi}
+
+L'ensemble des vecteurs tangents à \(A\) en \(a\) est noté \(\espacetangent{a}{A}\). Il contient toujours le vecteur nul. Quand il s'agit d'un sous-espace vectoriel de \(E\), on l'appelle le sous-espace tangent à \(A\) en \(a\).
+
+\begin{prop}
+Soient \(U\) un ouvert de \(E\) et \(g:U\to\R\) de classe \(\classe{1}\). On pose \(A=g\inv\paren{\accol{0}}\).
+
+Pour tout \(a\in A\) tel que \(\odif{g}\paren{a}\not=0\), l'ensemble des vecteurs tangents à \(A\) en \(a\) est le sous-espace \(\ker\odif{g}\paren{a}\).
+\end{prop}
+
+Dans le cas où \(\odif{g}\paren{a}=0\), il n'y a pas de résultat général.
+
+\begin{rem}
+\begin{itemize}
+    \item Dans le cas où \(p=2\), \(A\) est appelé une ligne de niveau d'équation \(g\paren{x,y}=0\). \\\\ Si \(M=\paren{a,b}\in A\) et \(\odif{g}\paren{M}\not=0\), alors \(\espacetangent{M}{A}\) est la droite vectorielle d'équation \(\pdv{g}{x}\paren{M}x+\pdv{g}{y}\paren{M}y=0\) et \(\nabla g\paren{M}\) est un vecteur normal à cette droite. \\\\ La droite affine \(M+\espacetangent{M}{A}\) d'équation \(\pdv{g}{x}\paren{M}\paren{x-a}+\pdv{g}{y}\paren{M}\paren{y-b}=0\) est la tangente en \(M\). \\
+    \item Dans le cas où \(p=3\), \(A\) est appelé une surface de niveau d'équation \(g\paren{x,y,z}=0\). \\\\ Si \(M=\paren{a,b,c}\in A\) et \(\odif{g}\paren{M}\not=0\), alors \(\espacetangent{M}{A}\) est le plan d'équation \(\pdv{g}{x}\paren{M}x+\pdv{g}{y}\paren{M}y+\pdv{g}{z}\paren{M}z=0\) et \(\nabla g\paren{M}\) est un vecteur normal à ce plan. \\\\ Le plan affine \(M+\espacetangent{M}{A}\) d'équation \(\pdv{g}{x}\paren{M}\paren{x-a}+\pdv{g}{y}\paren{M}\paren{y-b}+\pdv{g}{z}\paren{M}\paren{z-c}=0\) est le plan tangent en \(M\).
+\end{itemize}
+
+Les physiciens utilisent aussi le terme d'équipotentielle. Par extension, en dimension quelconque, le vecteur \(\nabla g\paren{M}\) est appelé vecteur normal à la ligne de niveau d'équation \(g\paren{M}=0\).
+\end{rem}
+
+\begin{exo}
+Soit \(A\) l'ellipse d'équation \(\dfrac{x^2}{a^2}+\dfrac{y^2}{b^2}=1\).
+
+Soient \(M_0\) et \(M_1\) deux point de \(A\) tels que les tangentes à \(A\) en \(M_0\) et \(M_1\) se coupent en un point \(N\).
+
+Montrez que la droite \(\paren{ON}\) passe par le milieu de \(\croch{M_0M_1}\).
+\end{exo}
+
+\section{Optimisation au premier ordre}
+
+\subsection{Vocabulaire}
+
+\begin{defi}
+Soient \(f\) une fonction de \(E\) dans \(\R\) définie sur une partie \(A\) et \(a_0\in A\).
+
+On dit que
+
+\begin{itemize}
+    \item \(f\) possède un maximum local sur \(A\) en \(a_0\) quand il existe \(r>0\) tel que \[\quantifs{\forall a\in\bouleo{a_0}{r}\inter A}f\paren{a}\leq f\paren{a_0}\]
+    \item \(f\) possède un minimum local sur \(A\) en \(a_0\) quand il existe \(r>0\) tel que \[\quantifs{\forall a\in\bouleo{a_0}{r}\inter A}f\paren{a}\geq f\paren{a_0}\]
+    \item \(f\) possède un extremum local sur \(A\) en \(a_0\) quand \(f\) possède un maximum ou un minimum local sur \(A\) en \(a_0\).
+\end{itemize}
+\end{defi}
+
+\begin{defi}
+Soient \(f\) une fonction de \(E\) dans \(\R\) définie sur une partie \(A\) et \(a_0\in A\).
+
+On dit que
+
+\begin{itemize}
+    \item \(f\) possède un maximum global sur \(A\) en \(a_0\) quand \[\quantifs{\forall a\in A}f\paren{a}\leq f\paren{a_0}\]
+    \item \(f\) possède un minimum global sur \(A\) en \(a_0\) quand \[\quantifs{\forall a\in A}f\paren{a}\geq f\paren{a_0}\]
+    \item \(f\) possède un extremum global sur \(A\) en \(a_0\) quand \(f\) possède un maximum ou un minimum global sur \(A\) en \(a_0\).
+\end{itemize}
+\end{defi}
+
+La recherche des points en lesquels une fonction possède des extrema (locaux ou globaux) dépend à la fois des propriétés de la fonction et de l'ensemble sur lequel la fonction est définie.
+
+\subsection{Points critiques, extrema locaux d'une fonction sur un ouvert}
+
+\begin{defi}
+Soient \(U\) un ouvert de \(E\) et \(f:U\to F\) différentiable sur \(U\).
+
+Un point critique de \(f\) est un point \(a\in U\) tel que \(\odif{f}\paren{a}=0\).
+\end{defi}
+
+Comme dans le cours de première année, on retrouve la condition nécessaire d'existence d'un extremum local pour les fonctions à valeurs réelles.
+
+\begin{prop}
+Soient \(U\) un ouvert de \(E\), \(f:U\to\R\) différentiable sur \(U\) et \(a\in U\).
+
+Si \(f\) possède un extremum local en \(a\), alors \(a\) est un point critique de \(f\).
+\end{prop}
+
+\begin{rem}
+\begin{itemize}
+    \item La réciproque est fausse (contre-exemple : la selle de cheval \(\paren{x,y}\mapsto x^2-y^2\)). \\
+    \item Ce résultat n'est valable que sur un ouvert, donc en particulier en tout point intérieur à une partie, mais pas sur les bords. En général, on distingue donc dans l'étude des extrema les points sur la frontière et ceux à l'intérieur.
+\end{itemize}
+\end{rem}
+
+\begin{exo}
+Déterminez les extrema de la fonction \(\paren{x,y}\mapsto x^3+y^3-3xy\).
+\end{exo}
+
+\begin{exo}
+Même question avec \(\paren{x,y}\mapsto x^3+x^2+y^2\).
+\end{exo}
+
+\begin{exo}
+Même question avec \(\paren{x,y}\mapsto x^2+x^2y+y^3\).
+\end{exo}
+
+\subsection{Extrema locaux d'une fonction sur une partie}
+
+La recherche des extrema locaux sur une partie quelconque est souvent un problème difficile. Néanmoins, on dispose de quelques résultats.
+
+D'abord, on généralise le théorème précédent (admis).
+
+\begin{prop}
+Soient \(U\) un ouvert de \(E\), \(f:U\to\R\) différentiable sur \(U\), \(A\) une partie de \(U\) et \(a\in A\).
+
+Si \(f\) possède un extremum local sur \(A\) en \(a\), alors \(\odif{f}\paren{a}\) s'annule sur \(\espacetangent{a}{A}\).
+\end{prop}
+
+En conséquence, on a un résultat dans certains cas particuliers d'équipotentielles, appelé théorème d'optimisation sous une contrainte.
+
+\begin{prop}
+Soient \(U\) un ouvert de \(E\) et \(f,g:U\to\R\) de classe \(\classe{1}\).
+
+Soient \(A=g\inv\paren{\accol{0}}\) et \(a\in A\).
+
+Si \(f\) possède un extremum local sur \(A\) en \(a\) et si \(\odif{g}\paren{a}\not=0\), alors \(\odif{f}\paren{a}\) est colinéaire à \(\odif{g}\paren{a}\), ce qui revient à dire que les vecteurs gradients de \(f\) et \(g\) en \(a\) sont colinéaires.
+\end{prop}
+
+\begin{rem}
+Là encore, il s'agit de conditions nécessaires mais pas suffisantes en général. Une fois les points candidats trouvés, il faut toujours une étude locale pour les accepter ou non, ou bien utiliser un théorème d'existence comme le théorème des bornes atteintes.
+\end{rem}
+
+\begin{exo}
+Déterminez les extrema de la fonction \(\paren{x,y}\mapsto xy\) sur la courbe d'équation \(x^4+y^4=1\).
+\end{exo}
+
+\begin{exo}
+Même question avec la fonction \(\paren{x,y}\mapsto x^3+2y^3\) sur la courbe d'équation \(x^2-y^2=1\).
+\end{exo}
+
+\begin{exo}
+Même question avec la fonction \(\paren{x,y,z}\mapsto x+y+z\) sur la surface d'équation \(x^2+y^2-2z^2=2\).
+\end{exo}
+
+\section{Fonctions de classe \(\classe{k}\)}
+
+\subsection{Dérivées partielles d'ordre supérieur}
+
+Pour une fonction quelconque définie sur un ouvert de \(\R^p\), on peut éventuellement définir récursivement ses dérivées partielles d'ordre \(k\) comme étant les dérivées partielles des dérivées partielles d'ordre \(\paren{k-1}\) quand cela a un sens.
+
+Évidemment, l'ordre dans lequel on effectue les dérivations a une importance.
+
+Si \(i=\paren{i_1,\dots,i_k}\in\interventierii{1}{p}^k\) est un multi-indice, on note \(\pdif{i}f\), \(\pdif{i_1,\dots,i_k}f\) ou \(\dfrac{\partial^kf}{\partial x_{i_1}\partial x_{i_2}\dots\partial x_{i_k}}\) la dérivée partielle \(\pdif{i_1}\paren{\pdif{i_2}\dots\pdif{i_k}f}\).
+
+L'ordre des dérivées partielles se lit donc de la droite vers la gauche.
+
+\textit{A priori} si une fonction a \(p\) variables, elle peut posséder jusqu'à \(p^k\) dérivées partielles d'ordre \(k\).
+
+\subsection{Fonctions de classe \(\classe{k}\)}
+
+La classe \(\classe{0}\) étant celle des fonctions continues, on peut donner une définition récursive de la classe \(\classe{k}\) pour \(k\in\N\).
+
+\begin{defi}
+Soient \(U\) un ouvert de \(\R^p\), \(f:U\to F\) et \(k\in\Ns\).
+
+On dit que \(f\) est de classe \(\classe{k}\) sur \(U\) quand elle a des dérivées partielles en tout point de \(U\) et que celles-ci sont de classe \(\classe{k-1}\) sur \(U\).
+
+On dit que \(f\) est de classe \(\classe{\infty}\) sur \(U\) quand \(\quantifs{\tpt k\in\N}f\) est de classe \(\classe{k}\).
+\end{defi}
+
+Par application récursive des théorèmes d'opérations précédents, on obtient les théorèmes d'opérations sur les fonctions de classe \(\classe{k}\) sans difficulté.
+
+\subsection{Théorème de Schwarz}
+
+Dans le cas des fonctions de classe \(\classe{k}\), il y a finalement bien moins de dérivées partielles que prévu.
+
+\begin{theo}
+Soient \(U\) un ouvert de \(\R^p\) et \(f:U\to F\).
+
+Si \(f\) est de classe \(\classe{2}\) sur \(U\), alors \(\quantifs{\tpt\paren{i,j}\in\interventierii{1}{p}^2}\pdif{i}\paren{\pdif{j}f}=\pdif{j}\paren{\pdif{i}f}\).
+\end{theo}
+
+On en déduit par récurrence que pour toute fonction de classe \(\classe{k}\), l'ordre des dérivations (jusqu'à \(k\) dérivations successives) n'importe pas.
+
+\section{Optimisation au second ordre}
+
+\subsection{Hessienne}
+
+\begin{defi}
+Soient \(U\) un ouvert de \(\R^p\), \(f:U\to\R\) de classe \(\classe{2}\) et \(a\in U\).
+
+On appelle hessienne de \(f\) en \(a\) la matrice \(\hessienne{f}\paren{a}=\paren{h_{i\,j}}\in\M{p}[\R]\) telle que \[\quantifs{\forall\paren{i,j}\in\interventierii{1}{p}^2}h_{i\,j}=\pdif{i}\pdif{j}f\paren{a}=\pdv{f}{x_i,x_j}\paren{a}.\]
+\end{defi}
+
+D'après le théorème de Schwarz, la hessienne de \(f\) est alors une matrice symétrique.
+
+\note{Cette définition de la forme hessienne est peut-être erronée (vérification en cours)}
+
+On lui associe l'application \(\formehessienne{f}\paren{a}\) de \(\R^p\) dans \(\R\) définie de la façon suivante : \[\quantifs{\forall v=\tcoords{v_1}{\vdots}{v_p}\in\R^p}\formehessienne{f}\paren{a}.\paren{v,v}=\trans{v}\hessienne{f}\paren{a}v.\]
+
+C'est un produit scalaire (canonique) entre le vecteur-colonne \(v\) et \(\hessienne{f}\paren{a}v\). Cette application est appelée la forme hessienne de \(f\) en \(a\) (à titre culturel, on appelle ce genre d'application des formes quadratiques).
+
+En clair, on a \[\formehessienne{f}\paren{a}.\paren{v,v}=\sum_{1\leq i,j\leq p}\pdv{f}{x_i,x_j}\paren{a}v_iv_j.\]
+
+\subsection{Développement limité à l'ordre 2}
+
+On admet le résultat suivant, appelé formule de Taylor-Young à l'ordre 2.
+
+\begin{prop}
+Soient \(U\) un ouvert de \(\R^p\), \(f:U\to\R\) de classe \(\classe{2}\) et \(a\in U\).
+
+Pour tout vecteur \(v\) au voisinage de \(0\), on a \[f\paren{a+v}=f\paren{a}+\odif{f}\paren{a}.v+\dfrac{1}{2}\formehessienne{f}\paren{a}.\paren{v,v}+\o{\norme{v}^2}.\]
+\end{prop}
+
+Ce développement limité est souvent écrit à l'aide du gradient et de la hesienne : \[f\paren{a+v}=f\paren{a}+\nabla f\paren{a}\scal v+\dfrac{1}{2}\paren{\hessienne{f}\paren{a}v}\scal v+\o{\norme{v}^2}.\]
+
+\subsection{Application à l'étude des points critiques}
+
+\begin{prop}
+Soient \(U\) un ouvert de \(\R^p\), \(f:U\to\R\) de classe \(\classe{2}\) et \(a\in U\).
+
+Si \(f\) possède un minimum local en \(a\), alors \(a\) est un point critique de \(f\) et \(\hessienne{f}\paren{a}\in\sympos{p}[\R]\).
+\end{prop}
+
+\begin{rem}
+Attention ! La réciproque est fausse. Néanmoins, elle est \guillemets{presque vraie} en ajoutant une précision.
+\end{rem}
+
+\begin{prop}
+Soient \(U\) un ouvert de \(\R^p\), \(f:U\to\R\) de classe \(\classe{2}\) et \(a\in U\).
+
+Si \(a\) est un point critique de \(f\) et \(\hessienne{f}\paren{a}\in\symdefpos{p}[\R]\), alors \(f\) possède un minimum local strict en \(a\).
+\end{prop}
+
+Cas particulier très courant : les applications à deux variables.
+
+Soient \(f\) une fonction de classe \(\classe{2}\) sur un ouvert \(U\) de \(\R^2\) et \(a\in U\).
+
+On a \[\nabla f\paren{a}=\dcoords{\pdv{f}{x}\paren{a}}{\pdv{f}{y}\paren{a}}\qquad\text{et}\qquad\hessienne{f}\paren{a}=\begin{pmatrix}
+\pdv[order=2]{f}{x}\paren{a} & \pdv{f}{x,y}\paren{a} \\
+\pdv{f}{x,y}\paren{a} & \pdv[order=2]{f}{y}\paren{a}
+\end{pmatrix}.\]
+
+Cette matrice est définie-positive ssi sa trace et son déterminant sont strictement positifs.
+
+En remplaçant \(f\) par \(-f\), on en déduit des résultats similiaires à propos des maxima locaux.
+
+\begin{prop}
+Soient \(U\) un ouvert de \(\R^p\), \(f:U\to\R\) de classe \(\classe{2}\) et \(a\in U\).
+
+Si \(f\) possède un maximum local en \(a\), alors \(a\) est un point critique de \(f\) et \(\hessienne{f}\paren{a}\in\symneg{p}[\R]\) (\ie c'est une matrice symétrique négative, ses valeurs propres sont négatives).
+\end{prop}
+
+\begin{prop}
+Soient \(U\) un ouvert de \(\R^p\), \(f:U\to\R\) de classe \(\classe{2}\) et \(a\in U\).
+
+Si \(a\) est un point critique de \(f\) et \(\hessienne{f}\paren{a}\in\symdefneg{p}[\R]\) (\ie c'est une matrice définie-négative, ses valeurs propres sont strictement négatives), alors \(f\) possède un maximum local strict en \(a\).
+\end{prop}
+
+Pour une application à deux variables, sa hessienne est définie-négative ssi sa trace est strictement négative et son déterminant strictement positif.
+
+\begin{prop}
+Soient \(U\) un ouvert de \(\R^p\), \(f:U\to\R\) de classe \(\classe{2}\) et \(a\in U\).
+
+Si \(a\) est un point critique de \(f\) et \(\hessienne{f}\paren{a}\) est une matrice symétrique ayant deux valeurs propres non-nulles de signes opposés, alors \(f\) ne possède pas d'extremum en \(a\) (le point \(a\) est appelé point-col ou point-selle).
+\end{prop}
+
+\begin{exo}
+Déterminez les extrema de la fonction \(\paren{x,y}\mapsto2y^2+2x^2-x^4\).
+\end{exo}
+
+\begin{exo}
+Même question avec \(\paren{x,y}\mapsto y\paren{x^2+\ln^2y}\).
+\end{exo}
+
+\begin{exo}
+Soient \(n\in\Ns\) et \(a_1,\dots,a_n\in\R\).
+
+On pose \(f:\paren{x,y}\mapsto\dfrac{1}{2x}\sum_{i=1}^n\paren{y-a_i}^2+\dfrac{n}{2}\ln x\).
+
+Déterminez, s'ils existent, les extrema de \(f\).
+\end{exo}
+
+\begin{exo}
+Déterminez les extrema de la fonction \(\paren{x,y}\mapsto x^3+y^2\).
+\end{exo}
