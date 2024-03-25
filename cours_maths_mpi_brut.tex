@@ -585,6 +585,8 @@ per-mode=power-positive-first
 \DeclareDocumentCommand{\sym}{m O{\K}}{\mathscr{S}_{#1}\paren{#2}}
 \DeclareDocumentCommand{\sympos}{m O{\K}}{\mathscr{S}^+_{#1}\paren{#2}}
 \DeclareDocumentCommand{\symdefpos}{m O{\K}}{\mathscr{S}^{++}_{#1}\paren{#2}}
+\DeclareDocumentCommand{\symneg}{m O{\K}}{\mathscr{S}^-_{#1}\paren{#2}}
+\DeclareDocumentCommand{\symdefneg}{m O{\K}}{\mathscr{S}^{--}_{#1}\paren{#2}}
 \DeclareDocumentCommand{\antisym}{m O{\K}}{\mathscr{A}_{#1}\paren{#2}}
 \DeclareDocumentCommand{\GL}{m O{\K}}{\operatorname{GL}_{#1}\paren{#2}}
 \DeclareDocumentCommand{\SL}{m O{\K}}{\operatorname{SL}_{#1}\paren{#2}}
@@ -717,6 +719,10 @@ per-mode=power-positive-first
 \newcommand{\disqueo}[2]{D\paren{#1,#2}}
 
 \newcommand{\vdv}[2]{\operatorname{D}_{#1}#2}
+\newcommand{\jacobienne}[1]{\operatorname{J}#1}
+\newcommand{\hessienne}[1]{\operatorname{H}_{#1}}
+\newcommand{\formehessienne}[1]{\operatorname{h}_{#1}}
+\newcommand{\espacetangent}[2]{\operatorname{T}_{#1}\paren{#2}}
 
 \newcommand{\egqd}[1]{\underset{#1}{=}}
 \newcommand{\simqd}[1]{\underset{#1}{\sim}}
@@ -856,6 +862,8 @@ Cette version ne contient que le contenu des cours imprimés distribués au fil 
 
 \include{cours/chap15_equations_differentielles_lineaires/chap15_equations_differentielles_lineaires_brut}
 
+\include{cours/chap16_calcul_differentiel/chap16_calcul_differentiel_brut}
+
 \part{Exercices}
 
 \setcounter{chapter}{0}
@@ -889,4 +897,6 @@ Cette version ne contient que le contenu des cours imprimés distribués au fil 
 \include{exercices/chap14_variables_aleatoires_discretes/chap14_variables_aleatoires_discretes_brut}
 
 \include{exercices/chap15_equations_differentielles_lineaires/chap15_equations_differentielles_lineaires_brut}
+
+\include{exercices/chap16_calcul_differentiel/chap16_calcul_differentiel_brut}
 \end{document}
