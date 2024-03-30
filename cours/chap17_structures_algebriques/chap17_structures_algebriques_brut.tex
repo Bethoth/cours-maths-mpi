@@ -2,4 +2,783 @@
 
 \minitoc
 
-\note{À venir}
+Dans ce chapitre, comme toujours, \(\K\) désigne un sous-corps de \(\C\), le plus souvent \(\R\) ou \(\C\).
+
+\section{Groupes}
+
+\subsection{Rappels}
+
+\subsubsection{Généralités}
+
+\begin{defi}
+Soit \(G\) un ensemble.
+
+On dit que \(\groupe{G}[*]\) est un groupe quand
+
+\begin{itemize}
+    \item \(*\) est une loi de composition interne sur \(G\) \\
+    \item \(*\) est associative \\
+    \item \(*\) admet un neutre \\
+    \item tout élément de \(G\) est symétrisable pour \(*\) dans \(G\).
+\end{itemize}
+
+Si, de plus, \(*\) est commutative, on dit que \(\groupe{G}[*]\) est un groupe commutatif ou abélien.
+\end{defi}
+
+\begin{prop}[Simplification]
+Dans un groupe muni d'une loi \(*\) :
+
+\begin{itemize}
+    \item si \(x*y=x*z\), alors \(y=z\) \\
+    \item si \(y*x=z*x\), alors \(y=z\).
+\end{itemize}
+\end{prop}
+
+Attention à l'ordre des éléments si le groupe n'est pas commutatif !
+
+On ne note souvent la loi \(+\) (on dit que la loi est notée additivement) que dans le cas où le groupe est abélien, le neutre est noté \(0\) et \(-x\) le symétrique d'un élément \(x\), appelé bien sûr l'opposé.
+
+Sinon, la loi est notée \(\times\) ou \(*\) ou \(.\) en général, le neutre est noté \(1\) ou \(e\) ou \(I\) et le symétrique d'un élément \(x\) est noté \(x\inv\) (on dit que la loi du groupe est notée multiplicativement).
+
+\begin{ex}
+\begin{itemize}
+    \item \(\groupe{\Z}\), \(\groupe{\Q}\), \(\groupe{\R}\) et \(\groupe{\C}\) sont des groupes abéliens, ainsi que \(\groupe{\accol{-1,1}}[\times]\), \(\groupe{\Ks}[\times]\), \(\groupe{\Rps}[\times]\) et \(\groupe{\U}[\times]\). \\
+    \item Soit \(A\) un ensemble. En notant \(\S{A}\) l'ensemble des bijections de \(A\) dans \(A\) (aussi appelées permutations de \(A\)), on a alors une structure de groupe \(\groupe{\S{A}}[\rond]\), non-abélien en général (dès que \(A\) a plus de trois éléments), appelé groupe symétrique de \(A\). Un cas particulier important : \(\S{n}=\S{\interventierii{1}{n}}\). \\
+    \item Si \(E\) est un \(\K\)-espace vectoriel, on a le groupe \(\groupe{\GL{}[E]}[\rond]\), non-abélien en général (dès que \(\dim E\geq2\)), appelé le groupe linéaire de \(E\). De même, on a le groupe \(\groupe{\GL{n}[\K]}[\times]\), non-abélien en général, appelé le groupe linéaire d'indice \(n\). \\
+    \item Attention ! \(\Lendo{E}\) n'est pas un groupe pour la loi \(\rond\) et \(\M{n}[\K]\) n'est pas un groupe pour la loi \(\times\). Ce sont des groupes pour la loi \(+\).
+\end{itemize}
+\end{ex}
+
+Soient \(\groupe{G}[.]\) un groupe, \(a\in G\) et \(n\in\Ns\).
+
+On pose \(a^0=e\) et \(a^{n+1}=a^n.a=\underbrace{a.a\dots a}_{n\text{ facteurs}}.a\) et \(a^{-n}=\paren{a\inv}^n\).
+
+Dans le cas d'une loi additive, on note plutôt \(n.a\) au lieu de \(a^n\).
+
+On vérifie que les règles de calcul habituelles restent valables.
+
+\begin{prop}
+Pour tout \(\paren{m,n}\in\Z^2\), on a \[a^{m+n}=a^m.a^n\qquad\text{et}\qquad a^{mn}=\paren{a^m}^n.\]
+\end{prop}
+
+En revanche, la règle habituelle de calcul \(\paren{a.b}^n=a^n.b^n\) n'est pas toujours vraie !
+
+\begin{defi}
+On dit que deux éléments \(a\) et \(b\) commutent quand \(a.b=b.a\).
+\end{defi}
+
+\begin{prop}
+Dans le groupe \(\groupe{G}[.]\), si \(a\) et \(b\) sont deux éléments qui commutent, alors \[\quantifs{\forall n\in\Z}\paren{a.b}^n=a^n.b^n.\]
+\end{prop}
+
+\begin{rem}
+Dans le cas d'une notation additive, on a \(\paren{m+n}.a=m.a+n.a\) et \(\paren{mn}.a=m.\paren{n.a}\), et comme \(+\) est commutative, \(m.\paren{a+b}=m.a+m.b\).
+\end{rem}
+
+\subsubsection{Sous-groupes}
+
+\begin{defi}
+Soient \(\groupe{G}[*]\) un groupe et \(H\) une partie de \(G\).
+
+On dit que \(H\) est un sous-groupe de \(G\) (sous-entendu pour la loi \(*\)) quand
+
+\begin{itemize}
+    \item \(H\) est non-vide \\
+    \item \(H\) est stable par \(*\) : \(\quantifs{\forall\paren{x,y}\in H^2}x*y\in H\) \\
+    \item \(H\) est stable par inversion pour \(*\) : \(\quantifs{\forall x\in H}x\inv\in H\).
+\end{itemize}
+\end{defi}
+
+Une conséquence simple des trois propriétés est que \(H\) contient forcément le neutre. En pratique, pour montrer que \(H\) est non-vide, on montre donc souvent que \(H\) contient le neutre.
+
+Il est facile de voir que \(*\) induit une application de \(H\times H\) dans \(H\) (qui est donc une loi de composition interne), qu'on note encore abusivement \(*\), et que cette loi de composition interne \(*\) dans \(H\) définit une structure de groupe, d'où le nom de sous-groupe.
+
+Un sous-groupe d'un groupe est donc lui-même un groupe. En pratique, on démontre très rarement directement qu'un ensemble est un groupe. Dans presque tous les cas, pour montrer qu'un ensemble muni d'une loi de composition interne est un groupe, on montre que c'est un sous-groupe d'un groupe connu.
+
+Un exemple fondamental : les sous-groupes de \(\groupe{\Z}\).
+
+\begin{prop}
+Les sous-groupes de \(\groupe{\Z}\) sont exactement les ensembles \(n\Z\) pour \(n\in\N\).
+\end{prop}
+
+Le résultat suivant a déjà été prouvé dans le cadre des sous-espaces vectoriels.
+
+\begin{prop}
+Une intersection de sous-groupes est encore un sous-groupe.
+\end{prop}
+
+\subsubsection{Morphismes de groupes}
+
+\begin{defi}
+Soient \(\groupe{E}[*]\) et \(\groupe{F}[.]\) deux groupes et \(f:E\to F\).
+
+On dit que \(f\) est un morphisme de groupes de \(\groupe{E}[*]\) dans \(\groupe{F}[.]\) quand \[\quantifs{\forall\paren{a,b}\in E^2}f\paren{a*b}=f\paren{a}.f\paren{b}.\]
+
+De plus, si \(f\) est bijective, alors on dit que \(f\) est un isomorphisme de groupes.
+\end{defi}
+
+\begin{ex}
+\begin{itemize}
+    \item \(x\mapsto3x\) est un morphisme de \(\groupe{\Z}\) dans \(\groupe{\Z}\). \\
+    \item \(t\mapsto\e{\i t}\) est un morphisme de \(\groupe{\R}\) dans \(\groupe{\Cs}[\times]\). \\
+    \item \(\ln\) est un isomorphisme de \(\groupe{\Rps}[\times]\) dans \(\groupe{\R}\). \\
+    \item \(\det\) est un morphisme de \(\groupe{\GL{n}[\K]}[\times]\) dans \(\groupe{\Ks}[\times]\).
+\end{itemize}
+\end{ex}
+
+On rappelle quelques résultats concernant les morphismes de groupes.
+
+\begin{prop}
+Soient \(\groupe{E}[*]\) et \(\groupe{F}[.]\) deux groupes, dont on note \(e\) et \(\epsilon\) les neutres respectifs et \(f\) un morphisme de groupes de \(\groupe{E}[*]\) dans \(\groupe{F}[.]\).
+
+On a \[f\paren{e}=\epsilon\qquad\text{et}\qquad\quantifs{\forall x\in E}f\paren{x\inv}=f\paren{x}\inv.\]
+\end{prop}
+
+\begin{prop}
+Soient \(\groupe{E}[*]\) et \(\groupe{F}[.]\) deux groupes et \(f\) un morphisme de groupes de \(\groupe{E}[*]\) dans \(\groupe{F}[.]\).
+
+Si \(G\) est un sous-groupe de \(E\), alors \(f\paren{G}\) est un sous-groupe de \(F\).
+
+Si \(H\) est un sous-groupe de \(F\), alors \(f\inv\paren{H}\) est un sous-groupe de \(E\).
+\end{prop}
+
+Deux cas particuliers importants :
+
+\begin{itemize}
+    \item \(\Im f=f\paren{E}\) est un sous-groupe de \(F\). \\
+    \item \(\ker f=f\inv\paren{\accol{\epsilon}}=\accol{x\in E\tq f\paren{x}=\epsilon}\) est un sous-groupe de \(E\), appelé noyau de \(f\).
+\end{itemize}
+
+\begin{prop}
+Soient \(\groupe{E}[*]\) et \(\groupe{F}[.]\) deux groupes, dont on note \(e\) et \(\epsilon\) les neutres respectifs et \(f\) un morphisme de groupes de \(\groupe{E}[*]\) dans \(\groupe{F}[.]\).
+
+\(f\) est injectif ssi \(\ker f=\accol{e}\).
+\end{prop}
+
+\subsection{Ordre d'un élément dans un groupe}
+
+\begin{prop}
+Soient \(\groupe{G}[.]\) un groupe et \(x\in G\).
+
+L'application \(\fonction{\phi_x}{\Z}{G}{k}{x^k}\) est un morphisme de groupes.
+
+Il existe alors un unique entier naturel \(n\) tel que \(\ker\phi_x=n\Z\).
+\end{prop}
+
+Si \(n>0\), on dit que \(x\) est un élément d'ordre \(n\), sinon on dit que \(x\) est d'ordre infini.
+
+Avec les mêmes notations, l'image de \(\phi_x\) est un sous-groupe de \(G\), noté \(\sgeng{x}\).
+
+\begin{prop}\thlabel{prop:sousGroupeEngendréParUnÉlémentD'OrdreN}
+On suppose que la loi du groupe est notée multiplicativement.
+
+\begin{itemize}
+    \item Si \(x\) est d'ordre \(n\), alors \(n\) est le plus petit entier strictement positif tel que \(x^n=e\) et \(\sgeng{x}\) est un sous-groupe fini d'ordre \(n\) : \(\sgeng{x}=\accol{e,x,x^2,\dots,x^{n-1}}\). \\\\ Autrement dit, l'équation \(x^k=e\) d'inconnue \(k\in\Z\) a une infinité de solutions : les multiples de \(n\). \\
+    \item Si \(x\) est d'ordre infini, alors l'équation \(x^k=e\) d'inconnue \(k\in\Z\) a pour unique solution \(0\) et le sous-groupe \(\sgeng{x}\) est un ensemble infini.
+\end{itemize}
+\end{prop}
+
+\begin{prop}
+On suppose que la loi du groupe est notée additivement.
+
+\begin{itemize}
+    \item Si \(x\) est d'ordre \(n\), alors \(n\) est le plus petit entier strictement positif tel que \(n.x=0\) et \(\sgeng{x}\) est un sous-groupe fini d'ordre \(n\) : \(\sgeng{x}=\accol{0,x,2.x,\dots,\paren{n-1}.x}\). \\\\ Autrement dit, l'équation \(k.x=0\) d'inconnue \(k\in\Z\) a une infinité de solutions : les multiples de \(n\). \\
+    \item Si \(x\) est d'ordre infini, alors l'équation \(k.x=0\) d'inconnue \(k\in\Z\) a pour unique solution \(0\) et le sous-groupe \(\sgeng{x}\) est un ensemble infini : \(\Z.x=\accol{m.x\tq m\in\Z}\).
+\end{itemize}
+\end{prop}
+
+\begin{exo}
+Quel est l'ordre de \(3\) dans le groupe \(\Z\) ?
+\end{exo}
+
+\begin{exo}
+Quel est l'ordre d'une symétrie dans le groupe \(\GL{}[E]\) ?
+\end{exo}
+
+\begin{exo}
+Soient \(p,q\in\Ns\). Quel est l'ordre de \(\exp\paren{\dfrac{2\i p\pi}{q}}\) dans le groupe \(\Cs\) ?
+\end{exo}
+
+\subsection{Sous-groupe engendré par une partie}
+
+\begin{defi}
+Soient \(\groupe{G}[.]\) un groupe et \(A\) une partie de \(G\).
+
+On appelle sous-groupe engendré par \(A\) le plus petit sous-groupe de \(G\) contenant \(A\), noté en général \(\sgeng{A}\) : c'est l'intersection de tous les sous-groupes de \(G\) qui contiennent \(A\).
+
+Si \(H\) est un sous-groupe de \(G\) tel que \(H=\sgeng{A}\), on dit que \(A\) est une partie génératrice de \(H\) (ou que \(A\) engendre \(H\)).
+\end{defi}
+
+Si \(A=\accol{x_1,\dots,x_n}\), on note plus simplement \(\sgeng{A}=\sgeng{x_1,\dots,x_n}\).
+
+\begin{exo}
+Que valent \(\sgeng{\ensvide}\) et \(\sgeng{e}\) ?
+\end{exo}
+
+\begin{exo}
+Dans \(\groupe{\Z}\), \(a\) et \(b\) étant deux entiers, que valent \(\sgeng{a}\) et \(\sgeng{a,b}\) ?
+\end{exo}
+
+\begin{exo}
+Dans \(\S{n}\), quel est le sous-groupe engendré par les transpositions ? par les produits de deux transpositions ?
+\end{exo}
+
+Un cas particulier important : les sous-groupes engendrés par un élément.
+
+\begin{defi}
+Un groupe est dit monogène quand il est engendré par un unique élément.
+
+Un groupe est dit cyclique quand il est monogène et fini.
+\end{defi}
+
+On peut reprendre l'énoncé de la \thref{prop:sousGroupeEngendréParUnÉlémentD'OrdreN}.
+
+\begin{prop}\thlabel{prop:sousGroupeEngendréParX}
+Soient \(\groupe{G}[.]\) un groupe et \(x\in G\).
+
+Le sous-groupe engendré par \(x\) est \(\sgeng{x}=\accol{x^k\tq k\in\Z}\).
+
+Alors \(x\) est d'ordre fini ssi \(\sgeng{x}\) est fini.
+
+Dans ce cas, l'ordre \(n\) de \(x\) est le cardinal de \(\sgeng{x}\) et ce sous-groupe est cyclique et égal à \(\accol{e,x,x^2,\dots,x^{n-1}}\).
+\end{prop}
+
+Il n'y a que deux types de groupes monogènes.
+
+\begin{prop}
+Si \(\groupe{G}[.]\) est un groupe monogène infini, il est isomorphe à \(\groupe{\Z}\) et il possède exactement deux générateurs, inverses l'un de l'autre.
+
+Si \(\groupe{G}[.]\) est un groupe cyclique d'ordre \(n\), il est engendré par un élément \(x\) d'ordre \(n\) et les générateurs de \(G\) sont les \(x^p\) où \(p\) est un entier naturel premier avec \(n\) : ce sont les éléments d'ordre \(n\) dans \(G\).
+\end{prop}
+
+Dans le dernier cas, on obtient exactement les générateurs de \(G\) en choisissant \(p\in\interventierii{1}{n}\) et \(p\et n=1\).
+
+Un exemple fondamental du groupe cyclique d'ordre \(n\) : l'ensemble des racines \(n\)-èmes de l'unité \[\U_n=\accol{\e{\frac{2\i k\pi}{n}}\tq k\in\interventierii{0}{n-1}}=\accol{\paren{\e{\frac{2\i\pi}{n}}}^k\tq k\in\interventierii{0}{n-1}}.\]
+
+Il est engendré par \(\omega=\e{\dfrac{2\i\pi}{n}}\), mais aussi par toute puissance \(\omega^k\) où \(k\) est premier avec \(n\). Les générateurs de \(\U_n\) sont appelés les racines primitives \(n\)-èmes de l'unité.
+
+\begin{ex}
+\begin{itemize}
+    \item Les générateurs de \(\U_3\) sont \(j\) et \(j^2\). \\
+    \item Les générateurs de \(\U_4\) sont \(i\) et \(-\i\). \\
+    \item Les générateurs de \(\U_6\) sont \(-j\) et \(-j^2\). \\
+    \item Les générateurs de \(\U_8\) sont les quatre racines quatrièmes de \(-1\) : \[\exp\paren{\i\pi\paren{\dfrac{\pi}{4}+\dfrac{k\pi}{2}}}\] pour \(k\in\interventierii{0}{3}\).
+\end{itemize}
+\end{ex}
+
+\subsection{Théorème de Lagrange}
+
+\begin{defi}
+Le cardinal d'un groupe est appelé l'ordre d'un groupe.
+\end{defi}
+
+\begin{theo}
+Soit \(\groupe{G}[.]\) un groupe fini.
+
+Pour tout sous-groupe \(H\) de \(G\), \(\abs{H}\) divise \(\abs{G}\).
+\end{theo}
+
+\begin{cor}
+Dans un groupe fini \(G\) d'ordre \(n\), tous les éléments sont d'ordres finis et leurs ordres divisent \(n\).
+
+Par conséquent, \(\quantifs{\tpt x\in G}x^n=e\).
+
+De plus, \(G\) est cyclique ssi il existe un élément d'ordre \(n\).
+\end{cor}
+
+\section{Anneaux : rappels}
+
+\subsection{Généralités}
+
+\begin{defi}
+Un anneau est un ensemble \(A\) muni de deux lois de composition internes dont l'une est notée \(+\) et l'autre est souvent notée \(\times\) ou \(.\) tel que
+
+\begin{itemize}
+    \item la loi \(+\) est une loi de groupe commutatif \\
+    \item \(\times\) est associative \\
+    \item \(\times\) a un élément neutre, noté souvent \(1_A\) ou \(1\) ou \(I\) ou ... \\
+    \item \(\times\) est distributive pour \(+\) : \[\quantifs{\forall\paren{x,y,z}\in A^3}x\paren{y+z}=xy+xz\qquad\text{et}\qquad\paren{x+y}z=xz+yz.\]
+\end{itemize}
+
+Si, de plus, la loi \(\times\) est commutative, on dit que \(A\) est un anneau commutatif.
+\end{defi}
+
+\begin{ex}
+\begin{itemize}
+    \item \(\Z\), \(\Q\), \(\R\) et \(\C\) sont des anneaux commutatifs pour les lois habituelles. \\
+    \item Si \(X\) est un ensemble, \(\F{X}{\R}\) est un anneau commutatif. \\ Plus généralement, si \(A\) est un anneau, \(\F{X}{A}\) est un anneau pour les lois classiques déduites de celles de \(A\). \\
+    \item \(\poly\) est un anneau commutatif pour les lois habituelles. \\
+    \item L'ensemble \(\M{n}\) est un anneau non-commutatif (sauf si \(n=1\)). \\ Si \(E\) est un \(\K\)-espace vectoriel, l'ensemble \(\Lendo{E}\) est un anneau non-commutatif (sauf si \(\dim E=1\)) pour les lois \(+\) et \(\rond\).
+\end{itemize}
+\end{ex}
+
+\subsection{Sous-anneaux}
+
+\begin{defi}
+Soient \(\anneau{A}[+][.]\) un anneau et \(B\) une partie de \(A\).
+
+On dit que \(B\) est un sous-anneau de \(A\) (sous-entendu pour les lois \(+\) et \(.\)) quand
+
+\begin{itemize}
+    \item \(1_A\in B\) \\
+    \item \(B\) est stable par \(+\) : \(\quantifs{\forall\paren{x,y}\in B^2}x+y\in B\) \\
+    \item \(B\) est stable par opposition : \(\quantifs{\forall x\in B}-x\in B\) \\
+    \item \(B\) est stable par \(.\) : \(\quantifs{\forall\paren{x,y}\in B^2}x.y\in B\).
+\end{itemize}
+\end{defi}
+
+Un sous-anneau d'un anneau est donc lui-même un anneau. En général, pour montrer qu'un ensemble muni de deux lois de composition internes est un anneau, on montre que c'est un sous-anneau d'un anneau connu (entre autres, les anneaux cités en exemples précédemment).
+
+\begin{prop}
+Une intersection de sous-anneaux est un sous-anneau.
+\end{prop}
+
+\subsection{Pièges calculatoires classiques}
+
+\begin{defi}
+Soit \(A\) un anneau.
+
+Tout couple \(\paren{a,b}\in A^2\) tel que \(ab=0\), \(a\not=0\) et \(b\not=0\) est appelé couple de diviseurs de zéro.
+
+L'anneau \(A\) est dit intègre quand il est commutatif et ne possède aucun diviseur de zéro.
+\end{defi}
+
+\begin{ex}
+\begin{itemize}
+    \item \(\Z\) et, plus généralement, les anneaux de nombres sont intègres. L'anneau \(\poly\) est intègre. \\
+    \item L'anneau \(\F{X}{\R}\) est un anneau commutatif non-intègre. \\
+    \item Si \(n\geq2\), l'anneau \(\M{n}\) est un anneau non-commutatif, qui possède des diviseurs de zéro.
+\end{itemize}
+\end{ex}
+
+\begin{rem}
+En général, dans un anneau quelconque, on ne peut pas simplifier dans un produit : \(ab=ac\) n'implique pas en général \(b=c\), même si \(a\not=0\).
+
+Si l'anneau est intègre et si \(a\not=0\), alors la simplification est correcte.
+\end{rem}
+
+\begin{prop}
+Soient \(A\) un anneau et \(a,b\in A\) tels que \(ab=ba\).
+
+On a \[\quantifs{n\in\N}\paren{a+b}^n=\sum_{k=0}^n\binom{k}{n}a^kb^{n-k}=\sum_{k=0}^n\binom{k}{n}a^{n-k}b^k\] et \[\quantifs{\forall n\in\Ns}a^n-b^n=\paren{a-b}\paren{a^{n-1}+a^{n-2}b+a^{n-3}b^2+\dots+ab^{n-2}+b^{n-1}}=\paren{a-b}\sum_{i=0}^{n-1}a^ib^{n-1-i}.\]
+\end{prop}
+
+\begin{rem}
+Si les éléments ne commutent pas, c'est faux.
+\end{rem}
+
+\section{Anneau \(\znz{n}\)}
+
+\subsection{Définition}
+
+Soit \(n\in\Ns\). On note \(\znz{n}\) l'ensemble des classes de congruence modulo \(n\) dans \(\Z\) (lire \guillemets{Z sur nZ}).
+
+On sait que \(\znz{n}=\accol{\conj{0},\conj{1},\dots,\conj{n-1}}\).
+
+On munit cet ensemble de deux lois de composition \(+\) et \(\times\) : pour tout \(\paren{\conj{a},\conj{b}}\in\znz{n}\), on pose \[\conj{a}+\conj{b}=\conj{a+b}\qquad\text{et}\qquad\conj{a}\times\conj{b}=\conj{ab}.\]
+
+Il est alors facile de vérifier que \(\anneau{\znz{n}}[+][\times]\) est un anneau commutatif dont le neutre pour \(+\) est \(\conj{0}\) et le neutre pour \(\times\) est \(\conj{1}\) : les propriétés de \(+\) et \(\times\) dans \(\znz{n}\) découlent de celles de \(+\) et \(\times\) dans \(\Z\) et de la compatibilité de la congruence modulo \(n\) avec ces deux opérations.
+
+Voici par exemple les tables d'addition et de multiplication dans \(\znz{8}\) :
+
+\begin{center}
+\setlength{\extrarowheight}{5pt}
+\begin{tabular}{|c|cccccccc|}
+\hline
+\(+\) & \(\conj{0}\) & \(\conj{1}\) & \(\conj{2}\) & \(\conj{3}\) & \(\conj{4}\) & \(\conj{5}\) & \(\conj{6}\) & \(\conj{7}\) \\
+\hline
+\(\conj{0}\) & \(\conj{0}\) & \(\conj{1}\) & \(\conj{2}\) & \(\conj{3}\) & \(\conj{4}\) & \(\conj{5}\) & \(\conj{6}\) & \(\conj{7}\) \\
+\(\conj{1}\) & \(\conj{1}\) & \(\conj{2}\) & \(\conj{3}\) & \(\conj{4}\) & \(\conj{5}\) & \(\conj{6}\) & \(\conj{7}\) & \(\conj{0}\) \\
+\(\conj{2}\) & \(\conj{2}\) & \(\conj{3}\) & \(\conj{4}\) & \(\conj{5}\) & \(\conj{6}\) & \(\conj{7}\) & \(\conj{0}\) & \(\conj{1}\) \\
+\(\conj{3}\) & \(\conj{3}\) & \(\conj{4}\) & \(\conj{5}\) & \(\conj{6}\) & \(\conj{7}\) & \(\conj{0}\) & \(\conj{1}\) & \(\conj{2}\) \\
+\(\conj{4}\) & \(\conj{4}\) & \(\conj{5}\) & \(\conj{6}\) & \(\conj{7}\) & \(\conj{0}\) & \(\conj{1}\) & \(\conj{2}\) & \(\conj{3}\) \\
+\(\conj{5}\) & \(\conj{5}\) & \(\conj{6}\) & \(\conj{7}\) & \(\conj{0}\) & \(\conj{1}\) & \(\conj{2}\) & \(\conj{3}\) & \(\conj{4}\) \\
+\(\conj{6}\) & \(\conj{6}\) & \(\conj{7}\) & \(\conj{0}\) & \(\conj{1}\) & \(\conj{2}\) & \(\conj{3}\) & \(\conj{4}\) & \(\conj{5}\) \\
+\(\conj{7}\) & \(\conj{7}\) & \(\conj{0}\) & \(\conj{1}\) & \(\conj{2}\) & \(\conj{3}\) & \(\conj{4}\) & \(\conj{5}\) & \(\conj{6}\) \\
+\hline
+\end{tabular}\qquad\qquad\qquad\begin{tabular}{|c|cccccccc|}
+\hline
+\(\times\) & \(\conj{0}\) & \(\conj{1}\) & \(\conj{2}\) & \(\conj{3}\) & \(\conj{4}\) & \(\conj{5}\) & \(\conj{6}\) & \(\conj{7}\) \\
+\hline
+\(\conj{0}\) & \(\conj{0}\) & \(\conj{0}\) & \(\conj{0}\) & \(\conj{0}\) & \(\conj{0}\) & \(\conj{0}\) & \(\conj{0}\) & \(\conj{0}\) \\
+\(\conj{1}\) & \(\conj{0}\) & \(\conj{1}\) & \(\conj{2}\) & \(\conj{3}\) & \(\conj{4}\) & \(\conj{5}\) & \(\conj{6}\) & \(\conj{7}\) \\
+\(\conj{2}\) & \(\conj{0}\) & \(\conj{2}\) & \(\conj{4}\) & \(\conj{6}\) & \(\conj{0}\) & \(\conj{2}\) & \(\conj{4}\) & \(\conj{6}\) \\
+\(\conj{3}\) & \(\conj{0}\) & \(\conj{3}\) & \(\conj{6}\) & \(\conj{1}\) & \(\conj{4}\) & \(\conj{7}\) & \(\conj{2}\) & \(\conj{5}\) \\
+\(\conj{4}\) & \(\conj{0}\) & \(\conj{4}\) & \(\conj{0}\) & \(\conj{4}\) & \(\conj{0}\) & \(\conj{4}\) & \(\conj{0}\) & \(\conj{4}\) \\
+\(\conj{5}\) & \(\conj{0}\) & \(\conj{5}\) & \(\conj{2}\) & \(\conj{7}\) & \(\conj{4}\) & \(\conj{1}\) & \(\conj{6}\) & \(\conj{3}\) \\
+\(\conj{6}\) & \(\conj{0}\) & \(\conj{6}\) & \(\conj{4}\) & \(\conj{2}\) & \(\conj{0}\) & \(\conj{6}\) & \(\conj{4}\) & \(\conj{2}\) \\
+\(\conj{7}\) & \(\conj{0}\) & \(\conj{7}\) & \(\conj{6}\) & \(\conj{5}\) & \(\conj{4}\) & \(\conj{3}\) & \(\conj{2}\) & \(\conj{1}\) \\
+\hline
+\end{tabular}
+\end{center}
+
+On voit sur cet exemple quelques-unes des bizarreries qu'on peut trouver dans un anneau :
+
+\begin{itemize}
+    \item des couples de diviseurs de zéro : par exemple, \(\paren{2,4}\) \\
+    \item \(\conj{4}+\conj{4}=\conj{0}\) : l'opposé d'un élément peut être lui-même \\
+    \item \(\conj{5}\times\conj{5}=\conj{1}\) : l'inverse d'un élément autre que \(\conj{1}\) et \(\conj{-1}=\conj{7}\) peut être égal à lui-même \\
+    \item \(\conj{4}^2=\conj{0}\) : le carré d'un élément non-nul peut être nul.
+\end{itemize}
+
+\subsection{Propriétés}
+
+D'abord le groupe \(\groupe{\znz{n}}[+]\).
+
+\begin{prop}
+Le groupe \(\groupe{\znz{n}}[+]\) est cyclique, il est engendré par les éléments \(\conj{k}\) tels que \(1\leq k\leq n\) et \(k\et n=1\).
+
+Tout groupe cyclique d'ordre \(n\) est isomorphe à \(\groupe{\znz{n}}[+]\).
+\end{prop}
+
+Puis l'anneau \(\anneau{\znz{n}}[+][\times]\).
+
+\begin{prop}
+Les inversibles de l'anneau \(\znz{n}\) sont les classes \(\conj{k}\) telles que \(k\et n=1\). Les autres éléments sont des diviseurs de zéro.
+
+L'anneau \(\znz{n}\) est intègre ssi \(n\) est premier.
+
+\(\znz{n}\) est un corps ssi \(n\) est premier.
+\end{prop}
+
+Quand \(p\) est premier, le corps \(\znz{p}\) est noté aussi \(\field{p}\).
+
+\subsection{Théorème chinois des restes}
+
+\begin{theo}
+Soit \(\paren{m,n}\in\paren{\Ns}^2\).
+
+Si \(m\et n=1\), alors les anneaux \(\znz{mn}\) et \(\znz{m}\times\znz{n}\) sont isomorphes.
+\end{theo}
+
+Autrement dit, dans ce cas, tout système de congruence \(\begin{dcases}
+x\equiv a\croch{m} \\
+x\equiv b\croch{n}
+\end{dcases}\) d'inconnue \(x\) est équivalent à une unique congruence \(x\equiv c\croch{mn}\).
+
+Par récurrence, ce résultat se généralise à un nombre quelconque d'anneaux \(\znz{a_i}\) à condition que \(a_1,\dots,a_k\) soient premiers entre eux deux à deux.
+
+\begin{ex}~\\
+Pour \(x\in\Z\), \(\begin{dcases}
+x\equiv5\croch{13} \\
+x\equiv8\croch{11}
+\end{dcases}\ssi x\equiv96\croch{143}\).
+\end{ex}
+
+\begin{exo}
+Déterminez l'ensemble des entiers \(x\in\Z\) tels que \(\begin{dcases}
+3x\equiv5\croch{13} \\
+5x\equiv1\croch{11}
+\end{dcases}\)
+\end{exo}
+
+\subsection{Indicatrice d'Euler}
+
+\begin{defi}
+Soit \(n\in\Ns\).
+
+On pose \(\phialt\paren{n}=\Card\accol{x\in\interventierii{1}{n}\tq x\et n=1}\).
+
+L'application \(\phialt\) est appelée indicatrice d'Euler.
+\end{defi}
+
+D'après la \thref{prop:sousGroupeEngendréParX}, \(\phialt\paren{n}\) est le nombre de générateurs d'un groupe cyclique d'ordre \(n\) et le nombre de racines primitives \(n\)-èmes de l'unité.
+
+\begin{prop}
+Soit \(\paren{m,n}\in\paren{\Ns}^2\).
+
+Si \(m\et n=1\), alors \(\phialt\paren{mn}=\phialt\paren{m}\phialt\paren{n}\).
+\end{prop}
+
+À titre culturel, on dit que \(\phialt\) est une fonction arithmétique.
+
+Comme il est facile de calculer \(\phialt\paren{p^\alpha}\) quand \(p\) est premier, il est alors possible de calculer \(\phialt\paren{n}\) pour tout entier \(n\) à condition de savoir le décomposer en facteurs premiers.
+
+On finit par le théorème d'Euler, qui étend le petit théorème de Fermat.
+
+\begin{prop}
+Soient \(x\in\Z\) et \(n\in\Ns\).
+
+Si \(x\et n=1\), alors \(x^{\phialt\paren{n}}\equiv1\croch{n}\).
+\end{prop}
+
+\section{Idéaux d'un anneau commutatif}
+
+\subsection{Généralités}
+
+\begin{defi}
+Soient \(A\) un anneau commutatif et \(I\) une partie de \(A\).
+
+On dit que \(I\) est un idéal de \(A\) quand
+
+\begin{itemize}
+    \item \(I\) est un sous-groupe de \(\groupe{A}[+]\) \\
+    \item \(I\) est stable par multiplication externe : \(\quantifs{\forall\paren{x,y}\in A\times I}x.y\in I\).
+\end{itemize}
+\end{defi}
+
+\begin{rem}
+Bien que les définitions soient ressemblantes, les notions d'idéal et de sous-anneau sont distinctes : la seule partie de \(A\) qui est à la fois un idéal et un sous-anneau de \(A\) est \(A\) lui-même !
+\end{rem}
+
+\begin{prop}
+Soient \(A,B\) deux anneaux commutatifs et \(f:A\to B\) un morphisme d'anneaux.
+
+\(\ker f=\accol{a\in A\tq f\paren{a}=0}\) est un idéal de \(A\) (et donc n'est pas un sous-anneau en général).
+\end{prop}
+
+\begin{prop}
+Soient \(A\) un anneau commutatif et \(x\in A\).
+
+L'ensemble des multiples de \(x\), noté \(xA\), est un idéal de \(A\), dit idéal principal.
+
+C'est le plus petit idéal contenant \(x\), \cad l'intersection des idéaux de \(A\) qui contiennent \(x\) : on l'appelle idéal engendré par \(x\).
+\end{prop}
+
+\begin{defi}
+Soient \(A\) un anneau commutatif et \(\paren{x,y}\in A^2\).
+
+On dit que \(x\) divise \(y\) et on note \(x\divise y\) ssi il existe \(z\in A\) tel que \(y=xz\).
+\end{defi}
+
+\begin{prop}
+Avec les mêmes notations, on a l'équivalence \[x\divise y\ssi yA\subset xA.\]
+\end{prop}
+
+Un idéal engendré par un seul élément est appelé un idéal principal. Un anneau est dit principal quand il est intègre et que tous ses idéaux sont principaux.
+
+\begin{prop}
+Les anneaux \(\Z\) et \(\poly\) sont principaux.
+\end{prop}
+
+\begin{rem}
+L'ensemble des entiers de Gauss \[\Z\croch{\i}=\accol{a+\i b\tq\paren{a,b}\in\Z^2}\] est aussi un anneau principal.
+\end{rem}
+
+\begin{exo}
+Soit \(A\) un anneau commutatif.
+
+Montrez que \(A\) est un corps ssi \(A\) possède exactement deux idéaux (lesquels ?).
+\end{exo}
+
+\begin{exo}
+Dans l'anneau \(A=\F{\R}{\C}\), on pose \(I=\accol{f\in A\tq f\paren{0}=0}\).
+
+Montrez que \(I\) est un idéal principal de \(A\).
+\end{exo}
+
+\begin{exo}
+On reprend l'exercice précédent en posant cette fois-ci \(A=\ensclasse{0}{\R}{\C}\).
+
+Montrez que \(I\) n'est pas principal.
+\end{exo}
+
+\begin{exo}
+On travaille dans \(\poly[\Z]\), anneau des polynômes à coefficients dans \(\Z\). On pose \(I=\accol{P\in\poly[\Z]\tq P\paren{0}\text{ est pair}}\).
+
+Montrez que \(I\) est un idéal, que \(I=2\poly[\Z]+X\poly[\Z]\) (\ie l'idéal engendré par \(2\) et \(X\)), et que \(I\) n'est pas principal.
+\end{exo}
+
+\subsection{Arithmétique dans un anneau principal}
+
+\subsubsection{Pgcd et ppcm}
+
+Si \(I\) et \(J\) sont deux idéaux d'un anneau commutatif, on note \(I+J=\accol{x+y\tq\paren{x,y}\in I\times J}\).
+
+Il est facile de vérifier que \(I+J\) est alors aussi un idéal, de même que \(I\inter J\).
+
+On généralise sans difficulté à une somme ou une intersection d'idéaux \(I_1,\dots,I_n\).
+
+\begin{prop}
+Soient \(A\) un anneau principal et \(x,y\in A\).
+
+Il existe un élément \(z\in A\) tel que \(zA=xA+yA\) : on vérifie alors que les diviseurs communs à \(x\) et \(y\) sont exactement les diviseurs de \(z\). On dit alors que \(z\) est un pgcd de \(x\) et \(y\).
+
+Il existe un élément \(w\in A\) tel que \(wA=xA\inter yA\) : les multiples communs à \(x\) et \(y\) sont exactement les multiples de \(w\). On dit alors que \(w\) est un ppcm de \(x\) et \(y\).
+\end{prop}
+
+Il n'y en général pas d'unicité de \(z\) et \(w\) dans les définitions précédentes : pour tout élément inversible \(u\), \(\paren{uz}A=zA\).
+
+Cependant, dans certains cas particuliers on peut ajouter une unicité en exploitant des propriétés spécifiques de l'anneau :
+
+\begin{itemize}
+    \item si \(A=\Z\), en choisissant \(z>0\) \\
+    \item si \(A=\poly\), en choisissant \(z\) unitaire
+\end{itemize}
+
+dans les cas où \(z\not=0\).
+
+Autrement dit :
+
+\begin{itemize}
+    \item si \(a_1,\dots,a_n\in\Z\), leur pgcd est l'unique entier positif \(d\) tel que \(d\Z=a_1\Z+\dots+a_n\Z\) \\
+    \item si \(P_1,\dots,P_n\in\poly\excluant\accol{0}\), leur pgcd est l'unique polynôme unitaire \(D\) tel que \(D\poly=P_1\poly+\dots+P_n\poly\).
+\end{itemize}
+
+La proposition précédente est donc une preuve non-effective de l'égalité de Bézout.
+
+\begin{defi}
+Deux éléments d'un anneau principal sont dits premiers entre eux quand un de leurs pgcd vaut \(1\).
+\end{defi}
+
+On retrouve le théorème de Bézout.
+
+\begin{theo}
+Soient \(A\) un anneau principal et \(\paren{a,b}\in A^2\).
+
+\(a\) et \(b\) sont premiers entre eux ssi il existe \(\paren{u,v}\in A^2\) tel que \(1=au+bv\).
+\end{theo}
+
+Dans un anneau principal, le théorème de Gauss est encore valable, de même que tous les résultats faisant intervenir la notion d'éléments premiers entre eux (voir le chapitre d'arithmétique de première année).
+
+\begin{theo}
+Soient \(A\) un anneau principal et \(\paren{a,b,c}\in A^3\).
+
+Si \(a\) divise \(bc\) et \(a\) et \(b\) sont premiers entre eux, alors \(a\) divise \(c\).
+\end{theo}
+
+\subsubsection{Décomposition en facteurs irréductibles}
+
+\begin{defi}
+Soit \(A\) un anneau.
+
+On dit qu'un élément \(a\in A\) est irréductible quand il n'existe pas \(\paren{b,c}\in A^2\) tel que \(a=bc\) et \(b,c\) ne sont pas inversibles.
+\end{defi}
+
+Autrement dit, \(a\) est irréductible quand toute écriture \(a=bc\) implique que \(b\) ou \(c\) est un inversible, ou, ce qui revient au même, les seuls diviseurs de \(a\) sont les inversibles et ses associés \(ua\), où \(u\) est inversible.
+
+\begin{ex}
+\begin{itemize}
+    \item Les nombres premiers et leurs opposés sont les éléments irréductibles de l'anneau \(\Z\). \\
+    \item Dans \(\poly[\C]\), les éléments irréductibles sont les polynômes de degré \(1\) (conséquence du théorème de D'Alembert-Gauss). Dans \(\poly[\R]\), les éléments irréductibles sont les polynômes de degré \(1\) ou \(2\) sans racine réelle. Dans \(\poly[\Q]\), il existe des polynômes irréductibles de tout degré.
+\end{itemize}
+\end{ex}
+
+Dans certains anneaux, l'irréductabilité est une notion piégeuse. Heureusement, dans les anneaux principaux, tout va bien : l'arithmétique est alors similaire à celle de \(\Z\). On retrouve les résultats classiques, grâce surtout au théorème de Gauss.
+
+Le théorème qui suit est souvent appelé théorème fondamental de l'arithmétique dans un anneau principal.
+
+\begin{theo}
+Soit \(A\) un anneau principal.
+
+Tout élément de \(A\) non-nul et non-inversible s'écrit comme un produit d'irréductibles. Cette écriture est unique à l'ordre près des irréductibles et à association près des irréductibles.
+
+Autrement dit, pour tout \(a\in A\), si \(a\not=0\) et \(a\) non-inversible, il existe un unique \(k\in\Ns\), un \(k\)-uplet \(\paren{p_1,\dots,p_k}\in A^k\) et \(\paren{\alpha_1,\dots,\alpha_k}\in\paren{\Ns}^k\) tels que \(p_1,p_2,\dots,p_k\) sont irréductibles distincts et \(a=p_1^{\alpha_1}p_2^{\alpha_2}\dots p_k^{\alpha_k}\).
+
+Cette écriture s'appelle la décomposition en facteurs irréductibles de \(a\).
+\end{theo}
+
+De \guillemets{l'unicité} de la décomposition en facteurs irréductibles, on tire le résultat suivant concernant les diviseurs d'un élément.
+
+\begin{prop}
+Soit \(A\) un anneau principal.
+
+Soit \(a\in A\) de décomposition irréductible \(a=p_1^{\alpha_1}p_2^{\alpha_2}\dots p_k^{\alpha_k}\) (les \(p_i\) sont irréductibles distincts).
+
+Alors si \(b\) est un diviseur de \(a\), alors il existe \(\paren{\beta_1,\dots,\beta_k}\in\N^k\) et \(u\) inversible tel que \(b=up_1^{\beta_1}p_2^{\beta_2}\dots p_k^{\beta_k}\) et pour tout \(i\in\interventierii{1}{k}\), \(0\leq\beta_i\leq\alpha_i\).
+
+Réciproquement, tout élément de cette forme est un diviseur de \(a\).
+\end{prop}
+
+\begin{rem}
+Dans des cas spécifiques d'anneaux principaux, on impose en général des conditions supplémentaires sur les irréductibles :
+
+\begin{itemize}
+    \item dans le cas de \(\Z\), les irréductibles (\ie les nombres premiers) sont positifs et l'écriture générale est alors \(a=\epsilon p_1^{\alpha_1}p_2^{\alpha_2}\dots p_k^{\alpha_k}\) où \(\epsilon\) est un signe \\
+    \item dans le cas de \(\poly\), les irréductibles sont des polynômes unitaires et l'écriture générale est alors \(a=\lambda p_1^{\alpha_1}p_2^{\alpha_2}\dots p_k^{\alpha_k}\) où \(\lambda\in\Ks\) est le coefficient dominant de \(a\).
+\end{itemize}
+\end{rem}
+
+\section{\(\K\)-algèbre}
+
+\subsection{Généralités}
+
+\begin{defi}
+Un ensemble \(A\) est appelé \(\K\)-algèbre quand \(A\) est à la fois un anneau et un \(\K\)-espace vectoriel, dont les multiplications sont compatibles.
+
+Il y a donc trois lois dans une \(\K\)-algèbre :
+
+\begin{itemize}
+    \item une addition classique \(+\) \\
+    \item une multiplication externe \(\K.\) \\
+    \item une multiplication interne, compatible avec la précédente : \[\quantifs{\forall\paren{\lambda,a,b}\in\K\times A^2}\lambda.\paren{ab}=\paren{\lambda.a}b=a\paren{\lambda.b}.\]
+\end{itemize}
+\end{defi}
+
+On qualifie les \(\K\)-algèbres par du vocabulaire des anneaux (algèbres intègres, algèbres principales, etc) ou des espaces vectoriels (algèbres de dimension finie, etc).
+
+\begin{ex}
+\begin{itemize}
+    \item \(\K\) lui-même est une \(\K\)-algèbre, où les deux multiplications sont confondues ; \(\C\) est aussi une \(\R\)-algèbre de dimension \(2\). \\
+    \item \(\poly\) est une \(\K\)-algèbre intègre, commutative et de dimension finie. \\
+    \item Si \(I\) un intervalle, \(\F{I}{\K}\) est une \(\K\)-algèbre commutative non-intègre et de dimension infinie. \\
+    \item Si \(n\in\Ns\), \(\M{n}\) est une \(\K\)-algèbre de dimension \(n^2\) qui n'est ni intègre, ni commutative. \\
+    \item Si \(E\) est un \(\K\)-espace vectoriel, alors \(\Lendo{E}\) est une \(\K\)-algèbre qui n'est ni intègre, ni commutative, de dimension finie ssi \(E\) l'est aussi.
+\end{itemize}
+\end{ex}
+
+\subsection{Sous-algèbres}
+
+\begin{defi}
+Une sous-algèbre d'une \(\K\)-algèbre est à la fois un sous-anneau et un sous-espace vectoriel.
+\end{defi}
+
+Comme d'habitude, pour montrer qu'un ensemble est une \(\K\)-algèbre, on montre que c'est une sous-algèbre d'une \(\K\)-algèbre connue.
+
+\subsection{Morphismes d'algèbres}
+
+\begin{defi}
+Soient \(A\) et \(B\) deux \(\K\)-algèbres.
+
+Un morphisme d'algèbres de \(A\) dans \(B\) est une application \(f:A\to B\) qui est à la fois un morphisme d'anneaux et une application linéaire :
+
+\begin{itemize}
+    \item \(\quantifs{\forall\paren{a,b}\in A^2}f\paren{a+b}=f\paren{a}+f\paren{b}\) et \(f\paren{ab}=f\paren{a}f\paren{b}\) \\
+    \item \(f\paren{1_A}=1_B\) \\
+    \item \(\quantifs{\forall\paren{\lambda,a}\in\K\times A}f\paren{\lambda a}=\lambda f\paren{a}\).
+\end{itemize}
+\end{defi}
+
+\begin{prop}
+Le noyau d'un morphisme d'algèbres est un idéal et un sous-espace vectoriel de l'algèbre de départ.
+\end{prop}
+
+\subsection{Polynôme minimal d'un élément}
+
+\begin{prop}
+Soient \(A\) une \(\K\)-algèbre et \(a\in A\).
+
+Pour \(P=\sum_{i=0}^nc_iX^i\in\poly\), on pose \(P\paren{a}=\sum_{i=0}^nc_ia^i\).
+
+L'application \(\fonctionlambda{\poly}{A}{P}{P\paren{a}}\) est alors un morphisme d'algèbres.
+\end{prop}
+
+Puisque \(\K\) est un anneau principal, le noyau d'un tel morphisme, \ie \(\accol{P\in\poly\tq P\paren{a}=0}\) est un idéal principal.
+
+Dans le cas où il est non-nul, il est engendré par un unique polynôme unitaire \(M\), appelé polynôme minimal de \(a\). On a donc \[\accol{P\in\poly\tq P\paren{a}=0}=M\poly\] \cad \[\quantifs{\forall P\in\poly}P\paren{a}=0\ssi M\divise P.\]
+
+Un exemple fondamental : celui des matrices carrées.
+
+\begin{theo}
+Soit \(n\in\Ns\).
+
+Toute matrice carrée de \(\M{n}\) possède un polynôme minimal.
+
+Tout endomorphisme d'un \(\K\)-espace vectoriel de dimension \(n\) possède un polynôme minimal.
+\end{theo}
+
+\textit{A priori} ce polynôme minimal est de degré au plus \(n^2\) mais on a montré qu'il est en fait de degré au plus \(n\) (\cf \thref{cor:polynomeMinimalDeDegreAuPlusN}).
+
+\begin{ex}
+\begin{itemize}
+    \item Le polynôme minimal d'une matrice scalaire \(\lambda I_n\) est \(X-\lambda\). \\
+    \item Le polynôme minimal d'un projecteur non-trivial est \(X^2-X\), celui d'une symétrie non-triviale est \(X^2-1\).
+\end{itemize}
+\end{ex}
+
+\begin{exo}
+Montrez que si \(A=\begin{pmatrix}
+a & c \\
+b & d
+\end{pmatrix}\) n'est pas une matrice scalaire, alors son polynôme minimal est \(X^2-\paren{a+d}X+\paren{ad-bc}\).
+\end{exo}
