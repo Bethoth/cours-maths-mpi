@@ -2,4 +2,415 @@
 
 \minitoc
 
-\note{À venir}
+\section*{Exercices}
+\addcontentsline{toc}{section}{Exercices}
+
+\legendeexercices
+
+\begin{exoss}
+Pour chacune des suites de fonctions \(\paren{f_n}\) suivantes, étudiez leur convergence simple puis leur convergence uniforme sur l'intervalle \(I\) spécifié, puis, à défaut, leur convergence uniforme sur tout segment inclus dans \(I\) :
+
+\begin{enumerate}
+    \item \(f_n:x\mapsto\dfrac{x}{n\paren{1+x^n}}\) sur \(I=\intervie{0}{\pinf}\) \\
+    \item \(f_n:x\mapsto\ln\paren{x+\dfrac{1}{n}}\) sur \(I=\intervie{1}{\pinf}\) \\
+    \item \(f_n:x\mapsto nx^2\e{-nx}\) sur \(I=\intervie{0}{\pinf}\) \\
+    \item \(f_n:x\mapsto\dfrac{nx}{1+n^3x^2}\) sur \(I=\intervie{0}{\pinf}\) \\
+    \item \(f_n:x\mapsto x^2\sin\dfrac{1}{nx}\) sur \(I=\intervee{0}{\pinf}\) \\
+    \item \(f_n:x\mapsto\dfrac{nx+n^2x^3}{1+n^2x^2}\) sur \(I=\R\) \\
+    \item \(f_n:x\mapsto\paren{\dfrac{x}{n}}^{nx}\) sur \(I=\intervee{0}{\pinf}\) \\
+    \item \(f_n:x\mapsto nx^n\sin\paren{\pi x}\) sur \(I=\intervii{0}{1}\) \\
+    \item \(f_n:x\mapsto\dfrac{n^3x}{n^4+x^4}\) sur \(I=\R\) \\
+    \item \(f_n:x\mapsto\dfrac{x^n}{1+x^{2n}}\) sur \(I=\intervie{0}{\pinf}\) \\
+    \item \(f_n:x\mapsto\cos\dfrac{nx}{n+1}\) sur \(I=\R\).
+\end{enumerate}
+\end{exoss}
+
+\begin{exoss}
+On pose \(f_n:x\mapsto\dfrac{\sin\paren{nx}}{n\sqrt{x}}\) sur \(\intervee{0}{\pinf}\).
+
+Montrez que la suite \(\paren{f_n}_{n\geq1}\) converge simplement et uniformément sur \(\intervee{0}{\pinf}\).
+\end{exoss}
+
+\begin{exoss}
+Soit \(f:\R\to\R\) de classe \(\classe{2}\) telle que \(f\seconde\) soit bornée.
+
+Pour \(n\in\N\), on pose \(f_n:x\mapsto n\paren{f\paren{x+\dfrac{1}{n}}-f\paren{x}}\).
+
+\begin{enumerate}
+    \item Montrez que la suite \(\paren{f_n}_{n\geq1}\) converge simplement sur \(\R\). \\
+    \item Montrez que la convergence est uniforme.
+\end{enumerate}
+\end{exoss}
+
+\begin{exoss}
+Soit \(f\) une fonction lipschitzienne sur \(\intervii{0}{1}\).
+
+\begin{enumerate}
+    \item Montrez que \(\quantifs{\tpt n\in\Ns\text{ et }x\in\intervii{0}{1}}x+\dfrac{x\paren{1-x}}{n}\in\intervii{0}{1}\). \\
+    \item On pose \(f_n:x\mapsto f\paren{x+\dfrac{x\paren{1-x}}{n}}\). Montrez que la suite de fonctions \(\paren{f_n}\) converge uniformément sur \(\intervii{0}{1}\).
+\end{enumerate}
+\end{exoss}
+
+\begin{exoss}
+Pour \(x\geq0\), on pose \(u_0\paren{x}=0\) et \(u_{n+1}\paren{x}=\sqrt{x+u_n\paren{x}}\).
+
+\begin{enumerate}
+    \item Montrez que la suite de fonctions \(\paren{u_n}\) converge simplement vers une fonction \(f\) que vous expliciterez. \\
+    \item On pose \(\phi_x:t\mapsto\sqrt{x+t}\). Vérifiez que \(\phi_x\) est \(\dfrac{1}{2\sqrt{x}}\)-lipschitzienne sur \(\intervie{0}{\pinf}\). \\
+    \item Montrez que pour tout \(b>a>\dfrac{1}{4}\), la convergence de la suite \(\paren{u_n}\) est uniforme sur \(\intervii{a}{b}\).
+\end{enumerate}
+\end{exoss}
+
+\begin{exoss}
+Étudiez la nature des séries de fonctions \(\sum_{n\geq1}u_n\) (convergence simple, convergence normale, convergence uniforme) sur \(I\) ou, à défaut, sur tout segment inclus dans \(I\) :
+
+\begin{enumerate}
+    \item \(u_n:x\mapsto\dfrac{n+x}{n^3+x^2}\) sur \(I=\Rp\) \\
+    \item \(u_n:x\mapsto\dfrac{1}{1+x^n}\) sur \(I=\Rp\) \\
+    \item \(u_n:x\mapsto\dfrac{x}{1+n^2x^2}\) sur \(I=\R\) \\
+    \item \(u_n:x\mapsto\dfrac{nx}{1+n^3x^2}\) sur \(I=\R\) \\
+    \item \(u_n:x\mapsto\dfrac{\paren{-1}^nnx}{1+n^2x^2}\) sur \(I=\R\) \\
+    \item \(u_n:x\mapsto\dfrac{n+x^2}{n^3+x^3}\) sur \(I=\Rp\) \\
+    \item \(u_n:x\mapsto\dfrac{nx}{1+n^4x^2}\) sur \(I=\R\) \\
+    \item \(u_n:x\mapsto\cos^n\paren{x}\sin\paren{x}\) sur \(I=\intervii{0}{\pi}\) \\
+    \item \(u_n:x\mapsto\dfrac{x^n}{1+nx^{2n}}\) sur \(I=\Rp\) \\
+    \item \(u_n:x\mapsto\Arctan\paren{n+x}-\Arctan n\) sur \(I=\R\) \\
+    \item \(u_n:x\mapsto\dfrac{\paren{-1}^n}{nx+1}\) sur \(I=\Rp\).
+\end{enumerate}
+\end{exoss}
+
+\begin{exoss}
+Pour \(n\geq2\), on pose \(u_n:x\mapsto\dfrac{x\e{-nx}}{\ln n}\) sur \(\intervie{0}{\pinf}\).
+
+\begin{enumerate}
+    \item Montrez que la série de fonctions \(\sum_{n\geq2}u_n\) converge simplement sur \(\intervie{0}{\pinf}\). \\
+    \item Montrez qu'elle ne converge pas normalement sur \(\intervie{0}{\pinf}\). \\
+    \item Montrez qu'elle converge uniformément sur \(\intervie{0}{\pinf}\).
+\end{enumerate}
+\end{exoss}
+
+\begin{exoss}
+Même exercice avec \(u_n:x\mapsto\dfrac{1}{n+\paren{n\paren{x-n}}^2}\) pour \(n\geq1\).
+\end{exoss}
+
+\begin{exoss}
+Pour \(n\in\Ns\), on pose \(u_n:x\mapsto\paren{-1}^nx^{2n}\ln x\) sur \(\intervei{0}{1}\) et \(u_n\paren{0}=0\).
+
+\begin{enumerate}
+    \item Montrez que la série \(\sum_{n\geq1}u_n\) converge simplement sur \(\intervii{0}{1}\). On note \(f\) sa somme, que vous calculerez explicitement. \\
+    \item Montrez que la série \(\sum_{n\geq1}u_n\) converge uniformément sur \(\intervii{0}{1}\). \\
+    \item Justifiez l'égalité \(\int_0^1\dfrac{x^2\ln x}{1+x^2}\odif{x}=\sum_{n=1}^{\pinf}\dfrac{\paren{-1}^n}{\paren{2n+1}^2}\). \\\\ Montrez la convergence de l'intégrale \(\int_0^1\dfrac{\ln x}{1+x^2}\odif{x}\) et donnez sa valeur sous forme d'une somme de série.
+\end{enumerate}
+\end{exoss}
+
+\begin{exoss}
+Pour \(n\in\Ns\), on pose \(u_n:x\mapsto\dfrac{1}{n}-\dfrac{1}{n+x}\) sur \(\intervee{-1}{\pinf}\).
+
+\begin{enumerate}
+    \item Montrez que la série \(\sum_{n\geq1}u_n\) converge simplement sur \(\intervee{-1}{\pinf}\). On note \(f\) sa somme. \\
+    \item Montrez que pour tout \(a>-1\), la série \(\sum_{n\geq1}u_n\) converge uniformément sur \(\intervei{-1}{a}\). Déduisez-en que \(f\) est continue sur \(\intervee{-1}{\pinf}\). \\
+    \item Précisez sa monotonie. Justifiez l'existence de limites pour \(f\) en \(-1\) et en \(\pinf\). Précisez la valeur de \(\lim_{x\to-1}f\paren{x}\). \\
+    \item Montrez que \(\quantifs{\tpt N\in\Ns;\tpt x\in\intervie{0}{\pinf}}f\paren{x}\geq\sum_{n=1}^Nu_n\paren{x}\). Déduisez-en que \(\lim_{\pinf}f\geq\sum_{n=1}^N\dfrac{1}{n}\), puis précisez la valeur de \(\lim_{\pinf}f\). \\
+    \item Donnez une écriture de \(\dfrac{f\paren{x}}{x}\) sous forme de série, justifiez que cette série converge uniformément sur \(\intervie{0}{\pinf}\) et déduisez-en \(\lim_{x\to\pinf}\dfrac{f\paren{x}}{x}\). \\
+    \item Donnez l'allure de la courbe de \(f\).
+\end{enumerate}
+\end{exoss}
+
+\begin{exoss}~\\
+On pose \(f:x\mapsto\sum_{n=1}^{\pinf}\dfrac{\sqrt{x}\ln n}{1+n^2x}\).
+
+\begin{enumerate}
+    \item Montrez que \(f\) est définie sur \(\intervie{0}{\pinf}\). \\
+    \item Montrez que \(f\) est continue sur \(\intervee{0}{\pinf}\) mais n'est pas continue en \(0\).
+\end{enumerate}
+\end{exoss}
+
+\begin{exoss}
+Reprenez les deux exercices précédents et étudiez la dérivabilité de la fonction somme.
+\end{exoss}
+
+\begin{exoss}
+Pour \(n\in\Ns\), on pose \(u_n:x\mapsto\dfrac{\paren{-1}^n}{n^2x+n}\) sur \(\intervie{0}{\pinf}\).
+
+\begin{enumerate}
+    \item Montrez que la série \(\sum_{n\geq1}u_n\) converge simplement sur \(\intervie{0}{\pinf}\). On note \(f\) sa somme. \\
+    \item Montrez que la série \(\sum_{n\geq1}u_n\) converge uniformément sur \(\intervie{0}{\pinf}\). \\
+    \item Montrez que \(f\) est continue sur \(\intervie{0}{\pinf}\) et possède une limite réelle en \(\pinf\) que vous préciserez. \\
+    \item Montrez que \(f\) est de classe \(\classe{1}\) sur \(\intervee{0}{\pinf}\).
+\end{enumerate}
+\end{exoss}
+
+\begin{exoss}
+Pour \(n\in\Ns\), on pose \(u_n:x\mapsto\dfrac{\Arctan\paren{nx}}{n^2}\) sur \(\R\).
+
+\begin{enumerate}
+    \item Montrez que la série \(\sum_{n\geq1}u_n\) converge simplement sur \(\R\). On note \(f\) sa somme. Précisez sa monotonie et montrez que \(f\) possède une limite réelle en \(\pinf\). \\
+    \item Montrez que la série \(\sum_{n\geq1}u_n\) converge uniformément sur \(\R\). \\
+    \item Montrez que \(f\) est continue sur \(\R\). \\
+    \item Calculez la limite réelle en \(\pinf\). On rappelle que \(\sum_{k=1}^{\pinf}\dfrac{1}{k^2}=\dfrac{\pi^2}{6}\). (Une piste possible : utiliser \(\Arctan t+\Arctan\dfrac{1}{t}=\dfrac{\pi}{2}\) quand \(t>0\)). \\
+    \item Montrez que \(f\) est de classe \(\classe{2}\) sur \(\Rs\).
+\end{enumerate}
+\end{exoss}
+
+\begin{exoss}
+Pour \(n\in\Ns\), on pose \(u_n:x\mapsto\dfrac{1}{n^2}\cos\dfrac{x}{n+x}\) sur \(\Rp\).
+
+\begin{enumerate}
+    \item Montrez que la série \(\sum_{n\geq1}u_n\) converge simplement sur \(\Rp\). On note \(f\) sa somme. \\
+    \item Montrez que la série \(\sum_{n\geq1}u_n\) converge uniformément sur \(\Rp\). \\
+    \item Montrez que \(f\) est continue sur \(\Rp\) et possède une limite réelle en \(\pinf\) que vous préciserez. \\
+    \item Montrez que \(f\) est de classe \(\classe{1}\) sur \(\Rp\).
+\end{enumerate}
+\end{exoss}
+
+\begin{exoss}
+Pour \(x>0\), on pose \(f\paren{x}=\sum_{n=1}^{\pinf}\dfrac{1}{1+n^2x^2}\).
+
+\begin{enumerate}
+    \item Justifiez la bonne définition de \(f\). \\
+    \item Montrez que \(f\) est continue sur \(\intervee{0}{\pinf}\) et possède une limite réelle en \(\pinf\) que vous préciserez. \\
+    \item En étudiant la convergence de la série \(\sum_{n\geq1}\dfrac{x^2}{1+n^2x^2}\), donnez un équivalent de \(f\paren{x}\) quand \(x\) tend vers \(\pinf\). \\
+    \item Précisez la monotonie de \(f\) et justifiez l'existence d'une limite \(l\) en \(0\). \\
+    \item Montrez que \(\quantifs{\tpt N\in\Ns;\tpt x>0}f\paren{x}\geq\sum_{n=1}^N\dfrac{1}{1+n^2x^2}\). Déduisez-en que \(l=\pinf\). \\
+    \item Montrez que \(f\) est de classe \(\classe{1}\) sur \(\intervee{0}{\pinf}\).
+\end{enumerate}
+\end{exoss}
+
+\begin{exoss}
+Pour \(x\geq0\), on pose \(f\paren{x}=\sum_{n=0}^{\pinf}\dfrac{\paren{-1}^n\e{-nx}}{n+1}\).
+
+\begin{enumerate}
+    \item Montrez que \(f\) est bien définie et continue sur \(\intervie{0}{\pinf}\). \\
+    \item Montrez que \(f\) est de classe \(\classe{1}\) sur \(\intervee{0}{\pinf}\). \\
+    \item Montrez que \(\quantifs{\tpt x>0}f\prim\paren{x}=f\paren{x}-\dfrac{1}{1+\e{-x}}\). \\\\ Déduisez-en que \(f\) est de classe \(\classe{1}\) sur \(\intervie{0}{\pinf}\). \\
+    \item Montrez que \(g=f-1\) est intégrable sur \(\intervie{0}{\pinf}\). \\\\ Montrez que \(\int_0^{\pinf}g\paren{x}\odif{x}=\sum_{n=1}^{\pinf}\dfrac{\paren{-1}^n}{n\paren{n+1}}=1-2\ln 2\) (on admettra que \(\sum_{k=1}^{\pinf}\dfrac{\paren{-1}^{k-1}}{k}=\ln 2\) : démonstration ultérieure).
+\end{enumerate}
+\end{exoss}
+
+\begin{exoss}
+Pour \(x>0\), on pose \(f\paren{x}=\sum_{n=0}^{\pinf}\dfrac{\paren{-1}^n}{nx+1}\).
+
+\begin{enumerate}
+    \item Justifiez la bonne définition de \(f\). \\
+    \item Montrez que \(f\) est continue sur \(\intervee{0}{\pinf}\) et possède une limite réelle en \(\pinf\) que vous préciserez. \\
+    \item Montrez que \(f\) est de classe \(\classe{1}\) sur \(\intervee{0}{\pinf}\).
+\end{enumerate}
+\end{exoss}
+
+\begin{exoss}~\\
+On pose \(f\paren{x}=\sum_{n=0}^{\pinf}\ln\paren{1+x^n}\).
+
+\begin{enumerate}
+    \item Quel est l'ensemble de définition de \(f\) ? \\
+    \item Montrez que \(f\) est continue sur \(\intervie{0}{1}\). \\
+    \item Quelle est la limite de \(f\) en \(1^-\) ? \\
+    \item Montrez que \(f\) est de classe \(\classe{1}\) sur \(\intervee{-1}{1}\).
+\end{enumerate}
+\end{exoss}
+
+\begin{exoss}~\\
+On pose \(f\paren{x}=\sum_{n=1}^{\pinf}\dfrac{\e{-x\sqrt{n}}}{n^{\nicefrac{3}{2}}}\).
+
+\begin{enumerate}
+    \item Montrez que \(f\) est bien définie sur \(\intervie{0}{\pinf}\). \\
+    \item Montrez que \(f\) est de classe \(\classe{1}\) sur \(\intervee{0}{\pinf}\) et calculez \(f\prim\paren{x}\) pour \(x>0\). \\
+    \item Montrez que \(f\) n'est pas dérivable en \(0\). \\
+    \item Donnez un équivalent de \(f\paren{x}\) quand \(x\to\pinf\).
+\end{enumerate}
+\end{exoss}
+
+\begin{exosss}
+Étudiez les propriétés de la fonction \(f:x\mapsto\sum_{n=1}^{\pinf}\dfrac{\paren{-1}^nx^n}{n\paren{1+x^n}}\).
+
+\textit{Indication : trouver une relation entre \(f\paren{\dfrac{1}{x}}\) et \(f\paren{x}\).}
+\end{exosss}
+
+\begin{exo}[Oral CCINP, 1]
+Pour \(n\in\N\), on pose \(f_n:x\in\intervii{-1}{1}\mapsto\sin\paren{nx\e{-nx^2}}\).
+
+\begin{enumerate}
+    \item Montrez que \(\paren{f_n}\) converge simplement vers une fonction \(f\) sur \(\intervee{-1}{1}\). \\
+    \item Montrez qu'il y a convergence uniforme sur \(\intervii{a}{1}\) pour tout \(a>0\). \\
+    \item Y a-t-il convergence uniforme sur \(\intervii{-1}{1}\) ?
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Oral CCINP, 2]~\\
+\begin{enumerate}
+    \item Montrez que \(\quantifs{\tpt t\in\intervii{-\dfrac{1}{2}}{\dfrac{1}{2}}}\abs{\ln\paren{1+t}-t}\leq2t^2\). \\
+    \item Étudiez la convergence simple et uniforme sur \(\R\) de la série de fonctions \(\sum x\mapsto\ln\paren{1+\dfrac{\paren{-1}^nx}{n\paren{1+x^2}}}\).
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Oral IMT, 3]
+Soit \(\paren{a_n}\) une suite décroissante de réels positifs. Pour \(n\in\Ns\) et \(x>0\), on pose \(f_n\paren{x}=a_nx^n\paren{1-x}\).
+
+\begin{enumerate}
+    \item Montrez que la série \(\sum f_n\) converge simplement sur \(\intervii{0}{1}\). \\
+    \item Montrez que la série \(\sum f_n\) converge normalement sur \(\intervii{0}{1}\) ssi \(\sum\dfrac{a_n}{n}\) converge. \\
+    \item Montrez que la série \(\sum f_n\) converge uniformément sur \(\intervii{0}{1}\) ssi \(\paren{a_n}\) converge vers \(0\).
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Oral TPE, 4]~\\
+Soit \(f\paren{x}=\sum_{n=0}^{\pinf}\dfrac{1}{n!\;\!\paren{n+x}}\).
+
+\begin{enumerate}
+    \item Étudiez la convergence de la série sur \(\intervee{0}{\pinf}\). \\
+    \item Calculez \(f\paren{1}\). \\
+    \item La fonction \(f\) est-elle de classe \(\classe{1}\) ? \\
+    \item Exprimez \(f\paren{x+1}\) en fonction de \(f\paren{x}\).
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Oral IMT, 5]~\\
+Soit \(f\paren{x}=\sum_{n=0}^{\pinf}\dfrac{\e{-nx}}{n^2+1}\).
+
+\begin{enumerate}
+    \item Déterminez le domaine de définition de \(f\). \\
+    \item Étudiez la continuité de \(f\). \\
+    \item Montrez que \(f\) est de classe \(\classe{\infty}\) sur \(\intervee{0}{\pinf}\). \\
+    \item Déterminez la limite \(l\) de \(f\) en \(\pinf\) et donnez un équivalent de \(f\paren{x}-l\). \\
+    \item Étudiez les variations de \(f\).
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Oral CCINP, 6]
+Pour \(x\in\R\) et \(n\in\Ns\), on pose \(u_n\paren{x}=\paren{-1}^n\dfrac{\e{-nx}}{n}\).
+
+\begin{enumerate}
+    \item Étudiez la convergence de \(\sum u_n\). On note \(S=\sum_{n=1}^{\pinf}u_n\). \\
+    \item Montrez que \(S\) est continue sur \(\Rp\). \\
+    \item Montrez que \(S\) est de classe \(\classe{1}\) sur \(\Rps\). \\
+    \item Calculez \(S\).
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Oral CCINP, 7]
+Pour \(x>0\) et \(n\geq2\), on pose \(u_n\paren{x}=\dfrac{\ln x}{x^n\ln n}\).
+
+\begin{enumerate}
+    \item Déterminez le domaine \(D\) de convergence de \(\sum u_n\). \\
+    \item Montrez que la série ne converge pas normalement. \\
+    \item Montrez que le reste d'ordre \(n\) de la série vérifie \(\abs{R_n\paren{x}}\leq\dfrac{1}{\ln\paren{n+1}}\). \\
+    \item Étudiez la continuité de \(S=\sum_{n=2}^{\pinf}u_n\) sur \(D\). \\
+    \item Montrez que \(S\) est intégrable sur \(D\).
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Oral IMT, 8]~\\
+Soit \(f_n:x\mapsto\paren{x^2+1}\dfrac{n\e{x}+x\e{-x}}{n+x}\).
+
+\begin{enumerate}
+    \item Montrez que la suite \(\paren{f_n}\) converge uniformément sur \(\intervii{0}{1}\) vers une fonction \(f\) à déterminer. \\
+    \item Calculez \(\lim_{n\to\pinf}\int_0^1f_n\).
+\end{enumerate}
+\end{exo}
+
+\section*{Problème 1 -- Une série de fonctions}
+\addcontentsline{toc}{section}{Problème 1 -- Une série de fonctions}
+\setcounter{q}{0}
+
+Soit \(\alpha\) un réel strictement positif. Pour \(n\) un entier naturel non-nul, on considère l'application \(u_n\) de \(\intervie{0}{\pinf}\) vers \(\R\) définie par \[u_n\paren{x}=\dfrac{x}{n^\alpha\paren{1+nx^2}}.\]
+
+\begin{q}[Étude des modes de convergence de la série de fonctions \(\sum u_n\)]
+\begin{enumerate}
+    \item Montrer que la série \(\sum u_n\) converge simplement sur \(\intervie{0}{\pinf}\). \\
+    \item Soient \(a\) et \(b\) deux réels tels que \(0<a<b\). Prouver que la série \(\sum u_n\) converge normalement sur \(\intervii{a}{b}\). \\
+    \item Démontrer que la série \(\sum u_n\) converge normalement sur \(\intervie{0}{\pinf}\) ssi \(\alpha>\dfrac{1}{2}\). \\
+    \item Montrer que, pour tout \(a>0\), la série \(\sum u_n\) converge normalement sur \(\intervie{a}{\pinf}\).
+\end{enumerate}
+\end{q}
+
+\begin{q}
+On suppose dans cette question que \(\alpha\leq\dfrac{1}{2}\).
+
+Pour \(x\in\intervee{0}{\pinf}\), on pose \(R_n\paren{x}=\sum_{k=n+1}^{\pinf}u_k\paren{x}\).
+
+\begin{enumerate}
+    \item Établir l'inégalité \[R_n\paren{x}\geq\sum_{k=n+1}^{2n}\dfrac{x}{\sqrt{2n}\paren{1+kx^2}}.\]
+    \item En procédant par comparaison série-intégrale, montrer que \[R_n\paren{x}\geq\dfrac{1}{\sqrt{2n}x}\ln\dfrac{1+\paren{2n+1}x^2}{1+\paren{n+1}x^2}.\]
+    \item En déduire que la série \(\sum u_n\) n'est pas uniformément convergente sur \(\intervii{0}{a}\), où \(a\) est un réel strictement positif.
+\end{enumerate}
+\end{q}
+
+On note \(S\) l'application de \(\intervie{0}{\pinf}\) dans \(\R\) définie par \(S\paren{x}=\sum_{n=1}^{\pinf}u_n\paren{x}\).
+
+Étudions la régularité de \(S\).
+
+\begin{q}
+Montrer que si \(\alpha>\dfrac{1}{2}\), alors la fonction \(S\) est continue sur \(\intervie{0}{\pinf}\).
+
+Quand \(0<\alpha\leq\dfrac{1}{2}\), sur quel intervalle peut-on démontrer sans calcul supplémentaire que la fonction \(S\) est continue ?
+\end{q}
+
+\begin{q}
+Déterminer \(\lim_{x\to\pinf}S\paren{x}\).
+\end{q}
+
+\begin{q}
+Montrer que pour tout \(\alpha>0\), la fonction \(S\) est de classe \(\classe{1}\) sur \(\intervee{0}{\pinf}\).
+\end{q}
+
+\begin{q}
+On suppose que \(0<\alpha\leq\dfrac{1}{2}\). Soit \(x\) un réel strictement positif.
+
+\begin{enumerate}
+    \item Calculer \(\lim_{n\to\pinf}\int_1^n\dfrac{x}{\sqrt{t}\paren{1+tx^2}}\odif{t}\). \\
+    \item Montrer alors \(\pi-2\Arctan x\leq S\paren{x}\). \\
+    \item En déduire que \(S\) n'est pas continue en \(0\).
+\end{enumerate}
+\end{q}
+
+\section*{Problème 2 -- Étude aux extrémités}
+\addcontentsline{toc}{section}{Problème 2 -- Étude aux extrémités}
+\setcounter{q}{0}
+
+D'après CCP PC 2013.
+
+\begin{q}[Un premier exemple]
+\begin{enumerate}
+    \item Pour tout \(x\in\intervee{-1}{1}\), calculer \(F\paren{x}=\sum_{n=1}^{\pinf}x^n\) ainsi que \(F\prim\paren{x}\). \\
+    \item Déterminer les limites suivantes : \[\lim_{x\to1^-}F\paren{x}\qquad\lim_{x\to1^-}\paren{1-x}F\paren{x}\qquad\lim_{x\to1^-}\paren{1-x}F\prim\paren{x}\qquad\lim_{x\to1^-}\paren{1-x}^2F\prim\paren{x}.\]
+\end{enumerate}
+\end{q}
+
+\begin{q}[Un deuxième exemple]
+Dans cette question, pour tout \(x\in\intervee{-1}{1}\), on pose cette fois \(F\paren{x}=\sum_{n=1}^{\pinf}\dfrac{x^n}{1-x^n}\).
+
+\begin{enumerate}
+    \item Soit \(a\in\intervee{0}{1}\). Prouver la convergence normale de cette série de fonctions sur le segment \(\intervii{-a}{a}\). En déduire que \(F\) est définie et continue sur \(\intervee{-1}{1}\). \\
+    \item Montrer que \(\quantifs{\tpt x\in\intervee{0}{1};\tpt n\in\Ns}\dfrac{1-x^n}{1-x}\leq n\). \\\\ En déduire \(\lim_{x\to1^-}F\paren{x}\) et \(\lim_{x\to1^-}\paren{1-x}F\paren{x}\).
+\end{enumerate}
+\end{q}
+
+\begin{q}[Cas général]
+Dans cette question, \(f\) est une application réelle continue et croissante sur \(\intervee{0}{1}\) avec \(f\paren{0}=0\) et telle que \(u\mapsto\dfrac{f\paren{u}}{u}\) soit intégrable sur \(\intervee{0}{1}\). Soit \(x\in\intervee{0}{1}\).
+
+\begin{enumerate}
+    \item Justifier l'existence de \(G\paren{x}=\int_0^{\pinf}f\paren{x^t}\odif{t}\) et l'égalité \[G\paren{x}=-\dfrac{1}{\ln x}\int_0^1\dfrac{f\paren{u}}{u}\odif{u}.\]
+    \item Pour tout \(n\in\Ns\), justifier l'encadrement \[\int_n^{n+1}f\paren{x^t}\odif{t}\leq f\paren{x^n}\leq\int_{n-1}^nf\paren{x^t}\odif{t}.\]
+    \item En déduire l'existence de \(F\paren{x}=\sum_{n=1}^{\pinf}f\paren{x^n}\), ainsi qu'un encadrement de \(F\paren{x}\) par deux intégrales dépendant de \(x\). \\
+    \item Conclure avec soin que \[\lim_{x\to1^-}\paren{1-x}F\paren{x}=\int_0^1\dfrac{f\paren{u}}{u}\odif{u}.\]
+\end{enumerate}
+\end{q}
+
+\begin{q}[Calcul d'une intégrale]
+On cherche à déterminer la valeur de l'intégrale généralisée \(I=\int_0^1\dfrac{\ln\paren{1-t}}{t}\odif{t}\).
+
+\begin{enumerate}
+    \item Justifier que la fonction \(t\mapsto\dfrac{\ln\paren{1-t}}{t}\) est prolongeable en une fonction \(\psi\) continue sur \(\intervie{0}{1}\). \\\\ On admettra que \(\quantifs{\tpt t\in\intervei{-1}{1}}\ln\paren{1+t}=\sum_{k=1}^{\pinf}\dfrac{\paren{-1}^{k-1}t^k}{k}\). \\
+    \item Soit \(x\in\intervie{0}{1}\). Démontrer que \[\int_0^x\psi\paren{t}\odif{t}=-\sum_{n=1}^{\pinf}\dfrac{x^n}{n^2}.\]
+    \item En déduire soigneusement que l'intégrale \(I\) est convergente et préciser sa valeur.
+\end{enumerate}
+\end{q}
+
+\begin{q}[Un dernier exemple]
+Pour tout \(x\in\intervee{-1}{1}\), on pose cette fois \(F\paren{x}=-\sum_{n=1}^{\pinf}\ln\paren{1-x^n}\).
+
+\begin{enumerate}
+    \item Montrer que \(F\) est définie et de classe \(\classe{1}\) sur \(\intervee{-1}{1}\) et exprimer sa dérivée sous la forme d'une série de fonctions. \\
+    \item Grâce à la fonction 3d, montrer que \[\lim_{x\to1^-}\paren{1-x}F\paren{x}=\int_0^1\dfrac{\ln u}{u-1}\odif{u}=I.\]
+    \item Par une méthode similaire à celle de la question 3, montrer que \[\lim_{x\to1^-}\paren{1-x}^2\sum_{n=1}^{\pinf}\dfrac{nx^n}{1-x^n}=I.\] En déduire \(\lim_{x\to1^-}\paren{1-x}^2F\prim\paren{x}\).
+\end{enumerate}
+\end{q}
