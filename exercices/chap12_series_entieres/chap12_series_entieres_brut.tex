@@ -2,4 +2,316 @@
 
 \minitoc
 
-\note{À venir}
+\legendeexercices
+
+\begin{exos}
+Déterminez le rayon de convergence des séries entières suivantes (où \(\theta\in\R\)) :
+
+\begin{enumerate}
+    \item \(\sum_{n\geq0}\dfrac{n^2+n+1}{4^n}z^n\) \\
+    \item \(\sum_{n\geq0}\sin\paren{n\theta}z^n\) \\
+    \item \(\sum_{n\geq1}\sin\paren{\dfrac{1}{n}}z^n\) \\
+    \item \(\sum_{n\geq2}\dfrac{1}{\ln n}z^n\) \\
+    \item \(\sum_{n\geq2}\ch\paren{n\theta}z^{2n}\) \\
+    \item \(\sum_{n\geq0}\e{\sqrt{n+1}}z^n\) \\
+    \item \(\sum_{n\geq1}n^{\ln n}z^n\) \\
+    \item \(\sum_{n\geq0}\dfrac{1}{\ch\paren{n\theta}}z^n\) \\
+    \item \(\sum_{n\geq0}\tan\paren{\dfrac{n\pi}{7}}z^n\) \\
+    \item \(\sum_{n\geq0}\e{\sin n}z^n\) \\
+    \item \(\sum_{n\geq0}\dfrac{4^n\paren{n!}^3}{\paren{3n}!}z^{2n}\) \\
+    \item \(\sum_{n\geq0}\dfrac{\e{\i n\theta}}{n!}z^{n!}\).
+\end{enumerate}
+\end{exos}
+
+\begin{exos}
+Soient \(\sum_{n\geq0}a_nz^n\) une série entière de rayon de convergence \(R>0\) et \(\alpha\) une constante. Donnez le rayon de convergence des séries entières suivantes : \[\sum_{n\geq0}a_nz^{2n}\qquad\sum_{n\geq0}\dfrac{a_n}{n!}z^n\qquad\sum_{n\geq0}n^\alpha a_nz^n.\]
+\end{exos}
+
+\begin{exos}
+Soit \(a\) une suite réelle décroissante, positive, qui converge vers \(0\) et telle que \(\sum_{n\geq0}a_n\) diverge.
+
+Quel est le rayon de convergence de la série entière \(\sum_{n\geq0}a_nz^n\) ?
+\end{exos}
+
+\begin{exoss}
+Soient \(\sum_{n\geq0}a_nz^n\) et \(\sum_{n\geq0}b_nz^n\) deux séries entières de rayons de convergence respectifs \(R_a>0\) et \(R_b>0\).
+
+Montrez que le rayon de convergence de la série entière \(\sum_{n\geq0}a_nb_nz^n\) est au moins égal à \(R_aR_b\) et donnez un exemple dans lequel il est strictement supérieur.
+
+Quel est le rayon de convergence de la série \(\sum_{n\geq0}a_n^2z^n\) ?
+\end{exoss}
+
+\begin{exoss}
+Pour \(n\in\N\), on pose \(a_n=\dfrac{\paren{-1}^n}{2n-1}\binom{n}{2n}\).
+
+\begin{enumerate}
+    \item Quel est le rayon de convergence de la série entière \(\sum_{n\geq0}a_nz^n\) ? \\
+    \item On pose quand on le peut \(f\paren{x}=\sum_{n=0}^{\pinf}a_nx^n\) où \(x\in\R\). Quel est l'ensemble de définition de \(f\) ? \\
+    \item Donnez une relation de récurrence entre \(a_{n+1}\) et \(a_n\). Déduisez-en que \(f\) est solution d'une équation différentielle du premier ordre. \\
+    \item Donnez une expression explicite de \(f\paren{x}\). \\
+    \item Montrez \(\sqrt{2}=\sum_{n=0}^{\pinf}\dfrac{\paren{-1}^{n+1}}{\paren{2n-1}4^n}\binom{n}{2n}\).
+\end{enumerate}
+\end{exoss}
+
+\begin{exoss}~\\
+On pose \(f\paren{x}=\sum_{n=0}^{\pinf}\dfrac{x^{3n}}{\paren{3n}!}\).
+
+\begin{enumerate}
+    \item Montrez que \(f\) est bien définie et de classe \(\classe{\infty}\) sur \(\R\). \\
+    \item Calculez \(f+f\prim+f\seconde\). Déduisez-en une équation différentielle linéaire d'ordre 2 dont \(f\) est solution. \\
+    \item Déterminez une expression simplifiée de \(f\paren{x}\).
+\end{enumerate}
+\end{exoss}
+
+\begin{exoss}
+Calculez les sommes suivantes en donnant à chaque fois l'ensemble de définition (avec \(\theta\in\R\)) :
+
+\begin{enumerate}
+    \item \(\sum_{n=0}^{\pinf}\dfrac{1}{2^n}x^n\) \\
+    \item \(\sum_{n=0}^{\pinf}n^3x^n\) \\
+    \item \(\sum_{n=0}^{\pinf}\paren{n^2+1}2^{n+1}x^n\) \\
+    \item \(\sum_{n=1}^{\pinf}\dfrac{n^2+n+1}{n}x^n\) \\
+    \item \(\sum_{n=1}^{\pinf}\dfrac{1}{n\paren{n+2}}x^n\) \\
+    \item \(\sum_{n=0}^{\pinf}\dfrac{1}{2n+1}x^n\) \\
+    \item \(\sum_{n=0}^{\pinf}\dfrac{\sin\paren{n\theta}}{n!}x^n\) \\
+    \item \(\sum_{n=1}^{\pinf}\dfrac{\ch\paren{n\theta}}{n}x^n\) \\
+    \item \(\sum_{n=1}^{\pinf}\dfrac{n+2}{n\paren{n+1}}x^n\).
+\end{enumerate}
+\end{exoss}
+
+\begin{exos}
+Montrez que \(f:x\mapsto\dfrac{\e{x}-1}{x}\) est prolongeable en une fonction de classe \(\classe{\infty}\) sur \(\R\) et donnez les valeurs de \(f\deriv{n}\paren{0}\) pour tout \(n\in\N\).
+\end{exos}
+
+\begin{exoss}
+\begin{enumerate}
+    \item Déterminez le plus grand intervalle \(I\) tel que \(\quantifs{\tpt x\in I}\dfrac{1}{\sqrt{1+x}}=\sum_{n=0}^{\pinf}\dfrac{\paren{-1}^n}{4^n}\binom{n}{2n}x^n\). \\
+    \item Déduisez-en le développement en série entière des fonctions \(\Arcsin\) et \(\Arccos\).
+\end{enumerate}
+\end{exoss}
+
+\begin{exoss}
+Développez en série entière les fonctions suivantes, en donnant à chaque fois le rayon de convergence et le domaine de validité du développement, soit par calcul direct à l'aide de fonctions usuelles, soit d'abord par dérivation (avec \(\theta\in\R\)) :
+
+\begin{enumerate}
+    \item \(x\mapsto\dfrac{1}{1+x+x^2}\) \\
+    \item \(x\mapsto\dfrac{1}{1+x^3}\) \\
+    \item \(x\mapsto\dfrac{1}{\paren{1+x}^3}\) \\
+    \item \(x\mapsto\e{-x}\sin x\) \\
+    \item \(x\mapsto\ln\paren{x^2-5x+6}\) \\
+    \item \(x\mapsto\ln\dfrac{2-x}{3-x^2}\) \\
+    \item \(x\mapsto\cos\paren{x}\ch\paren{x}\) \\
+    \item \(x\mapsto\dfrac{\sin\paren{3x}}{\sin x}\) \\
+    \item \(x\mapsto\Arctan\dfrac{1}{1+x}\) \\
+    \item \(x\mapsto\ln\paren{1-2x\cos\theta+x^2}\) \\
+    \item \(x\mapsto\ln\paren{x+\sqrt{1+x^2}}\).
+\end{enumerate}
+\end{exoss}
+
+\begin{exoss}
+\begin{enumerate}
+    \item Montrez que l'intégrale \(I=\int_0^1\ln\paren{t}\ln\paren{1-t}\odif{t}\) converge. \\
+    \item Justifiez que la fonction \(t\mapsto\ln\paren{t}\ln\paren{1-t}\) est la somme d'une série de fonctions qui converge normalement sur \(\intervii{0}{1}\). \\
+    \item Donnez la valeur de \(I\). On rappelle que \(\sum_{n=1}^{\pinf}\dfrac{1}{n^2}=\dfrac{\pi^2}{6}\).
+\end{enumerate}
+\end{exoss}
+
+\begin{exoss}
+Justifiez l'existence des intégrales suivantes et, en vous inspirant de l'exercice précédent, montrez les égalités :
+
+\begin{enumerate}
+    \item \(\int_0^1t^t\odif{t}=\sum_{n=1}^{\pinf}\dfrac{\paren{-1}^{n-1}}{n^n}\) \\
+    \item \(\int_0^1\dfrac{\ln\paren{t}\ln\paren{1-t}}{t}\odif{t}=\sum_{n=1}^{\pinf}\dfrac{1}{n^3}\) \\
+    \item \(\int_0^1\dfrac{\Arctan x}{x}\odif{x}=\sum_{n=0}^{\pinf}\dfrac{\paren{-1}^n}{\paren{2n+1}^2}\) \\
+    \item \(\int_0^1\dfrac{\ln^2t}{1-t}\odif{t}=2\sum_{n=1}^{\pinf}\dfrac{1}{n^3}\) \\
+    \item \(\int_0^1\dfrac{\ln\paren{t^2}\ln\paren{1-t^2}}{t^2}\odif{t}=\dfrac{\pi^2}{2}-4\ln 2\).
+\end{enumerate}
+\end{exoss}
+
+\begin{exoss}
+Montrez les égalités suivantes :
+
+\begin{enumerate}
+    \item \(\sum_{n=0}^{\pinf}\dfrac{\paren{-1}^n}{\paren{2n+1}3^{\nicefrac{n}{2}}}=\dfrac{\pi}{6}\) \\
+    \item \(\sum_{n=0}^{\pinf}\dfrac{\paren{-1}^n}{2n+1}=\dfrac{\pi}{4}\) \\
+    \item \(\sum_{n=1}^{\pinf}\dfrac{\paren{-1}^{n-1}}{n}=\ln 2\).
+\end{enumerate}
+\end{exoss}
+
+\begin{exoss}
+On veut calculer \(s=\sum_{n=1}^{\pinf}\dfrac{1}{2^nn\paren{2n-1}}\). Pour cela, on introduit la fonction \(f:x\mapsto\sum_{n=1}^{\pinf}\dfrac{x^n}{n\paren{2n-1}}\).
+
+\begin{enumerate}
+    \item Donnez l'ensemble de définition \(D\) de \(f\), l'intervalle ouvert de convergence \(I\), puis pour \(x\in I\), écrivez \(f\paren{x}\) en fonction de \(g\paren{x}=\sum_{n=1}^{\pinf}\dfrac{x^n}{n}\) et \(h\paren{x}=\sum_{n=1}^{\pinf}\dfrac{x^n}{2n-1}\). \\
+    \item Déterminez une fonction \(H\) telle que \(\sqrt{x}H\prim\paren{\sqrt{x}}=h\paren{x}\), pour \(x\in I\) strictement positif. \\
+    \item Calculez des expressions simplifiées de \(g\paren{x}\) et \(h\paren{x}\), puis donnez la valeur de \(s\).
+\end{enumerate}
+\end{exoss}
+
+\begin{exoss}
+Soit \(\theta\in\R\). Calculez les sommes \(\sum_{n=1}^{\pinf}\dfrac{\sin\paren{n\theta}}{2^n}\) et \(\sum_{n=1}^{\pinf}\dfrac{\cos\paren{n\theta}}{2^nn}\).
+\end{exoss}
+
+\begin{exoss}~\\
+Calculez la somme \(\sum_{n=0}^{\pinf}\dfrac{n^2+1}{\paren{n+1}2^n}\).
+\end{exoss}
+
+\begin{exoss}
+On considère la série de fonctions \(\sum\paren{-1}^n\ln\paren{n}x^n\).
+
+\begin{enumerate}
+    \item Donnez le rayon de convergence de cette série entière. \\
+    \item On note \(S\) sa somme. Montrez que, pour tout \(x\in\intervee{-1}{1}\), \[S\paren{x}=\dfrac{1}{1+x}\sum_{n=1}^{\pinf}\paren{-1}^{n+1}\ln\paren{1+\dfrac{1}{n}}x^{n+1}.\]
+    \item En déduire que \(S\) a une limite en \(1^-\) et la calculer.
+\end{enumerate}
+\end{exoss}
+
+\begin{exo}[Oral IMT, 1]
+\begin{enumerate}
+    \item Donner un équivalent simple de \(H_n=1+\dfrac{1}{2}+\dots+\dfrac{1}{n}\). \\
+    \item Donner le rayon de convergence de \(\sum_{n\geq1}H_nx^n\), puis calculer la somme de cette série entière.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Oral IMT, 2]
+\begin{enumerate}
+    \item Donner les développements en série entière de \(\cos\) et \(\ch\). \\
+    \item Donner le rayon de convergence de \(\sum_{n\geq0}\dfrac{x^n}{\paren{2n}!}\). \\
+    \item Expliciter la somme \(S\paren{x}\) de cette série entière selon le signe de \(x\).
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Oral CCINP, 3]
+On considère la série entière \(\sum_{n\geq0}\dfrac{n!}{1\times3\times\dots\times\paren{2n+1}}x^{2n+1}\).
+
+\begin{enumerate}
+    \item Donner son rayon de convergence \(R\). \\
+    \item On note \(f\paren{x}\) la somme de cette série pour \(x\in\intervee{-R}{R}\). Trouver une équation différentielle du premier ordre à coefficients variables vérifiée par \(f\). En déduire \(f\).
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Oral CCINP, 4]
+Soit \(\paren{a_n}\) la suite définie par \(a_0=1\), \(a_1=3\) et \(\quantifs{\tpt n\geq2}a_n=3a_{n-2}-2a_{n-1}\).
+
+\begin{enumerate}
+    \item Exprimer \(a_n\) en fonction de \(n\). \\
+    \item On propose une autre méthode. \\\\ Montrer que \(\quantifs{\tpt n\in\N}\abs{a_n}\leq4^n\). \\\\ En déduire une inégalité sur le rayon de convergence de la série \(\sum a_nx^n\). \\
+    \item Montrer que \(\sum_{n=0}^{\pinf}a_nx^n=\dfrac{1+5x}{1+2x-3x^2}\). Calculer le rayon de convergence. \\
+    \item En déduire \(a_n\).
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Oral IMT, 5]
+Soit \(\paren{u_n}\) une suite vérifiant \(\quantifs{\tpt n\in\N}u_{n+1}=\sum_{k=0}^nu_ku_{n-k}\).
+
+\begin{enumerate}
+    \item La suite est-elle bien définie ? unique ? \\
+    \item On suppose que \(f\paren{x}=\sum_{n=0}^{\pinf}u_nx^n\) est de rayon de convergence non-nul. Trouver une relation entre \(f\) et \(f^2\) et en déduire \(f\) à l'aide de fonctions usuelles. \\
+    \item Développer \(f\) en série entière et conclure.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Oral CCINP, 6]
+Déterminer le rayon de convergence de la série entière \(\sum\dfrac{n!}{n^n}x^n\).
+\end{exo}
+
+\begin{exo}[Oral CCINP, 7]
+Déterminer les rayons de convergence des séries entières \(\sum\ln\paren{n}x^n\) et \(\sum\ln\paren{n!}x^n\).
+\end{exo}
+
+\begin{exo}[Oral TPE, 8]~\\
+On pose \(g\paren{x}=\int_0^{\nicefrac{\pi}{2}}\e{x\sin t}\odif{t}\).
+
+Montrer que \(g\) est développable en série entière et exprimer les coefficients à l'aide des intégrales \(\int_0^{\nicefrac{\pi}{2}}\sin^nt\odif{t}\).
+\end{exo}
+
+\begin{exo}[Oral CCINP, 9]
+On définit \(\paren{u_n}\) par \(u_0=1\) et \(\quantifs{\tpt n\in\N}u_{n+1}=\paren{n+1}u_n+\paren{-1}^{n+1}\), puis on pose \(v_n=\dfrac{u_n}{n!}\).
+
+\begin{enumerate}
+    \item Calculer \(v_0\), \(v_1\), \(v_2\) et \(v_3\). \\
+    \item Exprimer \(v_{n+1}\) à l'aide de \(v_n\) et \(n\). \\
+    \item En déduire que la suite \(\paren{v_n}\) converge et donner sa limite. \\
+    \item Donner le rayon de convergence de la série entière \(\sum v_nx^n\). On note \(S\) sa somme. \\
+    \item Donner une équation différentielle vérifiée par \(S\).
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Oral CCINP, 10]
+On définit la suite \(\paren{p_n}\) par \(p_0=1\) et \(\quantifs{\tpt n\in\N}p_{n+1}=\sum_{k=0}^n\binom{k}{n}p_k\). Soit \(f:x\mapsto\sum_{n=0}^{\pinf}\dfrac{p_n}{n!}x^n\).
+
+\begin{enumerate}
+    \item Calculer \(p_1\), \(p_2\) et \(p_3\). Montrer que \(\quantifs{\tpt n\in\N}p_n\leq n!\). \\
+    \item Montrer que le rayon de convergence est strictement positif. \\
+    \item Montrer que \(f\prim\paren{x}=\e{x}f\paren{x}\). En déduire \(f\paren{x}\). \\
+    \item Montrer que \(p_n\) est le nombre de partitions d'un ensemble à \(n\) éléments.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Oral CCMP, 11]~\\
+Pour \(n\geq2\), on pose \(a_n=\ln\dfrac{\sqrt{n}+\paren{-1}^n}{\sqrt{n+1}}\).
+
+Déterminer le rayon de convergence \(R\) de la série entière \(\sum a_nx^n\).
+
+Étudier la convergence des séries \(\sum a_nR^n\) et \(\sum a_n\paren{-R}^n\).
+\end{exo}
+
+\begin{exo}[Oral CCMP, 12]
+Soit \(\paren{a_n}\) une suite de réels positifs. On suppose que \(f:x\mapsto\sum_{n=0}^{\pinf}a_nx^n\) a un rayon de convergence égal à \(1\) et que la série \(\sum a_n\) converge.
+
+Montrer que \(f\paren{x}\tendqd{x\to1^-}\sum_{n=0}^{\pinf}a_n\).
+\end{exo}
+
+\begin{exo}[Oral CCMP, 13]
+Soit \(\paren{a_n}\) une suite de réels positifs. On suppose que \(f:x\mapsto\sum_{n=0}^{\pinf}a_nx^n\) a un rayon de convergence égal à \(1\) et que \(f\) est bornée sur \(\intervie{0}{1}\).
+
+Montrer que \(f\paren{x}\tendqd{x\to1^-}\sum_{n=0}^{\pinf}a_n\).
+\end{exo}
+
+\begin{exo}[Oral CCMP, 14]
+Soit \(\paren{a_n}\) une suite de réels strictement positifs. On suppose que \(n\paren{\dfrac{a_n^2}{a_{n-1}a_{n+1}}-1}\tendqd{n\to\pinf}l\in\R\).
+
+\begin{enumerate}
+    \item Si \(l\not=0\), déterminer le rayon de convergence de la série \(\sum a_nx^n\). \\
+    \item Que se passe-t-il pour \(l=0\) ?
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Oral CCMP, 15]~\\
+Calculer \(w_n=\sum_{k=0}^n\paren{-1}^k\binom{k}{2k}\). Indication : utiliser la série entière \(\sum_{n=0}^{\pinf}\binom{n}{2n}x^n\).
+\end{exo}
+
+\begin{exo}[Oral CCMP, 16]~\\
+Pour \(n\in\N\), on pose \(a_n=\dfrac{1}{n!}\sum_{k=0}^nkk!\) et \(S\paren{x}=\sum_{n=1}^{\pinf}a_nx^n\).
+
+\begin{enumerate}
+    \item Déterminer le rayon de convergence \(R\) de cette série entière. \\
+    \item Y a-t-il convergence pour \(x=R\) ? pour \(x=-R\) ? \\
+    \item Calculer la limite de \(S\) en \(R\).
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Oral CCMP, 17]
+\begin{enumerate}
+    \item Pour \(n\in\N\), justifier l'existence et calculer la valeur de \(\int_0^1t^n\ln\paren{t}\odif{t}\). \\
+    \item Montrez que \(t\mapsto\e{t}\ln t\) est intégrable sur \(\intervei{0}{1}\), puis que \(\int_0^1\e{t}\ln\paren{t}\odif{t}=\sum_{n=1}^{\pinf}\dfrac{1}{nn!}\).
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Oral CCMP, 18]
+\begin{enumerate}
+    \item Montrer que la fonction \(f:x\mapsto\dfrac{1}{4}\paren{\e{x}+3\e{-x}+2x\e{x}}\) est développable en série entière sur \(\R\). \\
+    \item On note alors \(f\paren{x}=\sum_{n=0}^{\pinf}a_nx^n\). Montrer que \(\quantifs{\tpt n\geq2}a_n\not=0\) et \(\dfrac{1}{a_n}\in\N\).
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Oral X, 19]
+Soit \(\paren{a_n}\) la suite définie par \(a_0=0\) et \(\quantifs{\tpt n\in\N}a_{n+1}=\paren{n+1}^2+\paren{n+1}a_n\).
+
+\begin{enumerate}
+    \item Déterminer le rayon de convergence de la série entière \(\sum a_nx^n\). \\
+    \item Déterminer le rayon de convergence de la série entière \(\sum\dfrac{a_n}{n!}x^n\). \\
+    \item Calculer \(E\paren{x}=\sum_{n=0}^{\pinf}\dfrac{a_n}{n!}x^n\). \\
+    \item Calculer \(a_n\), puis donner un équivalent simple de \(a_n\).
+\end{enumerate}
+\end{exo}
