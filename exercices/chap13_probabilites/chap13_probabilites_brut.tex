@@ -2,4 +2,221 @@
 
 \minitoc
 
-\note{À venir}
+\legendeexercices
+
+\begin{exos}
+Donnez une condition nécessaire et suffisante sur une suite \(\paren{a_k}\) de réels pour qu'il existe une probabilité \(\prem\) sur \(\N\) telle que \(\quantifs{\tpt k\in\N}\proba{\interventierii{1}{k}}=a_k\).
+\end{exos}
+
+\begin{exos}
+Un citadin cherche à diminuer son usage de la voiture. Il est tiraillé entre le manque de volonté et la mauvaise conscience : si un jour il est parvenu à prendre le bus, alors il le reprend le lendemain avec la probabilité \(\dfrac{2}{3}\) ; s'il a pris sa voiture, il la reprend le lendemain avec la probabilité \(\dfrac{1}{4}\). On note \(p_n\) la probabilité qu'il prenne le bus le \(n\)-ème jour.
+
+Calculez \(p_{n+1}\) en fonction de \(p_n\), puis \(p_n\) en fonction de \(p_1\) et \(n\).
+
+Déterminez la limite de \(p_n\) quand \(n\) tend vers \(\pinf\).
+\end{exos}
+
+\begin{exos}
+On dispose de deux pièces : la pièce \(A\) donne \guillemets{face} avec la probabilité \(\dfrac{1}{2}\) et la pièce \(B\) donne \guillemets{face} avec la probabilité \(\dfrac{2}{3}\). On choisit une des deux pièces au hasard et on la lance. Si on obtient \guillemets{face}, on conserve la pièce, sinon on prend l'autre pièce ; puis on effectue un nouveau lancer. On répète cette opération \textit{ad nauseam}.
+
+On note \(A_n\) l'événement \guillemets{au \(n\)-ème lancer, on lance la pièce \(A\)} et \(p_n=\proba{A_n}\).
+
+\begin{enumerate}
+    \item Calculez \(p_n\) en fonction de \(n\). \\
+    \item Calculez la probabilité d'obtenir \guillemets{face} au \(n\)-ème lancer.
+\end{enumerate}
+\end{exos}
+
+\begin{exos}
+On remplit aléatoirement \(n\) boîtes avec \(n\) boules.
+
+Déterminez la probabilité \(p_n\) qu'une seule boîte soit vide, puis donnez un équivalent de \(p_n\) quand \(n\to\pinf\).
+\end{exos}
+
+\begin{exos}
+On lance de manière répétée deux pièces équilibrées. On note \(E_n\) l'événement \guillemets{à l'issue de \(n\) lancers des deux pièces, les deux pièces ont donné le même nombre de \guillemets{pile} que de \guillemets{face}}.
+
+Déterminez \(\proba{E_n}\).
+\end{exos}
+
+\begin{exoss}
+Soit \(n\in\Ns\). On dispose de \(n\) urnes numérotées de \(1\) à \(n\), telles que pour tout \(i\in\interventierii{1}{n}\), l'urne numéro \(i\) contient \(i\) boules numérotées de \(1\) à \(i\). On choisit d'abord une urne au hasard, puis on tire une boule dans cette urne.
+
+\begin{enumerate}
+    \item On pose \(H_n=\sum_{k=1}^n\dfrac{1}{k}\) et \(K_n=\sum_{i=1}^nH_i\). \\\\ Donnez une expression de \(K_n\) en fonction de \(H_n\), puis un équivalent quand \(n\to\pinf\) de \(H_n\) et \(K_n\). \\
+    \item Pour tout \(i\in\interventierii{1}{n}\), calculez en fonction des sommes précédentes \begin{itemize}
+        \item la probabilité \(b_i\) d'obtenir une boule numérotée \(i\),
+        \item la probabilité \(c_i\) d'obtenir une boule de numéro au moins égal à \(i\). \\
+    \end{itemize} Quelles sont leurs limites quand \(n\to\pinf\) ? \\
+    \item On suppose que \(n\) est pair pour simplifier les calculs, on pose \(n=2N\). Déterminez la probabilité \(d_N\) d'obtenir une boule de numéro au moins égal à \(N\) et sa limite quand \(N\to\pinf\).
+\end{enumerate}
+\end{exoss}
+
+\begin{exoss}
+Soient \(N\in\Ns\), \(a\in\interventierii{0}{N}\), \(p\in\intervee{0}{1}\excluant\accol{\dfrac{1}{2}}\) et \(q=1-p\).
+
+Une particule située au début du processus au point d'abscisse \(a\) se déplace sur un axe aléatoirement, par sauts successifs, indépendants les uns des autres, d'amplitude \(1\) avec la probabilité \(p\) et \(-1\) avec la probabilité \(q\). Si \(x_n\) est l'abscisse de la particule à l'issue du \(n\)-ème saut, alors \(x_0=a\) et \(x_{n+1}=x_n+1\) avec la probabilité \(p\) et \(x_{n+1}=x_n-1\) avec la probabilité \(q\).
+
+Le processus s'arrête dès que la particule atteint l'une des extrémités du segment \(\intervii{0}{N}\).
+
+\begin{enumerate}
+    \item Soit \(u_a\) la probabilité que le processus s'arrête en \(0\), étant initialement parti de \(a\). On a en particulier \(u_0=1\) et \(u_N=0\). \\\\ Montrez que \(\quantifs{\tpt a\in\interventierii{1}{N-1}}u_a=pu_{a+1}+qu_{a-1}\). \\\\ Exprimez \(u_a\) en fonction de \(a\), \(N\), \(p\) et \(q\). \\
+    \item De même, calculez la probabilité \(v_a\) que le processus s'arrête en \(N\), étant initialement parti de \(a\). \\
+    \item Calculez la somme \(u_a+v_a\). Déduisez-en la probabilité que le processus ne s'arrête pas, \cad que \(\quantifs{\tpt n\in\N}1\leq x_n\leq N-1\).
+\end{enumerate}
+\end{exoss}
+
+\begin{exoss}
+On dispose de \(n\) urnes numérotées de \(1\) à \(n\), telles que la \(k\)-ème contienne \(k\) boules blanches et \(\paren{n+1}-k\) boules bleues. On choisit au hasard l'urne numéro \(k\) avec une probabilité proportionnelle à \(k\), puis on tire une boule de l'urne choisie.
+
+\begin{enumerate}
+    \item Calculez la probabilité de choisir chaque urne. \\
+    \item On a tiré une boule blanche. Pour tout \(k\in\interventierii{1}{n}\), calculez la probabilité qu'elle soit issue de l'urne numéro \(k\). \\
+    \item On fait tendre le nombre d'urne vers l'infini : que dire des probabilités précédentes ?
+\end{enumerate}
+\end{exoss}
+
+\begin{exoss}
+On dispose de deux dés \(A\) et \(B\). Le dé \(A\) a quatre faces rouges et deux faces blanches. Le dé \(B\) a deux faces rouges et quatre faces blanches. On lance une pièce de monnaie truquée telle que la probabilité d'obtenir \guillemets{pile} soit \(\dfrac{1}{3}\). \begin{itemize}
+    \item Si on obtient \guillemets{pile}, on décide de jouer uniquement avec le dé \(A\) ;
+    \item si on obtient \guillemets{face}, on décide de jouer uniquement avec le dé \(B\).
+\end{itemize}
+
+\begin{enumerate}
+    \item Calculez la probabilité d'obtenir \guillemets{rouge} au premier lancer de dé. \\
+    \item On a obtenu \guillemets{rouge} aux deux premiers coups. Calculez la probabilité d'obtenir \guillemets{rouge} au troisième lancer de dé. \\
+    \item On a obtenu \guillemets{rouge} aux \(n\) premiers lancers de dé (\(n\in\Ns\)). Déterminez la probabilité \(p_n\) d'avoir utilisé le dé \(A\). \\
+    \item Les événements \guillemets{on obtient \guillemets{rouge} au premier lancer de dé} et \guillemets{on obtient \guillemets{rouge} au deuxième lancer de dé} sont-ils indépendants pour la probabilité \(\prem\) ?
+\end{enumerate}
+\end{exoss}
+
+\begin{exoss}
+On considère une suite de \(n\) lancers indépendants d'une pièce truquée pour laquelle la probabilité d'obtenir \guillemets{pile} est \(p\in\intervee{0}{1}\) et on pose \(q=1-p\).
+
+On note \(F_i\) l'événement \guillemets{le \(i\)-ème lancer donne \guillemets{face}}.
+
+\begin{enumerate}
+    \item Soit \(R_k\) l'événement \guillemets{\guillemets{pile} apparaît pour la première fois lors du \(k\)-ème lancer}. Exprimez \(R_k\) à l'aide des événements \(F_i\). Calculez \(\proba{R_k}\). \\
+    \item Soit \(A_k\) l'événement \guillemets{la séquence \guillemets{pile, face} apparaît pour la première fois aux lancers \(\paren{k-1}\) et \(k\)}. Calculez \(\proba{A_k}\). \\
+    \item Quelle est la probabilité de l'événement \(A\) : \guillemets{la séquence \guillemets{pile, face} apparaît au moins une fois} ? \\
+    \item Soit \(B_k\) l'événement \guillemets{on a obtenu exactement \(k\) fois \guillemets{pile}}. Calculez \(\proba{B_k}\).
+\end{enumerate}
+\end{exoss}
+
+\begin{exoss}
+Un sac contient \(2n\) jetons dont la moitié sont blancs et l'autre moitié sont noirs. On vide ce sac par tirages successifs sans remise de paires de jetons. On pose \(A_n\) l'événement \guillemets{on a obtenu des paires de jetons de couleurs différentes à chaque tirage}.
+
+Montrez que \(\proba{A_n}=\dfrac{2^n\paren{n!}^2}{\paren{2n}!}\). Déterminez la limite de \(\proba{A_n}\) quand \(n\to\pinf\).
+\end{exoss}
+
+\begin{exoss}
+On lance \(n\) fois une pièce équilibrée (\(n\geq2\)). Calculez la probabilité de ne pas obtenir deux fois \guillemets{pile} successivement de deux façons :
+
+\begin{enumerate}
+    \item en introduisant les événements \(A_k\) : \guillemets{le \(k\)-ème lancer donne \guillemets{pile} et le suivant donne \guillemets{face}} ; \\
+    \item en notant \(p_n\) la probabilité demandée et en déterminant une relation de récurrence entre \(p_n\), \(p_{n+1}\) et \(p_{n+2}\).
+\end{enumerate}
+
+Déduisez de cet exercice la valeur de la somme \(\sum_{0\leq k\leq\nicefrac{n}{2}}\binom{k}{n-k}\).
+\end{exoss}
+
+\begin{exoss}
+Un jeu de cartes contient \(n\) cartes distinctes. Une première personne choisit un certain nombre de cartes, note son tirage et remet les cartes dans le paquet. Une seconde personne choisit alors quelques cartes dans le paquet. Quelle est la probabilité que la deuxième personne ait choisi au moins les mêmes cartes que la première ? Quelle est la probabilité que la deuxième personne n'ait choisi aucune carte commune avec la première ?
+\end{exoss}
+
+\begin{exoss}
+Soit \(n\) un entier supérieur ou égal à \(2\). On choisit un entier au hasard dans l'intervalle d'entiers \(\Omega=\interventierii{1}{n}\), qu'on note \(x\).
+
+\begin{enumerate}
+    \item Soit \(k\in\interventierii{1}{n}\). On note \(D_k\) l'événement \guillemets{\(k\) divise \(x\)}. Calculez la probabilité de \(D_k\). \\
+    \item Soient \(p_1,\dots,p_r\) les facteurs premiers de \(n\). Montrez que les événements \(D_{p_i}\) sont mutuellement indépendants. \\
+    \item On rappelle qu'on note souvent \(\phi\paren{n}\) le nombre d'entiers de \(\interventierii{1}{n}\) qui sont premiers avec \(n\) (fonction indicatrice d'Euler). Montrez que \(\phi\paren{n}=\prod_{i=1}^r\paren{1-\dfrac{1}{p_i}}\).
+\end{enumerate}
+\end{exoss}
+
+\begin{exoss}
+Soit \(\anneau{\Omega}[\fami{T}][\prem]\) un espace probabilisé.
+
+Montrez que \(\quantifs{\tpt\paren{A,B}\in\fami{T}^2}\abs{\proba{A\inter B}-\proba{A}\proba{B}}\leq\dfrac{1}{4}\).
+\end{exoss}
+
+\begin{exoss}
+Soient \(\anneau{\Omega}[\fami{T}][\prem]\) un espace probabilisé et \(\paren{A_n}\) une suite d'événements.
+
+On considère l'événement \(A=\biginter_{k\in\N}\bigunion_{n=k}^{\pinf}A_n\).
+
+\begin{enumerate}
+    \item Montrez que \(\proba{A}=\lim_{k\to\pinf}\proba{\bigunion_{n=k}^{\pinf}A_n}\). \\
+    \item On suppose que la série de terme général \(\proba{A_n}\) converge. \\\\ Déterminez \(\proba{A}\), puis \(\proba{B}\), où \(B\) est l'ensemble des \(\omega\in\Omega\) appartenant à une infinité d'événements \(A_n\). \\
+    \item On suppose maintenant que les événements \(A_n\) sont mutuellement indépendants et que la série de terme général \(\proba{A_n}\) diverge. \\\\ Déterminer \(\proba{A}\).
+\end{enumerate}
+\end{exoss}
+
+\begin{exoss}
+Soit \(s>1\). On rappelle que \(\zeta\paren{s}=\sum_{n=1}^{\pinf}\dfrac{1}{n^s}\).
+
+On définit une probabilité sur \(\Ns\) par sa distribution de probabilités \(p_n=\dfrac{1}{\zeta\paren{s}n^s}\).
+
+\begin{enumerate}
+    \item Soit \(A_n\) l'événement \guillemets{être un multiple de \(n\)}. Montrez que les événements \(A_p\), pour tous les \(p\) premiers, sont mutuellement indépendants. \\
+    \item Exprimez l'événement \(E\) : \guillemets{n'être multiple d'aucun nombre premier} en fonction des \(A_p\). À l'aide de leur indépendance et avec le théorème de continuité décroissante, déduisez-en que \(\proba{\accol{1}}=\prod_{p\text{ premier}}\paren{1-\dfrac{1}{p^s}}\), puis la magnifique formule \[\zeta\paren{s}=\prod_{p\text{ premier}}\dfrac{1}{1-\frac{1}{p^s}}.\]
+\end{enumerate}
+\end{exoss}
+
+\begin{exo}[Oral CCINP, 1]
+Dans une urne contenant \(n\) tickets dont \(p\) sont gagnants, un joueur tire avec remise \(p\) ticket.
+
+\begin{enumerate}
+    \item Calculer la probabilité \(P\paren{n,p}\) pour que le joueur tire au moins un ticket gagnant. \\
+    \item On suppose que \(n=p^2\). Calculer la limite de \(P\paren{p^2,p}\) quand \(p\) tend vers \(\pinf\). On pourra utiliser la formule de Stirling. \\
+    \item Reprendre les questions précédentes lorsque le joueur tire \(p\) tickets sans remise.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Oral CCINP, 2]
+Une urne contient \(a\) boules blanches et \(b\) boules noires. On réalise \(n\) tirages avec remise.
+
+\begin{enumerate}
+    \item Soit \(B_i\) l'événement \guillemets{on tire \(i\) boules blanches}. Calculer \(\proba{B_i}\). \\
+    \item Montrer que \(\sum_{i=0}^{\floor{\nicefrac{n}{2}}}\binom{2i}{n}x^{2i}=\dfrac{\paren{1+x}^n+\paren{1-x}^n}{2}\). \\
+    \item Calculer la probabilité de tirer un nombre pair de boules blanches.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Oral CCINP, 3]
+On considère une urne dans laquelle on met une boule blanche. On tire à pile ou face avec une pièce : pour pile on ajoute une boule noire et on rejoue ; pour face on tire une boule et le jeu s'arrête.
+
+Calculer la probabilité que le jeu s'arrête au \(k\)-ème lancer, puis la probabilité que la boule tirée soit blanche.
+\end{exo}
+
+\begin{exo}[Oral CCINP, 4]
+Un automobiliste a le choix entre deux itinéraires chaque jour pour se rendre au travail (notés \(A\) et \(B\)). Le premier jour, il emprunte l'itinéraire \(A\). Puis, chaque jour, il prend le même itinéraire que la veille s'il n'a pas rencontré de bouchon, sinon il change. Sur l'itinéraire \(A\), la probabilité d'un bouchon vaut \(a\), sur \(B\) elle vaut \(b\).
+
+Calculer la probabilité \(p_n\) qu'au jour \(n\) il prenne l'itinéraire \(a\), puis calculer \(\lim_{n\to\pinf}p_n\).
+\end{exo}
+
+\begin{exo}[Oral CCMP, 5]~\\
+Soient \(p\in\intervee{0}{1}\) et \(\alpha\in\intervee{0}{\dfrac{1}{p}-1}\). Pour \(n\in\Ns\), une famille a une probabilité \(\alpha p^n\) d'avoir \(n\) enfants et les enfants sont de manière équiprobable fille ou garçon.
+
+\begin{enumerate}
+    \item Quelle est la probabilité que la famille n'ait pas d'enfant ? \\
+    \item Quelle est la probabilité d'avoir exactement \(k\in\N\) garçons ? \\
+    \item Quelle est la probabilité d'avoir deux garçons sachant qu'on a au moins un garçon ?
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Oral CCMP, 6]
+Une urne contient \(p\) boules rouges et \(q\) boules blanches. On tire sans remise les boules et on s'arrête lorsqu'on a tiré toutes les boules blanches.
+
+Déterminer la probabilité d'avoir retiré toutes les boules de l'urne.
+\end{exo}
+
+\begin{exo}[Oral CCMP, 7]
+Soit \(\Omega\) un ensemble de cardinal \(N\) muni de la probabilité uniforme. Déterminer \(m\) maximal tel qu'il existe \(m\) événements \(A_1,\dots,A_m\) mutuellement indépendants, non-vides et distincts de \(\Omega\).
+\end{exo}
+
+\begin{exo}[Oral X, 8]
+Soient \(p_1,p_2\) deux nombres premiers et \(n\in\N\) tels que \(p_1<p_2\leq n\). On tire un entier \(q\) au hasard entre \(1\) et \(n\) et on note \(E_1\) (respectivement \(E_2\)) l'événement \guillemets{\(p_1\) divise \(q\)} (respectivement \guillemets{\(p_2\) divise \(q\)}).
+
+Montrer que \(E_1\) et \(E_2\) sont indépendants ssi il existe \(\paren{k,k_1}\in\N^2\) tel que \(n=kp_1p_2+k_1p_1\) et \(k_1p_1<p_2\).
+\end{exo}
