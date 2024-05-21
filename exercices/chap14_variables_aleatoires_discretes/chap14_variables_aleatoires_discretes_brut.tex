@@ -2,4 +2,427 @@
 
 \minitoc
 
-\note{À venir}
+\legendeexercices
+
+\begin{exoss}
+Initialement, une urne \(A\) contient deux jetons numérotés \(0\) et une urne \(B\) contient deux jetons numérotés \(1\). À chaque coup, on échange un jeton pris dans \(A\) au hasard et un jeton pris dans \(B\) au hasard. \(X_n\) désigne le nombre de jetons \(1\) dans l'urne \(A\) après \(n\) échanges. Déterminez la loi de \(X_n\).
+\end{exoss}
+
+\begin{exoss}
+\(n\) désigne un entier naturel supérieur ou égal à \(2\). On effectue des tirages au hasard dans une urne contenant des boules numérotées de \(1\) à \(n\). Un tirage consiste à extraire une boule de l'urne, la boule tirée étant ensuite remise dans l'urne. On note \(N\) la variable aléatoire égale au numéro du tirage aucours duquel, pour la première fois, on a obtenu une boule déjà obtenue auparavant.
+
+\begin{enumerate}
+    \item Justifiez que \(N\paren{\Omega}=\interventierii{2}{n+1}\). \\
+    \item On note \(B_i\) le numéro de la boule tirée au \(i\)-ème tirage. \\\\ Montrez que pour \(k\geq2\), \(\paren{N\geq k+1}=\paren{N\geq k}\inter\paren{B_k\not\in\accol{B_1,\dots,B_{k-1}}}\). \\
+    \item Que vaut \(\proba{N\geq2}\) ? Donnez une relation de récurrence entre \(\proba{N\geq k+1}\) et \(\proba{N\geq k}\). \\
+    \item Montrez que \(\quantifs{\tpt k\in\interventierii{1}{n}}\proba{N\geq k+1}=\dfrac{\arr{k}{n}}{n^k}\). \\
+    \item Déduisez-en \(\proba{N=k}\). \\
+    \item Montrez que l'espérance de \(N\) est \(\sum_{k=0}^n\dfrac{\arr{k}{n}}{n^k}\).
+\end{enumerate}
+\end{exoss}
+
+\begin{exoss}
+Un standard téléphonique effectue \(n\) appels téléphoniques vers \(n\) personnes distinctes, où \(n\geq2\). Pour chaque appel, la probabilité d'obtenir le correspondant est \(p\in\intervee{0}{1}\), indépendamment de ce qui se passe pour les autres. On note \(X\) la variable aléatoire égale au nombre de correspondants obtenus.
+
+\begin{enumerate}
+    \item Déterminez la loi de \(X\), son espérance et sa variance. \\
+    \item Après ces \(n\) appels, le standard tente une deuxième fois, dans les mêmes conditions, de contacter les \(n-k\) correspondants injoignables la première fois. Soient \(Y\) le nombre d'appels aboutis lors de cette deuxième tentative et \(Z=X+Y\). \\ \begin{enumerate}
+        \item Déterminez la loi de \(Y\) sachant \(\paren{X=k}\) pour tout \(k\in\interventierii{0}{n}\). En déduire la loi conjointe de \(X\) et \(Y\). \\
+        \item Montrez que \(Z\) suit une loi binomiale que l'on précisera.
+    \end{enumerate}
+\end{enumerate}
+\end{exoss}
+
+\begin{exoss}
+\(n\) candidats passent le code. La probabilité de réussite de chaque candidat est \(p\). Si un candidat rate l'examen, il tente sa chance une deuxième fois avec la même probabilité de réussite.
+
+On note \(X\) le nombre de candidats ayant réussi au premier coup et \(Y\) le nombre de candidats ayant réussi avec deux tentatives.
+
+\begin{enumerate}
+    \item Quelle est la loi de \(X\) ? \\
+    \item Que peut-on dire de \(\probacond{Y=i}{\paren{X=k}}\) ? \\
+    \item On note \(Z\) le nombre total de candidats ayant réussi à l'issue des deux épreuves. Quelle est la loi de \(Z\) ?
+\end{enumerate}
+\end{exoss}
+
+\begin{exoss}
+Deux urnes \(U_1\) et \(U_2\) contiennent des boules blanches et noires en nombres respectifs \(b_1,n_1\) et \(b_2,n_2\) non-nuls. On effectue un premier tirage dans une urne choisie au hasard et on remet la boule obtenue dans son urne d'origine.
+
+Si l'on obtient une boule blanche (respectivement noire), le deuxième tirage se fait dans \(U_1\) (respectivement \(U_2\)) : au \(i\)-ème tirage, si la boule obtenue est blanche (respectivement noire), le \(\paren{i+1}\)-ème tirage se fait dans \(U_1\) (respectivement \(U_2\)).
+
+On considère la variable aléatoire \(X_i\) définie par \(X_i=1\) si on obtient une boule blanche au \(i\)-ème tirage et \(X_i=0\) sinon.
+
+\begin{enumerate}
+    \item Donnez la loi de \(X_1\) puis de \(X_2\). \\
+    \item Calculez \(\proba{X_{i+1}=0}\) en fonction de \(\proba{X_i=0}\) et \(\proba{X_i=1}\). Faites de même avec \(\proba{X_{i+1}=1}\). \\
+    \item Montrez que la suite \(\paren{\proba{X_i=0}}_{i\in\N}\) est une suite arithmético-géométrique. Déduisez-en l'expression de \(\proba{X_i=0}\) en fonction de \(i\) puis celle de \(\proba{X_i=1}\). \\
+    \item Calculez \(\lim_{i\to\pinf}\proba{X_i=0}\) et \(\lim_{i\to\pinf}\proba{X_i=1}\).
+\end{enumerate}
+\end{exoss}
+
+\begin{exoss}
+On dispose de deux urnes \(U_1\) et \(U_2\), de six boules numérotées de \(1\) à \(6\) et d'un dé équilibré. Initialement, l'urne \(U_1\) contient les boules numérotées \(1\) et \(2\), et l'urne \(U_2\) les autres. On appelle échange l'expérience consistant à lancer une fois le dé et à changer d'urne la boule portant le numéro obtenu avec le dé.
+
+Pour \(n\in\N\), on note \(X_n\) la variable aléatoire égale au nombre de boules contenues dans \(U_1\) après \(n\) échanges consécutifs.
+
+\begin{enumerate}
+    \item Quelle est la loi de \(X_1\) ? Calculez son espérance mathématique \(\esp{X_1}\). \\
+    \item Déterminez la loi de \(X_2\). \\
+    \item Dans le cas général, quelles sont les valeurs possibles de \(X_n\) ? \\
+    \item Montrez que pour tout \(n\in\Ns\), on a : \begin{itemize}
+        \item \(\proba{X_{n+1}=0}=\dfrac{1}{6}\proba{X_n=1}\)
+        \item \(\proba{X_{n+1}=6}=\dfrac{1}{6}\proba{X_n=5}\)
+        \item \(\quantifs{\forall k\in\interventierii{1}{5}}\proba{X_{n+1}=k}=\dfrac{7-k}{6}\proba{X_n=k-1}+\dfrac{k+1}{6}\proba{X_n=k+1}\) \\
+    \end{itemize}
+    \item Déduisez-en pour tout \(n\in\Ns\) : \(\esp{X_{n+1}}=\dfrac{2}{3}\esp{X_n}+1\). \\\\ Calculez alors \(\esp{X_n}\) en fonction de \(n\), puis \(\lim_{n\to\pinf}\esp{X_n}\).
+\end{enumerate}
+\end{exoss}
+
+\begin{exoss}
+Une piste rectiligne est divisée en cases numérotées \(0,1,\dots,n,\dots\) de gauche à droite. Une puce se déplace vers la droite d'une ou deux cases au hasard à chaque saut. Au départ, elle est sur la case \(0\). Soient \(X_n\) le numéro de la case occupée par la puce après \(n\) sauts et \(Y_n\) le nombre de fois où la puce a sauté d'une case au cours des \(n\) premiers sauts.
+
+\begin{enumerate}
+    \item Donnez la loi de \(Y_n\), \(\esp{Y_n}\) et \(\vari{Y_n}\). \\
+    \item Exprimez \(X_n\) en fonction de \(Y_n\) et \(n\). Déduisez-en \(\esp{X_n}\) et \(\vari{X_n}\), puis la loi de \(X_n\). \\
+    \item Soit \(Z_n\) la variable aléatoire égale au nombre de sauts nécessaires pour atteindre ou dépasser la case d'abscisse \(n\). \\ \begin{itemize}
+        \item Déterminez \(Z_n\paren{\Omega}\). \\
+        \item Montrez que \(\quantifs{\forall n\geq2;\forall k\geq1}\proba{Z_n=k}=\dfrac{1}{2}\proba{Z_{n-1}=k-1}+\dfrac{1}{2}\proba{Z_{n-2}=k-1}\). \\
+        \item Déduisez-en une relation entre l'espérance de \(Z_n\), \(Z_{n-1}\) et \(Z_{n-2}\) pour \(n\geq2\). \\
+        \item On pose \(u_n=\esp{Z_n}-na\). Déterminez un réel \(a\) tel que la suite \(u\) soit une suite récurrente linéaire d'ordre \(2\). Déduisez-en \(\esp{Z_n}\).
+    \end{itemize}
+\end{enumerate}
+\end{exoss}
+
+\begin{exoss}
+Soient \(a,n\in\Ns\) et \(N=an\). On répartit au hasard \(N\) boules dans \(n\) urnes avec pour chaque boule équiprobabilité du choix de l'urne. Pour tout \(i\in\interventierii{1}{n}\), on note \(T_i\) la variable aléatoire prenant la valeur \(1\) si l'urne numéro \(i\) est vide et la valeur \(0\) dans le cas contraire. On note \(Y_n\) la variable aléatoire indiquant le nombre d'urnes restant vides après la répartition des \(N\) boules et on pose \(S_n=\dfrac{Y_n}{n}\).
+
+\begin{enumerate}
+    \item Donnez la loi, l'espérance et la variance de \(T_i\). \\
+    \item Déterminez l'espérance et la variance de \(S_n\), ainsi que leurs limites lorsque \(n\) tend vers \(\pinf\).
+\end{enumerate}
+\end{exoss}
+
+\begin{exoss}
+On considère une urne ayant une proportion \(p\in\intervee{0}{1}\) de boules noires et \(q=1-p\) de boules blanches. On effectue des tirages avec remise. On considère les événements \(N_k\) : \guillemets{tirer une boule noire au \(k\)-ème tirage} et \(B_k\) : \guillemets{tirer une boule blanche au \(k\)-ème tirage}. On note \(X\) la longueur de la première série de tirages de boules de même couleur et \(Y\) la longueur de la deuxième série de tirages de boules de la même couleur. Par exemple, l'événement \(\paren{X=1}\inter\paren{Y=2}\) est l'événement \(\paren{N_1\inter B_2\inter B_3\inter N_4}\union\paren{B_1\inter N_2\inter N_3\inter B_4}\).
+
+\begin{enumerate}
+    \item Déterminez la loi conjointe du couple \(\paren{X,Y}\). \\
+    \item Déterminez la loi de \(X\), l'espérance de \(X\) et montrez que \(\esp{X}\geq2\). \\
+    \item Déterminez la loi et l'espérance de \(Y\).
+\end{enumerate}
+\end{exoss}
+
+\begin{exoss}
+On effectue des tirages avec remise dans une urne contenant trois jetons numérotés de \(1\) à \(3\). On pose \(Y\) la variable aléatoire égale au numéro du tirage où l'on obtient pour la première fois un jeton différent des précédents et \(Z\) celle égale au numéro du tirage où l'on obtient pour la première fois le troisième jeton.
+
+\begin{enumerate}
+    \item Déterminez la loi de \(Y\). Donnez son espérance et sa variance. \\
+    \item Déterminez la loi conjointe du coup \(\paren{Y,Z}\). \\
+    \item Déterminez la loi de \(Z\).
+\end{enumerate}
+\end{exoss}
+
+\begin{exoss}
+Soient \(X,Y\) deux variables aléatoires indépendantes à valeurs dans \(\N\), de même loi, admettant un moment d'ordre \(2\) et telles que \(Z=X+Y+1\) suive la loi géométrique de paramètre \(p\in\intervee{0}{1}\).
+
+\begin{enumerate}
+    \item Déterminez l'espérance et la variance de \(X\) en fonction de \(p\). \\
+    \item Déterminez la fonction génératrice de \(X\) et déduisez-en la loi de \(X\).
+\end{enumerate}
+\end{exoss}
+
+\begin{exoss}
+Soient \(\paren{p_1,p_2}\in\intervee{0}{1}^2\) et \(X,Y\) deux variables aléatoires indépendantes telles que \(X\sim\loigeometrique{p_1}\) et \(Y\sim\loigeometrique{p_2}\).
+
+\begin{enumerate}
+    \item Donnez la loi et l'espérance de \(\min\paren{X,Y}\). \\
+    \item Même question avec \(\max\paren{X,Y}\).
+\end{enumerate}
+\end{exoss}
+
+\begin{exoss}
+Une variable aléatoire \(X\) à valeurs dans \(\Ns\) vérifie la propriété \(\paren{C}\) quand \(\quantifs{\tpt n\in\Ns}\proba{X\geq n}>0\). Pour une telle variable, on pose \(x_n=\probacond{X=n}{\paren{X\geq n}}\). La suite \(\paren{x_n}\) est appelée taux de défaillance de \(X\).
+
+\begin{enumerate}
+    \item Montrez que \(\quantifs{\tpt n\in\Ns}x_n=\dfrac{\proba{X=n}}{\proba{X\geq n}}\) et \(1-x_n=\dfrac{\proba{X\geq n+1}}{\proba{X\geq n}}\). \\
+    \item Dans cette question, \(Y\) est une variable aléatoire telle que \(\quantifs{\tpt n\in\Ns}\proba{Y=n}=\dfrac{1}{n\paren{n+1}}\). Montrez que \(Y\) vérifie la propriété \(\paren{C}\) et calculez le taux de défaillance \(\paren{y_n}\) associé. La série \(\sum y_n\) converge-t-elle ? \\
+    \item Montrez que \(\quantifs{\tpt n\in\Ns}x_n\in\intervie{0}{1}\) et \(\proba{X\geq n}=\prod_{k=1}^{n-1}\paren{1-x_k}\). Exprimez la loi de \(X\) en fonction des termes de la suite \(\paren{x_n}\). \\
+    \item Montrez que \(X\sim\loigeometrique{p}\) ssi la suite \(\paren{x_n}\) est constante égale à \(p\). \\
+    \item Déterminez la nature de la série \(\sum\ln\paren{1-x_n}\) puis celle de \(\sum x_n\). \\
+    \item Soit \(\paren{z_n}_{n\in\Ns}\) une suite réelle telle que \(\quantifs{\tpt n\in\Ns}z_n\in\intervie{0}{1}\) et la série \(\sum z_n\) diverge. Montrez qu'il existe une variable aléatoire \(Z\) à valeurs dans \(\Ns\) dont le taux de défaillance est la suite \(\paren{z_n}\).
+\end{enumerate}
+\end{exoss}
+
+\begin{exoss}
+Soit \(\paren{a,n}\in\paren{\Ns}^2\). On considère \(an\) clients qui choisissent au hasard un fournisser parmi \(n\) disponibles. On pose \(X_i\) la variable aléatoire égale au nombre de clients du fournisseur \(i\) et \(Y\) le nombre de fournisseurs sans clients.
+
+\begin{enumerate}
+    \item Déterminez la loi, l'espérance et la variance de \(X_i\). \\
+    \item Calculez \(\cov{X_1+\dots+X_n}{X_i}\), puis \(\cov{X_j}{X_i}\) et \(\esp{X_iX_j}\). Quand \(i\not=j\), calculez le coefficient de corrélation de \(X_i\) et \(X_j\). \\
+    \item Calculez l'espérance et la variance de \(Y\).
+\end{enumerate}
+\end{exoss}
+
+\begin{exoss}
+Soient \(\paren{p_1,p_2}\in\intervee{0}{1}^2\) et \(X,Y\) deux variables aléatoires indépendantes telles que \(X\sim\loigeometrique{p_1}\) et \(Y\sim\loigeometrique{p_2}\).
+
+\begin{enumerate}
+    \item Calculez la probabilité que la matrice \(\begin{pmatrix}
+        X & 1 \\
+        0 & Y
+    \end{pmatrix}\) soit diagonalisable. \\
+    \item Soit \(Z\sim\loibernoulli{q}\) indépendante de \(X\) et \(Y\). Calculez la probabilité que la matrice \(\begin{pmatrix}
+        X & Z \\
+        0 & Y
+    \end{pmatrix}\) soit diagonalisable.
+\end{enumerate}
+\end{exoss}
+
+\begin{exoss}
+Soit \(Y\) une variable aléatoire à valeurs dans \(\Z\). On suppose que \(\abs{Y}\sim\loipoisson{\lambda}\) et que \(\quantifs{\tpt n\in\N}\proba{Y=-n}=\proba{Y=n}\).
+
+On pose \(A=\begin{pmatrix}
+0 & Y & 1 \\
+Y & 0 & 1 \\
+Y & 1 & 0
+\end{pmatrix}\).
+
+\begin{enumerate}
+    \item Donnez la loi du rang de \(A\). \\
+    \item Calculez la probabilité que \(A\) soit diagonalisable.
+\end{enumerate}
+\end{exoss}
+
+\begin{exoss}
+Soit \(r>0\).
+
+\begin{enumerate}
+    \item Montrez que la suite \(\paren{p_k}=\paren{\int_0^1rx^{k-1}\paren{1-x}^r\odif{x}}_{k\in\Ns}\) est une distribution de probabilités sur \(\Ns\). \\\\ Soit \(X\) une variable aléatoire qui suit cette distribution de probabilités. \\
+    \item Déterminez \(r\) pour que \(X\) possède une espérance finie et calculez-la dans ce cas.
+\end{enumerate}
+\end{exoss}
+
+\begin{exoss}
+Soient \(X,Y\) deux variables aléatoires indépendantes, de même loi, à valeurs dans \(\Rps\).
+
+Montrez que \(\esp{\dfrac{X}{Y}}\geq1\).
+\end{exoss}
+
+\begin{exoss}
+Soient \(X\) une variable aléatoire réelle positive ayant un moment d'ordre \(2\) et \(a\in\intervee{0}{1}\).
+
+Montrez que \(\proba{X\geq a\esp{X}}\geq\dfrac{\paren{1-a}^2\esp{X}^2}{\esp{X^2}}\).
+\end{exoss}
+
+\begin{exoss}
+Soit \(\paren{X_k}_{k\geq1}\) une suite réelle de variables aléatoires indépendantes et identiquement distribuées qui suivent la loi \(\loigeometrique{p}\).
+
+\begin{enumerate}
+    \item On pose \(f:t\mapsto\dfrac{1}{1-t}\). Pour \(n\in\N\), développez la fonction \(f\deriv{n}\) en série entière en précisant le rayon de convergence. Déduisez-en les développements en série entière des fonctions \(f^n\) pour tout \(n\in\N\). \\
+    \item Donnez la loi de \(S_n=\sum_{k=1}^{n-1}X_k\). \\
+    \item Évaluez \(\proba{\bigunion_{k=1}^n\paren{X_k\geq\sum_{\substack{1\leq i\leq n \\ i\not=k}}X_i}}\).
+\end{enumerate}
+\end{exoss}
+
+\begin{exoss}
+Soit \(\paren{X_n}_{n\geq1}\) une suite de variables aléatoires indépendantes et identiquement distribuées qui suivent la loi \(\loigeometrique{p}\). On pose \(q=1-p\).
+
+Pour \(\paren{n,k}\in\N^2\) tel que \(n\geq2\) et \(k\geq1\), on pose \(A_n=\paren{X_1<\dots<X_n}\), \(B_{n,k}=\paren{X_1<\dots<X_n,X_1=k}\), \(a_n=\proba{A_n}\), \(b_{n,k}=\proba{B_{n,k}}\) et \(\pi_n=\prod_{j=1}^n\paren{1-q^j}\).
+
+\begin{enumerate}
+    \item Calculez \(\proba{X_1=X_2}\) et \(\proba{X_1<X_2}\). \\
+    \item Montrez que \(\quantifs{\tpt n\geq3;k\geq1}b_{n,k}=pq^{k-1}\sum_{j=k+1}^{\pinf}b_{n-1,j}\). \\
+    \item Déduisez-en que \(\quantifs{\tpt n\geq2;k\geq1}b_{n,k}=\dfrac{1}{\pi_{n-1}}\paren{pq^{k-1}}^nq^{\alpha_n}\) où \(\alpha_n\) est un entier que vous préciserez. \\
+    \item Montrez que \(\quantifs{\tpt n\geq2}a_n=\dfrac{1}{\pi_n}p^{\beta_n}q^{\gamma_n}\) où \(\beta_n,\gamma_n\) sont des entiers que vous préciserez. Donnez un équivalent de \(a_n\) quand \(n\to\pinf\).
+\end{enumerate}
+\end{exoss}
+
+\begin{exoss}
+Soient \(X,Y\) deux variables aléatoires à valeurs dans \(\N\). On note \(X\prec Y\) quand \(\quantifs{\tpt n\in\N}\proba{X\geq n}\leq\proba{Y\geq n}\).
+
+\begin{enumerate}
+    \item Montrez que \(X\prec Y\) ssi \(\quantifs{\tpt f:\N\to\R\text{ croissante et bornée}}\esp{f\paren{X}}\leq\esp{f\paren{Y}}\). \\
+    \item Soit \(X_\lambda\) et \(X_\mu\) deux variables aléatoires de Poisson de paramètres \(\lambda,\mu>0\). Montrez que \(X_\lambda\prec X_\mu\) ssi \(\lambda\leq\mu\). \\
+    \item On suppose \(X\) et \(Y\) indépendantes et \(X\prec Y\). Montrez que \(\proba{X\leq Y}>\dfrac{1}{2}\).
+\end{enumerate}
+\end{exoss}
+
+\begin{exoss}
+Soit \(\paren{X_n}_{n\geq1}\) une suite de variables aléatoires de Rademacher indépendantes et identiquement distribuées (\cad suivant une loi uniforme sur \(\accol{-1,1}\)). On pose \(S_n=\sum_{k=1}^nX_k\).
+
+\begin{enumerate}
+    \item Déterminez \(\proba{S_n=0}\) et un équivalent quand \(n\to\pinf\). \\
+    \item Montrez que \(\quantifs{\tpt\paren{n,t}\in\Ns\times\Rp}\esp{\e{tS_n}}\leq\e{\nicefrac{nt^2}{2}}\). \\
+    \item Montrez que \(\quantifs{\tpt\paren{n,a}\in\Ns\times\Rps}\proba{\abs{S_n}\geq a}\leq2\e{-\nicefrac{a^2}{2n}}\).
+\end{enumerate}
+\end{exoss}
+
+\begin{exoss}
+Soit \(\paren{A_n}\) une suite d'événements tel que \(\sum\proba{A_n}\) converge. Écrivez l'événement \(B\) : \guillemets{une infinité d'événements \(A_n\) sont réalisés}. Montrez que \(\proba{B}=0\). \textit{Cette question a déjà été posée dans la feuille d'exercices sur les probabilités.}
+
+Soit \(\paren{X_n}_{n\geq1}\) une suite de variables aléatoires indépendantes et identiquement distribuées, centrées et ayant un moment d'ordre \(4\). On pose \(S_n=\sum_{k=1}^nX_k\).
+
+\begin{enumerate}
+    \item Montrez que \(\sum\dfrac{\esp{S_n^4}}{n^4}\) converge. \\
+    \item Soit \(\epsilon>0\). Montrez que \(\proba{\abs{S_n}\geq n\epsilon}\leq\dfrac{\esp{S_n^4}}{\epsilon^4n^4}\). \\
+    \item Montrez que l'événement \(\paren{\lim_{n\to\pinf}\dfrac{S_n}{n}=0}\) est presque sûr.
+\end{enumerate}
+\end{exoss}
+
+\begin{exoss}
+Soit \(\paren{X_n}_{n\geq1}\) une suite de variables aléatoires indépendantes et identiquement distribuées à valeurs dans \(\N\). Pour \(n\in\N\), on note \(R_n=\Card\accol{X_k\tq k\in\interventierii{1}{n}}\).
+
+\begin{enumerate}
+    \item Montrez que \(\quantifs{\tpt a\in\N}\esp{R_n}\leq a+n\proba{X_1\geq a}\). \\
+    \item Montrez que \(\esp{R_n}=\o{n}\) quand \(n\to\pinf\). \\
+    \item On suppose que \(X_1\) possède une espérance finie. Montrez que \(\esp{R_n}=\O{\sqrt{n}}\).
+\end{enumerate}
+\end{exoss}
+
+\begin{exoss}
+Soient \(n\in\Ns\) et \(X_n\) le nombre de points fixes d'une permutation aléatoire qui suit la loi uniforme sur \(\S{n}\). Trouvez l'espérance et la variance de \(X_n\).
+\end{exoss}
+
+\begin{exoss}
+Soient \(\paren{a,b}\in\R^2\) tel que \(a<b\) et \(X\) une variable aléatoire à valeurs dans \(\intervii{a}{b}\) et centrée.
+
+\begin{enumerate}
+    \item Justifiez que \(\quantifs{\tpt x\in\intervii{a}{b}}\e{x}\leq\dfrac{b-x}{b-a}\e{a}+\dfrac{x-a}{b-a}\e{b}\). \\\\ Déduisez-en que \(\quantifs{\tpt t\in\R}\esp{\e{tX}}\leq\dfrac{b}{b-a}\e{ta}-\dfrac{a}{b-a}\e{tb}\). \\
+    \item Soient \(\alpha\in\intervee{0}{1}\) et \(\beta=1-\alpha\). Montrez que \(\quantifs{\tpt u\in\R}\ln\paren{\beta\e{-\alpha u}+\alpha\e{\beta u}}\leq\dfrac{u^2}{8}\). \\
+    \item Montrez que \(\quantifs{\tpt t\in\R}\esp{\e{tX}}\leq\exp\paren{\dfrac{\paren{b-a}^2t^2}{8}}\).
+\end{enumerate}
+\end{exoss}
+
+\begin{exo}[Oral TPE, 1]
+Soient \(X,Y\) deux variables indépendantes suivant une loi géométrique de paramètre \(p\in\intervee{0}{1}\).
+
+Déterminez la loi de \(Z=\dfrac{X}{Y}\).
+\end{exo}
+
+\begin{exo}[Oral TPE, 2]
+Soit \(X\) une variable aléatoire réelle admettant un moment d'ordre \(2\).
+
+\begin{enumerate}
+    \item Trouvez \(m\) minimisant \(x\mapsto\esp{\paren{X-x}^2}\). \\
+    \item Soit \(\paren{a,b}\in\R^2\) tel que \(a<b\). On suppose \(\proba{X\in\intervii{a}{b}}=1\). Montrez que \(\vari{X}\leq\dfrac{\paren{b-a}^2}{4}\).
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Oral IMT, 3]
+Dans un jardin de \(n\) tulipes (numérotées), chaque tulipe a une probabilité \(p\in\intervee{0}{1}\) de fleurir à l'année \(k\). Si une tulipe fleurit une année, elle fleurira les années suivantes. On pose \(X_i\) la variables aléatoire qui compte le nombre d'années au bout desquelles la tulipe \(i\) est fleurie. Enfin, \(X\) est la variable aléatoire qui compte le nombre d'années au bout desquelles toutes les tulipes sont fleuries.
+
+\begin{enumerate}
+    \item Déterminez la loi de chaque \(X_i\). Exprimez \(X\) en fonction des \(X_i\). \\
+    \item Pour tout \(k\), calculez \(\proba{X<k}\) et en déduire la loi de \(X\). \\
+    \item Montrez que \(X\) possède une espérance et calculez la.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Oral IMT, 4]
+Soient \(\lambda>0\) et \(X\) une variable aléatoire suivant la loi \(\loipoisson{\lambda}\).
+
+\begin{enumerate}
+    \item Calculez \(\esp{\dfrac{1}{X+1}}\). \\
+    \item Quelle est la probabilité que \(X\) soit un entier pair ?
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Oral IMT, 5]
+Soit \(X\) une variable aléatoire suivant la loi uniforme sur \(\interventierii{1}{6}\).
+
+Montrez qu'il existe deux variables aléatoires indépendantes définies sur un même espace probabilisé telles que \(X\sim Y+Z\).
+\end{exo}
+
+\begin{exo}[Oral CCINP, 6]
+Soient \(\lambda,\mu>0\) et \(X,Y\) deux variables aléatoires suivant respectivement les lois \(\loipoisson{\lambda}\) et \(\loipoisson{\mu}\).
+
+Déterminez, pour \(n\in\N\), la loi conditionnelle de \(X\) relative à l'événement \(\paren{X+Y=n}\).
+\end{exo}
+
+\begin{exo}[Oral CCINP, 7]
+Soient \(n\in\Ns\) et \(X,Y,Z\) trois variables aléatoires indépendantes suivant la loi uniforme sur \(\interventierii{1}{n}\).
+
+\begin{enumerate}
+    \item Pour \(k\in\interventierii{2}{n+1}\), déterminez \(\proba{X+Y=k}\). \\
+    \item Même question pour \(k\in\interventierii{n+1}{2n}\). \\
+    \item Déterminez \(\proba{X+Y=Z}\) en utilisant la formule des probabilités totales. \\
+    \item Déterminez \(\proba{X+Y+Z=n}\).
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Oral IMT, 8]
+On considère une pièce équilibrée et on réalise une série de lancers indépendants. On note \(X\) le nombre de \textit{face} avant l'apparition du deuxième \textit{pile}.
+
+Déterminez la loi de \(X\) et calculez son espérance.
+\end{exo}
+
+\begin{exo}[Oral CCINP, 9]
+Soit \(\paren{X_n}_{n\geq1}\) une suite de variables aléatoires indépendantes et identiquement distribuées qui suivent la loi de Bernoulli de paramètre \(p\). Soit \(N\) une variable aléatoire telle que \(N+1\) suive la loi géométrique de paramètre \(p\). On pose \(Y=\sum_{k=1}^NX_k\).
+
+\begin{enumerate}
+    \item Pour \(n\in\Ns\), déterminez la loi de \(S_n=X_1+\dots+X_n\). \\
+    \item Soit \(x\in\intervee{-1}{1}\). Calculez pour tout \(k\in\Ns\) la somme \(\sum_{n=k}^{\pinf}\binom{k}{n}x^{n-k}\). \\
+    \item Calculez \(\proba{Y=k}\) et donnez la loi de \(Y+1\).
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Oral CCINP, 10]
+Soient \(X,Y\) deux variables aléatoires indépendantes, de même loi, à valeurs dans \(\N\) et qui admettent un moment d'ordre \(2\).
+
+\begin{enumerate}
+    \item Calculez \(\esp{X-Y}\) et exprimez \(\vari{X-Y}\) en fonction de \(\vari{X}\). \\
+    \item Montrez que \(\proba{X=Y}=\sum_{k=0}^{\pinf}\proba{X=k}^2\). \\
+    \item Dans cette question, \(X\) et \(Y\) suivent la loi géométrique de paramètre \(p\). Calculez \(\proba{X=Y}\) et déterminez la loi de \(Z=X-Y\). \\
+    \item Rappelez l'inégalité de Cauchy-Schwarz pour le produit scalaire canonique dans \(\R^n\). \\\\ Montrez que si \(X\paren{\Omega}\subset\interventierii{1}{n}\), alors \(\proba{X=Y}\leq\dfrac{1}{n}\). \\
+    \item Montrez que \(\proba{X=Y}\leq1-2\vari{X}\).
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Oral CCMP, 11]
+Soient \(n\in\Ns\) et \(A,B\) deux variables aléatoires indépendantes à valeurs dans \(\P{\interventierii{1}{n}}\) et qui suivent la loi uniforme.
+
+Déterminez \(\proba{A\subset B}\).
+\end{exo}
+
+\begin{exo}[Oral CCMP, 12]
+On considère une urne contenant \(a\) boules blanches et \(b\) boules rouges. Après chaque tirage, on remet dans l'urne \(c\) boules de la même couleur que celle tirée. On effectue \(n\) tirages et on note \(X\) la variable aléatoire donnant le nombre de boules rouges tirées.
+
+\begin{enumerate}
+    \item Déterminez la loi de \(X\) et calculez son espérance. \\
+    \item On considère \(Y\) la variable aléatoire donnant le numéro du premier tirage où l'on tire une boule rouge. Montrez que \(Y\) admet une espérance et calculez la loi de \(Y\).
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Oral CCMP, 13]
+Soient \(X,Y\) deux variables aléatoires réelles indépendantes. On suppose qu'il existe une fonction \(f\) telle que \(Y=f\paren{X}\).
+
+Que dire de \(Y\) ?
+\end{exo}
+
+\begin{exo}[Oral CCMP, 14]
+Une urne contient \(2N\) boules blanches et \(N\) boules noires. On effectue des tirages avec remise et on note \(X\) le nombre de tirages nécessaires pour obtenir deux boules blanches consécutives. Pour \(n\in\Ns\), on pose \(u_n=\proba{X\geq n}\).
+
+\begin{enumerate}
+    \item Trouvez une relation de récurrence vérifiée par la suite \(\paren{u_n}_{n\geq1}\). \\
+    \item Déterminez la loi de \(X\). \\
+    \item Montrez que \(X\) possède un moment à tout ordre. \\
+    \item Calculez \(\esp{X}\) et \(\vari{X}\).
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Oral CCMP, 15]
+Soit \(\paren{X_n}_{n\geq1}\) une suite de variables aléatoires indépendantes et identiquement distribuées qui suivent la loi \(\loibernoulli{p}\).
+
+On pose \(L_1=\max\accol{k\in\Ns\tq X_1=\dots=X_k}\) si cet ensemble est fini, \(\pinf\) sinon.
+
+\begin{enumerate}
+    \item Montrez que \(L_1\) est presque sûrement finie, donnez sa loi, son espérance et sa variance. \\
+    \item Si \(L_1<\pinf\), alors on pose \(L_2=\max\accol{k\in\Ns\tq X_{L_1+1}=\dots=X_{L_1+k}}\) si cet ensemble est fini, \(\pinf\) sinon. \\\\ Montrez que \(L_2\) est presque sûrement finie, donnez sa loi, son espérance et sa variance.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Oral CCMP, 16]
+Soient \(X\) une variable aléatoire suivant la loi \(\loigeometrique{p}\) et \(m\in\Ns\). On pose \(Y=\min\paren{m,X-1}\).
+
+Calculez l'espérance et la variance de \(Y\).
+\end{exo}
