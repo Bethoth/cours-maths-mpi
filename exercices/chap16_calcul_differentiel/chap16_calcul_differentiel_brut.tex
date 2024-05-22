@@ -2,4 +2,165 @@
 
 \minitoc
 
-\note{À venir}
+\legendeexercices
+
+Dans tous les exercices ci-dessous, \(E\) et \(F\) sont des \(\R\)-espaces vectoriels normés de dimensions finies.
+
+\begin{exoss}
+Montrez que les fonctions suivantes sont prolongeables par continuité sur \(\R^2\) :
+
+\begin{enumerate}
+    \item \(\paren{x,y}\mapsto\dfrac{x^3+y^3}{x^2+y^2}\) \\
+    \item \(\paren{x,y}\mapsto\dfrac{\sin x\sin y}{\sqrt{\abs{x}}+\sqrt{\abs{y}}}\) \\
+    \item \(\paren{x,y}\mapsto\dfrac{1+x^2+y^2}{y}\sin y\) \\
+    \item \(\paren{x,y}\mapsto\dfrac{1-\cos\paren{xy}}{y^2}\) \\
+    \item \(\paren{x,y}\mapsto\dfrac{\sin x-\sin y}{\e{x}-\e{y}}\).
+\end{enumerate}
+\end{exoss}
+
+\begin{exoss}
+Soit \(f:\R\to\R\) de classe \(\classe{1}\).
+
+Montrez que \(F:\R^2\to\R\) définie par \(\begin{dcases}
+\dfrac{f\paren{x}-f\paren{y}}{x-y} &\text{si }x\not=y \\
+f\prim\paren{x} &\text{sinon}
+\end{dcases}\) est continue.
+\end{exoss}
+
+\begin{exoss}
+Dans \(E=\polydeg[\R]{n}\), on pose \(f\paren{P}=\int_0^1P\paren{t}^3\odif{t}\).
+
+Montrez que \(f\) est différentiable et donnez sa différentielle. Est-elle de classe \(\classe{1}\) ?
+\end{exoss}
+
+\begin{exoss}
+Soit \(n\geq2\). Dans \(\M{n}[\R]\) muni de sa base canonique, on note \(\paren{x_{i,j}}_{1\leq i,j\leq n}\) les coordonnées génériques d'une matrice \(X\).
+
+\begin{enumerate}
+    \item Démontrez que l'application déterminant est de classe \(\classe{\infty}\) sur \(\M{n}[\R]\). \\
+    \item Soit \(\paren{i,j}\in\interventierii{1}{n}^2\). Donnez la valeur de \(\pdv{\det}{x_{i,j}}\paren{I_n}\). \\
+    \item Déduisez-en l'expression de la différentielle de \(\det\) en \(I_n\). \\
+    \item Démontrez que si \(A\) est inversible, alors \(\odif{\paren{\det}}\paren{A}.H=\tr\paren{\trans{\paren{\Com{A}}}H}\). \\
+    \item Démontrez que la formule précédente reste valide pour toute matrice \(A\in\M{n}[\R]\).
+\end{enumerate}
+\end{exoss}
+
+\begin{exoss}
+Soit \(f:E\to F\) différentiable sur \(E\) et telle que \(\quantifs{\tpt\paren{\lambda,x}\in\R\times E}f\paren{\lambda x}=\lambda f\paren{x}\).
+
+Montrez que \(f\) est linéaire.
+\end{exoss}
+
+\begin{exoss}
+Soit \(f:\R^2\to\R\) de classe \(\classe{1}\) sur \(\R^2\). Calculez les différentielles des applications suivantes :
+
+\begin{enumerate}
+    \item \(\paren{x,y}\mapsto f\paren{x,y}\) \\
+    \item \(x\mapsto f\paren{x,x}\) \\
+    \item \(\paren{x,y}\mapsto f\paren{y,f\paren{x,x}}\).
+\end{enumerate}
+\end{exoss}
+
+\begin{exoss}
+Les fonctions suivantes sont-elles de classe \(\classe{1}\) ?
+
+\begin{enumerate}
+    \item \(\paren{x,y}\mapsto\dfrac{x^3+y^3}{x^2+y^2}\) prolongée en \(\paren{0,0}\) par \(0\) \\
+    \item \(\paren{x,y}\mapsto\dfrac{\sin\paren{xy}}{\abs{x}+\abs{y}}\) prolongée en \(\paren{0,0}\) par \(0\) \\
+    \item \(\paren{x,y}\mapsto\dfrac{y^4}{x^2+y^2}\) prolongée en \(\paren{0,0}\) par \(0\) \\
+    \item \(\paren{x,y}\mapsto\dfrac{x\sin y-y\sin x}{x^2+y^2}\) prolongée en \(\paren{0,0}\) par \(0\) \\
+    \item \(\paren{x,y}\mapsto\paren{x^2+y^2}^x\) prolongée en \(\paren{0,0}\) par \(1\).
+\end{enumerate}
+\end{exoss}
+
+\begin{exoss}
+Résolvez les équations différentielles suivantes en utilisant le changement de variables indiqué (les fonctions sont supposées de classe \(\classe{1}\)) :
+
+\begin{enumerate}
+    \item \(2\pdv{f}{x}-\pdv{f}{y}=0\) sur \(\R^2\) en posant \(x=2u-v\) et \(y=v-u\) \\
+    \item \(3\pdv{f}{x}-2\pdv{f}{y}=x\) en posant \(u=x+y\) et \(v=2x+3y\) \\
+    \item \(x\pdv{f}{x}+y\pdv{f}{y}=\sqrt{x^2+y^2}\) sur \(\Rps\times\R\) en polaires : \(x=r\cos\theta\) et \(y=r\sin\theta\), où \(r>0\) et \(-\dfrac{\pi}{2}<\theta<\dfrac{\pi}{2}\) \\
+    \item \(x\pdv{f}{y}-y\pdv{f}{x}=0\) sur \(\Rps\times\R\) en polaires \\
+    \item \(\pdv{f}{x}+\pdv{f}{y}=f\) sur \(\R^2\) en posant \(u=x+y\) et \(v=x-y\) \\
+    \item \(\pdv{f}{x}+2x\pdv{f}{y}=0\) sur \(\R^2\) en posant \(x=u\) et \(y=v+u^2\).
+\end{enumerate}
+\end{exoss}
+
+\begin{exoss}
+Soient \(U\) un ouvert connexe par arcs et \(f:U\to\R\) telle que \(\quantifs{\tpt\paren{x,y}\in U^2}\abs{f\paren{x}-f\paren{y}}\leq\norme{x-y}^2\).
+
+Démontrez que \(f\) est constante.
+\end{exoss}
+
+\begin{exoss}
+Soient \(f:\R^2\to\R\) de classe \(\classe{1}\) et \(r\in\R\).
+
+On dit que \(f\) est \(r\)-homogène quand \(\quantifs{\forall\paren{x,y}\in\R^2;\forall t>0}f\paren{tx,ty}=t^rf\paren{x,y}\).
+
+\begin{enumerate}
+    \item Montrez que si \(f\) est \(r\)-homogène, alors ses dérivées partielles sont \(\paren{r-1}\)-homogènes. \\
+    \item Montrez que \(f\) est \(r\)-homogène ssi \(\quantifs{\forall\paren{x,y}\in\R^2}x\pdv{f}{x}\paren{x,y}+y\pdv{f}{y}\paren{x,y}=rf\paren{x,y}\). \\
+    \item On suppose \(f\) \(r\)-homogène et de classe \(\classe{2}\). Montrez \[\quantifs{\forall\paren{x,y}\in\R^2}x^2\pdv[order=2]{f}{x}\paren{x,y}+2xy\pdv{f}{x,y}+y^2\pdv[order=2]{f}{y}=r\paren{r-1}f\paren{x,y}.\]
+\end{enumerate}
+\end{exoss}
+
+\begin{exoss}
+Résolvez les équations aux dérivées partielles suivantes en utilisant le changement de variable indiqué (les fonctions sont supposées de classe \(\classe{2}\)) :
+
+\begin{enumerate}
+    \item \(\pdv[order=2]{f}{x}-\pdv[order=2]{f}{y}=\dfrac{1}{\sqrt{x^2-y^2}}\) sur \(\accol{\paren{x,y}\in\R^2\tq x+y>0\text{ et }x-y>0}\) en posant \(u=x+y\) et \(v=x-y\) \\
+    \item \(x^2\pdv[order=2]{f}{x}+2xy\pdv{f}{x,y}+y^2\pdv[order=2]{f}{y}=0\) sur \(\Rps\times\R\) en posant \(x=u\) et \(y=uv\).
+\end{enumerate}
+\end{exoss}
+
+\begin{exoss}
+Déterminez les extrema des fonctions suivantes :
+
+\begin{enumerate}
+    \item \(\paren{x,y}\mapsto x^4+y^4-4xy\) \\
+    \item \(\paren{x,y}\mapsto\paren{x-y}\e{xy}\) \\
+    \item \(\paren{x,y}\mapsto\e{x\sin y}\) \\
+    \item \(\paren{x,y,z}\mapsto x^2+y^2+z^2-2xyz\) \\
+    \item \(\paren{x,y}\mapsto\paren{x^2+y^2}\e{-x}\) \\
+    \item \(\paren{x,y}\mapsto y\paren{x^2+\ln^2y}\) \\
+    \item \(\paren{x,y}\mapsto x^2-2xy+2y^2-\e{x}\).
+\end{enumerate}
+\end{exoss}
+
+\begin{exoss}
+Déterminez les extrema des fonctions suivantes sur les ensembles indiqués :
+
+\begin{enumerate}
+    \item \(\paren{x,y}\mapsto x^2-2x+xy+y^2\) sur \(\intervii{0}{2}\times\intervii{-1}{0}\) \\
+    \item \(\paren{x,y}\mapsto x^2-y^2\) sur la boule-unité (pour la norme euclidienne) \\
+    \item \(\paren{x,y}\mapsto\ch^2y-\cos^2x\) sur la boule-unité (pour la norme euclidienne).
+\end{enumerate}
+\end{exoss}
+
+\begin{exoss}
+Déterminez les triangles d'aires maximales inscrits dans un cercle donné.
+\end{exoss}
+
+\begin{exos}
+Soient \(f:\paren{x,y}\mapsto4x^2+12xy-y^2\) et \(C=\accol{\paren{x,y}\in\R^2\tq x^2+y^2=13}\).
+
+\begin{enumerate}
+    \item Montrez que \(f\) admet un minimum et un maximum sur \(C\). \\
+    \item On suppose que la restriction de \(f\) à \(C\) admet un extremum en \(\paren{u,v}\). \\ \begin{itemize}
+        \item Montrez, via un théorème du cours, qu'il existe \(d\in\R\) tel que \(\begin{dcases}
+            4u+6v=du \\
+            6u-v=dv
+        \end{dcases}\) \\
+        \item Déduisez-en que \(\paren{d-4}\paren{d+1}-36=0\), puis donnez les valeurs possibles de \(\paren{u,v}\). \\
+    \end{itemize}
+    \item Déterminez le minimum et le maximum de \(f\) sur \(C\).
+\end{enumerate}
+\end{exos}
+
+\begin{exoss}
+Étudiez les extrema de \(f:\paren{x,y}\mapsto\exp\paren{axy}\) sous la contrainte \(x^3+y^3+x+y-4=0\), où \(a\in\Rps\).
+\end{exoss}
+
+\begin{exoss}
+Déterminez les extrema de \(f:\paren{x,y}\mapsto xy\) sous la contrainte \(\dfrac{1}{x}+\dfrac{1}{y}=\dfrac{2}{3}\).
+\end{exoss}
