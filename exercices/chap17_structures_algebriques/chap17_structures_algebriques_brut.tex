@@ -2,4 +2,293 @@
 
 \minitoc
 
-\note{À venir}
+\legendeexercices
+
+Dans un groupe, deux éléments \(x,y\) sont dits conjugués quand il existe \(g\) tel que \(y=gxg\inv\).
+
+~\\
+
+\begin{exos}
+Soit \(\groupe{G}[.]\) un groupe de neutre \(e\) tel que \(\quantifs{\tpt x\in G}x^2=e\).
+
+\begin{enumerate}
+    \item Montrez que \(G\) est un groupe abélien. \\
+    \item Soient \(H\) un sous-groupe propre de \(G\) (\ie \(H\not=G\)) et \(a\not\in H\). Montrez que \(H\union aH\) est un sous-groupe de \(G\).
+\end{enumerate}
+\end{exos}
+
+\begin{exoss}
+Cet exercice prolonge le précédent : on suppose de plus que \(G\) est fini.
+
+Montrez que le cardinal de \(G\) est une puissance de \(2\).
+\end{exoss}
+
+\begin{exoss}
+Soit \(\groupe{G}[.]\) un groupe. Pour \(g\in G\), on pose \(\fonction{\gamma_g}{G}{G}{x}{gx}\).
+
+\begin{enumerate}
+    \item Montrez que \(\quantifs{\tpt g\in G}\gamma_g\) est une permutation de \(G\). À quelle condition \(\gamma_g\) est-elle un automorphisme (de groupes) ? \\
+    \item Montrez que l'application \(\fonction{\phi}{G}{\S{G}}{g}{\gamma_g}\) est un morphisme injectif de groupes. \\
+    \item Déduisez-en le théorème de Cayley : tout groupe \(G\) est isomorphe à un sous-groupe de \(\S{G}\). Autrement dit, pour connaître tous les types de groupes, il suffit de connaître uniquement les groupes symétriques et leurs sous-groupes.
+\end{enumerate}
+\end{exoss}
+
+\begin{exoss}
+Soient \(\groupe{G}[.]\) un groupe et \(H\) une partie finie de \(G\) stable par multiplication.
+
+Montrez que \(H\) est un sous-groupe de \(G\).
+
+\textit{Indication : considérez les applications \(\gamma_g\) précédentes.}
+\end{exoss}
+
+\begin{exoss}
+Soient \(G,G\prim\) deux groupes, \(G\) étant fini, et \(f:G\to G\prim\) un morphisme de groupes.
+
+Montrez que \(\Card\paren{\ker f}\times\Card\paren{\Im f}=\Card G\).
+
+\textit{Indication : utilisez la relation d'équivalence vue dans la démonstration du \thref{theo:Lagrange} : \(x\sim y\ssi x\inv y\in\ker f\).}
+\end{exoss}
+
+\begin{exoss}
+Soit \(n\in\Ns\). Montrez que \(\S{n}\) est engendré par les parties suivantes :
+
+\begin{enumerate}
+    \item l'ensemble \(A\) des transpositions \(\cycle{i;i+1}\) pour \(i\in\interventierii{1}{n-1}\) ; \\
+    \item l'ensemble \(B\) des transpositions \(\cycle{1;i}\) pour \(i\in\interventierii{2}{n}\) ; \\
+    \item la paire \(\accol{\cycle{1;2},\cycle{1;2;\dots;n}}\).
+\end{enumerate}
+\end{exoss}
+
+\begin{exoss}
+Soit \(n\in\Ns\).
+
+\begin{enumerate}
+    \item Montrez que dans le groupe \(\S{n}\), deux cycles de même longueur sont conjugués. \\
+    \item Montrez que deux permutations de \(\S{n}\) sont conjuguées ssi leurs décompositions en produits de cycles à supports disjoints ont le même nombre d'éléments et des cycles de même longueur.
+\end{enumerate}
+\end{exoss}
+
+\begin{exoss}
+Soit \(f:\S{n}\to\Cs\) un morphisme de groupes.
+
+\begin{enumerate}
+    \item Que peut valoir \(f\paren{\tau}\) si \(\tau\) est une transposition ? \\
+    \item Montrez que deux permutations conjuguées ont la même image par \(f\). \\
+    \item Déduisez-en que \(f\) est la fonction constante égale à \(1\) ou alors la signature.
+\end{enumerate}
+\end{exoss}
+
+\begin{exoss}
+Soient \(H\) un sous-groupe de \(\S{n}\) de cardinal \(\dfrac{n!}{2}\) et \(K=\S{n}\excluant H\).
+
+\begin{enumerate}
+    \item Si \(\sigma\in H\), montrez que \(\sigma H=H\) et \(\sigma K=K\). \\
+    \item Soit \(\sigma\in\S{n}\). Selon que \(\sigma\) soit dans \(H\) ou dans \(K\), déterminez \(\sigma H\), \(\sigma K\), \(H\sigma\) et \(K\sigma\). \\
+    \item Déduisez-en que deux permutations conjuguées sont soit toutes les deux dans \(H\), soit toutes les deux dans \(K\). \\
+    \item Montrez que \(H=\frakA{n}\).
+\end{enumerate}
+\end{exoss}
+
+\begin{exos}
+Dans un groupe, \(a\) est un élément d'ordre \(n\). Pour \(u\in\Z\), quel est l'ordre de \(a^u\) ?
+\end{exos}
+
+\begin{exos}
+Donnez un exemple de groupe infini dans lequel tous les éléments sont d'ordre fini.
+\end{exos}
+
+\begin{exoss}
+Quels sont les sous-groupes finis de \(\groupe{\Cs}[.]\) ?
+\end{exoss}
+
+\begin{exoss}
+Soit \(G\) un groupe cyclique d'ordre \(n\).
+
+\begin{enumerate}
+    \item Montrez que si \(H\) est un sous-groupe de \(G\), alors \(H\) est cyclique d'ordre \(p\) divisant \(n\). \\
+    \item Réciproquement, montrez que pour tout diviseur \(p\) de \(n\), \(G\) possède exactement un seul sous-groupe d'ordre \(p\).
+\end{enumerate}
+\end{exoss}
+
+\begin{exoss}
+Soient \(G\) un groupe fini de cardinal \(n\) et \(p\) un diviseur premier de \(n\).
+
+On pose \(E=\accol{\paren{x_1,\dots,x_p}\in G^p\tq x_1x_2\dots x_p=e}\) et \(\sigma:G^p\to G^p\) telle que \(\sigma\paren{x_1,\dots,x_p}=\paren{x_2,\dots,x_p,x_1}\).
+
+Pour \(\paren{X,Y}\in E^2\), on pose \(X\sim Y\) quand il existe \(k\in\Z\) tel que \(Y=\sigma^k\paren{X}\).
+
+\begin{enumerate}
+    \item Montrez que \(\sim\) est une relation d'équivalence sur \(E\) et que ses classes d'équivalence ont pour cardinal \(1\) ou \(p\). \\
+    \item On note \(r\) le nombre de classes d'équivalence de cardinal \(1\) et \(s\) celui des classes d'équivalence de cardinal \(p\). Donnez une relation liant \(r\), \(s\) et \(n\). \\
+    \item Montrez que \(G\) possède au moins un élément d'ordre \(p\).
+\end{enumerate}
+\end{exoss}
+
+\begin{exos}
+Résolvez dans \(\znz{53}\) le système \(\begin{dcases}
+\overline{13}x+\overline{7}y=\overline{22} \\
+\overline{17}x+\overline{8}y=\overline{5}
+\end{dcases}\)
+\end{exos}
+
+\begin{exoss}
+Montrez que \(2023\) possède un multiple qui ne s'écrit en base \(10\) qu'avec des \(1\).
+\end{exoss}
+
+\begin{exoss}
+Pour tout \(n\in\Ns\), on pose \(s\paren{n}\) la somme des diviseurs positifs de \(n\).
+
+\begin{enumerate}
+    \item Donnez une condition nécessaire et suffisante simple sur \(s\paren{n}\) pour que \(n\) soit premier. \\
+    \item Si \(n=p^\alpha\) où \(p\) est premier et \(\alpha\geq1\), calculez \(s\paren{n}\). \\
+    \item Soient \(a,b\) deux entiers premiers entre eux. Montrez que \(s\paren{ab}=s\paren{a}\times s\paren{b}\).
+\end{enumerate}
+\end{exoss}
+
+\begin{exoss}
+Déterminez les polynômes \(P\in\poly[\C]\) tels que \(P\prim\) divise \(P\).
+\end{exoss}
+
+\begin{exoss}
+Soit \(A\) un anneau. Un élément \(x\) de \(A\) est dit nilpotent quand il existe \(n\in\Ns\) tel que \(x^n=0\).
+
+\begin{enumerate}
+    \item Si \(A\) est intègre, quels sont les nilpotents de \(A\) ? \\
+    \item Montrez que si \(a\) et \(b\) sont deux nilpotents qui commutent, alors \(a+b\) et \(ab\) sont nilpotents. Est-ce encore vrai s'ils ne commutent pas ? \\
+    \item Montrez que si \(a\) est nilpotent, alors \(1-a\) est inversible.
+\end{enumerate}
+\end{exoss}
+
+\begin{exoss}
+Soit \(A\) un anneau. On considère l'application \(\fonction{f}{\Z}{A}{k}{k.1_A}\)
+
+\begin{enumerate}
+    \item Vérifiez que \(f\) est un morphisme d'anneaux. Montrez qu'il existe un unique \(p\in\N\) tel que \(\ker f=p\Z\). L'entier \(p\) est appelé la caractéristique de l'anneau \(A\). \\
+    \item Quelles sont les caractéristiques des anneaux \(\Z\), \(\poly[\R]\) et \(\znz{p}\) ? \\
+    \item Montrez que si \(A\) est intègre, alors \(p\) est un nombre premier. \\
+    \item On suppose que \(A\) est un corps fini. Montrez qu'il existe \(p\) premier et \(s\in\Ns\) tels que \(\Card A=p^s\).
+\end{enumerate}
+\end{exoss}
+
+\begin{exosss}
+Soit \(A\) un sous-anneau de \(\R\).
+
+Montrez que \(A\) est dense dans \(\R\) ssi \(A\inter\intervee{0}{1}\not=\ensvide\).
+\end{exosss}
+
+\begin{exosss}
+Pour \(n\in\Ns\), on note \(\SL{n}=\accol{A\in\M{n}\tq\det A=1}\).
+
+\begin{enumerate}
+    \item Montrez que \(\SL{n}\) est un sous-groupe de \(\GL{n}\). \\
+    \item Montrez que \(\SL{n}\) est engendré par les matrices de transvections.
+\end{enumerate}
+\end{exosss}
+
+\begin{exo}[Oral TPE, 1]
+Un nombre complexe \(a\) est dit algébrique quand il existe un polynôme non-nul \(P\in\poly[\Z]\) tel que \(P\paren{a}=0\). Soit \(a\) un nombre complexe algébrique.
+
+\begin{enumerate}
+    \item Montrez qu'il existe un unique polynôme \(\Pi\in\poly[\Q]\), unitaire et irréductible, tel que \(\Pi\paren{a}=0\). On note \(d\) le degré de \(\Pi\). \\
+    \item On pose \(\poly[\Q][a]=\accol{P\paren{a}\tq P\in\poly[\Q]}\). Montrez que \(\poly[\Q][a]=\accol{P\paren{a}\tq P\in\polydeg[\Q]{d-1}}\). \\
+    \item Montrez que \(\poly[\Q][a]\) est un corps.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Oral IMT, 2]
+Soient \(m,n\in\Ns\).
+
+Montrez que si \(m\) divise \(n\), alors \(X^m-1\) divise \(X^n-1\) et étudiez la réciproque.
+\end{exo}
+
+\begin{exo}[Oral IMT, 3]
+Soit \(P\in\poly[\R]\) simplement scindé.
+
+\begin{enumerate}
+    \item Montrez que \(P\prim\) est simplement scindé. \\
+    \item Comparez la moyenne arithmétique des racines de \(P\) et de \(P\prim\).
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Oral CCMP, 4]
+Soit \(p\) un nombre premier impair.
+
+\begin{enumerate}
+    \item Dénombrez les carrés de \(\znz{p}\). \\
+    \item On suppose que \(p\equiv1\croch{4}\). En calculant la classe de \(\paren{p-1}!\) modulo \(p\) de deux manières différentes, montrez que \(-1\) est un carré modulo \(p\). \\
+    \item Montrez la réciproque.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Oral CCMP, 5]
+Soit \(n\in\Ns\).
+
+\begin{enumerate}
+    \item Caractérisez et dénombrez les inversibles de l'anneau \(\znz{2^n}\). \\
+    \item Soit \(x\) un entier impair. Donnez deux algorithmes de calcul de l'inverse de \(x\) modulo \(2^n\), le premier utilisant la suite \(\paren{\overline{x}^{2^k}}\), où \(\overline{x}\) est la classe modulo \(2^n\) de \(x\), le second résolvant successivement pour \(k\in\interventierii{1}{n}\) les congruences \(y_kx\equiv1\croch{2^k}\).
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Oral Centrale, 6]
+Pour \(P\in\poly[\C]\), on note \(\rac[]{P}\) l'ensemble des racines de \(P\).
+
+Soient \(P,Q\in\poly[\C]\) non-constants tels que \(\rac[]{P}=\rac[]{Q}\) et \(\rac[]{P-1}=\rac[]{Q-1}\).
+
+Montrez que \(P=Q\).
+\end{exo}
+
+\begin{exo}[Oral Centrale, 7]
+Soit \(P\in\poly[\R]\) de degré au moins \(2\).
+
+\begin{enumerate}
+    \item On suppose \(P\) scindé sur \(\R\) et on considère \(x\in\R\) tel que \(P\prim\paren{x}=0\) et \(P\paren{x}\not=0\). En utilisant \(\dfrac{P\prim}{P}\), montrez que \(P\seconde\paren{x}P\paren{x}<0\). \\
+    \item Soient \(x,y\) deux racines consécutives de \(P\). Montrez que \(P\prim\paren{x}P\prim\paren{y}\leq0\). \\
+    \item Soient \(a<b\) deux réels tels que \(P-a\) et \(P-b\) soient scindés. Montrez que \(P\prim\) est scindé à racines simples.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Oral Centrale, 8]~\\
+Pour un groupe fini \(G\), on pose \(p_G=\dfrac{\abs{\accol{\paren{x,y}\in G^2\tq xy=yx}}}{\abs{G\times G}}\) et pour \(x\in G\), \(p_x=\dfrac{\abs{\accol{y\in G\tq xy=yx}}}{\abs{G}}\).
+
+On admet que la relation de conjugaison de deux éléments est une relation d'équivalence sur \(G\) et on note \(N_G\) le nombre de classes d'équivalence pour cette relation.
+
+\begin{enumerate}
+    \item Soit \(c=\cycle{a_1;\dots;a_r}\) un \(r\)-cycle de \(\S{n}\). Pour \(\sigma\in\S{n}\), montrez que \(\sigma c\sigma\inv\) est un \(r\)-cycle à préciser. \\
+    \item Codez une fonction donnant une permutation aléatoire de \(\S{n}\). Codez une fonction qui approxime \(p_{\S{n}}\) et tracez \(p_{\S{n}}\) pour \(n\in\interventierii{1}{n}\). \\
+    \item Justifiez les valeurs de \(p_{\S{1}}\), \(p_{\S{2}}\) et \(p_{\S{3}}\). \\
+    \item Montrez que si \(x\) et \(y\) sont conjugués, alors \(p_x=p_y\). \\\\ Montrez que si \(x\) et \(y\) sont conjugués, alors \(\abs{\accol{s\in G\tq y=sxs\inv}}=\abs{\accol{t\in G\tq tx=xt}}\). \\\\ Montrez que \(p_G=\dfrac{N_G}{\abs{G}}\).
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Oral Centrale, 9]
+Soit \(\K\) une \(\R\)-algèbre commutative intègre de dimension finie \(n\geq2\). En notant \(e\) sont neutre multiplicatif, on identifie \(\R e\) à \(\R\) et donc \(e\) à \(1\).
+
+\begin{enumerate}
+    \item On fixe \(a\) non-nul dans \(\K\). Montrez que \(\phi_a:x\mapsto xa\) est un automorphisme d'espaces vectoriels de \(\K\). Déduisez-en que \(a\) est inversible. \\
+    \item On fixe \(a\in\K\excluant\R\). Montrez que la famille \(\paren{1,a}\) est libre, mais pas \(\paren{1,a,a^2}\). \\
+    \item Montrez qu'on peut trouver \(i\in\K\) tel que \(i^2=-1\). Déduisez-en que \(n=2\) et que \(\K\) est isomorphe à \(\C\).
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Oral X, 10]
+Quels sont les morphismes de \(\groupe{\Q}\) dans \(\groupe{\Qs}[\times]\) ?
+\end{exo}
+
+\begin{exo}[Oral X, 11]~\\
+Résolvez l'équation \(\dfrac{1}{a}+\dfrac{1}{b}=\dfrac{n}{a+b}\) d'inconnue \(\paren{a,b,n}\in\paren{\Ns}^3\).
+\end{exo}
+
+\begin{exo}[Oral ENS, 12]
+Résolvez l'équation \(y^3=x^2+1\) dans \(\Z^2\).
+\end{exo}
+
+\begin{exo}[Oral ENS, 13]
+Dans un anneau commutatif \(A\), un idéal \(M\) est dit maximal quand \(M\not=A\) et tout idéal qui contient \(M\) est soit \(M\), soit \(A\).
+
+\begin{enumerate}
+    \item Soit \(M\) un idéal de \(A\). Montrez que \(M\) est maximal ssi pour tout \(a\not\in M\), il existe \(x\in M\) et \(u\in A\) tels que \(1=x+ua\). \\
+    \item Soit \(B\) un anneau commutatif et \(f:A\to B\) un morphisme surjectif d'anneaux. Montrez que si \(M\) est un idéal maximal de \(A\), alors soit \(f\paren{M}=B\), soit \(f\paren{M}\) est un idéal maximal de \(B\). \\
+    \item Si \(\K\) est un corps, quels sont les idéaux maximaux de \(\poly\) ? \\
+    \item Soit \(M\) un idéal maximal de \(\poly[\Z]\) tel que \(M\inter\Z\not=\accol{0}\). \\\\ Montrez qu'il existe \(p\) premier tel que \(M\inter\Z=p\Z\). \\\\ Montrez qu'il existe deux éléments irréductibles \(P,Q\) de \(\poly[\Z]\) tels que \(M=\paren{P}+\paren{Q}\).
+\end{enumerate}
+\end{exo}
