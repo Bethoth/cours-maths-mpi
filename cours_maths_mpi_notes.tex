@@ -713,10 +713,10 @@ per-mode=power-positive-first
 \usepackage{titletoc}
 \dottedcontents{section}[5.5em]{}{3.2em}{1pc}
 
-\newcommand{\bouleo}[2]{B\paren{#1,#2}}
-\newcommand{\boulef}[2]{\conj{B}\paren{#1,#2}}
-\newcommand{\sphere}[2]{S\paren{#1,#2}}
-\newcommand{\disqueo}[2]{D\paren{#1,#2}}
+\DeclareDocumentCommand{\bouleo}{O{} m m}{B_{#1}\paren{#2,#3}}
+\DeclareDocumentCommand{\boulef}{O{} m m}{\conj{B_{#1}}\paren{#2,#3}}
+\DeclareDocumentCommand{\sphere}{O{} m m}{S_{#1}\paren{#2,#3}}
+\DeclareDocumentCommand{\disqueo}{O{} m m}{D_{#1}\paren{#2,#3}}
 
 \newcommand{\vdv}[2]{\operatorname{D}_{#1}#2}
 \newcommand{\jacobienne}[1]{\operatorname{J}#1}
@@ -727,7 +727,22 @@ per-mode=power-positive-first
 \newcommand{\egqd}[1]{\underset{#1}{=}}
 \newcommand{\simqd}[1]{\underset{#1}{\sim}}
 
+\makeatletter
+\newcommand{\xnrightarrow}[2][]{%
+  \mathrel{%
+    \vphantom{\xrightarrow[#1]{#2}}%
+    \ooalign{\hidewidth\neg@arrow\hidewidth\cr$\m@th\xrightarrow[#1]{#2}$\cr}%
+  }%
+}
+\newcommand{\neg@arrow}{%
+  $\m@th\vcenter{\hbox{%
+    \rotatebox[origin=c]{-45}{\scalebox{1.5}[1]{$\m@th\scriptstyle|$}}%
+  }}$
+}
+\makeatother
+
 \newcommand{\tendqd}[1]{\xrightarrow[#1]{}}
+\newcommand{\ntendqd}[1]{\xnrightarrow[#1]{}}
 
 \newcommand{\arr}[2]{A_{#2}^{#1}}
 \newcommand{\comb}[2]{C_{#2}^{#1}}
@@ -816,6 +831,8 @@ per-mode=power-positive-first
 \newcommand{\znz}[1]{\Z/#1\Z}
 
 \newcommand{\field}[1]{\mathbb{F}_{#1}}
+
+\newcommand{\normes}[1]{\fami{N}\paren{#1}}
 
 \begin{document}
 \renewcommand{\labelitemi}{\(\triangleright\)}
