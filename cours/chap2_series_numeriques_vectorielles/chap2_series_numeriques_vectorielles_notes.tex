@@ -2,4 +2,694 @@
 
 \minitoc
 
-\note{À venir}
+Dans ce chapitre, \(E\) désigne un espace vectoriel normé (qui peut être \(\R\) ou \(\C\)) et \(\norme{}\) la norme associée (qui est dans ces cas la valeur absolue ou le module).
+
+\section{Rappels}
+
+\subsection{Définitions et notations}
+
+\begin{defi}[Série vectorielle]
+Soit \(u\) une suite de \(E\).
+
+On associe à cette suite la suite \(s\) définie de la façon suivante : \(\quantifs{\tpt n\in\N}s_n=\sum_{k=0}^nu_k\).
+
+La suite \(s\) est appelée série de terme général \(u_n\) et notée \(\sum_{n\geq0}u_n\) ou \(\sum u\).
+
+Chaque nombre \(s_n\) est appelé somme partielle d'indice \(n\) de la série.
+\end{defi}
+
+L'adjectif \guillemets{numérique} associé au mot \guillemets{série} signifie que les termes généraux de la série sont en fait des nombres réels ou complexes.
+
+\subsection{Convergence d'une série}
+
+\begin{defi}
+Soit \(u\) une suite de \(E\).
+
+On dit que la série \(\sum u\) converge ssi la suite des sommes partielles \(\paren{s_n}=\paren{\sum_{k=0}^nu_k}\) converge.
+
+Dans ce cas, si \(l=\lim_{n\to\pinf}s_n\), alors \(l\) est appelée somme de la série \(\sum u\) et on note \(l=\sum_{n=0}^{\pinf}u_n\).
+
+On appelle aussi reste partiel d'indice \(n\) de la série le nombre \(r_n=\sum_{k=n+1}^{\pinf}u_k\), de sorte que \(r_n+s_n=l\).
+
+La suite des restes partiels converge donc vers \(0\).
+
+Dans le cas contraire, on dit que la série \(\sum u\) diverge.
+\end{defi}
+
+\begin{ex}
+\begin{itemize}
+    \item Soit \(x\in\C\). La série \(\sum_{n\geq0}x^n\) converge ssi \(\abs{x}<1\) et, dans ce cas, \(\sum_{n=0}^{\pinf}x^n=\dfrac{1}{1-x}\). Cette série est appelée série géométrique de raison \(x\). \\
+    \item Les séries de Riemann : \(\sum_{n\geq1}\dfrac{1}{n^\alpha}\) converge ssi \(\alpha>1\). \\
+    \item Pour tout \(z\in\C\), la série \(\sum\dfrac{z^n}{n!}\) converge et \(\sum_{n=0}^{\pinf}\dfrac{z^n}{n!}=\e{z}\).
+\end{itemize}
+\end{ex}
+
+On peut bien sûr généraliser aux séries quelques théorèmes d'opérations.
+
+\begin{prop}
+Soient \(u,v\) deux suites de \(E\) et \(\lambda\) un scalaire.
+
+Si les séries \(\sum u\) et \(\sum v\) convergent, alors la série \(\sum\paren{u+\lambda v}\) converge et \(\sum_{n=0}^{\pinf}\paren{u_n+\lambda v_n}=\sum_{n=0}^{\pinf}u_n+\lambda\sum_{n=0}^{\pinf}v_n\).
+
+Ceci prouve aussi que l'ensemble des séries convergentes est un espace vectoriel.
+\end{prop}
+
+\begin{rem}
+La somme d'une série divergente et d'une série convergente est une série divergente.
+
+En revanche, il n'y a rien à dire a priori à propos de la somme de deux séries divergentes.
+\end{rem}
+
+\subsection{Lien entre convergence de suites et convergence de séries}
+
+\begin{prop}
+Soit \(u\) une suite de \(E\).
+
+Si la série \(\sum u\) converge, alors la suite \(u\) converge vers \(0\).
+\end{prop}
+
+\begin{rem}
+\begin{itemize}
+    \item La réciproque est fausse. \\
+    \item Par contraposition, si une suite \(u\) ne tend pas vers \(0\), alors la série associée diverge : on dit que la série \(\sum u\) diverge grossièrement.
+\end{itemize}
+\end{rem}
+
+\begin{ex}
+On appelle série harmonique la série \(\sum_{n\geq1}\dfrac{1}{n}\).
+
+Cette série diverge, pourtant son terme général tend vers \(0\).
+\end{ex}
+
+\begin{defi}
+Soit \(u\) une suite de \(E\). On pose \(v_n=u_{n+1}-u_n\).
+
+La série \(\sum v\) est appelée la série télescopique (ou série domino, ou série différence) associée à \(u\).
+\end{defi}
+
+\begin{prop}
+Une suite converge ssi sa série télescopique associée converge.
+\end{prop}
+
+\begin{exo}~\\
+On pose \(u_n=\sum_{k=1}^n\dfrac{1}{k}-\ln n\). Montrez que la suite \(u\) converge.
+\end{exo}
+
+\begin{corr}
+\(u\) converge ssi \(\sum\paren{u_{n+1}-u_n}\) converge.
+
+On a \[\begin{aligned}
+u_{n+1}-u_n&=\dfrac{1}{n+1}-\ln\paren{n+1}+\ln n \\
+&=\dfrac{1}{n+1}+\ln\dfrac{n}{n+1} \\
+&=\dfrac{1}{n+1}+\ln\paren{1-\dfrac{1}{n+1}}.
+\end{aligned}\]
+
+Or \(\ln\paren{1+u}\egqd{u\to0}u-\dfrac{u^2}{2}+\o{u^2}\) et \(\dfrac{1}{n+1}\tendqd{n\to\pinf}0\) donc \[\begin{aligned}
+u_{n+1}-u_n&\egqd{n\to\pinf}\dfrac{1}{n+1}+\paren{\dfrac{-1}{n+1}+\dfrac{1}{2\paren{n+1}^2}+\o{\dfrac{1}{\paren{n+1}^2}}} \\
+&\egqd{n\to\pinf}\dfrac{1}{2\paren{n+1}^2}+\o{\dfrac{1}{\paren{n+1}^2}} \\
+&\simqd{n\to\pinf}\dfrac{1}{2n^2}.
+\end{aligned}\]
+
+Les séries \(\sum\paren{u_{n+1}-u_n}\) et \(\sum\dfrac{1}{2n^2}\) sont à termes positifs à partir d'un certain rang et \(\sum\dfrac{1}{n^2}\) converge donc d'après le théorème de comparaison des séries à termes positifs, \(\sum\paren{u_{n+1}-u_n}\) converge \ie \(u\) converge.
+
+Note culturelle : on appelle constante d'Euler-Mascheroni la limite de cette suite, notée \(\gamma\) et on a le développement asymptotique \[\sum_{k=1}^n\dfrac{1}{k}\egqd{n\to\pinf}\ln n+\gamma+\o{1}.\]
+
+On remarque que l'on a \[\sum_{k=1}^n\dfrac{1}{k}\simqd{n\to\pinf}\ln n.\]
+\end{corr}
+
+\section{Séries réelles à termes positifs}
+
+Dans cette section, on s'intéresse uniquement aux séries dont le terme général est un réel positif.
+
+On appelle un premier théorème issu du cours de première année.
+
+\begin{theo}
+Soient \(u\) et \(v\) deux suites réelles positives.
+
+\begin{itemize}
+    \item Si \(0\leq u\leq v\) et si la série \(\sum v\) converge, alors la série \(\sum u\) converge. \\
+    \item Si \(0\leq u\leq v\) et si la série \(\sum u\) diverge, alors la série \(\sum v\) diverge. \\
+    \item Si \(u\sim v\), alors les séries \(\sum u\) et \(\sum v\) sont de même nature.
+\end{itemize}
+\end{theo}
+
+Une application classique : la règle de d'Alembert.
+
+\begin{prop}
+Soit \(u\) une suite réelle strictement positive telle que \(\dfrac{u_{n+1}}{u_n}\tendqd{n\to\pinf}l\). Alors
+
+\begin{itemize}
+    \item si \(l<1\), la série \(\sum u\) converge ; \\
+    \item si \(l>1\), la série \(\sum u\) diverge ; \\
+    \item si \(l=1\), on ne peut rien conclure.
+\end{itemize}
+\end{prop}
+
+\begin{dem}
+\begin{itemize}
+    \item Si \(l<1\), on pose \(K=\dfrac{1+l}{2}\). \\\\ Comme \(l<K<1\) et \(\dfrac{u_{n+1}}{u_n}\tendqd{n\to\pinf}l\), il existe \(N\in\N\) tel que \(\quantifs{\tpt n\geq N}0<\dfrac{u_{n+1}}{u_n}\leq K\). \\\\ Par récurrence, on montre \(\quantifs{\forall n\geq N}u_n\leq u_NK^{n-N}=\dfrac{u_N}{K^N}K^n\). \\\\ Comme \(0<K<1\), la série \(\sum K^n\) converge donc d'après le théorème de comparaison des séries à termes positifs, \(\sum u_n\) converge. \\
+    \item Si \(l>1\), à partir d'un certain rang, on a \(u_n\geq\paren{\dfrac{1+l}{2}}^n\times\mathrm{cte}\tendqd{n\to\pinf}\pm\infty\). \\\\ Donc \(\sum u_n\) diverge grossièrement. \\
+    \item Si \(l=1\), on ne peut rien dire. Deux exemples : \\ \begin{itemize}
+        \item En posant \(u_n=\dfrac{1}{n}\), on a \(\dfrac{u_{n+1}}{u_n}\tendqd{n\to\pinf}1\) mais \(\sum u_n\) diverge. \\\\
+        \item En posant \(u_n=\dfrac{1}{n^2}\), on a \(\dfrac{u_{n+1}}{u_n}\tendqd{n\to\pinf}1\) mais \(\sum u_n\) converge.
+    \end{itemize}
+\end{itemize}
+\end{dem}
+
+\begin{exo}
+Soient \(x,y>0\). Représentez graphiquement l'ensemble des couples \(\paren{x,y}\) tels que la série \(\sum\dfrac{x^n}{y^n+n^x}\) converge.
+\end{exo}
+
+\begin{corr}
+Pour tout \(n\in\N\), on pose \(u_n=\dfrac{x^n}{y^n+n^x}\geq0\).
+
+\begin{itemize}
+    \item Si \(x=1\), alors \(u_n=\dfrac{1}{y^n+n}\tendqd{n\to\pinf}0\). \\ \begin{itemize}
+        \item Si \(y>1\) : \\\\ On a \(n\egqd{n\to\pinf}\o{y^n}\) donc \(y^n+n\simqd{n\to\pinf}y^n\). \\\\ Donc \(u_n\simqd{n\to\pinf}\dfrac{1}{y^n}=\paren{\dfrac{1}{y}}^n\). \\\\ Or \(0\leq\dfrac{1}{y}<1\) donc la série géométrique \(\sum\paren{\dfrac{1}{y}}^n\) converge. \\\\ Ainsi, d'après le théorème de comparaison des séries à termes positifs, \(\sum u_n\) converge. \\
+        \item Sinon, on a \(y^n\egqd{n\to\pinf}\o{n}\) donc \(u_n\simqd{n\to\pinf}\dfrac{1}{n}\). \\\\ Or \(\sum\dfrac{1}{n}\) diverge donc d'après le théorème de comparaison des séries à termes positifs, \(\sum u_n\) diverge. \\
+    \end{itemize}
+    \item Si \(y<1\), on a \(n\egqd{n\to\pinf}\o{y^n}\) donc \(y^n+n\simqd{n\to\pinf}y^n\). \\\\ Donc \(u_n\simqd{n\to\pinf}\dfrac{x^n}{y^n}=\paren{\dfrac{x}{y}}^n\). \\\\ Ainsi, d'après le théorème de comparaison des séries à termes positifs, \(\sum u_n\) converge ssi \(\dfrac{x}{y}<1\) \ie \(x<y\). \\
+    \item Si \(y\leq1\), on a \(y^n\egqd{n\to\pinf}\o{n^x}\) donc \(u_n\simqd{n\to\pinf}\dfrac{x^n}{n^x}\). \\ \begin{itemize}
+        \item Si \(x>1\), on a \(n^x\egqd{n\to\pinf}\o{x^n}\) donc \(\lim_{n\to\pinf}u_n=\pinf\) : \(\sum u_n\) diverge grossièrement. \\
+        \item Si \(x<1\), on a \(0\leq\dfrac{x^n}{n^x}\leq x^n\) donc, comme \(0<x<1\), \(\sum x^n\) converge et par théorème de comparaison des séries à termes positifs, \(\sum\dfrac{x^n}{n^x}\) converge, donc \(\sum u_n\) converge.
+    \end{itemize}
+\end{itemize}
+
+Finalement, on a la représentation graphique suivante :
+
+\begin{center}
+\begin{tikzpicture}
+\draw[thick,gray,->] (-1,0) -- (5,0) node[below right] {\(x\)};
+\draw[thick,gray,->] (0,-1) -- (0,5) node[above left] {\(y\)};
+\fill[pattern=north west lines] (0,0) -- (1,0) -- (1,1) -- (5,5) -- (0,5) -- (0,0);
+\end{tikzpicture}
+\end{center}
+\end{corr}
+
+\begin{exo}\thlabel{exo2.3}
+Montrez que la suite \(\paren{u_n}\) définie par \(u_0\in\intervii{0}{1}\) et \(u_{n+1}=\dfrac{1}{2}\paren{u_n+u_n^2}\) converge vers \(0\) et donnez la nature de la série \(\sum u_n\).
+\end{exo}
+
+\begin{corr}
+Localisation : on montre par récurrence triviale que \(\quantifs{\forall n\in\N}u_n\in\intervie{0}{1}\).
+
+Monotonie : pour tout \(n\in\N\), on a \[u_{n+1}-u_n=\dfrac{u_n+u_n^2}{2}-u_n=\dfrac{u_n^2-u_n}{2}\leq\dfrac{u_n\paren{u_n-1}}{2}\leq0\] donc \(\paren{u_n}\) est décroissante.
+
+Or \(\paren{u_n}\) est minorée par \(0\) donc \(\paren{u_n}\) converge d'après le théorème de la limite monotone.
+
+On pose \(l=\lim_nu_n\in\intervie{0}{1}\).
+
+Par opérations sur les limites, on a \[u_{n+1}=\dfrac{u_n+u_n^2}{2}\tendqd{n\to\pinf}\dfrac{l+l^2}{2}.\]
+
+Or \(\paren{u_{n+1}}\) est extraite de \(\paren{u_n}\) donc \(u_{n+1}\tendqd{n\to\pinf}l\).
+
+Par unicité de la limite, on a donc \(l=\dfrac{l+l^2}{2}\).
+
+Donc \(l\paren{l-1}=0\), or \(l\in\intervie{0}{1}\) donc \(l=0\).
+
+Enfin, on a \(u_n\tendqd{n\to\pinf}0\) donc il existe \(N\in\N\) tel que \(\quantifs{\forall n\geq N}u_n^2\leq\dfrac{u_n}{2}\).
+
+Donc pour \(n\geq N\), on a \(u_{n+1}\leq\dfrac{3}{4}u_n\).
+
+Par récurrence, on montre que \(\quantifs{\tpt n\geq N}u_n\leq\paren{\dfrac{3}{4}}^{-N}u_N\times\paren{\dfrac{3}{4}}^n\).
+
+Or la série géométrique \(\sum\paren{\dfrac{3}{4}}^n\) converge donc d'après le théorème de comparaison des séries à termes positifs, \(\sum u_n\) converge.
+\end{corr}
+
+On donne quelques versions plus élaborées du théorème de comparaison.
+
+\subsection{Théorème de Cesàro}
+
+\begin{theo}
+Soit \(u\) une suite numérique qui converge vers \(l\). Alors \(\dfrac{u_0+\dots+u_n}{n}\tendqd{n\to\pinf}l\).
+\end{theo}
+
+\begin{dem}
+Soit \(\epsilon>0\). Il existe \(N\in\N\) tel que \(\quantifs{\forall n\geq N}\abs{u_n-l}\leq\epsilon\).
+
+On a \[\begin{aligned}
+\dfrac{u_0+\dots+u_n}{n}-l&=\dfrac{u_0+\dots+u_N}{n}+\dfrac{u_{N+1}+\dots+u_n}{n}-l \\
+&=\dfrac{u_0+\dots+u_N}{n}+\dfrac{u_{N+1}-l+\dots+u_n-l}{n}+\dfrac{\paren{n-N}l}{n}-l \\
+&=\dfrac{u_0+\dots+u_N}{n}-\dfrac{Nl}{n}+\dfrac{u_{N+1}-l+\dots+u_n-l}{n}.
+\end{aligned}\]
+
+Donc \[\begin{WithArrows}
+\abs{\dfrac{u_0+\dots+u_n}{n}-l}&\leq\dfrac{\overbrace{\abs{u_0+\dots+u_N-Nl}}^{K}}{n}+\dfrac{\abs{u_{N+1}-l}+\dots+\abs{u_n-l}}{n} \\
+&\leq\dfrac{K}{n}+\dfrac{\paren{n-N}\epsilon}{n} \Arrow{\(\dfrac{n-N}{n}\leq1\)} \\
+&\leq\dfrac{K}{n}+\epsilon.
+\end{WithArrows}\]
+
+Or \(\dfrac{K}{n}\tendqd{n\to\pinf}0\) donc il existe \(N\prim\in\N\) tel que \(\quantifs{\forall n\geq N\prim}\dfrac{K}{n}\leq\epsilon\).
+
+On pose \(N\seconde=\max\paren{N,N\prim}\).
+
+Donc \(\quantifs{\tpt n\geq N\seconde}\abs{\dfrac{u_0+\dots+u_n}{n}-l}\leq2\epsilon\).
+
+On a montré \[\quantifs{\forall\epsilon>0;\exists N\in\N;\forall n\geq N}\abs{\dfrac{u_0+\dots+u_n}{n}-l}\leq\epsilon\] donc \(\dfrac{u_0+\dots+u_n}{n}\tendqd{n\to\pinf}l\).
+\end{dem}
+
+Dans le cas où \(l\not=0\), la série \(\sum u\) diverge grossièrement et \(\sum_{k=0}^nu_k\simqd{n\to\pinf}nl\).
+
+Dans le cas où \(l=0\), on peut juste dire \(\sum_{k=0}^nu_k=\o{n}\).
+
+\begin{exo}
+Soit \(u\) la suite définie par récurrence par \(u_0>0\) et \(\quantifs{\tpt n\in\N}u_{n+1}=u_n+\dfrac{u_n+1}{u_n+2}\).
+
+Étudiez la convergence ou divergence de la suite \(u\), puis donnez un équivalent simple de \(u_n\) quand \(n\) tend vers \(\pinf\).
+\end{exo}
+
+\begin{corr}
+Par récurrence immédiate, \(\paren{u_n}\) est à termes strictement positifs.
+
+On en déduit que \(\quantifs{\tpt n\in\N}u_{n+1}-u_n=\dfrac{u_n+1}{u_n+2}>0\) donc \(\paren{u_n}\) est croissante.
+
+Par l'absurde, on suppose que \(\paren{u_n}\) converge vers \(l\in\Rps\).
+
+De la même façon que dans l'\thref{exo2.3}, par passage à la limite, on obtient \(l-l=\dfrac{l+1}{l+2}\) donc \(l=-1\) : contradiction.
+
+Donc \(\paren{u_n}\) est croissante et diverge donc elle diverge vers \(\pinf\).
+
+De plus, on a \(\sum_{k=0}^{n-1}\paren{u_{k+1}-u_k}=u_n-u_0=\sum_{k=0}^{n-1}\dfrac{u_n+1}{u_n+2}\).
+
+Or \(\dfrac{u_n+1}{u_n+2}\tendqd{n\to\pinf}1\) donc d'après le théorème de Cesàro, on a \[\dfrac{\ds\sum_{k=0}^{n-1}\dfrac{u_n+1}{u_n+2}}{n}\tendqd{n\to\pinf}1\] \ie \(u_n-u_0\simqd{n\to\pinf}n\).
+
+Donc \(u_n\simqd{n\to\pinf}n\).
+\end{corr}
+
+\subsection{Théorème de comparaison par domination de séries à termes positifs}
+
+Dans le cas convergent d'abord, les restes partiels suivent la même relation de comparaison.
+
+\begin{theo}\thlabel{theo2.3}
+Soient \(u,v\) deux suites réelles positives.
+
+Si \(u=\O{v}\) et la série \(\sum v\) converge, alors la série \(\sum u\) converge. De plus, \(\sum_{k=n+1}^{\pinf}u_k=\O{\sum_{k=n+1}^{\pinf}v_k}\).
+
+Si \(u=\o{v}\) et la série \(\sum v\) converge, alors la série \(\sum u\) converge. De plus, \(\sum_{k=n+1}^{\pinf}u_k=\o{\sum_{k=n+1}^{\pinf}v_k}\).
+\end{theo}
+
+\begin{dem}
+\begin{itemize}
+    \item Si \(u_n\egqd{n\to\pinf}\O{v_n}\), il existe \(K>0\) et \(N\in\N\) tels que \(\quantifs{\forall n\geq N}0\leq u_n\leq Kv_n\). \\\\ La série \(\sum v_n\) converge donc d'après le théorème de comparaison des séries à termes positifs, \(\sum u_n\) converge. \\\\ Pour \(n\geq N\), on a \(\sum_{k=n+1}^{\pinf}u_k\leq K\sum_{k=n+1}^{\pinf}v_k\). \\\\ D'où \(\sum_{k=n+1}^{\pinf}u_k\egqd{n\to\pinf}\O{\sum_{k=n+1}^{\pinf}v_k}\). \\
+    \item Si \(u_n\egqd{n\to\pinf}\o{v_n}\), pour tout \(\epsilon>0\), il existe \(N\in\N\) tel que \(\quantifs{\forall n\geq N}0\leq u_n\leq\epsilon v_n\). \\\\ La série \(\sum v_n\) converge donc d'après le théorème de comparaison des séries à termes positifs, \(\sum u_n\) converge. \\\\ Pour \(n\geq N\), on a \(\sum_{k=n+1}^{\pinf}u_k\leq\epsilon\sum_{k=n+1}^{\pinf}v_k\). \\\\ D'où \(\sum_{k=n+1}^{\pinf}u_k\egqd{n\to\pinf}\o{\sum_{k=n+1}^{\pinf}v_k}\).
+\end{itemize}
+\end{dem}
+
+Dans le cas divergent ensuite, les sommes partielles suivent aussi la même relation de comparaison.
+
+\begin{theo}
+Soient \(u,v\) deux suites réelles positives.
+
+Si \(u=\O{v}\) et la série \(\sum u\) diverge, alors la série \(\sum v\) diverge. De plus, \(\sum_{k=0}^nu_k=\O{\sum_{k=0}^nv_k}\).
+
+Si \(u=\o{v}\) et la série \(\sum u\) diverge, alors la série \(\sum v\) diverge. De plus, \(\sum_{k=0}^nu_k=\o{\sum_{k=0}^nv_k}\).
+\end{theo}
+
+\begin{dem}\thlabel{demtheo2.4}
+\begin{itemize}
+    \item Si \(u_n\egqd{n\to\pinf}\O{v_n}\), il existe \(K>0\) et \(N\in\N\) tels que \(\quantifs{\forall n\geq N}0\leq u_n\leq Kv_n\). \\\\ Par comparaison de séries à termes positifs, \(\sum v_n\) diverge. \\\\ \(u\) et \(v\) étant deux suites positives telles que \(\sum u_n\) et \(\sum v_n\) divergent, on en déduit que \(\sum_{k=0}^nu_k\tendqd{n\to\pinf}\pinf\) et \(\sum_{k=0}^nv_k\tendqd{n\to\pinf}\pinf\). \\\\ Pour \(n\geq N\), on a \[\begin{aligned}
+        \sum_{k=0}^nu_k&=\sum_{k=0}^Nu_k+\sum_{k=N+1}^nu_k \\
+        &\leq\sum_{k=0}^Nu_k+K\sum_{k=N+1}^nv_k \\
+        &\leq\underbrace{\sum_{k=0}^Nu_k-K\sum_{k=0}^Nv_k}_{L}+K\sum_{k=0}^nv_k.
+    \end{aligned}\] Or \(\sum_{k=0}^nv_k\tendqd{n\to\pinf}\pinf\) donc il existe \(N\prim\in\N\) tel que \(\quantifs{\forall n\geq N\prim}L\leq\sum_{k=0}^nv_k\). \\\\ Alors, pour \(n\geq\max\paren{N,N\prim}\), on a \(\sum_{k=0}^nu_k\leq\paren{K+1}\sum_{k=0}^nv_k\). \\\\ On a montré : \(\sum_{k=0}^nu_k\egqd{n\to\pinf}\O{\sum_{k=0}^nv_k}\). \\
+    \item Idem.
+\end{itemize}
+\end{dem}
+
+\subsection{Théorème de comparaison par équivalence de séries à termes positifs}
+
+\begin{theo}\thlabel{theo2.5}
+Soient \(u,v\) deux suites réelles positives.
+
+Si \(u\sim v\), alors les séries \(\sum u\) et \(\sum v\) sont de même nature ; l'une converge ssi l'autre converge.
+
+De plus,
+
+\begin{itemize}
+    \item si les séries convergent, alors les restes partiels sont équivalents : \(\sum_{k=n+1}^{\pinf}u_k\simqd{n\to\pinf}\sum_{k=n+1}^{\pinf}v_k\) ; \\
+    \item si les séries divergent, alors les sommes partielles divergent vers \(\pinf\) et sont équivalentes : \(\sum_{k=0}^nu_k\simqd{n\to\pinf}\sum_{k=0}^nv_k\).
+\end{itemize}
+\end{theo}
+
+\begin{dem}
+\begin{itemize}
+    \item Si les séries convergent, comme \(u_n\simqd{n\to\pinf}v_n\), on a \[\quantifs{\forall\epsilon>0;\exists N\in\N;\forall n\geq N}\paren{1-\epsilon}v_n\leq u_n\leq\paren{1+\epsilon}v_n\] donc \[\quantifs{\forall n\geq N}\paren{1-\epsilon}\sum_{k=n+1}^{\pinf}v_k\leq\sum_{k=n+1}^{\pinf}u_k\leq\paren{1+\epsilon}\sum_{k=n+1}^{\pinf}v_k.\] Donc \(\sum_{k=n+1}^{\pinf}u_k\simqd{n\to\pinf}\sum_{k=n+1}^{\pinf}v_k\). \\
+    \item Si les séries divergent, la démonstration est similaire à la \thref{demtheo2.4}.
+\end{itemize}
+\end{dem}
+
+\begin{exo}
+Soit \(a>0\). On pose \(u_n=\sin\dfrac{a^n}{n}\) pour \(n\in\Ns\). Selon la valeur de \(a\), déterminez la nature de la série \(\sum_{n\geq1}u_n\).
+
+Montrez que si \(a=1\), alors \(\sum_{k=1}^nu_k\sim\ln n\) et si \(a<1\), \(\sum_{k=n}^{\pinf}u_k=\o{a^n}\).
+\end{exo}
+
+\begin{corr}
+\begin{itemize}
+    \item Si \(a=1\), on a \(u_n=\sin\dfrac{1}{n}\simqd{n\to\pinf}\dfrac{1}{n}\). \\\\ Or \(\sum\dfrac{1}{n}\) diverge donc par théorème de comparaison des séries à termes positifs, \(\sum u_n\) diverge. \\
+    \item Si \(a<1\), on a \(u_n=\sin\dfrac{a^n}{n}\simqd{n\to\pinf}\dfrac{a^n}{n}\egqd{n\to\pinf}\o{a^n}\). \\\\ Or \(\sum a^n\) converge car \(a<1\) donc par théorème de comparaison des séries à termes positifs, \(\sum u_n\) converge.
+\end{itemize}
+
+De plus, d'après le \thref{theo2.5}, si \(a=1\), on a \[\sum_{k=1}^nu_k\simqd{n\to\pinf}\sum_{k=1}^n\dfrac{1}{n}\simqd{n\to\pinf}\ln n\] et d'après le \thref{theo2.3}, si \(a<1\), on a \[\begin{aligned}
+\sum_{k=n+1}^{\pinf}u_k&\egqd{n\to\pinf}\o{\sum_{k=n+1}^{\pinf}a^k} \\
+&\egqd{n\to\pinf}\o{\dfrac{a^{n+1}}{1-a}} \\
+&\egqd{n\to\pinf}\o{a^n}.
+\end{aligned}\]
+\end{corr}
+
+\subsection{Théorème de comparaison série - intégrale}
+
+\begin{prop}
+Soit \(f\) une fonction continue, positive et décroissante sur \(\Rp\).
+
+Alors la série de terme général \(f\paren{n}\) et la suite de terme général \(\int_0^nf\) sont de même nature.
+\end{prop}
+
+\begin{dem}
+\(f\) étant décroissante et continue sur \(\Rp\), pour \(k\in\Ns\), \(\quantifs{\tpt t\in\intervii{k-1}{k}}f\paren{k}\leq f\paren{t}\).
+
+Donc \(\int_{k-1}^kf\paren{k}\odif{t}\leq\int_{k-1}^kf\paren{t}\odif{t}\) \ie \(f\paren{k}\leq\int_{k-1}^kf\paren{t}\odif{t}\).
+
+De même, \(\int_k^{k+1}f\paren{t}\odif{t}\leq f\paren{k}\).
+
+Donc \(\quantifs{\tpt n\in\Ns}\sum_{k=1}^n\int_k^{k+1}f\paren{t}\odif{t}\leq\sum_{k=1}^nf\paren{k}\leq\sum_{k=1}^n\int_{k-1}^kf\paren{t}\odif{t}\).
+
+Donc \(\int_1^{n+1}f\paren{t}\odif{t}\leq\sum_{k=1}^nf\paren{k}\leq\int_0^nf\paren{t}\odif{t}\).
+
+\(f\) étant positive, les suites \(\paren{\sum_{k=1}^nf\paren{k}}\) et \(\paren{\int_0^nf\paren{t}\odif{t}}\) sont croissantes.
+
+Donc si \(\paren{\int_0^nf}\) converge, elle est majorée, donc \(\paren{\sum_{k=1}^nf\paren{k}}\) est majorée et donc convergente, \ie \(\sum f\paren{n}\) converge.
+
+Réciproquement, si \(\sum f\paren{n}\) converge, \(\paren{\sum_{k=1}^nf\paren{k}}\) est majorée donc \(\paren{\int_1^{n+1}f}\) est majorée et croissante donc convergente. Donc \(\paren{\int_0^nf}\) converge.
+\end{dem}
+
+\begin{meth}[À retenir]
+La technique d'encadrement des sommes partielles d'une série \(\sum f\paren{n}\) (ou des restes partiels) par des intégrales quand \(f\) est continue, positive et monotone.
+\end{meth}
+
+\begin{ex}~\\
+\begin{itemize}
+    \item \(\sum_{k=1}^n\dfrac{1}{k}\simqd{n\to\pinf}\ln n\) (à connaître). \\
+    \item Si \(\alpha>1\), un équivalent simple de \(\sum_{k=n+1}^{\pinf}\dfrac{1}{k^\alpha}\) quand \(n\to\pinf\) est \(\dfrac{1}{\paren{\alpha-1}n^{\alpha-1}}\).
+\end{itemize}
+\end{ex}
+
+\begin{rappel}
+Si \(u_n\simqd{n\to\pinf}v_n\) et \(u_n\tendqd{n\to\pinf}\pinf\) ou \(0\), alors \[\ln u_n\simqd{n\to\pinf}\ln v_n.\]
+\end{rappel}
+
+\begin{dem}[Premier point]~\\
+La fonction \(f:t\mapsto\dfrac{1}{t}\) est positive, décroissante et continue sur \(\intervie{1}{\pinf}\).
+
+On a donc l'inégalité : \[\underbrace{\int_2^{n+1}\dfrac{1}{t}\odif{t}}_{=\ln\paren{n+1}-\ln2}\leq\sum_{k=2}^n\dfrac{1}{k}\leq\underbrace{\int_1^n\dfrac{1}{t}\odif{t}}_{=\ln n}.\]
+
+Or on a \[\ln\paren{n+1}-\ln2\simqd{n\to\pinf}\ln\paren{n+1}\simqd{n\to\pinf}\ln n\] donc d'après le théorème d'encadrement, on a \[\sum_{k=2}^n\dfrac{1}{k}\simqd{n\to\pinf}\ln n.\]
+\end{dem}
+
+\begin{dem}[Deuxième point]
+Soit \(\alpha>1\).
+
+La fonction \(f:t\mapsto\dfrac{1}{t^\alpha}\) est continue, décroissante et positive sur \(\intervie{1}{\pinf}\).
+
+On a \[\int_{n+1}^{\pinf}f\paren{t}\odif{t}\leq\sum_{k=n+1}^{\pinf}f\paren{k}\leq\underbrace{\int_n^{\pinf}f\paren{t}\odif{t}}_{=\lim_{X\to\pinf}\int_n^Xf\paren{t}\odif{t}}.\]
+
+Soient \(X\geq n\geq1\).
+
+On a \[\int_{n+1}^{X+1}\dfrac{1}{t^\alpha}\odif{t}\leq\sum_{k=n+1}^X\dfrac{1}{k^\alpha}\leq\int_n^X\dfrac{1}{t^\alpha}\odif{t}.\]
+
+Or \[\int_n^X\dfrac{1}{t^\alpha}\odif{t}=\croch{\dfrac{1}{-\alpha+1}t^{-\alpha+1}}_n^X=\dfrac{1}{1-\alpha}\paren{\dfrac{1}{X^{\alpha-1}}-\dfrac{1}{n^{\alpha-1}}}.\]
+
+Donc \[\dfrac{1}{\alpha-1}\paren{\dfrac{1}{\paren{n+1}^{\alpha-1}}-\dfrac{1}{\paren{X+1}^{\alpha-1}}}\leq\sum_{k=n+1}^X\dfrac{1}{k^\alpha}\leq\dfrac{1}{\alpha-1}\paren{\dfrac{1}{n^{\alpha-1}}-\dfrac{1}{X^{\alpha-1}}}.\]
+
+Or \(\dfrac{1}{X^{\alpha-1}}\tendqd{X\to\pinf}0\) et \(\dfrac{1}{\paren{X+1}^{\alpha-1}}\tendqd{X\to\pinf}0\).
+
+Donc, par passage à la limite quand \(X\to\pinf\), on a \[\dfrac{1}{\paren{\alpha-1}\paren{n+1}^{\alpha-1}}\leq\sum_{k=n+1}^{\pinf}\dfrac{1}{k^\alpha}\leq\dfrac{1}{\paren{\alpha-1}n^{\alpha-1}}.\]
+
+Or \(\dfrac{1}{\paren{n+1}^{\alpha-1}}\simqd{n\to\pinf}\dfrac{1}{n^{\alpha-1}}\) donc par encadrement, on a \[\sum_{k=n+1}^{\pinf}\dfrac{1}{k^\alpha}\simqd{n\to\pinf}\dfrac{1}{\paren{\alpha-1}n^{\alpha-1}}.\]
+\end{dem}
+
+\begin{exo}
+Pour \(n\in\Ns\), on pose \(u_n=\sum_{k=n}^{\pinf}\dfrac{\ln k}{k^2}\).
+
+Justifiez l'existence de \(u_n\), puis montrez la divergence de la série \(\sum u_n\).
+
+Montrez que \(\sum_{k=1}^nu_k\simqd{n\to\pinf}\dfrac{\ln^2n}{2}\).
+\end{exo}
+
+\begin{corr}
+Pour \(k\geq1\), on a \[0\leq\dfrac{\ln k}{k^2}=\dfrac{\ln k}{k^{\nicefrac{1}{2}}\times k^{\nicefrac{3}{2}}}=\dfrac{\ln k}{k^{\nicefrac{1}{2}}}\times\dfrac{1}{k^{\nicefrac{3}{2}}}.\]
+
+Or \(\dfrac{\ln k}{k^{\nicefrac{1}{2}}}\tendqd{k\to\pinf}0\) donc \(\dfrac{\ln k}{k^{\nicefrac{1}{2}}}\egqd{k\to\pinf}\o{\dfrac{1}{k^{\nicefrac{3}{2}}}}\).
+
+Or \(\sum\dfrac{1}{k^{\nicefrac{3}{2}}}\) converge donc d'après le théorème de comparaison des séries à termes positifs, \(\sum\dfrac{\ln k}{k^2}\) converge.
+
+Donc \(\quantifs{\tpt n\geq1}\sum_{k=n}^{\pinf}\dfrac{\ln k}{k^2}\) existe.
+
+La fonction \(f:t\mapsto\dfrac{\ln t}{t^2}\) est de classe \(\classe{\infty}\) et positive sur \(\intervie{1}{\pinf}\).
+
+On a \(f\prim:t\mapsto\dfrac{t-2t\ln t}{t^4}\).
+
+Or, pour \(t\geq2\), on a \(t\leq2t\ln t\) et \(t^4\geq0\) donc \[\quantifs{\forall t\in\intervie{2}{\pinf}}f\prim\paren{t}\leq0\] donc \(f\) est décroissante sur \(\intervie{2}{\pinf}\).
+
+Soient \(X\geq n\geq3\).
+
+On a \[\int_n^{X+1}\dfrac{\ln t}{t^2}\odif{t}\leq\sum_{k=n}^X\dfrac{\ln k}{k^2}\leq\int_{n-1}^X\dfrac{\ln t}{t^2}\odif{t}.\]
+
+Or, par intégration par parties, on a \[\int_{n-1}^X\dfrac{\ln t}{t^2}\odif{t}=\dfrac{\ln\paren{n-1}+1}{n-1}-\dfrac{\ln X+1}{X}.\]
+
+Donc \[\dfrac{\ln n+1}{n}-\dfrac{\ln\paren{X+1}+1}{X+1}\leq\sum_{k=n}^X\dfrac{\ln k}{k^2}\leq\dfrac{\ln\paren{n-1}+1}{n-1}-\dfrac{\ln X+1}{X}.\]
+
+Donc, par passage à la limite quand \(X\to\pinf\), on a \[\dfrac{\ln n+1}{n}\leq u_n\leq\dfrac{\ln\paren{n-1}+1}{n-1}.\]
+
+Or \(\ln\paren{n-1}\simqd{n\to\pinf}\ln n\) donc \[\dfrac{\ln\paren{n-1}+1}{n-1}\simqd{n\to\pinf}\dfrac{\ln n+1}{n}\simqd{n\to\pinf}\dfrac{\ln n}{n}.\]
+
+D'où \(u_n\simqd{n\to\pinf}\dfrac{\ln n}{n}\).
+
+Pour \(n\geq3\), on a \(\dfrac{\ln n}{n}\geq\dfrac{1}{n}\geq0\).
+
+Or \(\sum\dfrac{1}{n}\) diverge donc d'après le théorème de comparaison des séries à termes positifs, \(\sum\dfrac{\ln n}{n}\) diverge et donc \(\sum u_n\) diverge.
+
+De plus, d'après le \thref{theo2.5}, on a \[\sum_{k=1}^nu_k\simqd{n\to\pinf}\sum_{k=1}^n\dfrac{\ln k}{k}.\]
+
+La fonction \(g:t\mapsto\dfrac{\ln t}{t}\) est de classe \(\classe{\infty}\), positive et décroissante sur \(\intervie{3}{\pinf}\).
+
+On pose \(n\geq4\). On a \[\int_4^{n+1}\dfrac{\ln t}{t}\odif{t}\leq\sum_{k=4}^ng\paren{k}\leq\int_3^n\dfrac{\ln t}{t}\odif{t}.\]
+
+Or \[\int_3^n\dfrac{\ln t}{t}\odif{t}=\int_3^n\dfrac{1}{t}\ln t\odif{t}=\croch{\dfrac{\ln^2t}{2}}_3^n=\dfrac{\ln^2n}{2}-\dfrac{\ln^23}{2}.\]
+
+Donc \[\underbrace{\dfrac{\ln^2\paren{n+1}}{2}+K_2}_{\simqd{n\to\pinf}\dfrac{\ln^2n}{2}}\leq\sum_{k=4}^n\dfrac{\ln k}{k}\leq\underbrace{\dfrac{\ln^2n}{2}+K_1}_{\simqd{n\to\pinf}\dfrac{\ln^2n}{2}}.\]
+
+Par encadrement, on a \(\sum_{k=4}^nu_k\simqd{n\to\pinf}\dfrac{\ln^2n}{2}\) puis \(\sum_{k=1}^nu_k\simqd{n\to\pinf}\dfrac{\ln^2n}{2}\).
+\end{corr}
+
+\section{Séries absolument convergentes}
+
+\begin{defi}
+Soit \(u\) une suite de \(E\).
+
+On dit que la série \(\sum u\) est absolument convergente ssi la série à termes positifs \(\sum\norme{u}\) est convergente.
+\end{defi}
+
+\subsection{Lien entre absolue convergence et convergence}
+
+\begin{theo}
+Si \(E\) est de dimension finie, alors toute série absolument convergente est convergente.
+\end{theo}
+
+\begin{dem}
+Soient \(E\) un espace vectoriel normé de dimension finie \(p\in\N\) et \(\fami{B}\) une base de \(E\).
+
+On choisit la norme sup \(\norme{}_\infty\) associée à cette base.
+
+Toutes les normes sont équivalentes sur \(E\) donc si \(\norme{}\) est une norme telle que \(\sum\norme{u_n}\) converge, alors \(\sum\norme{u_n}_\infty\) converge d'après le théorème de comparaison des séries à termes positifs.
+
+On note \(\paren{u_{n,1},\dots,u_{n,p}}\) les coordonnées de \(u_n\) dans \(\fami{B}\).
+
+On a \(\quantifs{\forall k\in\interventierii{1}{p}}\abs{u_{n,k}}\leq\norme{u_n}_\infty\) donc d'après le théorème de comparaison des séries à termes positifs, \(\sum_n\abs{u_{n,k}}\) converge, donc \(\sum_nu_{n,k}\) est absolument convergente et donc convergente.
+
+Donc les suites des sommes partielles \(\paren{\sum_{j=0}^nu_j}=\paren{\paren{\sum_{j=0}^nu_{j,1},\dots,\sum_{j=0}^nu_{j,p}}}\) convergent \ie \(\sum u_n\) converge.
+\end{dem}
+
+\begin{rem}
+\begin{itemize}
+    \item La réciproque est fausse : la série \(\sum_{n\geq1}\dfrac{\paren{-1}^n}{n}\) converge (on l'appelle la série harmonique alternée) mais ne converge pas absolument. \\
+    \item L'hypothèse de la dimension finie est indispensable. En dimension infinie, ce résultat est faux en général.
+\end{itemize}
+\end{rem}
+
+\begin{exo}
+Soit \(x>0\). Montrez que les séries suivantes convergent : \[\sum_{n\geq2}\dfrac{\ln\paren{n^2+\paren{-1}^nn}}{n^2+\paren{-1}^nx^n}\qquad\sum_{n\geq0}\sqrt{n}\cos\paren{x}\sin^n\paren{x}\qquad\sum_{n\geq0}\dfrac{\paren{-1}^n\sqrt{n+x}}{x^n+n^{\nicefrac{2}{x}}}.\]
+\end{exo}
+
+\subsection{Un exemple fondamental : l'exponentielle de matrice}
+
+Soit \(p\in\Ns\).
+
+On choisit comme norme sur \(E=\M{p}[\C]\) une norme sous-multiplicative.
+
+Alors pour tout \(n\in\Ns\), \(\norme{A^n}\leq\norme{A}^n\), donc \(\norme{\dfrac{A^n}{n!}}\leq\dfrac{\norme{A}^n}{n!}\).
+
+Or la série \(\sum\dfrac{\norme{A}^n}{n!}\) converge (et sa somme vaut \(\exp\norme{A}\)), donc par comparaison de séries à termes positifs, la série \(\sum\dfrac{A^n}{n!}\) est absolument convergente.
+
+On pose alors \(\exp A=\sum_{n=0}^{\pinf}\dfrac{A^n}{n!}\).
+
+\subsection{Extension des résultats par comparaison}
+
+\begin{defi}
+Soit \(u\) une suite de \(E\) et \(v\) une suite réelle positive.
+
+On dit que \(u=\O{v}\) quand \(\quantifs{\exists M>0;\exists n_0\in\N;\forall n\geq n_0}\norme{u_n}\leq Mv_n\).
+
+On dit que \(u=\o{v}\) quand \(\quantifs{\forall\epsilon>0;\exists n_0\in\N;\forall n\geq n_0}\norme{u_n}\leq\epsilon v_n\).
+\end{defi}
+
+\begin{prop}
+Soient \(u\) une suite de \(E\) et \(v\) une suite réelle positive.
+
+Si \(E\) est de dimension finie, \(u_n=\O{v_n}\) quand \(n\) tend vers \(\pinf\) et la série \(\sum v\) converge, alors la série \(\sum u\) est absolument convergente.
+
+De plus, \(\sum_{k=n+1}^{\pinf}u_k=\O{\sum_{k=n+1}^{\pinf}v_k}\).
+\end{prop}
+
+\begin{dem}
+On a \(u_n\egqd{n\to\pinf}\O{v_n}\ssi\norme{u_n}\egqd{n\to\pinf}\O{v_n}\).
+
+Si \(\sum v_n\) converge alors \(\sum\norme{u_n}\) converge d'après le théorème de comparaison des séries à termes positifs donc, comme \(E\) est de dimension finie, \(\sum u_n\) converge.
+
+De plus, on a \(\norme{\sum_{k=n+1}^{\pinf}u_k}\leq\sum_{k=n+1}^{\pinf}\norme{u_k}\) donc d'après le \thref{theo2.3}, on a \[\sum_{k=n+1}^{\pinf}\norme{u_k}\egqd{n\to\pinf}\O{\sum_{k=n+1}^{\pinf}v_k}.\]
+
+Donc \[\norme{\sum_{k=n+1}^{\pinf}u_k}\egqd{n\to\pinf}\O{\sum_{k=n+1}^{\pinf}v_k}.\]
+\end{dem}
+
+Ceci est encore valable si \(u_n=\o{v_n}\).
+
+\begin{prop}
+Soient \(u\) une suite de \(E\) et \(v\) une suite réelle positive.
+
+Si \(E\) est de dimension finie, \(u_n=\o{v_n}\) quand \(n\) tend vers \(\pinf\) et la série \(\sum v\) converge, alors la série \(\sum u\) est absolument convergente.
+
+De plus, \(\sum_{k=n+1}^{\pinf}u_k=\o{\sum_{k=n+1}^{\pinf}v_k}\).
+\end{prop}
+
+\begin{dem}
+Idem.
+\end{dem}
+
+\subsection{Produit de Cauchy de deux séries absolument convergentes}
+
+\begin{defi}
+Une \(\K\)-algèbre est un \(\K\)-espace vectoriel muni d'un produit interne bilinéaire.
+\end{defi}
+
+\begin{defi}
+Soient \(E\) une algèbre normée de dimension finie, \(\sum_{n\geq0}a_n\) et \(\sum_{n\geq0}b_n\) deux séries à termes dans \(E\).
+
+On appelle produit de Cauchy des deux séries la série \(\sum_{n\geq0}c_n\) où \(\quantifs{\tpt n\in\N}c_n=\sum_{k=0}^na_kb_{n-k}\).
+\end{defi}
+
+\begin{rem}
+Quand les séries ne commencent pas à partir du rang \(0\), il faut se méfier ! Une idée simple est de se ramener au cas précédent en décalant les indices.
+
+Exemple très courant : les séries commencent au rang \(1\). Dans ce cas, le produit de Cauchy des séries \(\sum_{n\geq1}a_n\) et \(\sum_{n\geq1}b_n\) est la série \(\sum_{n\geq1}c_n\) où \(\quantifs{\tpt n\in\Ns}c_n=\sum_{k=1}^{n}a_kb_{n+1-k}\).
+\end{rem}
+
+\begin{theo}
+Avec les mêmes hypothèses sur \(E\).
+
+Si les séries \(\sum_{n\geq0}a_n\) et \(\sum_{n\geq0}b_n\) convergent absolument, alors leur produit de Cauchy est aussi absolument convergent et \[\sum_{n=0}^{\pinf}c_n=\sum_{n=0}^{\pinf}a_n\times\sum_{k=0}^{\pinf}b_n.\]
+\end{theo}
+
+\begin{dem}[Premier cas : \(E=\R\) et \(\paren{a_n},\paren{b_n}\) positives]~\\
+On pose \(A_n=\sum_{k=0}^na_k\), \(B_n=\sum_{k=0}^nb_k\) et \(C_n=\sum_{k=0}^nc_k\).
+
+On a \(A_nB_n=\sum_{k=0}^na_k\times\sum_{k=0}^nb_k=\sum_{\substack{0\leq k\leq n \\ 0\leq l\leq n}}a_kb_l\).
+
+On a \(\paren{\star}~C_n\leq A_nB_n\leq C_{2n}\).
+
+Les séries \(\sum a_n\) et \(\sum b_n\) convergent donc les suites \(\paren{A_n}\) et \(\paren{B_n}\) convergent et sont donc majorées.
+
+Comme ce sont des suites positives, la suite \(\paren{A_nB_n}\) est majorée (produit d'inégalités entre positifs).
+
+Donc \(\paren{C_n}\), qui est croissante, est majorée donc converge \ie \(\sum c_n\) converge.
+
+Donc \(A_n\tendqd{n\to\pinf}\sum_{k=0}^{\pinf}a_k\), \(B_n\tendqd{n\to\pinf}\sum_{k=0}^{\pinf}b_k\), \(C_n\tendqd{n\to\pinf}\sum_{k=0}^{\pinf}c_k\) et \(C_{2n}\tendqd{n\to\pinf}\sum_{k=0}^{\pinf}c_k\).
+
+Donc, par passage à la limite dans \(\paren{\star}\), on a \[\sum_{k=0}^{\pinf}c_k=\sum_{k=0}^{\pinf}a_k\times\sum_{k=0}^{\pinf}b_k.\]
+\end{dem}
+
+\begin{dem}[Cas général]
+On a \(\dim E\in\N\) donc toutes les normes sont équivalentes sur \(E\) ; on en choisit donc une qui est sous-multiplicative.
+
+Avec les mêmes notations, on a \(A_nB_n-C_n=\sum_{k=0}^n\sum_{j=n-k+1}^nc_j\), d'où \[\begin{aligned}
+\norme{A_nB_n-C_n}&\leq\sum_{k=0}^n\sum_{j=n-k+1}^n\norme{c_j} \\
+&=\sum_{k=0}^n\sum_{j=n-k+1}\norme{\sum_{l=0}^ja_{j-l}b_l} \\
+&\leq\sum_{k=0}^n\sum_{j=n-k+1}^n\sum_{l=0}^j\norme{a_{j-l}b_l} \\
+&\leq\sum_{k=0}^n\sum_{j=n-k+1}^n\sum_{l=0}^j\norme{a_{j-l}}\times\norme{b_l}.
+\end{aligned}\]
+
+On pose \(A_n\prim=\sum_{k=0}^n\norme{a_k}\), \(B_n\prim=\sum_{k=0}^n\norme{b_k}\) et \(C_n\prim=\sum_{k=0}^nc_k\prim=\sum_{k=0}^n\sum_{j=0}^k\norme{a_{k-j}}\times\norme{b_j}\).
+
+On a de même \(\norme{A_nB_n-C_n}\leq A_n\prim B_n\prim-C_n\prim\).
+
+D'après le premier cas, \(\paren{C_n\prim}\) converge vers \(\sum_{k=0}^{\pinf}\norme{a_k}\times\sum_{k=0}^{\pinf}\norme{b_k}=\lim_nA_n\prim B_n\prim\).
+
+Donc \(A_n\prim B_n\prim-C_n\prim\tendqd{n\to\pinf}0\) donc par encadrement \(A_nB_n-C_n\tendqd{n\to\pinf}0\).
+
+Or \(A_n\tendqd{n\to\pinf}\sum_{k=0}^{\pinf}a_k\) et \(B_n\tendqd{n\to\pinf}\sum_{k=0}^{\pinf}b_k\) donc \[C_n\tendqd{n\to\pinf}\sum_{k=0}^{\pinf}a_k\times\sum_{k=0}^{\pinf}b_k.\]
+\end{dem}
+
+\section{Séries alternées}
+
+\begin{defi}
+Une série alternée est une série réelle \(\sum u_n\) telle que \(\quantifs{\tpt n\in\N}u_{n+1}\text{ est de signe opposé à }u_n\).
+\end{defi}
+
+En général, les séries alternées sont reconnaissables à la présence d'un facteur \(\paren{-1}^n\) dans l'expression du terme général.
+
+On dispose d'une condition suffisante de convergence d'une série alternée qu'on appelle le critère spécial des séries alternées.
+
+\begin{theo}
+Soit \(\sum\paren{-1}^nu_n\) une série alternée.
+
+Si la suite \(u\)
+
+\begin{itemize}
+    \item est positive, \\
+    \item est décroissante, \\
+    \item et converge vers \(0\),
+\end{itemize}
+
+alors la série \(\sum\paren{-1}^nu_n\) converge.
+
+Dans ce cas, la somme de la série est positive, et si on note \(R_n=\sum_{k=n+1}^{\pinf}\paren{-1}^ku_k\) le reste partiel d'indice \(n\), alors \(\quantifs{\tpt n\in\N}R_n\text{ est du signe de son premier terme (\ie du signe de }\paren{-1}^{n+1}\text{) et }\abs{R_n}\leq u_{n+1}\leq u_n\).
+\end{theo}
+
+\begin{ex}
+\begin{itemize}
+    \item La série harmonique alternée \(\sum_{n\geq1}\dfrac{\paren{-1}^n}{n}\) converge. \\
+    \item La série \(\sum_{n\geq2}\dfrac{\paren{-1}^n}{\ln n}\) converge.
+\end{itemize}
+\end{ex}
+
+\begin{rem}
+\begin{itemize}
+    \item Si \(\sum_{n\geq n_0}\paren{-1}^nu_n\) est une série alternée convergente, sa somme a le signe du premier terme de la série (ici le signe de \(\paren{-1}^{n_0}u_{n_0}\)). \\
+    \item La condition de décroissance de la suite \(u\) est essentielle ! Contre-exemple : la série \(\sum_{n\geq2}\dfrac{\paren{-1}^n}{\paren{-1}^n+\sqrt{n}}\) est une série alternée divergente. \\ De plus, cela fournit un contre-exemple au théorème de comparaison par équivalents si on ne tient pas compte de la condition sur le signe, qui doit être constant.
+\end{itemize}
+\end{rem}
+
+\begin{exo}
+Soit \(\alpha>1\). Pour \(n\in\Ns\), on pose \(u_n=\sum_{k=n}^{\pinf}\dfrac{\paren{-1}^k}{k^\alpha+k}\).
+
+Justifiez l'existence de \(u_n\). Montrez que la série \(\sum_{n\geq1}u_n\) converge.
+\end{exo}
+
+\begin{corr}~\\
+La suite \(\paren{\dfrac{1}{k^\alpha+k}}_{k\in\Ns}\) est positive, décroissante et converge vers \(0\) donc d'après le critère spécial des séries alternées, \(\sum\dfrac{\paren{-1}^k}{k^\alpha+k}\) converge.
+
+Ainsi, \(u_n=\sum_{k=n}^{\pinf}\dfrac{\paren{-1}^k}{k^\alpha+k}\) existe pour \(n\in\Ns\).
+
+De plus, on a \[\abs{u_n}=\abs{\sum_{k=n}^{\pinf}\dfrac{\paren{-1}^k}{k^\alpha+k}}\leq\dfrac{1}{n^\alpha+n}\leq\dfrac{1}{n^\alpha}.\]
+
+Or \(\alpha>1\) donc d'après le théorème de comparaison des séries à termes positifs, \(\sum\abs{u_n}\) converge et donc \(\sum u_n\) converge.
+\end{corr}
