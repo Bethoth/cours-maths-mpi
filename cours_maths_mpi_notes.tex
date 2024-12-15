@@ -810,7 +810,7 @@ per-mode=power-positive-first
 \newcommand{\tpt}{\text{pour tout }}
 \newcommand{\Tpt}{\text{Pour tout }}
 
-\newcommand{\Ann}[1]{\operatorname{Ann}\paren{#1}}
+\DeclareDocumentCommand{\Ann}{O{} m}{\operatorname{Ann}_{#1}\paren{#2}}
 
 \DeclareDocumentCommand{\Sp}{O{} m}{\operatorname{Sp}_{#1}\paren{#2}}
 \DeclareDocumentCommand{\sep}{O{} m m}{\operatorname{sep}_{#1}\paren{#2,#3}}
