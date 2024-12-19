@@ -2,4 +2,993 @@
 
 \minitoc
 
-\note{À venir}
+Dans ce chapitre, \(\K\) désigne l'ensemble \(\R\) ou \(\C\). Les fonctions considérées dans ce chapitre sont à valeurs dans \(\K\).
+
+On suppose connue la notion d'intégrale sur un segment d'une fonction continue par morceaux à valeurs réelles ou complexes (\cf cours de première année).
+
+Si \(f\) est une fonction continue sur un segment \(\intervii{a}{b}\) (ou \(\intervii{b}{a}\)), on note \(\int_a^bf=\int_a^bf\paren{t}\odif{t}\) (ou toute autre lettre à la place de \(t\)) l'intégrale de \(f\) entre \(a\) et \(b\) : quand on a pas besoin de nommer la variable d'intégration, on ne la note pas, mais si on la note alors on n'oublie pas l'élément différentiel \(\odif{}\).
+
+En préambule, on généralise la notion de fonction continue par morceaux sur un intervalle quelconque.
+
+\section*{Fonctions continues par morceaux sur un intervalle}
+\addcontentsline{toc}{section}{Fonctions continues par morceaux sur un intervalle}
+
+\begin{defi}
+Soit \(I\) un intervalle quelconque.
+
+On dit qu'une fonction est continue par morceaux sur \(I\) quand elle est continue par morceaux sur tout segment inclus dans \(I\).
+\end{defi}
+
+\begin{ex}
+\begin{itemize}
+    \item La fonction \(t\mapsto\begin{dcases}
+        -\ln t &\text{si }t\in\intervei{0}{1} \\
+        \e{-t} &\text{si }t\in\intervie{1}{\pinf}
+    \end{dcases}\) est continue par morceaux sur \(\intervei{0}{\pinf}\). \\
+    \item La fonction \(t\mapsto\floor{\dfrac{1}{t}}\) est continue par morceaux sur \(\intervei{0}{\pinf}\).
+\end{itemize}
+\end{ex}
+
+Dans toute la suite, on note \(\contm[I]\) l'ensemble des fonctions continues par morceaux sur \(I\) et à valeurs dans \(\K\).
+
+\begin{prop}
+L'ensemble \(\contm[I]\) est une \(\K\)-algèbre.
+\end{prop}
+
+\section{Intégrales généralisées sur \(\intervie{a}{\pinf}\)}
+
+Dans cette section, \(a\) est un réel.
+
+\subsection{Définition et exemples fondamentaux}
+
+\begin{defi}
+Soit \(f\in\contm[\intervie{a}{\pinf}]\).
+
+On dit que l'intégrale \(\int_a^{\pinf}f\) converge (ou qu'elle est convergente, ou simplement qu'elle existe) quand \(\int_a^xf\) a une limite finie quand \(x\) tend vers \(\pinf\).
+
+Dans ce cas, on pose \(\int_a^{\pinf}=\lim_{x\to\pinf}\int_a^xf\).
+
+Dans le cas contraire, on dit que l'intégrale \(\int_a^{\pinf}\) diverge (ou qu'elle est divergente).
+\end{defi}
+
+\begin{rem}
+Une intégrale généralisée \(\int_a^{\pinf}\) est une limite et une limite n'existe pas toujours. Avant d'utiliser une telle intégrale dans un raisonnement ou un calcul, on doit donc toujours justifier son existence !
+\end{rem}
+
+Les résultats ci-dessous sont à connaître.
+
+\begin{ex}
+\begin{itemize}
+    \item Soit \(\alpha\) un réel. L'intégrale \(\int_0^{\pinf}\e{-\alpha t}\odif{t}\) converge ssi \(\alpha>0\). \\
+    \item Soit \(\alpha\) un réel. L'intégrale \(\int_1^{\pinf}\dfrac{1}{t^\alpha}\odif{t}\) converge ssi \(\alpha>1\) (intégrale dite de Riemann).
+\end{itemize}
+\end{ex}
+
+\begin{dem}
+\begin{itemize}
+    \item La fonction \(t\mapsto\e{-\alpha t}\) est continue sur \(\intervie{0}{\pinf}\). \\\\ Pour \(x\geq0\), si \(\alpha\not=0\), on a \[\int_0^x\e{-\alpha t}\odif{t}=\croch{\dfrac{1}{-\alpha}\e{-\alpha t}}_0^x=\dfrac{1}{\alpha}\paren{1-\e{-\alpha x}}.\] Donc si \(\alpha>0\), on a \[\int_0^x\e{-\alpha t}\odif{t}\tendqd{x\to\pinf}\dfrac{1}{\alpha}\] et si \(\alpha<0\), on a \[\int_0^x\e{-\alpha t}\odif{t}\tendqd{x\to\pinf}\pinf.\] De plus, si \(\alpha=0\), on a \[\int_0^x\e{-\alpha t}\odif{t}=x\tendqd{x\to\pinf}\pinf.\] Donc \(\int_0^{\pinf}\e{-\alpha t}\odif{t}\) converge ssi \(\alpha>0\) et, dans ce cas, \(\int_0^{\pinf}\e{-\alpha t}\odif{t}=\dfrac{1}{\alpha}\). \\
+    \item La fonction \(t\mapsto\dfrac{1}{t^\alpha}\) est continue sur \(\intervie{1}{\pinf}\). \\\\ Pour \(x\geq1\), si \(\alpha\not=1\), on a \[\int_1^x\dfrac{1}{t^\alpha}\odif{t}=\int_1^xt^{-\alpha}\odif{t}=\croch{\dfrac{1}{-\alpha+1}t^{-\alpha+1}}_1^x=\dfrac{1}{\alpha-1}\paren{1-x^{-\alpha+1}}.\] Donc si \(\alpha>1\), on a \[\int_1^x\dfrac{1}{t^\alpha}\odif{t}\tendqd{x\to\pinf}\dfrac{1}{\alpha-1}\] et si \(\alpha<1\), on a \[\int_1^x\dfrac{1}{t^\alpha}\odif{t}\tendqd{x\to\pinf}\pinf.\] De plus, si \(\alpha=1\) alors \[\int_1^x\dfrac{1}{t^\alpha}\odif{t}=\ln x\tendqd{x\to\pinf}\pinf.\] Donc \(\int_1^{\pinf}\dfrac{1}{t^\alpha}\odif{t}\) converge ssi \(\alpha>1\) et, dans ce cas, \(\int_1^{\pinf}\dfrac{1}{t^\alpha}\odif{t}=\dfrac{1}{\alpha-1}\).
+\end{itemize}
+\end{dem}
+
+\begin{exo}
+Quelle est la nature de l'intégrale \(\int_0^{\pinf}\dfrac{1}{1+t^2}\odif{t}\) ?
+\end{exo}
+
+\begin{corr}
+La fonction \(t\mapsto\dfrac{1}{1+t^2}\) est continue sur \(\intervie{0}{\pinf}\).
+
+Pour \(x\geq0\), on a \[\int_0^x\dfrac{1}{1+t^2}\odif{t}=\croch{\Arctan t}_0^x=\Arctan x\tendqd{x\to\pinf}\dfrac{\pi}{2}\].
+
+Donc \(\int_0^{\pinf}\dfrac{1}{1+t^2}\odif{t}\) converge et vaut \(\dfrac{\pi}{2}\).
+\end{corr}
+
+\begin{exo}
+Quelle est la nature de l'intégrale \(\int_1^{\pinf}\dfrac{\ln t}{t}\odif{t}\).
+\end{exo}
+
+\begin{corr}
+La fonction \(t\mapsto\dfrac{\ln t}{t}\) est continue sur \(\intervie{1}{\pinf}\).
+
+Pour \(x\geq1\), on a \[\int_1^x\dfrac{\ln t}{t}\odif{t}=\croch{\dfrac{\ln^2t}{2}}_1^x=\dfrac{\ln^2x}{2}\tendqd{x\to\pinf}\pinf.\]
+
+Donc \(\int_1^{\pinf}\dfrac{\ln t}{t}\odif{t}\) diverge.
+\end{corr}
+
+\subsection{Propriétés}
+
+La convergence de l'intégrale ne dépend pas de la borne \(a\), ce qui généralise la relation de Chasles.
+
+\begin{prop}
+Soient \(f\in\contm[\intervie{a}{\pinf}]\) et \(b\in\intervie{a}{\pinf}\).
+
+Alors l'intégrale \(\int_a^{\pinf}f\) converge ssi \(\int_b^{\pinf}f\) converge.
+
+Dans ce cas, on a \(\int_a^{\pinf}f=\int_a^bf+\int_b^{\pinf}f\).
+\end{prop}
+
+\begin{dem}
+Soit \(x\geq a\).
+
+Par relation de Chasles sur les intégrales classiques, on a \[\int_a^xf=\underbrace{\int_a^bf}_{\in\K}+\int_b^xf.\]
+
+Donc \(\int_a^xf\) a une limite finie quand \(x\to\pinf\) ssi \(\int_b^xf\) a une limite finie quand \(x\to\pinf\) par opération sur les limites.
+
+Dans ce cas, on a \[\begin{aligned}
+\int_a^{\pinf}f&=\lim_{x\to\pinf}\int_a^xf \\
+&=\lim_{x\to\pinf}\paren{\int_a^bf+\int_b^xf} \\
+&=\int_a^bf+\lim_{x\to\pinf}\int_b^xf \\
+&=\int_a^bf+\int_b^{\pinf}f.
+\end{aligned}\]
+\end{dem}
+
+Dans le cas convergent, on retrouve la linéarité.
+
+\begin{prop}
+Soient \(\paren{f,g}\in\contm[\intervie{a}{\pinf}]^2\) et \(\paren{\lambda,\mu}\in\K^2\).
+
+Si les intégrales \(\int_a^{\pinf}f\) et \(\int_a^{\pinf}g\) convergent, alors \(\int_a^{\pinf}\paren{\lambda f+\mu g}\) converge.
+
+Dans ce cas, on a \(\int_a^{\pinf}\paren{\lambda f+\mu g}=\lambda\int_a^{\pinf}f+\mu\int_a^{\pinf}g\).
+\end{prop}
+
+\begin{dem}
+Pour \(x\geq0\), on a \[\int_a^x\paren{\lambda f+\mu g}=\lambda\int_a^xf+\mu\int_a^xg\] par linéarité de l'intégrale classique.
+
+Puis, d'après les théorèmes d'opérations sur les limites, si \(\int_a^{\pinf}f\) et \(\int_a^{\pinf}g\) convergent, les deux fonctions \(x\mapsto\int_a^xf\) et \(x\mapsto\int_a^xg\) ont des limites finies en \(\pinf\) donc \(x\mapsto\lambda\int_a^xf+\mu\int_a^xg\) en a une aussi, \ie \(\int_a^{\pinf}\paren{\lambda f+\mu g}\) converge.
+
+Dans ce cas, \(\int_a^{\pinf}\paren{\lambda f+\mu g}=\lambda\int_a^{\pinf}f+\mu\int_a^{\pinf}g\).
+\end{dem}
+
+\begin{rem}
+\begin{itemize}
+    \item \guillemets{La somme d'une intégrale convergente et d'une divergente est divergente}. \\
+    \item Il n'y a rien à dire \textit{a priori} sur la \guillemets{somme de deux intégrales divergentes}.
+\end{itemize}
+\end{rem}
+
+\begin{dem}~\\
+Montrons que si \(\int_a^{\pinf}f\) converge et \(\int_a^{\pinf}g\) diverge, alors \(\int_a^{\pinf}\paren{f+g}\) diverge.
+
+Par l'absurde, si \(\int_a^{\pinf}\paren{f+g}\) converge alors comme \(g=\paren{f+g}-f\), d'après la proposition précédente, \(\int_a^{\pinf}g\) converge : contradiction.
+\end{dem}
+
+\subsection{Cas des fonctions réelles positives}
+
+Quand une fonction \(f\) est positive et continue par morceaux, dans le cas où l'intégrale \(\int_a^{\pinf}f\) diverge, on pose par convention \(\int_a^{\pinf}f=\pinf\), ce qui permet de donner un sens à toutes les intégrales de fonctions positives.
+
+\begin{prop}
+Soit \(f\in\contm[\intervie{a}{\pinf}][\R]\).
+
+Si \(f\geq0\), alors \(\int_a^{\pinf}f\geq0\).
+
+Si, de plus, \(f\) est continue et prend au moins une valeur strictement positive, alors \(\int_a^{\pinf}f>0\).
+
+Ceci est vrai en particulier quand \(f\) est continue et strictement positive sur \(\intervie{a}{\pinf}\).
+\end{prop}
+
+\begin{dem}
+\begin{itemize}
+    \item Si \(f\geq0\) sur \(\intervie{a}{\pinf}\), alors \(\quantifs{\tpt x\in\intervie{a}{\pinf}}f\geq0\) sur \(\intervii{a}{x}\). \\\\ Donc par positivité de l'intégrale classique, \(\int_a^xf\geq0\). \\\\ Donc si \(\int_a^{\pinf}f\) diverge, alors \[\int_a^{\pinf}f=\pinf\geq0\] et si \(\int_a^{\pinf}f\) converge, on a \[\int_a^{\pinf}f\geq0\] par passage à la limite quand \(x\to\pinf\). \\
+    \item Si \(f\) est continue, positive et prend au moins une valeur strictement positive en \(x_0\), pour \(x\geq x_0+1\), on a \[\int_a^xf=\int_a^{x_0+1}f+\int_{x_0+1}^xf.\] D'après le théorème de stricte positivité de l'intégrale classique, comme \(f\) est continue et positive sur \(\intervii{a}{x_0+1}\), \(f\paren{x_0}>0\) et \(x_0\in\intervii{a}{x_0+1}\), on a \(\int_a^{x_0+1}f>0\). \\\\ Or \(\int_{x_0+1}^xf\geq0\) donc \(\int_a^xf\geq\int_a^{x_0+1}f\). \\\\ Par passage à la limite quand \(x\to\pinf\), on obtient \[\int_a^{\pinf}f\geq\int_a^{x_0+1}f>0.\]
+\end{itemize}
+\end{dem}
+
+\begin{rem}[Contraposée]
+Si \(f\) est continue et positive sur \(\intervie{a}{\pinf}\) et \(\int_a^{\pinf}f=0\), alors \(f=0\) sur \(\intervie{a}{\pinf}\).
+\end{rem}
+
+On en déduit la propriété de croissance des intégrales.
+
+\begin{prop}
+Soit \(\paren{f,g}\in\contm[\intervie{a}{\pinf}][\R]^2\) tel que \(f\) et \(g\) soient positives.
+
+Si \(f\leq g\), alors \(\int_a^{\pinf}f\leq\int_a^{\pinf}g\).
+\end{prop}
+
+\subsection{Théorème de comparaison entre fonctions positives}
+
+D'abord une condition nécessaire et suffisante de convergence dans le cas d'une fonction positive.
+
+\begin{prop}\thlabel{prop6.6}
+Soit \(f\in\contm[\intervie{a}{\pinf}][\R]\).
+
+Si \(f\geq0\), alors l'intégrale \(\int_a^{\pinf}f\) converge ssi la fonction \(x\mapsto\int_a^xf\) est majorée.
+\end{prop}
+
+\begin{dem}
+Si \(f\geq0\) sur \(\intervie{a}{\pinf}\), alors \(x\mapsto\int_a^xf\) est croissante sur \(\intervie{a}{\pinf}\).
+
+Donc pour \(\paren{x,y}\in\intervie{a}{\pinf}^2\) tel que \(x\geq y\), on a \[\int_a^xf=\int_a^yf+\int_y^xf\geq\int_a^yf.\]
+
+Donc \(\int_a^{\pinf}f\) converge ssi la fonction croissante \(x\mapsto\int_a^xf\) a une limite finie en \(\pinf\) ssi la fonction croissante \(x\mapsto\int_a^xf\) est majorée, par théorème de la limite monotone.
+\end{dem}
+
+On en déduit un théorème de comparaison du même type que celui sur les séries.
+
+\begin{theo}
+Soit \(\paren{f,g}\in\contm[\intervie{a}{\pinf}][\R]^2\) tel que \(f\) et \(g\) soient positives.
+
+\begin{itemize}
+    \item Si \(f\leq g\) et \(\int_a^{\pinf}g\) converge, alors \(\int_a^{\pinf}f\) converge. \\
+    \item Si \(f\leq g\) et \(\int_a^{\pinf}f\) diverge, alors \(\int_a^{\pinf}g\) diverge. \\
+    \item Si \(f\simqd{\pinf}g\) alors les intégrales \(\int_a^{\pinf}f\) et \(\int_a^{\pinf}g\) sont de même nature : l'une converge ssi l'autre converge.
+\end{itemize}
+\end{theo}
+
+\begin{dem}
+\begin{itemize}
+    \item Si \(0\leq f\leq g\) sur \(\intervie{a}{\pinf}\), alors \(\quantifs{\tpt x\in\intervie{a}{\pinf}}\int_a^xf\leq\int_a^xg\). \\\\ Donc si \(\int_a^{\pinf}g\) converge, alors \(x\mapsto\int_a^xg\) est majorée d'après la \thref{prop6.6}. \\\\ Donc \(x\mapsto\int_a^xf\) est majorée. \\\\ Donc \(\int_a^{\pinf}f\) converge d'après la \thref{prop6.6}. \\
+    \item Par contraposée, si \(\int_a^{\pinf}f\) diverge, alors \(\int_a^{\pinf}g\) diverge. \\
+    \item Si \(f\simqd{\pinf}g\), il existe une fonction \(\phi\) définie au voisinage de \(\pinf\) telle que \(f=g\phi\) et \(\phi\tendqd{\pinf}1\). \\\\ Comme \(\phi\tendqd{\pinf}1\), au voisinage de \(\pinf\), on a \(\dfrac{1}{2}\leq\phi\leq\dfrac{3}{2}\). \\\\ Donc, au voisinage de \(\pinf\), on a \(0\leq\dfrac{1}{2}g\leq\phi g=f\leq\dfrac{3}{2}g\). \\\\ D'après ce qui précède, si \(\int_a^{\pinf}f\) converge, alors \(\int_a^{\pinf}\dfrac{1}{2}g\) converge donc \(\int_a^{\pinf}g=2\int_a^{\pinf}\dfrac{1}{2}g\) converge et si \(\int_a^{\pinf}f\) diverge, alors \(\int_a^{\pinf}\dfrac{3}{2}g\) diverge donc \(\int_a^{\pinf}g=\dfrac{2}{3}\int_a^{\pinf}\dfrac{3}{2}g\) diverge.
+\end{itemize}
+\end{dem}
+
+\begin{rem}
+\begin{itemize}
+    \item Dans ce théorème, il suffit que les inégalités soient vraies au voisinage de \(\pinf\) seulement. \\
+    \item Si les fonctions sont à valeurs négatives, on se ramène à ce théorème en travaillant avec les fonctions opposées. Ce qui compte est donc qu'elles soient de signe constant. \\
+    \item Avec des fonctions dont le signe n'est pas constant, ce théorème est faux. Il faut donc bien s'assurer et mettre en valeur que les fonctions sont positives (ou négatives). \\
+    \item On compare les fonctions, pas les intégrales ! N'écrivez pas des symboles \(\int_a^{\pinf}\cdots\) partout.
+\end{itemize}
+\end{rem}
+
+\begin{exo}~\\
+Montrez que \(\int_1^{\pinf}\dfrac{\e{-t}}{t}\odif{t}\) converge.
+\end{exo}
+
+\begin{corr}
+Les fonctions \(t\mapsto\dfrac{\e{-t}}{t}\) et \(t\mapsto\e{-t}\) sont continues sur \(\intervie{1}{\pinf}\).
+
+\(\quantifs{\Tpt t\geq1}0\leq\dfrac{\e{-t}}{t}\leq\e{-t}\) or \(\int_1^{\pinf}\e{-t}\odif{t}\) converge donc par comparaison de fonctions positives, \(\int_1^{\pinf}\dfrac{\e{-t}}{t}\odif{t}\) converge.
+\end{corr}
+
+\begin{exo}~\\
+Montrez que \(\int_2^{\pinf}\dfrac{1}{\ln t}\odif{t}\) diverge.
+\end{exo}
+
+\begin{corr}
+La fonction \(t\mapsto\dfrac{1}{\ln t}\) est continue sur \(\intervie{2}{\pinf}\).
+
+Pour \(t\geq2\), on a \(\dfrac{1}{\ln t}\geq\dfrac{1}{t}\geq0\) car \(\quantifs{\forall t>0}\ln t\leq t-1\leq t\) car \(\ln\) est concave.
+
+Or \(\int_2^{\pinf}\dfrac{1}{t}\odif{t}\) diverge donc par comparaison de fonctions positives, \(\int_2^{\pinf}\dfrac{1}{\ln t}\odif{t}\) diverge.
+\end{corr}
+
+\begin{exo}
+Montrez que \(\quantifs{\tpt\alpha>1}\int_1^{\pinf}\dfrac{\ln t}{t^\alpha}\odif{t}\) converge.
+\end{exo}
+
+\begin{corr}
+\(\quantifs{\Tpt\alpha>1}t\mapsto\dfrac{\ln t}{t^\alpha}\) est continue sur \(\intervie{1}{\pinf}\).
+
+\begin{itemize}
+    \item Si \(\alpha>2\), comme on a \(0\leq\dfrac{\ln t}{t^\alpha}\leq\dfrac{t}{t^\alpha}=\dfrac{1}{t^{\alpha-1}}\) pour \(t\in\intervie{1}{\pinf}\) et \(\int_1^{\pinf}\dfrac{1}{t^{\alpha-1}}\odif{t}\) converge (car \(\alpha-1>1\)), on en déduit que \(\int_1^{\pinf}\dfrac{\ln t}{t^\alpha}\odif{t}\) converge. \\
+    \item Il existe \(a>1\) tel que \(\quantifs{\tpt t\in\intervie{a}{\pinf}}0\leq\ln t\leq t^{\nicefrac{\alpha-1}{2}}\) car \(\ln t\egqd{t\to\pinf}\o{t^{\nicefrac{\alpha-1}{2}}}\) car \(\dfrac{\alpha-1}{2}>0\). \\\\ Donc \(\quantifs{\tpt t\in\intervie{a}{\pinf}}0\leq\dfrac{\ln t}{t^\alpha}\leq\dfrac{t^{\nicefrac{\alpha-1}{2}}}{t^\alpha}=\dfrac{1}{t^{\nicefrac{\alpha+1}{2}}}\). \\\\ Comme \(\alpha>1\), \(\dfrac{\alpha+1}{2}>1\) donc \(\int_a^{\pinf}\dfrac{1}{t^{\nicefrac{\alpha+1}{2}}}\odif{t}\) converge. \\\\ Donc \(\int_a^{\pinf}\dfrac{\ln t}{t^\alpha}\odif{t}\) converge \ie \(\int_1^{\pinf}\dfrac{\ln t}{t^\alpha}\odif{t}\) converge.
+\end{itemize}
+\end{corr}
+
+\subsection{Lien avec les séries}
+
+Le théorème de comparaison série-intégrale peut se réécrire comme suit.
+
+\begin{prop}
+Soit \(f\in\contm[\Rp][\R]\) positive et décroissante.
+
+La série \(\sum f\paren{n}\) et l'intégrale \(\int_0^{\pinf}f\) sont de même nature.
+\end{prop}
+
+Dans le même genre, on peut étudier la convergence d'une intégrale d'une fonction positive par l'intermédiaire d'une série.
+
+\begin{prop}\thlabel{prop6.8}
+Soient \(f\in\contm[\Rp][\R]\) positive et \(u\) une suite positive et strictement croissante qui diverge vers \(\pinf\).
+
+L'intégrale \(\int_0^{\pinf}f\) converge ssi la série \(\sum_{n\geq0}\int_{u_n}^{u_{n+1}}f\) converge.
+\end{prop}
+
+\begin{dem}
+\impdir
+
+Si \(f\geq0\) sur \(\intervie{0}{\pinf}\), alors \(F:x\mapsto\int_0^xf\) est croissante.
+
+Donc si \(\int_0^{\pinf}f\) converge, alors \(\int_0^xf\) a une limite réelle \(l\) quand \(x\to\pinf\).
+
+Donc comme \(u_n\tendqd{n\to\pinf}\pinf\), on a \(\int_0^{u_n}f\tendqd{n\to\pinf}l\).
+
+Or \(\int_0^{u_n}f=\int_0^{u_0}f+\int_{u_0}^{u_1}f+\dots+\int_{u_{n-1}}^{u_n}f\) donc \[\sum_{k=0}^{n-1}\int_{u_k}^{u_{k+1}}f\tendqd{n\to\pinf}l-\int_0^{u_0}f\] \ie la série \(\sum_n\int_{u_n}^{u_{n+1}}f\) converge.
+
+\imprec
+
+Si la série \(\sum_n\int_{u_n}^{u_{n+1}}f\) converge, \(\sum_{k=0}^{n-1}\int_{u_k}^{u_{k+1}}f=F\paren{u_n}-F\paren{u_0}\) a une limite réelle quand \(n\to\pinf\) \ie \(\paren{F\paren{u_n}}\) a une limite réelle.
+
+Or \(F\) est croissante donc d'après le théorème de la limite monotone, \(F\) a une limite \(L\in\R\union\accol{\pinf}\) en \(\pinf\).
+
+D'après la caractérisation séquentielle de la limite, on a \(F\paren{u_n}\tendqd{n\to\pinf}L\) car \(u_n\tendqd{n\to\pinf}\pinf\).
+
+Donc \(L\in\R\). Donc \(\int_0^{\pinf}f\) converge.
+\end{dem}
+
+\begin{rem}
+L'hypothèse de positivité de \(f\) est essentielle.
+
+Contre-exemple si on ne suppose rien sur le signe de \(f\) :
+
+\(\quantifs{\Tpt n\in\N}\int_{2n\pi}^{2\paren{n+1}\pi}\sin=0\) donc \(\sum\int_{2n\pi}^{2\paren{n+1}\pi}\sin\) converge mais \(\int_0^x\sin=1-\cos x\) n'a pas de limite quand \(x\to\pinf\) \ie \(\int_0^{\pinf}\sin\) diverge.
+\end{rem}
+
+\begin{exo}
+Montrez que l'intégrale \(\int_1^{\pinf}\dfrac{\abs{\sin t}}{t}\odif{t}\) diverge.
+\end{exo}
+
+\begin{corr}
+La fonction \(t\mapsto\dfrac{\abs{\sin t}}{t}\) est continue sur \(\intervie{1}{\pinf}\).
+
+D'après la \thref{prop6.8}, \(\int_1^{\pinf}\dfrac{\abs{\sin t}}{t}\odif{t}\) converge ssi la série \(\sum_n\int_{u_n}^{u_{n+1}}\dfrac{\abs{\sin t}}{t}\odif{t}\) converge, où \(\paren{u_n}\) est une suite positive et strictement croissante.
+
+On prend \(u_n=n\pi\) pour \(n\geq1\).
+
+Pour \(n\in\Ns\), on a \(\int_{n\pi}^{\paren{n+1}\pi}\dfrac{\abs{\sin t}}{t}\odif{t}\geq\int_{n\pi}^{\paren{n+1}\pi}\dfrac{\abs{\sin t}}{\paren{n+1}\pi}\odif{t}\) car \[\begin{aligned}
+\quantifs{\forall t\in\intervii{n\pi}{\paren{n+1}\pi}}n\pi\leq t\leq\paren{n+1}\pi&\text{ donc }\dfrac{1}{\paren{n+1}\pi}\leq\dfrac{1}{t}\leq\dfrac{1}{n\pi} \\
+&\text{ donc }\dfrac{\abs{\sin t}}{\paren{n+1}\pi}\leq\dfrac{\abs{\sin t}}{t}\leq\dfrac{\abs{\sin t}}{n\pi}.
+\end{aligned}\]
+
+Donc on a \[\begin{WithArrows}
+\int_{n\pi}^{\paren{n+1}\pi}\dfrac{\abs{\sin t}}{t}\odif{t}&\geq\dfrac{1}{\paren{n+1}\pi}\int_{n\pi}^{\paren{n+1}\pi}\abs{\sin t}\odif{t} \Arrow{\(t\mapsto\abs{\sin t}\) est \(\pi\)-périodique} \\
+&=\dfrac{1}{\paren{n+1}\pi}\int_0^\pi\abs{\sin t}\odif{t} \\
+&=\dfrac{2}{\paren{n+1}\pi}.
+\end{WithArrows}\]
+
+Or \(\sum_n\dfrac{2}{\paren{n+1}\pi}\) diverge donc \(\int_1^{\pinf}\dfrac{\abs{\sin t}}{t}\odif{t}\) diverge.
+\end{corr}
+
+\begin{exo}
+En utilisant l'inégalité \(\sin t\geq\dfrac{2}{\pi}t\), valable pour tout \(t\in\intervii{0}{\dfrac{\pi}{2}}\), montrez que l'intégrale \(\int_0^{\pinf}\dfrac{1}{1+\e{x}\abs{\sin x}}\odif{x}\) converge.
+\end{exo}
+
+\begin{corr}
+La fonction \(x\mapsto\dfrac{1}{1+\e{x}\abs{\sin x}}\) est continue et positive sur \(\intervie{0}{\pinf}\) donc \(\int_0^{\pinf}\dfrac{1}{1+\e{x}\abs{\sin x}}\odif{x}\) converge ssi la série \(\sum\int_{n\pi}^{\paren{n+1}\pi}\dfrac{1}{1+\e{x}\abs{\sin x}}\odif{x}\) converge.
+
+Pour \(n\in\N\), on a \[\begin{WithArrows}
+0&\leq\int_{n\pi}^{\paren{n+1}\pi}\dfrac{1}{1+\e{x}\abs{\sin x}}\odif{x} \Arrow{\(\begin{dcases}x=t+n\pi \\ \odif{x}=\odif{x}\end{dcases}\)} \\
+&=\int_0^\pi\dfrac{1}{1+\e{t+n\pi}\abs{\sin t}}\odif{t}.
+\end{WithArrows}\]
+
+Or, comme on a \(\quantifs{\forall t\in\intervii{0}{\dfrac{\pi}{2}}}\dfrac{2}{\pi}t\leq\sin t\), on a \[1+\e{n\pi}\dfrac{2}{\pi}t\leq1+\e{t+n\pi}\dfrac{2}{\pi}t\leq1+\e{t+n\pi}\sin t\] donc \[\begin{aligned}
+\int_0^{\nicefrac{\pi}{2}}\dfrac{1}{1+\e{t+n\pi}\abs{\sin t}}\odif{t}&\leq\int_0^{\nicefrac{\pi}{2}}\dfrac{1}{1+\e{t+n\pi}\dfrac{2}{\pi}t}\odif{t} \\
+&\leq\int_0^{\nicefrac{\pi}{2}}\dfrac{1}{1+\e{n\pi}\dfrac{2}{\pi}t}\odif{t} \\
+&=\croch{\dfrac{\ln\paren{1+\e{n\pi}\dfrac{2}{\pi}t}}{\e{n\pi}\dfrac{2}{\pi}}}_0^{\nicefrac{\pi}{2}} \\
+&=\dfrac{\pi}{2}\dfrac{\ln\paren{1+\e{n\pi}}}{\e{n\pi}}.
+\end{aligned}\]
+
+De même, on a \(\quantifs{\forall t\in\intervii{\dfrac{\pi}{2}}{\pi}}\dfrac{2}{\pi}\paren{\pi-t}\leq\sin t\) donc \[\begin{aligned}
+\int_{\nicefrac{\pi}{2}}^\pi\dfrac{1}{1+\e{t+n\pi}\sin t}\odif{t}&\leq\int_{\nicefrac{\pi}{2}}^\pi\dfrac{1}{1+\e{n\pi}\dfrac{2}{\pi}\paren{\pi-t}}\odif{t} \\
+&=\croch{\dfrac{\ln\paren{1+\e{n\pi}\dfrac{2}{\pi}\paren{\pi-t}}}{-\e{n\pi}\dfrac{2}{\pi}}}_{\nicefrac{\pi}{2}}^\pi \\
+&=\dfrac{\pi}{2}\dfrac{\ln\paren{1+\e{n\pi}}}{\e{n\pi}}.
+\end{aligned}\]
+
+Ainsi, pour tout \(n\in\N\), on a \[0\leq\int_{n\pi}^{\paren{n+1}\pi}\dfrac{1}{1+\e{x}\abs{\sin x}}\odif{x}\leq\pi\dfrac{\ln\paren{1+\e{n\pi}}}{\e{n\pi}}=a_n.\]
+
+Or \(1+\e{n\pi}\simqd{n\to\pinf}\e{n\pi}\tendqd{n\to\pinf}\pinf\) donc \(\ln\paren{1+\e{n\pi}}\simqd{n\to\pinf}\ln\paren{\e{n\pi}}=n\pi\).
+
+Donc \(a_n\simqd{n\to\pinf}\pi^2\dfrac{n}{\e{n\pi}}\egqd{n\to\pinf}\o{\dfrac{1}{n^2}}\).
+
+Or \(\sum\dfrac{1}{n^2}\) converge donc \(\sum a_n\) converge.
+
+Donc \(\sum\int_{n\pi}^{\paren{n+1}\pi}\dfrac{1}{1+\e{x}\abs{\sin x}}\odif{x}\) converge.
+
+Donc \(\int_0^{\pinf}\dfrac{1}{1+\e{x}\abs{\sin x}}\odif{x}\) converge.
+\end{corr}
+
+\section{Intégrales généralisées sur d'autres types d'intervalles}
+
+\subsection{Intégrales généralisées sur \(\intervie{a}{b}\)}
+
+Dans cette partie, \(a\) est un réel et \(b\) est un réel ou \(\pinf\), de sorte que \(a<b\).
+
+\begin{defi}
+Soit \(f\in\contm[\intervie{a}{b}]\).
+
+On dit que l'intégrale \(\int_a^bf\) converge quand \(\int_a^xf\) a une limite finie quand \(x\) tend vers \(b^-\).
+
+Dans ce cas, on pose \(\int_a^bf=\lim_{x\to b^-}\int_a^xf\).
+
+Dans le cas contraire, on dit que l'intégrale \(\int_a^bf\) diverge (ou qu'elle est divergente).
+\end{defi}
+
+\subsection{Intégrales généralisées sur \(\intervei{a}{b}\)}
+
+Dans cette partie, \(a\) est un réel ou \(\minf\) et \(b\) un réel, de sorte que \(a<b\).
+
+\begin{defi}
+Soit \(f\in\contm[\intervei{a}{b}]\).
+
+On dit que l'intégrale \(\int_a^bf\) converge quand \(\int_x^bf\) a une limite finie quand \(x\) tend vers \(a^+\).
+
+Dans ce cas, on pose \(\int_a^bf=\lim_{x\to a^+}\int_x^bf\).
+
+Dans le cas contraire, on dit que l'intégrale \(\int_a^bf\) diverge (ou qu'elle est divergente).
+\end{defi}
+
+Les résultats suivants sont à connaître.
+
+\begin{ex}~\\
+\begin{itemize}
+    \item \(\int_0^1\ln\paren{t}\odif{t}\) converge. \\
+    \item Soit \(\alpha\) un réel. L'intégrale \(\int_0^1\dfrac{1}{t^\alpha}\odif{t}\) converge ssi \(\alpha<1\) (intégrale dite de Riemann).
+\end{itemize}
+\end{ex}
+
+\begin{dem}
+\begin{itemize}
+    \item La fonction \(\ln\) est continue sur \(\intervei{0}{1}\). \\\\ Pour \(x\in\intervei{0}{1}\), on a \[\int_x^1\ln\paren{t}\odif{t}=\croch{t\ln t-t}_x^1=-1-x\ln x+x.\] Or \(\lim_{x\to0}x\ln x=0\) donc \(\int_x^1\ln\paren{t}\odif{t}\tendqd{x\to0}-1\). \\\\ Donc \(\int_0^1\ln\paren{t}\odif{t}\) converge et vaut \(-1\). \\
+    \item La fonction \(t\mapsto\dfrac{1}{t^\alpha}\) est continue sur \(\intervei{0}{1}\). \\\\ Pour \(x\in\intervei{0}{1}\), on a \[\int_x^1\dfrac{1}{t^\alpha}\odif{t}=\int_x^1t^{-\alpha}\odif{t}=\croch{\dfrac{1}{1-\alpha}t^{1-\alpha}}_x^1=\dfrac{1}{1-\alpha}\paren{1-x^{1-\alpha}}.\] Donc \[\begin{dcases}
+        \int_x^1\dfrac{1}{t^\alpha}\odif{t}\tendqd{x\to0}\dfrac{1}{1-\alpha} &\text{si }\alpha<1 \\
+        \int_x^1\dfrac{1}{t^\alpha}\odif{t}\tendqd{x\to0}\pinf &\text{si }\alpha>1 \\
+        \int_x^1\dfrac{1}{t^\alpha}\odif{t}=-\ln x\tendqd{x\to0}\pinf &\text{si }\alpha=1
+    \end{dcases}\] Donc \(\int_0^1\dfrac{1}{t^\alpha}\odif{t}\) converge ssi \(\alpha<1\) et vaut \(\dfrac{1}{1-\alpha}\).
+\end{itemize}
+\end{dem}
+
+\begin{exo}
+Montrez que l'intégrale \(\int_1^2\dfrac{1}{\ln t}\odif{t}\) diverge.
+
+À quelle condition sur \(\alpha\) l'intégrale \(\int_1^2\dfrac{\paren{t-1}^\alpha}{\ln t}\odif{t}\) converge-t-elle ?
+\end{exo}
+
+\begin{corr}
+\begin{itemize}
+    \item La fonction \(t\mapsto\dfrac{1}{\ln t}\) est continue sur \(\intervei{1}{2}\). \\\\ On veut montrer que \(\int_1^2\dfrac{1}{\ln t}\odif{t}\) diverge \ie \(\int_x^2\dfrac{1}{\ln t}\odif{t}\) n'a pas de limite réelle quand \(x\to1^+\). \\\\ On effectue le changement de variable \(\begin{dcases}
+        s=\ln t \\
+        \odif{s}=\dfrac{\odif{t}}{t}
+    \end{dcases}\ssi\begin{dcases}
+        t=\e{s} \\
+        \odif{t}=\e{s}\odif{s}
+    \end{dcases}\) \\\\ On a ramené le problème à la non-existence d'une limite réelle de \(\int_X^{\ln2}\dfrac{\e{s}}{s}\odif{s}\) quand \(X\to0\) \ie à la divergence de \(\int_0^{\ln2}\dfrac{\e{s}}{s}\odif{s}\). \\\\ Or \(\quantifs{\tpt s>0}\dfrac{\e{s}}{s}\geq\dfrac{1}{s}\geq0\) et \(\int_0^{\ln2}\dfrac{1}{s}\odif{s}\) diverge. \\\\ Donc par comparaison de fonctions positives, \(\int_0^{\ln2}\dfrac{\e{s}}{s}\odif{s}\) diverge \ie \(\int_1^2\dfrac{1}{\ln t}\odif{t}\) diverge. \\
+    \item Autre méthode : \\\\ \(\quantifs{\Tpt t>1}\ln t\leq t-1\) donc \(0\leq\dfrac{1}{t-1}\leq\dfrac{1}{\ln t}\). \\\\ Or \(\int_1^2\dfrac{1}{t-1}\odif{t}=\int_0^1\dfrac{1}{t}\odif{t}\) diverge. \\\\ Donc par comparaison de fonctions positives, \(\int_1^2\dfrac{1}{\ln t}\odif{t}\) diverge. \\
+    \item La fonction \(t\mapsto\dfrac{\paren{t-1}^\alpha}{\ln t}\) est continue et positive sur \(\intervei{1}{2}\). \\\\ On a \(\dfrac{\paren{t-1}^\alpha}{\ln t}\simqd{t\to1}\paren{t-1}^{\alpha-1}=\dfrac{1}{\paren{t-1}^{1-\alpha}}\) car \(\ln t\simqd{t\to1}t-1\). \\\\ Donc \(\int_1^2\dfrac{\paren{t-1}^\alpha}{\ln t}\odif{t}\) converge ssi \(1-\alpha<1\) \ie \(\alpha>0\).
+\end{itemize}
+\end{corr}
+
+On peut remarquer que par changement de variable \(x\mapsto-x\), l'intégrale \(\int_a^bf\paren{t}\odif{t}\) est de même nature (et, dans le cas convergent, a la même valeur) que \(\int_{-b}^{-a}f\paren{-u}\odif{u}\). Les résultats valables en un point réel ne dépendent donc pas du côté du point où on se place.
+
+\begin{ex}
+\begin{itemize}
+    \item Si \(a\) est un réel, alors \(\int_a^{a+1}\dfrac{1}{\paren{t-a}^\alpha}\odif{t}\) converge ssi \(\alpha<1\). \\
+    \item Si \(a\) est un réel, alors \(\int_{a-1}^a\dfrac{1}{\paren{a-t}^\alpha}\odif{t}\) converge ssi \(\alpha<1\). \\
+    \item \(\int_0^1\ln\paren{1-t}\odif{t}\) converge.
+\end{itemize}
+\end{ex}
+
+\subsection{Intégrales généralisées sur \(\intervee{a}{b}\)}
+
+Dans cette partie, \(a\) et \(b\) sont des réels ou des infinis tels que \(a<b\).
+
+\begin{defi}
+Soit \(f\in\contm[\intervee{a}{b}]\).
+
+On dit que l'intégrale \(\int_a^bf\) converge quand il existe \(c\in\intervee{a}{b}\) tel que \(\int_a^cf\) et \(\int_c^bf\) convergent.
+
+Dans ce cas, on pose \(\int_a^bf=\int_a^cf+\int_c^bf=\lim_{x\to a^+}\int_x^cf+\lim_{y\to b^-}\int_c^yf\).
+
+Dans le cas contraire, on dit que l'intégrale \(\int_a^bf\) diverge (ou qu'elle est divergente).
+\end{defi}
+
+\begin{rem}
+Grâce à la relation de Chasles, on constate que la valeur de \(c\) n'est finalement pas importante : si ça marche pour un certain réel \(c\in\intervee{a}{b}\), alors ça marche pour toute autre valeur prise dans \(\intervee{a}{b}\).
+\end{rem}
+
+\begin{exo}
+Montrez que l'intégrale de Gauss \(\int_{\minf}^{\pinf}\e{-t^2}\odif{t}\) converge.
+\end{exo}
+
+\begin{corr}
+La fonction \(t\mapsto\e{-t^2}\) est continue et positive sur \(\intervee{\minf}{\pinf}\).
+
+\(\int_1^{\pinf}\e{-t^2}\odif{t}\) converge car \(\quantifs{\tpt t\in\intervie{1}{\pinf}}t^2\geq t\) donc \(0\leq\e{-t^2}\leq\e{-t}\) et \(\int_1^{\pinf}\e{-t}\odif{t}\) converge.
+
+Or \(t\mapsto\e{-t^2}\) est paire donc \(\int_{\minf}^{-1}\e{-t^2}\odif{t}\) est de même nature que \(\int_1^{\pinf}\e{-t^2}\) donc elle converge.
+
+Finalement, \(\int_{\minf}^{\pinf}\e{-t^2}\odif{t}\) converge.
+\end{corr}
+
+\begin{exo}
+Même chose avec l'intégrale \(\int_0^1\dfrac{1}{\sqrt{t\paren{1-t}}}\odif{t}\).
+\end{exo}
+
+\begin{corr}
+La fonction \(t\mapsto\dfrac{1}{\sqrt{t\paren{1-t}}}\) est continue et positive sur \(\intervee{0}{1}\).
+
+\(\quantifs{\Tpt t\in\intervei{0}{\dfrac{1}{2}}}0\leq\dfrac{1}{\sqrt{t\paren{1-t}}}\leq\dfrac{2}{\sqrt{t}}=\dfrac{2}{t^{\nicefrac{1}{2}}}\).
+
+Or \(\int_0^{\nicefrac{1}{2}}\dfrac{1}{t^{\nicefrac{1}{2}}}\odif{t}\) converge donc \(\int_0^{\nicefrac{1}{2}}\dfrac{1}{\sqrt{t\paren{1-t}}}\odif{t}\) converge.
+
+\(\quantifs{\Tpt t\in\intervie{\dfrac{1}{2}}{1}}0\leq\dfrac{1}{\sqrt{t\paren{1-t}}}\leq\dfrac{2}{\sqrt{1-t}}=\dfrac{2}{\paren{1-t}^{\nicefrac{1}{2}}}\).
+
+Or \(\int_{\nicefrac{1}{2}}^1\dfrac{1}{\paren{1-t}^{\nicefrac{1}{2}}}\odif{t}\) converge donc \(\int_{\nicefrac{1}{2}}^1\dfrac{1}{\sqrt{t\paren{1-t}}}\odif{t}\) converge.
+
+Finalement, \(\int_0^1\dfrac{1}{\sqrt{t\paren{1-t}}}\odif{t}\) converge.
+\end{corr}
+
+\begin{exo}
+Même chose avec l'intégrale \(\int_0^{\pinf}\dfrac{\e{-t}}{\sqrt{t}}\odif{t}\).
+\end{exo}
+
+\begin{corr}
+La fonction \(t\mapsto\dfrac{\e{-t}}{\sqrt{t}}\) est continue et positive sur \(\intervee{0}{\pinf}\).
+
+\(\quantifs{\Tpt t\geq1}0\leq\dfrac{\e{-t}}{\sqrt{t}}\leq\e{-t}\) et \(\int_1^{\pinf}\e{-t}\odif{t}\) converge donc \(\int_1^{\pinf}\dfrac{\e{-t}}{\sqrt{t}}\odif{t}\) converge.
+
+On a \(\dfrac{\e{-t}}{\sqrt{t}}\simqd{t\to0}\dfrac{1}{\sqrt{t}}\) et \(\int_0^1\dfrac{1}{\sqrt{t}}\odif{t}\) converge donc \(\int_0^1\dfrac{\e{-t}}{\sqrt{t}}\odif{t}\) converge.
+
+Finalement, \(\int_0^{\pinf}\dfrac{\e{-t}}{\sqrt{t}}\odif{t}\) converge.
+\end{corr}
+
+\begin{exo}
+Montrez que \(\quantifs{\tpt\alpha>0}\int_0^{\pinf}\dfrac{1}{t^\alpha}\odif{t}\) diverge.
+\end{exo}
+
+\begin{corr}
+Clair.
+\end{corr}
+
+\subsection{Propriétés communes à toutes ces intégrales}
+
+Toutes les propriétés vues dans la première section sont préservées : linéarité, positivité, croissance, relation de Chasles.
+
+En voici trois autres.
+
+\subsubsection{Changement de variable}
+
+\begin{prop}
+Soient \(a,b,\alpha,\beta\) des réels ou des infinis tels que \(a<b\) et \(\alpha<\beta\) et \(f\in\contm[\intervee{a}{b}]\).
+
+Si \(\phi\) est une bijection de classe \(\classe{1}\) et strictement croissante de \(\intervee{\alpha}{\beta}\) dans \(\intervee{a}{b}\), alors les intégrales \(\int_a^bf\paren{t}\odif{t}\) et \(\int_\alpha^\beta f\rond\phi\paren{u}\odif{u}\) sont de même nature et, si elles sont convergentes, sont égales.
+\end{prop}
+
+\begin{dem}
+Soit \(\paren{x,y}\in\R^2\) tel que \(a<x\leq y<b\).
+
+D'après la formule classique du changement de variable, on a \[\int_x^yf\paren{t}\odif{t}=\int_{\phi\inv\paren{x}}^{\phi\inv\paren{y}}f\paren{\phi\paren{u}}\phi\prim\paren{u}\odif{u}.\]
+
+On a \(\phi\inv\paren{x}\tendqd{x\to a}\alpha\) et \(\phi\inv\paren{y}\tendqd{y\to b}\beta\).
+
+Donc \[\begin{aligned}
+\int_a^bf\text{ converge}&\ssi\int_x^yf\text{ a une limite finie quand }x\to a^+\text{ et }y\to b^- \\
+&\ssi\int_{\phi\inv\paren{x}}^{\phi\inv\paren{y}}f\paren{\phi\paren{u}}\phi\prim\paren{u}\odif{u}\text{ a une limite finie quand }x\to a^+\text{ et }y\to b^- \\
+&\ssi\int_\lambda^\mu f\paren{\phi\paren{u}}\phi\prim\paren{u}\odif{u}\text{ a une limite finie quand }\lambda\to\alpha^+\text{ et }\mu\to\beta^- \\
+&\ssi\int_\alpha^\beta f\paren{\phi\paren{u}}\phi\prim\paren{u}\odif{u}\text{ converge}.
+\end{aligned}\]
+\end{dem}
+
+\begin{rem}
+On a évidemment un résultat analogue avec un changement de variable strictement décroissant et des bornes inversées.
+
+Comme une bijection de classe \(\classe{1}\) entre deux intervalles est forcément strictement monotone, l'hypothèse de stricte monotonie est redondante ; mais comme elle est explicitement dans le programme de MPI, il vaut mieux la préciser (de toute façon, elle sera évidente dans les cas pratiques et ne nécessitera pas de longues preuves).
+\end{rem}
+
+\begin{exo}~\\
+Montrez que \(\int_0^{\nicefrac{\pi}{2}}\sqrt{\tan t}\odif{t}\) converge et qu'on a l'égalité \(\int_0^{\nicefrac{\pi}{2}}\sqrt{\tan t}\odif{t}=\int_0^{\pinf}\dfrac{\sqrt{u}}{1+u^2}\odif{u}\).
+\end{exo}
+
+\begin{corr}
+On effectue le changement de variable \(u=\tan t\).
+
+Sous réserve de convergence, on a \[\int_0^{\nicefrac{\pi}{2}}\sqrt{\tan t}\odif{t}=\int_0^{\pinf}\dfrac{\sqrt{u}}{1+u^2}\odif{u}.\]
+
+Or, comme \(u\mapsto\dfrac{\sqrt{u}}{1+u^2}\) est continue et positive sur \(\intervie{0}{\pinf}\) et \(\dfrac{\sqrt{u}}{1+u^2}\simqd{u\to\pinf}\dfrac{1}{u^{\nicefrac{3}{2}}}\) et \(\dfrac{3}{2}>1\), \(\int_0^{\pinf}\dfrac{\sqrt{u}}{1+u^2}\odif{u}\) converge.
+\end{corr}
+
+\begin{exo}~\\
+Montrez que \(\int_0^{\pinf}\dfrac{\ln t}{1+t^2}\odif{t}\) converge et vaut \(0\).
+
+Déduisez-en la valeur de \(\int_0^{\pinf}\dfrac{\ln t}{a^2+t^2}\odif{t}\) où \(a>0\).
+\end{exo}
+
+\begin{corr}
+\begin{itemize}
+    \item La fonction \(\phi:t\mapsto\dfrac{\ln t}{1+t^2}\) est continue sur \(\intervee{0}{\pinf}\). \\\\ Sur \(\intervei{0}{1}\), \(\phi\) est négative et sur \(\intervie{1}{\pinf}\), \(\phi\) est positive. \\\\ On a \(\phi\paren{t}\simqd{t\to0}\ln t\) et \(\int_0^1\ln\paren{t}\odif{t}\) converge donc \(\int_0^1\phi\paren{t}\odif{t}\) converge par comparaison de fonctions à signe constant. \\\\ On a \(\ln t\egqd{t\to\pinf}\o{\sqrt{t}}\) donc il existe \(A>0\) tel que \(\quantifs{\tpt t\geq A}0\leq\ln t\leq\sqrt{t}\) donc \[0\leq\dfrac{\ln t}{1+t^2}\leq\dfrac{\sqrt{t}}{1+t^2}\leq\dfrac{\sqrt{t}}{t^2}=\dfrac{1}{t^{\nicefrac{3}{2}}}\]. \\\\ Or \(\dfrac{3}{2}>1\) donc \(\int_A^{\pinf}\dfrac{1}{t^{\nicefrac{3}{2}}}\odif{t}\) converge donc \(\int_A^{\pinf}\dfrac{\ln t}{1+t^2}\odif{t}\) converge et donc \(\int_1^{\pinf}\dfrac{\ln t}{1+t^2}\odif{t}\) converge. \\\\ On veut montrer que \(\int_0^1\dfrac{\ln t}{1+t^2}\odif{t}=-\int_1^{\pinf}\dfrac{\ln t}{1+t^2}\odif{t}\) de sorte que \(\int_0^{\pinf}\dfrac{\ln t}{1+t^2}\odif{t}=0\). \\\\ En effectuant le changement de variable \(\begin{dcases}
+        t=\dfrac{1}{u} \\
+        \odif{t}=\dfrac{-1}{u^2}\odif{u}
+    \end{dcases}\) (où \(t\mapsto\dfrac{1}{t}\) est une bijection \(\classe{1}\) strictement décroissante de \(\intervei{0}{1}\) dans \(\intervie{1}{\pinf}\)), on obtient \[\int_0^1\dfrac{\ln t}{1+t^2}\odif{t}=\int_{\pinf}^1\dfrac{\ln\nicefrac{1}{u}}{1+\paren{\nicefrac{1}{u}}^2}\paren{\dfrac{-1}{u^2}}\odif{u}=-\int_1^{\pinf}\dfrac{\ln u}{1+u^2}\odif{u}.\] D'où l'égalité. \\\\ Donc \(\int_0^{\pinf}\dfrac{\ln t}{1+t^2}\odif{t}=0\). \\
+    \item Soit \(a>0\). \\\\ \(\int_0^{\pinf}\dfrac{\ln t}{a^2+t^2}\odif{t}\) converge (idem). \\\\ On a \[\begin{WithArrows}
+        \int_0^{\pinf}\dfrac{\ln t}{a^2+t^2}\odif{t}&=\dfrac{1}{a^2}\int_0^{\pinf}\dfrac{\ln t}{1+\paren{\nicefrac{t}{a}}^2}\odif{t} \Arrow{\(\begin{dcases}t=au \\ \odif{t}=a\odif{u}\end{dcases}\)} \\
+        &=\dfrac{1}{a^2}\int_0^{\pinf}\dfrac{a\ln\paren{au}}{1+u^2}\odif{u} \\
+        &=\dfrac{1}{a}\int_0^{\pinf}\dfrac{\ln a}{1+u^2}\odif{u}+\underbrace{\dfrac{1}{a}\int_0^{\pinf}\dfrac{\ln u}{1+u^2}\odif{u}}_{=0} \\
+        &=\dfrac{\pi\ln a}{2a}.
+    \end{WithArrows}\]
+\end{itemize}
+\end{corr}
+
+\subsubsection{Intégration par parties}
+
+Si \(f\) est une fonction définie sur \(\intervee{a}{b}\) et a des limites finies en \(a^+\) et en \(b^-\), on note \(\croch{f}_a^b=\lim_{b^-}f-\lim_{a^+}f\).
+
+\begin{prop}
+Soient \(a,b\) des réels ou des infinis tels que \(a<b\) et \(\paren{f,g}\in\ensclasse{1}{\intervee{a}{b}}{\K}\).
+
+Si parmi les trois quantités suivantes \[\int_a^bf\prim g\qquad\int_a^bfg\prim\qquad\croch{fg}_a^b\] deux existent, alors la troisième existe aussi et, dans ce cas, on a l'égalité habituelle \[\int_a^bf\prim g=\croch{fg}_a^b-\int_a^bfg\prim\].
+\end{prop}
+
+\begin{dem}
+Soit \(\paren{x,y}\in\R^2\) tel que \(a<x\leq y<b\).
+
+On a \(\int_x^yfg\prim=\croch{fg}_x^y-\int_x^yf\prim g\).
+
+Si parmi les quantités \(\int_x^yfg\prim\), \(\int_x^yf\prim g\) et \(\croch{fg}_x^y=f\paren{y}g\paren{y}-f\paren{x}g\paren{x}\) deux ont des limites finies quand \(x\to a\) et \(y\to b\), alors la troisième aussi (par opération sur les limites).
+
+Dans ce cas, les limites sont égales : \[\int_a^bfg\prim=\croch{fg}_a^b-\int_a^bf\prim g.\]
+\end{dem}
+
+En pratique, pour éviter d'écrire des choses qui n'ont pas de sens, il vaut mieux revenir à une vraie intégration par parties sur un segment \(\intervii{x}{y}\subset\intervee{a}{b}\), s'assurer qu'on peut faire tendre \(x\) vers \(a\) et \(y\) vers \(b\), puis le faire effectivement pour obtenir la relation entre les intégrales.
+
+\begin{exo}
+Pour \(n\in\N\), on pose \(u_n=\int_0^{\pinf}t^n\e{-t}\odif{t}\).
+
+Montrez que les intégrales \(u_n\) convergent, donnez une relation de récurrence simple entre \(u_n\) et \(u_{n+1}\), puis donnez la valeur de \(u_n\) en fonction de \(n\).
+\end{exo}
+
+\begin{corr}
+Pour \(n\in\N\), la fonction \(t\mapsto t^n\e{-t}\) est continue sur \(\intervie{0}{\pinf}\).
+
+Sous réserve de converge, on pose \(u_n=\int_0^{\pinf}t^n\e{-t}\odif{t}\) pour \(n\in\N\).
+
+On a \(t^{n+2}\egqd{t\to\pinf}\o{\e{t}}\) donc \(t^n\e{-t}\egqd{t\to\pinf}\o{\dfrac{1}{t^2}}\).
+
+Donc il existe \(a>0\) tel que \(\quantifs{\forall t\geq a}0\leq t^n\e{-t}\leq\dfrac{1}{t^2}\).
+
+Or \(\int_a^{\pinf}\dfrac{1}{t^2}\odif{t}\) converge donc \(\int_a^{\pinf}t^n\e{-t}\odif{t}\) converge et donc \(\int_0^{\pinf}t^n\e{-t}\odif{t}\) converge.
+
+Sous réserve de converge, par intégration par parties, on a \[\int_0^{\pinf}t^{n+1}\e{-t}\odif{t}=\croch{-t^{n+1}\e{-t}}_0^{\pinf}+\int_0^{\pinf}\paren{n+1}t^n\e{-t}.\]
+
+Les deux intégrales convergent d'après ce qui précède donc l'intégration par parties est licite.
+
+Ainsi, comme \(\croch{-t^{n+1}\e{-t}}_0^{\pinf}=0\), on a \(u_{n+1}=\paren{n+1}u_n\).
+
+Or \(u_0=\int_0^{\pinf}\e{-t}\odif{t}=1\).
+
+Donc \(\quantifs{\forall n\in\N}u_n=n!\) (récurrence immédiate).
+\end{corr}
+
+\begin{exo}
+Montrez que l'intégrale \(\int_0^{\pinf}\dfrac{1-\cos t}{t^2}\odif{t}\) converge, puis déduisez-en que l'intégrale \(\int_0^{\pinf}\dfrac{\sin t}{t}\odif{t}\) converge.
+\end{exo}
+
+\begin{corr}
+\begin{itemize}
+    \item La fonction \(t\mapsto\dfrac{1-\cos t}{t^2}\) est continue sur \(\intervee{0}{\pinf}\). \\\\ \(\quantifs{\Tpt t>0}-1\leq\cos t\leq1\) donc \(0\leq1-\cos t\leq2\) donc \(0\leq\dfrac{1-\cos t}{t^2}\leq\dfrac{2}{t^2}\). \\\\ Or \(\int_1^{\pinf}\dfrac{1}{t^2}\odif{t}\) converge donc \(\int_1^{\pinf}\dfrac{1-\cos t}{t^2}\odif{t}\) converge. \\\\ On a \(\cos t\egqd{t\to0}1-\dfrac{t^2}{2}+\o{t^2}\) donc \(1-\cos t\simqd{t\to0}\dfrac{t^2}{2}\) donc \(\dfrac{1-\cos t}{t^2}\simqd{t\to0}\dfrac{1}{2}\). \\\\ Or \(\int_0^1\dfrac{1}{2}\odif{t}\) converge donc \(\int_0^1\dfrac{1-\cos t}{t^2}\odif{t}\) converge. \\\\ Finalement, \(\int_0^{\pinf}\dfrac{1-\cos t}{t^2}\) converge. \\
+    \item Soit \(\paren{x,y}\in\R^2\) tel que \(0<x\leq y\). \\\\ On a \[\int_x^y\dfrac{1-\cos t}{t^2}\odif{t}=\croch{-\dfrac{1-\cos t}{t}}_x^y+\int_x^y\dfrac{\sin t}{t}\odif{t}.\] On sait déjà que \(\int_x^y\dfrac{1-\cos t}{t^2}\odif{t}\) a une limite réelle quand \(x\to0\) et \(y\to\pinf\). \\\\ De plus, on a \(\croch{-\dfrac{1-\cos t}{t}}_x^y=\dfrac{1-\cos x}{x}-\dfrac{1-\cos y}{y}\). \\\\ Or \(\dfrac{1-\cos x}{x}\simqd{x\to0}\dfrac{x}{2}\) donc \(\lim_{x\to0}\dfrac{1-\cos x}{x}=0\) et \(\dfrac{1-\cos y}{y}\egqd{y\to\pinf}\O{\dfrac{1}{y}}\) donc \(\lim_{y\to\pinf}\dfrac{1-\cos y}{y}=0\) par encadrement. \\\\ Donc \(\int_x^y\dfrac{\sin t}{t}\odif{t}\) a une limite réelle quand \(x\to0\) et \(y\to\pinf\) \ie \(\int_0^{\pinf}\dfrac{\sin t}{t}\odif{t}\) converge (NB : elle se nomme intégrale de Dirichlet). \\
+    \item On peut aussi montrer que \(\int_0^{\pinf}\dfrac{\sin t}{t}\odif{t}=\int_0^{\pinf}\dfrac{\sin^2t}{t^2}\odif{t}\). \\\\ En effet, on a \[\begin{WithArrows}
+        \int_0^{\pinf}\dfrac{\sin t}{t}\odif{t}&=\int_0^{\pinf}\dfrac{1-\cos t}{t^2}\odif{t} \\
+        &=\int_0^{\pinf}\dfrac{2\sin^2\nicefrac{t}{2}}{t^2}\odif{t} \Arrow{\(\begin{dcases}t=2u \\ \odif{t}=2\odif{u}\end{dcases}\)} \\
+        &=\int_0^{\pinf}\dfrac{2\sin^2u}{4u^2}\odif{u} \\
+        &=\int_0^{\pinf}\dfrac{\sin^2u}{u^2}\odif{u}.
+    \end{WithArrows}\]
+\end{itemize}
+\end{corr}
+
+\subsubsection{Primitives}
+
+\begin{prop}
+Soient \(f\in\contm[\intervee{a}{b}]\) et \(c\in\intervee{a}{b}\) tel que l'intégrale \(\int_a^cf\) converge.
+
+Alors la fonction \(x\mapsto\int_a^xf\) est l'unique primitive de \(f\) sur \(\intervee{a}{b}\) qui a pour limite \(0\) en \(a^+\).
+\end{prop}
+
+\begin{dem}
+La fonction \(f\) est continue sur \(\intervee{a}{b}\) donc elle possède une primitive \(F\) sur \(\intervee{a}{b}\). Par exemple \(F:x\mapsto\int_c^xf\) où \(x\in\intervee{a}{b}\).
+
+\(\int_a^cf\) converge donc \(F\) a une limite finie en \(a^+\).
+
+Donc \[\begin{aligned}
+\quantifs{\forall x\in\intervee{a}{b}}\int_a^xf&=\lim_{y\to a^+}\int_y^xf \\
+&=\lim_{y\to a^+}\paren{F\paren{x}-F\paren{y}} \\
+&=F\paren{x}-\underbrace{\lim_{y\to a^+}F\paren{y}.}_{\text{constante}}
+\end{aligned}\]
+
+Donc \(x\mapsto\int_a^xf\) est une primitive de \(f\) sur \(\intervee{a}{b}\).
+
+De plus, \(\lim_{x\to a^+}\int_a^xf=\lim_{x\to a^+}F\paren{x}-\lim_{y\to a^+}F\paren{y}=0\).
+\end{dem}
+
+\begin{prop}
+Soient \(f\in\contm[\intervee{a}{b}]\) et \(c\in\intervee{a}{b}\) tel que \(\int_c^bf\) converge.
+
+Alors la fonction \(x\mapsto\int_x^bf\) est l'opposée de l'unique primitive de \(f\) sur \(\intervee{a}{b}\) qui a pour limite \(0\) en \(b^-\).
+\end{prop}
+
+\begin{ex}
+\begin{itemize}
+    \item La fonction \(x\mapsto\int_0^x\ln\paren{t}\odif{t}\) est la primitive de \(\ln\) qui a pour limite \(0\) en \(0\). \\
+    \item La fonction \(x\mapsto\int_x^{\pinf}\dfrac{\e{\i t}}{t^2}\odif{t}\) est définie sur \(\intervee{0}{\pinf}\), de classe \(\classe{1}\) sur cet intervalle, et sa dérivée est la fonction \(x\mapsto-\dfrac{\e{\i x}}{x^2}\).
+\end{itemize}
+\end{ex}
+
+\section{Résumé pour étudier la convergence d'une intégrale}
+
+On veut savoir si une intégrale \(\int_a^bf\) existe, où \(a\) et \(b\) sont des réels ou des infinis tels que \(a<b\).
+
+D'abord, on détermine le plus grand sous-ensemble de \(\intervii{a}{b}\) sur lequel \(f\) est continue par morceaux :
+
+\begin{itemize}
+    \item si c'est \(\intervii{a}{b}\), alors il n'y a aucun problème d'existence de l'intégrale : c'est une bête intégrale classique ; \\
+    \item si c'est \(\intervie{a}{b}\) (avec \(a\) réel) ou \(\intervei{a}{b}\) (avec \(b\) réel), alors il faut étudier le comportement de \(f\) au voisinage du point ouvert ; \\
+    \item si c'est \(\intervee{a}{b}\), alors on choisit arbitrairement un point \(c\in\intervee{a}{b}\) et on se ramène deux fois au cas précédent.
+\end{itemize}
+
+Un petit résultat qui supprime parfois le problème en un point ouvert réel : pensez à étudier la limite de la fonction : si elle est réelle, c'est réglé. On dit qu'on a une fausse singularité en ce point réel.
+
+\begin{prop}
+Soient \(a\) et \(b\) deux réels tels que \(a<b\) et \(f\in\contm[\intervei{a}{b}]\).
+
+Si \(f\) a une limite réelle en \(a\) par valeurs supérieures, alors on peut prolonger \(f\) par continuité en \(a\), le prolongement \(\conj{f}\) est une fonction continue par morceaux sur \(\intervii{a}{b}\) et l'intégrale \(\int_a^bf\) converge et vaut \(\int_a^b\conj{f}\).
+\end{prop}
+
+\begin{rem}
+Si \(f\) est continue par morceaux sur \(\intervie{0}{\pinf}\) et si \(f\paren{x}\tendqd{x\to\pinf}l\), alors si \(l\not=0\), \(\int_0^{\pinf}f\) diverge (grossièrement).
+\end{rem}
+
+\begin{exo}
+Justifiez que l'intégrale \(\int_0^{\pinf}\dfrac{\sin^2t}{t^2}\odif{t}\) converge.
+\end{exo}
+
+\begin{corr}
+La fonction \(t\mapsto\dfrac{\sin^2t}{t^2}\) est continue sur \(\intervee{0}{\pinf}\).
+
+On a \(\sin t\simqd{t\to0}t\) donc \(\dfrac{\sin^2t}{t^2}\tendqd{t\to0}1\) donc \(\int_0^1\dfrac{\sin^2t}{t^2}\odif{t}\) converge.
+
+\(\quantifs{\Tpt t\geq1}0\leq\dfrac{\sin^2t}{t^2}\leq\dfrac{1}{t^2}\) or \(\int_1^{\pinf}\dfrac{1}{t^2}\odif{t}\) converge donc \(\int_1^{\pinf}\dfrac{\sin^2t}{t^2}\odif{t}\) converge.
+
+Finalement, \(\int_0^{\pinf}\dfrac{\sin^2t}{t^2}\odif{t}\) converge.
+\end{corr}
+
+\begin{exo}
+Montrez que l'intégrale \(\int_0^{\pinf}\dfrac{t\ln t}{1+t^3}\odif{t}\) converge.
+\end{exo}
+
+\section{Fonctions intégrables sur un intervalle}
+
+Dans cette section, \(a\) et \(b\) sont des réels ou des infinis tels que \(a<b\). On note \(I=\intervee{a}{b}\).
+
+\subsection{Intégrales absolument convergentes}
+
+\begin{defi}
+Soit \(f\in\contm[I]\).
+
+On dit que l'intégrale \(\int_a^bf\) converge absolument (ou est absolument convergente) quand l'intégrale \(\int_a^b\abs{f}\) converge.
+\end{defi}
+
+Le théorème suivant est primordial pour la suite du cours.
+
+\begin{theo}
+Soit \(f\in\contm[I]\).
+
+Si l'intégrale \(\int_a^bf\) converge absolument, alors l'intégrale \(\int_a^bf\) converge.
+
+Dans ce cas, on a \(\abs{\int_a^bf}\leq\int_a^b\abs{f}\).
+\end{theo}
+
+\begin{dem}
+\begin{itemize}
+    \item Si \(f\) est à valeurs réelles, on a \(0\leq f+\abs{f}\leq2\abs{f}\). \\\\ Donc si \(\int_a^b\abs{f}\) converge, alors par comparaison de fonctions positives, \(\int_a^b\paren{f+\abs{f}}\) converge. \\\\ Donc \(\int_a^bf=\int_a^b\paren{f+\abs{f}}-\int_a^b\abs{f}\) converge. \\
+    \item Si \(f\) est à valeurs complexes, on a \(\abs{\Re f}\leq\abs{f}\) et \(\abs{\Im f}\leq\abs{f}\). \\\\ Donc si \(\int_a^b\abs{f}\) converge, \(\int_a^b\abs{\Re f}\) et \(\int_a^b\abs{\Im f}\) convergent par comparaison de fonctions positives. \\\\ Donc d'après ce qui précède, \(\int_a^b\Re f\) et \(\int_a^b\Im f\) convergent. \\\\ Donc \(\int_a^bf=\int_a^b\Re f+\i\int_a^b\Im f\) converge.
+\end{itemize}
+\end{dem}
+
+\begin{exo}
+Montrez que l'intégrale \(\int_0^{\pinf}\dfrac{\sin^3t}{t^3}\odif{t}\) est absolument convergente et donc convergente.
+\end{exo}
+
+\begin{corr}
+La fonction \(t\mapsto\dfrac{\sin^3t}{t^3}\) est continue sur \(\intervee{0}{\pinf}\).
+
+On a \(\abs{\dfrac{\sin^3t}{t^3}}\simqd{t\to0}\abs{\dfrac{t^3}{t^3}}\tendqd{t\to0}1\) : fausse singularité en \(0\), donc \(\int_0^1\abs{\dfrac{\sin^3t}{t^3}}\odif{t}\) converge.
+
+\(\quantifs{\Tpt t\geq1}\abs{\dfrac{\sin^3t}{t^3}}\leq\dfrac{1}{t^3}\) or \(\int_1^{\pinf}\dfrac{1}{t^3}\odif{t}\) converge donc \(\int_1^{\pinf}\dfrac{\sin^3t}{t^3}\odif{t}\) converge absolument par comparaison de fonctions positives.
+
+Finalement, \(\int_0^{\pinf}\dfrac{\sin^3t}{t^3}\odif{t}\) converge absolument et donc converge.
+\end{corr}
+
+\begin{exo}
+Montrez que si \(m\) est un complexe de partie réelle strictement positive, alors l'intégrale \(\int_0^{\pinf}\e{-mt}\odif{t}\) converge et donnez sa valeur.
+
+Déduisez-en l'existence et la valeur des intégrales \(\int_0^{\pinf}\sin\paren{t}\e{-t}\odif{t}\) et \(\int_0^{\pinf}\cos\paren{t}\e{-t}\odif{t}\).
+\end{exo}
+
+\begin{corr}
+\begin{itemize}
+    \item On note \(m=a+\i b\) où \(\paren{a,b}\in\Rps\times\R\). \\\\ Pour \(t\in\intervie{0}{\pinf}\), on a \(\e{-mt}=\e{-at}\e{-\i bt}\) donc \(\abs{\e{-mt}}=\e{-at}\). \\\\ Or \(a>0\) donc \(\int_0^{\pinf}\abs{\e{-mt}}\odif{t}\) converge donc \(\int_0^{\pinf}\e{-mt}\odif{t}\) converge. \\
+    \item Pour \(X\geq0\), on a \(\int_0^X\e{-mt}\odif{t}=\croch{\dfrac{-\e{-mt}}{m}}_0^X=\dfrac{1}{m}\paren{1-\e{-mX}}\). \\\\ Or \(\abs{\e{-mX}}=\e{-aX}\tendqd{X\to\pinf}0\). \\\\ Donc \(\int_0^{\pinf}\e{-mt}\odif{t}=\dfrac{1}{m}\). \\
+    \item Pour \(t\geq0\), on a \(\begin{dcases}
+        \abs{\sin\paren{t}\e{-t}}\leq\e{-t} \\
+        \abs{\cos\paren{t}\e{-t}}\leq\e{-t}
+    \end{dcases}\) et \(\int_0^{\pinf}\e{-t}\odif{t}\) converge donc \(A=\int_0^{\pinf}\cos\paren{t}\e{-t}\odif{t}\) et \(B=\int_0^{\pinf}\sin\paren{t}\e{-t}\odif{t}\) convergent (absolument). \\\\ On a \[\begin{aligned}
+        A+\i B&=\int_0^{\pinf}\paren{\cos t+\i\sin t}\e{-t}\odif{t} \\
+        &=\int_0^{\pinf}\e{\i t}\e{-t}\odif{t} \\
+        &=\int_0^{\pinf}\e{-\paren{1-\i}t}\odif{t} \\
+        &=\dfrac{1}{1-i} \\
+        &=\dfrac{1+\i}{2}.
+    \end{aligned}\] Donc \(A=\Re\dfrac{1+\i}{2}=\dfrac{1}{2}\) et \(B=\Im\dfrac{1+\i}{2}=\dfrac{1}{2}\).
+\end{itemize}
+\end{corr}
+
+\begin{rem}
+La réciproque est fausse ! On a montré que \(\int_0^{\pinf}\dfrac{\sin t}{t}\odif{t}\) converge et qu'elle ne converge pas absolument.
+\end{rem}
+
+\subsection{Fonctions intégrables}
+
+\begin{defi}
+Soit \(f\in\contm[I]\).
+
+On dit que \(f\) est intégrable sur \(I\) quand l'intégrale \(\int_a^bf\) converge absolument.
+
+On note alors aussi \(\int_If=\int_If\paren{t}\odif{t}=\int_a^bf\).
+\end{defi}
+
+L'ensemble des fonctions intégrables sur \(I\) est souvent noté \(\integ{1}{I}{\K}\), L comme Lebesgue, mathématicien français de la fin du 19ème et début du 20ème siècle. Par abus de notation, on écrit parfois \guillemets{\(f\) est \(\integ{1}{}{}\)} pour \guillemets{\(f\) est intégrable sur \(I\)}.
+
+\begin{ex}
+Soient \(a\in\R\) et \(\epsilon\in\Rps\).
+
+\begin{itemize}
+    \item La fonction \(t\mapsto\e{-t}\) est intégrable sur \(\intervie{\epsilon}{\pinf}\). \\ Plus généralement, la fonction \(t\mapsto t^a\e{-t}\) est intégrable sur \(\intervie{\epsilon}{\pinf}\) (voire \(\intervie{0}{\pinf}\) si \(a>-1\)). \\
+    \item La fonction \(t\mapsto\dfrac{1}{t^\alpha}\) est intégrable sur \(\intervie{\epsilon}{\pinf}\) ssi \(\alpha>1\) et sur \(\intervei{0}{\epsilon}\) ssi \(\alpha<1\). \\
+    \item La fonction \(\ln\) est intégrable sur \(\intervei{0}{\epsilon}\).
+\end{itemize}
+\end{ex}
+
+\begin{prop}
+\(\integ{1}{I}{\K}\) est un \(\K\)-espace vectoriel.
+\end{prop}
+
+\begin{prop}[Stricte positivité de l'intégrale]~\\
+Si \(f\) est continue, intégrable sur \(I\) et \(\int_I\abs{f}=0\), alors \(f=0\).
+
+Par contraposée, si \(f\) est continue, intégrable sur \(I\) et \(f\not=0\), alors \(\int_I\abs{f}>0\).
+\end{prop}
+
+\subsection{Théorème de comparaison des fonctions intégrables}
+
+\begin{rappel}
+Soient \(f\) et \(g\) deux fonctions définies au voisinage d'un point \(p\in\R\union\accol{\minf,\pinf}\).
+
+\begin{itemize}
+    \item \(f=\O{g}\) au voisinage de \(p\) signifie qu'il existe \(K>0\) et \(V\) un voisinage de \(p\) tels que \[\quantifs{\forall x\in V}\abs{f\paren{x}}\leq K\abs{g\paren{x}}.\]
+    \item \(f=\o{g}\) au voisinage de \(p\) signifie qu'il existe une fonction \(\epsilon>0\) et \(V\) un voisinage de \(p\) tels que \[\quantifs{\forall x\in V}\abs{f\paren{x}}\leq\epsilon\paren{x}\abs{g\paren{x}}\qquad\text{et}\qquad\lim_{x\to p}\epsilon\paren{x}=0.\]
+\end{itemize}
+
+Dans le cas où \(g\) ne s'annule pas (ce qui, en pratique, est toujours le cas) :
+
+\begin{itemize}
+    \item \(f=\O{g}\) au voisinage de \(p\) signifie que \(\dfrac{f}{g}\) est bornée au voisinage de \(p\). \\
+    \item \(f=\o{g}\) au voisinage de \(p\) signifie que \(\dfrac{f}{g}\) a pour limite \(0\) en \(p\).
+\end{itemize}
+\end{rappel}
+
+\begin{theo}
+Soit \(\paren{f,g}\in\contm[I]^2\).
+
+\begin{itemize}
+    \item Si \(\abs{f}\leq\abs{g}\) sur \(I\) et si \(g\) est intégrable, alors \(f\) est intégrable. \\
+    \item Si \(f=\O{g}\) au voisinage des bornes ouvertes de \(I\) et \(g\) est intégrable, alors \(f\) est intégrable. C'est vrai en particulier si \(f=\o{g}\). \\
+    \item Si \(f\sim g\) au voisinage des bornes ouvertes de \(I\), alors il y a équivalence entre l'intégrabilité de \(f\) et l'intégrabilité de \(g\).
+\end{itemize}
+\end{theo}
+
+\begin{exo}
+Montrez que la fonction \(t\mapsto\dfrac{\cos t}{\sqrt{t}}\e{-t}\) est intégrable sur \(\intervee{0}{\pinf}\).
+\end{exo}
+
+\begin{corr}
+La fonction \(f:t\mapsto\dfrac{\cos t}{\sqrt{t}}\e{-t}\) est continue sur \(\intervee{0}{\pinf}\).
+
+On a \(\dfrac{\cos t}{\sqrt{t}}\e{-t}\simqd{t\to0}\dfrac{1}{\sqrt{t}}\) et \(t\mapsto\dfrac{1}{\sqrt{t}}\) est intégrable sur \(\intervei{0}{1}\) donc \(f\) aussi.
+
+\(\quantifs{\Tpt t\geq1}\abs{\dfrac{\cos t}{\sqrt{t}}\e{-t}}\leq\e{-t}\) et \(t\mapsto\e{-t}\) est intégrable sur \(\intervie{1}{\pinf}\) donc \(f\) aussi.
+
+Finalement, \(f\) est intégrable sur \(\intervee{0}{\pinf}\).
+\end{corr}
+
+\begin{exo}
+La fonction \(t\mapsto\dfrac{\ln t}{\cos t+t^2}\) est-elle intégrable sur \(\intervee{0}{\pinf}\) ?
+\end{exo}
+
+\begin{corr}
+\(\quantifs{\Tpt t>1}t^2>1\geq-\cos t\) donc \(t^2+\cos t>0\).
+
+\(\quantifs{\Tpt t\in\intervei{0}{1}}t^2>0\) et \(\cos t>0\) donc \(t^2+\cos t>0\).
+
+Donc \(f:t\mapsto\dfrac{\ln t}{\cos t+t^2}\) est continue sur \(\intervee{0}{\pinf}\).
+
+On a \(\dfrac{\ln t}{\cos t+t^2}\simqd{t\to0}\ln t\) et \(\ln\) est intégrable sur \(\intervei{0}{1}\) donc \(f\) aussi.
+
+On a \(\cos t+t^2\simqd{t\to\pinf}t^2\) donc \(f\paren{t}\simqd{t\to\pinf}\dfrac{\ln t}{t^2}\egqd{t\to\pinf}\o{\dfrac{1}{t^{\nicefrac{3}{2}}}}\).
+
+Or \(t\mapsto\dfrac{1}{t^{\nicefrac{3}{2}}}\) est intégrable sur \(\intervie{1}{\pinf}\) donc \(f\) aussi.
+
+Finalement, \(f\) est intégrable sur \(\intervee{0}{\pinf}\).
+\end{corr}
+
+\section{Intégration des relations de comparaison}
+
+Les résultats présentés portent sur des fonctions intégrables sur \(\intervie{a}{\pinf}\). On obtient évidemment des résultats analogues sur les autres types d'intervalles.
+
+\subsection{Théorème de comparaison par domination}
+
+Dans le cas convergent d'abord, les \guillemets{restes partiels} suivent la même relation de comparaison.
+
+\begin{theo}\thlabel{theo6.4}
+Soient \(f,g\) deux fonctions définies sur \(\intervie{a}{\pinf}\) avec \(g\) à valeurs dans \(\Rp\).
+
+Si \(f=\O{g}\) et \(g\) est intégrable sur \(\intervie{a}{\pinf}\), alors \(f\) est intégrable sur \(\intervie{a}{\pinf}\).
+
+De plus, \(\int_x^{\pinf}f=\O{\int_x^{\pinf}g}\) quand \(x\to\pinf\).
+
+Si \(f=\o{g}\) et \(g\) est intégrable sur \(\intervie{a}{\pinf}\), alors \(f\) est intégrable sur \(\intervie{a}{\pinf}\).
+
+De plus, \(\int_x^{\pinf}f=\o{\int_x^{\pinf}g}\) quand \(x\to\pinf\).
+\end{theo}
+
+\begin{dem}
+\begin{itemize}
+    \item Si \(f=\O{g}\), alors il existe \(K>0\) et \(A\geq a\) tels que \(\quantifs{\forall x\geq A}\abs{f\paren{x}}\leq Kg\paren{x}\). \\\\ Donc si \(g\) est \(\integ{1}{}{}\) alors \(\abs{f}\) est \(\integ{1}{}{}\) et donc \(f\) est \(\integ{1}{}{}\). \\\\ De plus, \[\begin{aligned}
+        \quantifs{\forall x\geq A}&\quantifs{\forall t\geq x}\abs{f\paren{t}}\leq Kg\paren{t} \\
+        &\text{donc }\int_x^{\pinf}\abs{f\paren{t}}\odif{t}\leq K\int_x^{\pinf}g\paren{t}\odif{t} \\
+        &\text{donc }\abs{\int_x^{\pinf}f\paren{t}\odif{t}}\leq\int_x^{\pinf}\abs{f\paren{t}}\odif{t}\leq K\int_x^{\pinf}g\paren{t}\odif{t} \\
+        &\text{\ie }\int_x^{\pinf}f\paren{t}\odif{t}=\O{\int_x^{\pinf}g\paren{t}\odif{t}}.
+    \end{aligned}\]
+    \item Idem avec un \guillemets{pour tout} devant \(K\) et un \(o\) à la fin pour le cas \(f=\o{g}\).
+\end{itemize}
+\end{dem}
+
+Dans le cas divergent ensuite, les \guillemets{intégrales partielles} suivent aussi la même relation de comparaison.
+
+\begin{theo}\thlabel{theo6.5}
+Soient \(f,g\) deux fonctions définies sur \(\intervie{a}{\pinf}\) avec \(g\) à valeurs dans \(\Rp\).
+
+Si \(f=\O{g}\) et \(f\) n'est pas intégrable sur \(\intervie{a}{\pinf}\), alors \(g\) n'est pas intégrable sur \(\intervie{a}{\pinf}\).
+
+De plus, \(\int_a^xf=\O{\int_a^xg}\) quand \(x\to\pinf\).
+
+Si \(f=\o{g}\) et \(f\) n'est pas intégrable sur \(\intervie{a}{\pinf}\), alors \(g\) n'est pas intégrable sur \(\intervie{a}{\pinf}\).
+
+De plus, \(\int_a^xf=\o{\int_a^xg}\) quand \(x\to\pinf\).
+\end{theo}
+
+\begin{dem}
+\begin{itemize}
+    \item Si \(f=\O{g}\) alors il existe \(K>0\) et \(A\geq a\) tels que \(\quantifs{\forall x\geq A}\abs{f\paren{x}}\leq Kg\paren{x}\). \\\\ Donc si \(f\) n'est pas \(\integ{1}{}{}\), \(\int_a^{\pinf}\abs{f}\) diverge donc \(\int_a^{\pinf}g\) diverge. \\\\ Pour \(x\geq A\), pour \(t\in\intervii{A}{x}\), on a \(\int_A^x\abs{f}\leq K\int_A^xg\) donc \[\int_a^x\abs{f}=\int_a^A\abs{f}+\int_A^x\abs{f}\leq\int_a^A\abs{f}+K\int_A^xg.\] \\\\ Or \(\int_A^xg\tendqd{x\to\pinf}\pinf\). \\\\ Donc il existe \(B\geq a\) tel que \(\quantifs{\forall x\geq B}\int_a^A\abs{f}\leq K\int_A^xg\). \\\\ Pour \(x\geq\max\paren{A,B}\), on a \(\int_a^x\abs{f}\leq2K\int_A^xg\leq2K\int_a^xg\). \\\\ Donc \(\abs{\int_a^xf}\leq\int_a^x\abs{f}\leq2K\int_a^xg\). \\\\ Donc \(\int_a^xf\egqd{x\to\pinf}\O{\int_a^xg}\). \\
+    \item Idem avec un \guillemets{pour tout} devant le \(K\) et un \(o\) à la fin dans le cas \(f=\o{g}\).
+\end{itemize}
+\end{dem}
+
+\subsection{Théorème de comparaison par équivalence}
+
+\begin{theo}
+Soient \(f,g\) deux fonctions définies sur \(\intervie{a}{\pinf}\) avec \(g\) à valeurs dans \(\Rp\).
+
+Si \(f\sim g\), alors l'intégrabilité de \(f\) est équivalente à l'intégrabilité de \(g\).
+
+De plus :
+
+\begin{itemize}
+    \item si les fonctions sont intégrables, alors les restes partiels sont équivalents : \[\int_x^{\pinf}f\simqd{x\to\pinf}\int_x^{\pinf}g\]
+    \item si les fonctions ne sont pas intégrables, alors les intégrales partielles divergent et sont équivalentes : \[\int_a^xf\simqd{x\to\pinf}\int_a^xg.\]
+\end{itemize}
+\end{theo}
+
+\begin{dem}
+On a \(f\simqd{\pinf}g\ssi f-g\egqd{\pinf}\o{g}\).
+
+Si \(g\) est \(\integ{1}{}{}\) alors d'après le \thref{theo6.4}, on a \[\begin{aligned}
+\int_x^{\pinf}\paren{f-g}&\egqd{x\to\pinf}\o{\int_x^{\pinf}g} \\
+\int_x^{\pinf}f-\int_x^{\pinf}g&\egqd{x\to\pinf}\o{\int_x^{\pinf}g} \\
+\int_x^{\pinf}f&\simqd{x\to\pinf}\int_x^{\pinf}g.
+\end{aligned}\]
+
+Si \(g\) n'est pas \(\integ{1}{}{}\), d'après le \thref{theo6.5}, on a \[\begin{aligned}
+\int_a^x\paren{f-g}&\egqd{x\to\pinf}\o{\int_a^xg} \\
+\int_a^xf-\int_a^xg&\egqd{x\to\pinf}\o{\int_a^xg} \\
+\int_a^xf&\simqd{x\to\pinf}\int_a^xg.
+\end{aligned}\]
+\end{dem}
