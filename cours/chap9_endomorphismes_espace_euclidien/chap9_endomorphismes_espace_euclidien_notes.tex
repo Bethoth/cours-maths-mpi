@@ -1280,7 +1280,7 @@ Il est noté \(\sym{}[E]\).
 
 Il y a essentiellement un seul résultat à connaître sur les endomorphismes auto-adjoints ! On commence par deux lemmes.
 
-\begin{lem}\thlabel{lem9.1}
+\begin{lem}\thlabel{lem9.2}
 Le polynôme caractéristique d'un endomorphisme auto-adjoint est scindé sur \(\R\).
 \end{lem}
 
@@ -1307,7 +1307,7 @@ Or, avec \(Z=\tcoords{z_1}{\vdots}{z_n}\), on a \(\conj{\trans{Z}}Z=\sum_{i=1}^n
 Donc \(\trans{\conj{Z}}Z\not=0\) donc \(\lambda=\conj{\lambda}\) donc \(\lambda\in\R\).
 \end{dem}
 
-\begin{lem}\thlabel{lem9.2}
+\begin{lem}\thlabel{lem9.3}
 Si un sous-espace vectoriel \(F\) est stable par un endomorphisme auto-adjoint, alors \(F\ortho\) l'est aussi.
 \end{lem}
 
@@ -1322,7 +1322,7 @@ On pose \(\P{n}\) : l'énoncé du \thref{theo9.3} avec \(\dim E=n\).
 
 \begin{itemize}
     \item \(n=1\) \\\\ On a \(\P{1}\) car tout endomorphisme est auto-adjoint et tout vecteur non-nul est propre. \\
-    \item Supposons \(\P{n-1}\) et soit \(f\in\sym{}[E]\) où \(\dim E=n\). \\\\ D'après le \thref{lem9.1}, \(f\) possède au moins une valeur propre \(\lambda\) et un vecteur propre associé \(u\). \\\\ \(D=\Vect{u}\) est stable par \(f\) (c'est une droite propre) donc d'après le \thref{lem9.2}, \(D\ortho\) est stable par \(f\). \\\\ Or \(\dim D\ortho=n-1\) donc par hypothèse de récurrence, l'endomorphisme induit par \(f\) dans \(D\ortho\) est auto-adjoint et on peut donc trouver dans \(D\ortho\) une base orthonormée de vecteurs propres pour cet endomorphisme : \(\paren{e_2,\dots,e_n}\). \\\\ \(\fami{B}=\paren{\dfrac{u}{\norme{u}},e_2,\dots,e_n}\) est alors une base orthonormée de \(E\) dont tous les vecteurs sont propres pour \(f\). \\\\ Donc \(\P{n}\) est vraie.
+    \item Supposons \(\P{n-1}\) et soit \(f\in\sym{}[E]\) où \(\dim E=n\). \\\\ D'après le \thref{lem9.2}, \(f\) possède au moins une valeur propre \(\lambda\) et un vecteur propre associé \(u\). \\\\ \(D=\Vect{u}\) est stable par \(f\) (c'est une droite propre) donc d'après le \thref{lem9.3}, \(D\ortho\) est stable par \(f\). \\\\ Or \(\dim D\ortho=n-1\) donc par hypothèse de récurrence, l'endomorphisme induit par \(f\) dans \(D\ortho\) est auto-adjoint et on peut donc trouver dans \(D\ortho\) une base orthonormée de vecteurs propres pour cet endomorphisme : \(\paren{e_2,\dots,e_n}\). \\\\ \(\fami{B}=\paren{\dfrac{u}{\norme{u}},e_2,\dots,e_n}\) est alors une base orthonormée de \(E\) dont tous les vecteurs sont propres pour \(f\). \\\\ Donc \(\P{n}\) est vraie.
 \end{itemize}
 \end{dem}
 
