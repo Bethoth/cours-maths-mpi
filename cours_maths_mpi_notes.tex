@@ -490,6 +490,9 @@ per-mode=power-positive-first
 \newcommand{\fonction}[5]{\begin{array}[t]{cccc}#1 : & #2 & \to & #3 \\ & #4 & \mapsto & #5\end{array}}
 \newcommand{\fonctionlambda}[4]{\begin{array}[t]{ccc}#1 & \to & #2 \\ #3 & \mapsto & #4\end{array}}
 
+\newcommand{\isomorphisme}[5]{\begin{array}[t]{cccc}#1 : & #2 & \xrightarrow{\;\sim\;} & #3 \\ & #4 & \mapsto & #5\end{array}}
+\newcommand{\isomorphismelambda}[4]{\begin{array}[t]{ccc}#1 & \xrightarrow{\;\sim\;} & #2 \\ #3 & \mapsto & #4\end{array}}
+
 \renewcommand{\leq}{\leqslant}
 \renewcommand{\geq}{\geqslant}
 
@@ -818,6 +821,7 @@ per-mode=power-positive-first
 
 \DeclareDocumentCommand{\diago}{m O{\K}}{\mathscr{D}_{#1}\paren{#2}}
 \DeclareDocumentCommand{\Tsup}{m O{\K}}{\mathscr{T}_{#1}^+\paren{#2}}
+\DeclareDocumentCommand{\Orth}{m O{\K}}{\mathscr{O}_{#1}\paren{#2}}
 
 \renewcommand{\subsetneq}{\varsubsetneq}
 
@@ -826,6 +830,7 @@ per-mode=power-positive-first
 \DeclareMathOperator{\indep}{\perp\!\!\!\perp}
 
 \newcommand{\adj}{^*}
+\newcommand{\adjadj}{^{**}}
 
 \DeclareMathOperator{\Det}{Det}
 
