@@ -2,4 +2,1471 @@
 
 \minitoc
 
-\note{À venir}
+Dans tout ce chapitre, \(E\) désigne un espace euclidien de dimension \(n\), muni du produit scalaire \(\ps{}{}\).
+
+\section{Adjoint d'un endomorphisme}
+
+\subsection{Représentation des formes linéaires}
+
+Le théorème suivant est parfois appelé théorème de représentation de Riesz.
+
+\begin{prop}\thlabel{prop9.1}
+Soit \(\phi\) une forme linéaire sur \(E\).
+
+Il existe un unique vecteur \(v\in E\) tel que \(\quantifs{\tpt x\in E}\phi\paren{x}=\ps{v}{x}\).
+\end{prop}
+
+\begin{dem}
+On choisit \(\fami{B}=\paren{e_1,\dots,e_n}\) une base orthonormée de \(E\).
+
+Soit \(x\in E\) tel que \(x\paren{x_1,\dots,x_n}_{\fami{B}}\).
+
+On a \(\phi\paren{x}=\phi\paren{\sum_{i=1}^nx_ie_i}=\sum_{i=1}^nx_i\phi\paren{e_i}\).
+
+On pose alors \(v\paren{\phi\paren{e_1},\dots,\phi\paren{e_n}}_{\fami{B}}\) de sorte que \(\phi\paren{x}=\ps{v}{x}\).
+
+On a unicité par unicité des coordonnées d'un vecteur.
+\end{dem}
+
+\subsection{Adjoint}
+
+\begin{lem}\thlabel{lem9.1}
+Pour \(a,b\in E\), on a \[a=b\ssi\quantifs{\forall x\in E}\ps{a}{x}=\ps{b}{x}.\]
+\end{lem}
+
+\begin{dem}
+\imprec
+
+Pour \(x\in E\), on a \(\ps{a-b}{x}=0\) donc \(\ps{a-b}{a-b}=0\) donc \(a-b=0\) donc \(a=b\).
+
+\impdir
+
+Clair.
+\end{dem}
+
+\begin{prop}
+Soit \(f\in\Lendo{E}\).
+
+Il existe un unique endomorphisme \(g\in\Lendo{E}\) tel que \(\quantifs{\tpt\paren{x,y}\in E^2}\ps{f\paren{x}}{y}=\ps{x}{g\paren{y}}\).
+\end{prop}
+
+\begin{dem}
+Pour tout \(y\in E\), l'application \(\fonctionlambda{E}{\R}{x}{\ps{f\paren{x}}{y}}\) est linéaire.
+
+D'après la \thref{prop9.1}, il existe un unique vecteur \(g\paren{y}\) tel que \[\quantifs{\forall x\in E}\ps{f\paren{x}}{y}=\ps{g\paren{y}}{x}.\]
+
+On a donc construit une application \(g:E\to E\).
+
+Soient \(\paren{y,z}\in E^2\) et \(\lambda\in\R\).
+
+Pour tout \(x\in E\), on a \[\begin{aligned}
+\ps{g\paren{\lambda y+z}}{x}&=\ps{f\paren{x}}{\lambda y+z} \\
+&=\lambda\ps{f\paren{x}}{y}+\ps{f\paren{x}}{z} \\
+&=\lambda\ps{g\paren{y}}{x}+\ps{g\paren{z}}{x} \\
+&=\ps{\lambda g\paren{y}+g\paren{z}}{x}.
+\end{aligned}\]
+
+On en déduit \(g\paren{\lambda y+z}=\lambda g\paren{y}+g\paren{z}\) d'après le \thref{lem9.1}.
+\end{dem}
+
+\begin{defi}
+L'endomorphisme \(g\) est appelé l'adjoint de \(f\) est est noté \(f\adj\).
+\end{defi}
+
+Par bilinéarité et symétrie du produit scalaire, on en déduit les propriétés élémentaires de l'adjonction.
+
+\begin{prop}
+\begin{enumerate}
+    \item L'application \(f\mapsto f\adj\) est linéaire. \\
+    \item \(\quantifs{\Tpt f\in\Lendo{E}}f\adjadj=f\). \\
+    \item \(\quantifs{\Tpt\paren{f,g}\in\Lendo{E}^2}\paren{f\rond g}\adj=g\adj\rond f\adj\).
+\end{enumerate}
+\end{prop}
+
+\begin{dem}[2]
+Pour \(\paren{x,y}\in E^2\), on a \[\ps{f\paren{x}}{y}=\ps{x}{f\adj\paren{y}}=\ps{f\adjadj\paren{x}}{y}.\]
+
+D'après le \thref{lem9.1}, on a \(f\paren{x}=f\adjadj\paren{x}\).
+
+Donc \(f=f\adjadj\).
+\end{dem}
+
+\begin{dem}[3]
+Pour tout \(\paren{x,y}\in E^2\), on a \[\begin{aligned}
+\ps{f\rond g\paren{x}}{y}&=\ps{f\paren{g\paren{x}}}{y} \\
+&=\ps{g\paren{x}}{f\adj\paren{y}} \\
+&=\ps{x}{g\adj\paren{f\adj\paren{x}}} \\
+&=\ps{x}{g\adj\rond f\adj\paren{y}}.
+\end{aligned}\]
+
+Par unicité de l'adjoint, \(\paren{f\rond g}\adj=g\adj\rond f\adj\).
+\end{dem}
+
+\begin{dem}[1]
+Soient \(\paren{f,g}\in\Lendo{E}^2\) et \(\lambda\in\R\).
+
+Pour tout \(\paren{x,y}\in E^2\), on a \[\begin{aligned}
+\ps{\paren{\lambda f+g}\paren{x}}{y}&=\ps{\lambda f\paren{x}+g\paren{x}}{y} \\
+&=\lambda\ps{f\paren{x}}{y}+\ps{g\paren{x}}{y} \\
+&=\lambda\ps{x}{f\adj\paren{y}}+\ps{x}{g\adj\paren{y}} \\
+&=\ps{x}{\lambda f\adj\paren{y}+g\adj\paren{y}} \\
+&=\ps{x}{\paren{\lambda f\adj+g\adj}\paren{y}}.
+\end{aligned}\]
+
+Par unicité de l'adjoint, \(\paren{\lambda f+g}\adj=\lambda f\adj+g\adj\).
+\end{dem}
+
+\begin{exo}\thlabel{exo9.1}
+Montrez que si \(f\) est un projecteur orthogonal, alors \(f\adj=f\).
+\end{exo}
+
+\begin{corr}
+Soit \(f\) un projecteur orthogonal.
+
+Comme \(E\) est de dimension finie, on a \(E=\Im f\operp\ker f\).
+
+On choisit une base orthonormée de \(\ker f\) et de \(\Im f\) : en les concaténant, on obtient une base orthonormée de \(E\) \[\fami{B}=\paren{e_1,\dots,e_r,e_{r+1},\dots,e_n}.\]
+
+Soit \(\paren{x,y}\in E^2\). On a \[f\paren{x}=\sum_{i=1}^r\ps{x}{e_i}e_i\qquad\text{et}\qquad f\paren{y}=\sum_{i=1}^r\ps{y}{e_i}e_i.\]
+
+Alors \[\begin{aligned}
+\ps{f\paren{x}}{y}&=\ps{\sum_{i=1}^r\ps{x}{e_i}e_i}{y} \\
+&=\sum_{i=1}^r\ps{x}{e_i}\ps{e_i}{y} \\
+&=\ps{x}{\sum_{i=1}^r\ps{e_i}{y}e_i} \\
+&=\ps{x}{f\paren{y}}.
+\end{aligned}\]
+
+Donc \(f=f\adj\).
+\end{corr}
+
+\begin{exo}
+Premièrement,
+
+Soit \(f\in\Lendo{E}\).
+
+Montrez que \(\Im f\adj=\paren{\ker f}\ortho\) et \(\ker f\adj=\paren{\Im f}\ortho\).
+
+Comparez \(\rg f\) et \(\rg f\adj\).
+\end{exo}
+
+\begin{corr}
+Soit \(y\in\Im f\adj\). Il existe \(a\in E\) tel que \(f\adj\paren{a}=y\).
+
+Alors pour \(x\in\ker f\), on a \[\ps{x}{y}=\ps{x}{f\adj\paren{a}}=\ps{a}{f\paren{x}}=0.\]
+
+Donc \(x\perp y\) et donc \(y\in\paren{\ker f}\ortho\).
+
+Donc \(\Im f\adj\subset\paren{\ker f}\ortho\).
+
+Deuxièmement,
+
+Soient \(x\in\ker f\adj\) et \(y\in\Im f\).
+
+Il existe \(a\in E\) tel que \(f\paren{a}=y\).
+
+Donc \[\ps{x}{y}=\ps{x}{f\paren{a}}=\ps{f\adj\paren{x}}{a}=0.\]
+
+Donc \(x\perp y\), donc \(x\in\paren{\Im f}\ortho\) et donc \(\ker f\adj\subset\paren{\Im f}\ortho\).
+
+De plus, on a \[\dim\Im f\adj\leq\dim\paren{\ker f}\ortho=n-\dim\ker f=\dim\Im f\] et \[\dim\ker f\adj\leq\dim\paren{\Im f}\ortho=n-\dim\Im f=\dim\ker f.\]
+
+Or \(\dim\ker f\adj=n-\dim\Im f\adj\leq n-\dim\Im f\) donc \[\dim\Im f\adj\geq\dim\Im f.\]
+
+D'où \[\dim\Im f\adj=\dim\Im f=n-\dim\ker f=\dim\paren{\ker f}\ortho\] et \[\dim\ker f\adj=\dim\ker f=n-\dim\Im f=\dim\paren{\Im f}\ortho.\]
+
+Donc on a \[\Im f\adj=\paren{\ker f}\ortho\] et \[\ker f\adj=\paren{\Im f}\ortho\] et \[\rg f=\rg f\adj.\]
+\end{corr}
+
+\begin{exo}
+Soit \(f\in\Lendo{E}\).
+
+Montrez que \(\rg f=\rg\paren{f\adj\rond f}\).
+\end{exo}
+
+\begin{corr}
+Pour tout \(\paren{f,g}\in\Lendo{E}^2\), on a \[\begin{dcases}
+\rg\paren{g\rond f}\leq\rg f &\text{(1)} \\
+\rg\paren{f\rond g}\leq\rg f &\text{(2)}
+\end{dcases}\] En effet, on a \(\Im\paren{f\rond g}\subset\Im f\) donc (2) et on a \(\ker f\subset\ker\paren{f\rond g}\) et le théorème du rang donc (1).
+
+Pour avoir \(\rg\paren{f\adj\rond f}=\rg f\), il suffit donc de montrer que \(\ker f=\ker\paren{f\adj\rond f}\).
+
+On a clairement \(\ker f\subset\ker\paren{f\adj\rond f}\).
+
+Soit \(x\in\ker\paren{f\adj\rond f}\).
+
+On a \(f\adj\rond f\paren{x}=0\) donc \(\ps{f\adj\rond f\paren{x}}{x}=0\) donc \(\ps{f\paren{x}}{f\paren{x}}=0\) donc \(\norme{f\paren{x}}=0\) donc \(f\paren{x}=0\).
+
+Donc \(x\in\ker f\) et donc \(\ker\paren{f\adj\rond f}\subset\ker f\).
+\end{corr}
+
+\subsection{Matrice de l'adjoint}
+
+\begin{prop}
+Soient \(\fami{B}\) une base orthonormée de \(E\) et \(\paren{f,g}\in\Lendo{E}^2\).
+
+On a \(g=f\adj\ssi\Mat{g}=\trans{\paren{\Mat{f}}}\).
+\end{prop}
+
+\begin{dem}
+Soit \(\fami{B}\) une base orthonormée de \(E\).
+
+Soient \(X=\tcoords{x_1}{\vdots}{x_n}\) et \(Y=\tcoords{y_1}{\vdots}{y_n}\), et \(x,y\) de coordonnées \(X,Y\) dans \(\fami{B}\).
+
+On pose \(A=\Mat{f}\).
+
+\(f\paren{x}\) a pour coordonnées \(AX\) dans \(\fami{B}\).
+
+Donc \[\begin{aligned}
+\ps{f\paren{x}}{y}&=\trans{\paren{AX}}Y \\
+&=\trans{X}\trans{A}Y \\
+&=\ps{x}{f\adj\paren{y}} \\
+&=\trans{X}\paren{BY}
+\end{aligned}\] où \(B=\Mat{f\adj}\).
+
+Donc \(\quantifs{\forall\paren{X,Y}\in\M{n,1}[\R]^2}\trans{X}\trans{A}Y=\trans{X}BY\).
+
+Donc \(B=\trans{A}\).
+
+Et réciproquement.
+\end{dem}
+
+\begin{rem}
+Attention, ceci n'est valable qu'en base orthonormée. En base quelconque, c'est plus compliqué.
+\end{rem}
+
+\begin{exo}
+Soit \(f\in\Lendo{E}\) diagonalisable.
+
+Montrez l'équivalence \[f\adj=f^2\ssi f\text{ est un projecteur orthogonal}.\]
+\end{exo}
+
+\begin{corr}
+\imprec Si \(f\) est un projecteur orthogonal, alors \(f=f\adj\) (\cf \thref{exo9.1}) et \(f=f^2\) donc \(f\adj=f^2\).
+
+\impdir
+
+En base orthonormée, la matrice \(A\) de \(f\) vérifie \(\trans{A}=A^2\).
+
+Donc \(A=\trans{\paren{A^2}}=\paren{\trans{A}}^2=\paren{A^2}^2=A^4\).
+
+Donc \(X^4-X\) est un polynôme annulateur de \(A\).
+
+Donc \(\mu_A\), polynôme minimal de \(A\), divise \(X^4-X\) et est scindé à racines simples dans \(\poly[\R]\).
+
+Or \(X^4-X=X\paren{X-1}\paren{X^2+X+1}\).
+
+Donc \(\mu_A=X\) ou \(\mu_A=X-1\) ou \(\mu_A=X\paren{X-1}\) \ie \(f=0\) ou \(f=\id{E}\) ou \(f^2=f\).
+
+Dans tous les cas, \(f\) est projecteur.
+\end{corr}
+
+\subsection{Stabilité de sous-espaces vectoriels}
+
+Une propriété remarquable et utile pour la suite du cours.
+
+\begin{prop}\thlabel{prop9.5}
+Soient \(f\in\Lendo{E}\) et \(F\) un sous-espace vectoriel de \(E\).
+
+Si \(F\) est stable par \(f\), alors \(F\ortho\) est stable par \(f\adj\).
+\end{prop}
+
+\begin{dem}
+On veut montrer que \(\quantifs{\tpt x\in F\ortho}f\adj\paren{x}\in F\ortho\).
+
+Soient \(x\in F\ortho\) et \(y\in F\).
+
+On a \(\ps{f\adj\paren{x}}{y}=\ps{x}{f\paren{y}}\).
+
+Or \(y\in F\) et \(F\) est stable par \(f\) donc \(f\paren{y}\in F\).
+
+Or \(x\in F\ortho\) donc \(\ps{x}{f\paren{y}}=0\).
+
+Donc \(f\adj\paren{x}\perp y\) donc \(f\adj\paren{x}\in F\ortho\).
+\end{dem}
+
+\section{Orientation d'un \(\R\)-espace vectoriel de dimension finie}
+
+Soit \(E\) un \(\R\)-espace vectoriel de dimension finie \(n\geq1\).
+
+\begin{defi}
+On dit que deux bases \(\fami{B},\fami{B}\prim\) de \(E\) ont la même orientation quand \(\detb\fami{B}\prim>0\), sinon on dit qu'elles sont d'orientations contraires.
+\end{defi}
+
+Orienter \(E\), c'est choisir une base de référence et déclarer directes toutes les bases qui ont la même orientation que cette base de référence. Les bases de l'autre classe d'équivalence sont dites indirectes (ou rétrogrades).
+
+En géométrie classique, dans le plan ou l'espace, on convient systématiquement d'une orientation.
+
+Dans toute la suite, \(E\) désigne un espace euclidien de dimension \(n\). On suppose aussi que \(E\) est orienté.
+
+\section{Isométries vectorielles}
+
+\begin{defi}
+On appelle isométrie vectorielle (ou automorphisme orthogonal) tout endomorphisme de \(E\) qui conserve la norme : \(\quantifs{\tpt x\in E}\norme{f\paren{x}}=\norme{x}\).
+\end{defi}
+
+\begin{rem}
+L'appellation \guillemets{automorphisme} n'est pas usurpée.
+\end{rem}
+
+\begin{dem}
+Si \(f\) est une isométrie vectorielle, alors \(\ker f=\accol{0}\) car si \(f\paren{x}=0\), alors \(\norme{f\paren{x}}=0\) donc \(\norme{x}=0\) donc \(x=0\).
+
+Comme \(E\) est de dimension finie, \(f\) est un automorphisme.
+\end{dem}
+
+L'ensemble des isométries vectorielles de \(E\) est noté \(\Orth{}[E]\).
+
+\begin{prop}
+\(\Orth{}[E]\) est un sous-groupe de \(\groupe{\GL{}[E]}[\rond]\).
+\end{prop}
+
+\begin{dem}
+On vient de montrer que \(\Orth{}[E]\subset\GL{}[E]\).
+
+De plus, \(\id{E}\in\Orth{}[E]\).
+
+Enfin, pour \(\paren{f,g}\in\Orth{}[E]\) et \(x\in E\), on a \[\begin{WithArrows}
+\norme{g\rond f\paren{x}}&=\norme{g\paren{f\paren{x}}} \Arrow{\(g\) conserve la norme} \\
+&=\norme{f\paren{x}} \Arrow{\(f\) conserve la norme} \\
+&=\norme{x}.
+\end{WithArrows}\]
+
+Donc \(g\rond f\in\Orth{}[E]\).
+
+De plus, pour \(f\in\Orth{}[E]\), on a \[\norme{f\inv\paren{x}}=\norme{f\paren{f\inv\paren{x}}}=\norme{x}\] donc \(f\inv\in\Orth{}[E]\).
+
+Donc \(\Orth{}[E]\) est un sous-groupe de \(\groupe{\GL{}[E]}[\rond]\).
+\end{dem}
+
+Les symétries orthogonales sont des isométries vectorielles. Parmi celles-ci, on distingue les symétries orthogonales par rapport à un hyperplan : on les appelle les réflexions.
+
+On peut caractériser les isométries vectorielles de diverses façons.
+
+\begin{prop}
+Soit \(f\in\Lendo{E}\). Les propositions suivantes sont équivalentes :
+
+\begin{enumerate}
+    \item \(f\) est une isométrie vectorielle \\
+    \item \(f\) conserve le produit scalaire : \(\quantifs{\tpt\paren{x,y}\in E^2}\ps{f\paren{x}}{f\paren{y}}=\ps{x}{y}\) \\
+    \item \(f\) transforme toute base orthonormée en base orthonormée \\
+    \item \(f\) est un automorphisme et \(f\adj=f\inv\), ou, ce qui revient au même : \(f\adj\rond f=\id{E}\).
+\end{enumerate}
+\end{prop}
+
+\begin{dem}[(1) \(\imp\) (2)]
+Soient \(f\in\Orth{}[E]\) et \(\paren{x,y}\in E^2\).
+
+On a, d'après Al-Kashi \[\begin{WithArrows}
+\ps{f\paren{x}}{f\paren{y}}&=\dfrac{\norme{f\paren{x}+f\paren{y}}^2-\norme{f\paren{x}}^2-\norme{f\paren{y}}^2}{2} \Arrow{\(f\) conserve la norme} \\
+&=\dfrac{\norme{x+y}^2-\norme{x}^2-\norme{y}^2}{2} \Arrow{Al-Kashi} \\
+&=\ps{x}{y}.
+\end{WithArrows}\]
+\end{dem}
+
+\begin{dem}[(2) \(\imp\) (1)]
+On a \(\quantifs{\forall\paren{x,y}\in E^2}\ps{f\paren{x}}{f\paren{y}}=\ps{x}{y}\).
+
+Donc \(\quantifs{\forall x\in E}\ps{f\paren{x}}{f\paren{x}}=\ps{x}{x}\).
+
+Donc \(\quantifs{\forall x\in E}\norme{f\paren{x}}^2=\norme{x}^2\).
+
+Donc \(\quantifs{\forall x\in E}\norme{f\paren{x}}=\norme{x}\).
+
+Donc \(f\) est une isométrie vectorielle.
+\end{dem}
+
+\begin{dem}[(1) \(\imp\) (3)]
+Soient \(f\in\Orth{}[E]\) et \(\paren{e_1,\dots,e_n}\) une base orthonormée de \(E\).
+
+\(f\) conserve la norme donc \(\quantifs{\tpt i\in\interventierii{1}{n}}\norme{f\paren{e_i}}=\norme{e_i}=1\).
+
+\(f\) conserve le produit scalaire donc pour tout \(\paren{i,j}\in\interventierii{1}{n}^2\), si \(i\not=j\), alors \(\ps{f\paren{e_i}}{f\paren{e_j}}=\ps{e_i}{e_j}=0\).
+
+Donc \(\paren{f\paren{e_1},\dots,f\paren{e_n}}\) est une famille orthonormée de \(E\), espace de dimension \(n\), donc une base orthonormée de \(E\).
+\end{dem}
+
+\begin{dem}[(3) \(\imp\) (1)]
+Soient \(f\in\Lendo{E}\) et \(\fami{B}=\paren{e_1,\dots,e_n}\) une base orthonormée de \(E\) telle que \(\fami{B}\prim=\paren{f\paren{e_1},\dots,f\paren{e_n}}\) soit aussi une base orthonormée de \(E\).
+
+Soit \(x\tcoords{x_1}{\vdots}{x_n}_{\fami{B}}\). On a \(\norme{x}=\sqrt{\sum_{i=1}^nx_i^2}\) car \(\fami{B}\) est orthonormée.
+
+Or \(x=\sum_{i=1}^nx_ie_i\) donc \(f\paren{x}=\sum_{i=1}^nx_if\paren{e_i}\).
+
+Donc \(f\paren{x}\tcoords{x_1}{\vdots}{x_n}_{\fami{B}\prim}\).
+
+Or \(\fami{B}\prim\) est orthonormée donc \[\norme{f\paren{x}}=\sqrt{\sum_{i=1}^nx_i^2}=\norme{x}.\]
+
+Donc \(f\in\Orth{}[E]\).
+\end{dem}
+
+\begin{dem}[(1) \(\ssi\) (4)]
+On a \[\begin{WithArrows}
+f\in\Orth{}[E]&\ssi\quantifs{\forall\paren{x,y}\in E^2}\ps{f\paren{x}}{f\paren{y}}=\ps{x}{y} \\
+&\ssi\quantifs{\forall\paren{x,y}\in E^2}\ps{x}{f\adj\rond f\paren{y}}=\ps{x}{y} \Arrow{\thref{lem9.1}} \\
+&\ssi\quantifs{\forall y\in E}f\adj\rond f\paren{y}=y \\
+&\ssi f\adj\rond f=\id{E} \\
+&\ssi f\adj=f\inv.
+\end{WithArrows}\]
+\end{dem}
+
+\begin{exo}
+Soient \(E\) un espace euclidien, \(a\in E\excluant\accol{0}\) et \(k\in\R\). On pose \(f:x\mapsto x+k\ps{x}{a}a\).
+
+Montrez que \(f\) est linéaire, puis déterminez les conditions sur \(a\) et \(k\) pour que \(f\) soit une isométrie vectorielle.
+
+Dans ce cas, reconnaissez-la.
+\end{exo}
+
+\begin{corr}
+Soient \(\paren{x,y}\in E^2\) et \(\lambda\in\R\).
+
+On a \[\begin{aligned}
+f\paren{\lambda x+y}&=\lambda x+y+k\ps{\lambda x+y}{a}a \\
+&=\lambda\paren{x+k\ps{x}{a}a}+y+k\ps{y}{a}a \\
+&=\lambda f\paren{x}+f\paren{y}.
+\end{aligned}\]
+
+Si \(k=0\), alors \(f=\id{E}\in\Orth{}[E]\).
+
+Supposons \(k\not=0\).
+
+Pour tout \(x\in a\ortho\), on a \(f\paren{x}=x\).
+
+On a \(f\paren{a}=a+k\norme{a}^2a=\paren{1+k\norme{a}^2}a\).
+
+Si \(f\) conserve la norme, alors \(\norme{f\paren{a}}=\norme{a}\) donc \(1+k\norme{a}^2=-1\) donc \(k=\dfrac{-2}{\norme{a}^2}\).
+
+Réciproquement, si \(k=\dfrac{-2}{\norme{a}^2}\) alors \(\begin{dcases}
+\quantifs{\forall x\in a\ortho}f\paren{x}=x \\
+f\paren{a}=-a
+\end{dcases}\) donc \(f\) est la réflexion par rapport à \(a\ortho\).
+\end{corr}
+
+\section{Matrices orthogonales}
+
+\begin{prop}
+Soient \(\fami{B}\) une base orthonormée de \(E\) et \(f\in\Lendo{E}\). On pose \(A=\Mat{f}\).
+
+On a \(f\in\Orth{}[E]\ssi\trans{A}A=I_n\).
+\end{prop}
+
+Attention ! Ceci n'est valable que si la base \(\fami{B}\) est orthonormée.
+
+\begin{defi}
+Une matrice carrée \(A\) est dite orthogonale quand \(\trans{A}A=I_n\), ce qui est équivalent à \(A\trans{A}=I_n\) ou \(A\) est inversible et \(A\inv=\trans{A}\).
+\end{defi}
+
+\begin{prop}
+Une matrice de \(\M{n}[\R]\) est orthogonale quand ses colonnes sont de norme \(1\) et deux à deux orthogonales pour le produit scalaire canonique de \(\M{n\,1}[\R]\).
+\end{prop}
+
+Cela est également valable pour les lignes de la matrice.
+
+\begin{dem}
+Soit \(A=\paren{a_{i,j}}\in\M{n}[\R]\).
+
+On pose \(\trans{A}A=\paren{b_{i,j}}\), où \(\quantifs{\forall\paren{i,j}\in\interventierii{1}{n}^2}b_{i,j}=\sum_{k=1}^na_{k,i}b_{k,j}\).
+
+Alors \(A\) est orthogonale ssi \(\trans{A}A=I_n\), \ie \[\quantifs{\forall\paren{i,j}\in\interventierii{1}{n}^2}b_{i,j}=\begin{dcases}
+0 &\text{si }i\not=j \\
+1 &\text{sinon}
+\end{dcases}\]
+
+Or \[\begin{aligned}
+b_{i,i}=1&\ssi\sum_{k=1}^na_{k,i}^2=1 \\
+&\ssi\text{la norme de la }i\text{-ème colonne est }1.
+\end{aligned}\]
+
+Pour \(i\not=j\), \(b_{i,j}=0\) ssi le produit scalaire canonique des colonnes \(i\) et \(j\) est nul.
+\end{dem}
+
+\begin{exo}
+Vérifiez que la matrice \(M=\dfrac{1}{7}\begin{pmatrix}
+-2 & 6 & -3 \\
+6 & 3 & 2 \\
+-3 & 2 & 6
+\end{pmatrix}\) est une matrice orthogonale, puis montrez qu'elle est la matrice d'une symétrie orthogonale donc vous préciserez les éléments caractéristiques.
+\end{exo}
+
+\begin{corr}
+On a \[\dfrac{1}{7}\norme{\tcoords{-2}{6}{-3}}=1\qquad\dfrac{1}{7}\norme{\tcoords{6}{3}{2}}=1\qquad\dfrac{1}{7}\norme{\tcoords{-3}{2}{6}}=1\] et \[\ps{\tcoords{-2}{6}{-3}}{\tcoords{6}{3}{2}}=-12+18-6=0\qquad\ps{\tcoords{-2}{6}{-3}}{\tcoords{-3}{2}{6}}=6+12-18=0\qquad\ps{\tcoords{6}{3}{2}}{\tcoords{-3}{2}{6}}=-18+6+12=0.\]
+
+Donc \(M\) est orthogonale : on a \(\trans{M}=M\inv\).
+
+On remarque que \(M\) est symétrique : \(\trans{M}=M\).
+
+Donc \(M=M\inv\) \ie \(M^2=I_3\).
+
+Si on note \(f\) l'endomorphisme de matrice \(M\) dans une base orthonormée, \(f\) est une isométrie vectorielle et une symétrie, donc \(f\) est une symétrie orthogonale.
+
+Les valeurs propres de \(f\) sont \(1\) et \(-1\).
+
+\(f\) est la symétrie orthogonale par rapport à \(\sep{f}{1}\).
+
+Or \(n=3\) et \(\tr f=1\) donc \(\Mat{f}=\begin{pmatrix}
+1 & 0 & 0 \\
+0 & 1 & 0 \\
+0 & 0 & -1
+\end{pmatrix}\).
+
+\(f\) est donc une réflexion par rapport au plan d'équation \(3x-2y+z=0\).
+\end{corr}
+
+\begin{exo}
+Déterminez les réels \(a\) et \(b\) tels que la matrice \(A=\begin{pmatrix}
+a & b & b \\
+b & a & b \\
+b & b & a
+\end{pmatrix}\) soit orthogonale. Reconnaissez la nature de l'isométrie vectorielle de matrice \(A\) dans une base orthonormée \(\fami{B}\).
+\end{exo}
+
+\begin{corr}
+La matrice \(A\) est orthogonale ssi \[\begin{dcases}
+a^2+2b^2=1 \\
+2ab+b^2=0
+\end{dcases}\ssi\begin{dcases}
+a^2+2b^2=1 \\
+b\paren{b+2a}=0
+\end{dcases}\]
+
+Les solutions sont les couples \(\paren{1,0}\), \(\paren{-1,0}\), \(\paren{\nicefrac{1}{3},\nicefrac{-2}{3}}\) et \(\paren{\nicefrac{-1}{3},\nicefrac{2}{3}}\).
+
+On a donc \(A=I_3\) ou \(A=-I_3\) ou (1) \(A=\dfrac{1}{3}\begin{pmatrix}
+1 & -2 & -2 \\
+-2 & 1 & -2 \\
+-2 & -2 & 1
+\end{pmatrix}\) ou (2) \(A=\dfrac{-1}{3}\begin{pmatrix}
+1 & -2 & -2 \\
+-2 & 1 & -2 \\
+-2 & -2 & 1
+\end{pmatrix}\).
+
+Soit \(X=\tcoords{x}{y}{z}\).
+
+Dans le cas (1), on a \(AX=X\ssi x+y+z=0\) donc \(A\) est la matrice de la réflexion par rapport au plan d'équation \(x+y+z=0\).
+
+Dans le cas (2), on a \(AX=X\ssi\begin{dcases}
+y=x \\
+z=x
+\end{dcases}\) donc \(A\) est la matrice de la symétrie orthogonale par rapport à la droite \(\Vect{\paren{1,1,1}}\).
+\end{corr}
+
+L'ensemble des matrices orthogonales est noté \(\Orth{n}[\R]\).
+
+\begin{prop}
+\(\Orth{n}[\R]\) est un sous-groupe compact de \(\groupe{\GL{n}[\R]}[\times]\).
+\end{prop}
+
+\begin{dem}
+Soient \(E\) un espace euclidien de dimension \(n\), \(\fami{B}\) une base orthonormée de \(E\) et \(f\in\Lendo{E}\) de matrice \(A\in\M{n}[\R]\) dans la base \(\fami{B}\).
+
+On a \(A\in\Orth{n}[\R]\ssi f\in\Orth{}[E]\).
+
+Comme \(\Orth{}[E]\) est un groupe pour \(\rond\), \(\Orth{n}[\R]\) est un groupe pour \(\times\) via l'isomorphisme de groupes \[\isomorphismelambda{\groupe{\Orth{}[E]}[\rond]}{\groupe{\Orth{n}[\R]}[\times]}{f}{A}\]
+
+Si \(A=\paren{a_{i,j}}\in\Orth{n}[\R]\), on a \[\quantifs{\forall j\in\interventierii{1}{n}}\sum_{i=1}^na_{i,j}^2=1\] donc \[\quantifs{\forall\paren{i,j}\in\interventierii{1}{n}^2}0\leq a_{i,j}^2\leq1\text{ \ie }\abs{a_{i,j}}\leq1\] donc \(\norme{A}_\infty\leq1\), donc \(\Orth{n}[\R]\) est borné.
+
+De plus, on a \(\Orth{n}[\R]=\accol{M\in\M{n}[\R]\tq\trans{M}M=I_n}\).
+
+On pose \(\phi:M\mapsto\trans{M}M\) continue sur \(\M{n}[\R]\).
+
+Or \(\Orth{n}[\R]=\phi\inv\paren{\accol{I_n}}\) et \(\accol{I_n}\) fermé donc \(\Orth{n}[\R]\) fermé.
+
+Enfin, comme \(\M{n}[\R]\) est un \(\R\)-espace vectoriel de dimension finie, \(\Orth{n}[\R]\) est un compact de \(\M{n}[\R]\).
+\end{dem}
+
+\subsection{Déterminant d'une isométrie vectorielle}
+
+\begin{prop}
+Si \(f\in\Orth{}[E]\), alors \(\det f\in\accol{-1,1}\).
+\end{prop}
+
+\begin{dem}
+Soit \(f\in\Orth{}[E]\).
+
+Dans une base orthonormée \(\fami{B}\) de \(E\), \(A=\Mat{f}\) est orthogonale.
+
+Donc \(\trans{A}A=I_n\).
+
+Or \(\det\trans{A}=\det A\) donc \[\det\paren{\trans{A}A}=\det\trans{A}\times\det A=\paren{\det A}^2=1.\]
+
+Donc \(\det A\in\accol{-1,1}\).
+\end{dem}
+
+La réciproque est bien sûr fausse.
+
+Les isométries vectorielles de déterminant \(1\) sont celles qui conservent l'orientation : les transforment les bases orthonormées directes en bases orthonormées directes. On les appelle les isométries vectorielles directes ou positives.
+
+On note \(\SO{n}[\R]\) l'ensemble des matrices orthogonales de déterminant \(1\) et \(\SO{}[E]\) l'ensemble des isométries vectorielles positives.
+
+\begin{prop}
+\(\SO{}[E]\) est un sous-groupe de \(\Orth{}[E]\), appelé groupe spécial orthogonal de \(E\).
+
+\(\SO{n}[\R]\) est un sous-groupe de \(\Orth{n}[\R]\), appelé groupe spécial orthogonal d'ordre \(n\).
+\end{prop}
+
+Les réflexions sont des isométries négatives.
+
+\subsection{Changements de bases orthonormées}
+
+\begin{prop}
+Soient \(\fami{B}\) et \(\fami{B}\prim\) deux bases orthonormées de \(E\).
+
+La matrice de passage de \(\fami{B}\) à \(\fami{B}\prim\) est une matrice orthogonale.
+\end{prop}
+
+\begin{dem}
+On note \(\fami{B}=\paren{e_1,\dots,e_n}\) et \(\fami{B}\prim=\paren{e_1\prim,\dots,e_n\prim}\).
+
+On note \(\pass{\fami{B}}{\fami{B}\prim}=\paren{p_{i,j}}\).
+
+Pour tout \(j\in\interventierii{1}{n}\), on a \(e_j\prim\tcoords{p_{1,j}}{\vdots}{p_{n,j}}_{\fami{B}}\).
+
+Les bases \(\fami{B}\) et \(\fami{B}\prim\) étant orthonormées, on a \[\quantifs{\forall j\in\interventierii{1}{n}}\norme{e_j\prim}=\sqrt{\sum_{i=1}^np_{i,j}^2}=1\] et \[\quantifs{\forall\paren{j,k}\in\interventierii{1}{n}^2}j\not=k\imp\ps{e_j\prim}{e_k\prim}=\sum_{i=1}^np_{i,j}p_{i,k}=0.\]
+
+Donc \(\pass{\fami{B}}{\fami{B}\prim}\in\Orth{n}[\R]\).
+\end{dem}
+
+\begin{rem}\thlabel{rem9.13}
+De plus, si \(\fami{B}\) et \(\fami{B}\prim\) ont la même orientation, alors \(\det\pass{\fami{B}}{\fami{B}\prim}>0\) donc \(\det\pass{\fami{B}}{\fami{B}\prim}=1\).
+
+Si elles sont de sens contraires, alors \(\det\pass{\fami{B}}{\fami{B}\prim}<0\) donc \(\det\pass{\fami{B}}{\fami{B}\prim}=-1\).
+\end{rem}
+
+L'intérêt de ce genre de changement de bases est que la difficulté liée au calcul de l'inverse de la matrice de passage disparaît :
+
+\(X=PX\prim\) est équivalent à \(X\prim=\trans{P}X\) donc \(A\prim=P\inv AP\) devient \(A\prim=\trans{P}AP\).
+
+\subsection{Produit mixte}
+
+\begin{prop}
+Soit \(\paren{v_1,\dots,v_n}\) une famille de \(n\) vecteurs de \(E\).
+
+Le déterminant de \(\paren{v_1,\dots,v_n}\) dans une base orthonormée directe ne dépend pas du choix de cette base.
+\end{prop}
+
+\begin{dem}
+Soient \(\fami{B}\) et \(\fami{B}\prim\) deux bases orthonormées directes de \(E\).
+
+D'après la \thref{rem9.13}, on a \(\det_{\fami{B}}\fami{B}\prim=1\).
+
+Donc \[\begin{aligned}
+\det_{\fami{B}}\paren{v_1,\dots,v_n}&=\det_{\fami{B}}\fami{B}\prim\times\det_{\fami{B}\prim}\paren{v_1,\dots,v_n} \\
+&=\det_{\fami{B}\prim}\paren{v_1,\dots,v_n}.
+\end{aligned}\]
+\end{dem}
+
+Dans ce cas, on appelle produit mixte de \(\paren{v_1,\dots,v_n}\) le déterminant de cette famille dans n'importe quelle base orthonormée directe : il est noté habituellement \(\Det\paren{v_1,\dots,v_n}\) ou \(\croch{v_1,\dots,v_n}\).
+
+Une conséquence directe de la définition du produit mixte est la caractérisation des bases directes.
+
+\begin{prop}
+Soit \(\paren{v_1,\dots,v_n}\) une famille de \(n\) vecteurs de \(E\).
+
+La famille \(\paren{v_1,\dots,v_n}\) est une base directe de \(E\) ssi \(\croch{v_1,\dots,v_n}>0\).
+\end{prop}
+
+\subsection{Produit vectoriel en dimension 3}
+
+Dans ce paragraphe, \(n=3\).
+
+\begin{prop}
+Soit \(\paren{u,v}\in E^2\).
+
+Il existe un unique vecteur \(w\in E\) tel que \(\quantifs{\tpt x\in E}\croch{u,v,x}=\ps{w}{x}\).
+
+Ce vecteur est appelé le produit vectoriel de \(u\) et \(v\) et est noté \(u\vecto v\) ou \(u\times v\).
+\end{prop}
+
+\begin{dem}
+Pour \(\paren{u,v}\in E^2\), l'application \(x\mapsto\croch{u,v,x}\) est une forme linéaire sur \(E\).
+
+Ainsi, d'après le théorème de représentation de Riesz, il existe un unique vecteur \(w\) tel que \[\quantifs{\forall x\in E}\croch{u,v,x}=\ps{w}{x}.\]
+\end{dem}
+
+En base orthonormée directe, les coordonnées du produit vectoriel se calculent facilement. En base quelconque, c'est beaucoup plus pénible.
+
+Notons quelques propriétés algébriques et géométriques du produit vectoriel.
+
+\begin{prop}
+\begin{itemize}
+    \item L'application \(\vecto\) est bilinéaire et antisymétrique. \\
+    \item \(u\vecto v=0\) ssi \(u\) et \(v\) sont colinéaires. \\
+    \item Si \(u\) et \(v\) ne sont pas colinéaires, alors \(u\vecto v\) est un vecteur normal au plan \(\Vect{u,v}\) et la famille \(\paren{u,v,u\vecto v}\) est une base directe de \(E\). \\
+    \item Si \(u\) et \(v\) sont unitaires et orthogonaux, alors la famille \(\paren{u,v,u\vecto v}\) est une base orthonormée directe de \(E\).
+\end{itemize}
+\end{prop}
+
+\begin{dem}
+On reprend les mêmes notations.
+
+\begin{itemize}
+    \item L'application \(\vecto\) est bilinéaire antisymétrique car le produit mixte est trilinéaire alterné. \\
+    \item Si \(u\) et \(v\) sont colinéaires, on a \(\quantifs{\forall x\in E}\croch{u,v,x}=0\) donc \(u\vecto v=0\). \\\\ Réciproquement, si \(u\) et \(v\) ne sont pas colinéaires alors \(\Vect{u,v}\) est un plan. \\\\ On choisit \(x\in E\) normal à ce plan et on obtient une base de \(E\) : \(\paren{u,v,x}\). \\\\ Alors \(\croch{u,v,x}\not=0\), donc \(\ps{u\vecto v}{x}\not=0\) donc \(u\vecto v\not=0\). \\
+    \item Si \(u\) et \(v\) ne sont pas colinéaires, on a \[\ps{u\vecto v}{u}=\croch{u,v,u}=0 \text{ donc } u\vecto v\perp u\] et \[\ps{u\vecto v}{v}=\croch{u,v,v}=0 \text{ donc }u\vecto v\perp v\] donc \(u\vecto v\perp\Vect{u,v}\). \\\\ De plus, on a \[\croch{u,v,u\vecto v}=\ps{u\vecto v}{u\vecto v}=\norme{u\vecto v}^2>0\] donc \(\paren{u,v,u\vecto v}\) est une base directe de \(E\). \\
+    \item \(\quantifs{\Tpt\paren{u,v}\in E^2}\norme{u\vecto v}^2+\ps{u}{v}^2=\norme{u}^2\norme{v}^2\). \\\\ On choisit une base orthonormée directe \(\fami{B}\) de \(E\). \\\\ On note \(u\tcoords{x}{y}{z}_{\fami{B}}\) et \(v\tcoords{x\prim}{y\prim}{z\prim}_{\fami{B}}\). \\\\ En posant \(X=\begin{vmatrix}y & y\prim \\ z & z\prim\end{vmatrix}\), \(Y=-\begin{vmatrix}x & x\prim \\ z & z\prim\end{vmatrix}\) et \(Z=\begin{vmatrix}x & x\prim \\ y & y\prim\end{vmatrix}\), on a alors \(u\vecto v\tcoords{X}{Y}{Z}_{\fami{B}}\) et \[\begin{aligned}
+    \norme{u\vecto v}^2+\ps{u}{v}^2&=\paren{yz\prim-y\prim z}^2+\paren{xz\prim-x\prim z}^2+\paren{xy\prim-x\prim y}^2+\paren{xx\prim+yy\prim+zz\prim}^2 \\
+    &=\paren{x^2+y^2+z^2}\paren{{x\prim}^2+{y\prim}^2+{z\prim}^2}.
+    \end{aligned}\]
+\end{itemize}
+\end{dem}
+
+\section{Étude en dimension 2}
+
+\begin{prop}\thlabel{prop9.18}
+\(\Orth{2}[\R]\) contient exclusivement les matrices suivantes :
+
+\begin{itemize}
+    \item les matrices de rotation \(R\paren{\theta}=\begin{pmatrix}
+        \cos\theta & -\sin\theta \\
+        \sin\theta & \cos\theta
+    \end{pmatrix}\) \\
+    \item les matrices de réflexions \(\begin{pmatrix}
+        \cos\theta & \sin\theta \\
+        \sin\theta & -\cos\theta
+    \end{pmatrix}\)
+\end{itemize}
+
+où \(\theta\) est un réel quelconque.
+\end{prop}
+
+\begin{dem}~\\
+Soit \(A=\begin{pmatrix}
+a & c \\
+b & d
+\end{pmatrix}\in\Orth{2}[\R]\) de déterminant \(1\). On a \[\begin{dcases}
+a^2+b^2=1 \\
+c^2+d^2=1 \\
+ac+bd=0 \\
+ad-bc=1
+\end{dcases}\] donc il existe \(\theta,\alpha\in\R\) tels que \[\begin{dcases}
+a=\cos\theta \\
+b=\sin\theta
+\end{dcases}\qquad\text{et}\qquad\begin{dcases}
+c=\cos\alpha \\
+d=\sin\alpha
+\end{dcases}\]
+
+On a alors \[\begin{dcases}
+ac+bd=0=\cos\paren{\alpha-\theta} \\
+ad-bc=1=\sin\paren{\alpha-\theta}
+\end{dcases}\]
+
+Donc \(\alpha-\theta\equiv\dfrac{-\pi}{2}\croch{2\pi}\) \ie \(\alpha\equiv\dfrac{-\pi}{2}+\theta\croch{2\pi}\), d'où \[\begin{dcases}
+c=-\sin\theta \\
+d=\cos\theta
+\end{dcases}\] \ie \(A=\begin{pmatrix}
+\cos\theta & -\sin\theta \\
+\sin\theta & \cos\theta
+\end{pmatrix}\).
+
+De même, si \(\det A=-1\), on obtient \(A=\begin{pmatrix}
+\cos\theta & \sin\theta \\
+\sin\theta & -\cos\theta
+\end{pmatrix}\).
+
+Et réciproquement.
+\end{dem}
+
+L'ensemble des matrices de rotation forme le sous-groupe \(\SO{2}[\R]\) : c'est l'ensemble des matrices orthogonales de déterminant \(1\).
+
+Il est remarquable que ce groupe est commutatif, car en dimension \(n\geq3\), ce n'est plus le cas. En effet, il est facile de constater que l'application \(\theta\mapsto R\paren{\theta}\) est un morphisme surjectif de groupes de \(\groupe{\R}\) dans \(\groupe{\SO{2}[\R]}[\times]\) (dont le noyau est le sous-groupe \(2\pi\Z\) de \(\groupe{\R}\)).
+
+Autrement dit, l'application \(\fonctionlambda{\U}{\SO{2}[\R]}{\e{\i\theta}}{R\paren{\theta}}\) est un isomorphisme de groupes.
+
+\begin{dem}
+On a donc bien \[\SO{2}[\R]=\accol{R\paren{\theta}=\begin{pmatrix}\cos\theta & -\sin\theta \\ \sin\theta & \cos\theta\end{pmatrix}\tq\theta\in\R}\] et on remarque \[\begin{dcases}
+R\paren{\theta+\theta\prim}=R\paren{\theta}R\paren{\theta\prim}=R\paren{\theta\prim}R\paren{\theta} \\
+R\paren{-\theta}=R\paren{\theta}\inv
+\end{dcases}\]
+\end{dem}
+
+\begin{prop}
+En dimension \(2\), les isométries vectorielles sont :
+
+\begin{itemize}
+    \item les rotations vectorielles \\
+    \item les réflexions vectorielles.
+\end{itemize}
+\end{prop}
+
+\begin{rem}
+On pose, pour \(\theta\in\R\), \(S\paren{\theta}=\begin{pmatrix}
+\cos\theta & \sin\theta \\
+\sin\theta & -\cos\theta
+\end{pmatrix}\).
+
+\(S\paren{\theta}\) est orthogonale et symétrique donc \(S\paren{\theta}^2=I_2\), donc \(S\paren{\theta}\) est la matrice d'une symétrie orthogonale.
+
+Donc comme \(S\paren{\theta}\) n'est ni \(I_2\) ni \(-I_2\), il s'agit de la matrice d'une réflexion.
+
+Or on a \[\begin{pmatrix}
+\cos\theta & \sin\theta \\
+\sin\theta & -\cos\theta
+\end{pmatrix}\dcoords{\cos\nicefrac{\theta}{2}}{\sin\nicefrac{\theta}{2}}=\dcoords{\cos\paren{\theta-\nicefrac{\theta}{2}}}{\sin\paren{\theta-\nicefrac{\theta}{2}}}=\dcoords{\nicefrac{\paren{\cos\theta}}{2}}{\nicefrac{\paren{\sin\theta}}{2}}.\]
+\end{rem}
+
+\section{Réduction des isométries vectorielles ou des matrices orthogonales}
+
+\subsection{Réduction des isométries vectorielles}
+
+D'abord, deux résultats généraux sur les isométries vectorielles.
+
+\begin{prop}\thlabel{prop9.20}
+Soit \(f\in\Orth{}[E]\). On a :
+
+\begin{itemize}
+    \item \(\Sp{f}\subset\accol{-1,1}\) \\
+    \item Si \(F\) est un sous-espace vectoriel de \(E\) stable par \(f\), alors \(F\ortho\) est aussi un sous-espace vectoriel de \(E\) stable par \(f\).
+\end{itemize}
+\end{prop}
+
+\begin{dem}
+\begin{itemize}
+    \item Soient \(\lambda\) une valeur propre de \(f\) (s'il en existe) et \(x\) un vecteur propre associé. \\\\ On a \(f\paren{x}=\lambda x\) donc \[\norme{f\paren{x}}=\abs{\lambda}\norme{x}=\norme{x}\not=0.\] Donc \(\abs{\lambda}=1\) \ie \(\lambda\in\accol{-1,1}\). \\
+    \item Soit \(F\) un sous-espace vectoriel de \(E\) stable par \(f\). \\\\ D'après la \thref{prop9.5}, \(F\ortho\) est stable par \(f\etoile\). \\\\ Or \(f\in\Orth{}[E]\) donc \(f\etoile=f\inv\), donc \(f\inv\paren{F\ortho}\subset F\ortho\). \\\\ Or \(f\inv\) est un automorphisme de \(E\) donc \(f\inv\) conserve la dimension, donc \(\dim f\inv\paren{F\ortho}=\dim F\ortho\). \\\\ D'où \(f\inv\paren{F\ortho}=F\ortho\) et donc \(F\ortho=f\paren{F\ortho}\).
+\end{itemize}
+\end{dem}
+
+\begin{lem}\thlabel{lemtheo9.1}
+Si \(E\) est un \(\R\)-espace vectoriel de dimension finie \(n\) et \(f\in\Lendo{E}\), alors il existe une droite ou un plan de \(E\) stable par \(f\).
+\end{lem}
+
+\begin{dem}
+Si \(f\) possède une valeur propre réelle, la droite vectorielle dirigée par n'importe quel vecteur propre associé est stable par \(f\).
+
+Sinon, on choisit une base \(\fami{B}\) de \(E\) et on pose \(A=\Mat{f}\in\M{n}[\R]\).
+
+\(A\) ne possède aucune valeur propre réelle mais a au moins une valeur propre complexe \(\lambda\in\C\excluant\R\).
+
+On choisit \(Z\in\M{n,1}[\C]\) un vecteur propre de \(A\) associé à \(\lambda\).
+
+On a \(Z=X+\i Y\) où \(\paren{X,Y}\in\M{n,1}[\R]^2\).
+
+On pose \(x,y\in E\) tels que \(x\) et \(y\) aient pour coordonnées \(X\) et \(Y\) dans la base \(\fami{B}\).
+
+On veut montrer que \(\Vect{x,y}\) est stable par \(f\) et est un plan de \(E\).
+
+On note \(\lambda=a+\i b\) où \(\paren{a,b}\in\R\times\Rs\).
+
+On a \(AZ=\lambda Z\) donc \[\begin{aligned}
+A\paren{X+\i Y}&=\paren{a +\i b}\paren{X+\i Y} \\
+AX+\i AY&=aX-bY+\i\paren{aY+bX}
+\end{aligned}\] donc \[\begin{dcases}
+AX=aX-bY \\
+AY=bX+aY
+\end{dcases}\] \ie \[\begin{dcases}
+f\paren{x}=ax-by\in\Vect{x,y} \\
+f\paren{y}=bx+ay\in\Vect{x,y}
+\end{dcases}\]
+
+Donc \(\Vect{x,y}\) est stable par \(f\).
+
+Supposons maintenant par l'absurde que \(x\) et \(y\) sont colinéaires.
+
+Comme \(Z\not=0\), \(x\) ou \(y\) est non-nul.
+
+Supposons, par exemple, que \(y=\alpha x\) où \(\alpha\in\R\) et \(x\not=0\).
+
+On a \(AZ=\lambda Z\) donc \[\begin{aligned}
+A\paren{X+\i Y}&=A\paren{X+\i\alpha X} \\
+&=\paren{a+\i b}\paren{X+\i\alpha X}
+\end{aligned}\] donc \[\begin{aligned}
+\paren{1+\i\alpha}AX&=\paren{1+\i\alpha}\paren{a+\i b}X \\
+AX&=\paren{a+\i b}X
+\end{aligned}\] donc \(AX+0\i=AX+\i bX\) donc \(\begin{dcases}
+AX=aX \\
+0=bX
+\end{dcases}\)
+
+Or \(b\not=0\) et \(x\not=0\) : contradiction.
+
+De même si \(x=\alpha y\) avec \(y\not=0\).
+
+Donc \(x\) et \(y\) ne sont pas colinéaires \ie \(\Vect{x,y}\) est un plan.
+\end{dem}
+
+De ces propriétés découlent le théorème suivant.
+
+\begin{theo}\thlabel{theo9.1}
+Soit \(f\in\Orth{}[E]\).
+
+Il existe une base orthonormée de \(E\) dans laquelle la matrice de \(f\) est diagonale par blocs, les blocs étant des scalaires \(1\) ou \(-1\) ou des matrices \(\paren{2,2}\) de rotation.
+\end{theo}
+
+Les matrices diagonales par blocs sont donc du type suivant : \[D=\begin{pmatrix}
+1 &  &  &  &  &  &  &  &  &  &  \\
+& \ddots &  &  &  &  &  &  &  &  &  \\
+&  & 1 &  &  &  &  &  &  &  &  \\
+&  &  & -1 &  &  &  &  &  &  &  \\
+&  &  &  & \ddots &  &  &  &  &  &  \\
+&  &  &  &  & -1 &  &  &  &  &  \\
+&  &  &  &  &  & \cos\theta_1 & -\sin\theta_1 &  &  &  \\
+&  &  &  &  &  & \sin\theta_1 & \cos\theta_1 &  &  &  \\
+&  &  &  &  &  &  &  & \ddots &  &  \\
+&  &  &  &  &  &  &  &  & \cos\theta_k & -\sin\theta_k \\
+&  &  &  &  &  &  &  &  & \sin\theta_k & \cos\theta_k \\
+\end{pmatrix}.\]
+
+\begin{dem}
+On raisonne par récurrence sur \(n=\dim E\).
+
+On pose \(\P{n}\) : \guillemets{si \(E\) est de dimension \(n\) et si \(f\in\Orth{}[E]\), alors il existe une base orthonormée ...}
+
+\begin{itemize}
+    \item \(n=1\) \\\\ Si \(f\in\Orth{}[E]\) alors \(f=\id{E}\) ou \(f=-\id{E}\) donc dans n'importe quelle base \(\fami{B}\), \(\Mat{f}=\begin{pmatrix}1\end{pmatrix}\) ou \(\begin{pmatrix}-1\end{pmatrix}\). \\\\ Donc \(\P{1}\) est vraie. \\
+    \item \(n=2\) \\\\ Si \(f\in\Orth{}[E]\), d'après la \thref{prop9.18}, \(f\) est une rotation et il existe \(\theta\in\R\) tel que dans n'importe quelle base orthonormée directe, \(\Mat{f}=R\paren{\theta}\) ; ou \(f\) est une réflexion, \ie une symétrie orthogonale par rapport à une droite donc il existe une base orthonormée dans laquelle \(\Mat{f}=\begin{pmatrix}
+        1 & 0 \\
+        0 & -1
+    \end{pmatrix}\). \\\\ Donc \(\P{2}\) est vraie. \\
+    \item Pour \(n\geq3\), supposons que \(\P{n-2}\) et \(\P{n-1}\) sont vraies, que \(\dim E=n\) et que \(f\in\Orth{}[E]\). \\\\ D'après le \thref{lemtheo9.1}, \(f\) possède une droite stable ou un plan stable et d'après la \thref{prop9.20}, l'orthogonal de ce sous-espace vectoriel stable est aussi stable par \(f\). \\ \begin{itemize}
+        \item Si \(f\) possède une droite stable \(D\) : \\\\ Alors \(D\) est une droite propre associée à une valeur propre \(1\) ou \(-1\) de \(f\). \\\\ \(g\), l'endomorphisme induit par \(f\) dans l'hyperplan \(D\ortho\), est une isométrie vectorielle de \(D\ortho\). \\\\ Or \(\dim D\ortho=n-1\) donc d'après \(\P{n-1}\), il existe une base orthonormée \(\fami{B}\ortho\) de \(D\ortho\) dans laquelle \[\Mat[\fami{B}\ortho]{g}=\begin{pmatrix}
+            1 &        &   &    &        &    &                   &        &  \\
+              & \ddots &   &    &        &    &                   &        &  \\
+              &        & 1 &    &        &    &                   &        &  \\
+              &        &   & -1 &        &    &                   &        &  \\
+              &        &   &    & \ddots &    &                   &        &  \\
+              &        &   &    &        & -1 &                   &        &  \\
+              &        &   &    &        &    & R\paren{\theta_1} &        &  \\
+              &        &   &    &        &    &                   & \ddots &  \\
+              &        &   &    &        &    &                   &        & R\paren{\theta_k}
+        \end{pmatrix}.\] En choisissant un vecteur directeur unitaire \(u\) de \(D\), on obtient \(\fami{B}=\paren{u,\fami{B}\ortho}\) une base orthonormée de \(E\) telle que \[\Mat{f}=\begin{pmatrix}
+            \pm1 &   &        &   &    &        &    &                   &        &       \\
+                 & 1 &        &   &    &        &    &                   &        &  \\
+                 &   & \ddots &   &    &        &    &                   &        &  \\
+                 &   &        & 1 &    &        &    &                   &        &  \\
+                 &   &        &   & -1 &        &    &                   &        &  \\
+                 &   &        &   &    & \ddots &    &                   &        &  \\
+                 &   &        &   &    &        & -1 &                   &        &  \\
+                 &   &        &   &    &        &    & R\paren{\theta_1} &        &  \\
+                 &   &        &   &    &        &    &                   & \ddots &  \\
+                 &   &        &   &    &        &    &                   &        & R\paren{\theta_k}
+        \end{pmatrix}.\]
+        \item Si \(f\) possède un plan stable \(P\) : \\\\ Alors \(P\ortho\) est stable par \(f\). \\\\ L'endomorphisme induit par \(f\) dans \(P\) est une isométrie vectorielle de \(P\). \\\\ Or \(\dim P=2\) donc il existe une base orthonormée de \(P\) dans laquelle l'endomorphisme induit par \(f\) dans \(P\) a pour matrice \(R\paren{\theta}\) ou \(\begin{pmatrix}
+            1 & 0 \\
+            0 & -1
+        \end{pmatrix}\). \\\\ L'endomorphisme induit par \(f\) dans \(P\ortho\) est une isométrie vectorielle de \(P\ortho\), or \(\dim P\ortho=n-2\). \\\\ D'après \(\P{n-2}\), ... \\\\ En concaténant deux bases orthonormées de \(P\) et \(P\ortho\), on obtient une base \(\fami{B}\) dans laquelle \[\Mat{f}=\begin{pmatrix}
+            R\paren{\theta} &   &        &   &    &        &    &                   &        &       \\
+                     & 1 &        &   &    &        &    &                   &        &  \\
+                     &   & \ddots &   &    &        &    &                   &        &  \\
+                     &   &        & 1 &    &        &    &                   &        &  \\
+                     &   &        &   & -1 &        &    &                   &        &  \\
+                     &   &        &   &    & \ddots &    &                   &        &  \\
+                     &   &        &   &    &        & -1 &                   &        &  \\
+                     &   &        &   &    &        &    & R\paren{\theta_1} &        &  \\
+                     &   &        &   &    &        &    &                   & \ddots &  \\
+                     &   &        &   &    &        &    &                   &        & R\paren{\theta_k}
+        \end{pmatrix}\] ou \[\Mat{f}=\begin{pmatrix}
+            1 &    &        &   &    &        &    &                   &        &       \\
+              & -1 &&&&&&&& \\
+              &    & 1 &        &   &    &        &    &                   &        &  \\
+              &&   & \ddots &   &    &        &    &                   &        &  \\
+              &&   &        & 1 &    &        &    &                   &        &  \\
+              &&   &        &   & -1 &        &    &                   &        &  \\
+              &&   &        &   &    & \ddots &    &                   &        &  \\
+              &&   &        &   &    &        & -1 &                   &        &  \\
+              &&   &        &   &    &        &    & R\paren{\theta_1} &        &  \\
+              &&   &        &   &    &        &    &                   & \ddots &  \\
+              &&   &        &   &    &        &    &                   &        & R\paren{\theta_k}
+        \end{pmatrix}\] Dans les deux cas, \(\P{n}\) est vraie.
+    \end{itemize}
+\end{itemize}
+\end{dem}
+
+\subsection{Réduction des matrices orthogonales}
+
+\begin{defi}
+Soient \(A,B\) deux matrices de \(\M{n}[\R]\).
+
+On dit que \(A\) et \(B\) sont orthogonalement semblables (ou orthosemblables) quand il existe \(P\in\Orth{n}[\R]\) telle que \(B=P\inv AP=\trans{P}AP\).
+\end{defi}
+
+Deux matrices sont orthosemblables quand elles représentent le même endomorphisme dans des bases orthonormées différentes.
+
+Le théorème de réduction précédent a une traduction matricielle.
+
+\begin{theo}
+Toute matrice orthogonale est orthosemblable à une matrice diagonale par blocs du type ci-dessus.
+
+Pour tout \(A\in\Orth{n}[\R]\), il existe \(P\in\Orth{n}[\R]\) et \(D\) diagonale par blocs comme ci-dessus telles que \(A=\trans{P}DP\).
+\end{theo}
+
+\subsection{Étude en dimension 3}
+
+À l'aide de ce résultat, on peut classifier les isométries vectorielles de \(E\) en dimension \(3\). Seule la réduction des rotations est au programme.
+
+Dans la suite de cette section, \(E\) est un espace euclidien de dimension \(3\) et orienté.
+
+\begin{prop}
+Soit \(f\in\Orth{}[E]\). On pose \(F=\ker\paren{f-\id{E}}\). Alors
+
+\begin{itemize}
+    \item si \(\dim F=3\), alors \(f=\id{E}\) \\
+    \item si \(\dim F=2\), alors \(f\) est la réflexion par rapport à \(F\) \\
+    \item si \(\dim F=1\), alors \(f\) est une rotation d'axe \(F\) \\
+    \item si \(\dim F=0\), alors \(f\) est une antirotation, \cad la composée d'une rotation et d'une réflexion dont l'axe et le plan de base respectifs sont orthogonaux.
+\end{itemize}
+\end{prop}
+
+\begin{dem}
+Si \(\dim F=1\), d'après le \thref{theo9.1}, il existe une base orthonormée \(\fami{B}\) telle que \[\Mat{f}=\begin{pmatrix}
+1 & 0 \\
+0 & ?
+\end{pmatrix}\] où le bloc \(?\) est \(\begin{pmatrix}
+-1 & 0 \\
+0 & -1
+\end{pmatrix}=R\paren{\pi}\) ou \(\begin{pmatrix}
+\cos\theta & -\sin\theta \\
+\sin\theta & \cos\theta
+\end{pmatrix}=R\paren{\theta}\).
+
+On pose \(\fami{B}=\paren{e_1,e_2,e_3}\).
+
+On a \(f\paren{e_1}=e_1\).
+
+Dans le plan \(F\ortho\), stable par \(f\), l'endomorphisme induit par \(f\) est une rotation \guillemets{d'angle \(\theta\)} (ou \(-\theta\) selon l'orientation choisie de \(F\ortho\)).
+
+On choisit l'orientation de \(F\ortho\) de sorte que \(\fami{B}\) soit directe.
+
+Ce qui caractérise \(f\), c'est le couple \(\paren{e_1,\theta}\) : \(e_1\) dirige \(F\) et \(\theta\) est l'angle associé.
+
+Pour déterminer \(e_1\), on résout \(f\paren{e_1}=e_1\) et on choisit une solution de norme \(1\).
+
+Pour déterminer l'angle \(\theta\) associé, on choisit un vecteur \(v\not=0\) orthogonal à \(e_1\) puis on calcule \(f\paren{v}\) et \(e_1\vecto v\).
+
+Comme \(\norme{e_1}=1\), on a \(\norme{e_1\vecto v}=\norme{v}=\norme{f\paren{v}}\).
+
+Alors \(f\paren{v}=\cos\paren{\theta}v+\sin\paren{\theta}\paren{e_1\vecto v}\).
+
+On en déduit \(\cos\theta\) et \(\sin\theta\) et enfin \(\theta\) (modulo \(2\pi\)).
+\end{dem}
+
+En étudiant les différents cas, on constate un lien entre le type de \(f\) et son déterminant.
+
+\begin{prop}
+Soit \(f\in\Orth{}[E]\) telle que \(f\not=\id{E}\).
+
+\(f\) est une rotation ssi \(\det f=1\).
+\end{prop}
+
+Dans le cas où \(\det f=-1\), cette information ne suffit pas à connaître le type de \(f\). Cependant, si on connaît la matrice \(A\) de \(f\) dans une base orthonormée, alors on peut distinguer les cas 1 et 3.
+
+\begin{prop}
+Soient \(f\in\Lendo{E}\) et \(A\) la matrice de \(f\) dans une base orthonormée.
+
+Si \(A\) est une matrice orthogonale et symétrique, alors \(f\) est une symétrie orthogonale.
+
+\begin{itemize}
+    \item Si \(\det f=1\), alors \(A\) est un demi-tour (une rotation d'angle \(\pi\)). \\
+    \item Si \(\det f=-1\), alors \(A\) est une réflexion.
+\end{itemize}
+\end{prop}
+
+Donc, si \(A\) est orthogonale de déterminant \(-1\) et non-symétrique, alors \(f\) est une antirotation.
+
+\begin{exo}
+Reconnaissez la nature de l'endomorphisme dont la matrice dans une base orthonormée \(\fami{B}\) est \(\dfrac{1}{15}\begin{pmatrix}
+-11 & 10 & 2 \\
+-2 & -5 & 14 \\
+10 & 10 & 5
+\end{pmatrix}\) et précisez ses éléments caractéristiques.
+\end{exo}
+
+\begin{corr}
+On note \(A\) la matrice donnée et \(C_1,C_2,C_3\) ses colonnes.
+
+On a \[\norme{C_1}^2=\dfrac{1}{15^2}\paren{\paren{-11}^2+\paren{-2}^2+10^2}=1=\norme{C_2}^2=\norme{C_3}^2\] et \[\ps{C_1}{C_2}=\ps{C_1}{C_3}=\ps{C_2}{C_3}=0\] donc \(A\in\Orth{3}[\R]\).
+
+Or \(\fami{B}\) est orthonormée donc \(f\in\Orth{}[E]\).
+
+On note \(u\tcoords{x}{y}{z}_{\fami{B}}\in E\) et on a \[\begin{aligned}
+f\paren{u}=u&\ssi\begin{dcases}
+-11x+10y+2z=15x \\
+-2x-5y+14z=15y \\
+10x+10y+5z=15z
+\end{dcases} \\
+&\ssi\begin{dcases}
+-13x+5y+z=0 \\
+-x-10y+7z=0 \\
+x+y-z=0
+\end{dcases} \\
+&\ssi\begin{dcases}
+x+y-z=0 \\
+-9y+6z=0 \\
+18y-12z=0
+\end{dcases} \\
+&\ssi\begin{dcases}
+x=\dfrac{1}{3}z \\
+y=\dfrac{2}{3}z
+\end{dcases}
+\end{aligned}\]
+
+Donc \(\ker\paren{f-\id{E}}\) est la droite vectorielle dirigée par \(e_1\tcoords{\nicefrac{1}{\sqrt{14}}}{\nicefrac{2}{\sqrt{14}}}{\nicefrac{3}{\sqrt{14}}}_{\fami{B}}\) de norme \(1\), donc \(f\) est une rotation.
+
+On pose \(v\tcoords{-2}{1}{0}_{\fami{B}}\) de sorte que \(v\perp e_1\).
+
+On a \(f\paren{v}\tcoords{\nicefrac{32}{15}}{\nicefrac{-1}{15}}{\nicefrac{-10}{15}}\) et \(e_1\vecto v\tcoords{\nicefrac{-3}{\sqrt{14}}}{\nicefrac{-6}{\sqrt{14}}}{\nicefrac{5}{\sqrt{14}}}_{\fami{B}}\).
+
+Alors \[\begin{aligned}
+f\paren{v}=\cos\paren{\theta}v+\sin\paren{\theta}\paren{e_1\vecto v}&\ssi\begin{dcases}
+-2\cos\theta-\dfrac{3}{\sqrt{14}}\sin\theta=\dfrac{32}{15} \\
+\cos\theta-\dfrac{6}{\sqrt{14}}\sin\theta=\dfrac{-1}{15} \\
+\dfrac{5}{\sqrt{14}}\sin\theta=\dfrac{-10}{15}
+\end{dcases} \\
+&\ssi\begin{dcases}
+\sin\theta=\dfrac{-2\sqrt{14}}{15} \\
+\cos\theta=\dfrac{-1}{15}+\dfrac{6}{\sqrt{14}}\sin\theta=\dfrac{-13}{15}
+\end{dcases}
+\end{aligned}\]
+
+Enfin, on obtient \[\theta\equiv\pi+\Arctan\dfrac{2\sqrt{14}}{15}\croch{2\pi}.\]
+\end{corr}
+
+\begin{exo}
+Même exercice avec la matrice \(\dfrac{1}{7}\begin{pmatrix}
+6 & -2 & -3 \\
+3 & 6 & 2 \\
+2 & -3 & 6
+\end{pmatrix}\).
+\end{exo}
+
+\begin{corr}
+On note \(A\) la matrice donnée et on vérifie aisément que \(A\) est orthogonale.
+
+On a \(\det A=1\) donc \(f\) est une rotation.
+
+On pose \(u\tcoords{x}{y}{z}_{\fami{B}}\) et on a \[\begin{aligned}
+f\paren{u}=u&\ssi\begin{dcases}
+6x-2y-3z=7x \\
+3x+6y+2z=7y \\
+2x-3y+6z=7z
+\end{dcases} \\
+&\ssi\begin{dcases}
+-x-2y-3z=0 \\
+3x-y+2z=0 \\
+2x-3y-z=0
+\end{dcases} \\
+&\ssi\begin{dcases}
+x+2y+3z=0 \\
+-7y-7z=0 \\
+-7y-7z=0
+\end{dcases} \\
+&\ssi\begin{dcases}
+y=-z \\
+x=y
+\end{dcases}
+\end{aligned}\]
+
+Donc \(\ker\paren{f-\id{E}}=\Vect{\tcoords{1}{1}{-1}}=\Vect{\tcoords{\nicefrac{1}{\sqrt{3}}}{\nicefrac{1}{\sqrt{3}}}{\nicefrac{-1}{\sqrt{3}}}_{\fami{B}}}=\Vect{e_1}\).
+
+On pose \(v\tcoords{0}{1}{1}_{\fami{B}}\perp e_1\) et on a \[f\paren{v}\tcoords{\nicefrac{-5}{7}}{\nicefrac{8}{7}}{\nicefrac{3}{7}}_{\fami{B}}\qquad\text{et}\qquad e_1\vecto v\tcoords{\nicefrac{2}{\sqrt{3}}}{\nicefrac{-1}{\sqrt{3}}}{\nicefrac{1}{\sqrt{3}}}_{\fami{B}}.\]
+
+Alors \[\begin{aligned}
+f\paren{v}=\cos\paren{\theta}v+\sin\paren{\theta}\paren{e_1\vecto v}&\ssi\begin{dcases}
+\dfrac{2}{\sqrt{3}}\sin\theta=\dfrac{-5}{7} \\
+\cos\theta-\dfrac{1}{\sqrt{3}}\sin\theta=\dfrac{8}{7} \\
+\cos\theta+\dfrac{1}{\sqrt{3}}\sin\theta=\dfrac{3}{7}
+\end{dcases} \\
+&\ssi\begin{dcases}
+\sin\theta=\dfrac{-5\sqrt{3}}{14} \\
+\cos\theta=\dfrac{8}{7}+\dfrac{1}{\sqrt{3}}\paren{\dfrac{-5\sqrt{3}}{14}}=\dfrac{8}{7}-\dfrac{5}{14}=\dfrac{11}{14}
+\end{dcases}
+\end{aligned}\]
+
+Donc \(f\) est la rotation d'axe orienté par \(e_1\) et d'angle associé \(\theta=\Arctan\dfrac{-5\sqrt{3}}{11}\).
+\end{corr}
+
+\begin{exo}
+Même exercice avec la matrice \(\dfrac{1}{7}\begin{pmatrix}
+6 & -3 & -2 \\
+3 & 2 & 6 \\
+2 & 6 & -3
+\end{pmatrix}\).
+\end{exo}
+
+\begin{corr}
+On note \(A\) la matrice donnée. Comme ses colonnes sont de norme 1 et leurs produits scalaires deux à deux tous nuls, \(A\) est orthogonale et donc \(f\) est une isométrie vectorielle.
+
+On a \(\det A=-1\) donc \(f\) est une antirotation.
+\end{corr}
+
+\begin{exo}
+Soit \(\fami{B}=\paren{i,j,k}\) une base orthonormée directe de \(E\) de dimension \(3\).
+
+Déterminez la matrice dans la base \(\fami{B}\) de la rotation d'axe orienté par \(i+j+k\) et d'angle \(\dfrac{\pi}{3}\).
+\end{exo}
+
+\begin{corr}
+\(f\) est la rotation d'axe orienté par \(i+j+k\) et d'angle \(\dfrac{\pi}{3}\) donc il existe une base orthonormée \(\fami{B}\prim=\paren{e_1,e_2,e_3}\) telle que \[A\prim=\Mat[\fami{B}\prim]{f}=\begin{pmatrix}
+1 & 0 & 0 \\
+0 & \cos\nicefrac{\pi}{3} & -\sin\nicefrac{\pi}{3} \\
+0 & \sin\nicefrac{\pi}{3} & \cos\nicefrac{\pi}{3}
+\end{pmatrix}=\begin{pmatrix}
+1 & 0 & 0 \\
+0 & \nicefrac{1}{2} & -\nicefrac{\sqrt{3}}{2} \\
+0 & \nicefrac{\sqrt{3}}{2} & \nicefrac{1}{2}
+\end{pmatrix}.\]
+
+En notant \(P=\pass{\fami{B}}{\fami{B}\prim}\), on a \(A\prim=P\inv AP\) donc \[A=PA\prim P\inv=PA\prim\trans{P}.\]
+
+On a \(e_1=\dfrac{i+j+k}{\sqrt{3}}\tcoords{\nicefrac{1}{\sqrt{3}}}{\nicefrac{1}{\sqrt{3}}}{\nicefrac{1}{\sqrt{3}}}\) donc \(P=\begin{pmatrix}
+\nicefrac{1}{\sqrt{3}} & ? & ? \\
+\nicefrac{1}{\sqrt{3}} & ? & ? \\
+\nicefrac{1}{\sqrt{3}} & ? & ?
+\end{pmatrix}\).
+
+On a \(e_2\perp e_1\) et \(\norme{e_2}=1\), par exemple \(e_2\tcoords{\nicefrac{1}{\sqrt{2}}}{\nicefrac{-1}{\sqrt{2}}}{0}\), donc \(P=\begin{pmatrix}
+\nicefrac{1}{\sqrt{3}} & \nicefrac{1}{\sqrt{2}} & ? \\
+\nicefrac{1}{\sqrt{3}} & \nicefrac{-1}{\sqrt{2}} & ? \\
+\nicefrac{1}{\sqrt{3}} & 0 & ?
+\end{pmatrix}\).
+
+Puis \(e_3=e_1\vecto e_2\tcoords{\nicefrac{1}{\sqrt{6}}}{\nicefrac{1}{\sqrt{6}}}{\nicefrac{-2}{\sqrt{6}}}\) donc \(P=\begin{pmatrix}
+\nicefrac{1}{\sqrt{3}} & \nicefrac{1}{\sqrt{2}} & \nicefrac{1}{\sqrt{6}} \\
+\nicefrac{1}{\sqrt{3}} & \nicefrac{-1}{\sqrt{2}} & \nicefrac{1}{\sqrt{6}} \\
+\nicefrac{1}{\sqrt{3}} & 0 & \nicefrac{-2}{\sqrt{6}}
+\end{pmatrix}\).
+
+On en déduit \(A\).
+\end{corr}
+
+\section{Endomorphismes auto-adjoints}
+
+\subsection{Définition et propriétés}
+
+\begin{defi}
+On dit qu'un endomorphisme \(f\) de \(E\) est auto-adjoint quand \(f\adj=f\), autrement dit quand \[\quantifs{\forall\paren{x,y}\in E^2}\ps{f\paren{x}}{y}=\ps{x}{f\paren{y}}.\]
+\end{defi}
+
+On rencontre encore très souvent le mot \guillemets{symétrique} pour \guillemets{auto-adjoint}.
+
+\begin{ex}
+\begin{itemize}
+    \item Les projecteurs orthogonaux sont des endomorphismes auto-adjoints (mais pas des endomorphismes orthogonaux !). \\
+    \item Les symétries orthogonales sont aussi des endomorphismes auto-adjoints.
+\end{itemize}
+\end{ex}
+
+\begin{dem}
+Soit \(s\) une symétrie orthogonale. On lui associe un projecteur \(p\) tel que \(s=2p-\id{E}\).
+
+\(p\) est un projecteur orthogonal donc auto-adjoint.
+
+Pour tout \(\paren{x,y}\in E^2\), on a \[\begin{aligned}
+\ps{s\paren{x}}{y}&=\ps{2p\paren{x}-x}{y} \\
+&=2\ps{p\paren{x}}{y}-\ps{x}{y} \\
+&=2\ps{x}{p\paren{y}}-\ps{x}{y} \\
+&=\ps{x}{2p\paren{y}-y} \\
+&=\ps{x}{s\paren{y}}.
+\end{aligned}\]
+
+Donc \(s\) est auto-adjoint.
+\end{dem}
+
+\begin{prop}
+Soient \(\fami{B}\) une base orthonormée de \(E\) et \(f\in\Lendo{E}\).
+
+\(f\) est un endomorphisme auto-adjoint ssi sa matrice dans la base \(\fami{B}\) est symétrique.
+\end{prop}
+
+\begin{cor}
+L'ensemble des endomorphismes auto-adjoints est un sous-espace vectoriel de \(\Lendo{E}\), de dimension \(\dfrac{n\paren{n+1}}{2}\).
+\end{cor}
+
+Il est noté \(\sym{}[E]\).
+
+\subsection{Théorème spectral}
+
+Il y a essentiellement un seul résultat à connaître sur les endomorphismes auto-adjoints ! On commence par deux lemmes.
+
+\begin{lem}\thlabel{lem9.1}
+Le polynôme caractéristique d'un endomorphisme auto-adjoint est scindé sur \(\R\).
+\end{lem}
+
+\begin{dem}
+Soient \(f\in\sym{}[E]\) et \(\fami{B}\) une base orthonormée de \(E\).
+
+Comme \(f\) est auto-adjoint, on a \(A=\Mat{f}\in\sym{n}[\R]\).
+
+\(\chi_A\) est scindé sur \(\C\) donc pour montrer que \(\chi_A\) est scindé sur \(\R\), on montre que toutes les valeurs propres complexes de \(A\) sont en fait réelles.
+
+Soient \(\lambda\in\Sp[\C]{A}\) et \(Z\) un vecteur propre associé.
+
+Comme \(\trans{A}=A\), on a \(\trans{\paren{AZ}}=\trans{Z}\trans{A}=\trans{Z}A=\trans{\paren{\lambda Z}}=\lambda\trans{Z}\).
+
+Alors \[\begin{aligned}
+\trans{\conj{Z}}AZ&=\paren{\trans{\conj{Z}}A}Z \\
+&=\conj{\trans{Z}A}Z \\
+&=\conj{\lambda\trans{Z}}Z \\
+&=\conj{\lambda}\times\conj{\trans{Z}}Z
+\end{aligned}\] et \(\trans{\conj{Z}}AZ=\trans{\conj{Z}}\paren{AZ}=\lambda\trans{\conj{Z}}Z\) donc \[\lambda\trans{\conj{Z}}Z=\conj{\lambda}\times\trans{\conj{Z}}Z.\]
+
+Or, avec \(Z=\tcoords{z_1}{\vdots}{z_n}\), on a \(\conj{\trans{Z}}Z=\sum_{i=1}^nz_i\conj{z_i}=\sum_{i=1}^n\abs{z_i}^2>0\).
+
+Donc \(\trans{\conj{Z}}Z\not=0\) donc \(\lambda=\conj{\lambda}\) donc \(\lambda\in\R\).
+\end{dem}
+
+\begin{lem}\thlabel{lem9.2}
+Si un sous-espace vectoriel \(F\) est stable par un endomorphisme auto-adjoint, alors \(F\ortho\) l'est aussi.
+\end{lem}
+
+\begin{theo}\thlabel{theo9.3}
+Les sous-espaces propres d'un endomorphisme auto-adjoint sont deux à deux orthogonaux et leur somme directe est \(E\).
+
+Autrement dit, tout endomorphisme auto-adjoint est diagonalisable en base orthonormée, \cad qu'il existe une base orthonormée de vecteurs propres.
+\end{theo}
+
+\begin{dem}
+On pose \(\P{n}\) : l'énoncé du \thref{theo9.3} avec \(\dim E=n\).
+
+\begin{itemize}
+    \item \(n=1\) \\\\ On a \(\P{1}\) car tout endomorphisme est auto-adjoint et tout vecteur non-nul est propre. \\
+    \item Supposons \(\P{n-1}\) et soit \(f\in\sym{}[E]\) où \(\dim E=n\). \\\\ D'après le \thref{lem9.1}, \(f\) possède au moins une valeur propre \(\lambda\) et un vecteur propre associé \(u\). \\\\ \(D=\Vect{u}\) est stable par \(f\) (c'est une droite propre) donc d'après le \thref{lem9.2}, \(D\ortho\) est stable par \(f\). \\\\ Or \(\dim D\ortho=n-1\) donc par hypothèse de récurrence, l'endomorphisme induit par \(f\) dans \(D\ortho\) est auto-adjoint et on peut donc trouver dans \(D\ortho\) une base orthonormée de vecteurs propres pour cet endomorphisme : \(\paren{e_2,\dots,e_n}\). \\\\ \(\fami{B}=\paren{\dfrac{u}{\norme{u}},e_2,\dots,e_n}\) est alors une base orthonormée de \(E\) dont tous les vecteurs sont propres pour \(f\). \\\\ Donc \(\P{n}\) est vraie.
+\end{itemize}
+\end{dem}
+
+On dit que les endomorphismes auto-adjoints sont orthodiagonalisables.
+
+\begin{rem}
+La réciproque est vraie et presque évidente : si un endomorphisme est orthodiagonalisable, alors il est auto-adjoint.
+\end{rem}
+
+\begin{exo}[Un grand classique à savoir refaire]
+Soit \(u\) un endomorphisme auto-adjoint de \(E\), \(B\) la boule-unité fermée de \(E\) et \(S\) la sphère-unité de \(E\).
+
+On pose \(\alpha\) la plus petite des valeurs propres de \(u\) et \(\beta\) la plus grande.
+
+Montrez que \(\inf_{x\in S}\ps{x}{u\paren{x}}=\alpha\) et \(\sup_{x\in B}\ps{x}{u\paren{x}}=\sup_{x\in S}\ps{x}{u\paren{x}}=\beta\).
+\end{exo}
+
+\begin{corr}
+\(u\) est auto-adjoint donc orthodiagonalisable : il existe une base orthonormée \(\fami{B}=\paren{e_1,\dots,e_n}\) de \(E\) telle que \(\Mat{u}\) soit diagonale.
+
+On pose \(D=\Mat{u}=\diag{\lambda_1,\dots,\lambda_n}\).
+
+On peut choisir d'ordonner les valeurs propres par ordre croissant : \[\alpha=\lambda_1\leq\dots\leq\lambda_n=\beta.\]
+
+Soit \(x\in E\) de coordonnées \(X=\tcoords{x_1}{\vdots}{x_n}_{\fami{B}}\).
+
+On a \(\ps{x}{u\paren{x}}=\trans{X}DX=\sum_{i=1}^n\lambda_ix_i^2\).
+
+Si \(x\in B\), alors \(\norme{x}\leq1\).
+
+Pour tout \(i\in\interventierii{1}{n}\), on a \(\lambda_i\leq\beta\) donc \(\lambda_ix_i^2\leq\beta x_i^2\), et donc \[\begin{aligned}
+\ps{x}{u\paren{x}}&=\sum_{i=1}^n\lambda_ix_i^2 \\
+&\leq\sum_{i=1}^n\beta x_i^2 \\
+&=\beta\norme{x}^2 \\
+&\leq\beta.
+\end{aligned}\]
+
+On a montré \(\quantifs{\forall x\in B}\ps{x}{u\paren{x}}\leq\beta\).
+
+Pour \(x=e_n\), on a \(u\paren{e_n}=\lambda_ne_n=\beta e_n\) donc \[\ps{e_n}{u\paren{e_n}}=\ps{e_n}{\beta e_n}=\beta\norme{e_n}^2=\beta.\] Ceci prouve \(\max_{x\in B}\ps{x}{u\paren{x}}=\beta\).
+
+Si on remplace \(B\) par \(S\), idem.
+
+De même, soit \(x\in S\).
+
+Pour tout \(i\in\interventierii{1}{n}\), on a \(\lambda_i\geq\alpha\) donc \(\lambda_ix_i^2\geq\alpha x_i^2\).
+
+Donc \[\ps{x}{u\paren{x}}=\sum_{i=1}^n\lambda_ix_i^2\geq\alpha\sum_{i=1}^nx_i^2=\alpha\norme{x}^2=\alpha.\]
+
+On a montré \(\quantifs{\forall x\in S}\ps{x}{u\paren{x}}\geq\alpha\), avec égalité en \(x=e_1\).
+
+Donc \(\alpha=\min_{x\in S}\ps{x}{u\paren{x}}\).
+\end{corr}
+
+\begin{exo}[Un prolongement de l'exercice précédent]
+Montrez que l'application \(N:\sym{}[E]\to\Rp\) définie par \(N\paren{u}=\sup_{x\in B}\abs{\ps{x}{u\paren{x}}}\) est une norme sur \(\sym{}[E]\).
+\end{exo}
+
+Le théorème précédent a une version matricielle.
+
+\begin{theo}
+Une matrice réelle est orthosemblable à une matrice diagonale ssi elle est symétrique.
+\end{theo}
+
+On dit que les matrices symétriques réelles sont orthodiagonalisables.
+
+\begin{exo}
+Orthodiagonalisez la matrice suivante : \[A=\begin{pmatrix}
+0 & 1 & -1 \\
+1 & 0 & -1 \\
+-1 & -1 & 0
+\end{pmatrix}.\]
+\end{exo}
+
+\begin{rem}
+La condition \guillemets{réelle} est indispensable dans le théorème spectral !
+\end{rem}
+
+\section{Endomorphismes auto-adjoints positifs, définis-positifs}
+
+\subsection{Endomorphismes auto-adjoints positifs}
+
+\begin{defi}
+Soit \(f\in\sym{}[E]\).
+
+On dit que \(f\) est un endomorphisme auto-adjoint positif quand \(\quantifs{\tpt x\in E}\ps{f\paren{x}}{x}\geq0\).
+
+On dit que \(f\) est un endomorphisme auto-adjoint défini-positif quand \(\quantifs{\tpt x\in E\excluant\accol{0}}\ps{f\paren{x}}{x}>0\).
+\end{defi}
+
+On note \(\sympos{}[E]\) l'ensemble des endomorphismes auto-adjoints positifs et \(\symdefpos{}[E]\) celui des endomorphismes auto-adjoints définis positifs. Attention, ces deux ensembles ne sont pas des espaces vectoriels et ne sont pas stables par composition.
+
+Ces endomorphismes sont couramment présents dans les théories physiques et sont l'objet de propriétés spécifiques.
+
+\begin{rem}
+Si \(f\in\symdefpos{}[E]\), \(\paren{x,y}\mapsto\ps{x}{f\paren{y}}\) est aussi un produit scalaire.
+\end{rem}
+
+On donne par exemple une caractérisation simple à l'aide de valeurs propres.
+
+\begin{prop}
+Soit \(f\in\sym{}[E]\).
+
+On a \(f\in\sympos{}[E]\) ssi les valeurs propres de \(f\) sont positives.
+
+De même, \(f\in\symdefpos{}[E]\) ssi les valeurs propres de \(f\) sont strictement positives.
+\end{prop}
+
+\begin{dem}
+Supposons \(f\in\sympos{}[E]\).
+
+Soient \(\lambda\in\Sp{f}\) et \(x\) un vecteur propre associé.
+
+Alors \(\ps{x}{f\paren{x}}=\ps{x}{\lambda x}=\lambda\norme{x}^2\geq0\).
+
+Or \(\norme{x}^2>0\) donc \(\lambda\geq0\).
+
+Réciproquement, si \(f\in\sym{}[E]\) et \(\Sp{f}\subset\intervie{0}{\pinf}\), on choisit une base \(\fami{B}\) orthonormée de diagonalisation de \(f\) telle que \[\Mat{f}=\diag{\lambda_1,\dots,\lambda_n}.\]
+
+Avec \(x\tcoords{x_1}{\vdots}{x_n}_{\fami{B}}\), on a \(\ps{x}{f\paren{x}}=\sum_{i=1}^n\lambda_ix_i^2\geq0\).
+
+Idem pour \(\symdefpos{}[E]\) en mettant des inégalités strictes.
+\end{dem}
+
+En particulier, \(\symdefpos{}[E]=\sympos{}[E]\inter\GL{}[E]\).
+
+\subsection{Matrices symétriques positives}
+
+\begin{defi}
+Soit \(A\in\sym{n}[\R]\).
+
+On dit que \(A\) est une matrice symétrique positive quand \(\quantifs{\tpt X\in\R^n}\trans{X}AX\geq0\).
+
+On dit que \(A\) est une matrice symétrique définie-positive quand \(\quantifs{\tpt X\in\R^n\excluant\accol{0}}\trans{X}AX>0\).
+\end{defi}
+
+Les matrices symétriques positives (respectivement définies-positives) sont donc les matrices dans des bases orthonormées des endomorphismes auto-adjoints positifs (respectivement définis-positifs).
+
+On note \(\sympos{n}[\R]\) l'ensemble des matrices symétriques positives et \(\symdefpos{n}[\R]\) celui des matrices symétriques définies-positives. Attention, ces deux ensembles ne sont pas des espaces vectoriels et ne sont pas stables par produit.
+
+\begin{prop}
+Soit \(A\in\sym{n}[\R]\).
+
+On a \(A\in\sympos{n}[\R]\) ssi les valeurs propres de \(A\) sont positives.
+
+De même, \(A\in\symdefpos{n}[\R]\) ssi les valeurs propres de \(A\) sont strictement positives.
+\end{prop}
