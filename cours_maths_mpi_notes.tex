@@ -187,8 +187,17 @@ per-mode=power-positive-first
 % Command to print the imaginary i with a little space on the right. This way, the exponents don't look confusing. \i normally prints a dotless i.
 \renewcommand{\i}{i\mkern1mu}
 
-% Redefines \vec such that the arrow covers the whole name of the vector.
-%\renewcommand{\vec}[1]{\overrightarrow{#1}}
+\ExplSyntaxOn
+\RenewDocumentCommand{\v}{m}{
+    \int_compare:nTF { \tl_count:n { #1 } > 1 }
+    {
+        \overrightarrow{#1}
+    }
+    {
+        \vec{#1}
+    }
+}
+\ExplSyntaxOff
 
 % Commands for 2D and 3D vectors' coordinates
 \newcommand{\dcoords}[2]{\begin{pmatrix}#1\\#2\end{pmatrix}}
