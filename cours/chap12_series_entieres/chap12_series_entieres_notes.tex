@@ -2,4 +2,814 @@
 
 \minitoc
 
-\note{À venir}
+Dans ce chapitre, on s'intéresse aux séries de fonctions de la forme \(x\mapsto a_nx^n\), qu'on appelle des séries entières.
+
+Par abus de notations, on les note sous la forme \(\sum_{n\geq0}a_nx^n\).
+
+Lorsque la variable est complexe, on la note systématiquement \(z\) et on parle des séries \(\sum_{n\geq0}a_nz^n\).
+
+\section{Convergence simple d'une série entière}
+
+\subsection{Rayon de convergence}
+
+On commence par le lemme d'Abel.
+
+\begin{prop}\thlabel{prop12.1}
+Soient \(\paren{a_n}\) une suite de complexes et \(z_0\) un complexe.
+
+Si la suite \(\paren{a_nz_0^n}\) est bornée, alors pour \(z\in\C\) tel que \(\abs{z}<\abs{z_0}\), la série numérique \(\sum_{n\geq0}a_nz^n\) converge absolument.
+\end{prop}
+
+\begin{dem}
+On suppose que \(\paren{a_nz_0^n}_n\) est bornée et on se donne \(z\in\C\) tel que \(\abs{z}<\abs{z_0}\).
+
+On a \(a_nz^n=a_nz_0^n\paren{\dfrac{z}{z_0}}^n\) et il existe \(M>0\) tel que \[\quantifs{\forall n\in\N}\abs{a_nz_0^n}\leq M\] donc \[\quantifs{\forall n\in\N}\abs{a_nz_n}\leq M\abs{\dfrac{z}{z_0}}^n.\]
+
+Or \(\abs{\dfrac{z}{z_0}}<1\) donc \(\sum\abs{\dfrac{z}{z_0}}^n\) converge.
+
+Donc, par théorème de comparaison des séries à termes positifs, \(\sum a_nz^n\) converge absolument.
+\end{dem}
+
+\begin{defi}
+Soit \(\paren{a_n}\) une suite de complexes. On pose \(M=\accol{r\in\Rp\tq\text{la suite }\paren{a_nr^n}\text{ est bornée}}\).
+
+\(M\) est une partie non-vide de \(\R\) car elle contient \(0\).
+
+Si elle est majorée, on appelle rayon de convergence de la série entière \(\sum_{n\geq0}a_nz^n\) le réel \(R=\sup M\).
+
+Sinon, on pose \(R=\pinf\).
+\end{defi}
+
+On peut préciser la convergence simple d'une série entière.
+
+\begin{prop}\thlabel{prop12.2}
+Soit \(\paren{a_n}\) une suite de complexes. On pose \(R\) le rayon de convergence de la série entière \(\sum_{n\geq0}a_nz^n\).
+
+Pour tout \(z\in\C\),
+
+\begin{itemize}
+    \item si \(\abs{z}<R\), alors la série numérique \(\sum_{n\geq0}a_nz^n\) converge absolument \\
+    \item si \(\abs{z}>R\), alors la série numérique \(\sum_{n\geq0}a_nz^n\) diverge grossièrement \\
+    \item si \(\abs{z}=R\), alors on ne peut rien dire \textit{a priori}.
+\end{itemize}
+\end{prop}
+
+\begin{dem}
+Supposons \(R\in\Rp\).
+
+\begin{itemize}
+    \item Si \(\abs{z}<R\), par définition de \(R\), \(\abs{z}\) n'est pas un majorant de \(\accol{r\geq0\tq\paren{a_nr^n}\text{ bornée}}\). \\\\ Donc il existe \(r\geq0\) tel que \(\paren{a_nr^n}\) est bornée et \(\abs{z}<r\). \\\\ Donc, d'après la \thref{prop12.1}, \(\sum a_nz^n\) converge (absolument). \\\\ Idem si \(R=\pinf\). \\
+    \item Si \(\abs{z}>R\) alors \(\paren{a_nz^n}\) n'est pas bornée et ne converge donc pas vers \(0\), donc \(\sum a_nz^n\) diverge grossièrement.
+\end{itemize}
+\end{dem}
+
+\begin{defi}
+Soit \(\paren{a_n}\) une suite de complexes. On pose \(R\) le rayon de convergence de la série entière \(\sum_{n\geq0}a_nz^n\).
+
+Si \(R>0\), on appelle disque ouvert de convergence l'ensemble \(\disqueo{0}{R}\subset\C\) et intervalle ouvert de convergence l'ensemble \(\intervee{-R}{R}\subset\R\).
+\end{defi}
+
+\begin{ex}
+\begin{itemize}
+    \item Le rayon de convergence de la série entière \(\sum_{n\geq0}z^n\) est égal à \(1\) et \(\quantifs{\tpt z\in\disqueo{0}{1}}\sum_{n=0}^{\pinf}z^n=\dfrac{1}{1-q}\). \\
+    \item Le rayon de convergence de la série entière \(\sum_{n\geq0}\dfrac{z^n}{n!}\) est égal à \(\pinf\) et \(\quantifs{\tpt z\in\C}\sum_{n=0}^{\pinf}\dfrac{z^n}{n!}=\e{z}\).
+\end{itemize}
+\end{ex}
+
+\subsection{Détermination du rayon de convergence}
+
+La réciproque de la \thref{prop12.2} est vraie.
+
+\begin{prop}\thlabel{prop12.3}
+Soient \(\paren{a_n}\) une suite de complexes et \(R\) un réel strictement positif.
+
+Si
+
+\begin{itemize}
+    \item \(\quantifs{\tpt z\in\C\text{ tel que }\abs{z}<R}\text{la série numérique }\sum_{n\geq0}a_nz^n\) converge \\
+    \item \(\quantifs{\tpt z\in\C\text{ tel que }\abs{z}>R}\text{la série numérique }\sum_{n\geq0}a_nz^n\) diverge
+\end{itemize}
+
+alors \(R\) est le rayon de convergence de la série entière \(\sum_{n\geq0}a_nz^n\).
+\end{prop}
+
+\begin{dem}~\\
+Soit \(R>0\) tel que \(\begin{dcases}
+\sum a_nz^n\text{ converge} &\text{si }\abs{z}<R \\
+\sum a_nz^n\text{ diverge} &\text{si }\abs{z}>R
+\end{dcases}\)
+
+On note \(R_0\) le rayon de convergence de la série entière \(\sum a_nz^n\).
+
+Si \(\abs{z}<R\), \(\sum a_nz^n\) converge donc \(a_nz^n\tendqd{n\to\pinf}0\), donc \(\paren{a_nz^n}\) est bornée, donc \(\abs{z}\in\accol{r\geq0\tq\paren{a_nz^n}\text{ bornée}}\), donc \(\abs{z}\leq R_0\), \ie \[\disqueo{0}{R}\subset\disquef{0}{R_0}\] donc \(R\leq R_0\).
+
+Réciproquement, si \(R<R_0\), alors on choisit \(z\in\C\) tel que \(R<\abs{z}<R_0\).
+
+On a \(\abs{z}<R_0\) donc d'après la \thref{prop12.2}, \(\sum a_nz^n\) converge.
+
+Or \(R<\abs{z}\) donc \(\sum a_nz^n\) diverge : contradiction.
+
+Donc \(R=R_0\).
+\end{dem}
+
+De même, on peut donner quelques résultats pratiques découlant de la définition.
+
+\begin{prop}
+Soient \(\paren{a_n}\) une suite de complexes et \(R\) un réel strictement positif.
+
+Si
+
+\begin{itemize}
+    \item \(\quantifs{\tpt z\in\C\text{ tel que }\abs{z}<R}\text{la série numérique }\sum_{n\geq0}a_nz^n\) converge \\
+    \item il existe \(z_0\in\C\) tel que \(\abs{z_0}=R\) et la série \(\sum_{n\geq0}a_nz_0^n\) diverge
+\end{itemize}
+
+alors \(R\) est le rayon de convergence de la série entière \(\sum_{n\geq0}a_nz^n\).
+\end{prop}
+
+\begin{dem}
+Soit \(R>0\) vérifiant les conditions énoncées.
+
+On note \(R_0\) le rayon de convergence de la série entière \(\sum a_nz^n\).
+
+Si \(\abs{z}<R\), \(\sum a_nz^n\) converge donc \(a_nz^n\tendqd{n\to\pinf}0\), donc \(\paren{a_nz^n}\) est bornée, donc \(\abs{z}\in\accol{r\geq0\tq\paren{a_nz^n}\text{ bornée}}\), donc \(\abs{z}\leq R_0\), \ie \[\disqueo{0}{R}\subset\disquef{0}{R_0}\] donc \(R\leq R_0\).
+
+Réciproquement, si \(R<R_0\), alors \(R=\abs{z_0}<R_0\).
+
+On a \(\abs{z_0}<R_0\) donc d'après la \thref{prop12.2}, \(\sum a_nz_0^n\) converge.
+
+Or \(R=\abs{z_0}\) donc \(\sum a_nz_0^n\) diverge : contradiction.
+
+Donc \(R=R_0\).
+\end{dem}
+
+\begin{prop}
+Soient \(\paren{a_n}\) une suite de complexes et \(R\) un réel strictement positif.
+
+Si
+
+\begin{itemize}
+    \item il existe \(z_0\in\C\) tel que \(\abs{z_0}=R\) et la série \(\sum_{n\geq0}a_nz_0^n\) converge \\
+    \item \(\quantifs{\tpt z\in\C\text{ tel que }\abs{z}>R}\text{la série numérique }\sum_{n\geq0}a_nz^n\) diverge \\
+\end{itemize}
+
+alors \(R\) est le rayon de convergence de la série entière \(\sum_{n\geq0}a_nz^n\).
+\end{prop}
+
+\begin{dem}
+Soit \(R>0\) vérifiant les conditions énoncées.
+
+On note \(R_0\) le rayon de convergence de la série entière \(\sum a_nz^n\).
+
+\(\sum a_nz_0^n\) converge donc \(a_nz_0^n\tendqd{n\to\pinf}0\), donc \(\paren{a_nz_0^n}\) est bornée, donc \[\quantifs{\forall z\in\C}\abs{z}<\abs{z_0}=R\imp\sum a_nz^n\text{ converge}.\]
+
+Donc d'après la \thref{prop12.3}, \(R=R_0\).
+\end{dem}
+
+\begin{exo}
+Donnez le rayon de convergence des séries entières suivantes : \[\sum_{n\geq0}nz^n\qquad\sum_{n\geq1}\dfrac{z^n}{n}\qquad\sum_{n\geq0}n!\,z^n\qquad\sum_{n\geq0}2^nz^{2n}\qquad\sum_{n\geq0}\cos^2\paren{n}z^n.\]
+\end{exo}
+
+\begin{corr}
+\begin{itemize}
+    \item \(\paren{a_n}=\paren{n}\) \\\\ Si \(\abs{z}>1\), on a \(\quantifs{\forall n\in\N}\abs{a_nz^n}\geq n\) donc \(\sum nz^n\) diverge grossièrement. \\\\ Si \(\abs{z}<1\), comme \(n^3\egqd{n\to\pinf}\o{\paren{\dfrac{1}{\abs{z}}}^n}\), on a \(n\abs{z}^n\egqd{n\to\pinf}\o{\dfrac{1}{n^2}}\) donc \(\sum nz^n\) converge absolument par théorème de comparaison des séries à termes positifs. \\\\ Ainsi, d'après la \thref{prop12.3}, \(R=1\). \\\\ Remarque : si \(\abs{z}=1\), de même, \(\sum nz^n\) diverge grossièrement donc \[\accol{z\in\C\tq\sum nz^n\text{ converge}}=\disqueo{0}{1}.\]
+    \item \(\paren{a_n}=\paren{\dfrac{1}{n}}\) \\\\ \(\sum\dfrac{\paren{-1}^n}{n}\) converge par critère spécial des séries alternées et \[\begin{WithArrows}
+        \quantifs{\forall z\in\C}\abs{z}>1\imp\abs{\dfrac{z^n}{n}}&=\dfrac{\abs{z}^n}{n} \Arrow{\(n\egqd{n\to\pinf}\o{\abs{z}^n}\)} \\
+        &\tendqd{n\to\pinf}\pinf
+    \end{WithArrows}\] donc \(\sum\dfrac{z^n}{n}\) diverge. \\\\ Ainsi, d'après la \thref{prop12.3}, \(R=1\). \\\\ Remarque : on peut montrer que si \(z=\e{\i\theta}\) et \(\theta\not\equiv0\croch{2\pi}\), alors \(\sum\dfrac{\e{\i n\theta}}{n}\) converge, donc \[\accol{z\in\C\tq\sum\dfrac{z^n}{n}\text{ converge}}=\disquef{0}{1}\excluant\accol{1}.\]
+    \item \(\paren{a_n}=\paren{n!}\) \\\\ \(\sum n!\,z^n\) ne converge que si \(z=0\) car \(\quantifs{\tpt a\in\Rp}a^n\egqd{n\to\pinf}\o{n!}\) donc \(\quantifs{\tpt z\in\Cs}\abs{n!\,z^n}\tendqd{n\to\pinf}\pinf\). \\\\ Donc \(R=0\). \\
+    \item On a \(\sum2^nz^{2n}=\sum a_nz^n\) où \(\begin{dcases}
+        a_n=0 &\text{si }n\text{ impair} \\
+        a_n=2^{\nicefrac{n}{2}} &\text{sinon}
+    \end{dcases}\) \\\\ On a \(2^nz^{2n}=\paren{2z^2}^n\) or \[\begin{aligned}
+        \sum\paren{2z^2}^n\text{ converge}&\ssi\abs{2z^2}<1 \\
+        &\ssi\abs{z}^2<\dfrac{1}{2} \\
+        &\ssi\abs{z}<\dfrac{1}{\sqrt{2}}.
+    \end{aligned}\] Donc \(R=\dfrac{1}{\sqrt{2}}\). \\\\ Remarque : une telle série entière (où des termes sont nuls) est dite lacunaire. \\
+    \item \(\paren{a_n}=\paren{\cos^2n}\) \\\\ \(\quantifs{\Tpt z\in\disqueo{0}{1}}\abs{\cos^2\paren{n}z^n}\leq\abs{z}^n\) donc par théorème de comparaison des séries à termes positifs, \(\sum\cos^2\paren{n}z^n\) converge (absolument). \\\\ La suite \(\paren{a_n}\) diverge donc \(\sum a_n\) diverge grossièrement et donc \(\sum a_nz^n\) diverge quand \(z=1\). \\\\ Donc \(R=1\).
+\end{itemize}
+\end{corr}
+
+\subsection{Comparaison de séries entières}
+
+\begin{prop}\thlabel{prop12.6}
+Soient \(\paren{a_n},\paren{b_n}\) deux suites de complexes.
+
+On pose \(R_a,R_b\) les rayons de convergence des séries entières \(\sum_{n\geq0}a_nz^n\) et \(\sum_{n\geq0}b_nz^n\).
+
+Si \(a_n\egqd{n\to\pinf}\O{b_n}\), alors \(R_a\geq R_b\).
+
+En particulier, si \(\abs{a_n}\leq\abs{b_n}\), alors \(R_a\geq R_b\).
+
+Si \(a_n\simqd{n\to\pinf}b_n\), alors \(R_a=R_b\).
+\end{prop}
+
+\begin{dem}
+\begin{itemize}
+    \item Si \(a_n\egqd{n\to\pinf}\O{b_n}\), il existe \(K>0\) et \(n_0\in\N\) tels que \[\quantifs{\forall n\geq n_0}\abs{a_n}\leq K\abs{b_n}.\] Donc \(\quantifs{\forall n\geq n_0;\forall z\in\C}\abs{a_nz^n}\leq K\abs{b_nz^n}\). \\\\ Si \(\abs{z}<R_b\) alors \(\sum\abs{b_nz^n}\) converge, donc par théorème de comparaison des séries à termes positifs, \(\sum\abs{a_nz^n}\) converge, et donc \(\abs{z}<R_a\). \\\\ Donc \(\disqueo{0}{R_b}\subset\disquef{0}{R_a}\) \ie \(R_b\leq R_a\). \\
+    \item Si \(a_n\simqd{n\to\pinf}b_n\), alors \(a_n\egqd{n\to\pinf}\O{b_n}\) et \(b_n\egqd{n\to\pinf}\O{a_n}\). \\\\ Donc \(R_a\geq R_b\) et \(R_b\geq R_a\), \ie \(R_a=R_b\).
+\end{itemize}
+\end{dem}
+
+\begin{rem}
+Comme le rayon de convergence se calcule en référence à la convergence absolue de la série, il suffit que \(\abs{a_n}\simqd{n\to\pinf}\abs{b_n}\) pour avoir \(R_a=R_b\).
+\end{rem}
+
+\begin{exo}
+Donnez le rayon de convergence de la série entière \(\sum_{n\geq0}\dfrac{n}{n^2+1}z^n\).
+\end{exo}
+
+\begin{corr}
+On a \(\dfrac{n}{n^2+1}\simqd{n\to\pinf}\dfrac{1}{n}\), or \(R\paren{\sum\dfrac{z^n}{n}}=1\).
+
+Donc \(R\paren{\sum\dfrac{n}{n^2+1}z^n}=1\).
+\end{corr}
+
+\begin{exo}
+Même question avec la série entière \(\sum_{n\geq0}\paren{1+\dfrac{1}{n}}^{n^2}z^n\).
+\end{exo}
+
+\begin{corr}~\\
+On a \(a_n=\paren{1+\dfrac{1}{n}}^{n^2}=\e{n^2\ln\paren{1+\nicefrac{1}{n}}}\).
+
+Or \(\dfrac{1}{n}\tendqd{n\to\pinf}0\) donc \[\begin{aligned}
+\ln\paren{1+\dfrac{1}{n}}&\egqd{n\to\pinf}\dfrac{1}{n}-\dfrac{1}{2n^2}+\o{\dfrac{1}{n^2}} \\
+n^2\ln\paren{1+\dfrac{1}{n}}&\egqd{n\to\pinf}n-\dfrac{1}{2}+\o{1} \\
+\exp\paren{n^2\ln\paren{1+\dfrac{1}{n}}}&\simqd{n\to\pinf}\e{n}\e{\nicefrac{-1}{2}} \\
+\paren{1+\dfrac{1}{n}}^{n^2}&\simqd{n\to\pinf}\dfrac{\e{n}}{\sqrt{\e{}}}.
+\end{aligned}\]
+
+Donc \(R\paren{\sum a_nz^n}=R\paren{\sum\dfrac{1}{\sqrt{\e{}}}\e{n}z^n}=\dfrac{1}{\e{}}\).
+\end{corr}
+
+Un cas favorable très courant qui permet de calculer le rayon de convergence par utilisation de la règle de D'Alembert, particulièrement utile quand le coefficient \(a_n\) s'écrit à l'aide de produits ou de quotients.
+
+\begin{rappel}[Règle de D'Alembert]~\\
+Soit \(\paren{u_n}\in\paren{\Rs}^\N\). On suppose \(\dfrac{u_{n+1}}{u_n}\tendqd{n\to\pinf}l\).
+
+Si \(l<1\), \(\sum u_n\) converge.
+
+Si \(l>1\), \(\sum u_n\) diverge grossièrement.
+
+Si \(l=1\), on ne peut rien dire.
+\end{rappel}
+
+\begin{prop}\thlabel{prop12.7}
+Soit \(\paren{a_n}\) une suite de complexes qui ne s'annule pas.
+
+Si la suite \(\paren{\dfrac{\abs{a_{n+1}}}{\abs{a_n}}}\) converge
+
+\begin{itemize}
+    \item vers un réel \(l>0\), alors \(R_a=\dfrac{1}{l}\) \\
+    \item vers \(0\), alors \(R_a=\pinf\).
+\end{itemize}
+\end{prop}
+
+\begin{dem}
+Soit \(z\in\Cs\).
+
+La suite \(\paren{\abs{a_nz^n}}\) est à termes strictement positifs.
+
+Donc si \(\dfrac{\abs{a_{n+1}z^{n+1}}}{\abs{a_nz^n}}=\dfrac{\abs{a_{n+1}}}{\abs{a_n}}\abs{z}\tendqd{n\to\pinf}L<1\), alors \(\sum\abs{a_nz^n}\) converge.
+
+De plus, si \(\dfrac{\abs{a_{n+1}}}{\abs{a_n}}\abs{z}\tendqd{n\to\pinf}L>1\), alors \(\sum\abs{a_nz^n}\) diverge grossièrement.
+
+Donc si \(\abs{\dfrac{a_{n+1}}{a_n}}\tendqd{n\to\pinf}l\), \(\abs{\dfrac{a_{n+1}}{a_n}}\abs{z}\tendqd{n\to\pinf}l\abs{z}\).
+
+Donc si \(l\abs{z}<1\), \(\sum a_nz^n\) converge absolument et \(R=\dfrac{1}{l}\) (\thref{prop12.3}) et si \(l\abs{z}>1\), \(\sum a_nz^n\) diverge.
+\end{dem}
+
+\begin{exo}
+Donnez le rayon de convergence de la série entière \(\sum_{n\geq0}\dfrac{2^n+1}{n^2+1}z^n\).
+\end{exo}
+
+\begin{corr}~\\
+On pose \(\paren{a_n}=\paren{\dfrac{2^n+1}{n^2+1}}\).
+
+On a \[\begin{aligned}
+\abs{\dfrac{a_{n+1}}{a_n}}&=\dfrac{\paren{2^{n+1}+1}\paren{n^2+1}}{\paren{\paren{n+1}^2+1}\paren{2^n+1}} \\
+&\simqd{n\to\pinf}\dfrac{2^{n+1}n^2}{\paren{n+1}^22^n} \\
+&\simqd{n\to\pinf}\dfrac{2n^2}{\paren{n+1}^2} \\
+&\tendqd{n\to\pinf}2.
+\end{aligned}\]
+
+Donc, d'après la \thref{prop12.7}, \(R=\dfrac{1}{2}\).
+\end{corr}
+
+\begin{exo}
+Même question avec la série entière \(\sum_{n\geq0}\binom{n}{2n}z^{2n}\).
+\end{exo}
+
+\subsection{Opérations sur les séries entières}
+
+\begin{prop}
+Soient \(\paren{a_n},\paren{b_n}\) deux suites de complexes et \(\lambda\in\C\).
+
+On pose \(R_a,R_b\) les rayons de convergence des séries entières \(\sum_{n\geq0}a_nz^n\) et \(\sum_{n\geq0}b_nz^n\).
+
+On a \[R_{a+b}\geq\min\paren{R_a,R_b}\] et \[R_{\lambda a}\geq R_a\] avec égalité si \(\lambda\not=0\)
+\end{prop}
+
+\begin{dem}
+Pour tout \(z\in\C\) tel que \(\abs{z}<\min\paren{R_a,R_b}\), les séries \(\sum a_nz^n\) et \(\sum b_nz^n\) convergent donc la série \(\sum\paren{a_n+b_n}z^n\) converge.
+
+Donc \(\disqueo{0}{\min\paren{R_a,R_b}}\subset\disquef{0}{R_{a+b}}\) \ie \(\min\paren{R_a,R_b}\leq R_{a+b}\).
+
+De même pour la multiplication par un scalaire.
+\end{dem}
+
+Par conséquent, l'ensemble des séries entières qui convergent sur un disque \(\disqueo{0}{R}\) est un \(\C\)-espace vectoriel.
+
+\begin{prop}
+Soient \(\paren{a_n},\paren{b_n}\) deux suites de complexes.
+
+On pose \(R_a,R_b\) les rayons de convergence des séries entières \(\sum_{n\geq0}a_nz^n\) et \(\sum_{n\geq0}b_nz^n\).
+
+On pose \(\paren{c_n}\) le produit de Cauchy des suites \(\paren{a_n}\) et \(\paren{b_n}\).
+
+Alors la série entière \(\sum_{n\geq0}c_nz^n\) est le produit de Cauchy des séries \(\sum_{n\geq0}a_nz^n\) et \(\sum_{n\geq0}b_nz^n\) et \(R_c\geq\min\paren{R_a,R_b}\).
+\end{prop}
+
+\begin{dem}~\\
+On a \(\sum_{k=0}^n\paren{a_kz^k}\paren{b_{n-k}z^{n-k}}=\paren{\sum_{k=0}^na_kb_{n-k}}z^n\).
+
+Pour tout \(z\in\C\) tel que \(\abs{z}\leq\min\paren{R_a,R_b}\), les séries \(\sum a_nz^n\) et \(\sum b_nz^n\) convergent absolument donc la série \(\sum c_nz^n\) où \(c_n=\sum_{k=0}^na_kb_{n-k}\) converge absolument, \ie \(R_c\geq\min\paren{R_a,R_b}\).
+\end{dem}
+
+\begin{exo}
+Calculez le produit de Cauchy de la série \(\sum_{n\geq0}z^n\) avec elle-même.
+
+Donnez la valeur de \(\sum_{n=0}^{\pinf}nz^n\) quand elle a un sens.
+\end{exo}
+
+\begin{corr}~\\
+La série entière \(\sum z^n\) a pour rayon de convergence \(1\).
+
+Le produit de Cauchy de cette série avec elle-même est la série \(\sum\paren{n+1}z^n\) (car \(\sum_{k=0}^n1\times1=n+1\)), qui a aussi pour rayon de convergence \(1\).
+
+Pour \(z\in\disqueo{0}{1}\), on a \(\sum_{n=0}^{\pinf}\paren{n+1}z^n=\paren{\sum_{n=0}^{\pinf}z^n}^2\).
+
+Donc \[\sum_{n=0}^{\pinf}nz^n=\paren{\dfrac{1}{1-z}}^2-\dfrac{1}{1-z}=\dfrac{z}{\paren{1-z}^2}.\]
+\end{corr}
+
+\begin{rem}
+Le résultat énoncé ici est utilisable avec des séries \(\sum_{n\geq0}a_nz^n\) : on commence à \(n=0\) !
+
+Dans le cas général, on s'y ramène en ajoutant des termes nuls au début des séries : si on veut faire le produit de Cauchy de deux séries \(\sum_{n\geq n_1}a_nz^n\) et \(\sum_{n\geq n_2}b_nz^n\), on pose \(a_0=\dots=a_{n_1-1}=0\) et \(b_0=\dots=b_{n_2-1}=0\), puis on peut appliquer le résultat précédent : pour tout \(z\in\C\) tel que \(\abs{z}<\min\paren{R_a,R_b}\), \[\sum_{n=n_1}^{\pinf}a_nz^n\times\sum_{n=n_2}^{\pinf}b_nz^n=\sum_{n=0}^{\pinf}a_nz^n\times\sum_{n=0}^{\pinf}b_nz^n=\sum_{n=0}^{\pinf}c_nz^n\] où \(\quantifs{\tpt n\in\N}c_n=\sum_{k=0}^na_kb_{n-k}=a_0b_n+a_1b_{n-1}+\dots+a_{n-1}b_1+a_nb_0\).
+
+Maintenant on peut prendre en compte les termes nuls.
+
+Si \(n<n_1+n_2\), alors dans cette somme qu'on coupe en deux, tous les termes sont nuls : \[c_n=\underbrace{a_0b_n+\dots+a_{n_1-1}b_{n+1-n_1}}_{\quantifs{\forall i\in\interventierii{0}{n_1-1}}a_i=0}+\underbrace{a_{n_1}b_{n-n_1}+\dots+a_nb_0}_{\quantifs{\forall i\in\interventierii{n_1}{n}}n-i\leq n-n_1\text{ donc }b_{n-i}=0}=0\] donc \(\sum_{n=n_1}^{\pinf}a_nz^n\times\sum_{n=n_2}^{\pinf}b_nz^n=\sum_{n=n_1+n_2}^{\pinf}c_nz^n\) où \(\quantifs{\tpt n\geq n_1+n_2}c_n=\sum_{k=n_1}^{n-n_2}a_kb_{n-k}\).
+
+Ne retenons pas ça ! Retenons l'idée et ré-appliquons-la à chaque fois car, en pratique, on a très souvent \(\paren{n_1,n_2}=\paren{1,0}\) ou \(\paren{1,1}\).
+\end{rem}
+
+\section{Propriétés de la fonction somme d'une série entière}
+
+\subsection{Convergence uniforme et continuité}
+
+\begin{theo}\thlabel{theo12.1}
+Soit \(\sum_{n\geq0}a_nz^n\) une série entière de rayon de converge \(R>0\).
+
+La série de fonctions \(\sum_{n\geq0}a_nz^n\) converge normalement (donc uniformément) sur tout compact inclus dans \(\disqueo{0}{R}\).
+\end{theo}
+
+\begin{dem}
+Soit \(K\) un compact non-vide inclus dans \(\disqueo{0}{R}\).
+
+On veut montrer qu'il existe \(r\in\intervie{0}{R}\) tel que \(K\subset\disquef{0}{r}\subset\disqueo{0}{R}\).
+
+La fonction \(z\mapsto\abs{z}\) étant continue sur le compact \(K\), d'après le théorème des bornes atteintes, elle possède un maximum \(r\) sur \(K\).
+
+Il existe donc \(z_0\in K\) tel que \(r=\abs{z_0}\).
+
+Or \(K\subset\disqueo{0}{R}\) donc \(\abs{z_0}=r<R\).
+
+Pour tout \(n\in\N\) et \(z\in K\), on a \(\abs{a_nz^n}\leq\abs{a_n}r^n=\abs{a_nz_0^n}\).
+
+Donc \(\norme{z\mapsto a_nz^n}_\infty^K\leq\abs{a_nz_0^n}\).
+
+Or \(\sum a_nz_0^n\) converge absolument car \(\abs{z_0}<R\).
+
+Donc, d'après le théorème de comparaison des séries à termes positifs, \(\sum\norme{z\mapsto a_nz^n}_\infty^K\) converge, \ie \(\sum a_nz^n\) converge normalement.
+\end{dem}
+
+D'après le théorème de continuité des séries de fonctions, on en déduit la continuité de la fonction somme.
+
+\begin{theo}
+Soit \(\sum_{n\geq0}a_nz^n\) une série entière de rayon de converge \(R>0\).
+
+La fonction somme \(z\mapsto\sum_{n=0}^{\pinf}a_nz^n\) est continue sur \(\disqueo{0}{R}\).
+\end{theo}
+
+\subsection{Primitivation et dérivation}
+
+\begin{lem}\thlabel{lem12.1}
+Soit \(\paren{a_n}\) une suite de complexes.
+
+Les séries entières \(\sum_{n\geq0}a_nz^n\) et \(\sum_{n\geq0}na_nz^n\) ont le même rayon de convergence.
+
+Plus généralement, pour tout polynôme \(P\) non-nul, la série entière \(\sum_{n\geq0}P\paren{z}a_nz^n\) a le même rayon de convergence.
+\end{lem}
+
+\begin{dem}
+Soit \(\sum a_nz^n\) une série entière de rayon de convergence \(R\).
+
+On note \(R\prim\) le rayon de convergence de \(\sum na_nz^n\).
+
+\begin{itemize}
+    \item \(\quantifs{\Tpt n\geq1}\abs{a_nz^n}\leq\abs{na_nz^n}\) donc si \(\abs{z}<R\prim\), alors \(\sum na_nz^n\) converge absolument et donc, par théorème de comparaison des séries à termes positifs, \(\sum a_nz^n\) converge. Donc \(\abs{z}\leq R\). \\\\ Donc \(\disqueo{0}{R\prim}\subset\disquef{0}{R}\), et donc \(R\prim\leq R\). \\
+    \item Si \(\abs{z}<R\), on choisit \(z\prim\) tel que \(\abs{z}<\abs{z\prim}<R\). \\\\ On a \[\begin{aligned}
+        \abs{na_nz^n}&=\abs{na_n{z\prim}^n}\times\abs{\dfrac{z}{z\prim}}^n \\
+        &=\abs{a_n{z\prim}^n}\times n\abs{\dfrac{z}{z\prim}}^n.
+    \end{aligned}\] Or \(\abs{\dfrac{z}{z\prim}}<1\) donc \(n\abs{\dfrac{z}{z\prim}}^n\tendqd{n\to\pinf}0\) et donc \(\paren{n\abs{\dfrac{z}{z\prim}}^n}\) est bornée : on choisit \(K\) un majorant. \\\\ On a alors \(\quantifs{\forall n\in\N}\abs{na_nz^n}\leq K\abs{a_n{z\prim}^n}\). \\\\ Or \(\abs{z\prim}<R\) donc \(\sum a_n{z\prim}^n\) est absolument convergente et donc, par théorème de comparaison des séries à termes positifs, \(\sum na_nz^n\) converge (absolument). \\\\ Donc \(\abs{z}\leq R\prim\). \\\\ Donc \(\disqueo{0}{R}\subset\disquef{0}{R\prim}\) et donc \(R\leq R\prim\). \\
+    \item D'où \(R=R\prim\).
+\end{itemize}
+
+Par récurrence immédiate, pour tout \(k\in\N\), la série \(\sum n^ka_nz^n\) a pour rayon de convergence \(R\).
+
+Donc pour tout \(P\in\poly[\C]\), comme \(P\paren{n}\simqd{n\to\pinf}\lambda n^k\), d'après la \thref{prop12.6}, le rayon de convergence de \(\sum P\paren{n}a_nz^n\) est celui de \(\sum\lambda n^ka_nz^n\) \ie \(R\).
+\end{dem}
+
+D'après le théorème de dérivabilité des séries de fonctions, on en déduit la dérivabilité de la fonction somme.
+
+\begin{theo}
+Soit \(\sum_{n\geq0}a_nz^n\) une série entière de rayon de converge \(R>0\).
+
+La fonction somme \(f:x\mapsto\sum_{n=0}^{\pinf}a_nx^n\) est de classe \(\classe{\infty}\) sur \(\intervee{-R}{R}\).
+
+De plus, on a \[\quantifs{\forall k\in\N;\forall x\in\intervee{-R}{R}}f\deriv{k}\paren{x}=\sum_{n=k}^{\pinf}\dfrac{n!}{\paren{n-k}!}a_nx^{n-k}.\]
+
+On en déduit que \(\quantifs{\tpt k\in\N}a_k=\dfrac{f\deriv{k}\paren{0}}{k!}\).
+\end{theo}
+
+\begin{dem}
+Pour \(n\in\N\), on pose \(u_n:x\mapsto a_nx^n\) et \(u_n\) est de classe \(\classe{1}\).
+
+Pour tout \(n\in\N\), on a \(u_n\prim\paren{x}=na_nx^{n-1}\).
+
+D'après le \thref{lem12.1}, la série entière \(\sum na_nx^{n-1}\) a pour rayon de convergence \(R\).
+
+Donc, pour tout \(r\in\intervie{0}{R}\), la série \(\sum u_n\prim\) converge normalement (et donc uniformément) sur \(\intervii{-r}{r}\) d'après le \thref{theo12.1}.
+
+D'après le théorème de dérivation terme à terme, la fonction \(f:x\mapsto\sum_{n=0}^{\pinf}a_nx^n\) est de classe \(\classe{1}\) sur \(\intervii{-r}{r}\).
+
+Par réunion d'intervalles, \(f\) est \(\classe{1}\) sur \(\intervee{-R}{R}\) et pour tout \(x\in\intervee{-R}{R}\), on a \(f\prim\paren{x}=\sum_{n=0}^{\pinf}na_nx^{n-1}\).
+
+Par récurrence, \(f\) est de classe \(\classe{\infty}\) et on a \[\begin{aligned}
+f\deriv{k}\paren{x}&=\sum_{n=0}^{\pinf}n\paren{n-1}\dots\paren{n-k+1}a_nx^{n-k} \\
+&=\sum_{n=k}^{\pinf}\dfrac{n!}{\paren{n-k}!}a_nx^{n-k}.
+\end{aligned}\]
+
+En évaluant en \(0\), on a \(f\deriv{k}\paren{0}=\dfrac{k!}{0!}a_k\) et donc \(a_k=\dfrac{f\deriv{k}\paren{0}}{k!}\).
+\end{dem}
+
+On en déduit le théorème de primitivation.
+
+\begin{theo}
+Soit \(\sum_{n\geq0}a_nz^n\) une série entière de rayon de converge \(R>0\). On note \(f\) sa somme.
+
+La fonction somme \(x\mapsto\sum_{n=0}^{\pinf}a_n\dfrac{x^{n+1}}{n+1}\) est de classe \(\classe{\infty}\) sur \(\intervee{-R}{R}\) et est une primitive de \(f\) sur \(\intervee{-R}{R}\) (c'est d'ailleurs la primitive de \(f\) qui s'annule en \(0\)).
+\end{theo}
+
+\begin{exo}
+Donnez le rayon de convergence de la série entière \(\sum_{n\geq0}nx^n\) et retrouvez la valeur de sa somme.
+\end{exo}
+
+\begin{corr}\thlabel{corr12.7}
+La série entière \(\sum nx^n\) a pour rayon de convergence \(1\).
+
+On pose \(g:x\mapsto\sum_{n=0}^{\pinf}nx^n\).
+
+Pour \(x\in\intervee{-1}{1}\), on a \[\begin{aligned}
+g\paren{x}&=x\sum_{n=0}^{\pinf}nx^{n-1} \\
+&=x\odv*{\paren{\sum_{n=0}^{\pinf}x^n}}{x} \\
+&=x\odv*{\paren{\dfrac{1}{1-x}}}{x} \\
+&=\dfrac{x}{\paren{1-x}^2}.
+\end{aligned}\]
+\end{corr}
+
+\begin{exo}
+Même exercice avec \(\sum_{n\geq0}n^2x^n\).
+\end{exo}
+
+\begin{corr}
+On reprend la fonction \(g\) de la \thref{corr12.7}.
+
+La série entière \(\sum n^2x^n\) a pour rayon de convergence \(1\) et pour \(x\in\intervee{-1}{1}\), on a \[\begin{aligned}
+\sum_{n=0}^{\pinf}n^2x^n&=x\sum_{n=0}^{\pinf}n^2x^{n-1} \\
+&=xg\prim\paren{x} \\
+&=x\dfrac{\paren{1-x}^2-x\paren{2x-2}}{\paren{1-x}^4} \\
+&=x\dfrac{1-2x+x^2-2x^2+2x}{\paren{1-x}^4} \\
+&=\dfrac{-x\paren{x^2-1}}{\paren{1-x}^4} \\
+&=\dfrac{x\paren{x+1}}{\paren{1-x}^3}.
+\end{aligned}\]
+\end{corr}
+
+\begin{exo}\thlabel{exo12.9}
+Même exercice avec \(\sum_{n\geq1}\dfrac{1}{n}x^n\).
+\end{exo}
+
+\begin{corr}
+La série entière \(\sum\dfrac{1}{n}x^n\) a pour rayon de convergence \(1\).
+
+La fonction \(f:x\mapsto\sum_{n=1}^{\pinf}\dfrac{x^n}{n}\) est de classe \(\classe{1}\) sur \(\intervee{-1}{1}\) et pour \(x\in\intervee{-1}{1}\), on a \[f\prim\paren{x}=\sum_{n=1}^{\pinf}x^{n-1}=\dfrac{1}{1-x}.\]
+
+On remarque \(f\paren{0}=0\).
+
+On a donc \(\quantifs{\forall x\in\intervee{-1}{1}}f\paren{x}=-\ln\paren{1-x}\).
+
+On pourra retenir : \[\quantifs{\forall x\in\intervee{-1}{1}}\sum_{n=1}^{\pinf}\dfrac{x^n}{n}=-\ln\paren{1-x}.\]
+\end{corr}
+
+\subsection{Convergence radiale}
+
+Il existe plusieurs types de résultats concernant ce qui se passe au bord du disque ouvert de convergence. Le programme ne cite que le théorème de convergence radiale d'Abel.
+
+\begin{theo}
+Soit \(\sum_{n\geq0}a_nz^n\) une série entière de rayon de converge \(R>0\). On note \(f\) sa somme, définie sur \(\intervie{0}{R}\).
+
+Si la série \(\sum a_nR^n\) converge, alors \(f\) est définie sur \(\intervii{0}{R}\) et est continue à gauche en \(R\), donc sur \(\intervii{0}{R}\) tout entier : \[\lim_{x\to R^-}\sum_{n=0}^{\pinf}a_nx^n=\sum_{n=0}^{\pinf}a_nR^n.\]
+\end{theo}
+
+La démonstration de ce théorème est hors-programme. Il y a deux cas particuliers faciles à démontrer : si les coefficients \(a_n\) sont tous positifs ou quand la série \(\sum a_nR^n\) converge absolument. Dans le cas général, c'est plus difficile à justifier.
+
+\begin{dem}[Dans le cas où \(\sum a_nR^n\) converge absolument]
+Pour \(x\in\intervii{0}{R}\), on a \(\abs{a_nx^n}\leq\abs{a_n}R^n=\abs{a_nR^n}\).
+
+Donc \(\norme{x\mapsto a_nx^n}_\infty^{\intervii{0}{R}}\leq\abs{a_nR^n}\).
+
+Par théorème de comparaison des séries à termes positifs, \(\sum\paren{x\mapsto a_nx^n}\) converge normalement et donc uniformément sur \(\intervii{0}{R}\).
+
+NB : le cas \(\paren{a_n}\geq0\) est inclus dans celui-ci.
+\end{dem}
+
+\begin{rem}
+Le théorème reste valable si \(\sum a_n\paren{-R}^n\) converge : dans ce cas, \(f\) est continue sur \(\intervii{-R}{0}\).
+\end{rem}
+
+\section{Fonction développable en série entière}
+
+\subsection{Généralités}
+
+\begin{defi}
+Soient \(f:\R\to\C\) et \(r>0\).
+
+On dit que \(f\) est développable en série entière sur \(\intervee{-r}{r}\) quand il existe une suite complexe \(\paren{a_n}\) telle que la série entière \(\sum_{n\geq0}a_nz^n\) soit de rayon de convergence \(R\geq r\) et \(\quantifs{\tpt x\in\intervee{-r}{r}}f\paren{x}=\sum_{n=0}^{\pinf}a_nx^n\).
+
+La somme \(\sum_{n=0}^{\pinf}a_nx^n\) est appelée le développement en série entière de \(f\).
+\end{defi}
+
+On dispose d'un théorème d'opérations sur les fonctions développables en série entière.
+
+\begin{theo}
+Soient \(f,g\) deux fonctions développables en série entière sur \(\intervee{-r}{r}\), où \(r>0\).
+
+\begin{itemize}
+    \item Les fonctions \(f+g\) et \(fg\) sont développables en série entière sur \(\intervee{-r}{r}\). \\
+    \item Si \(f\paren{0}=0\), alors \(g\rond f\) est développable en série entière sur un intervalle \(\intervee{-r\prim}{r\prim}\), où \(r\prim>0\). \\
+    \item Si \(f\paren{0}\not=0\), alors \(\dfrac{1}{f}\) est développable en série entière sur un intervalle \(\intervee{-r\prim}{r\prim}\) où \(r\prim>0\).
+\end{itemize}
+\end{theo}
+
+\begin{ex}
+Les fonctions rationnelles qui n'ont pas \(0\) comme pôle sont développables en série entière.
+\end{ex}
+
+\begin{corr}[Prolongement de l'\thref{exo12.9}]
+On a \[\quantifs{\forall x\in\intervee{-1}{1}}\sum_{n=1}^{\pinf}\dfrac{x^n}{n}=-\ln\paren{1-x}\] donc \[\quantifs{\forall x\in\intervee{-1}{1}}\sum_{n=1}^{\pinf}\dfrac{\paren{-x}^n}{n}=-\ln\paren{1+x}.\]
+
+Donc \[\quantifs{\forall x\in\intervee{-1}{1}}\ln\paren{1+x}=\sum_{n=1}^{\pinf}\dfrac{\paren{-1}^{n-1}x^n}{n}.\]
+
+Or la série harmonique alternée \(\sum\dfrac{\paren{-1}^n}{n}\) converge (CSSA) donc d'après le théorème de convergence radiale, la fonction \(x\mapsto\sum_{n=1}^{\pinf}\dfrac{\paren{-1}^{n-1}x^n}{n}\) est continue sur \(\intervei{-1}{1}\).
+
+Or \(x\mapsto\ln\paren{1+x}\) est aussi continue sur \(\intervei{-1}{1}\).
+
+On a donc ce résultat à connaître : \[\color{red}\quantifs{\forall x\in\intervei{-1}{1}}\ln\paren{1+x}=\sum_{n=1}^{\pinf}\dfrac{\paren{-1}^{n-1}x^n}{n}.\color{black}\]
+
+En particulier, on a \(\sum_{n=1}^{\pinf}\dfrac{\paren{-1}^n}{n}=-\ln2\).
+\end{corr}
+
+\begin{exo}
+Développez en série entière la fonction \(x\mapsto\dfrac{1}{x^2-3x+2}\) et précisez le rayon de convergence.
+\end{exo}
+
+\begin{corr}
+En effectuant la décomposition en éléments simples de la fraction \(\dfrac{1}{X^2-3X+2}\), on obtient \[\dfrac{1}{X^2-3X+2}=\dfrac{1}{1-X}-\dfrac{1}{2}\dfrac{1}{1-\nicefrac{X}{2}}.\]
+
+Sur \(\intervee{-1}{1}\), les fonctions \(x\mapsto\dfrac{1}{1-x}\) et \(x\mapsto\dfrac{1}{1-\nicefrac{x}{2}}\) sont développables en séries entières : \[\dfrac{1}{1-x}=\sum_{n=0}^{\pinf}x^n\qquad\text{et}\qquad\dfrac{1}{1-\nicefrac{x}{2}}=\sum_{n=0}^{\pinf}\dfrac{1}{2^n}x^n.\]
+
+Ainsi, pour \(x\in\intervee{-1}{1}\), on a \[\dfrac{1}{x^2-3x+2}=\sum_{n=0}^{\pinf}\paren{1-\dfrac{1}{2^{n+1}}}x^n.\]
+\end{corr}
+
+\begin{exo}
+Même exercice avec la fonction \(x\mapsto\dfrac{1}{1+x+x^2}\).
+\end{exo}
+
+\begin{corr}
+En effectuant une décomposition en éléments simples, on obtient \[\dfrac{1}{1+X+X^2}=\dfrac{1}{j-j^2}\paren{\dfrac{1}{j^2-X}-\dfrac{1}{j-X}}.\]
+
+De plus, on a \[j-j^2=j\paren{1-j}=\e{\nicefrac{2\i\pi}{3}}\paren{1-\e{\nicefrac{2\i\pi}{3}}}=\e{\nicefrac{2\i\pi}{3}}\times\e{\nicefrac{\i\pi}{3}}\paren{\e{\nicefrac{-\i\pi}{3}}-\e{\nicefrac{\i\pi}{3}}}=-\paren{\e{\nicefrac{-\i\pi}{3}}-\e{\nicefrac{\i\pi}{3}}}=2\i\sin\dfrac{\pi}{3}.\]
+
+On a donc, pour \(x\in\intervee{-1}{1}\) : \[\begin{aligned}
+\dfrac{1}{1+x+x^2}&=\dfrac{1}{j-j^2}\sum_{n=0}^{\pinf}\paren{\dfrac{1}{j^{2n+2}}-\dfrac{1}{j^{n+1}}}x^n \\
+&=\sum_{n=0}^{\pinf}\dfrac{\paren{-1}^n\sin\paren{\paren{n+1}\nicefrac{\pi}{3}}}{\sin\nicefrac{\pi}{3}}x^n.
+\end{aligned}\]
+\end{corr}
+
+\begin{exo}
+Même exercice avec la fonction \(f:x\mapsto\ln\paren{1+x+x^2}\).
+\end{exo}
+
+\begin{corr}
+En effectuant une décomposition en éléments simples, on obtient \[\dfrac{2X+1}{1+X+X^2}=\dfrac{\nicefrac{\paren{2j+1}}{\paren{j^2-j}}}{j-X}+\dfrac{\nicefrac{\paren{2j+1}}{\paren{j-j^2}}}{j^2-X}.\]
+
+Pour \(x\in\intervee{-1}{1}\), on a donc \[\begin{aligned}
+f\prim\paren{x}&=\dfrac{1}{j-j^2}\paren{\dfrac{2j^2+1}{j^2}\sum_{n=0}^{\pinf}\paren{\dfrac{x}{j^2}}^n-\dfrac{2j+1}{j}\sum_{n=0}^{\pinf}\paren{\dfrac{x}{j}}^n} \\
+&=\sum_{n=0}^{\pinf}\underbrace{\paren{\dfrac{2j^2+1}{1-j}\dfrac{1}{j^{2n}}+\dfrac{2j+1}{1-j^2}\dfrac{1}{j^n}}}_{a_n}x^n.
+\end{aligned}\]
+
+Donc \[\begin{aligned}
+f\paren{x}&=\sum_{n=0}^{\pinf}\dfrac{a_n}{n+1}x^{n+1}+f\paren{0} \\
+&=\sum_{n=0}^{\pinf}\dfrac{a_n}{n+1}x^{n+1}.
+\end{aligned}\]
+\end{corr}
+
+Si une fonction \(f\) est développable en série entière sur un intervalle \(\intervee{-r}{r}\) (où \(r>0\)), alors, d'après ce qui précède, \(f\) est de classe \(\classe{\infty}\) sur \(\intervee{-r}{r}\) et \(\quantifs{\tpt x\in\intervee{-r}{r}}f\paren{x}=\sum_{n=0}^{\pinf}\dfrac{f\deriv{n}\paren{0}}{n!}x^n\).
+
+La réciproque est fausse : une fonction de classe \(\classe{\infty}\) sur un intervalle \(\intervee{-r}{r}\) n'est pas forcément développable en série entière.
+
+De même, si une fonction est développable en série entière sur un intervalle \(\intervee{-r}{r}\) (où \(r>0\)), alors elle possède un développement limité à tout ordre en \(0\), obtenu en tronquant le développement en série entière à l'ordre voulu.
+
+Là encore, la réciproque est fausse.
+
+\begin{dem}
+Soient \(f\) une fonction développable en série entière sur \(\intervee{-r}{r}\) et \(N\in\N\).
+
+Montrons que \(f\) admet un développement limité en \(0\) à l'ordre \(N\).
+
+Pour \(x\in\intervee{-r}{r}\), on a \[\begin{aligned}
+f\paren{x}&=\sum_{n=0}^{\pinf}a_nx^n \\
+&=\sum_{n=0}^Na_nx^n+\sum_{n=N+1}^{\pinf}a_nx^n \\
+&=\sum_{n=0}^Na_nx^n+x^N\underbrace{\sum_{n=N+1}^{\pinf}a_nx^{n-N}}_{\tendqd{x\to0}0}.
+\end{aligned}\]
+
+D'où le développement limité.
+\end{dem}
+
+\subsection{Unicité du développement en série entière}
+
+\begin{prop}
+Soient \(\paren{a_n}\) une suite de complexes et \(r>0\).
+
+Si \(\quantifs{\tpt x\in\intervee{-r}{r}}\sum_{n=0}^{\pinf}a_nx^n=0\), alors \(\paren{a_n}=0\).
+\end{prop}
+
+\begin{dem}~\\
+La fonction \(x\mapsto\sum_{n=0}^{\pinf}a_nx^n\) est nulle donc ses dérivées sont nulles et donc \[\quantifs{\forall n\in\N}a_n=\dfrac{f\deriv{n}\paren{0}}{n!}=0.\]
+\end{dem}
+
+Le développement en série entière d'une fonction, s'il existe, est unique. Autrement dit, on peut identifier les coefficients de deux développements en série entière égaux.
+
+\begin{cor}
+Soient \(\paren{a_n},\paren{b_n}\) deux suites de complexes.
+
+Si les deux séries entières \(\sum_{n\geq0}a_nz^n\) et \(\sum_{n\geq0}b_nz^n\) ont un rayon de convergence au moins égal à \(r>0\) et si \(\quantifs{\tpt x\in\intervee{-r}{r}}\sum_{n=0}^{\pinf}a_nx^n=\sum_{n=0}^{\pinf}b_nx^n\), alors \(\paren{a_n}=\paren{b_n}\).
+\end{cor}
+
+\begin{cor}
+Soit \(f\) une fonction développable en série entière sur \(\intervee{-r}{r}\), où \(r>0\).
+
+Si \(f\) est paire, alors les coefficients d'indices impairs du développement en série entière de \(f\) sont nuls.
+
+Si \(f\) est impaire, alors les coefficients d'indices pairs du développement en série entière de \(f\) sont nuls.
+\end{cor}
+
+\begin{exo}
+On admet momentanément que \(f:x\mapsto\sqrt{1+x}\) est développable en série entière sur \(\intervee{-1}{1}\) et on note alors \(f\paren{x}=\sum_{n=0}^{\pinf}a_nx^n\) pour \(x\in\intervee{-1}{1}\).
+
+Déterminez une équation différentielle linéaire homogène du premier ordre dont \(f\) est solution.
+
+Déduisez-en que \(\quantifs{\tpt n\in\N}a_{n+1}=\dfrac{2n+1}{2n+2}a_n\), puis une expression de \(a_n\) en fonction de \(n\).
+\end{exo}
+
+\subsection{Série de Taylor d'une fonction}
+
+\begin{defi}
+Soient \(r>0\) et \(f\) une fonction de classe \(\classe{\infty}\) sur \(\intervee{-r}{r}\).
+
+On appelle série de Taylor de \(f\) la série \(\sum_{n\geq0}\dfrac{f\deriv{n}\paren{0}}{n!}x^n\).
+\end{defi}
+
+Autrement dit, \(f\) est développable en série entière ssi \(f\) est égale à la somme de sa série de Taylor.
+
+\begin{prop}
+Soient \(r>0\) et \(f\) une fonction de classe \(\classe{\infty}\) au voisinage de \(0\).
+
+\(f\) est égale à sa série de Taylor sur \(\intervee{-r}{r}\) ssi \(\quantifs{\forall x\in\intervee{-r}{r}}\lim_{n\to\pinf}\int_0^x\dfrac{\paren{x-t}^n}{n!}f\deriv{n+1}\paren{t}\odif{t}=0\).
+\end{prop}
+
+La démonstration est élémentaire et repose sur l'égalité de Taylor avec reste intégral.
+
+Comme l'inégalité de Taylor-Lagrange découle de cette égalité, on a une condition suffisante pour qu'une fonction soit développable en série entière.
+
+\begin{prop}
+Soient \(r>0\) et \(f\) une fonction de classe \(\classe{\infty}\) sur \(\intervee{-r}{r}\).
+
+Si \(\lim_{n\to\pinf}\dfrac{r^n}{n!}\sup_{\intervii{-r}{r}}\abs{f\deriv{n}}=0\), alors \(f\) est développable en série entière sur \(\intervee{-r}{r}\).
+\end{prop}
+
+\begin{dem}
+D'après l'inégalité de Taylor-Lagrange, on a \[\begin{aligned}
+\abs{f\paren{x}-\sum_{k=0}^n\dfrac{f\deriv{k}\paren{0}}{k!}x^k}&\leq\dfrac{\abs{x-0}^{n+1}}{\paren{n+1}!}\sup_{\intervii{-x}{x}}\abs{f\deriv{n+1}} \\
+&\leq\dfrac{r^{n+1}}{\paren{n+1}!}\sup_{\intervii{-r}{r}}\abs{f\deriv{n+1}}.
+\end{aligned}\]
+
+Il s'ensuit le résultat énoncé.
+\end{dem}
+
+\begin{exo}
+Soit \(a\in\intervee{0}{1}\). On pose \(f:x\mapsto\paren{1+x}^a\).
+
+Montrez que \(f\) est développable en série entière sur \(\intervee{-\dfrac{1}{2}}{\dfrac{1}{2}}\).
+\end{exo}
+
+\begin{corr}
+On a \(f\paren{x}=\paren{1+x}^a=\e{a\ln\paren{1+x}}\) et \(f\) est de classe \(\classe{\infty}\) sur \(\intervee{-1}{1}\).
+
+Pour \(x\in\intervee{-1}{1}\), on a \[f\prim\paren{x}=a\paren{1+x}^{a-1}\qquad\text{et}\qquad f\seconde\paren{x}=a\paren{a-1}\paren{1+x}^{a-2}.\]
+
+Par récurrence immédiate, on a donc \[\quantifs{\forall k\in\N}f\deriv{k}\paren{x}=a\paren{a-1}\dots\paren{a-k+1}\paren{1+x}^{a-k}.\]
+
+Soient \(r\in\intervee{0}{1}\) et \(x\in\intervii{-r}{r}\).
+
+On a \(\abs{f\deriv{n}\paren{x}}\leq\abs{a\paren{a-1}\dots\paren{a-n+1}\paren{1+x}^{a-n}}\).
+
+Pour \(n>a\), on a \(a-n<0\) donc \[\begin{aligned}
+1-r&\leq&1+x&\leq&1+r \\
+\ln\paren{1-r}&\leq&\ln\paren{1+x}&\leq&\ln\paren{1+r} \\
+\paren{a-n}\ln\paren{1+r}&\leq&\paren{a-n}\ln\paren{1+x}&\leq&\paren{a-n}\ln\paren{1-r}.
+\end{aligned}\]
+
+Donc \(\paren{1+x}^{a-n}\leq\paren{1-r}^{a-n}\).
+
+Donc \(\sup_{\intervii{-r}{r}}\abs{f\deriv{n}}\leq K_n\paren{1-r}^{a-n}\) où \(K_n=\abs{a\paren{a-1}\dots\paren{a-n+1}}\).
+
+Donc \(\dfrac{r^n}{n!}\sup_{\intervii{-r}{r}}\abs{f\deriv{n}}\leq\dfrac{K_n}{n!}r^n\paren{1-r}^{a-n}\).
+
+Or \(\dfrac{K_n}{n!}=\dfrac{\abs{a}\abs{1-a}\dots\abs{n-a+1}}{1\times2\times\dots\times n}\) donc \[\begin{aligned}
+\ln\dfrac{K_n}{n!}&=\sum_{k=0}^{n-1}\ln\abs{a-k}-\sum_{k=0}^{n-1}\ln\paren{k+1} \\
+&=\sum_{k=0}^{n-1}\ln\abs{1+a-\paren{k+1}}-\sum_{k=0}^{n-1}\ln\paren{k+1} \\
+&=\sum_{k=0}^{n-1}\ln\abs{1-\dfrac{1-a}{k+1}} \\
+&\leq\sum_{k=0}^{n-1}\dfrac{\abs{1+a}}{k+1} \\
+&=\abs{1+a}\underbrace{\sum_{k=1}^n\dfrac{1}{k}}_{\simqd{n\to\pinf}\ln n}.
+\end{aligned}\]
+
+Donc, à partir d'un certain rang, \(\ln\dfrac{K_n}{n!}\leq2\abs{1+a}\ln n\).
+
+Donc \[\begin{aligned}
+\dfrac{r^n}{n!}\sup_{\intervii{-r}{r}}\abs{f\deriv{n}}&\leq\dfrac{K_n}{n!}r^n\paren{1-r}^{a-n} \\
+&\leq Ln\paren{1-r}^a\paren{\dfrac{r}{1-r}}^n
+\end{aligned}\] où \(L\) est une constante.
+
+Or \(\dfrac{r}{1-r}<1\) quand \(r<\dfrac{1}{2}\).
+
+Donc si \(r<\dfrac{1}{2}\), on a \(n\paren{\dfrac{r}{1-r}}^n\tendqd{n\to\pinf}0\).
+
+D'où \[r<\dfrac{1}{2}\imp\croch{\quantifs{\forall x\in\intervii{-r}{r}}\paren{1+x}^a=\sum_{n=0}^{\pinf}\dfrac{a\paren{a-1}\dots\paren{a-n+1}}{n!}x^n}.\]
+\end{corr}
+
+\subsection{Développements en série entière usuels}
+
+Soient \(a\) un réel et \(n\) un entier naturel.
+
+On pose \(\binom{n}{a}=\dfrac{a\paren{a-1}\paren{a-2}\dots\paren{a-n+1}}{n!}\).
+
+Les fonctions usuelles suivantes sont développables en série entière avec un rayon de convergence \(R>0\) :
+
+\begin{itemize}
+    \item \(\e{x}=\sum_{n=0}^{\pinf}\dfrac{1}{n!}x^n\) avec \(R=\pinf\) \\
+    \item \(\cos x=\sum_{n=0}^{\pinf}\dfrac{\paren{-1}^n}{\paren{2n}!}x^{2n}\) avec \(R=\pinf\) \\
+    \item \(\sin x=\sum_{n=0}^{\pinf}\dfrac{\paren{-1}^n}{\paren{2n+1}!}x^{2n+1}\) avec \(R=\pinf\) \\
+    \item \(\ch x=\sum_{n=0}^{\pinf}\dfrac{1}{\paren{2n}!}x^{2n}\) avec \(R=\pinf\) \\
+    \item \(\sh x=\sum_{n=0}^{\pinf}\dfrac{1}{\paren{2n+1}!}x^{2n+1}\) avec \(R=\pinf\) \\
+    \item \(\Arctan x=\sum_{n=0}^{\pinf}\dfrac{\paren{-1}^n}{2n+1}x^{2n+1}\) avec \(R=1\) \\
+    \item \(\ln\paren{1+x}=\sum_{n=0}^{\pinf}\dfrac{\paren{-1}^{n-1}}{n}x^n\) avec \(R=1\) \\
+    \item \(\paren{1+x}^a=\sum_{n=0}^{\pinf}\binom{n}{a}x^n\) avec \(R=1\).
+\end{itemize}
+
+\begin{exo}
+Développez en série entière la fonction \(x\mapsto\ln\dfrac{1-x}{1+x}\).
+\end{exo}
+
+\begin{exo}
+Même exercice avec \(x\mapsto\paren{x+2}\ch x\).
+\end{exo}
+
+\begin{exo}
+Même exercice avec \(x\mapsto\sin^2x\).
+\end{exo}
+
+\begin{exo}
+Même exercice avec \(x\mapsto\e{x}\ln\paren{1+x}\).
+\end{exo}
