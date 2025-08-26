@@ -2,4 +2,1434 @@
 
 \minitoc
 
-\note{À venir}
+Dans tout ce chapitre, même si ce n'est pas rappelé à chaque fois, on suppose que \(\anneau{\Omega}[\fami{T}][\prem]\) est un espace probabilisé.
+
+Dans ce chapitre, si \(E\) est un ensemble fini ou dénombrable et \(\paren{u_x}_{x\in E}\) une famille de réels indexée par \(E\), la notation \(\sum_{x\in E}u_x\) désigne la somme au sens des familles sommables ou des familles positives selon les cas.
+
+\section{Variables aléatoires discrètes}
+
+\subsection{Définition}
+
+\begin{defi}
+On appelle variable aléatoire discrète toute application \(X\) de \(\Omega\) dans un ensemble quelconque telle que son ensemble-image \(X\paren{\Omega}\) soit fini ou dénombrable et telle que \(\quantifs{\tpt x\in X\paren{\Omega}}X\inv\paren{\accol{x}}\in\fami{T}\).
+
+On appelle variable aléatoire discrète réelle (respectivement complexe) toute variable aléatoire discrète à valeurs dans \(\R\) (respectivement \(\C\)).
+\end{defi}
+
+En général, on note avec des lettres majuscules droites les variables aléatoires : \(X\), \(Y\), \(S\), etc.
+
+Si \(U\subset X\paren{\Omega}\), on note plutôt \(X\inv\paren{U}\) sous la forme préférée des probabilistes \(\accol{X\in U}\) ou même \(\paren{X\in U}\).
+
+\begin{rem}
+\begin{itemize}
+    \item Comme son nom ne l'indique pas, une variable aléatoire n'est pas une variable, mais une fonction ! La terminologie a été fixée à une époque ancienne où la notion n'était pas encore parfaitement claire. \\
+    \item Toute fonction constante est une variable aléatoire, appelée variable aléatoire certaine. \\
+    \item Si \(A\) est un événement, la variable aléatoire \(\ind{A}\) est appelée fonction indicatrice de \(A\).
+\end{itemize}
+\end{rem}
+
+\subsection{Probabilité-image d'une variable aléatoire discrète}
+
+\begin{prop}
+Soit \(X\) une variable aléatoire discrète à valeurs dans \(E\).
+
+À toute partie \(U\) de \(X\paren{\Omega}\), on associe \(\probacond{U}{X}=\proba{\accol{X\in U}}=\proba{X\in U}\).
+
+Alors \(\prem_X\) est une probabilité sur \(\groupe{X\paren{\Omega}}[\P{X\paren{\Omega}}]\), appelée probabilité-image de \(X\) ou loi de \(X\).
+\end{prop}
+
+\begin{dem}
+On a \(\paren{X\in X\paren{\Omega}}=\accol{\omega\in\Omega\tq X\paren{\omega}\in X\paren{\Omega}}=\Omega\) donc \(\probacond{X\paren{\Omega}}{X}=1\).
+
+Si \(\paren{A_i}_{i\in\N}\) est une famille de parties de \(X\paren{\Omega}\) deux à deux disjointes, on a \[\begin{aligned}
+\probacond{\bigsqcup_{i\in\N}A_i}{X}&=\proba{X\inv\paren{\bigsqcup_{i\in\N}A_i}} \\
+&=\proba{\bigsqcup_{i\in\N}X\inv\paren{A_i}} \\
+&=\sum_{i\in\N}\proba{X\inv\paren{A_i}} \\
+&=\sum_{i\in\N}\probacond{A_i}{X}.
+\end{aligned}\]
+
+Donc \(\prem_X\) est une probabilité sur \(\paren{X\paren{\Omega},\P{X\paren{\Omega}}}\).
+\end{dem}
+
+\begin{rem}
+L'intérêt de la notion de variable aléatoire est de déplacer les calculs de probabilité dans l'univers \(\Omega\) souvent inconnu, muni d'une tribu inconnue, dans un ensemble fini ou dénombrable \(X\paren{\Omega}\) bien plus agréable, muni de la tribu simple \(\P{X\paren{\Omega}}\).
+
+Dans notre pratique des probabilités, nous supposerons toujours l'existence des variables aléatoires qu'on considère ! Voyons néanmoins un résultat de réalisation effective.
+\end{rem}
+
+\subsection{Loi d'une variable aléatoire discrète}
+
+On rappelle qu'une distribution discrète (de probabilités) est une famille de réels positifs \(\paren{p_x}_{x\in L}\) où \(L\) est un ensemble fini ou dénombrable (non vide) telle que \(\sum_{x\in L}p_x=1\).
+
+Les exemples suivants sont fondamentaux et sont à connaître.
+
+\begin{ex}
+Avec \(L\) un ensemble fini :
+
+\begin{itemize}
+    \item Distribution uniforme sur \(L\) : \(\loiuniforme{L}=\paren{p_x}_{x\in L}\) où \(p_x=\dfrac{1}{\Card L}\). \\
+    \item Distribution de Bernoulli de paramètre \(p\in\intervii{0}{1}\) : \(\loibernoulli{p}=\paren{p_0,p_1}\) où \(p_1=p\) et \(p_0=1-p\). \\
+    \item Distribution binomiale de paramètre \(\paren{n,p}\in\N\times\intervii{0}{1}\) : \(\loibinomiale{n}{p}=\paren{p_k}_{k\in\interventierii{0}{n}}\) où \(p_k=\binom{k}{n}p^k\paren{1-p}^{n-k}\).
+\end{itemize}
+
+Avec \(L\) dénombrable :
+
+\begin{itemize}
+    \item Distribution géométrique de paramètre \(p\in\intervee{0}{1}\) : \(\loigeometrique{p}=\paren{p_x}_{x\in\Ns}\) où \(p_x=\paren{1-p}^{x-1}p\). \\
+    \item Distribution de Poisson de paramètre \(\lambda>0\) : \(\loipoisson{\lambda}=\paren{p_k}_{k\in\N}\) où \(p_k=\e{-\lambda}\dfrac{\lambda^k}{k!}\).
+\end{itemize}
+\end{ex}
+
+\begin{defi}
+On dit qu'une variable aléatoire discrète \(X\) sur \(\Omega\) suit la loi discrète \(\fami{L}\) quand \[X\paren{\Omega}\subset L\qquad\text{et}\qquad\quantifs{\forall x\in L}\proba{X=x}=p_x\] où \(\paren{p_x}_{x\in L}\) est la distribution de probabilités nommée par le même nom que \(\fami{L}\).
+\end{defi}
+
+Quand on demande la loi d'une variable aléatoire \(X\), on demande donc de déterminer un ensemble \(L\) tel que \(X\paren{\Omega}\subset L\) et pour chaque \(a\in L\), la valeur de \(\proba{X=a}\). En général, on a souvent \(X\paren{\Omega}=L\), mais parfois ce n'est pas ce qui est le plus simple.
+
+Par abus de langage, on confond la loi et la distribution de probabilité associée.
+
+\begin{prop}
+Soit \(X\) une variable aléatoire qui suit la loi \(\fami{L}=\paren{p_x}_{x\in L}\).
+
+La famille d'événements \(\paren{\accol{X=x}}_{x\in L}\) est un système quasi-complet d'événements, appelé système quasi-complet d'événements associé à \(X\).
+
+En particulier, on a \(\sum_{x\in L}\proba{X=x}=1\).
+\end{prop}
+
+\begin{exo}
+Une urne contient \(n+1\) boules numérotées de \(0\) à \(n\).
+
+On procède à deux tirages avec remise et on note \(S\) la somme des numéros des deux boules.
+
+Déterminez la loi de \(S\).
+\end{exo}
+
+\begin{corr}
+On a \(S\paren{\Omega}=\interventierii{0}{2n}\).
+
+Pour \(k\in\interventierii{0}{2n}\), on cherche \(\proba{S=k}\).
+
+On pose \(R\) la variable aléatoire égale au couple \(\paren{a_1,a_2}\) des résultats des tirages.
+
+On a \(R\paren{\Omega}=\interventierii{0}{n}^2\) et on remarque \(R\sim\loiuniforme{\interventierii{0}{n}^2}\).
+
+De plus, on remarque \[\paren{S=0}=\paren{R=\paren{0,0}}\qquad\text{et}\qquad\paren{S=1}=\paren{R=\paren{0,1}}\sqcup\paren{R=\paren{1,0}}.\]
+
+On en déduit \[\paren{S=k}=\begin{dcases}
+\bigsqcup_{l=0}^k\paren{R=\paren{l,k-l}} &\text{pour }k\in\interventierii{0}{n} \\
+\bigsqcup_{l=k-n}^n\paren{R=\paren{l,k-l}} &\text{pour }k\in\interventierii{n+1}{2n}
+\end{dcases}\] et donc \[\proba{S=k}=\begin{dcases}
+\sum_{l=0}^k\proba{R=\paren{l,k-l}}=\sum_{l=0}^k\dfrac{1}{\paren{n+1}^2}=\dfrac{k+1}{\paren{n+1}^2} &\text{si }k\in\interventierii{0}{n} \\
+\sum_{l=k-n}^n\proba{R=\paren{l,k-l}}=\dfrac{2n-k+1}{\paren{n+1}^2} &\text{si }k\in\interventierii{n+1}{2n}
+\end{dcases}\]
+\end{corr}
+
+\begin{exo}
+On lance une infinité de fois une pièce dont la probabilité de tomber sur pile vaut \(p\in\intervee{0}{1}\).
+
+On note \(X\) la variable aléatoire qui compte le nombre de lancers nécessaires pour obtenir une première fois pile.
+
+Déterminez la loi de \(X\) en faisant des hypothèses raisonnables sur les lancers.
+\end{exo}
+
+\begin{corr}
+On a \(X\paren{\Omega}=\Ns\).
+
+On note \(F_i\) l'événement \guillemets{obtenir face au \(i\)-ème lancer}.
+
+Pour \(k\in\Ns\), on a \(\paren{X=k}=\biginter_{i=1}^{k-1}F_i\inter\conj{F_k}\).
+
+Par indépendance des \(F_i\), on a donc \[\proba{X=k}=\prod_{i=1}^{k-1}\proba{F_i}\times\proba{\conj{F_k}}=\paren{1-p}^{k-1}p.\]
+
+On remarque \(X\sim\loigeometrique{p}\).
+
+On pourra retenir : \color{red}loi géométrique \(=\) première réussite d'une expérience de Bernoulli indépendante.\color{black}
+\end{corr}
+
+Théorème de réalisation.
+
+\begin{theo}
+Soit \(\fami{L}\) une distribution discrète de probabilités.
+
+Il existe un espace probabilisé \(\anneau{\Omega}[\fami{T}][\prem]\) et une variable aléatoire \(X\) sur \(\Omega\) tels que \(X\) suive la loi \(\fami{L}\).
+\end{theo}
+
+\begin{dem}
+On note \(\fami{L}=\paren{p_x}_{x\in L}\) et on pose \(\Omega=L\), \(\fami{T}=\P{L}\) et \(\prem\) la probabilité sur \(L\) qui suit la distribution \(\fami{L}\) (\cf \thref{prop13.13}).
+
+En posant \(X=\id{L}\), on a bien \[\begin{aligned}
+\proba{X=x}&=\proba{\accol{\omega\in L\tq X\paren{\omega}=x}} \\
+&=\proba{\accol{\omega\in L\tq\omega=x}} \\
+&=\proba{\accol{x}} \\
+&=p_x.
+\end{aligned}\]
+\end{dem}
+
+On note \(X\sim\fami{L}\) pour signifier que \(X\) suit la loi \(\fami{L}\), ou \(X\sim Y\) pour signifier que \(X\) et \(Y\) suivent la même loi (ce qui ne présuppose rien sur les univers de départ de \(X\) et \(Y\) : on a seulement \(X\paren{\Omega}=Y\paren{\Omega\prim}\) et les égalités numériques \(\quantifs{\forall x\in X\paren{\Omega}}\proba{X=x}=\proba{Y=x}\)).
+
+\subsection{Cas des variables aléatoires discrètes réelles ou complexes}
+
+\begin{prop}
+L'ensemble des variables aléatoires discrètes réelles sur l'espace probabilisé \(\anneau{\Omega}[\fami{T}][\prem]\) est une \(\R\)-algèbre : on peut donc additionner ou multiplier par un scalaire des variables aléatoires discrètes réelles, ou les additionner entre elles.
+
+Si \(X\) est une variable aléatoire discrète réelle sur \(\Omega\) et si \(f\) est une fonction de \(\R\) dans \(\R\) définie sur \(X\paren{\Omega}\), alors la composée \(f\rond X\) est une variable aléatoire discrète réelle définie sur \(\Omega\), qu'on note plutôt \(f\paren{X}\).
+\end{prop}
+
+On a bien sûr le même résultat avec les variables complexes.
+
+La loi de \(f\paren{X}\) est donc théoriquement donnée par : \[\quantifs{\forall y\in f\paren{X}\paren{\Omega}}\proba{f\paren{X}=y}=\sum_{x\in f\inv\paren{\accol{y}}\inter X\paren{\Omega}}\proba{X=x}.\]
+
+En pratique, cette loi est souvent difficilement calculable.
+
+\begin{exo}
+Soient \(X\) une variable aléatoire discrète suivant une loi de Poisson \(\loipoisson{\lambda}\) et \(p\in\Ns\).
+
+On pose \(Y=X^2-\paren{2p+1}X\).
+
+Déterminez la loi de \(Y\).
+\end{exo}
+
+\begin{corr}
+On a \(X\sim\loipoisson{\lambda}\) donc \(X\paren{\Omega}=\N\) et \(\quantifs{\forall k\in\N}\proba{X=k}=\e{-\lambda}\dfrac{\lambda^k}{k!}\).
+
+On a donc \(Y\paren{\Omega}\subset\Z\) et pour \(l\in\Z\), on a \[\paren{Y=l}=\accol{\omega\in\Omega\tq X^2\paren{\omega}-\paren{2p+1}X\paren{\omega}-l=0}.\]
+
+On considère l'équation \(x^2-\paren{2p+1}x-l=0\) d'inconnue \(x\in\N\) et de discriminant \(\Delta=\paren{2p+1}^2+4l\).
+
+Si \(l<\dfrac{-\paren{2p+1}^2}{4}\) alors \(\Delta<0\) donc \(\paren{Y=l}=\ensvide\) et donc \(\proba{Y=l}=0\).
+
+Si \(l=\dfrac{-\paren{2p+1}^2}{4}\) alors \(l\) n'est pas entier donc \(\proba{Y=l}=0\).
+
+Si \(l>\dfrac{-\paren{2p+1}^2}{4}\), les racines de l'équations sont \[x_1=\dfrac{2p+1+\sqrt{\Delta}}{2}\qquad\text{et}\qquad x_2=\dfrac{2p+1-\sqrt{\Delta}}{2}.\]
+
+On a \(x_1+x_2=2p+1\) donc si l'une des racines est entière, l'autre l'est aussi.
+
+\(\Delta\) est un entier impair donc si \(\sqrt{\Delta}\) est un entier, c'est un entier impair et donc \(x_1\) et \(x_2\) sont deux entiers.
+
+Réciproquement, si \(x_1\) est un entier alors \(\sqrt{\Delta}=2x_1-\paren{2p+1}\) est un entier.
+
+Donc \(x_1\in\N\ssi\sqrt{\Delta}\in\N\).
+
+Donc \[\begin{aligned}
+\sqrt{\Delta}\in\N&\ssi\quantifs{\exists a\in\N}\paren{2p+1}^2+4l=a^2 \\
+&\ssi l=\dfrac{a^2-\paren{2p+1}^2}{4}\text{ où }a\in\N\text{ impair} \\
+&\ssi l=\dfrac{2b+1-\paren{2p+1}^2}{4}\text{ où }b\in\N \\
+&\ssi l=\dfrac{2\paren{b-p}\times 2\paren{b+p+1}}{4} \\
+&\ssi l=\paren{b-p}\paren{b+p+1}\text{ où }b\in\N.
+\end{aligned}\]
+
+Si \(b\in\interventierii{0}{p}\) alors \(l\leq0\) donc \(x_1\in\N\) et \(x_2\in\N\) et \[\begin{aligned}
+\paren{Y=l}&=\accol{\omega\in\Omega\tq X\paren{\omega}=x_1\quad\text{ou}\quad X\paren{\omega}=x_2} \\
+&=\paren{X=x_1}\sqcup\paren{X=x_2}.
+\end{aligned}\]
+
+Donc \[\proba{Y=l}=\e{-\lambda}\paren{\dfrac{\lambda^{x_1}}{x_1!}+\dfrac{\lambda^{x_2}}{x_2!}}\] où \(x_1=b+p+1\) et \(x_2=p-b\).
+
+Si \(b\in\interventierie{p+1}{\pinf}\), alors \(l>0\) et donc \(x_1>0\) et \(x_2<0\).
+
+Donc \[\proba{Y=l}=\proba{X=x_1}=\e{-\lambda}\dfrac{\lambda^{x_1}}{x_1!}.\]
+\end{corr}
+
+\section{Espérance}
+
+\subsection{Définitions}
+
+\begin{defi}
+Soit \(X\) une variable aléatoire discrète à valeurs dans \(\intervii{0}{\pinf}\).
+
+On appelle alors espérance de \(X\) le nombre \(\esp{X}=\sum_{x\in X\paren{\Omega}}x\proba{X=x}\) (au sens des familles positives) : c'est un réel si la famille \(\paren{x\proba{X=x}}_{x\in X\paren{\Omega}}\) est sommable et \(\pinf\) sinon.
+\end{defi}
+
+Une variable aléatoire réelle positive possède donc toujours une espérance, éventuellement infinie. Dans le cas général, on ne peut pas toujours définir l'espérance.
+
+\begin{defi}
+Soit \(X\) une variable aléatoire discrète complexe.
+
+On dit que \(X\) possède une espérance finie quand la famille \(\paren{x\proba{X=x}}_{x\in X\paren{\Omega}}\) est sommable. Dans ce cas, on appelle espérance de \(X\) le nombre \(\esp{X}=\sum_{x\in X\paren{\Omega}}x\proba{X=x}\) (au sens des familles sommables).
+\end{defi}
+
+On note \(L^1\) l'ensemble des variables à espérance finie. On voit souvent écrit \(X\in L^1\) pour signifier en abrégé que la variable \(X\) possède une espérance finie.
+
+L'espérance de \(X\) est donc la moyenne de ses valeurs possibles, pondérées par leurs probabilités respectives, quand cela a un sens.
+
+\begin{ex}
+\begin{itemize}
+    \item L'espérance d'une variable aléatoire certaine égale à \(a\) est \(a\). \\
+    \item Si \(A\) est un événement, l'espérance de son indicatrice est sa probabilité : \(\esp{\ind{A}}=\proba{A}\).
+\end{itemize}
+\end{ex}
+
+\begin{exo}
+Soient \(\lambda\in\R\) et \(\alpha>0\).
+
+Déterminez une CNS sur \(\lambda\) et \(\alpha\) pour qu'existe une variable aléatoire \(X\) qui suit une loi \(\paren{\dfrac{\lambda}{n^\alpha}}_{n\in\Ns}\).
+
+À quelle condition \(X\) possède-t-elle une espérance finie ?
+\end{exo}
+
+\begin{corr}~\\
+\begin{itemize}
+    \item \(\fami{L}=\paren{\dfrac{\lambda}{n^\alpha}}_{n\in\Ns}\) est une distribution de probabilité discrète ssi \(\begin{dcases}
+        \lambda\geq0 \\
+        \sum_n\dfrac{\lambda}{n^\alpha}\text{ converge et }\sum_{n=1}^{\pinf}\dfrac{\lambda}{n^\alpha}=1
+    \end{dcases}\) \ie \[\alpha>1\qquad\text{et}\qquad\lambda=\dfrac{1}{\sum_{n=1}^{\pinf}\nicefrac{1}{n^\alpha}}=\dfrac{1}{\zeta\paren{\alpha}}.\] Dans ce cas, il existe une variable aléatoire \(X\) telle que \(X\sim\fami{L}\). \\
+    \item On a \[\begin{aligned}
+        X\in L^1&\ssi\paren{x\proba{X=x}}_{x\in X\paren{\Omega}}\text{ est sommable} \\
+        &\ssi\sum_{x\in X\paren{\Omega}}\abs{x}\proba{X=x}<\pinf \\
+        &\ssi\sum_{n\in\Ns}n\proba{X=n}<\pinf \\
+        &\ssi\sum_{n\in\Ns}\dfrac{\lambda}{n^{\alpha-1}}<\pinf \\
+        &\ssi\sum_n\dfrac{\lambda}{n^{\alpha-1}}\text{ converge} \\
+        &\ssi\alpha-1>1 \\
+        &\ssi\alpha>2.
+    \end{aligned}\]
+\end{itemize}
+\end{corr}
+
+\begin{exo}
+Calculez l'espérance d'une variable \(X\) qui suit une loi géométrique de paramètre \(p\in\intervee{0}{1}\).
+\end{exo}
+
+\begin{corr}
+Soit \(X\sim\loigeometrique{p}\) où \(p\in\intervee{0}{1}\). On a \(X\geq0\).
+
+On a \[\begin{aligned}
+\esp{X}&=\sum_{n=1}^{\pinf}n\paren{1-p}^{n-1}p \\
+&=p\sum_{n=1}^{\pinf}n\paren{1-p}^{n-1}.
+\end{aligned}\]
+
+Or pour \(x\in\intervee{-1}{1}\), on a \(\sum_{n=0}^{\pinf}x^n=\dfrac{1}{1-x}\) donc \[\sum_{n=1}^{\pinf}nx^{n-1}=\odv*{\paren{\dfrac{1}{1-x}}}{x}=\dfrac{1}{\paren{1-x}^2}.\]
+
+Donc \(\esp{X}=\dfrac{1}{p}\).
+\end{corr}
+
+\begin{prop}
+Toute variable aléatoire finie possède une espérance finie.
+
+Toute variable aléatoire discrète complexe bornée possède une espérance finie.
+\end{prop}
+
+\begin{dem}
+Si \(X\) est une variable aléatoire bornée, alors on choisit \(M>0\) tel que \(\abs{X}\leq M\).
+
+On a \(\quantifs{\forall x\in X\paren{\Omega}}\abs{x}\proba{X=x}\leq M\proba{X=x}\).
+
+Or la famille \(\paren{\proba{X=x}}_{x\in X\paren{\Omega}}\) est sommable de somme \(1\).
+
+Donc, par comparaison, la famille \(\paren{\abs{x}\proba{X=x}}_{x\in X\paren{\Omega}}\) est sommable \ie \(X\) possède une espérance finie.
+\end{dem}
+
+\subsection{Propriétés}
+
+Une propriété qui découle des théorèmes de comparaison classiques sur les familles sommables.
+
+\begin{prop}
+Soient \(X\) et \(Y\) deux variables aléatoires discrètes complexes.
+
+Si \(\abs{X}\leq\abs{Y}\) et \(Y\in L^1\), alors \(X\in L^1\).
+
+Si \(X\in L^1\), alors \(\abs{X}\in L^1\) et \(\abs{\esp{X}}\leq\esp{\abs{X}}\) (inégalité triangulaire).
+\end{prop}
+
+La linéarité découle encore de la théorie des familles sommables.
+
+\begin{prop}
+Soient \(X,Y\) deux variables aléatoires discrètes complexes admettant chacune une espérance finie et \(\lambda\) un complexe.
+
+Alors \(X+Y\) et \(\lambda X\) admettent une espérance finie et \[\esp{X+Y}=\esp{X}+\esp{Y}\qquad\text{et}\qquad\esp{\lambda X}=\lambda\esp{X}.\]
+
+En particulier : \(\quantifs{\forall\paren{a,b}\in\C^2}\esp{aX+b}=a\esp{X}+b\).
+
+Si \(X\) est une variable aléatoire réelle positive, alors \(\esp{X}\geq0\).
+
+Si \(X\) et \(Y\) sont deux variables aléatoires réelles telles que \(X\leq Y\), alors \(\esp{X}\leq\esp{Y}\).
+\end{prop}
+
+\begin{dem}[Linéarité de l'espérance (somme)]
+On note \(L=X\paren{\Omega}\) et \(M=Y\paren{\Omega}\), qui sont par hypothèse des ensembles au plus dénombrables.
+
+La variable aléatoire \(X+Y\) est à valeurs dans \(S=L+M=\accol{l+m\tq\paren{l,m}\in L\times M}\), qui est lui aussi un ensemble au plus dénombrable.
+
+On pose \(A=\sum_{s\in S}\abs{s}\proba{X+Y=s}\).
+
+La famille \(\paren{\paren{X=l}}_{l\in L}\) étant un \sce, d'après la formule des probabilités totales, on a \[\quantifs{\forall s\in S}\proba{X+Y=s}=\sum_{l\in L}\proba{\paren{X=l}\inter\paren{X+Y=s}}.\]
+
+Or \(\paren{X=l}\inter\paren{X+Y=s}=\paren{X=l}\inter\paren{Y=s-l}\) donc \[A=\sum_{s\in S}\abs{s}\sum_{l\in L}\proba{\paren{X=l}\inter\paren{X+Y=s}}=\sum_{\substack{l\in L \\ s\in S}}\abs{s}\proba{\paren{X=l}\inter\paren{Y=s-l}}.\]
+
+Or, pour \(s\in S\) et \(l\in L\), soit il existe \(b\in M\) tel que \(s=l+b\) et dans ce cas \[\proba{\paren{X=l}\inter\paren{Y=s-l}}=\proba{\paren{X=l}\inter\paren{Y=b}}\] soit \(s-l\not\in M\) et donc \[\proba{\paren{X=l}\inter\paren{Y=s-l}}=0.\]
+
+Par changement de variables \(m=s-l\), on a donc \[A=\sum_{\substack{l\in L \\ m\in M}}\abs{l+m}\proba{\paren{X=l}\inter\paren{Y=m}}\] car la première expression a les mêmes termes que la seconde, avec éventuellement des termes nuls supplémentaires.
+
+Les familles \(\paren{\paren{X=l}}_{l\in L}\) et \(\paren{\paren{Y=m}}_{m\in M}\) étant des \sce, d'après la formule des probabilités totales, on a donc \[\begin{aligned}
+A&\leq\sum_{\substack{l\in L \\ m\in M}}\paren{\abs{l}+\abs{m}}\proba{\paren{X=l}\inter\paren{Y=m}} \\
+&=\sum_{l\in L}\sum_{m\in M}\abs{l}\proba{\paren{X=l}\inter\paren{Y=m}}+\sum_{m\in M}\sum_{l\in L}\abs{m}\proba{\paren{X=l}\inter\paren{Y=m}} \\
+&=\sum_{l\in L}\abs{l}\sum_{m\in M}\proba{\paren{X=l}\inter\paren{Y=m}}+\sum_{m\in M}\abs{m}\sum_{l\in L}\proba{\paren{X=l}\inter\paren{Y=m}} \\
+&=\sum_{l\in L}\abs{l}\proba{X=l}+\sum_{m\in M}\abs{m}\proba{Y=m}.
+\end{aligned}\]
+
+Par sommabilité des familles \(\paren{l\proba{X=l}}_{l\in L}\) et \(\paren{m\proba{Y=m}}_{m\in M}\), on obtient \[A<\pinf.\]
+
+Ceci prouve la sommabilité de la famille \(\paren{s\proba{X+Y=s}}_{s\in S}\) \ie la variable aléatoire \(X+Y\) possède une espérance finie.
+
+Maintenant que l'on a prouvé la sommabilité, on peut tout refaire sans les valeurs absolues et on a alors \[\begin{aligned}
+\esp{X+Y}&=\sum_{s\in S}s\proba{X+Y=s} \\
+&=\dots \\
+&=\sum_{\substack{l\in L \\ m\in M}}\paren{l+m}\proba{\paren{X=l}\inter\paren{Y=m}} \\
+&=\dots \\
+&=\sum_{l\in L}l\proba{X=l}+\sum_{m\in M}m\proba{Y=m} \\
+&=\esp{X}+\esp{Y}.
+\end{aligned}\]
+\end{dem}
+
+\begin{dem}[Linéarité de l'espérance (multiplication par un scalaire)]
+En adaptant la preuve précédente, on montre que \(\lambda X\) a une espérance finie et \(\esp{\lambda X}=\lambda\esp{X}\).
+
+Si \(\lambda=0\), c'est évident. On suppose donc \(\lambda\not=0\).
+
+Avec les mêmes notations, \(\lambda X\) prend ses valeurs dans \(S=\lambda L=\accol{\lambda l\tq l\in L}\), qui est aussi au plus dénombrable.
+
+On remarque \(\quantifs{\forall l\in L}\paren{\lambda X=\lambda l}=\paren{X=l}\).
+
+Donc \(A=\sum_{s\in S}\abs{s}\proba{\lambda X=s}=\sum_{l\in L}\abs{\lambda l}\proba{\lambda X=\lambda l}\) car \(t\mapsto\lambda t\) est une bijection de \(L\) dans \(S\).
+
+Donc \(A=\abs{\lambda}\sum_{l\in L}\abs{l}\proba{X=l}<\pinf\).
+
+La famille \(\paren{s\proba{\lambda X=s}}_{s\in S}\) est donc sommable \ie \(\lambda X\) possède une espérance finie.
+
+On peut donc reprendre les calculs précédents sans valeurs absolues et obtenir \(\esp{\lambda X}=\lambda\esp{X}\).
+\end{dem}
+
+\begin{prop}\thlabel{prop14.7}
+Soit \(X\) une variable aléatoire discrète réelle positive.
+
+Alors \(X\) a une espérance nulle ssi \(X\) est presque sûrement nulle, \ie \(\proba{X=0}=1\).
+\end{prop}
+
+\begin{dem}
+\impdir
+
+Supposons \(\esp{X}=0\).
+
+Alors \(\sum_{x\in X\paren{\Omega}}\underbrace{x\proba{X=x}}_{\geq0}=0\).
+
+Donc \(\quantifs{\forall x\in X\paren{\Omega}}x\proba{X=x}=0\).
+
+Donc \(\quantifs{\forall x\in X\paren{\Omega}\excluant\accol{0}}\proba{X=x}=0\).
+
+Or \(\sum_{x\in X\paren{\Omega}}\proba{X=x}=1\) donc \(\proba{X=0}=1\).
+
+\imprec
+
+Trivial.
+\end{dem}
+
+\begin{defi}
+On dit qu'une variable aléatoire discrète complexe \(X\) est centrée ssi \(\esp{X}=0\).
+\end{defi}
+
+À toute variable aléatoire discrète complexe \(X\), on associe une variable aléatoire discrète complexe centrée : \(X-\esp{X}\).
+
+\subsection{Théorème de transfert}
+
+\begin{theo}
+Soient \(X\) une variable aléatoire discrète complexe et \(f\) une fonction de \(\C\) dans \(\C\) définie sur \(X\paren{\Omega}\).
+
+La variable aléatoire discrète complexe \(f\paren{X}\) possède une espérance finie ssi la famille \(\paren{f\paren{x}\proba{X=x}}_{x\in X\paren{\Omega}}\) est sommable et, dans ce cas, on a \[\esp{f\paren{X}}=\sum_{x\in X\paren{\Omega}}f\paren{x}\proba{X=x}.\]
+\end{theo}
+
+\begin{dem}
+On note \(L=X\paren{\Omega}\) qui est au plus dénombrable et donc \(S=f\rond X\paren{\Omega}=\accol{f\paren{l}\tq l\in L}\) est au plus dénombrable.
+
+Pour \(s\in S\), on note \(A_s\) l'ensemble des antécédents dans \(L\) de \(s\) par \(f\) : \(A_s=f\inv\paren{\accol{s}}\).
+
+On suppose que \(f\paren{X}\) a une espérance finie \ie \(B=\sum_{s\in S}\abs{s}\proba{f\paren{X}=s}=\sum_{s\in S}\abs{s}\proba{X\in A_s}<\pinf\).
+
+Or \(\paren{X\in A_s}=\bigsqcup_{l\in A_s}\paren{X=l}\) (réunion au plus dénombrable) donc \(\proba{X\in A_s}=\sum_{l\in A_s}\proba{X=l}\).
+
+Donc \[B=\sum_{s\in S}\sum_{l\in A_s}\abs{s}\proba{X=l}=\sum_{s\in S}\sum_{l\in A_s}\abs{f\paren{l}}\proba{X=l}=\sum_{l\in L}\abs{f\paren{l}}\proba{X=l}\] car la famille de parties \(\paren{A_s}_{s\in S}\) est une partition de \(L\) donc le théorème de sommation par paquets s'applique.
+
+Ceci prouve que la famille \(\paren{f\paren{l}\proba{X=l}}_{l\in L}\) est sommable, donc on peut reprendre les calculs précédents sans valeurs absolues : \[\sum_{l\in L}f\paren{l}\proba{X=l}=\sum_{s\in S}\sum_{l\in A_s}s\proba{X=l}=\sum_{s\in S}s\proba{X\in A_s}=\sum_{s\in S}s\proba{f\paren{X}=s}=\esp{f\paren{X}}.\]
+\end{dem}
+
+Ce théorème permet de calculer directement l'espérance de \(f\paren{X}\) sans devoir calculer la loi de \(f\paren{X}\) : il suffit de connaître celle de \(X\).
+
+\begin{exo}
+Soient \(p\in\intervee{0}{1}\) et \(X\sim\loigeometrique{p}\).
+
+Calculez \(\esp{\e{-X}}\).
+\end{exo}
+
+\begin{corr}
+On a \(X\sim\loigeometrique{p}\) \ie \(\begin{dcases}
+X\paren{\Omega}=\Ns \\
+\quantifs{\forall k\in\Ns}\proba{X=k}=\paren{1-p}^{k-1}p
+\end{dcases}\)
+
+D'après le théorème de transfert, on a \[\begin{aligned}
+\esp{\e{-X}}&=\sum_{k=1}^{\pinf}\e{-k}\paren{1-p}^{k-1}p \\
+&=\dfrac{p}{1-p}\sum_{k=1}^{\pinf}\paren{\paren{1-p}\e{-1}}^k \\
+&=\dfrac{p}{1-p}\times\dfrac{\e{-1}\paren{1-p}}{1-\e{-1}\paren{1-p}} \\
+&=\dfrac{p}{\e{}\paren{1-\nicefrac{\paren{1-p}}{\e{}}}} \\
+&=\dfrac{p}{\e{}-1+p}.
+\end{aligned}\]
+\end{corr}
+
+Enfin, un petit résultat utile.
+
+\begin{prop}
+Soit \(X\) une variable aléatoire discrète à valeurs dans \(\N\).
+
+On a \(\esp{X}=\sum_{n=1}^{\pinf}\proba{X\geq n}\).
+\end{prop}
+
+\begin{dem}
+Pour \(n\in\N\), on a \(\paren{X\geq n}=\paren{X=n}\sqcup\paren{X\geq n+1}\) donc \[\proba{X\geq n}=\proba{X=n}+\proba{X\geq n+1}.\]
+
+Donc si \(X\) a une espérance finie alors \[\begin{aligned}
+\esp{X}&=\sum_{n=0}^{\pinf}n\proba{X=n} \\
+&=\sum_{n=1}^{\pinf}n\paren{\proba{X\geq n}-\proba{X\geq n+1}}.
+\end{aligned}\]
+
+Or pour \(N\in\Ns\), on a \[\begin{aligned}
+\sum_{n=1}^Nn\paren{\proba{X\geq n}-\proba{X\geq n+1}}&=\sum_{n=1}^Nn\proba{X\geq n}-\sum_{n=1}^Nn\proba{X\geq n+1} \\
+&=\sum_{n=1}^Nn\proba{X\geq n}-\sum_{n=2}^{N+1}\paren{n-1}\proba{X\geq n} \\
+&=\proba{X\geq1}-N\proba{X\geq N+1}+\sum_{n=2}^N\paren{n-\paren{n-1}}\proba{X\geq n} \\
+&=\proba{X\geq1}+\sum_{n=2}^N\proba{X\geq n}-N\proba{X\geq N+1}.
+\end{aligned}\]
+
+Or \[\sum_{n=N+1}^{\pinf}n\proba{X=n}\geq\paren{N+1}\underbrace{\sum_{n=N+1}^{\pinf}\proba{X=n}}_{=\proba{X\geq N+1}}\geq0.\]
+
+Donc \[0\leq N\proba{X\geq N+1}\leq\underbrace{\sum_{n=N+1}^{\pinf}n\proba{X=n}}_{\substack{\text{reste d'une série} \\ \text{convergente}}}.\]
+
+Donc, par encadrement, \(N\proba{X\geq N+1}\tendqd{N\to\pinf}0\).
+
+Donc \[\lim_{N\to\pinf}\croch{\sum_{n=1}^N\proba{X\geq n}-N\proba{X\geq N+1}}=\esp{X}\] et \[\lim_{N\to\pinf}N\proba{X\geq N+1}=0.\]
+
+Donc, par opérations sur les limites, on a \[\esp{X}=\lim_{N\to\pinf}\sum_{n=1}^N\proba{X\geq n}=\sum_{n=1}^{\pinf}\proba{X\geq n}.\]
+\end{dem}
+
+\subsection{Inégalité de Markov}
+
+\begin{prop}
+Soit \(X\) une variable aléatoire discrète réelle positive admettant une espérance finie.
+
+On a \[\quantifs{\forall a>0}\proba{X\geq a}\leq\dfrac{\esp{X}}{a}.\]
+\end{prop}
+
+\begin{dem}
+Soit \(a>0\).
+
+On a \[\esp{X}=\sum_{\substack{x\in X\paren{\Omega} \\ x<a}}x\proba{X=x}+\sum_{\substack{x\in X\paren{\Omega} \\ x\geq a}}x\proba{X=x}\] donc \[\sum_{\substack{x\in X\paren{\Omega} \\ x\geq a}}x\proba{X=x}\leq\esp{X}.\]
+
+Or \(a\sum_{\substack{x\in X\paren{\Omega} \\ x\geq a}}\proba{X=x}\leq\sum_{\substack{x\in X\paren{\Omega} \\ x\geq a}}x\proba{X=x}\).
+
+De plus, \(\paren{X\geq a}=\bigsqcup_{\substack{x\in X\paren{\Omega} \\ x\geq a}}\paren{X=x}\) (union dénombrable) donc \[\sum_{\substack{x\in X\paren{\Omega} \\ x\geq a}}\proba{X=x}=\proba{X\geq a}.\]
+
+Finalement, on a \[\begin{aligned}
+a\proba{X\geq a}&\leq\esp{X} \\
+\proba{X\geq a}&\leq\dfrac{\esp{X}}{a}.
+\end{aligned}\]
+\end{dem}
+
+Cette inégalité n'a d'intérêt que pour \(a>\esp{X}\), sinon on majore une probabilité par un nombre plus grand que \(1\).
+
+Il arrive souvent qu'on ne sache pas calculer explicitement la loi d'une variable aléatoire, mais qu'on arrive à calculer son espérance (par exemple comme somme de variables aléatoires simples). Les inégalités de ce type permettent quand même parfois d'obtenir des résultats à propos des probabilités de certains événements.
+
+\begin{cor}
+Soit \(X\) une variable aléatoire discrète complexe admettant une espérance finie.
+
+On a \[\quantifs{\forall a>0}\proba{\abs{X}\geq a}\leq\dfrac{\esp{\abs{X}}}{a}.\]
+\end{cor}
+
+\section{Variance d'une variable réelle}
+
+\subsection{Moments d'ordre 2}
+
+\begin{prop}
+Soit \(X\) une variable aléatoire discrète réelle.
+
+Si \(X^2\) possède une espérance finie (on dit aussi que \(X\) possède un moment d'ordre 2), alors \(X\) possède une espérance finie.
+
+Dans ce cas, \(\quantifs{\tpt a\in\R}\paren{X+a}^2\) possède une espérance finie.
+\end{prop}
+
+\begin{dem}
+On suppose que \(X^2\) est \(L^1\).
+
+On a \(\abs{X}\leq\dfrac{1+X^2}{2}\) et \(\esp{\dfrac{1+X^2}{2}}=\dfrac{1}{2}+\dfrac{1}{2}\esp{X^2}<\pinf\).
+
+Donc, par comparaison, \(\abs{X}\) est \(L^1\) et donc \(X\) est \(L^1\).
+
+De plus, pour \(a\in\R\), \(\paren{X+a}^2=X^2+2aX+a^2\) donc \(\paren{X+a}^2\) est une somme de variables aléatoires \(L^1\) et est donc \(L^1\).
+\end{dem}
+
+On note \(L^2\) l'ensemble des variables aléatoires discrètes réelles \(X\) telles que \(X^2\) est d'espérance finie, \ie \(\esp{X^2}<\pinf\).
+
+\begin{prop}
+Soient \(X,Y\in L^2\).
+
+On a \(XY\in L^1\) et \(\esp{XY}^2\leq\esp{X^2}\esp{Y^2}\).
+\end{prop}
+
+\begin{dem}~\\
+Comme \(\abs{XY}\leq\dfrac{X^2+Y^2}{2}\), par comparaison, \(XY\in L^1\).
+
+Pour \(t\in\R\), on pose \(f\paren{t}=\esp{\paren{tX+Y}^2}\).
+
+On a \(f\geq0\) et \(f\paren{t}=t^2\esp{X^2}+2t\esp{XY}+\esp{Y^2}\).
+
+Si \(\esp{X^2}=0\) alors, comme \(X\geq0\), \(X\) est presque sûrement nulle (\thref{prop14.7}), donc \(XY\) est presque sûrement nulle et donc \[\esp{XY}^2=0\leq\esp{X^2}\esp{Y^2}=0.\]
+
+Si \(\esp{X^2}\not=0\) alors \(f\) est un trinôme du second degré de signe constant donc son déterminant est négatif ou nul et on a \[\esp{XY}^2\leq\esp{X^2}\esp{Y^2}.\]
+\end{dem}
+
+Il s'agit bien sûr de l'inégalité de Cauchy-Schwarz.
+
+\subsection{Variance et écart-type}
+
+\begin{defi}
+Soit \(X\) une variable aléatoire discrète réelle telle que \(X\in L^2\).
+
+On appelle variance de \(X\) le nombre \(\vari{X}=\esp{\paren{X-\esp{X}}^2}\).
+
+On appelle écart-type de \(X\) le réel \(\ecarttype{X}=\sqrt{\vari{X}}\).
+\end{defi}
+
+La variance (ou l'écart-type) mesure la dispersion de \(X\) autour de sa moyenne. Une variable de variance \(1\) est dite réduite.
+
+\begin{prop}
+Soit \(X\) une variable aléatoire discrète réelle telle que \(X\in L^2\).
+
+On a \(\vari{X}=0\) ssi \(X\) est presque sûrement constante.
+\end{prop}
+
+En général, on calcule la variance par la formule suivante.
+
+\begin{prop}[Formule de Huyghens]
+Soit \(X\) une variable aléatoire discrète réelle telle que \(X\in L^2\). On a \[\vari{X}=\esp{X^2}-\esp{X}^2.\]
+\end{prop}
+
+\begin{exo}
+Calculez la variance d'une variable suivant une loi géométrique de paramètre \(p\in\intervee{0}{1}\).
+\end{exo}
+
+\begin{corr}
+Soit \(X\sim\loigeometrique{p}\).
+
+On a \(\esp{X}=\dfrac{1}{p}\) et \(\vari{X}=\esp{X^2}-\esp{X}^2\).
+
+D'après le théorème de transfert et en posant \(q=1-p\), on a \[\begin{aligned}
+\esp{X^2}&=\sum_{k=1}^{\pinf}k^2\proba{X=k} \\
+&=\sum_{k=1}^{\pinf}k^2\paren{1-p}^{k-1}p \\
+&=\sum_{k=1}^{\pinf}\paren{k\paren{k-1}+k}q^{k-1}p \\
+&=pq\sum_{k=1}^{\pinf}k\paren{k-1}q^{k-2}+\underbrace{\sum_{k=1}^{\pinf}kq^{k-1}p}_{=\esp{X}}.
+\end{aligned}\]
+
+Sur \(\intervee{-1}{1}\), la somme de la série entière \(\sum_kx^k\) est \(\classe{\infty}\) et dérivable terme à terme.
+
+En particulier : \[\sum_{k=0}^{\pinf}k\paren{k-1}x^{k-2}=\odv*[order=2]{\paren{\dfrac{1}{1-x}}}{x}=\dfrac{2}{\paren{1-x}^3}.\]
+
+Donc \[\esp{X^2}=pq\dfrac{2}{\paren{1-q}^3}+\dfrac{1}{p}=\dfrac{2q}{p^2}+\dfrac{1}{p}.\]
+
+Donc \[\vari{X}=\dfrac{2q}{p}+\dfrac{1}{p}-\dfrac{1}{p^2}=\dfrac{q}{p^2}.\]
+\end{corr}
+
+\begin{prop}
+Soient \(X\) une variable aléatoire discrète réelle telle que \(X\in L^2\) et \(\paren{a,b}\in\R^2\).
+
+On a \(aX+b\in L^2\) et \(\vari{aX+b}=a^2\vari{X}\).
+\end{prop}
+
+\begin{rem}
+Si \(X\) est une variable aléatoire discrète réelle d'espérance \(m\) et de variance \(v\), on pose \(X\prim=\dfrac{1}{\sqrt{v}}\paren{X-m}\).
+
+\(X\prim\) est alors une variable aléatoire discrète réelle centrée dont la variance vaut \(1\) : on l'appelle la variable aléatoire discrète réelle centrée réduite associée à \(X\).
+\end{rem}
+
+\subsection{Inégalité de Bienaymé-Tchebychev}
+
+\begin{prop}
+Soit \(X\) une variable aléatoire discrète réelle possédant un moment d'ordre 2. On a \[\quantifs{\forall\epsilon>0}\proba{\abs{X-\esp{X}}\geq\epsilon}\leq\dfrac{\vari{X}}{\epsilon^2}.\]
+\end{prop}
+
+\begin{dem}
+Soit \(\epsilon>0\).
+
+On a \(\abs{X-\esp{X}}\geq\epsilon\ssi\paren{X-\esp{X}}^2\geq\epsilon^2\).
+
+Or \(\paren{X-\esp{X}}^2\) est une variable aléatoire discrète positive donc d'après l'inégalité de Markov, on a \[\proba{\paren{X-\esp{X}}^2\geq\epsilon^2}\leq\dfrac{\esp{\paren{X-\esp{X}}^2}}{\epsilon^2}\] \ie \[\proba{\abs{X-\esp{X}}\geq\epsilon}\leq\dfrac{\vari{X}}{\epsilon^2}.\]
+\end{dem}
+
+La même remarque que pour l'inégalité de Markov s'applique : cette inégalité n'a d'intérêt que pour des valeurs assez grandes de \(\epsilon\), sinon on majore une probabilité par \(1\).
+
+\begin{exo}
+On lance \(n\) fois un dé à six faces.
+
+Comment choisir \(n\) pour que la probabilité d'obtenir moins d'une fois sur deux le nombre 6 soit au moins égale à \(\dfrac{3}{4}\) ?
+\end{exo}
+
+\begin{corr}
+On pose \(X_n\) la variable aléatoire égale au nombre de 6 obtenus lors des \(n\) lancers.
+
+On a \(X_n\sim\loibinomiale{n}{\dfrac{1}{6}}\).
+
+On cherche \(n\in\Ns\) tel que \(\proba{X_n\leq\dfrac{n}{2}}\geq\dfrac{3}{4}\).
+
+Or \(\proba{X_n\leq\dfrac{n}{2}}=1-\proba{X_n>\dfrac{n}{2}}\geq\dfrac{3}{4}\) ssi \(\proba{X_n>\dfrac{n}{2}}\leq\dfrac{1}{4}\).
+
+On a \(\esp{X_n}=\dfrac{n}{6}\).
+
+D'après l'inégalité de Markov, on a \[\proba{X_n\geq\dfrac{n}{2}}\leq\dfrac{\esp{X_n}}{\nicefrac{n}{2}}=\dfrac{1}{3}\] ce qui n'est pas suffisant.
+
+On a \(\vari{X_n}=n\times\dfrac{1}{6}\times\dfrac{5}{6}=\dfrac{5n}{36}\).
+
+D'après l'inégalité de Bienaymé-Tchebychev, \[\quantifs{\forall\epsilon>0}\proba{\abs{X_n-\dfrac{n}{6}}\geq\epsilon}\leq\dfrac{\nicefrac{5n}{36}}{\epsilon^2}.\]
+
+Or \(\dfrac{n}{2}=\dfrac{n}{6}+\dfrac{n}{3}\) donc \[\abs{X_n-\dfrac{n}{6}}\geq\dfrac{n}{3}\ssi\orenv{X_n-\dfrac{n}{6}\geq\dfrac{n}{3} \\ X_n-\dfrac{n}{6}\leq\dfrac{-n}{3}}\]
+
+Donc \[\paren{\abs{X_n-\dfrac{n}{6}}\geq\dfrac{n}{3}}=\paren{X_n-\dfrac{n}{6}\geq\dfrac{n}{3}}\sqcup\paren{X_n-\dfrac{n}{6}\leq\dfrac{-n}{3}}.\]
+
+Donc \[\paren{X_n\geq\dfrac{n}{2}}\subset\paren{\abs{X_n-\dfrac{n}{6}}\geq\dfrac{n}{3}}.\]
+
+Donc \[\proba{X_n\geq\dfrac{n}{2}}\leq\proba{\abs{X_n-\dfrac{n}{6}}\geq\dfrac{n}{3}}\leq\dfrac{\nicefrac{5n}{36}}{\paren{\nicefrac{n}{3}}^2}=\dfrac{5}{4n}.\]
+
+Or \(\paren{X_n>\dfrac{n}{2}}\subset\paren{X_n\geq\dfrac{n}{2}}\) donc \[\proba{X_n>\dfrac{n}{2}}\leq\proba{X_n\geq\dfrac{n}{2}}\leq\dfrac{5}{4n}.\]
+
+Donc, pour que \(\proba{X_n>\dfrac{n}{2}}\leq\dfrac{1}{4}\), il suffit que \(\dfrac{5}{4n}\leq\dfrac{1}{4}\) \ie \(n\geq5\).
+\end{corr}
+
+\subsection{Généralisation}
+
+\begin{defi}
+Soient \(X\) une variable aléatoire discrète réelle et \(k\in\Ns\).
+
+On dit que \(X\) admet un moment d'ordre \(k\) quand \(X^k\) a une espérance finie.
+\end{defi}
+
+\begin{prop}
+Soient \(X\) une variable aléatoire discrète réelle et \(k\in\Ns\).
+
+Si \(X\) possède un moment d'ordre \(k\), alors \(\quantifs{\tpt l\in\interventierii{1}{k}}X\) possède un moment d'ordre \(l\).
+\end{prop}
+
+\begin{dem}
+Si \(X\) a un moment d'ordre \(k\), alors la famille \(\paren{x^k\proba{X=x}}_{x\in X\paren{\Omega}}\) est sommable.
+
+Soit \(l\in\interventierii{1}{k-1}\).
+
+Pour \(x\in X\paren{\Omega}\), \begin{itemize}
+    \item si \(\abs{x}\geq1\), alors \(\abs{x}^l\leq\abs{x}^k\) donc \(\abs{x}^l\proba{X=x}\leq\abs{x}^k\proba{X=x}\) ; \\
+    \item si \(\abs{x}<1\), alors \(\abs{x}^l\proba{X=x}\leq\proba{X=x}\). \\
+\end{itemize}
+
+Donc \[\begin{aligned}
+\sum_{x\in X\paren{\Omega}}\abs{x}^l\proba{X=x}&\leq\sum_{\substack{x\in X\paren{\Omega} \\ \abs{x}\geq1}}\abs{x}^k\proba{X=x}+\sum_{\substack{x\in X\paren{\Omega} \\ \abs{x}<1}}\proba{X=x} \\
+&\leq\sum_{x\in X\paren{\Omega}}\abs{x}^k\proba{X=x}+\sum_{x\in X\paren{\Omega}}\proba{X=x} \\
+&=1+\esp{\abs{X}^k}<\pinf.
+\end{aligned}\]
+
+Donc la famille \(\paren{x^l\proba{X=x}}_{x\in X\paren{\Omega}}\) est sommable, donc \(X\) possède un moment d'ordre \(l\).
+\end{dem}
+
+\section{Lois classiques}
+
+\subsection{Loi uniforme}
+
+\begin{defi}
+Soit \(L\) un ensemble fini non-vide.
+
+On dit qu'une variable aléatoire \(X\) suit la loi uniforme sur \(L\) quand \(X\paren{\Omega}=L\) et \(\prem_X\) est la probabilité uniforme sur \(L\), autrement dit si \(\quantifs{\tpt x\in L}\proba{X=x}=\dfrac{1}{\Card L}\).
+
+On note alors \(X\sim\loiuniforme{L}\).
+\end{defi}
+
+Le cas le plus courant est celui des variables à valeurs entières.
+
+\begin{defi}
+Soit \(\paren{a,b}\in\N^2\) tel que \(a\leq b\).
+
+On dit qu'une variable aléatoire suit la loi uniforme sur \(\interventierii{a}{b}\) quand \(X\paren{\Omega}=\interventierii{a}{b}\) et \(\prem_X\) est la probabilité uniforme sur \(\interventierii{a}{b}\), \ie si \(\quantifs{\tpt k\in\interventierii{a}{b}}\proba{X=k}=\dfrac{1}{b-a+1}\).
+
+On note alors \(X\sim\loiuniforme{\interventierii{a}{b}}\).
+\end{defi}
+
+Dans ce cas, on a \(\esp{X}=\dfrac{a+b}{2}\) et \(\vari{X}=\dfrac{\paren{b-a}\paren{b-a+2}}{12}\).
+
+Souvent, on a \(a=1\) et \(b=n\) donc, dans ce cas, on a \(\esp{X}=\dfrac{n+1}{2}\) et \(\vari{X}=\dfrac{n^2-1}{12}\).
+
+\begin{ex}
+Si on note \(X\) le nombre obtenu après un lancer d'un dé non-truqué, \(X\) suit la loi uniforme sur \(\interventierii{1}{6}\).
+\end{ex}
+
+\subsection{Loi de Bernoulli}
+
+\begin{defi}
+Soit \(p\in\intervii{0}{1}\).
+
+On dit qu'une variable aléatoire \(X\) suit la loi de Bernoulli de paramètre \(p\) quand \(X\paren{\Omega}\subset\accol{0,1}\) et \(\proba{X=1}=p\).
+
+On note alors \(X\sim\loibernoulli{p}\).
+\end{defi}
+
+Dans ce cas, on note souvent \(q=1-p\) et on a \(\esp{X}=p\) et \(\vari{X}=pq\).
+
+\begin{ex}
+\begin{itemize}
+    \item Toute expérience aléatoire à deux issues peut être représentée par une variable de Bernoulli en notant 0 et 1 les deux issues. Le cas typique est le lancer d'une pièce (équilibrée si \(p=\nicefrac{1}{2}\), non-équilibrée sinon). \\
+    \item En particulier, toute expérience dont seul la réussite ou l'échec importe peut être représentée par une variable de Bernoulli : 1 représente la réussite, 0 l'échec.
+\end{itemize}
+\end{ex}
+
+\subsection{Loi binomiale}
+
+\begin{defi}
+Soit \(p\in\intervii{0}{1}\).
+
+On dit qu'une variable aléatoire \(X\) suit la loi binomiale de paramètre \(\paren{n,p}\) quand \(X\paren{\Omega}\subset\interventierii{0}{n}\) et \(\quantifs{\tpt k\in\interventierii{0}{n}}\proba{X=k}=\binom{k}{n}p^k\paren{1-p}^{n-k}\).
+
+On note alors \(X\sim\loibinomiale{n}{p}\).
+\end{defi}
+
+En notant \(q=1-p\), on a \(\esp{X}=np\) et \(\vari{X}=npq\).
+
+\begin{prop}
+On considère une suite de \(n\) expériences aléatoires indépendantes qui suivent une loi de Bernoulli de même paramètre \(p\).
+
+On note \(X\) le nombre de réussites dans cette répétition d'expériences, appelée schéma de Bernoulli.
+
+Alors \(X\) suit la loi binomiale de paramètre \(\paren{n,p}\).
+\end{prop}
+
+\begin{ex}
+\begin{itemize}
+    \item On lance \(n\) fois une pièce dont la probabilité de tomber sur pile vaut \(p\). Alors si \(X\) est le nombre de fois où on tombe sur pile, on a \(X\sim\loibinomiale{n}{p}\). \\
+    \item On fait \(n\) tirages successifs avec remise dans une urne contenant une proportion \(p\) de boules blanches. Le nombre de boules blanches tirées suit la loi binomiale de paramètre \(\paren{n,p}\).
+\end{itemize}
+\end{ex}
+
+\subsection{Loi géométrique}
+
+\begin{defi}
+Soit \(p\in\intervee{0}{1}\).
+
+On dit qu'une variable aléatoire \(X\) suit la loi géométrique de paramètre \(p\) quand \(X\paren{\Omega}\subset\Ns\union\accol{\pinf}\) et \(\quantifs{\tpt k\in\Ns\union\accol{\pinf}}\proba{X=k}=\paren{1-p}^{k-1}p\).
+
+On note alors \(X\sim\loigeometrique{p}\).
+\end{defi}
+
+En notant \(q=1-p\), on a \(\proba{X=\pinf}=0\), \(\esp{X}=\dfrac{1}{p}\) et \(\vari{X}=\dfrac{q}{p^2}\).
+
+\begin{prop}
+La loi géométrique de paramètre \(p\) est la loi du rang du premier succès dans un schéma de Bernoulli infini de paramètre \(p\).
+\end{prop}
+
+\begin{ex}
+\begin{itemize}
+    \item On lance une pièce dont la probabilité de tomber sur pile vaut \(p\). Alors si \(X\) est le premier rang pour lequel le lancer donne pile, on a \(X\sim\loigeometrique{p}\). \\
+    \item On fait des tirages successifs avec remise dans une urne contenant une proportion \(p\) de boules blanches. Le premier rang où on tire une boule blanche suit la loi géométrique de paramètre \(p\).
+\end{itemize}
+\end{ex}
+
+\subsection{Loi de Poisson}
+
+\begin{defi}
+Soit \(\lambda>0\).
+
+On dit qu'une variable aléatoire \(X\) suit la loi de Poisson de paramètre \(\lambda\) quand \(X\paren{\Omega}=\N\) et \(\quantifs{\tpt k\in\N}\proba{X=k}=\e{-\lambda}\dfrac{\lambda^k}{k!}\).
+
+On note alors \(X\sim\loipoisson{\lambda}\).
+\end{defi}
+
+On a \(\esp{X}=\lambda\) et \(\vari{X}=\lambda\).
+
+La loi de Poisson est la loi qui compte le nombre d'événements dans un intervalle de temps fixé, quand ces événements se produisent à une certaine fréquence connue et indépendamment du temps écoulé depuis le précédent. Le paramètre \(\lambda\) est alors le nombre moyen d'événements se produisant durant la durée fixée et \(X\) compte le nombre d'événements qui se sont effectivement produits durant la durée fixée.
+
+Par exemple, si des statistiques montrent que le passage à une borne de péage se fait à une fréquence de \(f\) véhicules par heure, alors on choisit souvent la loi de Poisson \(\loipoisson{f\times h}\) pour compter le nombre de véhicules qui passent dans une durée de \(h\) heures : \(\proba{X=k}=\e{-fh}\dfrac{\paren{fh}^k}{k!}\) est la probabilité pour que sur un intervalle de temps de \(h\) heures, \(k\) voitures soient effectivement passées à la borne.
+
+Souvent, la fréquence \(f\) est faible : on utilise cette loi pour l'étude des événements dits \guillemets{rares}.
+
+\section{Couples de variables aléatoires}
+
+\subsection{Généralités}
+
+\begin{defi}
+Soient \(X\) et \(Y\) deux variables aléatoires discrètes.
+
+La fonction \(\omega\mapsto\paren{X\paren{\omega},Y\paren{\omega}}\) est appelée couple de variables aléatoires.
+
+Si \(X\) et \(Y\) sont réelles, le couple est dit couple de variables aléatoires discrètes réelles.
+\end{defi}
+
+On peut reprendre le même schéma de présentation que pour une seule variable aléatoire discrète.
+
+\begin{prop}
+Soit \(\paren{X,Y}\) un couple de variables aléatoires discrètes.
+
+La famille d'événements \(\paren{\accol{X=x}\inter\accol{Y=y}}_{\paren{x,y}\in X\paren{\Omega}\times Y\paren{\Omega}}\) est un système quasi-complet d'événements appelé système quasi-complet d'événements associé au couple \(\paren{X,Y}\).
+\end{prop}
+
+La probabilité \(\proba{\accol{X=x}\inter\accol{Y=y}}\) est souvent notée \(\proba{X=x,Y=y}\).
+
+\begin{defi}
+Soient \(X\) et \(Y\) deux variables aléatoires discrètes.
+
+La loi conjointe de \(X\) et \(Y\) est la loi du couple \(\paren{X,Y}\).
+\end{defi}
+
+Dans le cas d'un univers fini, on la représente souvent par un tableau à double entrée : si \(X\paren{\Omega}=\accol{x_1,\dots,x_m}\) et \(Y\paren{\Omega}=\accol{y_1,\dots,y_n}\), alors on place \(\proba{X=x_i,Y=y_j}\) sur la \(i\)-ème ligne et la \(j\)-ème colonne.
+
+\subsection{Lois marginales}
+
+\begin{defi}
+Soient \(X\) et \(Y\) deux variables aléatoires discrètes.
+
+Les lois marginales du couple \(\paren{X,Y}\) sont les lois de \(X\) et de \(Y\).
+\end{defi}
+
+\begin{prop}
+Soient \(X\) et \(Y\) deux variables aléatoires discrètes. On a :
+
+\begin{itemize}
+    \item \(\quantifs{\tpt x\in X\paren{\Omega}}\proba{X=x}=\sum_{y\in Y\paren{\Omega}}\proba{X=x,Y=y}\) \\
+    \item \(\quantifs{\tpt y\in Y\paren{\Omega}}\proba{Y=y}=\sum_{x\in X\paren{\Omega}}\proba{X=x,Y=y}\).
+\end{itemize}
+\end{prop}
+
+Si on a représenté la loi conjointe de \(\paren{X,Y}\) sous forme d'un tableau, on obtient les lois marginales en additionnant les probabilités sur chaque ligne ou chaque colonne (d'où le nom \guillemets{lois marginales} : celles qu'on note en marge du tableau).
+
+\begin{exo}
+Une urne contient \(n\) boules numérotées de \(1\) à \(n\).
+
+On tire une boule avec remise et on note \(X\) le numéro de la boule.
+
+Puis, on tire \(X\) boules et on note \(Y\) le maximum des numéros des boules tirées.
+
+Déterminez la loi de \(X\) et la loi conjointe de \(\paren{X,Y}\), déduisez-en la loi de \(Y\).
+\end{exo}
+
+\begin{corr}
+On a \(X\sim\loiuniforme{\interventierii{1}{n}}\) et \(\paren{X,Y}\) est à valeurs dans \(\interventierii{1}{n}^2\).
+
+Soit \(\paren{k,l}\in\interventierii{1}{n}^2\).
+
+On cherche \(\proba{X=k,Y=l}\).
+
+On remarque \(\paren{X=k}\inter\paren{Y\leq l}=\croch{\paren{X=k}\inter\paren{Y=l}}\sqcup\croch{\paren{X=k}\inter\paren{Y\leq l-1}}\) donc \[\proba{X=k,Y=l}=\proba{X=k,Y\leq l}-\proba{X=k,Y\leq l-1}.\]
+
+On cherche donc \(\proba{X=k,Y\leq l}\).
+
+D'après la formule des probabilités composées, on a \[\begin{aligned}
+\proba{X=k,Y\leq l}&=\proba{X=k}\probacond{Y\leq l}{\paren{X=k}} \\
+&=\dfrac{1}{n}\probacond{Y\leq l}{\paren{X=k}}.
+\end{aligned}\]
+
+Dans l'expérience qui consiste à tirer simultanément \(k\) boules de l'urne, on suppose un tirage équiprobable des ensembles de \(k\) boules \ie \[\probacond{Y\leq l}{\paren{X=k}}=\dfrac{\binom{k}{l}}{\binom{k}{n}}.\]
+
+Donc \(\proba{X=k,Y\leq l}=\dfrac{1}{n}\dfrac{\binom{k}{l}}{\binom{k}{n}}\).
+
+Donc \(\proba{X=k,Y=l}=\dfrac{1}{n\binom{k}{n}}\paren{\binom{k}{l}-\binom{k}{l-1}}\).
+
+Cas particulier : si \(k>l\) alors \(\proba{X=k,Y=l}=0\).
+
+La famille \(\paren{\paren{X=k}}_{k\in\interventierii{1}{n}}\) est un \sce donc, d'après la formule des probabilités totales, on a \[\begin{aligned}
+\proba{Y=l}&=\sum_{k=1}^{n}\proba{X=k,Y=l} \\
+&=\sum_{k=1}^{n}\underbrace{\dfrac{1}{n\binom{k}{n}}\paren{\binom{k}{l}-\binom{k}{l-1}}}_{=0\text{ si }l<k} \\
+&=\sum_{k=1}^{l}\dfrac{1}{n\binom{k}{n}}\paren{\binom{k}{l}-\binom{k}{l-1}}.
+\end{aligned}\]
+
+Or \(\binom{k}{l}-\binom{k}{l-1}=\binom{k-1}{l-1}\) d'après la formule de Pascal.
+
+Donc \[\begin{aligned}
+\proba{Y=l}&=\sum_{k=1}^{l}\dfrac{1}{n\binom{k}{n}}\binom{k-1}{l-1} \\
+&=\dots \\
+&=\dfrac{1}{n^2\binom{l-1}{n-1}}\sum_{k=1}^l k\binom{l-k}{n-k}.
+\end{aligned}\]
+\end{corr}
+
+\begin{rem}
+La loi d'une variable aléatoire ne peut pas dépendre d'une autre variable aléatoire !
+
+Écrire par exemple que \(Y\paren{\Omega}=\interventierii{X}{n}\) dans l'exercice précédent est un non-sens car \(X\) n'est pas un nombre mais une variable aléatoire (\ie une fonction !).
+
+Écrire \(Y\paren{\Omega}=\interventierii{i}{n}\) où \(i\) est la valeur de \(X\) après le premier tirage est tout aussi absurde !
+
+Il faut imaginer que l'expérience a lieu dans un lieu qui vous est caché et que l'opérateur ne vous donne que la valeur de \(Y\). On laisse l'opérateur répéter son expérience un grand nombre de fois et on attend qu'il vous donne les valeurs de \(Y\) pour chacune des expériences. Qu'allez-vous obtenir ? Toutes les valeurs possibles de \(Y\), qui peut varier de \(1\) à \(n\). Certainement pas quelque chose qui dépend de \(X\), puisque vous ne savez même pas quelle expérience réelle a lieu dans le lieu caché : pour vous, observateur extérieur, \(X\) n'existe pas.
+\end{rem}
+
+\subsection{Lois conditionnelles}
+
+\begin{defi}
+Soient \(X\) et \(Y\) deux variables aléatoires discrètes.
+
+Pour tout \(y\in Y\paren{\Omega}\) tel que \(\proba{Y=y}\not=0\), la loi de \(X\) sachant \(\paren{Y=y}\) est la loi de \(X\) dans l'espace probabilisé \(\groupe{\Omega}[\prem_{\paren{Y=y}}]\) : \[\quantifs{\forall x\in X\paren{\Omega}}\probacond{X=x}{\paren{Y=y}}=\dfrac{\proba{X=x,Y=y}}{\proba{Y=y}}.\]
+\end{defi}
+
+On déduit de toutes les définitions précédentes les relations suivantes.
+
+\begin{prop}
+Soient \(X\) et \(Y\) deux variables aléatoires discrètes.
+
+On suppose que \(\quantifs{\tpt\paren{x,y}\in X\paren{\Omega}\times Y\paren{\Omega}}\proba{X=x}\not=0\) et \(\proba{Y=y}\not=0\).
+
+Pour tout \(\paren{x,y}\in X\paren{\Omega}\times Y\paren{\Omega}\), on a :
+
+\begin{itemize}
+    \item \(\proba{X=x,Y=y}=\proba{Y=y}\times\probacond{X=x}{\paren{Y=y}}=\proba{X=x}\times\probacond{Y=y}{\paren{X=x}}\) \\
+    \item \(\proba{X=x}=\sum_{y\in Y\paren{\Omega}}\proba{Y=y}\times\probacond{X=x}{\paren{Y=y}}\) \\
+    \item \(\proba{Y=y}=\sum_{x\in X\paren{\Omega}}\proba{X=x}\times\probacond{Y=y}{\paren{X=x}}\).
+\end{itemize}
+\end{prop}
+
+\subsection{Covariance}
+
+\begin{defi}
+Soient \(X\) et \(Y\) deux variables aléatoires discrètes réelles ayant une variance finie.
+
+On appelle covariance du couple \(\paren{X,Y}\) le nombre \[\cov{X}{Y}=\esp{\paren{X-\esp{X}}\paren{Y-\esp{Y}}}.\]
+
+Si, de plus, \(\vari{X}\) et \(\vari{Y}\) sont non-nulles, on appelle coefficient de corrélation du couple \(\paren{X,Y}\) le nombre \[\coeffcorr{X}{Y}=\dfrac{\cov{X}{Y}}{\ecarttype{X}\ecarttype{Y}}.\]
+\end{defi}
+
+Comme pour la variance, on a une expression plus simple.
+
+\begin{prop}
+Avec les mêmes hypothèses : \[\cov{X}{Y}=\esp{XY}-\esp{X}\esp{Y}.\]
+\end{prop}
+
+L'application \(\operatorname{Cov}\) a des propriétés classiques de bilinéarité.
+
+\begin{prop}
+\(\operatorname{Cov}\) est une application bilinéaire.
+
+De plus, pour tout couple de variables aléatoires discrètes réelles \(\paren{X,Y}\) ayant une variance finie, on a \[\vari{X+Y}=\vari{X}+\vari{Y}+2\cov{X}{Y}.\]
+\end{prop}
+
+\begin{dem}
+D'après la formule de Huygens, on a \[\begin{aligned}
+\vari{X+Y}&=\esp{\paren{X+Y}^2}-\esp{X+Y}^2 \\
+&=\esp{X^2+Y^2+2XY}-\paren{\esp{X}+\esp{Y}}^2 \\
+&=\esp{X^2}+\esp{Y^2}+2\esp{XY}-\paren{\esp{X}^2+\esp{Y}^2+2\esp{X}\esp{Y}} \\
+&=\vari{X}+\vari{Y}+2\cov{X}{Y}.
+\end{aligned}\]
+
+On généralise par récurrence : \[\vari{\sum_{i=1}^n X_i}=\sum_{i=1}^n\vari{X_i}+2\sum_{1\leq i<j\leq n}\cov{X_i}{X_j}.\]
+\end{dem}
+
+\begin{prop}[Inégalité de Cauchy-Schwarz]
+Pour tout couple de variables aléatoires discrètes réelles \(\paren{X,Y}\) ayant une variance finie, on a \[\abs{\cov{X}{Y}}\leq\ecarttype{X}\ecarttype{Y}.\]
+
+Si, de plus, \(\ecarttype{X}\) et \(\ecarttype{Y}\) sont non-nuls, on a \(\coeffcorr{X}{Y}\in\intervii{-1}{1}\) et \(\abs{\coeffcorr{X}{Y}}=1\) ssi il existe \(\paren{a,b}\in\R^2\) tel que \(Y=aX+b\) presque sûrement.
+\end{prop}
+
+\section{Indépendance de variables aléatoires}
+
+\subsection{Généralités}
+
+\begin{defi}
+Soient \(X\) et \(Y\) deux variables aléatoires discrètes.
+
+On dit que \(X\) et \(Y\) sont indépendantes quand pour toute partie \(A\) de \(X\paren{\Omega}\) et toute partie \(B\) de \(Y\paren{\Omega}\), les événements \(\accol{X\in A}\) et \(\accol{Y\in B}\) sont indépendants, \ie quand \[\proba{X\in A,Y\in B}=\proba{X\in A}\times\proba{Y\in B}.\]
+\end{defi}
+
+Dans ce cas, on note \(X\indep Y\) pour signaler que \(X\) et \(Y\) sont indépendantes.
+
+On peut se restreindre aux événements des systèmes quasi-complets d'événements associés à \(X\) et \(Y\) (résultat admis).
+
+\begin{prop}
+Soient \(X\) et \(Y\) deux variables aléatoires discrètes.
+
+\(X\) et \(Y\) sont indépendantes ssi pour tout \(\paren{x,y}\in X\paren{\Omega}\times Y\paren{\Omega}\), les événements \(\accol{X=x}\) et \(\accol{Y=y}\) sont indépendants, \ie si \[\proba{X=x,Y=y}=\proba{X=x}\times\proba{Y=y}.\]
+\end{prop}
+
+\begin{rem}
+En général, la connaissance des lois marginales de \(\paren{X,Y}\) ne permet pas de retrouver la loi conjointe de \(\paren{X,Y}\).
+
+Dans le cas où les variables aléatoires \(X\) et \(Y\) sont indépendantes, c'est possible.
+
+Donc pour montrer que deux variables \(X\) et \(Y\) ne sont pas indépendantes, il suffit de trouver deux valeurs \(x,y\) de \(X,Y\) respectivement telles que \(\proba{X=x,Y=y}\not=\proba{X=x}\times\proba{Y=y}\).
+\end{rem}
+
+On a un résultat sur les composées de variables indépendantes.
+
+\begin{prop}
+Soient \(X\) et \(Y\) deux variables aléatoires discrètes.
+
+Si \(X\) et \(Y\) sont indépendantes, alors pour toute fonction \(f\) définie sur \(X\paren{\Omega}\) et toute fonction \(g\) définie sur \(Y\paren{\Omega}\), les variables aléatoires \(f\paren{X}\) et \(g\paren{Y}\) sont indépendantes.
+\end{prop}
+
+\subsection{Espérance et indépendance}
+
+On a un résultat remarquable sur les espérances de variables aléatoires discrètes indépendantes (résultat admis).
+
+\begin{prop}
+Soient \(X\) et \(Y\) deux variables aléatoires discrètes.
+
+Si \(X\) et \(Y\) sont indépendantes, alors on a :
+
+\begin{itemize}
+    \item \(\esp{XY}=\esp{X}\esp{Y}\)
+\end{itemize}
+
+et dans le cas de variables réelles :
+
+\begin{itemize}
+    \item \(\cov{X}{Y}=0\) \\
+    \item \(\vari{X+Y}=\vari{X}+\vari{Y}\).
+\end{itemize}
+\end{prop}
+
+\begin{rem}
+La réciproque est fausse.
+
+Deux variables aléatoires discrètes réelles de covariance nulle sont dites non-corrélées, mais c'est un renseignement très faible sur les variables, à la différence de l'indépendance, qui est une contrainte extrêmement forte.
+\end{rem}
+
+\subsection{Généralisation}
+
+Tous les résultats sont admis.
+
+\begin{defi}
+Soit \(\paren{X_i}_{i\in I}\) une famille finie ou dénombrable de variables aléatoires discrètes.
+
+On dit que les variables aléatoires \(\paren{X_i}_{i\in I}\) sont mutuellement indépendantes quand pour toute partie finie \(J\subset I\), pour toute famille de parties \(\paren{A_j}_{j\in J}\) de \(\prod_{j\in J}\P{X_j\paren{\Omega}}\), les événements \(\paren{\accol{X_j\in A_j}}_{j\in J}\) sont indépendants.
+\end{defi}
+
+On retrouve la même caractérisation à l'aide des événements des systèmes quasi-complets d'événements associés aux différentes variables aléatoires et on peut même faire plus simple.
+
+\begin{prop}
+Soit \(\paren{X_i}_{i\in I}\) une famille finie ou dénombrable de variables aléatoires discrètes.
+
+Les variables aléatoires \(\paren{X_i}_{i\in I}\) sont mutuellement indépendantes quand pour toute partie finie \(J\subset I\), pour toute famille \(\paren{x_j}_{j\in J}\) de \(\prod_{j\in J}X_j\paren{\Omega}\), on a \[\proba{\biginter_{j\in J}\accol{X_j=x_j}}=\prod_{j\in J}\proba{X_j=x_j}.\]
+\end{prop}
+
+\begin{exo}
+Soient \(\paren{X_1,X_2}\) et \(\paren{Y_1,Y_2}\) deux couples de variables indépendantes telles que \(\quantifs{\tpt i\in\accol{1,2}}X_i\sim Y_i\).
+
+Montrez que \(X_1+X_2\sim Y_1+Y_2\).
+
+Le résultat est-il encore valable en supprimant l'hypothèse d'indépendance ?
+\end{exo}
+
+\begin{corr}
+Soit \(x\in\R\).
+
+On veut montrer \(\proba{X_1+X_2=x}=\proba{Y_1+Y_2=x}\).
+
+Comme \(\paren{\accol{X_1=x_1}}_{x_1\in X_1\paren{\Omega}} \) est un \sce, on a d'après la formule des probabilités totales : \[\begin{WithArrows}
+\proba{X_1+X_2=x}&=\sum_{x_1\in X_1\paren{\Omega}}\proba{X_1+X_2=x,X_1=x_1} \\
+&=\sum_{x_1\in X_1\paren{\Omega}}\proba{X_2=x-x_1,X_1=x_1} \Arrow{\(X_1\) et \(X_2\) indépendantes} \\
+&=\sum_{x_1\in X_1\paren{\Omega}}\proba{X_2=x-x_1}\proba{X_1=x_1} \\
+&=\sum_{x_1\in X_1\paren{\Omega}}\proba{Y_2=x-x_1}\proba{Y_1=x_1} \\
+&=\proba{Y_1+Y_2=x}.
+\end{WithArrows}\]
+
+Contre-exemple dans le cas où \(X_1\) et \(X_2\) ne sont pas indépendantes :
+
+On prend \(X\sim\loibernoulli{\dfrac{1}{2}}\) et on pose \(X_1=X\) et \(X_2=X\).
+
+On a alors \(X_1+X_2\sim\loiuniforme{\accol{0,2}}\).
+
+On prend \(Y_1=X\) et \(Y_2=1-X\).
+
+Alors \(X_1\sim Y_1\) et \(X_2\sim Y_2\) mais \(X_1+X_2=2X\not\sim1=Y_1+Y_2\).
+\end{corr}
+
+Enfin, un petit lemme classique : le lemme des coalitions.
+
+\begin{prop}
+Soit \(\paren{X_i}_{i\in I}\) une famille finie de variables aléatoires discrètes réelles indépendantes.
+
+Soient \(J,K\) deux parties de \(I\) non-vides et disjointes, \(f\) une fonction de \(\R^{\Card J}\) dans \(\R\) et \(g\) une fonction de \(\R^{\Card K}\) dans \(\R\).
+
+Alors les deux variables aléatoires discrètes réelles \(f\paren{X_j,j\in J}\) et \(g\paren{X_k,k\in K}\) sont indépendantes.
+\end{prop}
+
+En clair, si on partage des variables aléatoires discrètes réelles indépendantes en deux sous-ensembles n'ayant aucune variable en commun, alors n'importe quoi qui dépend uniquement des variables du premier ensemble est indépendant de n'importe quoi qui dépend uniquement des variables du deuxième ensemble.
+
+Le résultat se généralise à toute famille dénombrable de variables aléatoires discrètes réelles indépendantes, puisque la définition même de l'indépendance impose de ne considérer que des sous-familles finies.
+
+\begin{ex}
+Un cas très courant : si \(\paren{X_n}_{n\in\N}\) est une famille de variables aléatoires discrètes réelles indépendantes, alors :
+
+\begin{itemize}
+    \item \(\quantifs{\tpt n\in\N}\sum_{k=0}^nX_k\text{ est indépendante de }X_{n+1}\) \\
+    \item \(\quantifs{\tpt\paren{n,p}\in\N^2\text{ tel que }n<p}\sum_{k=0}^nX_k\text{ est indépendante de }\sum_{k=n+1}^pX_k\).
+\end{itemize}
+\end{ex}
+
+On en déduit la généralisation du résultat sur les variances.
+
+\begin{prop}
+Soient \(X_1,\dots,X_n\) des variables aléatoires discrètes réelles indépendantes.
+
+On a \(\vari{X_1+\dots+X_n}=\vari{X_1}+\dots+\vari{X_n}\).
+\end{prop}
+
+\subsection{Théorème de réalisation}
+
+Le théorème de Kolmogorov est un théorème de réalisation sur les familles de variables aléatoires indépendantes (admis et jamais utilisé en pratique).
+
+\begin{theo}
+Soit \(\paren{\fami{L}_i}_{i\in I}\) une famille finie ou dénombrable de lois de probabilités.
+
+Il existe un espace probabilisé \(\anneau{\Omega}[\fami{T}][\prem]\) et des variables aléatoires \(\paren{X_i}_{i\in I}\) indépendantes telles que \(\quantifs{\tpt i\in I}X_i\sim\fami{L}_i\).
+\end{theo}
+
+Un cas particulier très courant.
+
+\begin{defi}
+On dit qu'une famille finie ou dénombrable de variables aléatoires discrètes est identiquement distribuée quand toutes les variables aléatoires suivent la même loi.
+\end{defi}
+
+\begin{theo}
+Soit \(\fami{L}\) une loi de probabilités.
+
+Il existe un espace probabilisé \(\anneau{\Omega}[\fami{T}][\prem]\) et des variables aléatoires \(\paren{X_i}_{i\in I}\) indépendantes et identiquement distribuées qui suivent la loi \(\fami{L}\).
+\end{theo}
+
+Dans ce cas, on voit parfois écrit que la famille de variables aléatoires discrètes est une famille de variables indépendantes identiquement distribuées.
+
+L'exemple typique est l'étude des suites infinies de lancers d'une pièce : on modélise cette expérience aléatoire par une suite de variables de Bernoulli indépendantes identiquement distribuées de même paramètre \(p\).
+
+\subsection{Somme de variables indépendantes identiquement distribuées}
+
+Plusieurs résultats classiques.
+
+\begin{prop}
+Soient \(X_1,\dots,X_n\) des variables aléatoires réelles.
+
+Si ces \(n\) variables aléatoires sont mutuellement indépendantes et suivent la même loi de Bernoulli de paramètre \(p\), alors la somme \(X_1+\dots+X_n\) suit la loi binomiale de paramètre \(\paren{n,p}\).
+\end{prop}
+
+\begin{prop}
+Soient \(X,Y\) deux variables aléatoires réelles indépendantes suivant une loi de Poisson de paramètres \(\lambda>0\) et \(\mu>0\).
+
+Alors \(X+Y\) suit une loi de Poisson de paramètre \(\lambda+\mu\).
+\end{prop}
+
+\begin{dem}
+On a \(X\paren{\Omega}=Y\paren{\Omega}=\N\) donc \(\paren{X+Y}\paren{\Omega}=\N\).
+
+Soit \(n\in\N\).
+
+Comme \(\paren{\accol{X=k}}_{k\in\N}\) est un \sce, on a \[\proba{X+Y=n}=\sum_{k=0}^{\pinf}\proba{X+Y=n,X=k}.\]
+
+Or \(\paren{X+Y=n,X=k}=\paren{Y=n-k,X=k}\) donc par indépendance de \(X\) et \(Y\), on a \[\proba{X+Y=n,X=k}=\proba{X=k}\proba{Y=n-k}=\begin{dcases}
+0 &\text{si }k>n \\
+\e{-\lambda}\dfrac{\lambda^k}{k!}\times\e{-\mu}\dfrac{\mu^{n-k}}{\paren{n-k}!} &\text{sinon}
+\end{dcases}\]
+
+Donc \[\begin{aligned}
+\proba{X+Y=n}&=\sum_{k=0}^{n}\e{-\lambda}\dfrac{\lambda^k}{k!}\times\e{-\mu}\dfrac{\mu^{n-k}}{\paren{n-k}!} \\
+&=\dfrac{\e{-\paren{\lambda+\mu}}}{n!}\sum_{k=0}^{n}\binom{k}{n}\lambda^k\mu^{n-k} \\
+&=\e{-\paren{\lambda+\mu}}\dfrac{\paren{\lambda+\mu}^n}{n!}.
+\end{aligned}\]
+
+Donc \(X+Y\sim\loipoisson{\lambda+\mu}\).
+\end{dem}
+
+\section{Loi faible des grands nombres}
+
+\begin{prop}
+Soit \(\paren{X_n}_{n\geq1}\) une suite de variables aléatoires discrètes réelles indépendantes identiquement distribuées admettant une variance finie.
+
+En posant \(S_n=\sum_{k=1}^nX_k\), \(m=\esp{X_1}\) et \(\sigma^2=\vari{X_1}\), on a \[\quantifs{\forall\epsilon>0}\proba{\abs{\dfrac{S_n}{n}-m}\geq\epsilon}\tendqd{n\to\pinf}0.\]
+
+Plus précisément, on a \[\quantifs{\forall\epsilon>0}\proba{\abs{\dfrac{S_n}{n}-m}\geq\epsilon}\leq\dfrac{\sigma^2}{n\epsilon^2}.\]
+\end{prop}
+
+\begin{dem}~\\
+On a \(\esp{\dfrac{S_n}{n}}=\dfrac{1}{n}\sum_{i=1}^n\underbrace{\esp{X_i}}_{=m}=\dfrac{mn}{n}=m\).
+
+De plus, comme les \(X_i\) sont indépendantes, on a \(\vari{\dfrac{S_n}{n}}=\dfrac{1}{n^2}\vari{\sum_{i=1}^nX_i}=\dfrac{1}{n^2}\times n\sigma^2=\dfrac{\sigma^2}{n}\).
+
+Donc, d'après l'inégalité de Bienaymé-Tchebychev, on a \[\quantifs{\forall\epsilon>0}\proba{\abs{\dfrac{S_n}{n}-\esp{\dfrac{S_n}{n}}}\geq\epsilon}\leq\dfrac{\vari{\dfrac{S_n}{n}}}{\epsilon^2}\] \ie \[\quantifs{\forall\epsilon>0}\proba{\abs{\dfrac{S_n}{n}-m}\geq\epsilon}\leq\dfrac{\sigma^2}{n\epsilon^2}.\]
+\end{dem}
+
+\section{Fonction génératrice d'une variable aléatoire à valeurs entières}
+
+\subsection{Généralités}
+
+\begin{defi}
+Soit \(X\) une variable aléatoire discrète à valeurs dans \(\N\union\accol{\pinf}\).
+
+On appelle série génératrice de \(X\) la série entière \(\sum_{n\geq0}\proba{X=n}z^n\).
+
+Quand cette série converge, on appelle \(G_X\paren{z}\) sa somme : la fonction \(z\mapsto G_X\paren{z}\) est appelée fonction génératrice de \(X\).
+\end{defi}
+
+On peut écrire sa somme comme une espérance : \(G_X\paren{z}=\sum_{n=0}^{\pinf}z^n\proba{X=n}=\esp{z^X}\), à condition que la série \(\sum_{n\geq0}\proba{X=n}z^n\) converge absolument.
+
+\begin{prop}
+La série génératrice d'une variable aléatoire \(X\) à valeurs dans \(\N\union\accol{\pinf}\) est de rayon de convergence au moins \(1\) et converge normalement sur \(\intervii{0}{1}\).
+
+La fonction \(G_X\) est donc continue sur \(\intervii{0}{1}\).
+
+De plus, on a \(G_X\paren{1}=\proba{X\not=\pinf}=1-\proba{X=\pinf}\).
+\end{prop}
+
+\begin{dem}
+La suite \(\paren{\proba{X=n}\times1^n}_{n\in\N}\) est bornée donc, d'après le lemme d'Abel, la série entière \(\sum_{n\geq0}\proba{X=n}z^n\) converge absolument pour tout \(z\in\C\) tel que \(\abs{z}<1\).
+
+De plus, \(\sum_{n\geq0}\proba{X=n}\) converge car \(\paren{\paren{\proba{X=n}}}_{n\in\N}\) est un sous-système d'un \sce, donc la série \(\sum_{n\geq0}\proba{X=n}z^n\) converge absolument pour tout \(z\in\C\) tel que \(\abs{z}\leq1\).
+
+Donc le rayon de convergence est au moins \(1\).
+
+Pour \(x\in\intervii{0}{1}\), \(\abs{\proba{X=n}x^n}\leq\proba{X=n}\). Or \(\proba{X=n}\) est le terme général d'une série convergente indépendant de \(x\).
+
+Donc la série de fonctions \(\sum_{n\geq0}\paren{x\mapsto\proba{X=n}x^n}\) converge normalement sur \(\intervii{0}{1}\).
+\end{dem}
+
+\begin{exo}
+Déterminez la fonction génératrice associée à une variable de Bernoulli.
+\end{exo}
+
+\begin{corr}
+Soit \(X\sim\loibernoulli{p}\). On pose \(q=1-p\).
+
+On a \[G_X\paren{z}=\proba{X=0}z^0+\proba{X=1}z^1=q+pz.\]
+\end{corr}
+
+\begin{exo}
+Même question avec une variable qui suit une loi binomiale.
+\end{exo}
+
+\begin{corr}
+Soit \(X\sim\loibinomiale{n}{p}\). On pose \(q=1-p\).
+
+On a \[\begin{aligned}
+G_X\paren{z}&=\sum_{k=0}^n\proba{X=k}z^k \\
+&=\sum_{k=0}^n\binom{k}{n}p^kq^{n-k}z^k \\
+&=\paren{q+pz}^n.
+\end{aligned}\]
+\end{corr}
+
+\begin{exo}
+Même question avec une variable qui suit une loi uniforme sur \(\interventierii{1}{n}\).
+\end{exo}
+
+\begin{corr}
+Soit \(X\sim\loiuniforme{\interventierii{1}{n}}\).
+
+On a \[G_X\paren{z}=\sum_{k=0}^n\dfrac{z^n}{n+1}=\begin{dcases}
+\dfrac{1}{n+1}\dfrac{1-z^{n+1}}{1-z} &\text{si }z\not=1 \\
+1 &\text{sinon}
+\end{dcases}\]
+\end{corr}
+
+\begin{exo}
+Même question avec une variable qui suit une loi géométrique.
+\end{exo}
+
+\begin{corr}
+Soit \(X\sim\loigeometrique{p}\). On pose \(q=1-p\).
+
+On a \[\begin{WithArrows}
+G_X\paren{z}&=\sum_{k=1}^{\pinf}q^{k-1}pz^k \\
+&=\dfrac{p}{q}\sum_{k=1}^{\pinf}\paren{qz}^k \Arrow{rayon de convergence \(\dfrac{1}{q}\)} \\
+&=\dfrac{pqz}{1-p}\dfrac{1}{1-qz} \\
+&=\dfrac{pz}{1-qz}.
+\end{WithArrows}\]
+\end{corr}
+
+\begin{exo}
+Même question avec une variable qui suit une loi de Poisson.
+\end{exo}
+
+\begin{corr}
+Soit \(X\sim\loipoisson{\lambda}\).
+
+On a \[\begin{WithArrows}
+G_X\paren{z}&=\sum_{k=0}^{\pinf}\e{-\lambda}\dfrac{\lambda^k}{k!}z^k \\
+&=\e{-\lambda}\sum_{k=0}^{\pinf}\dfrac{\paren{\lambda z}^k}{k!} \Arrow{rayon de convergence \(\pinf\)} \\
+&=\e{-\lambda}\e{\lambda z} \\
+&=\e{\lambda\paren{z-1}}.
+\end{WithArrows}\]
+\end{corr}
+
+La fonction génératrice caractérise parfaitement la variable aléatoire.
+
+\begin{prop}
+Soient \(X,Y\) deux variables aléatoires discrètes à valeurs dans \(\N\union\accol{\pinf}\).
+
+Si \(G_X=G_Y\) sur un intervalle \(\intervii{0}{\alpha}\) où \(\alpha>0\), alors \(X\sim Y\).
+\end{prop}
+
+\subsection{Lien entre espérance et fonction génératrice}
+
+Quand \(\proba{X=\pinf}=0\), on dit que la variable est presque sûrement à valeurs dans \(\N\) (exemple typique : les variables suivant des lois géométriques). C'est évidemment le cas quand \(X\) est à valeurs dans \(\N\).
+
+\begin{theo}
+Soit \(X\) une variable aléatoire discrète presque sûrement à valeurs dans \(\N\).
+
+\(X\) admet une espérance finie ssi \(G_X\) est dérivable en \(1\) et, dans ce cas, \(\esp{X}=G_X\prim\paren{1}\).
+
+\(X\) admet une variance finie ssi \(G_X\) est deux fois dérivable en \(1\) et, dans ce cas, \(\esp{X\paren{X-1}}=G_X\seconde\paren{1}\).
+\end{theo}
+
+\begin{dem}
+\(G_X\) est définie et continue sur \(\intervii{0}{1}\).
+
+Pour \(x\in\intervii{0}{1}\), on a \(G_X\paren{x}=\sum_{n=0}^{\pinf}\proba{X=n}x^n\).
+
+Le rayon de convergence \(R\) de cette série étant au moins égal à \(1\), \(G_X\) est de classe \(\classe{\infty}\) sur \(\intervie{0}{1}\), et si \(R>1\), on a même \(G_X\) de classe \(\classe{\infty}\) sur \(\intervii{0}{1}\subset\intervie{0}{R}\).
+
+Si \(R>1\), on a \(\quantifs{\forall x\in\intervii{0}{1}}G_X\prim\paren{x}=\sum_{n=0}^{\pinf}n\proba{X=n}x^{n-1}\), et donc \[G_X\prim\paren{1}=\sum_{n=0}^{\pinf}n\proba{X=n}=\esp{X}.\]
+
+Si \(R=1\), on a seulement \(\quantifs{\forall x\in\intervie{0}{1}}G_X\prim\paren{x}=\sum_{n=0}^{\pinf}n\proba{X=n}x^{n-1}\). Si \(X\in L^1\), la série \(\sum_{n=0}^{\pinf}n\proba{X=n}\) converge (absolument) donc d'après le théorème de convergence radiale, \(G_X\prim\) est définie et continue sur \(\intervii{0}{1}\) et on a encore \(G_X\prim\paren{1}=\esp{X}\).
+
+Réciproquement, si \(G_X\) est dérivable en \(1\) à gauche :
+
+On veut montrer que la série \(\sum_{n=0}^{\pinf}n\proba{X=n}\) converge.
+
+On remarque \(\quantifs{\forall n\in\Ns}x\mapsto n\proba{X=n}x^{n-1}\) est croissante sur \(\intervie{0}{1}\).
+
+Donc \(G_X\prim\) est croissante sur \(\intervie{0}{1}\).
+
+Donc \(G_X\prim\) possède une limite \(l\in\R\cup\accol{\pinf}\) en \(1^-\).
+
+On a \(G_X\) continue sur \(\intervii{0}{1}\), dérivable sur \(\intervie{0}{1}\) et \(G_X\prim\tendqd{1^-}l\) donc d'après le théorème de la limite de la dérivée, si \(l\in\R\), \(G_X\) est dérivable en \(1^-\) et si \(l=\pinf\), \(G_X\) n'est pas dérivable en \(1^-\).
+
+Or \(G_X\) est dérivable en \(1\) par hypothèse donc \(l\in\R\).
+
+On en déduit \(G_X\prim\paren{1}=l\) et on a \[\begin{aligned}
+\sum_{n=0}^N n\proba{X=n}x^{n-1}&\leq\sum_{n=0}^{\pinf}n\proba{X=n}x^{n-1} \\
+&=G_X\prim\paren{x} \\
+&\leq l\in\R.
+\end{aligned}\]
+
+Donc par passage à la limite quand \(x\to1^-\), on a \[\sum_{n=0}^N n\proba{X=n}x^{n-1}\leq l.\]
+
+Les sommes partielles de la série à termes positifs \(\sum_{n\geq0}n\proba{X=n}\) sont donc majorées par \(l\) donc la série converge.
+
+Ainsi, \(X\in L^1\) et \(\esp{X}=G_X\prim\paren{1}\).
+
+Le raisonnement est similaire pour la variance et on a \[\vari{X}=\esp{X\paren{X-1}}-\esp{X}\paren{\esp{X}-1}=G_X\seconde\paren{1}-G_X\prim\paren{1}\paren{G_X\prim\paren{1}-1}.\]
+\end{dem}
+
+Quand \(\proba{X=\pinf}>0\), \(X\) n'est pas d'espérance finie (on a \(\esp{X}=\pinf\) dans ce cas).
+
+\subsection{Fonction génératrice d'une somme de variables indépendantes}
+
+\begin{prop}
+Soient \(X,Y\) deux variables aléatoires discrètes à valeurs dans \(\N\union\accol{\pinf}\).
+
+Si \(X\) et \(Y\) sont indépendantes, alors \(G_{X+Y}=G_XG_Y\).
+\end{prop}
+
+\begin{dem}
+Pour tout \(n\in\N\), on a \[\begin{aligned}
+\proba{X+Y=n}&=\sum_{k=0}^n\proba{X+Y=n,X=k} \\
+&=\sum_{k=0}^n\proba{Y=n-k,X=k} \\
+&=\sum_{k=0}^n\proba{Y=n-k}\proba{X=k}.
+\end{aligned}\]
+
+On reconnaît un produit de Cauchy des séries absolument convergentes \(\sum_{k\geq0}\proba{X=k}x^k\) et \(\sum_{k\geq0}\proba{Y=k}x^k\) pour \(x\in\intervii{0}{1}\).
+
+Donc \(G_{X+Y}\paren{x}=G_X\paren{x}G_Y\paren{x}\) pour tout \(x\in\intervii{0}{1}\).
+\end{dem}
+
+Plus généralement, si \(X_1,\dots,X_n\) sont indépendantes, alors \(G_{X_1+\dots+X_n}=\prod_{k=1}^nG_{X_k}\).
+
+\begin{ex}
+Si \(X\) et \(Y\) sont indépendantes et suivent des lois de Poisson de paramètres \(\lambda>0\) et \(\mu>0\), alors \(X+Y\) suit la loi de Poisson de paramètre \(\lambda+\mu\).
+\end{ex}
