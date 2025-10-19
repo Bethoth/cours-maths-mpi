@@ -493,12 +493,16 @@ per-mode=power-positive-first
 
 \renewcommand{\to}{\longrightarrow}
 \renewcommand{\mapsto}{\longmapsto}
+\renewcommand{\mapsfrom}{\mathrel{\reflectbox{\ensuremath{\mapsto}}}}
 
 \newcommand{\fonction}[5]{\begin{array}[t]{cccc}#1 : & #2 & \to & #3 \\ & #4 & \mapsto & #5\end{array}}
 \newcommand{\fonctionlambda}[4]{\begin{array}[t]{ccc}#1 & \to & #2 \\ #3 & \mapsto & #4\end{array}}
 
 \newcommand{\isomorphisme}[5]{\begin{array}[t]{cccc}#1 : & #2 & \xrightarrow{\;\sim\;} & #3 \\ & #4 & \mapsto & #5\end{array}}
 \newcommand{\isomorphismelambda}[4]{\begin{array}[t]{ccc}#1 & \xrightarrow{\;\sim\;} & #2 \\ #3 & \mapsto & #4\end{array}}
+
+\newcommand{\isomorphismeavecreciproque}[7]{\begin{array}[t]{cccc}#1 : & #2 & \xrightarrow{\;\sim\;} & #3 \\ & #4 & \mapsto & #5 \\ & #6 & \mapsfrom & #7\end{array}}
+\newcommand{\isomorphismelambdaavecreciproque}[6]{\begin{array}[t]{ccc}#1 & \xrightarrow{\;\sim\;} & #2 \\ #3 & \mapsto & #4 \\ #5 & \mapsfrom & #6\end{array}}
 
 \renewcommand{\leq}{\leqslant}
 \renewcommand{\geq}{\geqslant}
